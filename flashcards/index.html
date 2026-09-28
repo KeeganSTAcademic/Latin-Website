@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flashcards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/flashcards.css">
+</head>
+<body>
+<nav class="sitenav">
+  <a class="home" href="../">Latin</a>
+  <a href="./" aria-current="page">Flashcards</a>
+</nav>
+
+<main class="wrap">
+  <!-- Deck list (shown when no ?deck= is given) -->
+  <section id="picker" hidden>
+    <header class="page-head">
+      <h1>Flashcards</h1>
+      <p class="subtitle">Choose a deck</p>
+    </header>
+    <div id="deck-groups"></div>
+  </section>
+
+  <!-- Player -->
+  <section id="player">
+    <header class="page-head">
+      <h1 id="title">Loading…</h1>
+      <p class="subtitle" id="subtitle"></p>
+    </header>
+
+    <details class="callout fc-intro" id="intro" open hidden>
+      <summary>Grammar note</summary>
+      <div id="intro-body"></div>
+    </details>
+
+    <div class="fc-controls" id="controls"></div>
+
+    <div class="fc-status"><a href="./">← All decks</a><span class="fc-count"><span id="count"></span><span id="score"></span></span></div>
+    <div class="fc-progress"><i id="prog"></i></div>
+
+    <div id="stage">
+      <div class="fc-stage">
+        <div class="fc-card" id="card" tabindex="0" role="button" aria-label="Flip card">
+          <div class="fc-face front" id="front"></div>
+          <div class="fc-face back" id="back"></div>
+        </div>
+      </div>
+
+      <div class="fc-nav">
+        <button class="btn" id="prev" type="button">← Prev</button>
+        <button class="btn" id="flip" type="button">Flip</button>
+        <button class="btn" id="next" type="button">Next →</button>
+      </div>
+      <div class="fc-nav">
+        <button class="btn again" id="again" type="button">Still learning</button>
+        <button class="btn knew" id="knew" type="button">Got it</button>
+        <button class="btn" id="shuffle" type="button">Shuffle</button>
+      </div>
+      <p class="fc-keys"><kbd>Space</kbd> flip · <kbd>←</kbd> <kbd>→</kbd> move · <kbd>1</kbd> still learning · <kbd>2</kbd> got it · <kbd>S</kbd> shuffle</p>
+    </div>
+
+    <div class="panel fc-done" id="done" hidden>
+      <p class="fc-done-title" id="done-title"></p>
+      <p id="done-text"></p>
+      <div class="fc-nav">
+        <button class="btn again" id="review" type="button"></button>
+        <button class="btn primary" id="restart" type="button">Start over</button>
+      </div>
+    </div>
+
+    <details class="panel fc-paradigms" id="paradigms" hidden>
+      <summary>Show paradigms</summary>
+      <p class="fc-sub" id="paradigm-note"></p>
+      <div id="paradigm"></div>
+    </details>
+  </section>
+</main>
+
+<script src="../js/common.js"></script>
+<script src="../js/flashcards.js"></script>
+</body>
+</html>

@@ -1,0 +1,833 @@
+{
+ "id": "latin2-vocab",
+ "title": "Latin II Vocabulary",
+ "course": "Latin II",
+ "subtitle": "Core vocabulary by week",
+ "filters": [
+  {
+   "field": "w",
+   "label": "Week",
+   "values": [
+    {
+     "v": 1,
+     "label": "Week 1"
+    },
+    {
+     "v": 2,
+     "label": "Week 2"
+    },
+    {
+     "v": 3,
+     "label": "Week 3"
+    },
+    {
+     "v": 4,
+     "label": "Week 4"
+    }
+   ]
+  },
+  {
+   "field": "p",
+   "label": "Words",
+   "values": [
+    {
+     "v": "verb",
+     "label": "Verbs",
+     "short": "verb"
+    },
+    {
+     "v": "noun",
+     "label": "Nouns",
+     "short": "noun"
+    },
+    {
+     "v": "adj",
+     "label": "Adjectives",
+     "short": "adjective"
+    },
+    {
+     "v": "adv",
+     "label": "Adverbs",
+     "short": "adverb"
+    }
+   ]
+  }
+ ],
+ "modes": [
+  "le",
+  "el",
+  "pp"
+ ],
+ "meta": {
+  "front": [
+   "{w}",
+   "{p}"
+  ],
+  "back": [
+   "{w}",
+   "{p}"
+  ]
+ },
+ "cards": [
+  {
+   "w": 1,
+   "p": "verb",
+   "la": "sum, esse",
+   "en": "to be",
+   "pp": "sum, esse, fuī, futūrus"
+  },
+  {
+   "w": 1,
+   "p": "verb",
+   "la": "possum, posse",
+   "en": "to be able",
+   "pp": "possum, posse, potuī, —"
+  },
+  {
+   "w": 1,
+   "p": "verb",
+   "la": "dō, dare",
+   "en": "to give",
+   "pp": "dō, dare, dedī, datum"
+  },
+  {
+   "w": 1,
+   "p": "verb",
+   "la": "videō, vidēre",
+   "en": "to see",
+   "pp": "videō, vidēre, vīdī, vīsum"
+  },
+  {
+   "w": 1,
+   "p": "verb",
+   "la": "faciō, facere",
+   "en": "to make, do",
+   "pp": "faciō, facere, fēcī, factum"
+  },
+  {
+   "w": 1,
+   "p": "verb",
+   "la": "dīcō, dīcere",
+   "en": "to say",
+   "pp": "dīcō, dīcere, dīxī, dictum"
+  },
+  {
+   "w": 1,
+   "p": "verb",
+   "la": "habeō, habēre",
+   "en": "to have",
+   "pp": "habeō, habēre, habuī, habitum"
+  },
+  {
+   "w": 1,
+   "p": "verb",
+   "la": "ferō, ferre",
+   "en": "to bear, carry",
+   "pp": "ferō, ferre, tulī, lātum"
+  },
+  {
+   "w": 1,
+   "p": "verb",
+   "la": "veniō, venīre",
+   "en": "to come",
+   "pp": "veniō, venīre, vēnī, ventum"
+  },
+  {
+   "w": 1,
+   "p": "verb",
+   "la": "volō, velle",
+   "en": "to wish, want",
+   "pp": "volō, velle, voluī, —"
+  },
+  {
+   "w": 1,
+   "p": "noun",
+   "la": "animus, -ī, m.",
+   "en": "mind, spirit"
+  },
+  {
+   "w": 1,
+   "p": "noun",
+   "la": "deus, -ī, m.",
+   "en": "god"
+  },
+  {
+   "w": 1,
+   "p": "noun",
+   "la": "manus, manūs, f.",
+   "en": "hand"
+  },
+  {
+   "w": 1,
+   "p": "noun",
+   "la": "diēs, diēī, m.",
+   "en": "day"
+  },
+  {
+   "w": 1,
+   "p": "noun",
+   "la": "rēx, rēgis, m.",
+   "en": "king"
+  },
+  {
+   "w": 1,
+   "p": "noun",
+   "la": "locus, -ī, m.",
+   "en": "place"
+  },
+  {
+   "w": 1,
+   "p": "noun",
+   "la": "pars, partis, f.",
+   "en": "part"
+  },
+  {
+   "w": 1,
+   "p": "noun",
+   "la": "terra, -ae, f.",
+   "en": "land, earth"
+  },
+  {
+   "w": 1,
+   "p": "noun",
+   "la": "pater, patris, m.",
+   "en": "father"
+  },
+  {
+   "w": 1,
+   "p": "noun",
+   "la": "corpus, corporis, n.",
+   "en": "body"
+  },
+  {
+   "w": 1,
+   "p": "adj",
+   "la": "magnus, -a, -um",
+   "en": "great, large"
+  },
+  {
+   "w": 1,
+   "p": "adj",
+   "la": "alius, alia, aliud",
+   "en": "other, another"
+  },
+  {
+   "w": 1,
+   "p": "adj",
+   "la": "multus, -a, -um",
+   "en": "much, many"
+  },
+  {
+   "w": 1,
+   "p": "adj",
+   "la": "nūllus, -a, -um",
+   "en": "no, not any"
+  },
+  {
+   "w": 1,
+   "p": "adj",
+   "la": "ūnus, ūna, ūnum",
+   "en": "one"
+  },
+  {
+   "w": 1,
+   "p": "adj",
+   "la": "bonus, -a, -um",
+   "en": "good"
+  },
+  {
+   "w": 1,
+   "p": "adv",
+   "la": "nunc",
+   "en": "now"
+  },
+  {
+   "w": 1,
+   "p": "adv",
+   "la": "sīc",
+   "en": "thus, in this way"
+  },
+  {
+   "w": 1,
+   "p": "adv",
+   "la": "hīc",
+   "en": "here"
+  },
+  {
+   "w": 1,
+   "p": "adv",
+   "la": "saepe",
+   "en": "often"
+  },
+  {
+   "w": 2,
+   "p": "verb",
+   "la": "petō, petere",
+   "en": "to seek; head for; go to; rush at",
+   "pp": "petō, petere, petīvī, petītum"
+  },
+  {
+   "w": 2,
+   "p": "verb",
+   "la": "iubeō, iubēre",
+   "en": "to order",
+   "pp": "iubeō, iubēre, iussī, iussum"
+  },
+  {
+   "w": 2,
+   "p": "verb",
+   "la": "eō, īre",
+   "en": "to go",
+   "pp": "eō, īre, iī (īvī), itum"
+  },
+  {
+   "w": 2,
+   "p": "verb",
+   "la": "vincō, vincere",
+   "en": "to conquer, overcome",
+   "pp": "vincō, vincere, vīcī, victum"
+  },
+  {
+   "w": 2,
+   "p": "verb",
+   "la": "pōnō, pōnere",
+   "en": "to put, place",
+   "pp": "pōnō, pōnere, posuī, positum"
+  },
+  {
+   "w": 2,
+   "p": "verb",
+   "la": "teneō, tenēre",
+   "en": "to hold",
+   "pp": "teneō, tenēre, tenuī, tentum"
+  },
+  {
+   "w": 2,
+   "p": "verb",
+   "la": "crēdō, crēdere",
+   "en": "to believe, trust (+ dat.)",
+   "pp": "crēdō, crēdere, crēdidī, crēditum"
+  },
+  {
+   "w": 2,
+   "p": "verb",
+   "la": "accipiō, accipere",
+   "en": "to receive",
+   "pp": "accipiō, accipere, accēpī, acceptum"
+  },
+  {
+   "w": 2,
+   "p": "verb",
+   "la": "quaerō, quaerere",
+   "en": "to search for, ask",
+   "pp": "quaerō, quaerere, quaesīvī, quaesītum"
+  },
+  {
+   "w": 2,
+   "p": "verb",
+   "la": "mittō, mittere",
+   "en": "to send",
+   "pp": "mittō, mittere, mīsī, missum"
+  },
+  {
+   "w": 2,
+   "p": "noun",
+   "la": "urbs, urbis, f.",
+   "en": "city"
+  },
+  {
+   "w": 2,
+   "p": "noun",
+   "la": "bellum, -ī, n.",
+   "en": "war"
+  },
+  {
+   "w": 2,
+   "p": "noun",
+   "la": "homō, hominis, c.",
+   "en": "human being, person"
+  },
+  {
+   "w": 2,
+   "p": "noun",
+   "la": "tempus, temporis, n.",
+   "en": "time"
+  },
+  {
+   "w": 2,
+   "p": "noun",
+   "la": "hostis, hostis, m.",
+   "en": "enemy"
+  },
+  {
+   "w": 2,
+   "p": "noun",
+   "la": "mors, mortis, f.",
+   "en": "death"
+  },
+  {
+   "w": 2,
+   "p": "noun",
+   "la": "arma, armōrum, n. pl.",
+   "en": "arms, weapons"
+  },
+  {
+   "w": 2,
+   "p": "noun",
+   "la": "amor, amōris, m.",
+   "en": "love"
+  },
+  {
+   "w": 2,
+   "p": "noun",
+   "la": "caelum, -ī, n.",
+   "en": "sky"
+  },
+  {
+   "w": 2,
+   "p": "noun",
+   "la": "nox, noctis, f.",
+   "en": "night"
+  },
+  {
+   "w": 2,
+   "p": "adj",
+   "la": "tōtus, -a, -um",
+   "en": "whole"
+  },
+  {
+   "w": 2,
+   "p": "adj",
+   "la": "prīmus, -a, -um",
+   "en": "first"
+  },
+  {
+   "w": 2,
+   "p": "adj",
+   "la": "tantus, -a, -um",
+   "en": "so great"
+  },
+  {
+   "w": 2,
+   "p": "adj",
+   "la": "miser, misera, miserum",
+   "en": "miserable"
+  },
+  {
+   "w": 2,
+   "p": "adj",
+   "la": "novus, -a, -um",
+   "en": "new"
+  },
+  {
+   "w": 2,
+   "p": "adj",
+   "la": "gravis, grave",
+   "en": "heavy; serious"
+  },
+  {
+   "w": 2,
+   "p": "adv",
+   "la": "semper",
+   "en": "always"
+  },
+  {
+   "w": 2,
+   "p": "adv",
+   "la": "bene",
+   "en": "well"
+  },
+  {
+   "w": 2,
+   "p": "adv",
+   "la": "unde",
+   "en": "from where"
+  },
+  {
+   "w": 2,
+   "p": "adv",
+   "la": "satis",
+   "en": "enough, sufficiently"
+  },
+  {
+   "w": 3,
+   "p": "verb",
+   "la": "capiō, capere",
+   "en": "to take, capture",
+   "pp": "capiō, capere, cēpī, captum"
+  },
+  {
+   "w": 3,
+   "p": "verb",
+   "la": "dūcō, dūcere",
+   "en": "to lead",
+   "pp": "dūcō, dūcere, dūxī, ductum"
+  },
+  {
+   "w": 3,
+   "p": "verb",
+   "la": "relinquō, relinquere",
+   "en": "to leave",
+   "pp": "relinquō, relinquere, relīquī, relictum"
+  },
+  {
+   "w": 3,
+   "p": "verb",
+   "la": "fīō, fierī",
+   "en": "to become, be made",
+   "pp": "fīō, fierī, factus sum"
+  },
+  {
+   "w": 3,
+   "p": "verb",
+   "la": "vīvō, vīvere",
+   "en": "to live",
+   "pp": "vīvō, vīvere, vīxī, vīctum"
+  },
+  {
+   "w": 3,
+   "p": "verb",
+   "la": "vocō, vocāre",
+   "en": "to call",
+   "pp": "vocō, vocāre, vocāvī, vocātum"
+  },
+  {
+   "w": 3,
+   "p": "verb",
+   "la": "parō, parāre",
+   "en": "to prepare",
+   "pp": "parō, parāre, parāvī, parātum"
+  },
+  {
+   "w": 3,
+   "p": "verb",
+   "la": "audiō, audīre",
+   "en": "to hear",
+   "pp": "audiō, audīre, audīvī, audītum"
+  },
+  {
+   "w": 3,
+   "p": "verb",
+   "la": "stō, stāre",
+   "en": "to stand",
+   "pp": "stō, stāre, stetī, statum"
+  },
+  {
+   "w": 3,
+   "p": "verb",
+   "la": "referō, referre",
+   "en": "to bring back; report",
+   "pp": "referō, referre, rettulī, relātum"
+  },
+  {
+   "w": 3,
+   "p": "noun",
+   "la": "regnum, -ī, n.",
+   "en": "kingdom"
+  },
+  {
+   "w": 3,
+   "p": "noun",
+   "la": "māter, mātris, f.",
+   "en": "mother"
+  },
+  {
+   "w": 3,
+   "p": "noun",
+   "la": "ignis, ignis, m.",
+   "en": "fire"
+  },
+  {
+   "w": 3,
+   "p": "noun",
+   "la": "annus, -ī, m.",
+   "en": "year"
+  },
+  {
+   "w": 3,
+   "p": "noun",
+   "la": "mēns, mentis, f.",
+   "en": "mind"
+  },
+  {
+   "w": 3,
+   "p": "noun",
+   "la": "beneficium, -ī, n.",
+   "en": "kindness, favor"
+  },
+  {
+   "w": 3,
+   "p": "noun",
+   "la": "pectus, pectoris, n.",
+   "en": "chest, breast"
+  },
+  {
+   "w": 3,
+   "p": "noun",
+   "la": "fidēs, fideī, f.",
+   "en": "faith, trust; loyalty"
+  },
+  {
+   "w": 3,
+   "p": "noun",
+   "la": "īra, -ae, f.",
+   "en": "anger"
+  },
+  {
+   "w": 3,
+   "p": "noun",
+   "la": "verbum, -ī, n.",
+   "en": "word"
+  },
+  {
+   "w": 3,
+   "p": "adj",
+   "la": "parvus, -a, -um",
+   "en": "small"
+  },
+  {
+   "w": 3,
+   "p": "adj",
+   "la": "alter, altera, alterum",
+   "en": "the other of two"
+  },
+  {
+   "w": 3,
+   "p": "adj",
+   "la": "medius, -a, -um",
+   "en": "middle"
+  },
+  {
+   "w": 3,
+   "p": "adj",
+   "la": "sōlus, -a, -um",
+   "en": "alone"
+  },
+  {
+   "w": 3,
+   "p": "adj",
+   "la": "ingēns, ingentis",
+   "en": "huge, enormous"
+  },
+  {
+   "w": 3,
+   "p": "adj",
+   "la": "malus, -a, -um",
+   "en": "bad"
+  },
+  {
+   "w": 3,
+   "p": "adv",
+   "la": "vix",
+   "en": "scarcely"
+  },
+  {
+   "w": 3,
+   "p": "adv",
+   "la": "diū",
+   "en": "for a long time"
+  },
+  {
+   "w": 3,
+   "p": "adv",
+   "la": "hūc",
+   "en": "to here, hither"
+  },
+  {
+   "w": 3,
+   "p": "adv",
+   "la": "tandem",
+   "en": "at last, finally"
+  },
+  {
+   "w": 4,
+   "p": "verb",
+   "la": "reddō, reddere",
+   "en": "to give back, return",
+   "pp": "reddō, reddere, reddidī, redditum"
+  },
+  {
+   "w": 4,
+   "p": "verb",
+   "la": "fugiō, fugere",
+   "en": "to flee",
+   "pp": "fugiō, fugere, fūgī, fugitūrus"
+  },
+  {
+   "w": 4,
+   "p": "verb",
+   "la": "cadō, cadere",
+   "en": "to fall",
+   "pp": "cadō, cadere, cecidī, cāsūrus"
+  },
+  {
+   "w": 4,
+   "p": "verb",
+   "la": "trahō, trahere",
+   "en": "to drag",
+   "pp": "trahō, trahere, trāxī, tractum"
+  },
+  {
+   "w": 4,
+   "p": "verb",
+   "la": "amō, amāre",
+   "en": "to love; like",
+   "pp": "amō, amāre, amāvī, amātum"
+  },
+  {
+   "w": 4,
+   "p": "verb",
+   "la": "gerō, gerere",
+   "en": "to carry, wear; carry on",
+   "pp": "gerō, gerere, gessī, gestum"
+  },
+  {
+   "w": 4,
+   "p": "verb",
+   "la": "rapiō, rapere",
+   "en": "to seize, grab",
+   "pp": "rapiō, rapere, rapuī, raptum"
+  },
+  {
+   "w": 4,
+   "p": "verb",
+   "la": "adsum, adesse",
+   "en": "to be present",
+   "pp": "adsum, adesse, adfuī, adfutūrus"
+  },
+  {
+   "w": 4,
+   "p": "verb",
+   "la": "placeō, placēre",
+   "en": "to please (+ dat.)",
+   "pp": "placeō, placēre, placuī, placitum"
+  },
+  {
+   "w": 4,
+   "p": "verb",
+   "la": "vertō, vertere",
+   "en": "to turn",
+   "pp": "vertō, vertere, vertī, versum"
+  },
+  {
+   "w": 4,
+   "p": "noun",
+   "la": "puer, puerī, m.",
+   "en": "boy"
+  },
+  {
+   "w": 4,
+   "p": "noun",
+   "la": "imperium, -ī, n.",
+   "en": "command, power"
+  },
+  {
+   "w": 4,
+   "p": "noun",
+   "la": "labor, labōris, m.",
+   "en": "work, toil; hardship"
+  },
+  {
+   "w": 4,
+   "p": "noun",
+   "la": "oculus, -ī, m.",
+   "en": "eye"
+  },
+  {
+   "w": 4,
+   "p": "noun",
+   "la": "unda, -ae, f.",
+   "en": "wave"
+  },
+  {
+   "w": 4,
+   "p": "noun",
+   "la": "sanguis, sanguinis, m.",
+   "en": "blood"
+  },
+  {
+   "w": 4,
+   "p": "noun",
+   "la": "cōnsilium, -ī, n.",
+   "en": "plan, advice"
+  },
+  {
+   "w": 4,
+   "p": "noun",
+   "la": "poena, -ae, f.",
+   "en": "punishment"
+  },
+  {
+   "w": 4,
+   "p": "noun",
+   "la": "frāter, frātris, m.",
+   "en": "brother"
+  },
+  {
+   "w": 4,
+   "p": "noun",
+   "la": "iter, itineris, n.",
+   "en": "journey"
+  },
+  {
+   "w": 4,
+   "p": "adj",
+   "la": "laetus, -a, -um",
+   "en": "happy"
+  },
+  {
+   "w": 4,
+   "p": "adj",
+   "la": "trīstis, trīste",
+   "en": "sad"
+  },
+  {
+   "w": 4,
+   "p": "adj",
+   "la": "fortis, forte",
+   "en": "brave, strong"
+  },
+  {
+   "w": 4,
+   "p": "adj",
+   "la": "facilis, facile",
+   "en": "easy"
+  },
+  {
+   "w": 4,
+   "p": "adj",
+   "la": "plēnus, -a, -um",
+   "en": "full"
+  },
+  {
+   "w": 4,
+   "p": "adj",
+   "la": "cārus, -a, -um",
+   "en": "dear, expensive"
+  },
+  {
+   "w": 4,
+   "p": "adv",
+   "la": "mox",
+   "en": "soon"
+  },
+  {
+   "w": 4,
+   "p": "adv",
+   "la": "ibi",
+   "en": "there"
+  },
+  {
+   "w": 4,
+   "p": "adv",
+   "la": "frūstrā",
+   "en": "in vain"
+  },
+  {
+   "w": 4,
+   "p": "adv",
+   "la": "iterum",
+   "en": "again"
+  }
+ ]
+}

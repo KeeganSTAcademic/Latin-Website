@@ -1,0 +1,570 @@
+{
+ "id": "sum",
+ "title": "Sum, esse, fuī, futūrus",
+ "course": "Verbs · Sum",
+ "subtitle": "Every form of the verb to be",
+ "filters": [
+  {
+   "field": "mood",
+   "label": "Mood",
+   "values": [
+    {
+     "v": "ind",
+     "label": "Indicative",
+     "short": "indicative"
+    },
+    {
+     "v": "subj",
+     "label": "Subjunctive",
+     "short": "subjunctive"
+    },
+    {
+     "v": "imp",
+     "label": "Imperative",
+     "short": "imperative"
+    },
+    {
+     "v": "nf",
+     "label": "Infinitive & Participle",
+     "short": "non-finite"
+    }
+   ]
+  },
+  {
+   "field": "tense",
+   "label": "Tense",
+   "values": [
+    {
+     "v": "pres",
+     "label": "Present",
+     "short": "present"
+    },
+    {
+     "v": "impf",
+     "label": "Imperfect",
+     "short": "imperfect"
+    },
+    {
+     "v": "fut",
+     "label": "Future",
+     "short": "future"
+    },
+    {
+     "v": "perf",
+     "label": "Perfect",
+     "short": "perfect"
+    },
+    {
+     "v": "plupf",
+     "label": "Pluperfect",
+     "short": "pluperfect"
+    },
+    {
+     "v": "futp",
+     "label": "Fut. Perfect",
+     "short": "future perfect"
+    }
+   ]
+  }
+ ],
+ "modes": [
+  "le",
+  "el"
+ ],
+ "lookalikes": true,
+ "meta": {
+  "front": [
+   "sum, esse",
+   ""
+  ],
+  "back": [
+   "{tense}",
+   "{mood}"
+  ]
+ },
+ "cards": [
+  {
+   "mood": "ind",
+   "tense": "pres",
+   "la": "sum",
+   "en": "I am.",
+   "parse": "1st sg., pres., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "pres",
+   "la": "es",
+   "en": "You are.",
+   "parse": "2nd sg., pres., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "pres",
+   "la": "est",
+   "en": "He/she/it is.",
+   "parse": "3rd sg., pres., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "pres",
+   "la": "sumus",
+   "en": "We are.",
+   "parse": "1st pl., pres., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "pres",
+   "la": "estis",
+   "en": "You (pl.) are.",
+   "parse": "2nd pl., pres., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "pres",
+   "la": "sunt",
+   "en": "They are.",
+   "parse": "3rd pl., pres., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "impf",
+   "la": "eram",
+   "en": "I was.",
+   "parse": "1st sg., impf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "impf",
+   "la": "erās",
+   "en": "You were.",
+   "parse": "2nd sg., impf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "impf",
+   "la": "erat",
+   "en": "He/she/it was.",
+   "parse": "3rd sg., impf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "impf",
+   "la": "erāmus",
+   "en": "We were.",
+   "parse": "1st pl., impf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "impf",
+   "la": "erātis",
+   "en": "You (pl.) were.",
+   "parse": "2nd pl., impf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "impf",
+   "la": "erant",
+   "en": "They were.",
+   "parse": "3rd pl., impf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "fut",
+   "la": "erō",
+   "en": "I will be.",
+   "parse": "1st sg., fut., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "fut",
+   "la": "eris",
+   "en": "You will be.",
+   "parse": "2nd sg., fut., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "fut",
+   "la": "erit",
+   "en": "He/she/it will be.",
+   "parse": "3rd sg., fut., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "fut",
+   "la": "erimus",
+   "en": "We will be.",
+   "parse": "1st pl., fut., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "fut",
+   "la": "eritis",
+   "en": "You (pl.) will be.",
+   "parse": "2nd pl., fut., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "fut",
+   "la": "erunt",
+   "en": "They will be.",
+   "parse": "3rd pl., fut., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "perf",
+   "la": "fuī",
+   "en": "I was / have been.",
+   "parse": "1st sg., perf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "perf",
+   "la": "fuistī",
+   "en": "You were / have been.",
+   "parse": "2nd sg., perf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "perf",
+   "la": "fuit",
+   "en": "He/she/it was / has been.",
+   "parse": "3rd sg., perf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "perf",
+   "la": "fuimus",
+   "en": "We were / have been.",
+   "parse": "1st pl., perf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "perf",
+   "la": "fuistis",
+   "en": "You (pl.) were / have been.",
+   "parse": "2nd pl., perf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "perf",
+   "la": "fuērunt",
+   "en": "They were / have been.",
+   "parse": "3rd pl., perf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "plupf",
+   "la": "fueram",
+   "en": "I had been.",
+   "parse": "1st sg., plupf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "plupf",
+   "la": "fuerās",
+   "en": "You had been.",
+   "parse": "2nd sg., plupf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "plupf",
+   "la": "fuerat",
+   "en": "He/she/it had been.",
+   "parse": "3rd sg., plupf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "plupf",
+   "la": "fuerāmus",
+   "en": "We had been.",
+   "parse": "1st pl., plupf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "plupf",
+   "la": "fuerātis",
+   "en": "You (pl.) had been.",
+   "parse": "2nd pl., plupf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "plupf",
+   "la": "fuerant",
+   "en": "They had been.",
+   "parse": "3rd pl., plupf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "futp",
+   "la": "fuerō",
+   "en": "I will have been.",
+   "parse": "1st sg., fut. perf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "futp",
+   "la": "fueris",
+   "en": "You will have been.",
+   "parse": "2nd sg., fut. perf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "futp",
+   "la": "fuerit",
+   "en": "He/she/it will have been.",
+   "parse": "3rd sg., fut. perf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "futp",
+   "la": "fuerimus",
+   "en": "We will have been.",
+   "parse": "1st pl., fut. perf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "futp",
+   "la": "fueritis",
+   "en": "You (pl.) will have been.",
+   "parse": "2nd pl., fut. perf., ind., act"
+  },
+  {
+   "mood": "ind",
+   "tense": "futp",
+   "la": "fuerint",
+   "en": "They will have been.",
+   "parse": "3rd pl., fut. perf., ind., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "pres",
+   "la": "sim",
+   "en": "I may be.",
+   "parse": "1st sg., pres., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "pres",
+   "la": "sīs",
+   "en": "You may be.",
+   "parse": "2nd sg., pres., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "pres",
+   "la": "sit",
+   "en": "He/she/it may be.",
+   "parse": "3rd sg., pres., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "pres",
+   "la": "sīmus",
+   "en": "We may be.",
+   "parse": "1st pl., pres., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "pres",
+   "la": "sītis",
+   "en": "You (pl.) may be.",
+   "parse": "2nd pl., pres., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "pres",
+   "la": "sint",
+   "en": "They may be.",
+   "parse": "3rd pl., pres., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "impf",
+   "la": "essem",
+   "en": "I might be.",
+   "parse": "1st sg., impf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "impf",
+   "la": "essēs",
+   "en": "You might be.",
+   "parse": "2nd sg., impf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "impf",
+   "la": "esset",
+   "en": "He/she/it might be.",
+   "parse": "3rd sg., impf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "impf",
+   "la": "essēmus",
+   "en": "We might be.",
+   "parse": "1st pl., impf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "impf",
+   "la": "essētis",
+   "en": "You (pl.) might be.",
+   "parse": "2nd pl., impf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "impf",
+   "la": "essent",
+   "en": "They might be.",
+   "parse": "3rd pl., impf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "perf",
+   "la": "fuerim",
+   "en": "I may have been.",
+   "parse": "1st sg., perf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "perf",
+   "la": "fuerīs",
+   "en": "You may have been.",
+   "parse": "2nd sg., perf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "perf",
+   "la": "fuerit",
+   "en": "He/she/it may have been.",
+   "parse": "3rd sg., perf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "perf",
+   "la": "fuerīmus",
+   "en": "We may have been.",
+   "parse": "1st pl., perf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "perf",
+   "la": "fuerītis",
+   "en": "You (pl.) may have been.",
+   "parse": "2nd pl., perf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "perf",
+   "la": "fuerint",
+   "en": "They may have been.",
+   "parse": "3rd pl., perf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "plupf",
+   "la": "fuissem",
+   "en": "I would have been.",
+   "parse": "1st sg., plupf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "plupf",
+   "la": "fuissēs",
+   "en": "You would have been.",
+   "parse": "2nd sg., plupf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "plupf",
+   "la": "fuisset",
+   "en": "He/she/it would have been.",
+   "parse": "3rd sg., plupf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "plupf",
+   "la": "fuissēmus",
+   "en": "We would have been.",
+   "parse": "1st pl., plupf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "plupf",
+   "la": "fuissētis",
+   "en": "You (pl.) would have been.",
+   "parse": "2nd pl., plupf., subj., act"
+  },
+  {
+   "mood": "subj",
+   "tense": "plupf",
+   "la": "fuissent",
+   "en": "They would have been.",
+   "parse": "3rd pl., plupf., subj., act"
+  },
+  {
+   "mood": "imp",
+   "tense": "pres",
+   "la": "es",
+   "en": "Be!",
+   "parse": "2nd sg., pres., imper., act"
+  },
+  {
+   "mood": "imp",
+   "tense": "pres",
+   "la": "este",
+   "en": "Be! (pl.)",
+   "parse": "2nd pl., pres., imper., act"
+  },
+  {
+   "mood": "imp",
+   "tense": "fut",
+   "la": "estō",
+   "en": "You/he shall be!",
+   "parse": "2nd/3rd sg., fut., imper., act"
+  },
+  {
+   "mood": "imp",
+   "tense": "fut",
+   "la": "estōte",
+   "en": "You (pl.) shall be!",
+   "parse": "2nd pl., fut., imper., act"
+  },
+  {
+   "mood": "imp",
+   "tense": "fut",
+   "la": "suntō",
+   "en": "They shall be!",
+   "parse": "3rd pl., fut., imper., act"
+  },
+  {
+   "mood": "nf",
+   "tense": "pres",
+   "la": "esse",
+   "en": "To be.",
+   "parse": "pres., inf., act"
+  },
+  {
+   "mood": "nf",
+   "tense": "perf",
+   "la": "fuisse",
+   "en": "To have been.",
+   "parse": "perf., inf., act"
+  },
+  {
+   "mood": "nf",
+   "tense": "fut",
+   "la": "futūrus esse / fore",
+   "en": "To be about to be.",
+   "parse": "fut., inf., act"
+  },
+  {
+   "mood": "nf",
+   "tense": "fut",
+   "la": "futūrus, -a, -um",
+   "en": "About to be.",
+   "parse": "fut., part., act"
+  }
+ ]
+}

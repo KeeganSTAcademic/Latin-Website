@@ -1,0 +1,77 @@
+/* Flashcard player — layered on top of site.css */
+
+.fc-controls{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.fc-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.fc-row .label{width:7.5rem;flex:none}
+
+.fc-status{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.fc-count{color:var(--muted);font-size:16px;font-variant-numeric:tabular-nums}
+.fc-progress{height:3px;background:var(--rule);border-radius:3px;overflow:hidden;margin-bottom:18px}
+.fc-progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+
+.fc-stage{perspective:1400px}
+.fc-card{position:relative;width:100%;min-height:300px;cursor:pointer;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.3,.7,.3,1)}
+.fc-card.flipped{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:48px 24px 40px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;overflow:hidden}
+.fc-face.back{transform:rotateY(180deg);background:var(--surface2)}
+.fc-meta{position:absolute;top:14px;left:20px;right:20px;display:flex;justify-content:space-between}
+.fc-meta b{color:var(--accent);font-weight:400}
+.fc-main{font-size:clamp(26px,5.5vw,38px);font-weight:700;line-height:1.25;text-wrap:balance;overflow-wrap:anywhere}
+.fc-main.la{font-style:italic;color:var(--accent)}
+.fc-main.en{font-weight:400}
+.fc-sub{color:var(--muted);font-size:16px;max-width:32rem}
+.fc-also{color:var(--warn);background:var(--warn-bg);padding:3px 10px;border-radius:8px;font-size:15px}
+.fc-hint{position:absolute;bottom:14px;color:var(--faint);font-size:14px}
+
+/* principal parts grid */
+.fc-pp{display:grid;grid-template-columns:repeat(4,auto);justify-content:center;font-size:18px}
+.fc-pp div{padding:6px 12px;border-left:1px solid var(--rule2)}
+.fc-pp div:first-child{border-left:0}
+.fc-pp small{display:block}
+.fc-pp strong{color:var(--mark)}
+
+/* timer: a draining bar along the bottom of the front face */
+.fc-timer{position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--mark-bg)}
+.fc-timer i{display:block;height:100%;width:100%;background:var(--mark);transform-origin:left}
+
+.fc-nav{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.fc-nav .btn{flex:1;min-width:6rem}
+.fc-keys{font-size:15px;color:var(--muted);text-align:center;margin-top:14px}
+.fc-empty{color:var(--muted)}
+
+/* deck picker */
+.deck-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.deck-list a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 20px;text-decoration:none;color:var(--ink)}
+.deck-list a:hover{background:var(--surface2)}
+.deck-list .t{font-weight:700;font-size:20px}
+.deck-list .n{color:var(--muted);font-size:15px;white-space:nowrap}
+.deck-group{margin:22px 0 8px}
+
+@media (max-width:520px){
+  .fc-row .label{width:100%}
+  .fc-pp{grid-template-columns:repeat(2,auto)}
+  .fc-pp div:nth-child(3){border-left:0}
+  .fc-nav .btn{padding:10px 8px;white-space:nowrap;min-width:0}
+}
+
+/* ---- verb decks: grammar note, scoring, rounds, paradigms ---- */
+.end{color:var(--accent);font-weight:700}
+.fc-intro{margin:0 0 20px;font-size:16px}
+.fc-intro summary,.fc-paradigms summary{cursor:pointer;color:var(--accent);font-weight:700}
+.fc-intro ul{margin:6px 0 0;padding-left:22px}
+.fc-count{display:flex;gap:16px}
+.btn.knew{background:var(--good-bg);border-color:var(--good-bg);color:var(--good)}
+.btn.again{background:var(--mark-bg);border-color:var(--mark-bg);color:var(--mark)}
+.fc-done{text-align:center;padding:34px 20px}
+.fc-done-title{font-size:34px;font-weight:700;margin:0 0 6px;color:var(--accent)}
+.fc-paradigms{margin-top:24px;padding:14px 18px}
+.fc-tensehead{font-size:19px;color:var(--accent);margin:20px 0 0;border-bottom:1px solid var(--rule);padding-bottom:4px}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-top:12px}
+.fc-grid h4{font-size:17px;margin:0 0 2px}
+.fc-grid h4 small{color:var(--muted);font-weight:400;font-style:italic}
+.fc-tnote{color:var(--mark);font-size:15px}
+.fc-grid table{width:100%;border-collapse:collapse;margin-top:6px;font-size:17px}
+.fc-grid th,.fc-grid td{padding:5px 6px;border-bottom:1px solid var(--rule);text-align:left}
+.fc-grid th{font-weight:400}
