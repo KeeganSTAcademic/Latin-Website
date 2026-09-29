@@ -83,3 +83,52 @@
 /* a table written into the paradigm note (e.g. the adverb list) */
 .fc-grid.fc-adv{display:block;color:var(--ink)}
 .fc-adv small{color:var(--muted);font-style:italic}
+
+/* spaced repetition: grade buttons show when each card would come back */
+.btn.grade{display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1.2}
+.btn.grade small{font-weight:400;font-size:13px;opacity:.8}
+.btn.g1{background:var(--warn-bg);border-color:var(--warn-bg);color:var(--warn)}
+.btn.g2{background:var(--mark-bg);border-color:var(--mark-bg);color:var(--mark)}
+.btn.g3{background:var(--good-bg);border-color:var(--good-bg);color:var(--good)}
+.btn.g4{background:var(--accent-soft);border-color:var(--accent-soft);color:var(--accent)}
+
+/* deck list: progress panel and due badges */
+.fc-srs{padding:14px 18px;margin-bottom:8px}
+.fc-srs summary{cursor:pointer;display:flex;justify-content:space-between;gap:12px;font-weight:700;color:var(--accent)}
+.fc-srs-due{font-weight:400;color:var(--muted)}
+.fc-srs p{margin:10px 0 0}
+.deck-list .due{color:var(--good);background:var(--good-bg);border-radius:8px;padding:1px 8px;margin-right:10px;font-size:14px}
+
+/* ---------- layout: collapsible sections, desktop sidebar ---------- */
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);cursor:pointer;font-size:15px;text-decoration:underline}
+.fc-allgroups{margin:4px 0 0;text-align:right}
+.fc-settings{padding:12px 16px;margin-bottom:16px}
+.fc-settings > summary,.deck-sec > summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:12px}
+.fc-settings > summary::-webkit-details-marker,.deck-sec > summary::-webkit-details-marker{display:none}
+.fc-settings > summary::before,.deck-sec > summary::before{content:"▸";color:var(--accent);font-size:14px;transition:transform .15s}
+.fc-settings[open] > summary::before,.deck-sec[open] > summary::before{transform:rotate(90deg)}
+.fc-sum-title{font-weight:700;color:var(--accent)}
+.fc-sum{color:var(--muted);font-size:15px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right}
+.fc-settings[open] .fc-sum{visibility:hidden}
+.fc-settings .fc-controls{margin:12px 0 0}
+.deck-sec > summary{margin:18px 0 8px}
+.deck-sec > summary .deck-group{margin:0}
+.deck-sec-n{color:var(--faint);font-size:14px}
+
+@media (min-width:980px){
+  .wrap,.sitenav{max-width:1180px}
+  .page-head{margin-bottom:18px}
+  .page-head h1{font-size:34px}
+  .fc-layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:28px;align-items:start}
+  .fc-side{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;padding-bottom:4px}
+  .fc-side .fc-row{gap:5px}
+  .fc-side .fc-row .label{width:100%}
+  .fc-side .chip{font-size:15px;padding:4px 10px}
+  .fc-side .fc-intro{font-size:15px;margin:0}
+  .fc-col .fc-card{min-height:340px}
+  /* deck list: a grid instead of one long column */
+  .deck-list{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+  .deck-list a{padding:12px 16px}
+  .deck-list .t{font-size:18px}
+  #picker .fc-srs{max-width:760px;margin-left:auto;margin-right:auto}
+}

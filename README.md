@@ -110,6 +110,21 @@ Any filter can be preset in the link, which is handy for assigning one piece of 
 
 Presets apply to that visit and aren't saved over a student's own settings.
 
+## Spaced repetition (Review mode)
+
+Every deck has **Study: Practice / Review**. Practice is the free run-through (Got it / Still learning) and never touches the schedule. Review is Anki-style spaced repetition, in `js/srs.js`:
+
+- A session is: cards still being learned, then due cards (shuffled), then up to **15 new cards per deck per day** (`NEW_PER_DAY`).
+- After flipping, the student grades **Again / Hard / Good / Easy**; each button shows when the card will come back. Again (and Hard on a new card) brings it back a few cards later in the same session.
+- Scheduling is SM-2 as in Anki: new cards graduate to 1 day (Good) or 4 days (Easy); after that the interval grows by the card's ease (starting at 2.5; Again −0.20, Hard −0.15, Easy +0.15, never below 1.3). A lapse resets the card to relearning. Intervals are capped at a year, and the day rolls over at 4 a.m.
+- Each card has one history, whichever direction it's studied in (Latin → English, English → Latin, principal parts), and views and filters share it too.
+- Card identity is the Latin form + parse (`la`, `pn`, `tl`, `parse`), so fixing an English gloss keeps a student's progress. Changing a Latin form or a parse label starts that card fresh; give the card an explicit `"id"` if you need to change those without resetting it.
+- Everything is stored in the browser (`localStorage` key `latin:srs`). The deck list shows due counts and a **Your progress** panel to download a progress file, load one on another device (merging, newest review wins), or reset.
+
+## Layout
+
+On screens 980px and wider the player uses two columns: a sticky sidebar (Settings, Grammar note) beside the card. Settings, the grammar note, "Show paradigms", the progress panel and each group on the deck list are collapsible, and each remembers whether it was left open (separately for wide and narrow screens). Collapsed, Settings shows a one-line summary of the current choices. On phones, Settings and the grammar note start collapsed so the card is on screen straight away.
+
 ## Previewing on your computer
 
 The pages load their data with `fetch`, so opening the file straight from Finder won't work. From the repo folder run:

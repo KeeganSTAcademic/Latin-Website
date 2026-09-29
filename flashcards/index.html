@@ -23,6 +23,19 @@
       <h1>Flashcards</h1>
       <p class="subtitle">Choose a deck</p>
     </header>
+    <details class="panel fc-srs" id="srs-panel">
+      <summary><span>Your progress</span> <span class="fc-srs-due" id="srs-due"></span></summary>
+      <p>Choose <b>Review</b> in any deck to study with spaced repetition: each card comes back just before you'd forget it. Your progress is saved in this browser only.</p>
+      <p class="fc-sub" id="srs-stats"></p>
+      <div class="fc-nav">
+        <button class="btn" id="srs-export" type="button">Download progress file</button>
+        <button class="btn" id="srs-import" type="button">Load progress file</button>
+        <button class="btn" id="srs-reset" type="button">Reset progress</button>
+      </div>
+      <input type="file" id="srs-file" accept=".json,application/json" hidden>
+      <p class="fc-sub" id="srs-msg" role="status"></p>
+    </details>
+    <p class="fc-sub fc-allgroups"><button type="button" class="linkbtn" id="expand-all">Expand all</button> · <button type="button" class="linkbtn" id="collapse-all">Collapse all</button></p>
     <div id="deck-groups"></div>
   </section>
 
@@ -33,55 +46,70 @@
       <p class="subtitle" id="subtitle"></p>
     </header>
 
-    <details class="callout fc-intro" id="intro" open hidden>
-      <summary>Grammar note</summary>
-      <div id="intro-body"></div>
-    </details>
+    <div class="fc-layout">
+      <aside class="fc-side">
+        <details class="panel fc-settings" id="settings">
+          <summary><span class="fc-sum-title">Settings</span><span class="fc-sum" id="settings-summary"></span></summary>
+          <div class="fc-controls" id="controls"></div>
+        </details>
+        <details class="callout fc-intro" id="intro" hidden>
+          <summary>Grammar note</summary>
+          <div id="intro-body"></div>
+        </details>
+      </aside>
+      <div class="fc-col">
+        <div class="fc-status"><a href="./">← All decks</a><span class="fc-count"><span id="count"></span><span id="score"></span></span></div>
+        <div class="fc-progress"><i id="prog"></i></div>
 
-    <div class="fc-controls" id="controls"></div>
+        <div id="stage">
+          <div class="fc-stage">
+            <div class="fc-card" id="card" tabindex="0" role="button" aria-label="Flip card">
+              <div class="fc-face front" id="front"></div>
+              <div class="fc-face back" id="back"></div>
+            </div>
+          </div>
 
-    <div class="fc-status"><a href="./">← All decks</a><span class="fc-count"><span id="count"></span><span id="score"></span></span></div>
-    <div class="fc-progress"><i id="prog"></i></div>
-
-    <div id="stage">
-      <div class="fc-stage">
-        <div class="fc-card" id="card" tabindex="0" role="button" aria-label="Flip card">
-          <div class="fc-face front" id="front"></div>
-          <div class="fc-face back" id="back"></div>
+          <div class="fc-nav">
+            <button class="btn" id="prev" type="button">← Prev</button>
+            <button class="btn" id="flip" type="button">Flip</button>
+            <button class="btn" id="next" type="button">Next →</button>
+          </div>
+          <div class="fc-nav" id="nav-grade" hidden>
+            <button class="btn grade g1" id="grade1" type="button">Again<small id="g1"></small></button>
+            <button class="btn grade g2" id="grade2" type="button">Hard<small id="g2"></small></button>
+            <button class="btn grade g3" id="grade3" type="button">Good<small id="g3"></small></button>
+            <button class="btn grade g4" id="grade4" type="button">Easy<small id="g4"></small></button>
+          </div>
+          <div class="fc-nav" id="nav-practice">
+            <button class="btn again" id="again" type="button">Still learning</button>
+            <button class="btn knew" id="knew" type="button">Got it</button>
+            <button class="btn" id="shuffle" type="button">Shuffle</button>
+          </div>
+          <p class="fc-keys" id="keys-practice"><kbd>Space</kbd> flip · <kbd>←</kbd> <kbd>→</kbd> move · <kbd>1</kbd> still learning · <kbd>2</kbd> got it · <kbd>S</kbd> shuffle</p>
+          <p class="fc-keys" id="keys-review" hidden><kbd>Space</kbd> show answer · then <kbd>1</kbd> again · <kbd>2</kbd> hard · <kbd>3</kbd> good · <kbd>4</kbd> easy</p>
         </div>
-      </div>
 
-      <div class="fc-nav">
-        <button class="btn" id="prev" type="button">← Prev</button>
-        <button class="btn" id="flip" type="button">Flip</button>
-        <button class="btn" id="next" type="button">Next →</button>
-      </div>
-      <div class="fc-nav">
-        <button class="btn again" id="again" type="button">Still learning</button>
-        <button class="btn knew" id="knew" type="button">Got it</button>
-        <button class="btn" id="shuffle" type="button">Shuffle</button>
-      </div>
-      <p class="fc-keys"><kbd>Space</kbd> flip · <kbd>←</kbd> <kbd>→</kbd> move · <kbd>1</kbd> still learning · <kbd>2</kbd> got it · <kbd>S</kbd> shuffle</p>
-    </div>
+        <div class="panel fc-done" id="done" hidden>
+          <p class="fc-done-title" id="done-title"></p>
+          <p id="done-text"></p>
+          <div class="fc-nav">
+            <button class="btn again" id="review" type="button"></button>
+            <button class="btn primary" id="restart" type="button">Start over</button>
+          </div>
+        </div>
 
-    <div class="panel fc-done" id="done" hidden>
-      <p class="fc-done-title" id="done-title"></p>
-      <p id="done-text"></p>
-      <div class="fc-nav">
-        <button class="btn again" id="review" type="button"></button>
-        <button class="btn primary" id="restart" type="button">Start over</button>
+        <details class="panel fc-paradigms" id="paradigms" hidden>
+          <summary>Show paradigms</summary>
+          <div class="fc-sub" id="paradigm-note"></div>
+          <div id="paradigm"></div>
+        </details>
       </div>
     </div>
-
-    <details class="panel fc-paradigms" id="paradigms" hidden>
-      <summary>Show paradigms</summary>
-      <div class="fc-sub" id="paradigm-note"></div>
-      <div id="paradigm"></div>
-    </details>
   </section>
 </main>
 
 <script src="../js/common.js"></script>
+<script src="../js/srs.js"></script>
 <script src="../js/flashcards.js"></script>
 </body>
 </html>

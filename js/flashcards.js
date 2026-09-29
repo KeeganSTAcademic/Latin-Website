@@ -5,7 +5,7 @@
    Page: flashcards/index.html?deck=<id>
    ========================================================= */
 (function(){
-  const { $, esc, shuffle, store, param, loadJSON, chip } = window.Site;
+  const { $, esc, shuffle, store, param, loadJSON, chip, srs } = window.Site;
   const DATA = "../data/decks/";
 
   const MODE_LABELS = { le:"Latin → English", el:"English → Latin", pp:"Principal parts" };
@@ -13,6 +13,15 @@
   const PPL = ["1st","2nd","3rd","4th"];
 
   let deck, st, timerId = null;
+
+  // Collapsible sections remember whether the student left them open.
+  // Desktop and phone are remembered separately: something closed on a phone stays open on a laptop.
+  const wide = () => matchMedia("(min-width: 980px)").matches;
+  function remember(el, name, dflt){
+    const k = `ui:${name}:${wide() ? "wide" : "narrow"}`, v = store.get(k, null);
+    el.open = v === null ? dflt : v;
+    el.addEventListener("toggle", () => store.set(k, el.open));
+  }
 
   /* ---------- entry ---------- */
   const id = param("deck");
@@ -26,10 +35,64 @@
       const groups = {};
       decks.forEach(d => (groups[d.course] = groups[d.course] || []).push(d));
       $("deck-groups").innerHTML = Object.entries(groups).map(([course, ds]) =>
-        `<h2 class="label deck-group">${esc(course)}</h2><ul class="deck-list">` +
-        ds.map(d => `<li><a class="panel" href="?deck=${encodeURIComponent(d.id)}${d.view ? "&view="+encodeURIComponent(d.view) : ""}"><span class="t">${esc(d.title)}</span><span class="n">${d.count} cards</span></a></li>`).join("") +
-        `</ul>`).join("");
+        `<details class="deck-sec" data-course="${esc(course)}"><summary><h2 class="label deck-group">${esc(course)}</h2><span class="deck-sec-n">${ds.length} deck${ds.length > 1 ? "s" : ""}</span></summary><ul class="deck-list">` +
+        ds.map((d, j) => `<li><a class="panel" href="?deck=${encodeURIComponent(d.id)}${d.view ? "&view="+encodeURIComponent(d.view) : ""}"><span class="t">${esc(d.title)}</span><span class="n"><span class="due" data-entry="${decks.indexOf(d)}" hidden></span>${d.count} cards</span></a></li>`).join("") +
+        `</ul></details>`).join("");
+      const secs = [...document.querySelectorAll(".deck-sec")];
+      secs.forEach(d => remember(d, "group:" + d.dataset.course, true));
+      $("expand-all").onclick = () => secs.forEach(d => d.open = true);
+      $("collapse-all").onclick = () => secs.forEach(d => d.open = false);
+      remember($("srs-panel"), "progress", false);
+      wireProgressPanel();
+      showDueCounts(decks);
     }catch(e){ $("deck-groups").innerHTML = `<p class="callout">Couldn't load the deck list. (${esc(e.message)})</p>`; }
+  }
+
+  // Due counts on the deck list. Only decks this student has studied are fetched.
+  async function showDueCounts(entries){
+    const db = srs.load(), day = srs.today();
+    const studied = new Set(Object.keys(db.cards).map(k => k.split(":")[0]));
+    let total = 0;
+    for(const id of studied){
+      let d; try{ d = await loadJSON(DATA+encodeURIComponent(id)+".json"); }catch(e){ continue; }
+      const dueIn = cards => cards.filter(c => srs.isDue(db.cards[srs.key(d.id, c)], day)).length;
+      total += dueIn(d.cards);
+      entries.forEach((en, j) => {
+        if(en.id !== id) return;
+        const v = en.view && d.views && d.views[en.view];
+        const cards = v ? d.cards.filter(c => Object.entries(v.sel || {}).every(([f, vals]) => c[f] === undefined || vals.includes(c[f]))) : d.cards;
+        const n = dueIn(cards), el = document.querySelector(`.due[data-entry="${j}"]`);
+        if(n && el){ el.textContent = `${n} due`; el.hidden = false; }
+      });
+    }
+    $("srs-due").textContent = total ? `${total} card${total > 1 ? "s" : ""} due today` : Object.keys(db.cards).length ? "Nothing due today" : "No reviews yet";
+    $("srs-stats").textContent = `${Object.keys(db.cards).length} cards studied in Review mode on this device.`;
+  }
+
+  // Export / import / reset of this browser's review history
+  function wireProgressPanel(){
+    const msg = t => $("srs-msg").textContent = t;
+    $("srs-export").onclick = () => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([srs.exportText()], { type:"application/json" }));
+      a.download = `latin-flashcards-progress-${new Date().toISOString().slice(0,10)}.json`;
+      document.body.appendChild(a); a.click(); a.remove();
+      msg("Progress file downloaded. Load it on another device to carry on there.");
+    };
+    $("srs-import").onclick = () => $("srs-file").click();
+    $("srs-file").onchange = async e => {
+      const f = e.target.files[0]; if(!f) return;
+      try{ const r = srs.importText(await f.text()); msg(`Loaded: ${r.added} new cards, ${r.updated} updated.`); showDueCounts(await loadJSON(DATA+"index.json")); }
+      catch(err){ msg("Couldn't read that file. " + err.message); }
+      e.target.value = "";
+    };
+    let armed = false;
+    $("srs-reset").onclick = () => {
+      if(!armed){ armed = true; $("srs-reset").textContent = "Click again to erase all progress"; setTimeout(() => { armed = false; $("srs-reset").textContent = "Reset progress"; }, 4000); return; }
+      srs.reset(); armed = false; $("srs-reset").textContent = "Reset progress";
+      document.querySelectorAll(".due").forEach(el => el.hidden = true);
+      msg("Progress erased on this device."); $("srs-due").textContent = "No reviews yet"; $("srs-stats").textContent = "";
+    };
   }
 
   async function loadDeck(id){
@@ -65,6 +128,7 @@
       if(vals.length){ st.sel[f.field] = new Set(vals); st.preset = true; }
     });
     const m = param("mode"); if(m && deck.modes.includes(m)){ st.mode = m; st.preset = true; }
+    st.study = param("study") || store.get("fc:study:"+deck.id, "practice");
 
     // A view is a named slice of the deck with its own entry on the deck list (?deck=participles&view=pres).
     // It fixes some filters, hides their rows, and hides rows that none of its cards use (adverbs have no gender).
@@ -86,6 +150,10 @@
       $("subtitle").textContent = view.subtitle || deck.subtitle || "";
       if(view.paradigmNote !== undefined) $("paradigm-note").innerHTML = view.paradigmNote;
     }
+
+    remember($("settings"), "settings", wide());           // open on desktop, a one-line summary on phones
+    remember($("intro"), "intro:" + deck.id, wide());      // open beside the card on desktop; tucked away on phones
+    remember($("paradigms"), "paradigms:" + deck.id, false);
 
     buildControlRows();
     wireEvents();
@@ -113,6 +181,7 @@
     const box = $("controls"); box.innerHTML = "";
     const row = (key, label) => { const r = document.createElement("div"); r.className = "fc-row"; r.id = "row-"+key;
       r.innerHTML = `<span class="label">${esc(label)}</span>`; box.appendChild(r); };
+    row("study", "Study");
     if(deck.modes.length > 1) row("mode", "Mode");
     deck.filters.forEach(f => { if(!st.hidden.has(f.field)) row(f.field, f.label); });
     row("timer", "Timer");
@@ -132,11 +201,30 @@
         reset();
       }));
     });
+    const due = reviewCounts();
+    chip($("row-study"), "Practice", st.study === "practice", () => setStudy("practice"));
+    chip($("row-study"), due.due + due.fresh ? `Review · ${due.due} due${due.fresh ? `, ${due.fresh} new` : ""}` : "Review · nothing due", st.study === "review", () => setStudy("review"));
     if(deck.modes.length > 1)
-      deck.modes.forEach(m => chip($("row-mode"), (deck.modeLabels && deck.modeLabels[m]) || MODE_LABELS[m], st.mode === m, () => { st.mode = m; save(); renderControls(); render(); }));
+      deck.modes.forEach(m => chip($("row-mode"), (deck.modeLabels && deck.modeLabels[m]) || MODE_LABELS[m], st.mode === m, () => {
+        st.mode = m; save(); renderControls(); render();   // same cards and history in either direction
+      }));
     TIMER_CHOICES.forEach(s => chip($("row-timer"), s ? s+" s" : "Off", st.timer === s, () => {
       st.timer = s; store.set("fc:timer", s); renderControls(); render();
     }));
+    summarise();
+  }
+
+  // One line describing the current settings, shown when the Settings panel is collapsed
+  function summarise(){
+    const parts = [st.study === "review" ? "Review" : "Practice"];
+    if(deck.modes.length > 1) parts.push((deck.modeLabels && deck.modeLabels[st.mode]) || MODE_LABELS[st.mode]);
+    deck.filters.forEach(f => {
+      if(st.hidden.has(f.field) || st.sel[f.field].size === f.values.length) return;
+      const labels = f.values.filter(v => st.sel[f.field].has(v.v)).map(v => v.label);
+      parts.push(labels.length > 2 ? `${f.label}: ${labels.length} chosen` : labels.join(", "));
+    });
+    if(st.timer) parts.push(`${st.timer} s timer`);
+    $("settings-summary").textContent = parts.join(" · ");
   }
 
   function save(){
@@ -185,6 +273,13 @@
   }
 
   function renderStatus(){
+    if(st.study === "review"){
+      const db = srs.load(), left = st.order.length, fresh = st.order.filter(c => !db.cards[srs.key(deck.id, c)]).length;
+      $("count").textContent = st.finished ? "Review complete" : `${left - fresh} due · ${fresh} new`;
+      $("score").textContent = `Reviewed: ${st.reviewed}`;
+      $("prog").style.width = (st.reviewed + left) ? (st.reviewed / (st.reviewed + left) * 100) + "%" : "100%";
+      return;
+    }
     const n = st.order.length, got = st.order.filter(c => st.known[c._i] === true).length;
     $("count").textContent = st.finished ? "Round complete" : (n ? `Card ${st.i+1} of ${n}` : "0 cards");
     $("score").textContent = n ? `Got it: ${got} / ${n}` : "";
@@ -200,9 +295,11 @@
     const d = st.order, card = $("card");
     card.classList.toggle("flipped", st.flipped);
     if(!d.length){
+      showButtons(null);
       $("front").innerHTML = '<p class="fc-empty">No cards match these filters.</p>'; $("back").innerHTML = ""; return;
     }
     const c = d[st.i], m = deck.meta || { front:["",""], back:["",""] };
+    showButtons(c);
     const [f, b] = faces(c);
     $("front").innerHTML = meta(m.front.map(t => fillMeta(t, c))) + f +
       (st.timer ? '<div class="fc-timer"><i id="timer-bar"></i></div>' : '<span class="fc-hint">tap to flip</span>');
@@ -212,6 +309,8 @@
   }
 
   function renderDone(){
+    if(st.study === "review") return renderReviewDone();
+    $("restart").textContent = "Start over";
     const n = st.order.length, missed = st.order.filter(c => st.known[c._i] !== true);
     $("done-title").textContent = missed.length ? "Bene!" : "Optimē!";
     $("done-text").textContent = `You got ${n - missed.length} of ${n}.`;
@@ -272,19 +371,80 @@
   }
   function stopTimer(){ if(timerId){ clearTimeout(timerId); timerId = null; } }
 
+  /* ---------- spaced repetition (Review) ---------- */
+  const slot = () => deck.id;
+
+  // Due / new counts for the current filters and direction (shown on the Review chip)
+  function reviewCounts(){
+    const db = srs.load(), day = srs.today(); let due = 0, fresh = 0;
+    currentDeck().forEach(c => { const e = db.cards[srs.key(deck.id, c)]; if(!e) fresh++; else if(srs.isDue(e, day)) due++; });
+    return { due, fresh: Math.max(0, Math.min(fresh, srs.newLeft(db, slot(), day))) };
+  }
+
+  // Queue: cards still being learned, then due reviews (shuffled), then today's allowance of new cards in deck order
+  function startReview(){
+    const db = srs.load(), day = srs.today(), learning = [], due = [], fresh = [];
+    currentDeck().forEach(c => {
+      const e = db.cards[srs.key(deck.id, c)];
+      if(!e) fresh.push(c); else if(e.s === "l") learning.push(c); else if(e.d <= day) due.push(c);
+    });
+    st.order = [...learning, ...shuffle(due), ...fresh.slice(0, Math.max(0, srs.newLeft(db, slot(), day)))];
+    st.i = 0; st.flipped = false; st.reviewed = 0; st.finished = !st.order.length;
+    render();
+  }
+
+  function grade(g){
+    if(st.study !== "review" || st.finished || !st.order.length || !st.flipped) return;
+    const db = srs.load(), day = srs.today(), c = st.order[0], k = srs.key(deck.id, c);
+    const res = srs.answer(db.cards[k], g, day);
+    db.cards[k] = res.entry;
+    if(res.wasNew) srs.countNew(db, slot(), day);
+    srs.save(db);
+    st.order.shift(); st.reviewed++;
+    if(res.again) st.order.splice(Math.min(st.order.length, g === 1 ? 3 : 6), 0, c);   // comes back a few cards later
+    st.flipped = false; st.finished = !st.order.length;
+    renderControls(); render();
+  }
+
+  function renderReviewDone(){
+    const db = srs.load(), day = srs.today();
+    const days = currentDeck().map(c => db.cards[srs.key(deck.id, c)]).filter(e => e && e.s === "r").map(e => e.d);
+    const next = days.length ? Math.min(...days) : null, nextN = days.filter(d => d === next).length;
+    const when = next === null ? "" : next <= day ? "Some cards are due again now." : next === day + 1 ? `Next review: tomorrow (${nextN} card${nextN > 1 ? "s" : ""}).` : `Next review: in ${next - day} days (${nextN} card${nextN > 1 ? "s" : ""}).`;
+    $("done-title").textContent = st.reviewed ? "Optimē!" : "Nothing due";
+    $("done-text").textContent = (st.reviewed ? `You reviewed ${st.reviewed} card${st.reviewed > 1 ? "s" : ""}. ` : "You're all caught up on these cards. ") + when;
+    $("review").hidden = true;
+    $("restart").textContent = "Practice instead";
+  }
+
+  function setStudy(v){ st.study = v; store.set("fc:study:"+deck.id, v); reset(); }
+
+  // Practice shows Prev / Next / Got it; Review shows Flip, then Again / Hard / Good / Easy once the answer is showing
+  function showButtons(c){
+    const review = st.study === "review";
+    $("nav-practice").hidden = review; $("keys-practice").hidden = review; $("keys-review").hidden = !review;
+    $("prev").hidden = $("next").hidden = review;
+    $("nav-grade").hidden = !review || !st.flipped || !c;
+    $("flip").hidden = review && st.flipped;
+    if(review && c && st.flipped){
+      const labels = srs.preview(srs.load().cards[srs.key(deck.id, c)], srs.today());
+      labels.forEach((t, i) => $("g"+(i+1)).textContent = t);
+    }
+  }
+
   /* ---------- actions ---------- */
   function startRound(cards){ st.order = cards; st.i = 0; st.flipped = false; st.known = {}; st.finished = false; render(); }
-  function reset(){ save(); renderControls(); renderParadigms(); startRound(currentDeck()); }
+  function reset(){ save(); renderControls(); renderParadigms(); if(st.study === "review") startReview(); else startRound(currentDeck()); }
   function flip(){ if(st.finished || !st.order.length) return; st.flipped = !st.flipped; render(); }
   function go(n){
-    if(st.finished || !st.order.length) return;
+    if(st.study === "review" || st.finished || !st.order.length) return;
     const j = st.i + n;
     if(j < 0) return;
     if(j >= st.order.length){ st.finished = true; render(); return; }
     st.i = j; st.flipped = false; render();
   }
-  function mark(v){ if(st.finished || !st.order.length) return; st.known[st.order[st.i]._i] = v; go(1); }
-  function doShuffle(){ startRound(shuffle(currentDeck())); }
+  function mark(v){ if(st.study === "review" || st.finished || !st.order.length) return; st.known[st.order[st.i]._i] = v; go(1); }
+  function doShuffle(){ if(st.study !== "review") startRound(shuffle(currentDeck())); }
 
   function wireEvents(){
     $("card").onclick = flip;
@@ -294,7 +454,8 @@
     $("again").onclick = () => mark(false);
     $("knew").onclick = () => mark(true);
     $("shuffle").onclick = doShuffle;
-    $("restart").onclick = () => startRound(currentDeck());
+    $("restart").onclick = () => st.study === "review" ? setStudy("practice") : startRound(currentDeck());
+    [1,2,3,4].forEach(g => $("grade"+g).onclick = () => grade(g));
     document.addEventListener("keydown", e => {
       const tag = e.target.tagName;
       if(tag === "SUMMARY" || tag === "INPUT") return;
@@ -302,6 +463,7 @@
       if(e.key === " " || e.key === "Enter"){ e.preventDefault(); flip(); }
       else if(e.key === "ArrowRight") go(1);
       else if(e.key === "ArrowLeft") go(-1);
+      else if(st.study === "review" && /^[1-4]$/.test(e.key)) grade(+e.key);
       else if(e.key === "1") mark(false);
       else if(e.key === "2") mark(true);
       else if(e.key.toLowerCase() === "s") doShuffle();
