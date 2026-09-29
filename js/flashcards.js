@@ -8,8 +8,7 @@
   const { $, esc, shuffle, store, param, loadJSON, chip } = window.Site;
   const DATA = "../data/decks/";
 
-  const MODE_LABELS = { le:"Latin → English", el:"English → Latin", pp:"Principal parts",
-                        pf:"Parse → Form", fp:"Form → Parse" };
+  const MODE_LABELS = { le:"Latin → English", el:"English → Latin", pp:"Principal parts" };
   const TIMER_CHOICES = [0, 5, 10, 20];           // seconds; 0 = off
   const PPL = ["1st","2nd","3rd","4th"];
 
@@ -58,7 +57,7 @@
       st.sel[f.field] = new Set(keep.length ? keep : all);
     });
 
-    // A link can preset filters and mode, e.g. ?deck=noun-declensions&decl=3,4&mode=fp
+    // A link can preset filters and mode, e.g. ?deck=noun-declensions&decl=3,4&mode=el
     // Presets apply to that visit only and aren't saved over the student's own settings.
     deck.filters.forEach(f => {
       const q = param(f.field); if(!q) return;
@@ -143,23 +142,20 @@
     const detail = c.detail ? `<div class="fc-sub">${esc(c.detail)}</div>` : "";
     const also = c.also ? `<div class="fc-also">Same spelling: ${esc(c.also)}</div>` : "";
     const note = c.note ? `<div class="fc-also">${esc(c.note)}</div>` : "";
+    // Forms that need parsing (verb and noun cards) get a prompt on the Latin side
+    const cue = c.pn ? `<div class="fc-sub">${deck.allReadings ? "Translate: give every possible case" : "Translate and parse"}</div>` : "";
     switch(st.mode){
-      case "le": return [la, en + parse + pp + also + note];
-      case "el": return [en + parse, la + pp + also + note];
-      case "pf": return [`<div class="fc-main">${esc(c.pn)}</div>` + (c.tl ? `<div class="fc-sub">${esc(cap(c.tl))}</div>` : ""),
-                         la + `<div class="fc-sub"><em>${esc(c.en)}</em></div>` + detail + note];
-      case "fp": {
+      case "le": {
         if(deck.allReadings){
           // every card of the same word with the same spelling (e.g. equī = gen. sg. AND nom. pl.)
           const f = deck.allReadings, same = deck.cards.filter(x => x.la === c.la && x[f] === c[f]);
           const head = same.length > 1 ? `<div class="fc-also">${same.length} possibilities</div>` : "";
-          return [la + `<div class="fc-sub">Name every possible case</div>`,
-                  `<div class="fc-main la" lang="la">${formHTML(c)}</div>` + head +
+          return [la + cue, la + head +
                   `<ul class="fc-readings">${same.map(x => `<li><b>${esc(x.pn)}</b> <span>— ${esc(x.en)}</span></li>`).join("")}</ul>`];
         }
-        return [la + `<div class="fc-sub">Translate and parse</div>`,
-                `<div class="fc-main en">${esc(c.en)}</div>` + parse + detail + note];
+        return [la + cue, en + parse + pp + detail + also + note];
       }
+      case "el": return [en + parse, la + pp + detail + also + note];
       case "pp": return [`<div class="fc-main la" lang="la">${esc(c.pp.split(",")[0])}</div><div class="fc-sub">${esc(c.en)}</div><div class="fc-sub">Give the principal parts</div>`,
                          ppGrid(c.pp) + `<div class="fc-sub">${esc(c.en)}</div>`];
     }

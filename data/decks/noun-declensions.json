@@ -3,7 +3,7 @@
  "title": "Noun Declensions",
  "course": "Nouns",
  "subtitle": "All five declensions: puella, equus, forum, rēx, corpus, frūctus, cornū, rēs",
- "intro": "Every noun belongs to one of <b>five declensions</b>. The <b>genitive singular</b> (the second dictionary form) tells you which one:<ul><li><b>1st</b> <span class=\"end\">-ae</span> (puella, puellae) · <b>2nd</b> <span class=\"end\">-ī</span> (equus, equī; forum, forī) · <b>3rd</b> <span class=\"end\">-is</span> (rēx, rēgis; corpus, corporis) · <b>4th</b> <span class=\"end\">-ūs</span> (frūctus, frūctūs; cornū, cornūs) · <b>5th</b> <span class=\"end\">-eī</span> (rēs, reī)</li></ul><p style=\"margin:8px 0 0\">In the 3rd declension, find the <b>stem</b> from the genitive (rēg-, corpor-), not the nominative.</p><p style=\"margin:8px 0 0\"><b>Neuters</b> (forum, corpus, cornū): the nominative and accusative are always the same, and the plural of both ends in <b>-a</b>.</p><p style=\"margin:8px 0 0\"><b>Watch out:</b> many forms belong to more than one case. The dative and ablative plural are always identical, and forms like puellae, equī, rēgēs, frūctūs and rēs each have several readings. In Form → Case mode, name every possibility.</p>",
+ "intro": "Every noun belongs to one of <b>five declensions</b>. The <b>genitive singular</b> (the second dictionary form) tells you which one:<ul><li><b>1st</b> <span class=\"end\">-ae</span> (puella, puellae) · <b>2nd</b> <span class=\"end\">-ī</span> (equus, equī; forum, forī) · <b>3rd</b> <span class=\"end\">-is</span> (rēx, rēgis; corpus, corporis) · <b>4th</b> <span class=\"end\">-ūs</span> (frūctus, frūctūs; cornū, cornūs) · <b>5th</b> <span class=\"end\">-eī</span> (rēs, reī)</li></ul><p style=\"margin:8px 0 0\">In the 3rd declension, find the <b>stem</b> from the genitive (rēg-, corpor-), not the nominative.</p><p style=\"margin:8px 0 0\"><b>Neuters</b> (forum, corpus, cornū): the nominative and accusative are always the same, and the plural of both ends in <b>-a</b>.</p><p style=\"margin:8px 0 0\"><b>Watch out:</b> many forms belong to more than one case. The dative and ablative plural are always identical, and forms like puellae, equī, rēgēs, frūctūs and rēs each have several readings. In Latin → English mode, give every possibility.</p>",
  "paradigmNote": "",
  "filters": [
   {
@@ -86,13 +86,9 @@
   }
  ],
  "modes": [
-  "pf",
-  "fp"
+  "le",
+  "el"
  ],
- "modeLabels": {
-  "pf": "Case → Form",
-  "fp": "Form → Case"
- },
  "allReadings": "noun",
  "meta": {
   "front": [

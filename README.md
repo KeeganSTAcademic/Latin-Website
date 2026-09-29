@@ -39,7 +39,7 @@ data/decks/index.json   the deck list shown on the flashcards page
     { "field": "p", "label": "Words",
       "values": [ { "v": "verb", "label": "Verbs", "short": "verb" } ] }
   ],
-  "modes": ["le", "el", "pp"],          // Latin→English, English→Latin, Principal parts
+  "modes": ["le", "el", "pp"],          // Latin→English (default: the first one), English→Latin, Principal parts
   "meta": { "front": ["{w}", "{p}"],    // small corner labels; {field} is filled in
             "back":  ["{w}", "{p}"] },
   "lookalikes": false,                  // true = warn when two cards share a Latin form
@@ -54,7 +54,7 @@ and `parse` (a parse label such as “1st sg., pres., ind., act”). Any filter 
 
 ### Verb-form decks
 
-Paradigm decks (e.g. `perfect-active.json`) use modes `"pf"` (Parse → Form) and `"fp"` (Form → Parse) and a few extra card fields:
+Paradigm decks (e.g. `perfect-active.json`) use the same two modes as every deck, `"le"` (Latin → English, the default) and `"el"` (English → Latin), plus a few extra card fields:
 
 | Field | Meaning |
 |---|---|
@@ -69,10 +69,9 @@ Deck-level `intro` (HTML grammar note), `paradigmNote`, and
 
 ### Noun decks
 
-The noun deck (`noun-declensions.json`) reuse the same card fields: `pn` holds the case (“Genitive Singular”), and `pi` runs 0–4 for the singular cases and 5–9 for the plural. Three deck-level settings adapt the engine:
+The noun deck (`noun-declensions.json`) reuse the same card fields: `pn` holds the case (“Genitive Singular”), and `pi` runs 0–4 for the singular cases and 5–9 for the plural. Two deck-level settings adapt the engine:
 
-- `"modeLabels": {"pf": "Case → Form", "fp": "Form → Case"}` renames the modes.
-- `"allReadings": "noun"`: in Form → Case mode, the answer lists every card of the same noun with that spelling (equī = genitive singular *and* nominative plural).
+- `"allReadings": "noun"`: in Latin → English mode, the answer lists every card of the same noun with that spelling (equī = genitive singular *and* nominative plural).
 - `"paradigm": {"table": "noun", "rows": ["Nominative", …], "rowLabel": "Case", "tableSuffix": ""}` builds one case table per noun.
 
 ### Linking to part of a deck
@@ -80,7 +79,7 @@ The noun deck (`noun-declensions.json`) reuse the same card fields: `pn` holds t
 Any filter can be preset in the link, which is handy for assigning one piece of a bigger deck:
 
 - `flashcards/?deck=noun-declensions&decl=3`: third declension only
-- `flashcards/?deck=noun-declensions&decl=1,2&mode=fp`: 1st and 2nd, starting in Form → Case
+- `flashcards/?deck=noun-declensions&decl=1,2&mode=el`: 1st and 2nd, starting in English → Latin
 - `flashcards/?deck=complete-passive&t=plup`: pluperfect passive only
 
 Presets apply to that visit and aren't saved over a student's own settings.
