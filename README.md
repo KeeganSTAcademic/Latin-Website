@@ -67,6 +67,24 @@ Paradigm decks (e.g. `perfect-active.json`) use modes `"pf"` (Parse → Form) an
 Deck-level `intro` (HTML grammar note), `paradigmNote`, and
 `paradigm: {"table": "conj", "group": "t", "headings": {...}}` turn on the grammar note and the “Show paradigms” tables.
 
+### Noun decks
+
+The noun deck (`noun-declensions.json`) reuse the same card fields: `pn` holds the case (“Genitive Singular”), and `pi` runs 0–4 for the singular cases and 5–9 for the plural. Three deck-level settings adapt the engine:
+
+- `"modeLabels": {"pf": "Case → Form", "fp": "Form → Case"}` renames the modes.
+- `"allReadings": "noun"`: in Form → Case mode, the answer lists every card of the same noun with that spelling (equī = genitive singular *and* nominative plural).
+- `"paradigm": {"table": "noun", "rows": ["Nominative", …], "rowLabel": "Case", "tableSuffix": ""}` builds one case table per noun.
+
+### Linking to part of a deck
+
+Any filter can be preset in the link, which is handy for assigning one piece of a bigger deck:
+
+- `flashcards/?deck=noun-declensions&decl=3`: third declension only
+- `flashcards/?deck=noun-declensions&decl=1,2&mode=fp`: 1st and 2nd, starting in Form → Case
+- `flashcards/?deck=complete-passive&t=plup`: pluperfect passive only
+
+Presets apply to that visit and aren't saved over a student's own settings.
+
 ## Previewing on your computer
 
 The pages load their data with `fetch`, so opening the file straight from Finder won't work. From the repo folder run:

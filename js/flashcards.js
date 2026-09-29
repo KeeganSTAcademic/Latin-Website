@@ -58,6 +58,15 @@
       st.sel[f.field] = new Set(keep.length ? keep : all);
     });
 
+    // A link can preset filters and mode, e.g. ?deck=noun-declensions&decl=3,4&mode=fp
+    // Presets apply to that visit only and aren't saved over the student's own settings.
+    deck.filters.forEach(f => {
+      const q = param(f.field); if(!q) return;
+      const want = q.split(","), vals = f.values.map(v => v.v).filter(v => want.includes(String(v)));
+      if(vals.length){ st.sel[f.field] = new Set(vals); st.preset = true; }
+    });
+    const m = param("mode"); if(m && deck.modes.includes(m)){ st.mode = m; st.preset = true; }
+
     buildControlRows();
     wireEvents();
     reset();
@@ -102,13 +111,14 @@
       }));
     });
     if(deck.modes.length > 1)
-      deck.modes.forEach(m => chip($("row-mode"), MODE_LABELS[m], st.mode === m, () => { st.mode = m; save(); renderControls(); render(); }));
+      deck.modes.forEach(m => chip($("row-mode"), (deck.modeLabels && deck.modeLabels[m]) || MODE_LABELS[m], st.mode === m, () => { st.mode = m; save(); renderControls(); render(); }));
     TIMER_CHOICES.forEach(s => chip($("row-timer"), s ? s+" s" : "Off", st.timer === s, () => {
       st.timer = s; store.set("fc:timer", s); renderControls(); render();
     }));
   }
 
   function save(){
+    if(st.preset) return;
     const sel = {}; for(const k in st.sel) sel[k] = [...st.sel[k]];
     store.set("fc:"+deck.id, { sel, mode: st.mode });
   }
@@ -136,10 +146,20 @@
     switch(st.mode){
       case "le": return [la, en + parse + pp + also + note];
       case "el": return [en + parse, la + pp + also + note];
-      case "pf": return [`<div class="fc-main">${esc(c.pn)}</div><div class="fc-sub">${esc(cap(c.tl))}</div>`,
+      case "pf": return [`<div class="fc-main">${esc(c.pn)}</div>` + (c.tl ? `<div class="fc-sub">${esc(cap(c.tl))}</div>` : ""),
                          la + `<div class="fc-sub"><em>${esc(c.en)}</em></div>` + detail + note];
-      case "fp": return [la + `<div class="fc-sub">Translate and parse</div>`,
-                         `<div class="fc-main en">${esc(c.en)}</div>` + parse + detail + note];
+      case "fp": {
+        if(deck.allReadings){
+          // every card of the same word with the same spelling (e.g. equī = gen. sg. AND nom. pl.)
+          const f = deck.allReadings, same = deck.cards.filter(x => x.la === c.la && x[f] === c[f]);
+          const head = same.length > 1 ? `<div class="fc-also">${same.length} possibilities</div>` : "";
+          return [la + `<div class="fc-sub">Name every possible case</div>`,
+                  `<div class="fc-main la" lang="la">${formHTML(c)}</div>` + head +
+                  `<ul class="fc-readings">${same.map(x => `<li><b>${esc(x.pn)}</b> <span>— ${esc(x.en)}</span></li>`).join("")}</ul>`];
+        }
+        return [la + `<div class="fc-sub">Translate and parse</div>`,
+                `<div class="fc-main en">${esc(c.en)}</div>` + parse + detail + note];
+      }
       case "pp": return [`<div class="fc-main la" lang="la">${esc(c.pp.split(",")[0])}</div><div class="fc-sub">${esc(c.en)}</div><div class="fc-sub">Give the principal parts</div>`,
                          ppGrid(c.pp) + `<div class="fc-sub">${esc(c.en)}</div>`];
     }
@@ -201,14 +221,15 @@
       if(!inG.length) return "";
       const head = g !== null ? `<h3 class="fc-tensehead">${esc((P.headings && P.headings[g]) || g)}</h3>` : "";
       return head + '<div class="fc-grid">' + tables.map(tv => {
+        const R = P.rows || ["1st","2nd","3rd"], n = R.length;
         const six = inG.filter(c => c[P.table] === tv.v).sort((a,b) => a.pi - b.pi);
-        if(six.length < 6) return "";
+        if(six.length < n*2) return "";
         const cell = i => `<td lang="la">${formHTML(six[i])}</td>`;
-        const rows = ["1st","2nd","3rd"].map((p,i) => `<tr><td>${p}</td>${cell(i)}${cell(i+3)}</tr>`).join("");
-        return `<div><div class="label">${esc(tv.label)} conjugation</div>
+        const rows = R.map((p,i) => `<tr><td>${esc(p)}</td>${cell(i)}${cell(i+n)}</tr>`).join("");
+        return `<div><div class="label">${esc(tv.label)}${P.tableSuffix ?? " conjugation"}</div>
           <h4><span lang="la">${esc(six[0].lemma)}</span> <small>${esc(six[0].gloss)}</small></h4>` +
           (six[0].tnote ? `<div class="fc-tnote">${esc(six[0].tnote)}</div>` : "") +
-          `<table><thead><tr><th class="label">Person</th><th class="label">Singular</th><th class="label">Plural</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+          `<table><thead><tr><th class="label">${esc(P.rowLabel || "Person")}</th><th class="label">Singular</th><th class="label">Plural</th></tr></thead><tbody>${rows}</tbody></table></div>`;
       }).join("") + "</div>";
     }).join("");
   }

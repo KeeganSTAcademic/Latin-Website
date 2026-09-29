@@ -12,6 +12,18 @@
   "count": 120
  },
  {
+  "id": "noun-declensions",
+  "title": "Noun Declensions",
+  "course": "Nouns",
+  "count": 80
+ },
+ {
+  "id": "present-active",
+  "title": "Present Active Indicative",
+  "course": "Verbs · Active Indicative",
+  "count": 30
+ },
+ {
   "id": "imperfect-active",
   "title": "Imperfect Active Indicative",
   "course": "Verbs · Active Indicative",
@@ -98,6 +110,12 @@
  {
   "id": "imperfect-subjunctive",
   "title": "Imperfect Subjunctive",
+  "course": "Verbs · Subjunctive",
+  "count": 60
+ },
+ {
+  "id": "perfect-subjunctive",
+  "title": "Perfect Subjunctive",
   "course": "Verbs · Subjunctive",
   "count": 60
  },
