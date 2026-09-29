@@ -74,6 +74,14 @@ The noun deck (`noun-declensions.json`) reuse the same card fields: `pn` holds t
 - `"allReadings": "noun"`: in Latin → English mode, the answer lists every card of the same noun with that spelling (equī = genitive singular *and* nominative plural).
 - `"paradigm": {"table": "noun", "rows": ["Nominative", …], "rowLabel": "Case", "tableSuffix": ""}` builds one case table per noun.
 
+### Adjective deck
+
+`adjective-degrees.json` works like the noun deck, with `"allReadings": "deg"` so every reading of a form within its degree is listed (clārius = neuter comparative adjective *and* comparative adverb). A card that lacks a filter's field ignores that filter, so the adverb cards (no gender or number) stay in when you filter by gender. `"cue"` sets the prompt shown under the Latin.
+
+### Participles and irregular verbs
+
+`participles.json` works like the adjective deck (`"allReadings": "part"`); only amō has full paradigms, so the other verbs' cards have no `pi` and stay out of the tables. `irregular-verbs.json` groups its tables by a `tm` (mood + tense) field that has no filter of its own: when a paradigm `group` has no matching filter, the groups come from the cards in order, titled by `headings`. A paradigm can also vary its rows, columns and row heading per group with `rowsBy`, `colsBy` and `rowLabelBy` (see `imperatives-infinitives.json`, whose imperative tables are Voice × Number and whose infinitive tables are Tense × Voice).
+
 ### Linking to part of a deck
 
 Any filter can be preset in the link, which is handy for assigning one piece of a bigger deck:
@@ -81,6 +89,9 @@ Any filter can be preset in the link, which is handy for assigning one piece of 
 - `flashcards/?deck=noun-declensions&decl=3`: third declension only
 - `flashcards/?deck=noun-declensions&decl=1,2&mode=el`: 1st and 2nd, starting in English → Latin
 - `flashcards/?deck=complete-passive&t=plup`: pluperfect passive only
+- `flashcards/?deck=adjective-degrees&deg=comp,sup`: comparatives and superlatives only
+- `flashcards/?deck=irregular-verbs&verb=volo,nolo,malo&mood=ind`: volō, nōlō and mālō in the indicative
+- `flashcards/?deck=imperatives-infinitives&form=inf-pres`: present infinitives only (also `imp`, `inf-perf`, `inf-fut`; combine with commas)
 
 Presets apply to that visit and aren't saved over a student's own settings.
 

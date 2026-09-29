@@ -80,7 +80,8 @@
   const filterOf = field => deck.filters.find(f => f.field === field);
   const valueInfo = (field, v) => { const f = filterOf(field); return f && f.values.find(x => x.v === v); };
   const fillMeta = (tpl, c) => tpl.replace(/\{(\w+)\}/g, (_, k) => { const i = valueInfo(k, c[k]); return i ? (i.short || i.label) : (c[k] ?? ""); });
-  const passes = (c, fields) => fields.every(f => st.sel[f.field].has(c[f.field]));
+  // a card without a filter's field (e.g. an adverb has no gender) ignores that filter
+  const passes = (c, fields) => fields.every(f => c[f.field] === undefined || st.sel[f.field].has(c[f.field]));
 
   function currentDeck(){
     return deck.cards.filter(c => passes(c, deck.filters) && (st.mode !== "pp" || c.pp));
@@ -143,7 +144,7 @@
     const also = c.also ? `<div class="fc-also">Same spelling: ${esc(c.also)}</div>` : "";
     const note = c.note ? `<div class="fc-also">${esc(c.note)}</div>` : "";
     // Forms that need parsing (verb and noun cards) get a prompt on the Latin side
-    const cue = c.pn ? `<div class="fc-sub">${deck.allReadings ? "Translate: give every possible case" : "Translate and parse"}</div>` : "";
+    const cue = c.pn ? `<div class="fc-sub">${deck.cue || (deck.allReadings ? "Translate: give every possible case" : "Translate and parse")}</div>` : "";
     switch(st.mode){
       case "le": {
         if(deck.allReadings){
@@ -151,7 +152,7 @@
           const f = deck.allReadings, same = deck.cards.filter(x => x.la === c.la && x[f] === c[f]);
           const head = same.length > 1 ? `<div class="fc-also">${same.length} possibilities</div>` : "";
           return [la + cue, la + head +
-                  `<ul class="fc-readings">${same.map(x => `<li><b>${esc(x.pn)}</b> <span>— ${esc(x.en)}</span></li>`).join("")}</ul>`];
+                  `<ul class="fc-readings">${same.map(x => `<li><b>${esc(x.pn)}</b>${x.tl ? ` · ${esc(x.tl)}` : ""} <span>— ${esc(x.en)}</span></li>`).join("")}</ul>`];
         }
         return [la + cue, en + parse + pp + detail + also + note];
       }
@@ -210,14 +211,19 @@
     const P = deck.paradigm; if(!P) return;
     const keep = deck.filters.filter(f => f.field === P.group || f.field === P.table);
     const cards = deck.cards.filter(c => passes(c, keep) && c.pi !== undefined);
-    const groups = P.group && filterOf(P.group) ? filterOf(P.group).values.map(v => v.v) : [null];
+    // group by a filter's values, or (for a field with no filter, e.g. mood + tense) by the values in card order
+    const groups = !P.group ? [null]
+      : filterOf(P.group) ? filterOf(P.group).values.map(v => v.v)
+      : [...new Set(cards.map(c => c[P.group]).filter(v => v !== undefined))];
     const tables = filterOf(P.table).values;
     $("paradigm").innerHTML = groups.map(g => {
       const inG = cards.filter(c => g === null || c[P.group] === g);
       if(!inG.length) return "";
       const head = g !== null ? `<h3 class="fc-tensehead">${esc((P.headings && P.headings[g]) || g)}</h3>` : "";
       return head + '<div class="fc-grid">' + tables.map(tv => {
-        const R = P.rows || ["1st","2nd","3rd"], n = R.length;
+        // rows, columns and row heading can differ per group (e.g. imperatives vs. infinitives)
+        const by = (k, dflt) => (P[k+"By"] && P[k+"By"][g]) || P[k] || dflt;
+        const R = by("rows", ["1st","2nd","3rd"]), C = by("cols", ["Singular","Plural"]), n = R.length;
         const six = inG.filter(c => c[P.table] === tv.v).sort((a,b) => a.pi - b.pi);
         if(six.length < n*2) return "";
         const cell = i => `<td lang="la">${formHTML(six[i])}</td>`;
@@ -225,7 +231,7 @@
         return `<div><div class="label">${esc(tv.label)}${P.tableSuffix ?? " conjugation"}</div>
           <h4><span lang="la">${esc(six[0].lemma)}</span> <small>${esc(six[0].gloss)}</small></h4>` +
           (six[0].tnote ? `<div class="fc-tnote">${esc(six[0].tnote)}</div>` : "") +
-          `<table><thead><tr><th class="label">${esc(P.rowLabel || "Person")}</th><th class="label">Singular</th><th class="label">Plural</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+          `<table><thead><tr><th class="label">${esc(by("rowLabel", "Person"))}</th><th class="label">${esc(C[0])}</th><th class="label">${esc(C[1])}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
       }).join("") + "</div>";
     }).join("");
   }

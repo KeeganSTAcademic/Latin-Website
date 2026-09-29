@@ -18,6 +18,12 @@
   "count": 80
  },
  {
+  "id": "adjective-degrees",
+  "title": "Adjectives & Adverbs: Degrees",
+  "course": "Adjectives & Adverbs",
+  "count": 93
+ },
+ {
   "id": "present-active",
   "title": "Present Active Indicative",
   "course": "Verbs · Active Indicative",
@@ -126,9 +132,27 @@
   "count": 60
  },
  {
+  "id": "participles",
+  "title": "Participles",
+  "course": "Verbs · Participles",
+  "count": 136
+ },
+ {
+  "id": "imperatives-infinitives",
+  "title": "Imperatives & Infinitives",
+  "course": "Verbs · Imperatives & Infinitives",
+  "count": 58
+ },
+ {
+  "id": "irregular-verbs",
+  "title": "Irregular Verbs: ferō, volō, nōlō, mālō",
+  "course": "Verbs · Irregular",
+  "count": 259
+ },
+ {
   "id": "sum",
   "title": "Sum, esse, fuī, futūrus",
-  "course": "Verbs · Sum",
+  "course": "Verbs · Irregular",
   "count": 69
  }
 ]
