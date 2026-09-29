@@ -132,3 +132,9 @@
   .deck-list .t{font-size:18px}
   #picker .fc-srs{max-width:760px;margin-left:auto;margin-right:auto}
 }
+
+/* deck list: the all-decks spaced repetition button */
+.fc-srs-start{padding:14px 18px;margin-bottom:10px;text-align:center}
+.fc-srs-start .btn{display:inline-block;text-decoration:none}
+.fc-srs-start p{margin:0}
+@media (min-width:980px){ #picker .fc-srs-start{max-width:760px;margin-left:auto;margin-right:auto} }

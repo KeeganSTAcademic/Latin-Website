@@ -25,7 +25,7 @@
 
   /* ---------- entry ---------- */
   const id = param("deck");
-  if(id) loadDeck(id); else showPicker();
+  if(param("review") === "all") loadAllReview(); else if(id) loadDeck(id); else showPicker();
 
   async function showPicker(){
     $("player").hidden = true; $("picker").hidden = false;
@@ -65,8 +65,12 @@
         if(n && el){ el.textContent = `${n} due`; el.hidden = false; }
       });
     }
-    $("srs-due").textContent = total ? `${total} card${total > 1 ? "s" : ""} due today` : Object.keys(db.cards).length ? "Nothing due today" : "No reviews yet";
-    $("srs-stats").textContent = `${Object.keys(db.cards).length} cards studied in Review mode on this device.`;
+    $("srs-due").textContent = total ? `${total} card${total > 1 ? "s" : ""} due today` : Object.keys(db.cards).length ? "Nothing due today" : "Not started yet";
+    $("srs-start").hidden = !total;
+    $("srs-start-n").textContent = total;
+    $("srs-idle").hidden = !!total;
+    $("srs-idle").textContent = Object.keys(db.cards).length ? "Nothing due today. Open a deck to learn new cards." : "Open any deck to start: it uses spaced repetition, so each card comes back just before you'd forget it.";
+    $("srs-stats").textContent = `${Object.keys(db.cards).length} cards studied with spaced repetition on this device.`;
   }
 
   // Export / import / reset of this browser's review history
@@ -91,7 +95,9 @@
       if(!armed){ armed = true; $("srs-reset").textContent = "Click again to erase all progress"; setTimeout(() => { armed = false; $("srs-reset").textContent = "Reset progress"; }, 4000); return; }
       srs.reset(); armed = false; $("srs-reset").textContent = "Reset progress";
       document.querySelectorAll(".due").forEach(el => el.hidden = true);
-      msg("Progress erased on this device."); $("srs-due").textContent = "No reviews yet"; $("srs-stats").textContent = "";
+      msg("Progress erased on this device."); $("srs-due").textContent = "Not started yet"; $("srs-stats").textContent = "";
+      $("srs-start").hidden = true; $("srs-idle").hidden = false;
+      $("srs-idle").textContent = "Open any deck to start: it uses spaced repetition, so each card comes back just before you'd forget it.";
     };
   }
 
@@ -128,7 +134,7 @@
       if(vals.length){ st.sel[f.field] = new Set(vals); st.preset = true; }
     });
     const m = param("mode"); if(m && deck.modes.includes(m)){ st.mode = m; st.preset = true; }
-    st.study = param("study") || store.get("fc:study:"+deck.id, "practice");
+    st.study = param("study") || store.get("fc:study:"+deck.id, "review");   // spaced repetition by default
 
     // A view is a named slice of the deck with its own entry on the deck list (?deck=participles&view=pres).
     // It fixes some filters, hides their rows, and hides rows that none of its cards use (adverbs have no gender).
@@ -160,19 +166,46 @@
     reset();
   }
 
+  /* ---------- spaced repetition across every deck (?review=all) ---------- */
+  async function loadAllReview(){
+    const db = srs.load(), day = srs.today();
+    const ids = [...new Set(Object.keys(db.cards).map(k => k.split(":")[0]))];
+    const pool = [];
+    for(const id of ids){
+      let d; try{ d = await loadJSON(DATA+encodeURIComponent(id)+".json"); }catch(e){ continue; }
+      d.cards.forEach((c, i) => { c._i = id + ":" + i; c._deck = d; });
+      if(d.lookalikes) markLookalikes(d.cards);
+      d.cards.forEach(c => { if(srs.isDue(db.cards[srs.key(d.id, c)], day)) pool.push(c); });
+    }
+    // a stand-in "deck" for the settings panel: just direction and timer
+    deck = { id:"all", title:"Spaced repetition", modes:["le","el"], filters:[], cards:[] };
+    const saved = store.get("fc:all", {});
+    st = { all:true, pool, sel:{}, hidden:new Set(), study:"review", mode: ["le","el"].includes(saved.mode) ? saved.mode : "le",
+           timer: store.get("fc:timer", 0), order:[], i:0, flipped:false, known:{}, finished:false };
+    document.title = "Spaced repetition · Flashcards";
+    $("title").textContent = "Spaced repetition";
+    $("subtitle").textContent = "Everything due today, from every deck you've studied";
+    remember($("settings"), "settings", wide());
+    buildControlRows(); wireEvents(); reset();
+  }
+
   /* ---------- data helpers ---------- */
   function markLookalikes(cards){
     const by = {};
     cards.forEach(c => (by[c.la] = by[c.la] || []).push(c));
     cards.forEach(c => { const o = by[c.la].filter(x => x !== c); if(o.length) c.also = o.map(x => x.parse).join("; "); });
   }
-  const filterOf = field => deck.filters.find(f => f.field === field);
-  const valueInfo = (field, v) => { const f = filterOf(field); return f && f.values.find(x => x.v === v); };
-  const fillMeta = (tpl, c) => tpl.replace(/\{(\w+)\}/g, (_, k) => { const i = valueInfo(k, c[k]); return i ? (i.short || i.label) : (c[k] ?? ""); });
+  const filterOf = (field, dk = deck) => dk.filters.find(f => f.field === field);
+  const valueInfo = (field, v, dk) => { const f = filterOf(field, dk); return f && f.values.find(x => x.v === v); };
+  const fillMeta = (tpl, c, dk) => tpl.replace(/\{(\w+)\}/g, (_, k) => { const i = valueInfo(k, c[k], dk); return i ? (i.short || i.label) : (c[k] ?? ""); });
+  // In the all-decks session each card carries its own deck (c._deck); otherwise it's the open deck
+  const deckOf = c => c._deck || deck;
+  const cardKey = c => srs.key(deckOf(c).id, c);
   // a card without a filter's field (e.g. an adverb has no gender) ignores that filter
   const passes = (c, fields) => fields.every(f => c[f.field] === undefined || st.sel[f.field].has(c[f.field]));
 
   function currentDeck(){
+    if(st.all) return st.pool;
     return deck.cards.filter(c => passes(c, deck.filters) && (st.mode !== "pp" || c.pp));
   }
 
@@ -181,7 +214,7 @@
     const box = $("controls"); box.innerHTML = "";
     const row = (key, label) => { const r = document.createElement("div"); r.className = "fc-row"; r.id = "row-"+key;
       r.innerHTML = `<span class="label">${esc(label)}</span>`; box.appendChild(r); };
-    row("study", "Study");
+    if(!st.all) row("study", "Study");
     if(deck.modes.length > 1) row("mode", "Mode");
     deck.filters.forEach(f => { if(!st.hidden.has(f.field)) row(f.field, f.label); });
     row("timer", "Timer");
@@ -202,8 +235,10 @@
       }));
     });
     const due = reviewCounts();
-    chip($("row-study"), "Practice", st.study === "practice", () => setStudy("practice"));
-    chip($("row-study"), due.due + due.fresh ? `Review · ${due.due} due${due.fresh ? `, ${due.fresh} new` : ""}` : "Review · nothing due", st.study === "review", () => setStudy("review"));
+    if(!st.all){
+      chip($("row-study"), due.due + due.fresh ? `Spaced repetition · ${due.due} due${due.fresh ? `, ${due.fresh} new` : ""}` : "Spaced repetition · nothing due", st.study === "review", () => setStudy("review"));
+      chip($("row-study"), "Practice", st.study === "practice", () => setStudy("practice"));
+    }
     if(deck.modes.length > 1)
       deck.modes.forEach(m => chip($("row-mode"), (deck.modeLabels && deck.modeLabels[m]) || MODE_LABELS[m], st.mode === m, () => {
         st.mode = m; save(); renderControls(); render();   // same cards and history in either direction
@@ -216,7 +251,7 @@
 
   // One line describing the current settings, shown when the Settings panel is collapsed
   function summarise(){
-    const parts = [st.study === "review" ? "Review" : "Practice"];
+    const parts = [st.study === "review" ? "Spaced repetition" : "Practice"];
     if(deck.modes.length > 1) parts.push((deck.modeLabels && deck.modeLabels[st.mode]) || MODE_LABELS[st.mode]);
     deck.filters.forEach(f => {
       if(st.hidden.has(f.field) || st.sel[f.field].size === f.values.length) return;
@@ -228,6 +263,7 @@
   }
 
   function save(){
+    if(st.all){ store.set("fc:all", { mode: st.mode }); return; }
     if(st.preset) return;
     const sel = {}; for(const k in st.sel) sel[k] = [...st.sel[k]];
     store.set("fc:"+deck.id, { sel, mode: st.mode });
@@ -245,6 +281,7 @@
   const cap = s => s ? s[0].toUpperCase() + s.slice(1) : "";
 
   function faces(c){
+    const dk = deckOf(c);
     const la = `<div class="fc-main la" lang="la">${formHTML(c)}</div>`;
     const en = `<div class="fc-main en">${esc(c.en)}</div>`;
     const parseText = c.parse || [c.pn, c.tl].filter(Boolean).join(" · ");
@@ -254,12 +291,12 @@
     const also = c.also ? `<div class="fc-also">Same spelling: ${esc(c.also)}</div>` : "";
     const note = c.note ? `<div class="fc-also">${esc(c.note)}</div>` : "";
     // Forms that need parsing (verb and noun cards) get a prompt on the Latin side
-    const cue = c.pn ? `<div class="fc-sub">${deck.cue || (deck.allReadings ? "Translate: give every possible case" : "Translate and parse")}</div>` : "";
+    const cue = c.pn ? `<div class="fc-sub">${dk.cue || (dk.allReadings ? "Translate: give every possible case" : "Translate and parse")}</div>` : "";
     switch(st.mode){
       case "le": {
-        if(deck.allReadings){
+        if(dk.allReadings){
           // every card of the same word with the same spelling (e.g. equī = gen. sg. AND nom. pl.)
-          const f = deck.allReadings, same = deck.cards.filter(x => x.la === c.la && x[f] === c[f]);
+          const f = dk.allReadings, same = dk.cards.filter(x => x.la === c.la && x[f] === c[f]);
           const head = same.length > 1 ? `<div class="fc-also">${same.length} possibilities</div>` : "";
           return [la + cue, la + head +
                   `<ul class="fc-readings">${same.map(x => `<li><b>${esc(x.pn)}</b>${x.tl ? ` · ${esc(x.tl)}` : ""} <span>— ${esc(x.en)}</span></li>`).join("")}</ul>`];
@@ -274,8 +311,8 @@
 
   function renderStatus(){
     if(st.study === "review"){
-      const db = srs.load(), left = st.order.length, fresh = st.order.filter(c => !db.cards[srs.key(deck.id, c)]).length;
-      $("count").textContent = st.finished ? "Review complete" : `${left - fresh} due · ${fresh} new`;
+      const db = srs.load(), left = st.order.length, fresh = st.order.filter(c => !db.cards[cardKey(c)]).length;
+      $("count").textContent = st.finished ? "Session complete" : `${left - fresh} due · ${fresh} new`;
       $("score").textContent = `Reviewed: ${st.reviewed}`;
       $("prog").style.width = (st.reviewed + left) ? (st.reviewed / (st.reviewed + left) * 100) + "%" : "100%";
       return;
@@ -298,12 +335,12 @@
       showButtons(null);
       $("front").innerHTML = '<p class="fc-empty">No cards match these filters.</p>'; $("back").innerHTML = ""; return;
     }
-    const c = d[st.i], m = deck.meta || { front:["",""], back:["",""] };
+    const c = d[st.i], dk = deckOf(c), m = dk.meta || { front:["",""], back:["",""] };
     showButtons(c);
     const [f, b] = faces(c);
-    $("front").innerHTML = meta(m.front.map(t => fillMeta(t, c))) + f +
+    $("front").innerHTML = meta(m.front.map(t => fillMeta(t, c, dk))) + f +
       (st.timer ? '<div class="fc-timer"><i id="timer-bar"></i></div>' : '<span class="fc-hint">tap to flip</span>');
-    $("back").innerHTML  = meta(m.back.map(t => fillMeta(t, c))) + b;
+    $("back").innerHTML  = meta(m.back.map(t => fillMeta(t, c, dk))) + b;
     sizeCard(card);
     if(st.timer && !st.flipped) startTimer();
   }
@@ -377,7 +414,7 @@
   // Due / new counts for the current filters and direction (shown on the Review chip)
   function reviewCounts(){
     const db = srs.load(), day = srs.today(); let due = 0, fresh = 0;
-    currentDeck().forEach(c => { const e = db.cards[srs.key(deck.id, c)]; if(!e) fresh++; else if(srs.isDue(e, day)) due++; });
+    currentDeck().forEach(c => { const e = db.cards[cardKey(c)]; if(!e) fresh++; else if(srs.isDue(e, day)) due++; });
     return { due, fresh: Math.max(0, Math.min(fresh, srs.newLeft(db, slot(), day))) };
   }
 
@@ -385,7 +422,7 @@
   function startReview(){
     const db = srs.load(), day = srs.today(), learning = [], due = [], fresh = [];
     currentDeck().forEach(c => {
-      const e = db.cards[srs.key(deck.id, c)];
+      const e = db.cards[cardKey(c)];
       if(!e) fresh.push(c); else if(e.s === "l") learning.push(c); else if(e.d <= day) due.push(c);
     });
     st.order = [...learning, ...shuffle(due), ...fresh.slice(0, Math.max(0, srs.newLeft(db, slot(), day)))];
@@ -395,7 +432,7 @@
 
   function grade(g){
     if(st.study !== "review" || st.finished || !st.order.length || !st.flipped) return;
-    const db = srs.load(), day = srs.today(), c = st.order[0], k = srs.key(deck.id, c);
+    const db = srs.load(), day = srs.today(), c = st.order[0], k = cardKey(c);
     const res = srs.answer(db.cards[k], g, day);
     db.cards[k] = res.entry;
     if(res.wasNew) srs.countNew(db, slot(), day);
@@ -408,13 +445,14 @@
 
   function renderReviewDone(){
     const db = srs.load(), day = srs.today();
-    const days = currentDeck().map(c => db.cards[srs.key(deck.id, c)]).filter(e => e && e.s === "r").map(e => e.d);
+    const days = currentDeck().map(c => db.cards[cardKey(c)]).filter(e => e && e.s === "r").map(e => e.d);
     const next = days.length ? Math.min(...days) : null, nextN = days.filter(d => d === next).length;
     const when = next === null ? "" : next <= day ? "Some cards are due again now." : next === day + 1 ? `Next review: tomorrow (${nextN} card${nextN > 1 ? "s" : ""}).` : `Next review: in ${next - day} days (${nextN} card${nextN > 1 ? "s" : ""}).`;
     $("done-title").textContent = st.reviewed ? "Optimē!" : "Nothing due";
-    $("done-text").textContent = (st.reviewed ? `You reviewed ${st.reviewed} card${st.reviewed > 1 ? "s" : ""}. ` : "You're all caught up on these cards. ") + when;
+    $("done-text").textContent = (st.reviewed ? `You reviewed ${st.reviewed} card${st.reviewed > 1 ? "s" : ""}. ` : "You're all caught up on these cards. ") + when +
+      (st.all ? " New cards come from studying a deck." : "");
     $("review").hidden = true;
-    $("restart").textContent = "Practice instead";
+    $("restart").textContent = st.all ? "Back to the decks" : "Practice instead";
   }
 
   function setStudy(v){ st.study = v; store.set("fc:study:"+deck.id, v); reset(); }
@@ -427,7 +465,7 @@
     $("nav-grade").hidden = !review || !st.flipped || !c;
     $("flip").hidden = review && st.flipped;
     if(review && c && st.flipped){
-      const labels = srs.preview(srs.load().cards[srs.key(deck.id, c)], srs.today());
+      const labels = srs.preview(srs.load().cards[cardKey(c)], srs.today());
       labels.forEach((t, i) => $("g"+(i+1)).textContent = t);
     }
   }
@@ -454,7 +492,7 @@
     $("again").onclick = () => mark(false);
     $("knew").onclick = () => mark(true);
     $("shuffle").onclick = doShuffle;
-    $("restart").onclick = () => st.study === "review" ? setStudy("practice") : startRound(currentDeck());
+    $("restart").onclick = () => st.all ? location.href = "./" : st.study === "review" ? setStudy("practice") : startRound(currentDeck());
     [1,2,3,4].forEach(g => $("grade"+g).onclick = () => grade(g));
     document.addEventListener("keydown", e => {
       const tag = e.target.tagName;

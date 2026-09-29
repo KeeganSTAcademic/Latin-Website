@@ -23,9 +23,13 @@
       <h1>Flashcards</h1>
       <p class="subtitle">Choose a deck</p>
     </header>
+    <div class="panel fc-srs-start">
+      <a class="btn primary" id="srs-start" href="?review=all" hidden>Spaced repetition: <span id="srs-start-n"></span> due today, from all decks →</a>
+      <p class="fc-sub" id="srs-idle"></p>
+    </div>
     <details class="panel fc-srs" id="srs-panel">
       <summary><span>Your progress</span> <span class="fc-srs-due" id="srs-due"></span></summary>
-      <p>Choose <b>Review</b> in any deck to study with spaced repetition: each card comes back just before you'd forget it. Your progress is saved in this browser only.</p>
+      <p>Decks open in <b>spaced repetition</b>: each card comes back just before you'd forget it. The button above gathers everything due from every deck. Your progress is saved in this browser only.</p>
       <p class="fc-sub" id="srs-stats"></p>
       <div class="fc-nav">
         <button class="btn" id="srs-export" type="button">Download progress file</button>
