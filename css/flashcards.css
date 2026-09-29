@@ -79,3 +79,7 @@
 /* noun decks: every possible reading of a form */
 .fc-readings{list-style:none;padding:0;margin:0;font-size:18px;line-height:1.6}
 .fc-readings span{color:var(--muted);font-size:16px}
+
+/* a table written into the paradigm note (e.g. the adverb list) */
+.fc-grid.fc-adv{display:block;color:var(--ink)}
+.fc-adv small{color:var(--muted);font-style:italic}

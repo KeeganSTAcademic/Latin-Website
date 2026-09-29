@@ -1122,5 +1122,73 @@
    "detail": "irregular plural",
    "form": "imp"
   }
- ]
+ ],
+ "views": {
+  "imp-act": {
+   "title": "Present Active Imperatives",
+   "subtitle": "amā, amāte · vidē, vidēte · mitte, mittite · cape, capite · audī, audīte, plus dīc, dūc, fac, fer",
+   "sel": {
+    "form": [
+     "imp"
+    ],
+    "voice": [
+     "act"
+    ]
+   },
+   "groups": [
+    "imp"
+   ]
+  },
+  "imp-pass": {
+   "title": "Present Passive Imperatives",
+   "subtitle": "amāre, amāminī · vidēre, vidēminī · mittere, mittiminī · capere, capiminī · audīre, audīminī",
+   "sel": {
+    "form": [
+     "imp"
+    ],
+    "voice": [
+     "pass"
+    ]
+   },
+   "groups": [
+    "imp"
+   ]
+  },
+  "inf-pres": {
+   "title": "Present Infinitives",
+   "subtitle": "Active and passive: amāre, amārī · mittere, mittī …",
+   "sel": {
+    "form": [
+     "inf-pres"
+    ]
+   },
+   "groups": [
+    "inf"
+   ]
+  },
+  "inf-perf": {
+   "title": "Perfect Infinitives",
+   "subtitle": "Active and passive: amāvisse, amātus esse …",
+   "sel": {
+    "form": [
+     "inf-perf"
+    ]
+   },
+   "groups": [
+    "inf"
+   ]
+  },
+  "inf-fut": {
+   "title": "Future Infinitives",
+   "subtitle": "Active and passive: amātūrus esse, amātum īrī …",
+   "sel": {
+    "form": [
+     "inf-fut"
+    ]
+   },
+   "groups": [
+    "inf"
+   ]
+  }
+ }
 }

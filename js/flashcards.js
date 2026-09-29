@@ -27,7 +27,7 @@
       decks.forEach(d => (groups[d.course] = groups[d.course] || []).push(d));
       $("deck-groups").innerHTML = Object.entries(groups).map(([course, ds]) =>
         `<h2 class="label deck-group">${esc(course)}</h2><ul class="deck-list">` +
-        ds.map(d => `<li><a class="panel" href="?deck=${encodeURIComponent(d.id)}"><span class="t">${esc(d.title)}</span><span class="n">${d.count} cards</span></a></li>`).join("") +
+        ds.map(d => `<li><a class="panel" href="?deck=${encodeURIComponent(d.id)}${d.view ? "&view="+encodeURIComponent(d.view) : ""}"><span class="t">${esc(d.title)}</span><span class="n">${d.count} cards</span></a></li>`).join("") +
         `</ul>`).join("");
     }catch(e){ $("deck-groups").innerHTML = `<p class="callout">Couldn't load the deck list. (${esc(e.message)})</p>`; }
   }
@@ -66,6 +66,27 @@
     });
     const m = param("mode"); if(m && deck.modes.includes(m)){ st.mode = m; st.preset = true; }
 
+    // A view is a named slice of the deck with its own entry on the deck list (?deck=participles&view=pres).
+    // It fixes some filters, hides their rows, and hides rows that none of its cards use (adverbs have no gender).
+    st.hidden = new Set();
+    const vname = param("view"), view = vname && deck.views && deck.views[vname];
+    if(view){
+      st.view = view; st.preset = true;
+      Object.entries(view.sel || {}).forEach(([field, vals]) => {
+        const f = filterOf(field); if(!f) return;
+        st.sel[field] = new Set(f.values.map(v => v.v).filter(v => vals.includes(v)));
+        st.hidden.add(field);
+      });
+      const fixed = deck.filters.filter(f => st.hidden.has(f.field));
+      const inView = deck.cards.filter(c => passes(c, fixed));
+      deck.filters.forEach(f => { if(!inView.some(c => c[f.field] !== undefined)) st.hidden.add(f.field); });
+      st.inView = inView;   // used to hide chips that would match nothing in this view
+      document.title = view.title + " · Flashcards";
+      $("title").textContent = view.title;
+      $("subtitle").textContent = view.subtitle || deck.subtitle || "";
+      if(view.paradigmNote !== undefined) $("paradigm-note").innerHTML = view.paradigmNote;
+    }
+
     buildControlRows();
     wireEvents();
     reset();
@@ -93,16 +114,17 @@
     const row = (key, label) => { const r = document.createElement("div"); r.className = "fc-row"; r.id = "row-"+key;
       r.innerHTML = `<span class="label">${esc(label)}</span>`; box.appendChild(r); };
     if(deck.modes.length > 1) row("mode", "Mode");
-    deck.filters.forEach(f => row(f.field, f.label));
+    deck.filters.forEach(f => { if(!st.hidden.has(f.field)) row(f.field, f.label); });
     row("timer", "Timer");
   }
 
   function renderControls(){
     document.querySelectorAll("#controls .chip").forEach(c => c.remove());
     deck.filters.forEach(f => {
+      if(st.hidden.has(f.field)) return;
       const r = $("row-"+f.field), all = f.values.map(v => v.v), set = st.sel[f.field], isAll = set.size === all.length;
       chip(r, "All", isAll, () => { st.sel[f.field] = new Set(all); reset(); });
-      f.values.forEach(v => chip(r, v.label, !isAll && set.has(v.v), () => {
+      f.values.forEach(v => (st.inView && !st.inView.some(c => c[f.field] === v.v)) || chip(r, v.label, !isAll && set.has(v.v), () => {
         const s = st.sel[f.field];
         if(s.size === all.length) st.sel[f.field] = new Set([v.v]);   // first click narrows to one
         else if(s.has(v.v) && s.size > 1) s.delete(v.v);
@@ -216,7 +238,8 @@
       : filterOf(P.group) ? filterOf(P.group).values.map(v => v.v)
       : [...new Set(cards.map(c => c[P.group]).filter(v => v !== undefined))];
     const tables = filterOf(P.table).values;
-    $("paradigm").innerHTML = groups.map(g => {
+    const shown = st.view && st.view.groups ? groups.filter(g => st.view.groups.includes(g)) : groups;
+    $("paradigm").innerHTML = shown.map(g => {
       const inG = cards.filter(c => g === null || c[P.group] === g);
       if(!inG.length) return "";
       const head = g !== null ? `<h3 class="fc-tensehead">${esc((P.headings && P.headings[g]) || g)}</h3>` : "";

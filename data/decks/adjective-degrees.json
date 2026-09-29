@@ -3,8 +3,8 @@
  "title": "Adjectives & Adverbs: Degrees",
  "course": "Adjectives & Adverbs",
  "subtitle": "clārus, clāra, clārum (clear): positive, comparative and superlative",
- "intro": "Adjectives and adverbs have three <b>degrees</b>: positive (<i>clear</i>), comparative (<i>clearer</i>) and superlative (<i>clearest</i>). All three are built on the stem <b>clār-</b>.<ul><li><b>Positive:</b> clārus, clāra, clārum, declined like the 1st and 2nd declensions (equus, puella, forum).</li><li><b>Comparative:</b> stem + <span class=\"end\">-ior</span> (masculine and feminine) / <span class=\"end\">-ius</span> (neuter), then <b>3rd-declension</b> endings on the stem clāriōr-: clāriōris, clāriōrī, clāriōrem, clāriōre; plural clāriōrēs, clāriōrum, clāriōribus. Neuter plural nominative and accusative: clāriōra.</li><li><b>Superlative:</b> stem + <span class=\"end\">-issimus, -issima, -issimum</span>, declined like clārus.</li></ul><p style=\"margin:8px 0 0\"><b>Adverbs:</b> clār<b>ē</b> (clearly), clār<b>ius</b> (more clearly), clār<b>issimē</b> (most clearly, very clearly).</p><p style=\"margin:8px 0 0\"><b>Watch out:</b> <b>clārius</b> is both the neuter comparative adjective and the comparative adverb. Context decides. The comparative can also mean “rather clear” or “too clear”, and the superlative “very clear”.</p>",
- "paradigmNote": "Adverbs: clārē · clārius · clārissimē",
+ "intro": "Adjectives and adverbs have three <b>degrees</b>: positive (<i>clear</i>), comparative (<i>clearer</i>) and superlative (<i>clearest</i>). All three are built on the stem <b>clār-</b>.<ul><li><b>Positive:</b> clārus, clāra, clārum, declined like the 1st and 2nd declensions (equus, puella, forum).</li><li><b>Comparative:</b> stem + <span class=\"end\">-ior</span> (masculine and feminine) / <span class=\"end\">-ius</span> (neuter), then <b>3rd-declension</b> endings on the stem clāriōr-: clāriōris, clāriōrī, clāriōrem, clāriōre; plural clāriōrēs, clāriōrum, clāriōribus. Neuter plural nominative and accusative: clāriōra.</li><li><b>Superlative:</b> stem + <span class=\"end\">-issimus, -issima, -issimum</span>, declined like clārus.</li></ul><p style=\"margin:8px 0 0\"><b>Adverbs:</b></p><ul><li>From 1st/2nd-declension adjectives: stem + <span class=\"end\">-ē</span>: clār<b>ē</b> (clearly).</li><li>From 3rd-declension adjectives: stem + <span class=\"end\">-iter</span>: fort<b>iter</b> (bravely), ācr<b>iter</b>, celer<b>iter</b>, fēlīc<b>iter</b>.</li><li>Comparative adverb = the neuter comparative adjective: clār<b>ius</b>, fort<b>ius</b>. Superlative: <span class=\"end\">-issimē</span> (clārissimē), or <span class=\"end\">-errimē</span> for adjectives in -er (ācerrimē, celerrimē).</li><li>Irregular: bene, melius, optimē · male, peius, pessimē · multum, plūs, plūrimum · magnopere, magis, maximē · parum, minus, minimē · facile, facilius, facillimē · saepe, saepius, saepissimē · diū, diūtius, diūtissimē.</li></ul><p style=\"margin:8px 0 0\"><b>Watch out:</b> <b>clārius</b> is both the neuter comparative adjective and the comparative adverb. Context decides. The comparative can also mean “rather clear” or “too clear”, and the superlative “very clear”.</p>",
+ "paradigmNote": "<div class=\"fc-grid fc-adv\"><div><h4>Adverbs</h4><table><thead><tr><th class=\"label\">From</th><th class=\"label\">Positive</th><th class=\"label\">Comparative</th><th class=\"label\">Superlative</th></tr></thead><tbody><tr><td><span lang=\"la\">clārus</span> <small>clear</small></td><td lang=\"la\">clārē</td><td lang=\"la\">clārius</td><td lang=\"la\">clārissimē</td></tr><tr><td><span lang=\"la\">fortis</span> <small>brave</small></td><td lang=\"la\">fortiter</td><td lang=\"la\">fortius</td><td lang=\"la\">fortissimē</td></tr><tr><td><span lang=\"la\">ācer</span> <small>sharp, fierce</small></td><td lang=\"la\">ācriter</td><td lang=\"la\">ācrius</td><td lang=\"la\">ācerrimē</td></tr><tr><td><span lang=\"la\">celer</span> <small>quick</small></td><td lang=\"la\">celeriter</td><td lang=\"la\">celerius</td><td lang=\"la\">celerrimē</td></tr><tr><td><span lang=\"la\">fēlīx</span> <small>lucky, happy</small></td><td lang=\"la\">fēlīciter</td><td lang=\"la\">fēlīcius</td><td lang=\"la\">fēlīcissimē</td></tr><tr><td><span lang=\"la\">bonus</span> <small>good</small></td><td lang=\"la\">bene</td><td lang=\"la\">melius</td><td lang=\"la\">optimē</td></tr><tr><td><span lang=\"la\">malus</span> <small>bad</small></td><td lang=\"la\">male</td><td lang=\"la\">peius</td><td lang=\"la\">pessimē</td></tr><tr><td><span lang=\"la\">multus</span> <small>much</small></td><td lang=\"la\">multum</td><td lang=\"la\">plūs</td><td lang=\"la\">plūrimum</td></tr><tr><td><span lang=\"la\">magnus</span> <small>great</small></td><td lang=\"la\">magnopere</td><td lang=\"la\">magis</td><td lang=\"la\">maximē</td></tr><tr><td><span lang=\"la\">parvus</span> <small>small</small></td><td lang=\"la\">parum</td><td lang=\"la\">minus</td><td lang=\"la\">minimē</td></tr><tr><td><span lang=\"la\">facilis</span> <small>easy</small></td><td lang=\"la\">facile</td><td lang=\"la\">facilius</td><td lang=\"la\">facillimē</td></tr><tr><td><span lang=\"la\">—</span> <small></small></td><td lang=\"la\">saepe</td><td lang=\"la\">saepius</td><td lang=\"la\">saepissimē</td></tr><tr><td><span lang=\"la\">—</span> <small></small></td><td lang=\"la\">diū</td><td lang=\"la\">diūtius</td><td lang=\"la\">diūtissimē</td></tr></tbody></table></div></div>",
  "filters": [
   {
    "field": "pos",
@@ -38,6 +38,24 @@
      "v": "sup",
      "label": "Superlative",
      "short": "superlative"
+    }
+   ]
+  },
+  {
+   "field": "atype",
+   "label": "Adverb type",
+   "values": [
+    {
+     "v": "reg",
+     "label": "-ē (clārē)"
+    },
+    {
+     "v": "third",
+     "label": "-iter (fortiter)"
+    },
+    {
+     "v": "irreg",
+     "label": "Irregular"
     }
    ]
   },
@@ -599,7 +617,8 @@
    "tag": "positive adverb · from clārus (clear)",
    "pos": "adv",
    "deg": "pos",
-   "detail": "positive adverb: stem + -ē"
+   "detail": "positive adverb: stem + -ē",
+   "atype": "reg"
   },
   {
    "la": "clārior",
@@ -1091,7 +1110,8 @@
    "tag": "comparative adverb · from clārus (clear)",
    "pos": "adv",
    "deg": "comp",
-   "detail": "comparative adverb: the same as the neuter comparative adjective (clārius)"
+   "detail": "comparative adverb: the same as the neuter comparative adjective (clārius)",
+   "atype": "reg"
   },
   {
    "la": "clārissimus",
@@ -1583,7 +1603,450 @@
    "tag": "superlative adverb · from clārus (clear)",
    "pos": "adv",
    "deg": "sup",
-   "detail": "superlative adverb: stem + -issimē"
+   "detail": "superlative adverb: stem + -issimē",
+   "atype": "reg"
+  },
+  {
+   "la": "fortiter",
+   "stem": "fort",
+   "end": "iter",
+   "en": "bravely",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · from fortis, forte (brave)",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "third",
+   "detail": "3rd-declension adjectives: stem + -iter"
+  },
+  {
+   "la": "fortius",
+   "stem": "fort",
+   "end": "ius",
+   "en": "more bravely",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · from fortis, forte (brave)",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "third",
+   "detail": "comparative adverb = neuter comparative adjective (-ius)"
+  },
+  {
+   "la": "fortissimē",
+   "stem": "fort",
+   "end": "issimē",
+   "en": "most bravely, very bravely",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · from fortis, forte (brave)",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "third",
+   "detail": "superlative: stem + -issimē"
+  },
+  {
+   "la": "ācriter",
+   "stem": "ācr",
+   "end": "iter",
+   "en": "fiercely, keenly",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · from ācer, ācris, ācre (sharp, fierce)",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "third",
+   "detail": "3rd-declension adjectives: stem + -iter"
+  },
+  {
+   "la": "ācrius",
+   "stem": "ācr",
+   "end": "ius",
+   "en": "more fiercely",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · from ācer, ācris, ācre (sharp, fierce)",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "third",
+   "detail": "comparative adverb = neuter comparative adjective (-ius)"
+  },
+  {
+   "la": "ācerrimē",
+   "stem": "ācer",
+   "end": "rimē",
+   "en": "most fiercely, very fiercely",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · from ācer, ācris, ācre (sharp, fierce)",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "third",
+   "detail": "adjectives in -er: -errimus → -errimē"
+  },
+  {
+   "la": "celeriter",
+   "stem": "celer",
+   "end": "iter",
+   "en": "quickly",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · from celer, celeris, celere (quick)",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "third",
+   "detail": "3rd-declension adjectives: stem + -iter"
+  },
+  {
+   "la": "celerius",
+   "stem": "celer",
+   "end": "ius",
+   "en": "more quickly",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · from celer, celeris, celere (quick)",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "third",
+   "detail": "comparative adverb = neuter comparative adjective (-ius)"
+  },
+  {
+   "la": "celerrimē",
+   "stem": "celer",
+   "end": "rimē",
+   "en": "most quickly, very quickly",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · from celer, celeris, celere (quick)",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "third",
+   "detail": "adjectives in -er: -errimus → -errimē"
+  },
+  {
+   "la": "fēlīciter",
+   "stem": "fēlīc",
+   "end": "iter",
+   "en": "luckily, happily",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · from fēlīx, fēlīcis (lucky, happy)",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "third",
+   "detail": "3rd-declension adjectives: stem + -iter"
+  },
+  {
+   "la": "fēlīcius",
+   "stem": "fēlīc",
+   "end": "ius",
+   "en": "more luckily",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · from fēlīx, fēlīcis (lucky, happy)",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "third",
+   "detail": "comparative adverb = neuter comparative adjective (-ius)"
+  },
+  {
+   "la": "fēlīcissimē",
+   "stem": "fēlīc",
+   "end": "issimē",
+   "en": "most luckily, very luckily",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · from fēlīx, fēlīcis (lucky, happy)",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "third",
+   "detail": "superlative: stem + -issimē"
+  },
+  {
+   "la": "bene",
+   "en": "well",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · from bonus (good)",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "irreg",
+   "detail": "irregular: bene, melius, optimē"
+  },
+  {
+   "la": "melius",
+   "en": "better",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · from bonus (good)",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "irreg",
+   "detail": "irregular: bene, melius, optimē"
+  },
+  {
+   "la": "optimē",
+   "en": "best, very well",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · from bonus (good)",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "irreg",
+   "detail": "irregular: bene, melius, optimē"
+  },
+  {
+   "la": "male",
+   "en": "badly",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · from malus (bad)",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "irreg",
+   "detail": "irregular: male, peius, pessimē"
+  },
+  {
+   "la": "peius",
+   "en": "worse",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · from malus (bad)",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "irreg",
+   "detail": "irregular: male, peius, pessimē"
+  },
+  {
+   "la": "pessimē",
+   "en": "worst, very badly",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · from malus (bad)",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "irreg",
+   "detail": "irregular: male, peius, pessimē"
+  },
+  {
+   "la": "multum",
+   "en": "much, a lot",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · from multus (much)",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "irreg",
+   "detail": "irregular: multum, plūs, plūrimum"
+  },
+  {
+   "la": "plūs",
+   "en": "more",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · from multus (much)",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "irreg",
+   "detail": "irregular: multum, plūs, plūrimum"
+  },
+  {
+   "la": "plūrimum",
+   "en": "most, very much",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · from multus (much)",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "irreg",
+   "detail": "irregular: multum, plūs, plūrimum"
+  },
+  {
+   "la": "magnopere",
+   "en": "greatly",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · from magnus (great)",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "irreg",
+   "detail": "irregular: magnopere, magis, maximē"
+  },
+  {
+   "la": "magis",
+   "en": "more, rather",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · from magnus (great)",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "irreg",
+   "detail": "irregular: magnopere, magis, maximē"
+  },
+  {
+   "la": "maximē",
+   "en": "most, especially",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · from magnus (great)",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "irreg",
+   "detail": "irregular: magnopere, magis, maximē"
+  },
+  {
+   "la": "parum",
+   "en": "too little, not enough",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · from parvus (small)",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "irreg",
+   "detail": "irregular: parum, minus, minimē"
+  },
+  {
+   "la": "minus",
+   "en": "less",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · from parvus (small)",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "irreg",
+   "detail": "irregular: parum, minus, minimē"
+  },
+  {
+   "la": "minimē",
+   "en": "least, not at all",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · from parvus (small)",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "irreg",
+   "detail": "irregular: parum, minus, minimē"
+  },
+  {
+   "la": "facile",
+   "en": "easily",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · from facilis (easy)",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "irreg",
+   "detail": "irregular: facile, facilius, facillimē"
+  },
+  {
+   "la": "facilius",
+   "en": "more easily",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · from facilis (easy)",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "irreg",
+   "detail": "irregular: facile, facilius, facillimē"
+  },
+  {
+   "la": "facillimē",
+   "en": "most easily, very easily",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · from facilis (easy)",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "irreg",
+   "detail": "irregular: facile, facilius, facillimē"
+  },
+  {
+   "la": "saepe",
+   "en": "often",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · saepe, saepius, saepissimē",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "irreg",
+   "detail": "irregular: saepe, saepius, saepissimē"
+  },
+  {
+   "la": "saepius",
+   "en": "more often",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · saepe, saepius, saepissimē",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "irreg",
+   "detail": "irregular: saepe, saepius, saepissimē"
+  },
+  {
+   "la": "saepissimē",
+   "en": "most often, very often",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · saepe, saepius, saepissimē",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "irreg",
+   "detail": "irregular: saepe, saepius, saepissimē"
+  },
+  {
+   "la": "diū",
+   "en": "for a long time",
+   "pn": "Adverb",
+   "tl": "positive adverb",
+   "tag": "positive adverb · diū, diūtius, diūtissimē",
+   "pos": "adv",
+   "deg": "pos",
+   "atype": "irreg",
+   "detail": "irregular: diū, diūtius, diūtissimē"
+  },
+  {
+   "la": "diūtius",
+   "en": "for a longer time",
+   "pn": "Adverb",
+   "tl": "comparative adverb",
+   "tag": "comparative adverb · diū, diūtius, diūtissimē",
+   "pos": "adv",
+   "deg": "comp",
+   "atype": "irreg",
+   "detail": "irregular: diū, diūtius, diūtissimē"
+  },
+  {
+   "la": "diūtissimē",
+   "en": "for a very long time",
+   "pn": "Adverb",
+   "tl": "superlative adverb",
+   "tag": "superlative adverb · diū, diūtius, diūtissimē",
+   "pos": "adv",
+   "deg": "sup",
+   "atype": "irreg",
+   "detail": "irregular: diū, diūtius, diūtissimē"
   }
- ]
+ ],
+ "views": {
+  "adj": {
+   "title": "Adjectives: Degrees",
+   "subtitle": "clārus → clārior → clārissimus, every case, number and gender",
+   "sel": {
+    "pos": [
+     "adj"
+    ]
+   },
+   "paradigmNote": ""
+  },
+  "adv": {
+   "title": "Adverbs: Degrees",
+   "subtitle": "clārē · fortiter · ācriter · celeriter · fēlīciter · bene · male · multum · magnopere · parum · facile · saepe · diū",
+   "sel": {
+    "pos": [
+     "adv"
+    ]
+   },
+   "groups": []
+  }
+ }
 }

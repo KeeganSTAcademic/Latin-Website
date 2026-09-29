@@ -2270,5 +2270,55 @@
    "num": "sg",
    "detail": "from the present stem"
   }
- ]
+ ],
+ "views": {
+  "pres": {
+   "title": "Present Active Participle",
+   "subtitle": "amāns, amantis (loving), declined in full, plus the other conjugations",
+   "sel": {
+    "part": [
+     "pres"
+    ]
+   },
+   "groups": [
+    "pres"
+   ]
+  },
+  "perf": {
+   "title": "Perfect Passive Participle",
+   "subtitle": "amātus, -a, -um ((having been) loved), declined in full, plus the other conjugations",
+   "sel": {
+    "part": [
+     "perf"
+    ]
+   },
+   "groups": [
+    "perf"
+   ]
+  },
+  "fut": {
+   "title": "Future Active Participle",
+   "subtitle": "amātūrus, -a, -um (about to love), declined in full, plus the other conjugations",
+   "sel": {
+    "part": [
+     "fut"
+    ]
+   },
+   "groups": [
+    "fut"
+   ]
+  },
+  "ger": {
+   "title": "Future Passive Participle (Gerundive)",
+   "subtitle": "amandus, -a, -um (to be loved), declined in full, plus the other conjugations",
+   "sel": {
+    "part": [
+     "ger"
+    ]
+   },
+   "groups": [
+    "ger"
+   ]
+  }
+ }
 }

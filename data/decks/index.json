@@ -19,9 +19,23 @@
  },
  {
   "id": "adjective-degrees",
-  "title": "Adjectives & Adverbs: Degrees",
+  "title": "Adjectives: positive, comparative, superlative",
   "course": "Adjectives & Adverbs",
-  "count": 93
+  "count": 90,
+  "view": "adj"
+ },
+ {
+  "id": "adjective-degrees",
+  "title": "Adverbs: positive, comparative, superlative",
+  "course": "Adjectives & Adverbs",
+  "count": 39,
+  "view": "adv"
+ },
+ {
+  "id": "adjective-degrees",
+  "title": "Adjectives & adverbs (mixed review)",
+  "course": "Adjectives & Adverbs",
+  "count": 129
  },
  {
   "id": "present-active",
@@ -133,14 +147,77 @@
  },
  {
   "id": "participles",
-  "title": "Participles",
+  "title": "Present Active Participle",
+  "course": "Verbs · Participles",
+  "count": 34,
+  "view": "pres"
+ },
+ {
+  "id": "participles",
+  "title": "Perfect Passive Participle",
+  "course": "Verbs · Participles",
+  "count": 34,
+  "view": "perf"
+ },
+ {
+  "id": "participles",
+  "title": "Future Active Participle",
+  "course": "Verbs · Participles",
+  "count": 34,
+  "view": "fut"
+ },
+ {
+  "id": "participles",
+  "title": "Future Passive Participle (Gerundive)",
+  "course": "Verbs · Participles",
+  "count": 34,
+  "view": "ger"
+ },
+ {
+  "id": "participles",
+  "title": "All participles (mixed review)",
   "course": "Verbs · Participles",
   "count": 136
  },
  {
   "id": "imperatives-infinitives",
-  "title": "Imperatives & Infinitives",
-  "course": "Verbs · Imperatives & Infinitives",
+  "title": "Present Active Imperatives",
+  "course": "Verbs · Imperatives",
+  "count": 18,
+  "view": "imp-act"
+ },
+ {
+  "id": "imperatives-infinitives",
+  "title": "Present Passive Imperatives",
+  "course": "Verbs · Imperatives",
+  "count": 10,
+  "view": "imp-pass"
+ },
+ {
+  "id": "imperatives-infinitives",
+  "title": "Present Infinitives",
+  "course": "Verbs · Infinitives",
+  "count": 10,
+  "view": "inf-pres"
+ },
+ {
+  "id": "imperatives-infinitives",
+  "title": "Perfect Infinitives",
+  "course": "Verbs · Infinitives",
+  "count": 10,
+  "view": "inf-perf"
+ },
+ {
+  "id": "imperatives-infinitives",
+  "title": "Future Infinitives",
+  "course": "Verbs · Infinitives",
+  "count": 10,
+  "view": "inf-fut"
+ },
+ {
+  "id": "imperatives-infinitives",
+  "title": "Imperatives & infinitives (mixed review)",
+  "course": "Verbs · Infinitives",
   "count": 58
  },
  {

@@ -82,6 +82,21 @@ The noun deck (`noun-declensions.json`) reuse the same card fields: `pn` holds t
 
 `participles.json` works like the adjective deck (`"allReadings": "part"`); only amō has full paradigms, so the other verbs' cards have no `pi` and stay out of the tables. `irregular-verbs.json` groups its tables by a `tm` (mood + tense) field that has no filter of its own: when a paradigm `group` has no matching filter, the groups come from the cards in order, titled by `headings`. A paradigm can also vary its rows, columns and row heading per group with `rowsBy`, `colsBy` and `rowLabelBy` (see `imperatives-infinitives.json`, whose imperative tables are Voice × Number and whose infinitive tables are Tense × Voice).
 
+### Views: one deck, several entries on the deck list
+
+A deck can define named slices in `"views"`, each shown as its own entry on the deck list:
+
+```jsonc
+"views": {
+  "perf": { "title": "Perfect Passive Participle", "subtitle": "…",
+            "sel": { "part": ["perf"] },      // filters this view fixes (their rows are hidden)
+            "groups": ["perf"],               // optional: which paradigm sections to show
+            "paradigmNote": "…" }             // optional: replaces the deck's note above the tables (HTML)
+}
+```
+
+In `index.json`, point an entry at the view with `"view": "perf"` (link: `flashcards/?deck=participles&view=perf`). A view also hides any filter row none of its cards use (adverbs have no gender) and any chip that would match nothing. The participles, imperatives & infinitives, and adjectives & adverbs decks use views; each also keeps a "mixed review" entry for the whole deck.
+
 ### Linking to part of a deck
 
 Any filter can be preset in the link, which is handy for assigning one piece of a bigger deck:
