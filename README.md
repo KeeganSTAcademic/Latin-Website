@@ -5,11 +5,12 @@ Hosted with GitHub Pages. There's no build step: edit a file, push, and the site
 
 ## Layout
 
+The pages have no site menu of their own: the Google Site is the menu, linking to (or embedding) each flashcard deck, grammar page and game. The lists at `flashcards/`, `grammar/` and `games/` are there for finding a page's address.
+
 ```
 index.html              site home
 css/site.css            shared theme (style guide v1): every page links this
 css/flashcards.css      flashcard player styles (also the games list)
-css/gamebar.css         the thin site bar at the top of each game and grammar page
 css/grammar.css         shared look of the grammar pages (grammar-verbs.css adds the verb parts)
 js/common.js            shared helpers (shuffle, safe storage, loading data)
 js/pagelist.js          the grouped list on the games and grammar pages
@@ -146,7 +147,7 @@ Each page holds its own content and script (the forms, notes and patterns are in
 
 ## Games
 
-Each game is one self-contained page in `games/` with its own look (style, data and code all in the file), so a game can be edited or replaced without touching anything else. They came from the Google Sites embeds; the only changes were a full page wrapper, the site bar at the top (`css/gamebar.css`, which borrows each game's colours), and pictures moved out of the code into `games/img/`. The Arena's start screen was also fixed on phones (its heading and button were cut off).
+Each game is one self-contained page in `games/` with its own look (style, data and code all in the file), so a game can be edited or replaced without touching anything else. They came from the Google Sites embeds; the only changes were a full page wrapper and pictures moved out of the code into `games/img/`. The Arena's start screen was also fixed on phones (its heading and button were cut off).
 
 | Page | Game | From the Google Site |
 |---|---|---|
@@ -156,13 +157,13 @@ Each game is one self-contained page in `games/` with its own look (style, data 
 | `arena-latin-3.html` | Arena Formarum, Latin III/IV form sheet | latin-iii/practice-games/gladiator-game |
 | `haruspex.html` | The Haruspex's Liver (uses of the subjunctive) | latin-iii/practice-games/haruspex-game |
 
-**Adding a game:** save it as `games/<name>.html`, add the site bar (copy the `<link … gamebar.css>` line and the `<nav class="gamebar">` line from any game), and add an entry to `data/games.json` (`page`, `title`, `group`, `about`); the list groups games by `group` in file order.
+**Adding a game:** save it as `games/<name>.html` and add an entry to `data/games.json` (`page`, `title`, `group`, `about`); the list groups games by `group` in file order.
 
 **Arena score reports are switched off.** The Google Sites version had a "Send my score" button (name and period, then email or a Google Form post). It's been removed until there's a safe way to collect scores: the end screen still shows the result, and nothing leaves the student's browser. The original code is still on the Google Site if it's needed as a starting point.
 
 ## Spaced repetition
 
-Decks open in **spaced repetition** by default (Settings → Study: Spaced repetition / Practice; a student's choice is remembered per deck). Practice is the free run-through (Got it / Still learning) and never touches the schedule. The scheduler is Anki-style, in `js/srs.js`:
+Decks open in **Standard** mode, the free run-through (Got it / Still learning), which never touches the schedule. Spaced repetition is opt-in: Settings → Study: Standard / Spaced repetition (a student's choice is remembered per deck; in links and code, Standard is `study=practice` and spaced repetition is `study=review`). The scheduler is Anki-style, in `js/srs.js`:
 
 - **In a deck:** a session is cards still being learned, then that deck's due cards (shuffled), then up to **15 new cards per deck per day** (`NEW_PER_DAY`). This is where new cards are learned.
 - **Across all decks:** the button at the top of the deck list (`flashcards/?review=all`) gathers every card due today from every deck the student has studied into one session. It doesn't introduce new cards, and each card keeps its own deck's formatting (readings, parse, notes).
@@ -174,7 +175,7 @@ Decks open in **spaced repetition** by default (Settings → Study: Spaced repet
 
 ## Search
 
-- **Deck list:** the search box narrows the decks by name and, below, lists matching cards from every deck, grouped by deck, best matches first. "Study these cards" opens that deck in Practice with the search applied (`flashcards/?deck=dcc-core&q=war&study=practice`), ignoring the student's saved filters for that visit.
+- **Deck list:** the search box narrows the decks by name and, below, lists matching cards from every deck, grouped by deck, best matches first. "Study these cards" opens that deck in Standard mode with the search applied (`flashcards/?deck=dcc-core&q=war&study=practice`), ignoring the student's saved filters for that visit.
 - **In a deck:** Settings → Search narrows the open deck, on top of the other settings. The search isn't saved.
 - Matching ignores macrons and capitals (`fero` finds ferō), and each word typed must start a word on the card (Latin, English, principal parts or parse), so `war` finds war and warfare but not toward. Esc clears the box.
 

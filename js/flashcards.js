@@ -86,7 +86,7 @@
     $("srs-start").hidden = !total;
     $("srs-start-n").textContent = total;
     $("srs-idle").hidden = !!total;
-    $("srs-idle").textContent = Object.keys(db.cards).length ? "Nothing due today. Open a deck to learn new cards." : "Open any deck to start: it uses spaced repetition, so each card comes back just before you'd forget it.";
+    $("srs-idle").textContent = Object.keys(db.cards).length ? "Nothing due today. To learn new cards, open a deck in Spaced repetition." : "Want spaced repetition? In any deck, choose Settings → Study → Spaced repetition: each card then comes back just before you'd forget it.";
     $("srs-stats").textContent = `${Object.keys(db.cards).length} cards studied with spaced repetition on this device.`;
   }
 
@@ -161,7 +161,7 @@
       document.querySelectorAll(".due").forEach(el => el.hidden = true);
       msg("Progress erased on this device."); $("srs-due").textContent = "Not started yet"; $("srs-stats").textContent = "";
       $("srs-start").hidden = true; $("srs-idle").hidden = false;
-      $("srs-idle").textContent = "Open any deck to start: it uses spaced repetition, so each card comes back just before you'd forget it.";
+      $("srs-idle").textContent = "Want spaced repetition? In any deck, choose Settings → Study → Spaced repetition: each card then comes back just before you'd forget it.";
     };
   }
 
@@ -202,7 +202,7 @@
     st.q = param("q") || "";
     if(st.q){ deck.filters.forEach(f => { if(!param(f.field)) st.sel[f.field] = new Set(f.values.map(v => v.v)); }); st.preset = true; }
     const m = param("mode"); if(m && deck.modes.includes(m)){ st.mode = m; st.preset = true; }
-    st.study = param("study") || store.get("fc:study:"+deck.id, "review");   // spaced repetition by default
+    st.study = param("study") || store.get("fc:study:"+deck.id, "practice");   // Standard by default; spaced repetition is opt-in
 
     // A view is a named slice of the deck with its own entry on the deck list (?deck=participles&view=pres).
     // It fixes some filters, hides their rows, and hides rows that none of its cards use (adverbs have no gender).
@@ -316,8 +316,8 @@
     });
     const due = reviewCounts();
     if(!st.all){
+      chip($("row-study"), "Standard", st.study === "practice", () => setStudy("practice"));
       chip($("row-study"), due.due + due.fresh ? `Spaced repetition · ${due.due} due${due.fresh ? `, ${due.fresh} new` : ""}` : "Spaced repetition · nothing due", st.study === "review", () => setStudy("review"));
-      chip($("row-study"), "Practice", st.study === "practice", () => setStudy("practice"));
     }
     if(deck.modes.length > 1)
       deck.modes.forEach(m => chip($("row-mode"), (deck.modeLabels && deck.modeLabels[m]) || MODE_LABELS[m], st.mode === m, () => {
@@ -331,7 +331,7 @@
 
   // One line describing the current settings, shown when the Settings panel is collapsed
   function summarise(){
-    const parts = [st.study === "review" ? "Spaced repetition" : "Practice"];
+    const parts = [st.study === "review" ? "Spaced repetition" : "Standard"];
     if(deck.modes.length > 1) parts.push((deck.modeLabels && deck.modeLabels[st.mode]) || MODE_LABELS[st.mode]);
     deck.filters.forEach(f => {
       if(st.hidden.has(f.field) || st.sel[f.field].size === f.values.length) return;
@@ -533,7 +533,7 @@
     $("done-text").textContent = (st.reviewed ? `You reviewed ${st.reviewed} card${st.reviewed > 1 ? "s" : ""}. ` : "You're all caught up on these cards. ") + when +
       (st.all ? " New cards come from studying a deck." : "");
     $("review").hidden = true;
-    $("restart").textContent = st.all ? "Back to the decks" : "Practice instead";
+    $("restart").textContent = st.all ? "Back to the decks" : "Standard mode instead";
   }
 
   function setStudy(v){ st.study = v; store.set("fc:study:"+deck.id, v); reset(); }
