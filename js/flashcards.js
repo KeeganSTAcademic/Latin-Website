@@ -56,7 +56,8 @@
         `</ul></details>`).join("");
       const secs = [...document.querySelectorAll(".deck-sec")];
       secs.forEach(d => remember(d, "group:" + d.dataset.course, true));
-      levels.render($("level-switch"), () => { applyVis(secs); $("search").dispatchEvent(new Event("input")); });
+      levels.render($("level-switch"), () => { applyVis(secs); $("search").dispatchEvent(new Event("input")); combine.sync(); });
+      const combine = wireCombine(decks);
       applyVis(secs);
       $("expand-all").onclick = () => secs.forEach(d => d.open = true);
       $("collapse-all").onclick = () => secs.forEach(d => d.open = false);
@@ -110,6 +111,44 @@
     });
     const none = !document.querySelector(".deck-list li:not([hidden])");
     $("level-empty").hidden = !none || !!$("search").value.trim();
+  }
+
+  /* Combine decks: a toggle turns the deck list into checkboxes; "Study together" opens ?decks=… */
+  function wireCombine(entries){
+    const btn = $("combine-toggle"), bar = $("combine-bar"), list = $("deck-groups");
+    const key = li => li.dataset.id + (li.dataset.view ? "." + li.dataset.view : "");
+    const picked = () => [...list.querySelectorAll("li.picked:not([hidden])")];
+    function sync(){
+      list.querySelectorAll("li.picked[hidden]").forEach(li => setPick(li, false));   // hidden by the level or a search
+      const ps = picked(), n = ps.reduce((t, li) => t + (+li.dataset.count || 0), 0);
+      $("combine-n").textContent = ps.length ? `${ps.length} deck${ps.length > 1 ? "s" : ""} · ${n} cards` : "Tick the decks to study together";
+      const go = $("combine-go");
+      go.hidden = ps.length < 1;
+      go.href = "?decks=" + ps.map(key).join(",");
+    }
+    function setPick(li, on){ li.classList.toggle("picked", on); const cb = li.querySelector(".pick"); cb.checked = on; }
+    list.querySelectorAll(".deck-list li").forEach(li => {
+      const e = entries.find(d => d.id === li.dataset.id && (d.view || "") === li.dataset.view);
+      li.dataset.count = e ? e.count : 0;
+      const cb = document.createElement("input");
+      cb.type = "checkbox"; cb.className = "pick"; cb.setAttribute("aria-label", "Combine: " + li.querySelector(".t").textContent);
+      cb.onchange = () => { setPick(li, cb.checked); sync(); };
+      li.prepend(cb);
+      li.querySelector("a").addEventListener("click", ev => {
+        if(!document.body.classList.contains("combining")) return;
+        ev.preventDefault(); setPick(li, !li.classList.contains("picked")); sync();
+      });
+    });
+    function setMode(on){
+      document.body.classList.toggle("combining", on);
+      btn.setAttribute("aria-pressed", on); btn.textContent = on ? "Done combining" : "Combine decks";
+      bar.hidden = !on;
+      if(!on) list.querySelectorAll("li.picked").forEach(li => setPick(li, false));
+      sync();
+    }
+    btn.onclick = () => setMode(!document.body.classList.contains("combining"));
+    $("combine-clear").onclick = () => { list.querySelectorAll("li.picked").forEach(li => setPick(li, false)); sync(); };
+    return { sync };
   }
 
   /* Search on the deck list: narrows the decks by title and lists matching words from every deck */
@@ -259,6 +298,42 @@
     reset();
   }
 
+  /* ---------- several decks studied together (?decks=perfect-active,participles.perf) ---------- */
+  // Each item is a deck id, or deck.view for one view of a deck. Cards keep their own deck's
+  // formatting and spaced-repetition history; the chosen level still narrows mixed decks (data/levels.json).
+  async function loadCombined(spec){
+    await levels.load("../");
+    const items = spec.split(",").map(x => x.trim()).filter(Boolean).map(x => { const [id, view] = x.split("."); return { id, view }; });
+    const files = {}, pool = [], titles = [];
+    for(const it of items){
+      let d = files[it.id];
+      if(!d){
+        try{ d = files[it.id] = await loadJSON(DATA+encodeURIComponent(it.id)+".json"); }catch(e){ continue; }
+        d.cards.forEach((c, i) => { c._i = d.id + ":" + i; c._deck = d; });
+        if(d.lookalikes) markLookalikes(d.cards);
+      }
+      const v = it.view && d.views && d.views[it.view];
+      const sel = { ...((v && v.sel) || {}) };
+      new URLSearchParams(levels.linkExtra("flashcards", [v && it.id + "/" + it.view, it.id])).forEach((val, field) => {
+        const f = d.filters.find(f => f.field === field);
+        sel[field] = val.split(",").map(x => { const hit = f && f.values.find(y => String(y.v) === x); return hit ? hit.v : x; });
+      });
+      d.cards.forEach(c => { if(Object.entries(sel).every(([f, vals]) => c[f] === undefined || vals.includes(c[f])) && !pool.includes(c)) pool.push(c); });
+      titles.push(v ? v.title : d.title);
+    }
+    if(!pool.length){ $("player").innerHTML = `<p class="callout">No cards in that combination. <a href="./">See all decks</a>.</p>`; return; }
+    deck = { id:"combo", title:"Combined decks", modes:["le","el"], filters:[], cards:[] };
+    const saved = store.get("fc:combo", {});
+    st = { combo:true, pool: shuffle(pool), sel:{}, hidden:new Set(), study: param("study") || store.get("fc:study:combo", "practice"),
+           mode: ["le","el"].includes(saved.mode) ? saved.mode : "le",
+           timer: store.get("fc:timer", 0), order:[], i:0, flipped:false, known:{}, finished:false };
+    document.title = "Combined decks · Flashcards";
+    $("title").textContent = titles.length > 1 ? `${titles.length} decks combined` : titles[0];
+    $("subtitle").textContent = titles.join(" · ");
+    remember($("settings"), "settings", wide());
+    buildControlRows(); wireEvents(); reset();
+  }
+
   /* ---------- spaced repetition across every deck (?review=all) ---------- */
   async function loadAllReview(){
     const db = srs.load(), day = srs.today();
@@ -298,7 +373,7 @@
   const passes = (c, fields) => fields.every(f => c[f.field] === undefined || st.sel[f.field].has(c[f.field]));
 
   function currentDeck(){
-    if(st.all) return st.pool;
+    if(st.all || st.combo) return st.pool;
     const ts = terms(st.q);
     return deck.cards.filter(c => passes(c, deck.filters) && (st.mode !== "pp" || c.pp) && (!ts.length || matches(c, ts)));
   }
@@ -308,12 +383,12 @@
     const box = $("controls"); box.innerHTML = "";
     const row = (key, label) => { const r = document.createElement("div"); r.className = "fc-row"; r.id = "row-"+key;
       r.innerHTML = `<span class="label">${esc(label)}</span>`; box.appendChild(r); };
-    if(!st.all) row("search", "Search");
+    if(!st.all && !st.combo) row("search", "Search");
     if(!st.all) row("study", "Study");
     if(deck.modes.length > 1) row("mode", "Mode");
     deck.filters.forEach(f => { if(!st.hidden.has(f.field)) row(f.field, f.label); });
     row("timer", "Timer");
-    if(!st.all){
+    if(!st.all && !st.combo){
       // search this deck: Latin, English, principal parts or parse
       const inp = document.createElement("input");
       inp.type = "search"; inp.id = "fc-q"; inp.className = "fc-q"; inp.value = st.q;
@@ -369,7 +444,7 @@
   }
 
   function save(){
-    if(st.all){ store.set("fc:all", { mode: st.mode }); return; }
+    if(st.all || st.combo){ store.set(st.all ? "fc:all" : "fc:combo", { mode: st.mode }); return; }
     if(st.preset) return;
     const sel = {}; for(const k in st.sel) sel[k] = [...st.sel[k]];
     store.set("fc:"+deck.id, { sel, mode: st.mode });
@@ -515,13 +590,20 @@
   function stopTimer(){ if(timerId){ clearTimeout(timerId); timerId = null; } }
 
   /* ---------- spaced repetition (Review) ---------- */
-  const slot = () => deck.id;
+  // new cards are rationed per deck (NEW_PER_DAY each), also in a combined session
+  const slotOf = c => deckOf(c).id;
+  function freshAllowance(db, day, fresh){
+    const left = {};
+    const picked = fresh.filter(c => { const s = slotOf(c); if(left[s] === undefined) left[s] = srs.newLeft(db, s, day); return left[s]-- > 0; });
+    return st.combo ? shuffle(picked) : picked;
+  }
 
   // Due / new counts for the current filters and direction (shown on the Review chip)
   function reviewCounts(){
     const db = srs.load(), day = srs.today(); let due = 0, fresh = 0;
     currentDeck().forEach(c => { const e = db.cards[cardKey(c)]; if(!e) fresh++; else if(srs.isDue(e, day)) due++; });
-    return { due, fresh: Math.max(0, Math.min(fresh, srs.newLeft(db, slot(), day))) };
+    const fr = []; currentDeck().forEach(c => { if(!db.cards[cardKey(c)]) fr.push(c); });
+    return { due, fresh: freshAllowance(db, day, fr).length };
   }
 
   // Queue: cards still being learned, then due reviews (shuffled), then today's allowance of new cards in deck order
@@ -531,7 +613,7 @@
       const e = db.cards[cardKey(c)];
       if(!e) fresh.push(c); else if(e.s === "l") learning.push(c); else if(e.d <= day) due.push(c);
     });
-    st.order = [...learning, ...shuffle(due), ...fresh.slice(0, Math.max(0, srs.newLeft(db, slot(), day)))];
+    st.order = [...learning, ...shuffle(due), ...freshAllowance(db, day, fresh)];
     st.i = 0; st.flipped = false; st.reviewed = 0; st.finished = !st.order.length;
     render();
   }
@@ -541,7 +623,7 @@
     const db = srs.load(), day = srs.today(), c = st.order[0], k = cardKey(c);
     const res = srs.answer(db.cards[k], g, day);
     db.cards[k] = res.entry;
-    if(res.wasNew) srs.countNew(db, slot(), day);
+    if(res.wasNew) srs.countNew(db, slotOf(c), day);
     srs.save(db);
     st.order.shift(); st.reviewed++;
     if(res.again) st.order.splice(Math.min(st.order.length, g === 1 ? 3 : 6), 0, c);   // comes back a few cards later
@@ -617,5 +699,5 @@
   }
 
   const id = param("deck");
-  if(param("review") === "all") loadAllReview(); else if(id) loadDeck(id); else showPicker();
+  if(param("decks")) loadCombined(param("decks")); else if(param("review") === "all") loadAllReview(); else if(id) loadDeck(id); else showPicker();
 })();

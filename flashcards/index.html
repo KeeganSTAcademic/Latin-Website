@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
 <link rel="stylesheet" href="../css/site.css?v=202610011900">
-<link rel="stylesheet" href="../css/flashcards.css?v=202610011900">
+<link rel="stylesheet" href="../css/flashcards.css?v=202610012300">
 </head>
 <body>
 
@@ -40,9 +40,13 @@
       <input type="search" id="search" placeholder="Search decks and words: Latin or English" aria-label="Search decks and words" autocomplete="off">
     </div>
     <div id="search-results" class="fc-results" hidden></div>
-    <p class="fc-sub fc-allgroups"><button type="button" class="linkbtn" id="expand-all">Expand all</button> · <button type="button" class="linkbtn" id="collapse-all">Collapse all</button></p>
+    <p class="fc-sub fc-allgroups"><button type="button" class="chip" id="combine-toggle" aria-pressed="false">Combine decks</button> <button type="button" class="linkbtn" id="expand-all">Expand all</button> · <button type="button" class="linkbtn" id="collapse-all">Collapse all</button></p>
     <div id="deck-groups"></div>
     <p class="level-empty" id="level-empty" hidden>No decks for this level yet.</p>
+    <div class="panel fc-combine-bar" id="combine-bar" role="region" aria-label="Combine decks" hidden>
+      <span id="combine-n" aria-live="polite"></span>
+      <span class="fc-combine-btns"><button type="button" class="btn" id="combine-clear">Clear</button> <a class="btn primary" id="combine-go" hidden>Study together →</a></span>
+    </div>
   </section>
 
   <!-- Player -->
@@ -117,6 +121,6 @@
 <script src="../js/common.js?v=202610011900"></script>
 <script src="../js/srs.js?v=202610011900"></script>
 <script src="../js/levels.js?v=202610012100"></script>
-<script src="../js/flashcards.js?v=202610011900"></script>
+<script src="../js/flashcards.js?v=202610012300"></script>
 </body>
 </html>

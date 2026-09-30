@@ -111,7 +111,7 @@ A deck can define named slices in `"views"`, each shown as its own entry on the 
 }
 ```
 
-In `index.json`, point an entry at the view with `"view": "perf"` (link: `flashcards/?deck=participles&view=perf`). A view also hides any filter row none of its cards use (adverbs have no gender) and any chip that would match nothing. The participles, imperatives & infinitives, and adjectives & adverbs decks use views; each also keeps a "mixed review" entry for the whole deck.
+In `index.json`, point an entry at the view with `"view": "perf"` (link: `flashcards/?deck=participles&view=perf`). A view also hides any filter row none of its cards use (adverbs have no gender) and any chip that would match nothing. The participles, imperatives & infinitives, and adjectives & adverbs decks use views. There are no "mixed review" entries on the list: students build their own mixes with **Combine decks** (below). The whole-deck links still work (`flashcards/?deck=participles`), as do the old Incomplete/Complete Passive decks (`?deck=complete-passive`), which are just off the list.
 
 ### Linking to part of a deck
 
@@ -162,6 +162,14 @@ Each game is one self-contained page in `games/` with its own look (style, data 
 
 **Arena score reports are switched off.** The Google Sites version had a "Send my score" button (name and period, then email or a Google Form post). It's been removed until there's a safe way to collect scores: the end screen still shows the result, and nothing leaves the student's browser. The original code is still on the Google Site if it's needed as a starting point.
 
+## Combining decks
+
+On the deck list, **Combine decks** turns every deck into a checkbox. Tick any mix (Perfect Active + Perfect Passive + Pluperfect Subjunctive, say), then **Study together →**. The combined session shuffles the cards and offers Standard or Spaced repetition, Latin → English or English → Latin, and the timer.
+
+- Each card keeps its own deck's look (endings, parse, notes) and its own spaced-repetition history. New cards are still rationed per deck: up to 15 new cards a day from each deck in the mix.
+- The combination is a link, so it can go on the Google Site: `flashcards/?decks=perfect-active,perfect-passive,pluperfect-subjunctive`. Use `deck.view` for one view of a deck (`participles.perf`, `imperatives-infinitives.inf-pres`).
+- The student's level still applies. At Latin I, for example, sum in a mix brings only its present forms.
+
 ## Level switcher
 
 The flashcard, grammar and game lists have a switcher at the top: **All levels · Latin I · Latin II · Latin III · Latin IV**. Levels are cumulative: Latin II shows everything first taught in Latin I or II and hides Latin III and IV content. The exception is the vocabulary lists, which show only in their own year (`"only": true`): Latin III shows the Latin III list but not Latin II's. Each item's level is set in `data/levels.json`:
@@ -171,7 +179,7 @@ The flashcard, grammar and game lists have a switcher at the top: **All levels �
 - Latin III: subjunctives, the future active participle and gerundive, and the Latin III vocabulary.
 - Latin IV: the DCC core vocabulary.
 
-A deck that mixes levels can open narrowed at a lower level: `"links": {"1": "mood=ind,imp,nf&tense=pres"}` (the same settings as a link preset), so sum and the irregular verbs open with only their present forms for Latin I, the present infinitives open active-only for Latin I, irregular verbs open without the subjunctive for Latin II, and the mixed participle deck opens with just the present and perfect participles for Latin II. Anything not listed in the file shows at every level.
+A deck that mixes levels can open narrowed at a lower level: `"links": {"1": "mood=ind,imp,nf&tense=pres"}` (the same settings as a link preset), so sum and the irregular verbs open with only their present forms for Latin I, the present infinitives open active-only for Latin I, irregular verbs open without the subjunctive for Latin II. Anything not listed in the file shows at every level.
 
 A student's choice is remembered in their browser and shared by all three lists. A link can set it for one visit, which is handy for embedding a class's list on the Google Site: `flashcards/?level=2`, `grammar/?level=1`, `games/?level=3` (`level=0` is all levels).
 

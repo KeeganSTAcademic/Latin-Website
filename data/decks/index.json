@@ -38,12 +38,6 @@
   "view": "adv"
  },
  {
-  "id": "adjective-degrees",
-  "title": "Adjectives & adverbs (mixed review)",
-  "course": "Adjectives & Adverbs",
-  "count": 129
- },
- {
   "id": "present-active",
   "title": "Present Active Indicative",
   "course": "Verbs · Active Indicative",
@@ -98,12 +92,6 @@
   "count": 30
  },
  {
-  "id": "incomplete-passive",
-  "title": "Incomplete Passive Indicative",
-  "course": "Verbs · Passive Indicative",
-  "count": 90
- },
- {
   "id": "perfect-passive",
   "title": "Perfect Passive Indicative",
   "course": "Verbs · Passive Indicative",
@@ -120,12 +108,6 @@
   "title": "Future Perfect Passive Indicative",
   "course": "Verbs · Passive Indicative",
   "count": 30
- },
- {
-  "id": "complete-passive",
-  "title": "Complete Passive Indicative",
-  "course": "Verbs · Passive Indicative",
-  "count": 90
  },
  {
   "id": "present-subjunctive",
@@ -180,12 +162,6 @@
   "view": "ger"
  },
  {
-  "id": "participles",
-  "title": "All participles (mixed review)",
-  "course": "Verbs · Participles",
-  "count": 136
- },
- {
   "id": "imperatives-infinitives",
   "title": "Present Active Imperatives",
   "course": "Verbs · Imperatives",
@@ -219,12 +195,6 @@
   "course": "Verbs · Infinitives",
   "count": 10,
   "view": "inf-fut"
- },
- {
-  "id": "imperatives-infinitives",
-  "title": "Imperatives & infinitives (mixed review)",
-  "course": "Verbs · Infinitives",
-  "count": 58
  },
  {
   "id": "irregular-verbs",
