@@ -21,7 +21,8 @@
     for(const k of keys) if(k && map[k] !== undefined) return typeof map[k] === "number" ? { level: map[k] } : map[k];
   }
   // levels are cumulative: Latin II shows everything first taught in Latin I or II
-  const shows = (section, keys) => { if(!level) return true; const e = entryOf(section, keys); return !e || e.level <= level; };
+  // ("only": true = that level alone, e.g. a year's vocabulary list)
+  const shows = (section, keys) => { if(!level) return true; const e = entryOf(section, keys); return !e || (e.only ? e.level === level : e.level <= level); };
   // extra link settings a deck uses at the chosen level (e.g. "mood=ind"), or ""
   const linkExtra = (section, keys) => { const e = level && entryOf(section, keys); return (e && e.links && e.links[level]) || ""; };
 

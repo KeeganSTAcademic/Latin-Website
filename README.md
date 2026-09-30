@@ -164,14 +164,14 @@ Each game is one self-contained page in `games/` with its own look (style, data 
 
 ## Level switcher
 
-The flashcard, grammar and game lists have a switcher at the top: **All levels · Latin I · Latin II · Latin III · Latin IV**. Levels are cumulative: Latin II shows everything first taught in Latin I or II and hides Latin III and IV content. Each item's level is set in `data/levels.json`:
+The flashcard, grammar and game lists have a switcher at the top: **All levels · Latin I · Latin II · Latin III · Latin IV**. Levels are cumulative: Latin II shows everything first taught in Latin I or II and hides Latin III and IV content. The exception is the vocabulary lists, which show only in their own year (`"only": true`): Latin III shows the Latin III list but not Latin II's. Each item's level is set in `data/levels.json`:
 
-- Latin I: the five declensions, present active, present imperatives and infinitives, and the present of sum and the irregular verbs (ferō, volō, nōlō, mālō).
-- Latin II: the rest of the indicative system, active and passive (including the other tenses of the irregular verbs), every infinitive, the present active and perfect passive participles, adjectives and adverbs in all degrees, and the Latin II vocabulary.
+- Latin I: the five declensions, present active, present active imperatives and infinitives (no passives), and the present of sum and the irregular verbs (ferō, volō, nōlō, mālō).
+- Latin II: the rest of the indicative system, active and passive, passive imperatives (including the other tenses of the irregular verbs), every infinitive, the present active and perfect passive participles, adjectives and adverbs in all degrees, and the Latin II vocabulary.
 - Latin III: subjunctives, the future active participle and gerundive, and the Latin III vocabulary.
 - Latin IV: the DCC core vocabulary.
 
-A deck that mixes levels can open narrowed at a lower level: `"links": {"1": "mood=ind,imp,nf&tense=pres"}` (the same settings as a link preset), so sum and the irregular verbs open with only their present forms for Latin I, irregular verbs open without the subjunctive for Latin II, and the mixed participle deck opens with just the present and perfect participles for Latin II. Anything not listed in the file shows at every level.
+A deck that mixes levels can open narrowed at a lower level: `"links": {"1": "mood=ind,imp,nf&tense=pres"}` (the same settings as a link preset), so sum and the irregular verbs open with only their present forms for Latin I, the present infinitives open active-only for Latin I, irregular verbs open without the subjunctive for Latin II, and the mixed participle deck opens with just the present and perfect participles for Latin II. Anything not listed in the file shows at every level.
 
 A student's choice is remembered in their browser and shared by all three lists. A link can set it for one visit, which is handy for embedding a class's list on the Google Site: `flashcards/?level=2`, `grammar/?level=1`, `games/?level=3` (`level=0` is all levels).
 
