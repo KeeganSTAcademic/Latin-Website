@@ -1,0 +1,32 @@
+[
+ {
+  "page": "first-letters",
+  "title": "First Letters",
+  "about": "Restore a Roman letter on papyrus: subject and object, singular and plural.",
+  "group": "Latin I"
+ },
+ {
+  "page": "restore-the-archive",
+  "title": "Restore the Archive",
+  "about": "A papyrologist’s workbench: fill the gaps with first- and second-declension forms.",
+  "group": "Latin I"
+ },
+ {
+  "page": "arena-latin-2",
+  "title": "Arena Formarum: Latin II",
+  "about": "Four gladiators, one form sheet: every form on the Latin II sheet, against the clock.",
+  "group": "Latin II"
+ },
+ {
+  "page": "arena-latin-3",
+  "title": "Arena Formarum: Latin III/IV",
+  "about": "The same arena with the Latin III/IV form sheet: passives, participles, infinitives, pronouns.",
+  "group": "Latin III"
+ },
+ {
+  "page": "haruspex",
+  "title": "The Haruspex’s Liver",
+  "about": "Uses of the subjunctive: read the bronze liver of Piacenza and find why each verb is subjunctive.",
+  "group": "Latin III"
+ }
+]

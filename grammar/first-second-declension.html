@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First &amp; Second Declension</title>
+<link rel="stylesheet" href="../css/grammar.css?v=202609301700">
+<link rel="stylesheet" href="../css/gamebar.css?v=202609301700">
+<style>
+:root{--p-genpl:#8E6412; --p-genpl-bg:#F3E6C6; --p-accsg:#9A2F68; --p-accsg-bg:#F4DDE9; --p-accpl:#1E6E66; --p-accpl-bg:#D6EAE5; --p-ablsg:#5E3F9E; --p-ablsg-bg:#E6DEF3; --p-datablpl:#2B5A99; --p-datablpl-bg:#DAE4F1; --p-gensg:#3D6B3F; --p-gensg-bg:#DDEBDC; --p-neut:#8A5327; --p-neut-bg:#F0E0CF; --card-h:560px;}
+</style>
+</head>
+<body>
+<nav class="gamebar" aria-label="Site"><a class="gamebar-home" href="../">Latin</a><a href="../flashcards/">Flashcards</a><a href="./" aria-current="page">Grammar</a><a href="../games/">Games</a></nav>
+<div class="wrap">
+<header>
+  <h1>First &amp; Second Declension</h1>
+  <p class="subtitle">An interactive grammar for <i>puella</i>, <i>equus</i>, and <i>forum</i></p>
+  <div class="primer">
+    <span><b>1st decl.</b> <i>-a, -ae</i> · mostly feminine</span>
+    <span><b>2nd decl.</b> <i>-us / -um, -ī</i> · masculine &amp; neuter</span>
+    <span>Hover any form to see its case, meaning, and look-alikes</span>
+  </div>
+</header>
+
+<section id="background" class="bg">
+  <details class="fold">
+    <summary>What is a declension?</summary>
+
+  <div class="prose">
+    <p>English shows a noun's job mostly through word order and small words like <i>of</i>, <i>to</i>, and <i>with</i>. Latin does most of that work with <strong>endings</strong>. The different jobs are called <strong>cases</strong>, and a family of nouns that shares one set of case endings is a <strong>declension</strong>.</p>
+    <p>Latin has five declensions. The first two cover a large share of the nouns you'll meet, and they share many habits, so it pays to learn them side by side.</p>
+  </div>
+
+  <div class="two">
+    <div class="decl">
+      <h3>First declension</h3>
+      <div class="sig">nom. <b class="la" style="font-style:normal;color:var(--accent)">-a</b> · gen. <b style="color:var(--accent)">-ae</b></div>
+      <ul>
+        <li>Mostly <strong>feminine</strong>: <span class="la">puella</span> girl, <span class="la">via</span> road, <span class="la">aqua</span> water.</li>
+        <li>A few <strong>masculine</strong> nouns for jobs Romans gave to men: <span class="la">agricola</span> farmer, <span class="la">nauta</span> sailor, <span class="la">poēta</span> poet. Same endings, masculine adjectives.</li>
+        <li>Its signature vowel is <strong>a</strong>: <span class="la">-am, -ā, -ārum, -ās</span>.</li>
+      </ul>
+    </div>
+    <div class="decl">
+      <h3>Second declension</h3>
+      <div class="sig">nom. <b style="color:var(--accent)">-us / -er / -um</b> · gen. <b style="color:var(--accent)">-ī</b></div>
+      <ul>
+        <li><strong>Masculine</strong> in <span class="la">-us</span> (<span class="la">equus</span> horse) (a smaller group ends in <span class="la">-er</span>; see the bottom of the charts).</li>
+        <li><strong>Neuter</strong> in <span class="la">-um</span> (<span class="la">forum</span> marketplace, <span class="la">bellum</span> war).</li>
+        <li>Its signature vowel is <strong>o</strong>: <span class="la">-ō, -ōrum, -ōs</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="prose" style="margin-top:22px">
+    <p><strong>How to tell the declension:</strong> look at the <em>genitive singular</em>, the second word in every dictionary entry. <span class="la">-ae</span> means first declension, <span class="la">-ī</span> means second. Drop that ending and you have the <strong>stem</strong> that every other ending attaches to.</p>
+  </div>
+  <div class="dict">
+    <span>puella, puell<b>ae</b>, f.</span>
+    <span>equus, equ<b>ī</b>, m.</span>
+    <span>forum, for<b>ī</b>, n.</span>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>What each case does</summary>
+  <div class="cases-box">
+  <table class="cases">
+    <thead><tr><th>Case</th><th>Main job</th><th>Typical English</th></tr></thead>
+    <tbody>
+      <tr><td>Nominative</td><td>Subject of the verb; also after <i>est</i> ("is")</td><td>the girl</td></tr>
+      <tr><td>Genitive</td><td>Possession or relationship</td><td>of the girl, the girl's</td></tr>
+      <tr><td>Dative</td><td>Indirect object; person affected</td><td>to / for the girl</td></tr>
+      <tr><td>Accusative</td><td>Direct object; after <i>ad, in</i> for motion toward</td><td>the girl</td></tr>
+      <tr><td>Ablative</td><td>Means, manner, place, time, separation; after <i>cum, in, ā/ab, ē/ex, dē, sine</i></td><td>by / with / from / in the girl</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  </details>
+</section>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-flag" aria-pressed="true">Mark look-alike forms</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+    <div class="legend">
+      <span><i class="lg a"></i>form you're inspecting</span>
+      <span><i class="lg t"></i>spelled the same: ambiguous</span>
+      <span><i class="lg h"></i>differs only by a macron</span>
+      <span><i class="lg d"></i>has a look-alike in its chart</span>
+    </div>
+  </div>
+
+  <div class="work">
+    <div class="charts-col" id="charts-col">
+      <div class="charts" id="charts-grid"></div>
+      <details class="er" id="er">
+        <summary>More 2nd declension: nouns in <i>-er</i></summary>
+        <div class="prose"><p>A few masculine nouns end in <i>-er</i> instead of <i>-us</i>. They have no ending in the nominative singular, and after that they're identical to <i>equus</i>. The genitive tells you whether the <i>e</i> stays (<i>puer, puerī</i>) or drops out (<i>ager, agrī</i>).</p></div>
+        <div class="charts" id="er-grid"></div>
+      </details>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+</section>
+</div>
+
+<script>
+const CASES = [
+  {k:'nom',ab:'Nom',name:'Nominative',job:'Subject of the verb, or the noun after est ("is").'},
+  {k:'gen',ab:'Gen',name:'Genitive',job:'Possession or relationship: whose? of what?'},
+  {k:'dat',ab:'Dat',name:'Dative',job:'Indirect object: to whom / for whom something is done.'},
+  {k:'acc',ab:'Acc',name:'Accusative',job:'Direct object. After ad or in it means motion toward.'},
+  {k:'abl',ab:'Abl',name:'Ablative',job:'Means, manner, place, time or separation. Often after cum, in, ā/ab, ē/ex, dē, sine.'}
+];
+const NUMS = [{k:'sg',name:'Singular'},{k:'pl',name:'Plural'}];
+
+const NOUNS = [
+  {id:'puella', dict:'puella, puellae', g:'f', gName:'feminine', decl:'1st declension', en:['girl','girls'], stem:'puell',
+   sg:['a','ae','ae','am','ā','a'], pl:['ae','ārum','īs','ās','īs','ae']},
+  {id:'equus', dict:'equus, equī', g:'m', gName:'masculine', decl:'2nd declension', en:['horse','horses'], stem:'equ',
+   sg:['us','ī','ō','um','ō','e'], pl:['ī','ōrum','īs','ōs','īs','ī']},
+  {id:'puer', extra:true, dict:'puer, puerī', g:'m', gName:'masculine', decl:'2nd declension · -er (keeps e)', en:['boy','boys'], stem:'puer',
+   sg:['','ī','ō','um','ō',''], pl:['ī','ōrum','īs','ōs','īs','ī']},
+  {id:'ager', extra:true, dict:'ager, agrī', g:'m', gName:'masculine', decl:'2nd declension · -er (drops e)', en:['field','fields'], stem:'agr',
+   sg:['','ī','ō','um','ō',''], pl:['ī','ōrum','īs','ōs','īs','ī'], nomStem:'ager'},
+  {id:'forum', dict:'forum, forī', g:'n', gName:'neuter', decl:'2nd declension', en:['forum','forums'], stem:'for',
+   sg:['um','ī','ō','um','ō','um'], pl:['a','ōrum','īs','a','īs','a']}
+];
+
+const PATTERNS = [
+  {id:'genpl', lab:'-rum', txt:'genitive plural', test:c=>c.case==='gen'&&c.num==='pl',
+   note:'<b>-ārum / -ōrum.</b> Every 1st and 2nd declension genitive plural ends in <i>-rum</i>. See <i>-rum</i>, think "of the …s."'},
+  {id:'accsg', lab:'-am / -um', txt:'accusative singular', test:c=>c.case==='acc'&&c.num==='sg',
+   warn:c=>c.noun.g==='n'&&c.num==='sg'&&(c.case==='nom'||c.case==='voc'),
+   note:'<b>-m marks the direct object.</b> The accusative singular ends in <i>-am</i> (1st) or <i>-um</i> (2nd): <i>puellam, equum</i>. <b>Careful:</b> neuters like <i>forum</i> already end in <i>-um</i> in the nominative (outlined in red), so <i>-um</i> alone doesn\'t prove a direct object. Check the dictionary entry for gender.'},
+  {id:'accpl', lab:'-ās / -ōs', txt:'m./f. accusative plural', test:c=>c.case==='acc'&&c.num==='pl'&&c.noun.g!=='n',
+   note:'<b>Long vowel + s.</b> Masculine and feminine direct objects in the plural end in <i>-ās</i> (1st) or <i>-ōs</i> (2nd). Neuters never do this; they use <i>-a</i>.'},
+  {id:'ablsg', lab:'-ā / -ō', txt:'ablative singular', test:c=>c.case==='abl'&&c.num==='sg',
+   note:'<b>A long vowel alone.</b> The ablative singular is just the stem vowel, lengthened. In the 1st declension the macron is the only thing separating <i>puellā</i> (abl.) from <i>puella</i> (nom.). Turn macrons off to see the problem.'},
+  {id:'datablpl', lab:'-īs', txt:'dative & ablative plural', test:c=>(c.case==='dat'||c.case==='abl')&&c.num==='pl',
+   note:'<b>-īs everywhere.</b> Same ending in both declensions and both cases. Decide by context: a preposition (<i>cum, in, ex</i>) points to ablative; a verb of giving, showing, or telling points to dative.'},
+  {id:'neut', lab:'nom = acc', txt:'neuter rule', test:c=>c.noun.g==='n'&&['nom','acc','voc'].includes(c.case),
+   note:'<b>Neuter rule.</b> A neuter noun\'s nominative and accusative are always identical, and in the plural they end in <i>-a</i>. Word order and the verb have to tell you which is subject and which is object.'}
+];
+
+const NOTES = {
+  'forum.nom.pl':'<i>fora</i> looks exactly like a 1st-declension nominative singular (compare <i>puella</i>). Check the dictionary entry: <i>forum, forī</i> is 2nd declension neuter.',
+  'forum.acc.pl':'Looks like a 1st-declension nominative singular. The genitive <i>forī</i> tells you it\'s 2nd declension.',
+  'forum.voc.pl':'Neuter plurals in <i>-a</i> can fool you into thinking "1st declension." They aren\'t.',
+  'equus.acc.sg':'Same <i>-um</i> as the nominative of neuters like <i>forum</i>: <i>equum</i> is accusative, but <i>forum</i> can be nominative or accusative. Gender, from the dictionary, decides.',
+  'puer.nom.sg':'No ending at all. <i>puer</i> keeps its <i>e</i> in every form (<i>puerī, puerō…</i>).',
+  'ager.nom.sg':'No ending, and the <i>e</i> disappears from every other form: <i>agrī, agrō…</i>. The genitive tells you whether an <i>-er</i> noun keeps or drops it.',
+  'ager.gen.sg':'The genitive reveals the real stem: <i>agr-</i>, not <i>ager-</i>.',
+  'puella.abl.sg':'The long <i>ā</i> is audible in speech but often unmarked in printed texts. Watch for prepositions like <i>cum</i> or <i>in</i>.',
+  'puella.gen.sg':'<i>-ae</i> is the most overloaded ending in the 1st declension. Three possible jobs!',
+  'equus.gen.sg':'<i>-ī</i> does double duty in the 2nd declension: genitive singular and nominative plural.',
+  'puella.gen.pl':'<i>-ārum</i> can only be genitive plural. A reliable anchor when parsing a sentence.',
+  'equus.gen.pl':'<i>-ōrum</i> can only be genitive plural. A reliable anchor when parsing a sentence.'
+};
+
+const strip = s => s.normalize('NFD').replace(/̄/g,'').normalize('NFC');
+const state = {mac:true, end:false, flag:true, er:false, pats:new Set(), active:null};
+
+// Build cell data
+const CELLS = [];
+NOUNS.forEach(n=>{
+  NUMS.forEach(num=>{
+    CASES.forEach((c,i)=>{
+      const ending = n[num.k][i];
+      const stem = (n.nomStem && num.k==='sg' && (c.k==='nom'||c.k==='voc')) ? n.nomStem : n.stem;
+      CELLS.push({key:`${n.id}.${c.k}.${num.k}`, noun:n, case:c.k, num:num.k, stem, ending, form:stem+ending});
+    });
+  });
+});
+const byKey = Object.fromEntries(CELLS.map(c=>[c.key,c]));
+const shown = s => state.mac ? s : strip(s);
+
+function english(c){
+  const w = c.noun.en[c.num==='sg'?0:1];
+  const poss = c.num==='sg' ? w+"'s" : (w.endsWith('s') ? w+"'" : w+"'s");
+  return {nom:`the ${w}`, gen:`of the ${w} · the ${poss}`, dat:`to / for the ${w}`, acc:`the ${w}`,
+          abl:`by / with / from / in the ${w}`}[c.case];
+}
+const caseObj = k => CASES.find(c=>c.k===k);
+const parseName = c => `${caseObj(c.case).name} ${c.num==='sg'?'singular':'plural'}`;
+const twinsOf = c => CELLS.filter(o=>o.noun===c.noun && o!==c && shown(o.form)===shown(c.form));
+const hiddenTwinsOf = c => state.mac ? CELLS.filter(o=>o.noun===c.noun && o.form!==c.form && strip(o.form)===strip(c.form)) : [];
+
+// Pattern chips
+const pRow = document.getElementById('patterns');
+PATTERNS.forEach(p=>{
+  const b = document.createElement('button');
+  b.className='chip'; b.id='p-'+p.id; b.setAttribute('aria-pressed','false');
+  b.style.setProperty('--c',`var(--p-${p.id})`); b.style.setProperty('--cbg',`var(--p-${p.id}-bg)`);
+  b.innerHTML=`<span class="sw"></span><span class="l">${p.lab}</span> ${p.txt}`;
+  b.onclick=()=>{ state.pats.has(p.id)?state.pats.delete(p.id):state.pats.add(p.id); render(); };
+  pRow.appendChild(b);
+});
+const clr=document.createElement('button');
+clr.className='chip plain clear'; clr.id='p-clear'; clr.textContent='Clear';
+clr.onclick=()=>{state.pats.clear();render();};
+pRow.appendChild(clr);
+
+// Charts
+const grid = document.getElementById('charts-col');
+const mainGrid = document.getElementById('charts-grid'), erGrid = document.getElementById('er-grid');
+NOUNS.forEach(n=>{
+  const box=document.createElement('div'); box.className='noun';
+  let h=`<div class="noun-h"><div class="de">${n.dict}, ${n.g}.</div><div class="meta">${n.decl.replace('declension','decl.')} · ${n.gName} · ${n.en[0]}</div></div><div class="grid"><div class="hd"></div><div class="hd">Sing.</div><div class="hd">Plur.</div>`;
+  CASES.forEach(c=>{
+    h+=`<div class="rl">${c.name}</div>`;
+    NUMS.forEach(num=>{ h+=`<button class="cell" data-k="${n.id}.${c.k}.${num.k}" aria-label="${n.id} ${c.name} ${num.name}"></button>`; });
+  });
+  box.innerHTML=h+'</div>';
+  (n.extra?erGrid:mainGrid).appendChild(box);
+});
+const cellEls = [...document.querySelectorAll('.cell')];
+cellEls.forEach(el=>{
+  const go=()=>{state.active=el.dataset.k; renderActive();};
+  const stop=()=>{ if(state.active===el.dataset.k){state.active=null; renderActive();} };
+  el.addEventListener('mouseenter',go); el.addEventListener('focus',go); el.addEventListener('click',go);
+  el.addEventListener('mouseleave',stop); el.addEventListener('blur',stop);
+});
+
+// Toggles
+function toggle(id,key){const b=document.getElementById(id);b.onclick=()=>{state[key]=!state[key];render();};}
+toggle('t-mac','mac'); toggle('t-end','end'); toggle('t-flag','flag');
+document.getElementById('er').addEventListener('toggle',e=>{state.er=e.target.open;render();});
+
+function render(){
+  document.getElementById('t-mac').setAttribute('aria-pressed',state.mac);
+  document.getElementById('t-end').setAttribute('aria-pressed',state.end);
+  document.getElementById('t-flag').setAttribute('aria-pressed',state.flag);
+  if(!state.er && state.active && byKey[state.active].noun.extra) state.active=null;
+  grid.classList.toggle('endonly',state.end);
+  grid.classList.toggle('flags',state.flag);
+  PATTERNS.forEach(p=>document.getElementById('p-'+p.id).setAttribute('aria-pressed',state.pats.has(p.id)));
+
+  cellEls.forEach(el=>{
+    const c=byKey[el.dataset.k];
+    el.innerHTML=`<span class="st">${shown(c.stem)}</span><span class="en">${shown(c.ending)}</span>`;
+    el.classList.toggle('amb', twinsOf(c).length>0);
+    const hit = PATTERNS.filter(p=>state.pats.has(p.id)&&p.test(c)).pop();
+    el.classList.toggle('pat',!!hit);
+    el.classList.toggle('warn', !hit && PATTERNS.some(p=>state.pats.has(p.id)&&p.warn&&p.warn(c)));
+    if(hit){el.style.setProperty('--pbg',`var(--p-${hit.id}-bg)`);el.style.setProperty('--pfg',`var(--p-${hit.id})`);}
+  });
+
+  document.getElementById('pnotes').innerHTML = PATTERNS.filter(p=>state.pats.has(p.id))
+    .map(p=>`<div class="pnote" style="--c:var(--p-${p.id})">${p.note}</div>`).join('');
+  renderActive();
+}
+
+document.addEventListener('click',e=>{ if(!e.target.closest('.cell') && state.active){state.active=null; renderActive();} });
+function renderActive(){
+  if(!state.active){
+    cellEls.forEach(el=>el.classList.remove('active','twin','htwin'));
+    document.getElementById('card').innerHTML=`<div class="parse">Inspect a form</div>
+      <div class="tr">Hover over or tap any form in the charts.</div>
+      <div class="job">You'll see its case and number, an English translation, and anything it could be mistaken for, shown in red.</div>`;
+    return;
+  }
+  const c = byKey[state.active];
+  const tw = twinsOf(c), ht = hiddenTwinsOf(c);
+  const twK = new Set(tw.map(t=>t.key)), htK = new Set(ht.map(t=>t.key));
+  cellEls.forEach(el=>{
+    const k=el.dataset.k;
+    el.classList.toggle('active',k===c.key);
+    el.classList.toggle('twin',twK.has(k));
+    el.classList.toggle('htwin',htK.has(k));
+  });
+  let h = `<div class="parse">${parseName(c)} · ${c.noun.dict}</div>
+    <div class="form"><span>${shown(c.stem)}</span><span class="en">${shown(c.ending)||'—'}</span></div>
+    <div class="tr">${english(c)}</div>
+    <div class="job">${caseObj(c.case).job}</div>`;
+  if(tw.length){
+    h+=`<div class="amb-box"><h4>Ambiguous: could also be</h4><ul>${
+      tw.map(t=>`<li><b>${parseName(t)}</b>: <i>${english(t)}</i></li>`).join('')
+    }</ul><div class="hint">Same spelling, different job. Use the verb, a preposition, or agreeing adjectives to decide.</div></div>`;
+  }
+  if(ht.length){
+    const f=[...new Set(ht.map(t=>t.form))];
+    h+=`<div class="amb-box hidden-twin"><h4>Only a macron away</h4><ul>${
+      ht.map(t=>`<li><b>${parseName(t)}</b> <i>${t.form}</i>: <i>${english(t)}</i></li>`).join('')
+    }</ul><div class="hint">Most printed texts omit macrons, so <i>${strip(c.form)}</i> could be either.</div></div>`;
+  }
+  const note = NOTES[c.key];
+  const pats = PATTERNS.filter(p=>p.test(c));
+  const warns = PATTERNS.filter(p=>p.warn&&p.warn(c));
+  if(note||pats.length||warns.length){
+    h+=`<div class="tip">${note?`<p>${note}</p>`:''}${pats.map(p=>`<p>Part of the <b>${p.lab}</b> pattern (${p.txt}).</p>`).join('')}${warns.map(p=>`<p>Watch out: this neuter form also ends in <i>-um</i>, just like an accusative singular. Neuter nominative and accusative are always the same.</p>`).join('')}</div>`;
+  }
+  if(!note&&!pats.length&&!tw.length&&!ht.length) h+=`<div class="hint">This spelling is unique in its chart: it can only be this case and number.</div>`;
+  document.getElementById('card').innerHTML=h;
+}
+render();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fifth Declension</title>
+<link rel="stylesheet" href="../css/grammar.css?v=202609301700">
+<link rel="stylesheet" href="../css/gamebar.css?v=202609301700">
+<style>
+:root{--p-genpl:#8E6412; --p-genpl-bg:#F3E6C6; --p-accsg:#9A2F68; --p-accsg-bg:#F4DDE9; --p-accpl:#1E6E66; --p-accpl-bg:#D6EAE5; --p-ablsg:#5E3F9E; --p-ablsg-bg:#E6DEF3; --p-datablpl:#2B5A99; --p-datablpl-bg:#DAE4F1; --p-datsg:#3D6B3F; --p-datsg-bg:#DDEBDC;}
+</style>
+</head>
+<body>
+<nav class="gamebar" aria-label="Site"><a class="gamebar-home" href="../">Latin</a><a href="../flashcards/">Flashcards</a><a href="./" aria-current="page">Grammar</a><a href="../games/">Games</a></nav>
+<div class="wrap">
+<header>
+  <h1>Fifth Declension</h1>
+  <p class="subtitle">An interactive grammar for <i>rēs</i></p>
+  <div class="primer">
+    <span><b>Genitive</b> <i>-eī / -ēī</i> · listen for the <i>ē</i></span>
+    <span><b>Almost all feminine</b></span>
+    <span>Hover any form to see its case, meaning, and look-alikes</span>
+  </div>
+</header>
+
+<section id="background" class="bg">
+  <details class="fold">
+    <summary>What is the fifth declension?</summary>
+  <div class="prose">
+    <p>The fifth declension is the smallest noun family. Its stem ends in <strong><i>ē</i></strong>, and that vowel appears in every form (A&amp;G §95): <i>r<b>ē</b>s, r<b>e</b>ī, r<b>e</b>m, r<b>ē</b>, r<b>ē</b>rum, r<b>ē</b>bus</i>.</p>
+    <p><strong>Learn the genitive.</strong> The genitive singular ends in <i>-eī</i> (or <i>-ēī</i> after a vowel, as in <i>diēī</i>), so a dictionary entry like <i>rēs, reī</i> tells you at once it's 5th declension.</p>
+    <p>Nearly every 5th declension noun is <strong>feminine</strong>. The exceptions are <i>diēs</i> day (usually masculine) and <i>merīdiēs</i> noon (A&amp;G §97). Only <i>rēs</i> and <i>diēs</i> have a full set of plural forms (A&amp;G §98).</p>
+  </div>
+
+  <div class="two">
+    <div class="decl">
+      <h3>Endings</h3>
+      <div class="sig"><i>rēs, reī</i>, f. thing, matter, affair</div>
+      <ul>
+        <li>Singular: <i>-ēs, -eī, <b>-eī</b>, <b>-em</b>, <b>-ē</b></i></li>
+        <li>Plural: <i><b>-ēs</b>, <b>-ērum</b>, <b>-ēbus</b>, <b>-ēs</b>, -ēbus</i></li>
+        <li><i>rēs</i> appears three times: nominative singular and nominative and accusative plural.</li>
+      </ul>
+    </div>
+    <div class="decl">
+      <h3>One word, many meanings</h3>
+      <div class="sig">Translate <i>rēs</i> by context</div>
+      <ul>
+        <li><i>rēs pūblica</i>: the state, the republic</li>
+        <li><i>rēs gestae</i>: deeds, accomplishments</li>
+        <li><i>rēs adversae / secundae</i>: bad / good fortune</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dict">
+    <span>rēs, r<b>eī</b>, f.</span>
+    <span>diēs, di<b>ēī</b>, m.</span>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>What each case does</summary>
+  <div class="cases-box">
+  <table class="cases">
+    <thead><tr><th>Case</th><th>Main job</th><th>Typical English</th></tr></thead>
+    <tbody>
+      <tr><td>Nominative</td><td>Subject of the verb; also after <i>est</i> ("is")</td><td>the thing</td></tr>
+      <tr><td>Genitive</td><td>Possession or relationship</td><td>of the thing, the thing's</td></tr>
+      <tr><td>Dative</td><td>Indirect object; person affected</td><td>to / for the thing</td></tr>
+      <tr><td>Accusative</td><td>Direct object; after <i>ad, in</i> for motion toward</td><td>the thing</td></tr>
+      <tr><td>Ablative</td><td>Means, manner, place, time, separation; after <i>cum, in, ā/ab, ē/ex, dē, sine</i></td><td>by / with / from / in the thing</td></tr>
+    </tbody>
+  </table>
+  </div>
+  </details>
+</section>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-flag" aria-pressed="true">Mark look-alike forms</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+    <div class="legend">
+      <span><i class="lg a"></i>form you're inspecting</span>
+      <span><i class="lg t"></i>spelled the same: ambiguous</span>
+      <span><i class="lg h"></i>differs only by a macron</span>
+      <span><i class="lg d"></i>has a look-alike in its chart</span>
+    </div>
+  </div>
+
+  <div class="work">
+    <div class="charts-col" id="charts-col">
+      <div class="charts one-up" id="charts-grid"></div>
+
+      <details class="er" id="er">
+        <summary><i>diēs</i> and the long <i>ē</i></summary>
+        <div class="prose">
+          <ul class="rules">
+            <li><strong><i>-eī</i> or <i>-ēī</i>?</strong> The stem's <i>ē</i> stays long in the genitive and dative singular when a vowel comes before it (<i>diēī</i>), but shortens after a consonant in <i>rēs, fidēs, spēs</i> (<i>reī, fideī, speī</i>). In the accusative singular it is always short: <i>rem, diem</i> (A&amp;G §96).</li>
+            <li><strong>Gender.</strong> <i>diēs</i> is usually masculine, but it can be feminine for a fixed day (<i>cōnstitūtā diē</i>, "on the appointed day") and regularly is when it means time in general (<i>longa diēs</i>, "a long time") (A&amp;G §97).</li>
+            <li><strong>Missing plurals.</strong> Only <i>rēs</i> and <i>diēs</i> are declined in full. Most other 5th declension nouns have no plural, though a few (<i>aciēs, speciēs, spēs</i>) have a nominative and accusative plural (A&amp;G §98).</li>
+          </ul>
+        </div>
+        <div class="charts one-up" id="er-grid"></div>
+      </details>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Stem, vowel length, gender, and case-form notes follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§95–98, in the Dickinson College Commentaries online edition:
+  <a href="https://dcc.dickinson.edu/grammar/latin/5th-declension-stem-paradigm-and-gender" target="_blank" rel="noopener">5th Declension: Stem, Paradigm, and Gender</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/5th-declension-case-forms" target="_blank" rel="noopener">5th Declension: Case Forms</a>.</p>
+</footer>
+</div>
+
+<script>
+const CASES = [
+  {k:'nom',name:'Nominative',job:'Subject of the verb, or the noun after est ("is").'},
+  {k:'gen',name:'Genitive',job:'Possession or relationship: whose? of what?'},
+  {k:'dat',name:'Dative',job:'Indirect object: to whom / for whom something is done.'},
+  {k:'acc',name:'Accusative',job:'Direct object. After ad or in it means motion toward.'},
+  {k:'abl',name:'Ablative',job:'Means, manner, place, time or separation. Often after cum, in, ā/ab, ē/ex, dē, sine.'}
+];
+const NUMS = [{k:'sg',name:'Singular'},{k:'pl',name:'Plural'}];
+
+const NOUNS = [
+  {id:'res', dict:'rēs, reī', g:'f', gName:'feminine', decl:'5th decl.', en:['thing','things'], stem:'r',
+   sg:['ēs','eī','eī','em','ē'], pl:['ēs','ērum','ēbus','ēs','ēbus']},
+  {id:'dies', extra:true, dict:'diēs, diēī', g:'m', gName:'masculine', decl:'5th decl.', en:['day','days'], stem:'di',
+   sg:['ēs','ēī','ēī','em','ē'], pl:['ēs','ērum','ēbus','ēs','ēbus']}
+];
+
+const PATTERNS = [
+  {id:'datsg', lab:'-ī', txt:'dative singular', test:c=>c.case==='dat'&&c.num==='sg',
+   warn:c=>c.case==='gen'&&c.num==='sg',
+   warnMsg:c=>`Watch out: this genitive singular is spelled exactly like the dative singular, <i>${c.form}</i>.`,
+   note:'<b>Long -ī dative, like the 3rd and 4th declensions.</b> <i>reī</i> ends in the same long <i>-ī</i> as <i>rēgī</i> and <i>frūctuī</i>. <b>Careful:</b> the genitive singular is identical (outlined in red), so <i>reī</i> can mean "of the thing" or "to/for the thing."'},
+  {id:'accsg', lab:'-m', txt:'accusative singular', test:c=>c.case==='acc'&&c.num==='sg',
+   note:'<b>-m marks the direct object, in every declension.</b> <i>puellam, equum, rēgem, frūctum</i>, and now <i>rem</i>. The <i>e</i> before the <i>-m</i> is always short (A&amp;G §96).'},
+  {id:'ablsg', lab:'-ē', txt:'ablative singular', test:c=>c.case==='abl'&&c.num==='sg',
+   note:'<b>A long vowel alone, again.</b> <i>-ā</i> (1st), <i>-ō</i> (2nd), <i>-ū</i> (4th), and now <i>-ē</i>: <i>rē, diē</i>. The ablative singular is just the stem vowel, long.'},
+  {id:'accpl', lab:'-ēs', txt:'accusative plural', test:c=>c.case==='acc'&&c.num==='pl',
+   warn:c=>c.case==='nom',
+   warnMsg:c=>`Watch out: this nominative ${c.num==='sg'?'singular':'plural'} is also spelled <i>${c.form}</i>, just like the accusative plural.`,
+   note:'<b>Long vowel + s, again.</b> <i>-ās, -ōs, -ēs, -ūs</i>, and here <i>-ēs</i>: <i>rēs</i>. <b>Careful:</b> the nominative plural is identical, and so is the nominative <i>singular</i> (outlined in red). Check the verb: <i>rēs est</i> is one thing, <i>rēs sunt</i> are several.'},
+  {id:'datablpl', lab:'-bus', txt:'dative & ablative plural', test:c=>(c.case==='dat'||c.case==='abl')&&c.num==='pl',
+   note:'<b>-bus, again.</b> The 3rd and 4th declensions use <i>-ibus</i>; the 5th keeps its <i>ē</i>: <i>rēbus</i>. As in every declension, the dative and ablative plural share one form. Decide by context: a preposition points to ablative, a verb of giving or showing to dative.'},
+  {id:'genpl', lab:'-rum', txt:'genitive plural', test:c=>c.case==='gen'&&c.num==='pl',
+   note:'<b>Long vowel + -rum, like the 1st and 2nd declensions.</b> <i>-ārum, -ōrum</i>, and now <i>-ērum</i>: <i>rērum</i>, "of the things." See <i>-rum</i>, think genitive plural.'}
+];
+
+const NOTES = {
+  'res.nom.sg':'<i>rēs</i> is spelled the same as the nominative and accusative plural. The verb decides: <i>rēs est</i> (singular) vs. <i>rēs sunt</i> (plural).',
+  'res.gen.sg':'<i>reī</i>: the genitive and dative singular are identical. The <i>ē</i> shortens here after a consonant; after a vowel it stays long (<i>diēī</i>) (A&amp;G §96).',
+  'res.dat.sg':'Long <i>-ī</i> dative, like <i>rēgī</i> and <i>frūctuī</i>, but spelled the same as the genitive.',
+  'res.acc.sg':'<i>rem</i>: the <i>-m</i> accusative, with a short <i>e</i> (A&amp;G §96).',
+  'res.abl.sg':'<i>rē</i>: just the long stem vowel, like <i>puellā, equō, frūctū</i>.',
+  'res.gen.pl':'<i>rērum</i>: <i>-ērum</i> fits right beside <i>-ārum</i> and <i>-ōrum</i>. Think of the famous phrase <i>rērum nātūra</i>, "the nature of things."',
+  'res.dat.pl':'<i>rēbus</i>: the <i>-bus</i> of <i>rēgibus</i> and <i>frūctibus</i>, keeping the stem\'s <i>ē</i>.',
+  'res.nom.pl':'Three forms share this spelling: nominative singular, nominative plural, accusative plural.',
+  'dies.nom.sg':'<i>diēs</i> is usually masculine, one of only two masculine 5th declension nouns (with <i>merīdiēs</i>) (A&amp;G §97).',
+  'dies.gen.sg':'<i>diēī</i>: the <i>ē</i> stays long because a vowel (<i>i</i>) comes before it. Compare <i>reī</i>.',
+  'dies.acc.sg':'<i>diem</i>: short <i>e</i> before <i>-m</i>, as in every 5th declension accusative singular.'
+};
+
+const strip = s => s.normalize('NFD').replace(/̄/g,'').normalize('NFC');
+const state = {mac:true, end:false, flag:true, er:false, pats:new Set(), active:null};
+
+const CELLS = [];
+NOUNS.forEach(n=>{
+  NUMS.forEach(num=>{
+    CASES.forEach((c,i)=>{
+      const k = `${c.k}.${num.k}`;
+      let stem = n.stem, [ending, alt] = n[num.k][i].split('|');
+      if(n.over && n.over[k]){ stem = n.over[k]; ending = ''; alt = undefined; }
+      CELLS.push({key:`${n.id}.${k}`, noun:n, case:c.k, num:num.k, stem, ending, alt, form:stem+ending});
+    });
+  });
+});
+const byKey = Object.fromEntries(CELLS.map(c=>[c.key,c]));
+const shown = s => state.mac ? s : strip(s);
+
+function english(c){
+  const w = c.noun.en[c.num==='sg'?0:1];
+  const poss = c.num==='sg' ? w+"'s" : (w.endsWith('s') ? w+"'" : w+"'s");
+  return {nom:`the ${w}`, gen:`of the ${w} · the ${poss}`, dat:`to / for the ${w}`, acc:`the ${w}`,
+          abl:`by / with / from / in the ${w}`}[c.case];
+}
+const caseObj = k => CASES.find(c=>c.k===k);
+const parseName = c => `${caseObj(c.case).name} ${c.num==='sg'?'singular':'plural'}`;
+const twinsOf = c => CELLS.filter(o=>o.noun===c.noun && o!==c && shown(o.form)===shown(c.form));
+const hiddenTwinsOf = c => state.mac ? CELLS.filter(o=>o.noun===c.noun && o.form!==c.form && strip(o.form)===strip(c.form)) : [];
+
+// Pattern chips
+const pRow = document.getElementById('patterns');
+PATTERNS.forEach(p=>{
+  const b = document.createElement('button');
+  b.className='chip'; b.id='p-'+p.id; b.setAttribute('aria-pressed','false');
+  b.style.setProperty('--c',`var(--p-${p.id})`); b.style.setProperty('--cbg',`var(--p-${p.id}-bg)`);
+  b.innerHTML=`<span class="sw"></span><span class="l">${p.lab}</span> ${p.txt}`;
+  b.onclick=()=>{ state.pats.has(p.id)?state.pats.delete(p.id):state.pats.add(p.id); render(); };
+  pRow.appendChild(b);
+});
+const clr=document.createElement('button');
+clr.className='chip plain clear'; clr.id='p-clear'; clr.textContent='Clear';
+clr.onclick=()=>{state.pats.clear();render();};
+pRow.appendChild(clr);
+
+// Charts
+const grid = document.getElementById('charts-col');
+const mainGrid = document.getElementById('charts-grid'), erGrid = document.getElementById('er-grid');
+NOUNS.forEach(n=>{
+  const box=document.createElement('div'); box.className='noun';
+  let h=`<div class="noun-h"><div class="de">${n.dict}, ${n.g}.</div><div class="meta">${n.decl} · ${n.gName} · ${n.en[0]}</div></div><div class="grid"><div class="hd"></div><div class="hd">Sing.</div><div class="hd">Plur.</div>`;
+  CASES.forEach(c=>{
+    h+=`<div class="rl">${c.name}</div>`;
+    NUMS.forEach(num=>{ h+=`<button class="cell" data-k="${n.id}.${c.k}.${num.k}" aria-label="${n.id} ${c.name} ${num.name}"></button>`; });
+  });
+  box.innerHTML=h+'</div>';
+  (n.extra?erGrid:mainGrid).appendChild(box);
+});
+const cellEls = [...document.querySelectorAll('.cell')];
+cellEls.forEach(el=>{
+  const go=()=>{state.active=el.dataset.k; renderActive();};
+  const stop=()=>{ if(state.active===el.dataset.k){state.active=null; renderActive();} };
+  el.addEventListener('mouseenter',go); el.addEventListener('focus',go); el.addEventListener('click',go);
+  el.addEventListener('mouseleave',stop); el.addEventListener('blur',stop);
+});
+
+function toggle(id,key){const b=document.getElementById(id);b.onclick=()=>{state[key]=!state[key];render();};}
+toggle('t-mac','mac'); toggle('t-end','end'); toggle('t-flag','flag');
+document.getElementById('er').addEventListener('toggle',e=>{state.er=e.target.open;render();});
+
+function render(){
+  document.getElementById('t-mac').setAttribute('aria-pressed',state.mac);
+  document.getElementById('t-end').setAttribute('aria-pressed',state.end);
+  document.getElementById('t-flag').setAttribute('aria-pressed',state.flag);
+  if(!state.er && state.active && byKey[state.active].noun.extra) state.active=null;
+  grid.classList.toggle('endonly',state.end);
+  grid.classList.toggle('flags',state.flag);
+  PATTERNS.forEach(p=>document.getElementById('p-'+p.id).setAttribute('aria-pressed',state.pats.has(p.id)));
+
+  cellEls.forEach(el=>{
+    const c=byKey[el.dataset.k];
+    el.innerHTML=`<span class="st">${shown(c.stem)}</span><span class="en">${shown(c.ending)}</span>${c.alt?`<span class="alt">-${shown(c.alt)}</span>`:''}`;
+    el.classList.toggle('amb', twinsOf(c).length>0);
+    const hit = PATTERNS.filter(p=>state.pats.has(p.id)&&p.test(c)).pop();
+    el.classList.toggle('pat',!!hit);
+    el.classList.toggle('warn', !hit && PATTERNS.some(p=>state.pats.has(p.id)&&p.warn&&p.warn(c)));
+    if(hit){el.style.setProperty('--pbg',`var(--p-${hit.id}-bg)`);el.style.setProperty('--pfg',`var(--p-${hit.id})`);}
+  });
+
+  document.getElementById('pnotes').innerHTML = PATTERNS.filter(p=>state.pats.has(p.id))
+    .map(p=>`<div class="pnote" style="--c:var(--p-${p.id})">${p.note}</div>`).join('');
+  renderActive();
+}
+
+document.addEventListener('click',e=>{ if(!e.target.closest('.cell') && state.active){state.active=null; renderActive();} });
+function renderActive(){
+  if(!state.active){
+    cellEls.forEach(el=>el.classList.remove('active','twin','htwin'));
+    document.getElementById('card').innerHTML=`<div class="parse">Inspect a form</div>
+      <div class="tr">Hover over or tap any form in the charts.</div>
+      <div class="job">You'll see its case and number, an English translation, and anything it could be mistaken for, shown in red.</div>`;
+    return;
+  }
+  const c = byKey[state.active];
+  const tw = twinsOf(c), ht = hiddenTwinsOf(c);
+  const twK = new Set(tw.map(t=>t.key)), htK = new Set(ht.map(t=>t.key));
+  cellEls.forEach(el=>{
+    const k=el.dataset.k;
+    el.classList.toggle('active',k===c.key);
+    el.classList.toggle('twin',twK.has(k));
+    el.classList.toggle('htwin',htK.has(k));
+  });
+  let h = `<div class="parse">${parseName(c)} · ${c.noun.dict}</div>
+    <div class="form"><span>${shown(c.stem)}</span><span class="en">${shown(c.ending)}</span></div>
+    ${c.alt?`<div class="job">also <i>${shown(c.noun.stem+c.alt)}</i></div>`:''}
+        <div class="tr">${english(c)}</div>
+    <div class="job">${caseObj(c.case).job}</div>`;
+  if(tw.length){
+    h+=`<div class="amb-box"><h4>Ambiguous: could also be</h4><ul>${
+      tw.map(t=>`<li><b>${parseName(t)}</b>: <i>${english(t)}</i></li>`).join('')
+    }</ul><div class="hint">Same spelling, different job. Use the verb, a preposition, or agreeing adjectives to decide.</div></div>`;
+  }
+  if(ht.length){
+    const byForm={}; ht.forEach(t=>{(byForm[t.form]=byForm[t.form]||{sg:[],pl:[]})[t.num].push(caseObj(t.case).name.toLowerCase());});
+    h+=`<div class="amb-box hidden-twin"><h4>Only a macron away</h4><ul>${
+      Object.entries(byForm).map(([f,g])=>`<li><i>${f}</i>: ${[g.sg.length?g.sg.join(', ')+' singular':'',g.pl.length?g.pl.join(', ')+' plural':''].filter(Boolean).join('; ')}</li>`).join('')
+    }</ul><div class="hint">Most printed texts omit macrons, so <i>${strip(c.form)}</i> could be any of these.</div></div>`;
+  }
+  const note = NOTES[c.key];
+  const pats = PATTERNS.filter(p=>p.test(c));
+  const warns = PATTERNS.filter(p=>p.warn&&p.warn(c));
+  if(note||pats.length||warns.length){
+    h+=`<div class="tip">${note?`<p>${note}</p>`:''}${pats.map(p=>`<p>Part of the <b>${p.lab}</b> pattern (${p.txt}).</p>`).join('')}${warns.map(p=>`<p>${p.warnMsg(c)}</p>`).join('')}</div>`;
+  }
+  if(!note&&!pats.length&&!tw.length&&!ht.length) h+=`<div class="hint">This spelling is unique in its chart: it can only be this case and number.</div>`;
+  document.getElementById('card').innerHTML=h;
+}
+render();
+</script>
+</body>
+</html>

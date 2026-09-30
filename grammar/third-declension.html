@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Third Declension</title>
+<link rel="stylesheet" href="../css/grammar.css?v=202609301700">
+<link rel="stylesheet" href="../css/gamebar.css?v=202609301700">
+<style>
+:root{--p-genpl:#8E6412; --p-genpl-bg:#F3E6C6; --p-accsg:#9A2F68; --p-accsg-bg:#F4DDE9; --p-accpl:#1E6E66; --p-accpl-bg:#D6EAE5; --p-ablsg:#5E3F9E; --p-ablsg-bg:#E6DEF3; --p-datablpl:#2B5A99; --p-datablpl-bg:#DAE4F1; --p-neutpl:#4E5B6A; --p-neutpl-bg:#E1E5EA; --p-neut:#8A5327; --p-neut-bg:#F0E0CF;}
+</style>
+</head>
+<body>
+<nav class="gamebar" aria-label="Site"><a class="gamebar-home" href="../">Latin</a><a href="../flashcards/">Flashcards</a><a href="./" aria-current="page">Grammar</a><a href="../games/">Games</a></nav>
+<div class="wrap">
+<header>
+  <h1>Third Declension</h1>
+  <p class="subtitle">An interactive grammar for <i>rēx</i> and <i>corpus</i></p>
+  <div class="primer">
+    <span><b>Genitive</b> <i>-is</i> · the stem hides in the genitive</span>
+    <span><b>m./f.</b> one set of endings · <b>n.</b> another</span>
+    <span>Hover any form to see its case, meaning, and look-alikes</span>
+  </div>
+</header>
+
+<section id="background" class="bg">
+  <details class="fold">
+    <summary>What is the third declension?</summary>
+  <div class="prose">
+    <p>The third declension is the biggest noun family in Latin, and the least predictable at first glance: its nominative singular can end in almost anything (<i>rēx, corpus, urbs, nōmen, animal, legiō</i>). What stays steady is everything <em>after</em> the nominative.</p>
+    <p><strong>Always learn the genitive.</strong> The genitive singular ends in <i>-is</i>, and dropping it gives you the stem that every other form is built on: <i>rēx, <b>rēg</b>is</i> → <i>rēg-</i>; <i>corpus, <b>corpor</b>is</i> → <i>corpor-</i>.</p>
+    <p>Unlike the first two declensions, gender matters for the endings: <strong>masculine and feminine nouns share one pattern, and neuters follow another.</strong></p>
+  </div>
+
+  <div class="two">
+    <div class="decl">
+      <h3>Masculine &amp; feminine</h3>
+      <div class="sig"><i>rēx, rēgis</i>, m. king</div>
+      <ul>
+        <li>Singular: nom. varies · <i>-is, -ī, <b>-em</b>, -e</i></li>
+        <li>Plural: <i><b>-ēs</b>, -um, -ibus, <b>-ēs</b>, -ibus</i></li>
+        <li>Accusative singular takes <i>-m</i>; the plural nominative and accusative are the same (<i>rēgēs</i>).</li>
+      </ul>
+    </div>
+    <div class="decl">
+      <h3>Neuter</h3>
+      <div class="sig"><i>corpus, corporis</i>, n. body</div>
+      <ul>
+        <li>Singular: nom. varies · <i>-is, -ī,</i> <b>acc. = nom.</b><i>, -e</i></li>
+        <li>Plural: <i><b>-a</b>, -um, -ibus, <b>-a</b>, -ibus</i></li>
+        <li>No <i>-m</i> in the accusative: the nominative and accusative are always identical, and the plural ends in <i>-a</i>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dict">
+    <span>rēx, rēg<b>is</b>, m.</span>
+    <span>corpus, corpor<b>is</b>, n.</span>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>What each case does</summary>
+  <div class="cases-box">
+  <table class="cases">
+    <thead><tr><th>Case</th><th>Main job</th><th>Typical English</th></tr></thead>
+    <tbody>
+      <tr><td>Nominative</td><td>Subject of the verb; also after <i>est</i> ("is")</td><td>the king</td></tr>
+      <tr><td>Genitive</td><td>Possession or relationship</td><td>of the king, the king's</td></tr>
+      <tr><td>Dative</td><td>Indirect object; person affected</td><td>to / for the king</td></tr>
+      <tr><td>Accusative</td><td>Direct object; after <i>ad, in</i> for motion toward</td><td>the king</td></tr>
+      <tr><td>Ablative</td><td>Means, manner, place, time, separation; after <i>cum, in, ā/ab, ē/ex, dē, sine</i></td><td>by / with / from / in the king</td></tr>
+    </tbody>
+  </table>
+  </div>
+  </details>
+</section>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-flag" aria-pressed="true">Mark look-alike forms</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+    <div class="legend">
+      <span><i class="lg a"></i>form you're inspecting</span>
+      <span><i class="lg t"></i>spelled the same: ambiguous</span>
+      <span><i class="lg h"></i>differs only by a macron</span>
+      <span><i class="lg d"></i>has a look-alike in its chart</span>
+    </div>
+  </div>
+
+  <div class="work">
+    <div class="charts-col" id="charts-col">
+      <div class="charts two-up" id="charts-grid"></div>
+
+      <details class="er" id="er">
+        <summary><i>i</i>-stems</summary>
+        <div class="prose">
+          <p>Some third-declension nouns are <strong><i>i</i>-stems</strong>: their stem once ended in <i>-i</i>, and that <i>i</i> still shows up in a few forms. The most reliable sign is the <strong>genitive plural in <i>-ium</i></strong> instead of <i>-um</i>. Allen &amp; Greenough (§§65–72) sort them like this:</p>
+          <ul class="rules">
+            <li><strong>Pure <i>i</i>-stems, m./f.</strong> (§66–67): parisyllabic nouns in <i>-is</i>, meaning the nominative and genitive have the same number of syllables (<i>turris, turris</i>; <i>ignis, ignis</i>). A few keep <i>-im</i> in the accusative and <i>-ī</i> in the ablative.</li>
+            <li><strong>Pure <i>i</i>-stems, neuter</strong> (§68–69): nouns in <i>-e, -al, -ar</i> (<i>mare, animal, calcar</i>). They have <i>-ī</i> in the ablative singular, <i>-ium</i> in the genitive plural, and <i>-ia</i> in the nominative and accusative plural.</li>
+            <li><strong>Mixed <i>i</i>-stems</strong> (§70–72): declined like <i>rēx</i> in the singular and like <i>i</i>-stems in the plural (<i>-ium</i>, acc. <i>-īs</i> or <i>-ēs</i>). These include monosyllables in <i>-s</i> or <i>-x</i> after a consonant (<i>urbs, ars, pōns, arx</i>), nouns in <i>-ns</i> or <i>-rs</i> (<i>cliēns, cohors</i>), nouns in <i>-tās</i> (<i>cīvitās</i>), and a few others such as <i>nox, dōs, fraus</i>.</li>
+          </ul>
+          <p>The pattern buttons above also work on these charts.</p>
+        </div>
+        <div class="charts three-up" id="er-grid"></div>
+      </details>
+
+      <details class="er adv" id="adv">
+        <summary>For advanced students: how the nominative is formed</summary>
+        <div class="prose">
+          <p>The nominative singular looks irregular because sounds changed when endings met the stem. Once you know the rules, most nominatives become predictable from the genitive (A&amp;G §§55–64).</p>
+          <h4>Masculine &amp; feminine: add <i>-s</i> (§56)</h4>
+          <table class="rule-table">
+            <tbody>
+              <tr><td>Stem ends in <b>c</b> or <b>g</b></td><td><i>c/g + s</i> merge into <b>x</b></td><td><i>dux, ducis</i> (duc-) · <i>rēx, rēgis</i> (rēg-)</td></tr>
+              <tr><td>Stem ends in <b>t</b> or <b>d</b></td><td>the <i>t/d</i> drops before <i>s</i></td><td><i>mīles, mīlitis</i> (mīlit-) · <i>custōs, custōdis</i> (custōd-)</td></tr>
+              <tr><td>Stem ends in <b>p</b> or <b>b</b></td><td>the consonant stays; <i>s</i> is added</td><td><i>prīnceps, prīncipis</i> (prīncip-)</td></tr>
+              <tr><td>Two-syllable stems</td><td>often <i>e</i> in the nominative, <i>i</i> in the stem</td><td><i>prīnceps / prīncip-</i> · <i>mīles / mīlit-</i></td></tr>
+            </tbody>
+          </table>
+          <h4>Masculine &amp; feminine: no <i>-s</i> (liquids and nasals, §61–62)</h4>
+          <table class="rule-table">
+            <tbody>
+              <tr><td>Stems in <b>l</b> or <b>r</b></td><td>nominative = stem</td><td><i>cōnsul, cōnsulis</i> · <i>soror, sorōris</i></td></tr>
+              <tr><td>Stems in <b>-ōn-</b></td><td>drop the <i>n</i></td><td><i>legiō, legiōnis</i></td></tr>
+              <tr><td>Stems in <b>-din-, -gin-</b></td><td>drop the <i>n</i>, nominative in <i>-ō</i></td><td><i>virgō, virginis</i></td></tr>
+              <tr><td>Other stems in <b>-in-</b></td><td>keep <i>n</i>, <i>e</i> for <i>i</i></td><td><i>cornicen, cornicinis</i></td></tr>
+              <tr><td>Stems in <b>-tr-</b></td><td>nominative in <i>-ter</i></td><td><i>pater, patris</i></td></tr>
+              <tr><td>Some <b>-ōr-</b> stems</td><td>older nominative in <i>-s</i> alongside <i>-r</i></td><td><i>honōs / honor</i> · <i>arbōs / arbor</i></td></tr>
+            </tbody>
+          </table>
+          <h4>Neuters (§63–64)</h4>
+          <table class="rule-table">
+            <tbody>
+              <tr><td>Stems in <b>-in-</b></td><td><i>e</i> for <i>i</i> in the nominative</td><td><i>nōmen, nōminis</i></td></tr>
+              <tr><td>Most <b>-or-</b> and <b>-er-</b> stems</td><td>nominative in <i>-us</i></td><td><i>corpus, corporis</i> · <i>tempus, temporis</i> · <i>genus, generis</i> · <i>opus, operis</i></td></tr>
+            </tbody>
+          </table>
+          <p class="aside"><strong>Why <i>corpus</i> but <i>corporis</i>?</strong> These stems originally ended in <i>-s</i> (<i>corpos-</i>). Between two vowels, an old Latin <i>s</i> turned into <i>r</i> (rhotacism), so <i>*corposis</i> became <i>corporis</i>, while the nominative kept its <i>s</i>. The same change explains <i>flōs, flōris</i> and <i>mōs, mōris</i>.</p>
+          <p class="aside"><strong>Watch out:</strong> a nominative in <i>-us</i> doesn't always mean 2nd declension. <i>corpus, corporis</i> is 3rd declension neuter, which is another reason to learn the genitive with every noun.</p>
+        </div>
+      </details>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Stem classes, nominative rules, and <i>i</i>-stem examples follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§53–72, in the Dickinson College Commentaries online edition:
+  <a href="https://dcc.dickinson.edu/grammar/latin/3rd-declension-classes" target="_blank" rel="noopener">3rd Declension: Classes</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/3rd-declension-mute-stems-m-f" target="_blank" rel="noopener">Mute Stems</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/3rd-declension-liquid-and-nasal-stems-m-f" target="_blank" rel="noopener">Liquid &amp; Nasal Stems</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/3rd-declension-liquid-and-nasal-stems-n" target="_blank" rel="noopener">Neuter Liquid &amp; Nasal Stems</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/3rd-declension-i-stems" target="_blank" rel="noopener">I-stems</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/3rd-declension-pure-i-stems-m-f" target="_blank" rel="noopener">Pure I-stems (m./f.)</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/3rd-declension-pure-i-stem-n" target="_blank" rel="noopener">Pure I-stems (n.)</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/3rd-declension-mixed-i-stem" target="_blank" rel="noopener">Mixed I-stems</a>.</p>
+</footer>
+</div>
+
+<script>
+const CASES = [
+  {k:'nom',name:'Nominative',job:'Subject of the verb, or the noun after est ("is").'},
+  {k:'gen',name:'Genitive',job:'Possession or relationship: whose? of what?'},
+  {k:'dat',name:'Dative',job:'Indirect object: to whom / for whom something is done.'},
+  {k:'acc',name:'Accusative',job:'Direct object. After ad or in it means motion toward.'},
+  {k:'abl',name:'Ablative',job:'Means, manner, place, time or separation. Often after cum, in, ā/ab, ē/ex, dē, sine.'}
+];
+const NUMS = [{k:'sg',name:'Singular'},{k:'pl',name:'Plural'}];
+
+// Endings: "a|b" = main ending | alternate. `over` replaces whole forms (irregular nominatives).
+const NOUNS = [
+  {id:'rex', dict:'rēx, rēgis', g:'m', gName:'masculine', decl:'3rd decl.', en:['king','kings'], stem:'rēg',
+   over:{'nom.sg':'rēx','voc.sg':'rēx'},
+   sg:['','is','ī','em','e',''], pl:['ēs','um','ibus','ēs','ibus','ēs']},
+  {id:'corpus', dict:'corpus, corporis', g:'n', gName:'neuter', decl:'3rd decl.', en:['body','bodies'], stem:'corpor',
+   over:{'nom.sg':'corpus','acc.sg':'corpus','voc.sg':'corpus'},
+   sg:['','is','ī','','e',''], pl:['a','um','ibus','a','ibus','a']},
+  {id:'turris', extra:true, dict:'turris, turris', g:'f', gName:'feminine', decl:'pure i-stem · §67', en:['tower','towers'], stem:'turr',
+   sg:['is','is','ī','im|em','ī|e','is'], pl:['ēs','ium','ibus','īs|ēs','ibus','ēs']},
+  {id:'urbs', extra:true, dict:'urbs, urbis', g:'f', gName:'feminine', decl:'mixed i-stem · §72', en:['city','cities'], stem:'urb',
+   over:{'nom.sg':'urbs','voc.sg':'urbs'},
+   sg:['','is','ī','em','e',''], pl:['ēs','ium','ibus','ēs|īs','ibus','ēs']},
+  {id:'animal', extra:true, dict:'animal, animālis', g:'n', gName:'neuter', decl:'pure i-stem · §69', en:['animal','animals'], stem:'animāl',
+   over:{'nom.sg':'animal','acc.sg':'animal','voc.sg':'animal'},
+   sg:['','is','ī','','ī',''], pl:['ia','ium','ibus','ia','ibus','ia']}
+];
+
+const PATTERNS = [
+  {id:'accsg', lab:'-m', txt:'m./f. accusative singular', test:c=>c.case==='acc'&&c.num==='sg'&&c.noun.g!=='n',
+   note:'<b>-m marks the direct object, again.</b> Masculine and feminine nouns take <i>-em</i> in the accusative singular (<i>rēgem, urbem</i>; a few pure <i>i</i>-stems have <i>-im</i>: <i>turrim</i>), just as the 1st and 2nd declensions have <i>-am</i> and <i>-um</i>. Neuters never do: <i>corpus</i> is its own accusative.'},
+  {id:'accpl', lab:'-ēs', txt:'m./f. accusative plural', test:c=>c.case==='acc'&&c.num==='pl'&&c.noun.g!=='n',
+   warn:c=>c.noun.g!=='n'&&c.num==='pl'&&(c.case==='nom'||c.case==='voc'),
+   note:'<b>Long vowel + s, again.</b> Like <i>-ās</i> and <i>-ōs</i>, the 3rd declension marks masculine and feminine plural objects with <i>-ēs</i> (<i>i</i>-stems also use <i>-īs</i>). <b>Careful:</b> here the nominative plural is <i>also</i> <i>-ēs</i> (outlined in red), so <i>rēgēs</i> can be subject or object.'},
+  {id:'datablpl', lab:'-ibus', txt:'dative & ablative plural', test:c=>(c.case==='dat'||c.case==='abl')&&c.num==='pl',
+   note:'<b>One shared form, again.</b> The 1st and 2nd declensions use <i>-īs</i> for both the dative and ablative plural; the 3rd uses <i>-ibus</i>. Decide by context: a preposition (<i>cum, in, ex</i>) points to ablative; a verb of giving, showing, or telling points to dative.'},
+  {id:'genpl', lab:'-um / -ium', txt:'genitive plural', test:c=>c.case==='gen'&&c.num==='pl',
+   note:'<b>-um here means "of the …s."</b> The 3rd declension genitive plural is <i>-um</i> (<i>rēgum, corporum</i>), or <i>-ium</i> for <i>i</i>-stems. <b>Tricky:</b> in the 2nd declension, <i>-um</i> is an accusative singular (<i>equum</i>) or a neuter nominative (<i>forum</i>). Only knowing the word\'s dictionary entry tells you whether <i>-um</i> is "of the kings" or "the horse."'},
+  {id:'neut', lab:'nom = acc', txt:'neuter rule', test:c=>c.noun.g==='n'&&['nom','acc','voc'].includes(c.case),
+   note:'<b>Neuter rule, in every declension.</b> A neuter noun\'s nominative and accusative are always identical: <i>corpus / corpus</i>, <i>corpora / corpora</i>. Word order and the verb have to tell you which is subject and which is object.'},
+  {id:'neutpl', lab:'-a', txt:'neuter plural, all declensions', test:c=>c.noun.g==='n'&&c.num==='pl'&&['nom','acc','voc'].includes(c.case),
+   note:'<b>-a in every declension.</b> Neuter nominative and accusative plurals always end in <i>-a</i>: <i>forum → fora</i> (2nd), <i>corpus → corpora</i> (3rd), <i>animal → animālia</i> (3rd <i>i</i>-stem). Watch out: this <i>-a</i> looks like a 1st-declension nominative singular (<i>puella</i>).'}
+];
+
+const NOTES = {
+  'rex.nom.sg':'<i>rēx</i> = <i>rēg-</i> + <i>s</i>: the <i>g</i> and <i>s</i> merge into <i>x</i> (A&amp;G §56). The nominative hides the stem; the genitive <i>rēgis</i> reveals it.',
+  'rex.gen.sg':'<i>-is</i> (short <i>i</i>) is the 3rd declension genitive singular. Without macrons it looks just like the 1st/2nd declension dative/ablative plural <i>-īs</i> (<i>puellīs, equīs</i>).',
+  'rex.dat.sg':'<i>-ī</i> as a dative singular. In the 2nd declension, <i>-ī</i> is a genitive singular or nominative plural (<i>equī</i>), so check the dictionary entry.',
+  'rex.acc.sg':'<i>-em</i>: the same <i>-m</i> accusative you know from <i>puellam</i> and <i>equum</i>.',
+  'rex.abl.sg':'Short <i>-e</i> ablative singular, the same ending as <i>corpore</i>.',
+  'rex.gen.pl':'<i>rēgum</i> is genitive plural, "of the kings." In the 2nd declension, <i>-um</i> would be accusative singular (<i>equum</i>). Vocabulary decides.',
+  'corpus.nom.sg':'Ends in <i>-us</i>, but it\'s not 2nd declension: the genitive is <i>corporis</i>. Neuters built on <i>-or-</i> and <i>-er-</i> stems have a nominative in <i>-us</i> (A&amp;G §63).',
+  'corpus.gen.sg':'The genitive reveals the real stem: <i>corpor-</i>, not <i>corp-</i>.',
+  'corpus.abl.sg':'Short <i>-e</i> ablative, same as <i>rēge</i>.',
+  'corpus.nom.pl':'<i>corpora</i> ends in <i>-a</i> like <i>fora</i>. Neuter nominative and accusative plurals end in <i>-a</i> in every declension.',
+  'corpus.gen.pl':'<i>corporum</i> is genitive plural, "of the bodies." Don\'t read it as a 2nd declension <i>-um</i>.',
+  'turris.acc.sg':'<i>turrim</i> keeps the old <i>i</i>-stem accusative in <i>-im</i>; <i>turrem</i> also occurs (A&amp;G §67).',
+  'turris.abl.sg':'Pure <i>i</i>-stems can have <i>-ī</i> in the ablative (<i>turrī</i>), alongside <i>-e</i>.',
+  'turris.gen.pl':'<i>-ium</i>: the <i>i</i> of the stem shows in the genitive plural. This is the surest sign of an <i>i</i>-stem.',
+  'turris.acc.pl':'<i>-īs</i> (long) is the <i>i</i>-stem accusative plural; <i>-ēs</i> also occurs. Without macrons, <i>turris</i> could be nominative, genitive, or accusative plural!',
+  'urbs.nom.sg':'<i>urb-</i> + <i>s</i>. A monosyllable in <i>-s</i> after a consonant, so it\'s a mixed <i>i</i>-stem (A&amp;G §71).',
+  'urbs.gen.pl':'<i>urbium</i>: declined like <i>rēx</i> in the singular, but with <i>-ium</i> in the plural. That\'s what "mixed" means.',
+  'animal.abl.sg':'Neuter <i>i</i>-stems have <i>-ī</i> in the ablative singular, not <i>-e</i> (A&amp;G §68).',
+  'animal.nom.pl':'<i>-ia</i>: the neuter plural <i>-a</i> with the stem\'s <i>i</i> showing.',
+  'animal.gen.pl':'<i>-ium</i> genitive plural, like all <i>i</i>-stems.'
+};
+
+const strip = s => s.normalize('NFD').replace(/̄/g,'').normalize('NFC');
+const state = {mac:true, end:false, flag:true, er:false, pats:new Set(), active:null};
+
+const CELLS = [];
+NOUNS.forEach(n=>{
+  NUMS.forEach(num=>{
+    CASES.forEach((c,i)=>{
+      const k = `${c.k}.${num.k}`;
+      let stem = n.stem, [ending, alt] = n[num.k][i].split('|');
+      if(n.over && n.over[k]){ stem = n.over[k]; ending = ''; alt = undefined; }
+      CELLS.push({key:`${n.id}.${k}`, noun:n, case:c.k, num:num.k, stem, ending, alt, form:stem+ending});
+    });
+  });
+});
+const byKey = Object.fromEntries(CELLS.map(c=>[c.key,c]));
+const shown = s => state.mac ? s : strip(s);
+
+function english(c){
+  const w = c.noun.en[c.num==='sg'?0:1];
+  const poss = c.num==='sg' ? w+"'s" : (w.endsWith('s') ? w+"'" : w+"'s");
+  return {nom:`the ${w}`, gen:`of the ${w} · the ${poss}`, dat:`to / for the ${w}`, acc:`the ${w}`,
+          abl:`by / with / from / in the ${w}`}[c.case];
+}
+const caseObj = k => CASES.find(c=>c.k===k);
+const parseName = c => `${caseObj(c.case).name} ${c.num==='sg'?'singular':'plural'}`;
+const twinsOf = c => CELLS.filter(o=>o.noun===c.noun && o!==c && shown(o.form)===shown(c.form));
+const hiddenTwinsOf = c => state.mac ? CELLS.filter(o=>o.noun===c.noun && o.form!==c.form && strip(o.form)===strip(c.form)) : [];
+
+// Pattern chips
+const pRow = document.getElementById('patterns');
+PATTERNS.forEach(p=>{
+  const b = document.createElement('button');
+  b.className='chip'; b.id='p-'+p.id; b.setAttribute('aria-pressed','false');
+  b.style.setProperty('--c',`var(--p-${p.id})`); b.style.setProperty('--cbg',`var(--p-${p.id}-bg)`);
+  b.innerHTML=`<span class="sw"></span><span class="l">${p.lab}</span> ${p.txt}`;
+  b.onclick=()=>{ state.pats.has(p.id)?state.pats.delete(p.id):state.pats.add(p.id); render(); };
+  pRow.appendChild(b);
+});
+const clr=document.createElement('button');
+clr.className='chip plain clear'; clr.id='p-clear'; clr.textContent='Clear';
+clr.onclick=()=>{state.pats.clear();render();};
+pRow.appendChild(clr);
+
+// Charts
+const grid = document.getElementById('charts-col');
+const mainGrid = document.getElementById('charts-grid'), erGrid = document.getElementById('er-grid');
+NOUNS.forEach(n=>{
+  const box=document.createElement('div'); box.className='noun';
+  let h=`<div class="noun-h"><div class="de">${n.dict}, ${n.g}.</div><div class="meta">${n.decl} · ${n.gName} · ${n.en[0]}</div></div><div class="grid"><div class="hd"></div><div class="hd">Sing.</div><div class="hd">Plur.</div>`;
+  CASES.forEach(c=>{
+    h+=`<div class="rl">${c.name}</div>`;
+    NUMS.forEach(num=>{ h+=`<button class="cell" data-k="${n.id}.${c.k}.${num.k}" aria-label="${n.id} ${c.name} ${num.name}"></button>`; });
+  });
+  box.innerHTML=h+'</div>';
+  (n.extra?erGrid:mainGrid).appendChild(box);
+});
+const cellEls = [...document.querySelectorAll('.cell')];
+cellEls.forEach(el=>{
+  const go=()=>{state.active=el.dataset.k; renderActive();};
+  const stop=()=>{ if(state.active===el.dataset.k){state.active=null; renderActive();} };
+  el.addEventListener('mouseenter',go); el.addEventListener('focus',go); el.addEventListener('click',go);
+  el.addEventListener('mouseleave',stop); el.addEventListener('blur',stop);
+});
+
+function toggle(id,key){const b=document.getElementById(id);b.onclick=()=>{state[key]=!state[key];render();};}
+toggle('t-mac','mac'); toggle('t-end','end'); toggle('t-flag','flag');
+document.getElementById('er').addEventListener('toggle',e=>{state.er=e.target.open;render();});
+
+function render(){
+  document.getElementById('t-mac').setAttribute('aria-pressed',state.mac);
+  document.getElementById('t-end').setAttribute('aria-pressed',state.end);
+  document.getElementById('t-flag').setAttribute('aria-pressed',state.flag);
+  if(!state.er && state.active && byKey[state.active].noun.extra) state.active=null;
+  grid.classList.toggle('endonly',state.end);
+  grid.classList.toggle('flags',state.flag);
+  PATTERNS.forEach(p=>document.getElementById('p-'+p.id).setAttribute('aria-pressed',state.pats.has(p.id)));
+
+  cellEls.forEach(el=>{
+    const c=byKey[el.dataset.k];
+    el.innerHTML=`<span class="st">${shown(c.stem)}</span><span class="en">${shown(c.ending)}</span>${c.alt?`<span class="alt">-${shown(c.alt)}</span>`:''}`;
+    el.classList.toggle('amb', twinsOf(c).length>0);
+    const hit = PATTERNS.filter(p=>state.pats.has(p.id)&&p.test(c)).pop();
+    el.classList.toggle('pat',!!hit);
+    el.classList.toggle('warn', !hit && PATTERNS.some(p=>state.pats.has(p.id)&&p.warn&&p.warn(c)));
+    if(hit){el.style.setProperty('--pbg',`var(--p-${hit.id}-bg)`);el.style.setProperty('--pfg',`var(--p-${hit.id})`);}
+  });
+
+  document.getElementById('pnotes').innerHTML = PATTERNS.filter(p=>state.pats.has(p.id))
+    .map(p=>`<div class="pnote" style="--c:var(--p-${p.id})">${p.note}</div>`).join('');
+  renderActive();
+}
+
+document.addEventListener('click',e=>{ if(!e.target.closest('.cell') && state.active){state.active=null; renderActive();} });
+function renderActive(){
+  if(!state.active){
+    cellEls.forEach(el=>el.classList.remove('active','twin','htwin'));
+    document.getElementById('card').innerHTML=`<div class="parse">Inspect a form</div>
+      <div class="tr">Hover over or tap any form in the charts.</div>
+      <div class="job">You'll see its case and number, an English translation, and anything it could be mistaken for, shown in red.</div>`;
+    return;
+  }
+  const c = byKey[state.active];
+  const tw = twinsOf(c), ht = hiddenTwinsOf(c);
+  const twK = new Set(tw.map(t=>t.key)), htK = new Set(ht.map(t=>t.key));
+  cellEls.forEach(el=>{
+    const k=el.dataset.k;
+    el.classList.toggle('active',k===c.key);
+    el.classList.toggle('twin',twK.has(k));
+    el.classList.toggle('htwin',htK.has(k));
+  });
+  let h = `<div class="parse">${parseName(c)} · ${c.noun.dict}</div>
+    <div class="form"><span>${shown(c.stem)}</span><span class="en">${shown(c.ending)}</span></div>
+    ${c.alt?`<div class="job">also <i>${shown(c.noun.stem+c.alt)}</i></div>`:''}
+    ${!c.ending?`<div class="job">No separate ending: the nominative has its own shape. Find the stem in the genitive, <i>${shown(byKey[c.noun.id+'.gen.sg'].form)}</i>.</div>`:''}
+    <div class="tr">${english(c)}</div>
+    <div class="job">${caseObj(c.case).job}</div>`;
+  if(tw.length){
+    h+=`<div class="amb-box"><h4>Ambiguous: could also be</h4><ul>${
+      tw.map(t=>`<li><b>${parseName(t)}</b>: <i>${english(t)}</i></li>`).join('')
+    }</ul><div class="hint">Same spelling, different job. Use the verb, a preposition, or agreeing adjectives to decide.</div></div>`;
+  }
+  if(ht.length){
+    const byForm={}; ht.forEach(t=>{(byForm[t.form]=byForm[t.form]||{sg:[],pl:[]})[t.num].push(caseObj(t.case).name.toLowerCase());});
+    h+=`<div class="amb-box hidden-twin"><h4>Only a macron away</h4><ul>${
+      Object.entries(byForm).map(([f,g])=>`<li><i>${f}</i>: ${[g.sg.length?g.sg.join(', ')+' singular':'',g.pl.length?g.pl.join(', ')+' plural':''].filter(Boolean).join('; ')}</li>`).join('')
+    }</ul><div class="hint">Most printed texts omit macrons, so <i>${strip(c.form)}</i> could be any of these.</div></div>`;
+  }
+  const note = NOTES[c.key];
+  const pats = PATTERNS.filter(p=>p.test(c));
+  const warns = PATTERNS.filter(p=>p.warn&&p.warn(c));
+  if(note||pats.length||warns.length){
+    h+=`<div class="tip">${note?`<p>${note}</p>`:''}${pats.map(p=>`<p>Part of the <b>${p.lab}</b> pattern (${p.txt}).</p>`).join('')}${warns.map(p=>`<p>Watch out: this nominative plural also ends in <i>-ēs</i>, just like the accusative plural.</p>`).join('')}</div>`;
+  }
+  if(!note&&!pats.length&&!tw.length&&!ht.length) h+=`<div class="hint">This spelling is unique in its chart: it can only be this case and number.</div>`;
+  document.getElementById('card').innerHTML=h;
+}
+render();
+</script>
+</body>
+</html>

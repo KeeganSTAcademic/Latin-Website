@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arena Formarum · Latin III/IV</title>
+<link rel="stylesheet" href="../css/gamebar.css?v=202609301700">
+</head>
+<body>
+<nav class="gamebar" aria-label="Site"><a class="gamebar-home" href="../">Latin</a><a href="../flashcards/">Flashcards</a><a href="../grammar/">Grammar</a><a href="./" aria-current="page">Games</a></nav>
+<!-- =================================================================
+     ARENA FORMARUM — Latin III/IV form drill, built on the class form sheet
+     Google Sites: Insert > Embed > Embed code, paste all of this.
+
+     Sending scores to the teacher is switched off for now (see README → Games).
+     Data to edit: NOUNS, VERBS, PRONOUNS, CONCEPTS, FOES.
+     ================================================================= -->
+<style>
+  :root{
+    --tufa:#241f1b; --tufa-2:#39302a; --sand:#d8b978; --sand-deep:#a8813f;
+    --bone:#f3ead8; --pompeii:#8e2c25; --caeruleum:#2e6e8e; --bronze:#c08a3e;
+    --serif:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--tufa);color:var(--bone);font-family:var(--serif)}
+  #ludus{max-width:780px;margin:0 auto;padding:14px 14px 22px}
+  h1{font-size:25px;letter-spacing:.17em;margin:0;font-weight:600;color:var(--sand)}
+  .sub{margin:4px 0 12px;font-size:14px;color:#b9a894;font-style:italic}
+
+  .arena{position:relative;border:3px solid var(--bronze);border-radius:6px;overflow:hidden;
+    background:
+      radial-gradient(120% 80% at 50% 118%, var(--sand) 0 55%, var(--sand-deep) 56% 100%),
+      repeating-radial-gradient(circle at 8px 8px,#5a4a3d 0 4px,transparent 4px 13px) 0 0/16px 16px,
+      linear-gradient(var(--tufa-2) 0 100%);
+    background-size:100% 100%,16px 16px,100% 100%;
+    background-position:bottom,top,top;background-repeat:no-repeat,repeat-x,no-repeat}
+  .arena::after{content:"";position:absolute;left:0;right:0;top:52px;height:10px;
+    background:var(--tufa);border-top:3px solid var(--bronze)}
+  .pit{position:relative;display:flex;align-items:flex-end;justify-content:space-between;
+    gap:8px;padding:74px 16px 10px;min-height:248px}
+  .arena.tall .pit{min-height:500px}
+  .glad{width:112px;height:auto;display:block}
+  .side{position:relative;text-align:center;z-index:2}
+  .side.foe .glad{transform:scaleX(-1)}
+  .name{font-size:13px;letter-spacing:.08em;color:#3b2f22;margin-top:2px}
+  .bar{width:130px;height:14px;border:2px solid var(--bronze);background:#1b1613;
+    border-radius:2px;margin:0 auto 6px;overflow:hidden}
+  .bar i{display:block;height:100%;width:100%;background:var(--caeruleum);transition:width .35s ease}
+  .foe .bar i{background:var(--pompeii)}
+  .lunge{animation:lunge .42s ease}
+  .foe .lunge{animation-name:lungeL}
+  @keyframes lunge{35%{transform:translateX(26px)}}
+  @keyframes lungeL{35%{transform:translateX(-26px)}}
+  .struck{animation:struck .42s ease}
+  @keyframes struck{20%,60%{transform:translateX(9px)}40%,80%{transform:translateX(-9px)}}
+  .struck .glad{filter:brightness(1.9) saturate(.4)}
+  .hitnum{position:absolute;left:50%;top:56px;transform:translateX(-50%);font-size:26px;
+    color:var(--pompeii);text-shadow:0 2px 0 #2b1a12;pointer-events:none;animation:rise .9s ease forwards}
+  .hitnum.soft{color:#d8b978;font-size:20px}
+  @keyframes rise{to{opacity:0;transform:translate(-50%,-42px)}}
+
+  .board{margin-top:14px;background:var(--tufa-2);border:2px solid #4d4037;border-radius:4px;padding:16px}
+  .prompt{margin:0;font-size:20px;line-height:1.5;text-align:center}
+  .prompt em{font-style:normal;color:var(--sand);border-bottom:2px solid var(--bronze)}
+  .prompt b{font-weight:600;color:#efd9a6}
+  .clock{height:6px;background:#1b1613;border-radius:3px;margin:14px 0 12px;overflow:hidden}
+  .clock i{display:block;height:100%;width:100%;background:var(--bronze)}
+  .answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .answers.free{display:block}
+  .answers button{font-family:var(--serif);font-size:17px;color:var(--bone);cursor:pointer;
+    background:#463a31;border:2px solid #6b5849;border-top-color:#8a7360;border-radius:5px 5px 3px 3px;
+    padding:13px 8px;transition:background .15s,transform .1s}
+  .answers button:hover:not(:disabled){background:#55463a}
+  .answers button:active:not(:disabled){transform:translateY(2px)}
+  .answers button:focus-visible{outline:3px solid var(--sand);outline-offset:2px}
+  .answers button:disabled{cursor:default;opacity:.85}
+  .answers .right{background:var(--caeruleum);border-color:#7fb6d2;opacity:1}
+  .answers .wrong{background:var(--pompeii);border-color:#c8746c;opacity:1}
+  .key{font-size:12px;color:#b9a894;margin-right:6px}
+
+  .typebox{display:flex;gap:8px}
+  .typebox input{flex:1;min-width:0;font-family:var(--serif);font-size:20px;color:var(--bone);
+    background:#2b241f;border:2px solid #6b5849;border-radius:4px;padding:11px 12px}
+  .typebox input:focus{outline:2px solid var(--sand);outline-offset:1px}
+  .typebox input.right{border-color:#7fb6d2;background:#24404f}
+  .typebox input.wrong{border-color:#c8746c;background:#4a221e}
+  .typebox button{flex:0 0 auto}
+  .macrons{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:9px}
+  .macrons button{font-size:16px;padding:6px 13px;background:#2b241f;border-color:#57483d}
+  .verdict{min-height:22px;margin:12px 0 0;text-align:center;font-size:15px;color:#c9b9a3}
+  .meta{display:flex;justify-content:space-between;font-size:13px;color:#9d8d7b;margin-top:10px}
+
+  .veil{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;justify-content:safe center;text-align:center;padding:16px;background:rgba(20,16,13,.94);overflow:auto}
+  .veil h2{margin:0 0 6px;font-size:23px;color:var(--sand);letter-spacing:.05em}
+  .veil p{margin:0 0 12px;max-width:48ch;font-size:14px;line-height:1.5;color:#cbbba6}
+  .topics{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:14px}
+  .topics button{font-family:var(--serif);font-size:14px;color:#cbbba6;background:transparent;
+    border:1px solid #6b5849;border-radius:3px;padding:6px 12px;cursor:pointer}
+  .topics button[aria-pressed=true]{background:var(--caeruleum);border-color:#7fb6d2;color:#fff}
+  .go{font-family:var(--serif);font-size:18px;letter-spacing:.05em;color:#2b2018;background:var(--sand);
+    border:none;border-bottom:4px solid var(--sand-deep);border-radius:4px;padding:11px 26px;
+    cursor:pointer;text-decoration:none;display:inline-block}
+  .go:hover{background:#e6cb92}
+  .go:focus-visible{outline:3px solid var(--caeruleum);outline-offset:3px}
+  .go.quiet{background:transparent;color:var(--sand);border:1px solid #6b5849;border-bottom-width:1px}
+  .go.quiet:hover{background:#332a24}
+  .hide{display:none}
+  @media (max-width:560px){
+    .glad{width:84px}.bar{width:100px}.prompt{font-size:18px}
+    .answers{grid-template-columns:1fr}.pit{min-height:208px;padding-top:70px}
+    .arena.tall .pit{min-height:540px}
+    .arena:has(.veil:not(.hide)) .pit{min-height:390px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div id="ludus">
+  <h1>Arena Formarum</h1>
+  <p class="sub">Every form on the Latin III/IV sheet, one blow at a time.</p>
+
+  <div class="arena" id="arena">
+    <div class="pit">
+      <div class="side you" id="youSide">
+        <div class="bar"><i id="youBar"></i></div>
+        <svg class="glad" viewBox="0 0 120 170" aria-label="Your gladiator">
+          <path d="M50 98 L42 150 L56 150 L62 102Z" fill="#c99a6e"/>
+          <path d="M68 98 L74 150 L88 150 L78 102Z" fill="#c99a6e"/>
+          <rect x="42" y="130" width="15" height="20" rx="3" fill="#9aa0a6"/>
+          <rect x="73" y="130" width="15" height="20" rx="3" fill="#9aa0a6"/>
+          <path d="M46 56 H82 L90 104 H40 Z" fill="#2e6e8e"/>
+          <rect x="41" y="86" width="50" height="9" rx="2" fill="#c08a3e"/>
+          <path d="M78 60 L104 38 L112 46 L86 70 Z" fill="#c99a6e"/>
+          <rect x="100" y="-8" width="8" height="48" rx="2" fill="#cdd2d6" transform="rotate(20 104 16)"/>
+          <circle cx="63" cy="43" r="17" fill="#9aa0a6"/>
+          <path d="M52 44 h22 v6 h-22z" fill="#3a3f44"/>
+          <path d="M49 30 q14 -22 30 -5 l-5 5 q-11 -12 -20 3Z" fill="#8e2c25"/>
+          <rect x="12" y="50" width="36" height="66" rx="6" fill="#8e2c25" stroke="#c08a3e" stroke-width="4"/>
+          <circle cx="30" cy="83" r="7" fill="#c08a3e"/>
+        </svg>
+        <div class="name">Discipulus</div>
+      </div>
+      <div class="side foe" id="foeSide">
+        <div class="bar"><i id="foeBar"></i></div>
+        <svg class="glad" viewBox="0 0 120 170" aria-label="Opposing gladiator">
+          <path d="M50 98 L42 150 L56 150 L62 102Z" fill="#b98a63"/>
+          <path d="M68 98 L74 150 L88 150 L78 102Z" fill="#b98a63"/>
+          <rect x="42" y="130" width="15" height="20" rx="3" fill="#8b6b3f"/>
+          <path d="M46 56 H82 L90 104 H40 Z" id="foeTunic" fill="#6b4a7a"/>
+          <rect x="41" y="86" width="50" height="9" rx="2" fill="#c08a3e"/>
+          <path d="M78 62 L100 44 L108 52 L86 72 Z" fill="#b98a63"/>
+          <rect x="100" y="-4" width="6" height="60" rx="2" fill="#8b6b3f" transform="rotate(18 103 26)"/>
+          <path d="M96 -14 v14 M104 -16 v14 M112 -12 v14" stroke="#cdd2d6" stroke-width="5" fill="none"
+                transform="rotate(18 103 26)"/>
+          <circle cx="63" cy="43" r="17" fill="#8b6b3f"/>
+          <path d="M52 44 h22 v6 h-22z" fill="#2c2622"/>
+          <path d="M46 40 q17 -26 34 0 l-6 2 q-11 -17 -22 0Z" fill="#c08a3e"/>
+          <rect x="20" y="62" width="26" height="46" rx="13" fill="#5a4a3d" stroke="#c08a3e" stroke-width="3"/>
+        </svg>
+        <div class="name" id="foeName">Rufus</div>
+      </div>
+    </div>
+
+    <div class="veil" id="veil">
+      <h2 id="veilTitle">Four opponents, one form sheet</h2>
+      <p id="veilText">The first two opponents give you four answers to choose from. The last two
+        make you write the form yourself. Answer before the sand runs out and you strike; miss and
+        you take the blow.</p>
+      <div class="topics" id="topics"></div>
+      <button class="go" id="veilBtn">Enter the arena</button>
+    </div>
+  </div>
+
+  <div class="board">
+    <p class="prompt" id="prompt">Ready.</p>
+    <div class="clock"><i id="clock"></i></div>
+    <div class="answers" id="answers"></div>
+    <p class="verdict" id="verdict"></p>
+    <div class="meta">
+      <span id="metaBout">Bout 1 of 4</span>
+      <span id="metaScore">Hits 0 · Close 0 · Misses 0</span>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ======================= DATA — edit freely =========================
+   Nouns: ten forms in this order —
+   nom sg, gen sg, dat sg, acc sg, abl sg, nom pl, gen pl, dat pl, acc pl, abl pl
+   ================================================================== */
+var NOUNS = [
+ {l:"puella, puellae", g:"girl, 1st decl.", d:1,
+  f:"puella,puellae,puellae,puellam,puellā,puellae,puellārum,puellīs,puellās,puellīs"},
+ {l:"equus, equī", g:"horse, 2nd decl. m.", d:1,
+  f:"equus,equī,equō,equum,equō,equī,equōrum,equīs,equōs,equīs"},
+ {l:"forum, forī", g:"forum, 2nd decl. n.", d:1,
+  f:"forum,forī,forō,forum,forō,fora,forōrum,forīs,fora,forīs"},
+ {l:"urbs, urbis", g:"city, 3rd decl.", d:2,
+  f:"urbs,urbis,urbī,urbem,urbe,urbēs,urbium,urbibus,urbēs,urbibus"},
+ {l:"corpus, corporis", g:"body, 3rd decl. n.", d:2,
+  f:"corpus,corporis,corporī,corpus,corpore,corpora,corporum,corporibus,corpora,corporibus"},
+ {l:"manus, manūs", g:"hand, 4th decl.", d:2,
+  f:"manus,manūs,manuī,manum,manū,manūs,manuum,manibus,manūs,manibus"},
+ {l:"cornū, cornūs", g:"horn, 4th decl. n.", d:2,
+  f:"cornū,cornūs,cornū,cornū,cornū,cornua,cornuum,cornibus,cornua,cornibus"},
+ {l:"rēs, reī", g:"thing, 5th decl.", d:2,
+  f:"rēs,reī,reī,rem,rē,rēs,rērum,rēbus,rēs,rēbus"},
+ {l:"ego, nōs", g:"I, we", d:2,
+  f:"ego,meī,mihi,mē,mē,nōs,nostrī,nōbīs,nōs,nōbīs"},
+ {l:"tū, vōs", g:"you, y'all", d:2,
+  f:"tū,tuī,tibi,tē,tē,vōs,vestrī,vōbīs,vōs,vōbīs"}
+];
+/* Forms a typed answer may also use. */
+var ALT = {"nostrī":["nostrum"],"vestrī":["vestrum"]};
+
+/* Verbs: each tense is [name, active 1s-3p, passive 1s-3p]. n = non-finite forms. */
+var VERBS = [
+ {l:"amō", g:"love, 1st conj.", core:["present","imperfect","future"],
+  t:[["present","amō,amās,amat,amāmus,amātis,amant","amor,amāris,amātur,amāmur,amāminī,amantur"],
+     ["imperfect","amābam,amābās,amābat,amābāmus,amābātis,amābant","amābar,amābāris,amābātur,amābāmur,amābāminī,amābantur"],
+     ["future","amābō,amābis,amābit,amābimus,amābitis,amābunt","amābor,amāberis,amābitur,amābimur,amābiminī,amābuntur"],
+     ["perfect","amāvī,amāvistī,amāvit,amāvimus,amāvistis,amāvērunt","amātus sum,amātus es,amātus est,amātī sumus,amātī estis,amātī sunt"],
+     ["pluperfect","amāveram,amāverās,amāverat,amāverāmus,amāverātis,amāverant","amātus eram,amātus erās,amātus erat,amātī erāmus,amātī erātis,amātī erant"],
+     ["future perfect","amāverō,amāveris,amāverit,amāverimus,amāveritis,amāverint","amātus erō,amātus eris,amātus erit,amātī erimus,amātī eritis,amātī erunt"]],
+  n:[["amāre","present active infinitive"],["amārī","present passive infinitive"],
+     ["amāvisse","perfect active infinitive"],["amātus esse","perfect passive infinitive"],
+     ["amā","singular imperative"],["amāte","plural imperative"],
+     ["amāns","present active participle"],["amātūrus","future active participle"],
+     ["amātus","perfect passive participle"]]},
+ {l:"capiō", g:"take, 3rd -iō conj.", core:["future"],
+  t:[["future","capiam,capiēs,capiet,capiēmus,capiētis,capient","capiar,capiēris,capiētur,capiēmur,capiēminī,capientur"]],
+  n:[]}
+];
+
+/* Pronouns: 30 cells, five cases top to bottom, each as
+   masc sg, fem sg, neut sg, masc pl, fem pl, neut pl. */
+var PRONOUNS = [
+ {l:"hic, haec, hoc", g:"this", c:"hic,haec,hoc,hī,hae,haec,huius,huius,huius,hōrum,hārum,hōrum,huic,huic,huic,hīs,hīs,hīs,hunc,hanc,hoc,hōs,hās,haec,hōc,hāc,hōc,hīs,hīs,hīs"},
+ {l:"ille, illa, illud", g:"that", c:"ille,illa,illud,illī,illae,illa,illīus,illīus,illīus,illōrum,illārum,illōrum,illī,illī,illī,illīs,illīs,illīs,illum,illam,illud,illōs,illās,illa,illō,illā,illō,illīs,illīs,illīs"},
+ {l:"is, ea, id", g:"that; he, she, it", c:"is,ea,id,eī,eae,ea,eius,eius,eius,eōrum,eārum,eōrum,eī,eī,eī,eīs,eīs,eīs,eum,eam,id,eōs,eās,ea,eō,eā,eō,eīs,eīs,eīs"},
+ {l:"quī, quae, quod", g:"who, which (relative)", c:"quī,quae,quod,quī,quae,quae,cuius,cuius,cuius,quōrum,quārum,quōrum,cui,cui,cui,quibus,quibus,quibus,quem,quam,quod,quōs,quās,quae,quō,quā,quō,quibus,quibus,quibus"}
+];
+/* Possessives decline 1st/2nd, so they are built from a stem instead of typed out. */
+var POSS = [["meus, mea, meum","my","me"],["tuus, tua, tuum","your (sg.)","tu"],
+            ["suus, sua, suum","his/her/its/their own","su"],
+            ["noster, nostra, nostrum","our","nostr","noster"],
+            ["vester, vestra, vestrum","your (pl.)","vestr","vester"]];
+
+var CONCEPTS = [
+ {q:"Which case marks the subject?",a:"Nominative",d:["Accusative","Dative","Ablative"]},
+ {q:"Which case shows possession, 'of'?",a:"Genitive",d:["Dative","Ablative","Nominative"]},
+ {q:"Which case is the indirect object, 'to/for'?",a:"Dative",d:["Genitive","Accusative","Ablative"]},
+ {q:"Which case covers 'by, with, from'?",a:"Ablative",d:["Dative","Genitive","Accusative"]},
+ {q:"Which case marks the direct object?",a:"Accusative",d:["Nominative","Dative","Genitive"]},
+ {q:"In neuter nouns, which two cases always match?",a:"Nominative and accusative",
+  d:["Genitive and dative","Dative and ablative","Nominative and genitive"]},
+ {q:"A verbal adjective is called a…",a:"Participle",d:["Infinitive","Particle","Preposition"]},
+ {q:"What qualifies a verb?",a:"An adverb",d:["An adjective","A participle","A conjunction"]},
+ {q:"What joins words, phrases, or clauses?",a:"A conjunction",d:["A preposition","A particle","An adverb"]},
+ {q:"What relates a noun to another word and governs a case?",a:"A preposition",
+  d:["A conjunction","A particle","An adverb"]},
+ {q:"The infix -ior- marks which degree?",a:"Comparative",d:["Superlative","Positive","Perfect"]},
+ {q:"The infix -issim- marks which degree?",a:"Superlative",d:["Comparative","Positive","Future"]},
+ {q:"Comparative adjectives decline in which declension?",a:"3rd",d:["1st/2nd","4th","5th"]},
+ {q:"Which is the comparative adverb of cōnsīderātē?",a:"cōnsīderātius",
+  d:["cōnsīderātissimē","cōnsīderātior","cōnsīderāta"]},
+ {q:"The infix -bā- marks which tense?",a:"Imperfect",d:["Future","Perfect","Pluperfect"]},
+ {q:"In 1st and 2nd conjugation, -bi- marks which tense?",a:"Future",
+  d:["Imperfect","Perfect","Future perfect"]},
+ {q:"Which tense means 'had verbed'?",a:"Pluperfect",d:["Perfect","Imperfect","Future perfect"]},
+ {q:"Which tense means 'will have verbed'?",a:"Future perfect",d:["Future","Perfect","Pluperfect"]},
+ {q:"Completed-aspect active forms are built on which principal part?",a:"Third",
+  d:["First","Second","Fourth"]},
+ {q:"The present participle is built on which principal part?",a:"Second",d:["First","Third","Fourth"]},
+ {q:"The perfect passive participle is built on which principal part?",a:"Fourth",
+  d:["First","Second","Third"]},
+ {q:"Passive endings differ from active mainly by adding which letter?",a:"r",d:["s","m","t"]},
+ {q:"Which infinitive belongs to the 2nd conjugation?",a:"-ēre (long ē)",
+  d:["-āre","-ere (short e)","-īre"]},
+ {q:"Which mood issues a command?",a:"Imperative",d:["Subjunctive","Indicative","Infinitive"]},
+ {q:"Which mood describes possibility, 'might' or 'should'?",a:"Subjunctive",
+  d:["Imperative","Indicative","Infinitive"]},
+ {q:"Which mood states actual events?",a:"Indicative",d:["Subjunctive","Imperative","Infinitive"]},
+ {q:"How is the future active participle marked?",a:"The infix -ūr-",
+  d:["The infix -bā-","The infix -issim-","The infix -ior-"]},
+ {q:"Which pronoun sits closest to English 'this'?",a:"hic, haec, hoc",
+  d:["ille, illa, illud","is, ea, id","quī, quae, quod"]},
+ {q:"Which pronoun links a clause back to an earlier noun?",a:"quī, quae, quod",
+  d:["hic, haec, hoc","ille, illa, illud","ego, nōs"]}
+];
+
+/* Opponents. mode "choice" gives four buttons; mode "write" makes them type the
+   form (parsing and concept questions stay multiple choice either way).
+   Typed questions automatically get 10 extra seconds. */
+var FOES = [
+ {name:"Rufus the Raw",   hp:100, hit:13, secs:18, mode:"choice", tunic:"#6b4a7a", bank:["concept","noun1"]},
+ {name:"Vitulus",        hp:110, hit:16, secs:16, mode:"choice", tunic:"#4b6b3a", bank:["noun","verbCore","concept"]},
+ {name:"Scaeva the Left", hp:120, hit:19, secs:14, mode:"write",  tunic:"#8e5a25", bank:["verb","noun","concept"]},
+ {name:"Verus, Champion", hp:130, hit:22, secs:13, mode:"write",  tunic:"#5a2d2d", bank:["verb","pron","noun","concept"]}
+];
+var YOU_MAX = 100;
+
+/* ===================== engine — no need to edit ===================== */
+var $=function(i){return document.getElementById(i)};
+var CASES=["nominative","genitive","dative","accusative","ablative"];
+var COLS=["masculine singular","feminine singular","neuter singular",
+          "masculine plural","feminine plural","neuter plural"];
+var NCASE=["nominative singular","genitive singular","dative singular","accusative singular",
+  "ablative singular","nominative plural","genitive plural","dative plural","accusative plural",
+  "ablative plural"];
+var PERS=["1st person singular","2nd person singular","3rd person singular",
+          "1st person plural","2nd person plural","3rd person plural"];
+var PLAB=[],r,c;
+for(r=0;r<5;r++)for(c=0;c<6;c++)PLAB.push(CASES[r]+" "+COLS[c]);
+
+function rnd(n){return Math.floor(Math.random()*n)}
+function pick(a){return a[rnd(a.length)]}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=rnd(i+1),t=a[i];a[i]=a[j];a[j]=t}return a}
+function uniqOnly(l){return l.filter(function(x){return l.indexOf(x)===l.lastIndexOf(x)})}
+function opts(ans,cands,extra){
+  var out=[ans];
+  shuffle(cands.slice()).forEach(function(x){if(out.length<4&&out.indexOf(x)<0)out.push(x)});
+  if(extra)shuffle(extra.slice()).forEach(function(x){if(out.length<4&&out.indexOf(x)<0)out.push(x)});
+  return shuffle(out);
+}
+/* macrons, capitals, and u/v i/j spellings are all accepted */
+function norm(s){
+  return String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/v/g,"u").replace(/j/g,"i").replace(/[^a-z ]/g,"").replace(/\s+/g," ").trim();
+}
+function lev(a,b){
+  if(Math.abs(a.length-b.length)>1)return 9;
+  var d=[],i,j;
+  for(i=0;i<=a.length;i++)d[i]=[i];
+  for(j=0;j<=b.length;j++)d[0][j]=j;
+  for(i=1;i<=a.length;i++)for(j=1;j<=b.length;j++)
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+  return d[a.length][b.length];
+}
+function build12(stem,nomM){
+  var e=[["us","a","um","ī","ae","a"],["ī","ae","ī","ōrum","ārum","ōrum"],
+         ["ō","ae","ō","īs","īs","īs"],["um","am","um","ōs","ās","a"],
+         ["ō","ā","ō","īs","īs","īs"]],out=[];
+  e.forEach(function(row){row.forEach(function(x){out.push(stem+x)})});
+  if(nomM)out[0]=nomM;
+  return out;
+}
+NOUNS.forEach(function(n){n.f=n.f.split(",")});
+PRONOUNS.forEach(function(p){p.c=p.c.split(",")});
+POSS.forEach(function(p){PRONOUNS.push({l:p[0],g:p[1],c:build12(p[2],p[3])})});
+VERBS.forEach(function(v){
+  v.fin=[];
+  v.t.forEach(function(t){
+    [1,2].forEach(function(vi){
+      t[vi].split(",").forEach(function(f,i){
+        v.fin.push({f:f,lab:PERS[i]+", "+t[0]+" "+(vi===1?"active":"passive"),tense:t[0]});
+      });
+    });
+  });
+});
+var ALLNOUNF=[],ALLVERBF=[],ALLPRONF=[];
+NOUNS.forEach(function(n){ALLNOUNF=ALLNOUNF.concat(n.f)});
+VERBS.forEach(function(v){ALLVERBF=ALLVERBF.concat(v.fin.map(function(x){return x.f}));
+  v.n.forEach(function(x){ALLVERBF.push(x[0])})});
+PRONOUNS.forEach(function(p){ALLPRONF=ALLPRONF.concat(p.c)});
+
+/* ---- question makers: {html, ans, list, note, w} — w means it can be typed ---- */
+function qNoun(easy){
+  var pool=NOUNS.filter(function(n){return easy?n.d===1:true});
+  var n=pick(pool);
+  if(!easy&&Math.random()<.35){
+    var uq=uniqOnly(n.f);
+    if(uq.length){
+      var f=pick(uq),i=n.f.indexOf(f),lab=NCASE[i];
+      return {html:'<em>'+f+'</em> — what form of <b>'+n.l+'</b> is it?',ans:lab,w:false,
+        list:opts(lab,NCASE.filter(function(x){return x!==lab}),null),
+        note:f+" is the "+lab+" of "+n.l+"."};
+    }
+  }
+  var k=rnd(10),a=n.f[k];
+  return {html:'Give the <b>'+NCASE[k]+'</b> of <em>'+n.l+'</em> ('+n.g+').',ans:a,w:true,
+    list:opts(a,n.f.filter(function(x){return x!==a}),ALLNOUNF),
+    note:NCASE[k]+" of "+n.l+" is "+a+"."};
+}
+function qVerb(coreOnly){
+  var v=coreOnly?VERBS[0]:pick(VERBS);
+  var set=coreOnly?v.fin.filter(function(x){return v.core.indexOf(x.tense)>=0}):v.fin;
+  if(!coreOnly&&v.n.length&&Math.random()<.25){
+    var nf=pick(v.n);
+    return {html:'Give the <b>'+nf[1]+'</b> of <em>'+v.l+'</em> ('+v.g+').',ans:nf[0],w:true,
+      list:opts(nf[0],v.n.map(function(x){return x[0]}),ALLVERBF),
+      note:nf[0]+" is the "+nf[1]+"."};
+  }
+  var all=v.fin.map(function(x){return x.f});
+  if(!coreOnly&&Math.random()<.35){
+    var uq=uniqOnly(all),cand=set.filter(function(x){return uq.indexOf(x.f)>=0});
+    if(cand.length){
+      var t=pick(cand);
+      return {html:'<em>'+t.f+'</em> — parse this form of <b>'+v.l+'</b>.',ans:t.lab,w:false,
+        list:opts(t.lab,v.fin.map(function(x){return x.lab}).filter(function(x){return x!==t.lab}),null),
+        note:t.f+" is "+t.lab+"."};
+    }
+  }
+  var q=pick(set);
+  return {html:'Give the <b>'+q.lab+'</b> of <em>'+v.l+'</em> ('+v.g+').',ans:q.f,w:true,
+    list:opts(q.f,all.filter(function(x){return x!==q.f}),ALLVERBF),
+    note:q.lab+" of "+v.l+" is "+q.f+"."};
+}
+function qPron(){
+  var p=pick(PRONOUNS);
+  if(Math.random()<.3){
+    var uq=uniqOnly(p.c);
+    if(uq.length){
+      var f=pick(uq),i=p.c.indexOf(f);
+      return {html:'<em>'+f+'</em> — what form of <b>'+p.l+'</b> is it?',ans:PLAB[i],w:false,
+        list:opts(PLAB[i],PLAB.filter(function(x){return x!==PLAB[i]}),null),
+        note:f+" is "+PLAB[i]+"."};
+    }
+  }
+  var k=rnd(30),a=p.c[k];
+  return {html:'Give the <b>'+PLAB[k]+'</b> of <em>'+p.l+'</em> ('+p.g+').',ans:a,w:true,
+    list:opts(a,p.c.filter(function(x){return x!==a}),ALLPRONF),
+    note:PLAB[k]+" of "+p.l+" is "+a+"."};
+}
+function qConcept(){
+  var q=pick(CONCEPTS);
+  return {html:q.q,ans:q.a,w:false,list:opts(q.a,q.d,null),note:q.a+" is right."};
+}
+function make(kind){
+  if(kind==="noun1")return qNoun(true);
+  if(kind==="noun")return qNoun(false);
+  if(kind==="verbCore")return qVerb(true);
+  if(kind==="verb")return qVerb(false);
+  if(kind==="pron")return qPron();
+  return qConcept();
+}
+
+/* ---- game state ---- */
+var youHP,foeHP,foeIdx,foe,hits,close,misses,streak,best,locked,tick,endAt,q,typed;
+var topic="all",attempt=0,bestPct=null,lastRun=null;
+var TOPICS=[["all","Everything"],["noun","Nouns"],["verb","Verbs"],["pron","Pronouns"],
+            ["concept","Concepts"]];
+TOPICS.forEach(function(t){
+  var b=document.createElement("button");
+  b.textContent=t[1];b.setAttribute("aria-pressed",t[0]==="all");
+  b.onclick=function(){topic=t[0];
+    [].forEach.call($("topics").children,function(x){x.setAttribute("aria-pressed",x===b)})};
+  $("topics").appendChild(b);
+});
+function topicLabel(){
+  for(var i=0;i<TOPICS.length;i++)if(TOPICS[i][0]===topic)return TOPICS[i][1];
+  return "Everything";
+}
+function bars(){
+  $("youBar").style.width=Math.max(0,youHP)/YOU_MAX*100+"%";
+  $("foeBar").style.width=Math.max(0,foeHP)/foe.hp*100+"%";
+  $("metaBout").textContent="Bout "+(foeIdx+1)+" of "+FOES.length+
+    (foe.mode==="write"?" · write the form":"");
+  $("metaScore").textContent="Hits "+hits+" · Close "+close+" · Misses "+misses;
+}
+function startGame(){
+  attempt++;foeIdx=0;hits=0;close=0;misses=0;streak=0;best=0;youHP=YOU_MAX;startBout();
+}
+function startBout(){
+  foe=FOES[foeIdx];foeHP=foe.hp;
+  $("foeName").textContent=foe.name;
+  $("foeTunic").setAttribute("fill",foe.tunic);
+  $("veil").classList.add("hide");
+  $("arena").classList.remove("tall");
+  bars();ask();
+}
+function ask(){
+  locked=false;$("verdict").textContent="";
+  q=make(topic==="all"?pick(foe.bank):topic);
+  typed=foe.mode==="write"&&q.w;
+  $("prompt").innerHTML=q.html;
+  var box=$("answers");box.innerHTML="";box.className="answers"+(typed?" free":"");
+  if(typed){
+    var wrap=document.createElement("div");wrap.className="typebox";
+    var inp=document.createElement("input");
+    inp.id="typeIn";inp.autocomplete="off";inp.spellcheck=false;
+    inp.setAttribute("autocapitalize","off");inp.placeholder="write the form";
+    inp.onkeydown=function(e){if(e.key==="Enter")answer(inp.value,null)};
+    var go=document.createElement("button");go.textContent="Strike";
+    go.onclick=function(){answer(inp.value,null)};
+    wrap.appendChild(inp);wrap.appendChild(go);box.appendChild(wrap);
+    var mac=document.createElement("div");mac.className="macrons";
+    "āēīōū".split("").forEach(function(ch){
+      var m=document.createElement("button");m.textContent=ch;m.type="button";
+      m.onclick=function(){inp.value+=ch;inp.focus()};
+      mac.appendChild(m);
+    });
+    box.appendChild(mac);
+    inp.focus();
+  }else{
+    q.list.forEach(function(o,n){
+      var b=document.createElement("button");
+      b.innerHTML='<span class="key">'+(n+1)+'</span>'+o;
+      b.dataset.v=o;
+      b.onclick=function(){answer(o,b)};
+      box.appendChild(b);
+    });
+  }
+  var secs=foe.secs+(typed?10:0);
+  q.secs=secs;
+  endAt=Date.now()+secs*1000;
+  clearInterval(tick);tick=setInterval(runClock,60);runClock();
+}
+function runClock(){
+  var left=(endAt-Date.now())/(q.secs*1000);
+  $("clock").style.width=Math.max(0,left)*100+"%";
+  if(left<=0&&!locked)answer(null,null);
+}
+function answer(choice,btn){
+  if(locked)return;
+  locked=true;clearInterval(tick);
+  var left=Math.max(0,(endAt-Date.now())/(q.secs*1000));
+  var given=choice==null?"":String(choice).trim();
+  var right=false,nearly=false;
+  if(typed){
+    if(given){
+      var a=norm(given),b=norm(q.ans);
+      var alts=(ALT[q.ans]||[]).map(norm);
+      right=a===b||alts.indexOf(a)>=0;
+      if(!right&&b.length>3&&lev(a,b)<=1)nearly=true;
+    }
+    var inp=$("typeIn");
+    if(inp){inp.disabled=true;inp.className=right?"right":"wrong";
+      if(!right)inp.value=given?given+"  →  "+q.ans:q.ans;}
+    [].forEach.call($("answers").querySelectorAll("button"),function(x){x.disabled=true});
+  }else{
+    right=given===q.ans;
+    [].forEach.call($("answers").children,function(b){
+      b.disabled=true;
+      if(b.dataset.v===q.ans)b.className="right";
+    });
+    if(btn&&!right)btn.className="wrong";
+  }
+  if(right){
+    hits++;streak++;if(streak>best)best=streak;
+    var dmg=Math.round((13+13*left)*(typed?1.3:1));
+    if(streak>=3)dmg=Math.round(dmg*1.5);
+    foeHP-=dmg;strike($("youSide"),$("foeSide"),dmg,false);
+    var full=typed&&given!==q.ans?" Written in full: "+q.ans+"." : "";
+    $("verdict").textContent=(streak>=3?"Three in a row. ":"Recte. ")+q.note+full;
+  }else if(nearly){
+    close++;streak=0;
+    var d2=Math.round(7+5*left);
+    foeHP-=d2;strike($("youSide"),$("foeSide"),d2,true);
+    $("verdict").textContent="A graze — one letter off. "+q.note;
+  }else{
+    misses++;streak=0;youHP-=foe.hit;
+    strike($("foeSide"),$("youSide"),foe.hit,false);
+    $("verdict").textContent=(given?"Perperam. ":"Too slow. ")+q.note;
+  }
+  bars();setTimeout(next,typed?2400:1800);
+}
+function strike(att,tar,dmg,soft){
+  att.classList.add("lunge");tar.classList.add("struck");
+  var n=document.createElement("div");n.className="hitnum"+(soft?" soft":"");
+  n.textContent="-"+dmg;tar.appendChild(n);
+  setTimeout(function(){att.classList.remove("lunge");tar.classList.remove("struck");n.remove()},900);
+}
+function next(){
+  if(youHP<=0)return over(false);
+  if(foeHP<=0){
+    foeIdx++;
+    if(foeIdx>=FOES.length)return over(true);
+    youHP=Math.min(YOU_MAX,youHP+25);
+    var nx=FOES[foeIdx];
+    return curtain(foe.name+" yields",
+      "The medicus patches you up. "+nx.name+" comes on"+
+      (nx.mode==="write"&&foe.mode==="choice"
+        ? " — and from here you write the forms yourself, no choices."
+        : " with "+nx.secs+" seconds a form.")+"",
+      "Fight "+nx.name,startBout,false);
+  }
+  ask();
+}
+function over(won){
+  var total=hits+close+misses;
+  var pct=total?Math.round((hits+close*0.5)/total*100):0;
+  if(bestPct===null||pct>bestPct)bestPct=pct;
+  lastRun={won:won,pct:pct,total:total,bout:foeIdx+1,when:new Date()};
+  var line="Correct "+hits+" of "+total+", "+close+" near misses, "+misses+" wrong. Score "+pct+"%."+
+    (attempt>1?" Best so far "+bestPct+"%.":"");
+  curtain(won?"You win the rudis":"You fall in the sand",
+    (won?"Four opponents down. ":"")+line+
+    " Try again for a better score.",
+    "Try again",startGame,true);
+  showReport();
+}
+function curtain(title,text,label,fn,showTopics){
+  $("veilTitle").textContent=title;$("veilText").textContent=text;
+  $("veilBtn").textContent=label;$("veilBtn").onclick=fn;
+  $("topics").classList.toggle("hide",!showTopics);
+  $("arena").classList.remove("tall");
+  $("veil").classList.remove("hide");$("veilBtn").focus();
+}
+
+/* Sending the score to the teacher is switched off for now; the end screen shows the result. */
+function showReport(){}
+document.addEventListener("keydown",function(e){
+  if(e.key>="1"&&e.key<="4"&&!locked&&!typed&&$("veil").classList.contains("hide")){
+    var b=$("answers").children[+e.key-1];if(b)b.click();
+  }
+});
+$("veilBtn").onclick=startGame;
+</script>
+</body>
+</html>

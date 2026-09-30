@@ -8,12 +8,20 @@ Hosted with GitHub Pages. There's no build step: edit a file, push, and the site
 ```
 index.html              site home
 css/site.css            shared theme (style guide v1): every page links this
-css/flashcards.css      flashcard player styles
+css/flashcards.css      flashcard player styles (also the games list)
+css/gamebar.css         the thin site bar at the top of each game and grammar page
+css/grammar.css         shared look of the grammar pages (grammar-verbs.css adds the verb parts)
 js/common.js            shared helpers (shuffle, safe storage, loading data)
+js/pagelist.js          the grouped list on the games and grammar pages
 js/flashcards.js        the flashcard engine, used by every deck
 flashcards/index.html   deck list + player  →  flashcards/?deck=latin2-vocab
 data/decks/*.json       one file per deck (content only, no code)
 data/decks/index.json   the deck list shown on the flashcards page
+grammar/index.html      grammar list  →  reads data/grammar.json
+grammar/*.html          one interactive grammar page each
+games/index.html        games list  →  reads data/games.json
+games/*.html            one self-contained page per game
+games/img/              images the games use
 ```
 
 **Changing the look** → `css/site.css`. **Adding a feature to all flashcards** → `js/flashcards.js`.
@@ -117,6 +125,41 @@ Any filter can be preset in the link, which is handy for assigning one piece of 
 
 Presets apply to that visit and aren't saved over a student's own settings.
 
+## Grammar
+
+Interactive charts in `grammar/`: hover or tap any form to see what it is, how to translate it, and what it could be mistaken for; pattern buttons light up the rules.
+
+| Page | Covers |
+|---|---|
+| `first-second-declension.html` | puella, equus, forum (and -er nouns) |
+| `third-declension.html` | rēx, corpus, i-stems, how the nominative is formed |
+| `fourth-declension.html` | frūctus, cornū, exceptions |
+| `fifth-declension.html` | rēs, diēs |
+| `declensions-overview.html` | all five side by side: cross-declension rules and look-alike endings |
+| `case-usages.html` | each case's basic and further uses, with A&G references (link to a tab: `case-usages.html#ablative`) |
+| `present-active.html` | present active indicative, all conjugations and sum |
+| `imperfect-active.html` | imperfect active indicative, all conjugations and sum |
+
+Each page holds its own content and script (the forms, notes and patterns are in the `<script>` at the bottom). The look is shared: `css/grammar.css` for every page and `css/grammar-verbs.css` for verb pages, so a change there changes them all. A page's own `<style>` only has its pattern colours (`--p-…`), `--card-h` (the height of the detail card, where a page needs a different one) and anything only that page uses.
+
+**Adding a page:** copy the nearest existing page (e.g. `imperfect-active.html` for another tense), change its content and script, and add it to `data/grammar.json` (`page`, `title`, `group`, `about`).
+
+## Games
+
+Each game is one self-contained page in `games/` with its own look (style, data and code all in the file), so a game can be edited or replaced without touching anything else. They came from the Google Sites embeds; the only changes were a full page wrapper, the site bar at the top (`css/gamebar.css`, which borrows each game's colours), and pictures moved out of the code into `games/img/`. The Arena's start screen was also fixed on phones (its heading and button were cut off).
+
+| Page | Game | From the Google Site |
+|---|---|---|
+| `first-letters.html` | First Letters (Latin I) | games/restoring-the-archive-latin-i |
+| `restore-the-archive.html` | Restore the Archive | games/restoring-the-archive |
+| `arena-latin-2.html` | Arena Formarum, Latin II form sheet | latin-ii/practice-games/gladiator-2 |
+| `arena-latin-3.html` | Arena Formarum, Latin III/IV form sheet | latin-iii/practice-games/gladiator-game |
+| `haruspex.html` | The Haruspex's Liver (uses of the subjunctive) | latin-iii/practice-games/haruspex-game |
+
+**Adding a game:** save it as `games/<name>.html`, add the site bar (copy the `<link … gamebar.css>` line and the `<nav class="gamebar">` line from any game), and add an entry to `data/games.json` (`page`, `title`, `group`, `about`); the list groups games by `group` in file order.
+
+**Arena score reports are switched off.** The Google Sites version had a "Send my score" button (name and period, then email or a Google Form post). It's been removed until there's a safe way to collect scores: the end screen still shows the result, and nothing leaves the student's browser. The original code is still on the Google Site if it's needed as a starting point.
+
 ## Spaced repetition
 
 Decks open in **spaced repetition** by default (Settings → Study: Spaced repetition / Practice; a student's choice is remembered per deck). Practice is the free run-through (Got it / Still learning) and never touches the schedule. The scheduler is Anki-style, in `js/srs.js`:
@@ -141,7 +184,7 @@ On screens 980px and wider the player uses two columns: a sticky sidebar (Settin
 
 ## Updating CSS or JavaScript: bump the version
 
-Browsers keep copies of `css/` and `js/` files, so after an update students can keep running the old code for a while. The pages link these files with a version stamp (`flashcards.js?v=202609301140`). **Whenever a CSS or JS file changes, change that number** in `flashcards/index.html` (and `index.html` for `site.css`) so every browser fetches the new copy; any new number works, a date-time is easiest. Deck data (`data/decks/*.json`) is always fetched fresh and doesn't need this.
+Browsers keep copies of `css/` and `js/` files, so after an update students can keep running the old code for a while. The pages link these files with a version stamp (`flashcards.js?v=202609301530`). **Whenever a CSS or JS file changes, change that number** in `flashcards/index.html` (and `index.html` for `site.css`) so every browser fetches the new copy; any new number works, a date-time is easiest. Deck data (`data/decks/*.json`) is always fetched fresh and doesn't need this.
 
 ## Previewing on your computer
 

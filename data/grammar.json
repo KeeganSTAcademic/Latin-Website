@@ -1,0 +1,50 @@
+[
+ {
+  "page": "first-second-declension",
+  "title": "First & Second Declension",
+  "group": "Nouns",
+  "about": "puella, equus, forum: every form, what it means, and what it could be mistaken for."
+ },
+ {
+  "page": "third-declension",
+  "title": "Third Declension",
+  "group": "Nouns",
+  "about": "rēx and corpus, i-stems, and (for advanced students) how the nominative is formed."
+ },
+ {
+  "page": "fourth-declension",
+  "title": "Fourth Declension",
+  "group": "Nouns",
+  "about": "frūctus and cornū, and the exceptions worth knowing."
+ },
+ {
+  "page": "fifth-declension",
+  "title": "Fifth Declension",
+  "group": "Nouns",
+  "about": "rēs and diēs."
+ },
+ {
+  "page": "declensions-overview",
+  "title": "The Five Declensions: Patterns",
+  "group": "Nouns",
+  "about": "All five side by side: the rules that hold across declensions, and the look-alike endings."
+ },
+ {
+  "page": "case-usages",
+  "title": "Case Usages",
+  "group": "Nouns",
+  "about": "What each case does, from the basic use to the less common ones, with examples."
+ },
+ {
+  "page": "present-active",
+  "title": "Present Active Indicative",
+  "group": "Verbs",
+  "about": "All four conjugations plus 3rd -iō, and sum."
+ },
+ {
+  "page": "imperfect-active",
+  "title": "Imperfect Active Indicative",
+  "group": "Verbs",
+  "about": "The -ba- tense in every conjugation, and sum."
+ }
+]

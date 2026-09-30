@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imperfect Active Indicative</title>
+<link rel="stylesheet" href="../css/grammar.css?v=202609301700">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202609301700">
+<link rel="stylesheet" href="../css/gamebar.css?v=202609301700">
+<style>
+:root{--p-ba:#2B5A99; --p-ba-bg:#DAE4F1; --p-m1:#9A2F68; --p-m1-bg:#F4DDE9; --p-third:#3D6B3F; --p-third-bg:#DDEBDC; --p-ie:#B4471A; --p-ie-bg:#FADFCF;}
+</style>
+</head>
+<body>
+<nav class="gamebar" aria-label="Site"><a class="gamebar-home" href="../">Latin</a><a href="../flashcards/">Flashcards</a><a href="./" aria-current="page">Grammar</a><a href="../games/">Games</a></nav>
+<div class="wrap">
+<header>
+  <h1>Imperfect Active Indicative</h1>
+  <p class="subtitle">An interactive grammar for all four conjugations plus 3rd <i>-iō</i></p>
+  <div class="primer">
+    <span><b>Stem + <i>-ba-</i> + ending</b> <i>amā-ba-t</i></span>
+    <span><b>Endings</b> <i>-m, -s, -t, -mus, -tis, -nt</i></span>
+    <span>Hover any form to see what it means and how it's built</span>
+  </div>
+</header>
+
+<section id="background" class="bg">
+  <details class="fold">
+    <summary>What the imperfect means</summary>
+  <div class="prose">
+    <p>The imperfect describes a past action that was <strong>going on</strong>, <strong>repeated</strong>, or <strong>habitual</strong>. It shows the action in progress rather than as a single finished event.</p>
+    <p>The usual translation is "was ___ing": <i>amābat</i> = "she was loving." Depending on the sentence, "used to ___" or "kept ___ing" can fit better: <i>amābat</i> = "she used to love," "she kept loving."</p>
+    <p>Latin has a separate past tense for single, completed actions ("she loved," once). You'll meet it later; for now, <i>-ba-</i> means an ongoing past.</p>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>How to build the imperfect</summary>
+  <div class="prose">
+    <p>Take the present stem, add the imperfect sign <strong><i>-ba-</i></strong>, then a personal ending. The endings are the same as in the present, except that "I" is <strong><i>-m</i></strong> instead of <i>-ō</i>.</p>
+  </div>
+  <div class="conj-box">
+  <table class="rule-table conj-table">
+    <thead><tr><th>Conjugation</th><th>Dictionary entry</th><th>Before <i>-ba-</i></th><th>"he/she/it was ___ing"</th></tr></thead>
+    <tbody>
+      <tr><td>1st</td><td><i>amō, amāre</i></td><td><b>amā-</b></td><td><i>amābat</i></td></tr>
+      <tr><td>2nd</td><td><i>moneō, monēre</i></td><td><b>monē-</b></td><td><i>monēbat</i></td></tr>
+      <tr><td>3rd</td><td><i>regō, regere</i></td><td><b>regē-</b></td><td><i>regēbat</i></td></tr>
+      <tr><td>3rd <i>-iō</i></td><td><i>capiō, capere</i></td><td><b>capiē-</b></td><td><i>capiēbat</i></td></tr>
+      <tr><td>4th</td><td><i>audiō, audīre</i></td><td><b>audiē-</b></td><td><i>audiēbat</i></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="aside"><strong>Endings:</strong> <i>-m</i> (I), <i>-s</i> (you), <i>-t</i> (he/she/it), <i>-mus</i> (we), <i>-tis</i> (you all), <i>-nt</i> (they).</p>
+  </details>
+</section>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-en" aria-pressed="false">Show English</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+    <div class="legend">
+      <span><i class="lg a"></i>form you're inspecting</span>
+      <span><i class="lg v"></i>stem vowel</span>
+    </div>
+  </div>
+
+  <div class="work">
+    <div class="charts-col" id="charts-col">
+      <div class="charts three-up" id="charts-grid"></div>
+
+      <details class="er" id="er">
+        <summary>Irregular: <i>sum, esse</i> (to be)</summary>
+        <div class="prose"><p><i>sum</i> doesn't use <i>-ba-</i>. Its imperfect is built on <i>er-</i>, with the same endings as every other imperfect: <i>eram, erās, erat, erāmus, erātis, erant</i>. You'll see <i>erat</i> constantly in stories: <i>puella in hortō erat</i>, "the girl was in the garden."</p></div>
+        <div class="charts one-up" id="er-grid"></div>
+      </details>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Personal endings and the present stem follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§163, 175, in the Dickinson College Commentaries online edition:
+  <a href="https://dcc.dickinson.edu/grammar/latin/personal-endings" target="_blank" rel="noopener">Personal Endings</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/present-stem" target="_blank" rel="noopener">The Present Stem</a>.</p>
+</footer>
+</div>
+
+
+<script>
+const PERSONS = [
+  {k:'1sg',p:'1st',n:'sg',sub:'I'},{k:'2sg',p:'2nd',n:'sg',sub:'you'},{k:'3sg',p:'3rd',n:'sg',sub:'he/she/it'},
+  {k:'1pl',p:'1st',n:'pl',sub:'we'},{k:'2pl',p:'2nd',n:'pl',sub:'you (all)'},{k:'3pl',p:'3rd',n:'pl',sub:'they'}
+];
+const ROWS = ['1st','2nd','3rd'];
+
+// forms: [root, stem vowel, tense sign, personal ending] in PERSONS order
+const T=(rt,vw)=>[[rt,vw,'ba','m'],[rt,vw,'bā','s'],[rt,vw,'ba','t'],[rt,vw,'bā','mus'],[rt,vw,'bā','tis'],[rt,vw,'ba','nt']];
+const VERBS = [
+  {id:'amo', dict:'amō, amāre', conj:'1st conjugation', short:'1st', en:['love','loving'], f:T('am','ā')},
+  {id:'moneo', dict:'moneō, monēre', conj:'2nd conjugation', short:'2nd', en:['warn','warning'], f:T('mon','ē')},
+  {id:'rego', dict:'regō, regere', conj:'3rd conjugation', short:'3rd', en:['rule','ruling'], f:T('reg','ē')},
+  {id:'capio', dict:'capiō, capere', conj:'3rd conjugation -iō', short:'3rd -iō', en:['take','taking'], f:T('cap','iē')},
+  {id:'audio', dict:'audiō, audīre', conj:'4th conjugation', short:'4th', en:['hear','hearing'], f:T('aud','iē')},
+  {id:'sum', extra:true, dict:'sum, esse', conj:'irregular', short:'irregular', en:null,
+   eng:['I was','you were','he/she/it was','we were','you (all) were','they were'],
+   f:[['er','','a','m'],['er','','ā','s'],['er','','a','t'],['er','','ā','mus'],['er','','ā','tis'],['er','','a','nt']]}
+];
+
+const PATTERNS = [
+  {id:'ba', lab:'-ba-', txt:'the imperfect sign', part:'ts', test:c=>!c.verb.extra,
+   note:'<b>-ba- between the stem and the ending marks the imperfect.</b> Every conjugation uses it: <i>amā<b>ba</b>t, monē<b>ba</b>t, regē<b>ba</b>t, capiē<b>ba</b>t, audiē<b>ba</b>t</i>. If you see <i>-ba-</i> right before a personal ending, the verb is imperfect.'},
+  {id:'m1', lab:'-bam', txt:'"I" ends in -m, not -ō', part:'en', test:c=>c.p.k==='1sg',
+   note:'<b>In the imperfect, "I" ends in -m instead of -ō.</b> <i>amābam, monēbam, regēbam, capiēbam, audiēbam</i>, and <i>eram</i> for <i>sum</i>. The other five endings (<i>-s, -t, -mus, -tis, -nt</i>) are the same as in the present.'},
+  {id:'third', lab:'regēbam', txt:'3rd conjugation uses ē', part:'vw', test:c=>c.verb.id==='rego',
+   note:'<b>The 3rd conjugation puts a long ē before -ba-.</b> In the present its vowel shifted between <i>i</i> and <i>u</i> (<i>regis, regunt</i>); in the imperfect it is <i>ē</i> in every form: <i>regēbam, regēbās, regēbat</i>, just like the 2nd conjugation\'s <i>monēbam</i>.'},
+  {id:'ie', lab:'-iēba-', txt:'3rd -iō and 4th add iē', part:'vw', test:c=>['capio','audio'].includes(c.verb.id),
+   note:'<b>3rd -iō and 4th conjugation verbs put iē before -ba-.</b> <i>capiēbam</i> and <i>audiēbam</i>, not <i>*capēbam</i> or <i>*audībam</i>. In the imperfect these two groups are spelled exactly alike in every form, so only the dictionary entry tells them apart.'}
+];
+
+const NOTES = {
+  'amo.1sg':'<i>amā-ba-m</i>: the stem <i>amā-</i> (from <i>amāre</i>) + <i>-ba-</i> + <i>-m</i>. Unlike the present <i>amō</i>, the <i>ā</i> stays visible.',
+  'moneo.1sg':'<i>monē-ba-m</i>: the stem <i>monē-</i> + <i>-ba-</i> + <i>-m</i>.',
+  'rego.1sg':'<i>regē-ba-m</i>: a long <i>ē</i> before <i>-ba-</i>, not the <i>i</i> or <i>u</i> of the present.',
+  'rego.3pl':'<i>regēbant</i>: still <i>ē</i>. The <i>u</i> of the present <i>regunt</i> doesn\'t appear in the imperfect.',
+  'capio.1sg':'<i>capi-ē-ba-m</i>: the <i>i</i> of <i>capiō</i> stays, then <i>ē</i>, then <i>-ba-</i>. Spelled just like <i>audiēbam</i>.',
+  'audio.1sg':'<i>audi-ē-ba-m</i>: not <i>*audībam</i>. The 4th conjugation adds <i>ē</i> after its <i>i</i>.',
+  'audio.3pl':'<i>audiēbant</i>: the same pattern as <i>capiēbant</i>.',
+  'sum.1sg':'<i>eram</i>: <i>sum</i> has no <i>-ba-</i>. Its imperfect is built on <i>er-</i> + <i>a</i> + the endings, with <i>-m</i> for "I."',
+  'sum.3sg':'<i>erat</i>: "he/she/it was." One of the most common words in Latin stories.',
+  'sum.3pl':'<i>erant</i>: "they were."'
+};
+
+const strip = s => s.normalize('NFD').replace(/̄/g,'').normalize('NFC');
+const state = {mac:true, end:false, en:false, pats:new Set(), active:null};
+const shown = s => state.mac ? s : strip(s);
+
+const CELLS=[];
+VERBS.forEach(v=>PERSONS.forEach((p,i)=>{const [rt,vw,ts,en]=v.f[i];
+  CELLS.push({key:`${v.id}.${p.k}`, verb:v, p, rt, vw, ts, en, form:rt+vw+ts+en});}));
+const byKey=Object.fromEntries(CELLS.map(c=>[c.key,c]));
+
+function english(c){
+  const i=PERSONS.indexOf(c.p);
+  if(c.verb.eng) return {main:c.verb.eng[i], alt:''};
+  const [b,ing]=c.verb.en, sub=c.p.sub;
+  const was = ['1sg','3sg'].includes(c.p.k)?'was':'were';
+  return {main:`${sub} ${was} ${ing}`, alt:`${sub} used to ${b} · ${sub} kept ${ing}`};
+}
+const parseName = c => `${c.p.p} person ${c.p.n==='sg'?'singular':'plural'}`;
+
+// Pattern chips
+const pRow=document.getElementById('patterns');
+PATTERNS.forEach(p=>{
+  const b=document.createElement('button');
+  b.className='chip'; b.id='p-'+p.id; b.setAttribute('aria-pressed','false');
+  b.style.setProperty('--c',`var(--p-${p.id})`); b.style.setProperty('--cbg',`var(--p-${p.id}-bg)`);
+  b.innerHTML=`<span class="sw"></span><span class="l">${p.lab}</span> ${p.txt}`;
+  b.onclick=()=>{ state.pats.has(p.id)?state.pats.delete(p.id):state.pats.add(p.id); render(); };
+  pRow.appendChild(b);
+});
+const clr=document.createElement('button');
+clr.className='chip plain clear'; clr.id='p-clear'; clr.textContent='Clear';
+clr.onclick=()=>{state.pats.clear();render();};
+pRow.appendChild(clr);
+
+// Charts
+const grid=document.getElementById('charts-col');
+const mainGrid=document.getElementById('charts-grid'), erGrid=document.getElementById('er-grid');
+VERBS.forEach(v=>{
+  const box=document.createElement('div'); box.className='noun';
+  let h=`<div class="noun-h"><div class="de">${v.dict}</div><div class="meta">${v.conj}${v.en?' · '+v.en[0]:' · be'}</div></div><div class="grid"><div class="hd"></div><div class="hd">Sing.</div><div class="hd">Plur.</div>`;
+  ROWS.forEach(r=>{
+    h+=`<div class="rl">${r}</div>`;
+    ['sg','pl'].forEach(n=>{ h+=`<button class="cell" data-k="${v.id}.${r[0]}${n}" aria-label="${v.id} ${r} person ${n==='sg'?'singular':'plural'}"></button>`; });
+  });
+  box.innerHTML=h+'</div>';
+  (v.extra?erGrid:mainGrid).appendChild(box);
+});
+const cellEls=[...document.querySelectorAll('.cell')];
+cellEls.forEach(el=>{
+  const go=()=>{state.active=el.dataset.k; renderActive();};
+  const stop=()=>{ if(state.active===el.dataset.k){state.active=null; renderActive();} };
+  el.addEventListener('mouseenter',go); el.addEventListener('focus',go); el.addEventListener('click',go);
+  el.addEventListener('mouseleave',stop); el.addEventListener('blur',stop);
+});
+document.addEventListener('click',e=>{ if(!e.target.closest('.cell') && state.active){state.active=null; renderActive();} });
+
+function toggle(id,key){document.getElementById(id).onclick=()=>{state[key]=!state[key];render();};}
+toggle('t-mac','mac'); toggle('t-end','end'); toggle('t-en','en');
+
+function render(){
+  ['mac','end','en'].forEach(k=>document.getElementById('t-'+k).setAttribute('aria-pressed',state[k]));
+  grid.classList.toggle('endonly',state.end); grid.classList.toggle('showen',state.en);
+  PATTERNS.forEach(p=>document.getElementById('p-'+p.id).setAttribute('aria-pressed',state.pats.has(p.id)));
+  cellEls.forEach(el=>{
+    const c=byKey[el.dataset.k];
+    const hits=PATTERNS.filter(p=>state.pats.has(p.id)&&p.test(c));
+    const hit=hits.pop();
+    el.innerHTML=`<span class="fm"><span class="st">${shown(c.rt)}</span><span class="vw">${shown(c.vw)}</span><span class="ts">${shown(c.ts)}</span><span class="en">${shown(c.en)}</span></span><span class="eng">${english(c).main}</span>`;
+    el.className='cell';
+    if(hit){ el.classList.add('pat','pp-'+(typeof hit.part==='function'?hit.part(c):hit.part)); el.style.setProperty('--pbg',`var(--p-${hit.id}-bg)`); el.style.setProperty('--pfg',`var(--p-${hit.id})`); }
+  });
+  document.getElementById('pnotes').innerHTML=PATTERNS.filter(p=>state.pats.has(p.id))
+    .map(p=>`<div class="pnote" style="--c:var(--p-${p.id})">${p.note}</div>`).join('');
+  renderActive();
+}
+
+function renderActive(){
+  const card=document.getElementById('card');
+  if(!state.active){
+    cellEls.forEach(el=>el.classList.remove('active'));
+    card.innerHTML=`<div class="parse">Inspect a form</div>
+      <div class="tr">Hover over or tap any form in the charts.</div>
+      <div class="job">You'll see who is doing the action, how to translate it, and how the form is built from root, stem vowel, the imperfect sign <i>-ba-</i>, and personal ending.</div>`;
+    return;
+  }
+  const c=byKey[state.active];
+  cellEls.forEach(el=>el.classList.toggle('active',el.dataset.k===c.key));
+  const E=english(c);
+  const parts=[`<span class="bk-st">${shown(c.rt)}-</span> root`];
+  if(c.vw) parts.push(`<span class="bk-vw">${shown(c.vw)}</span> stem vowel`);
+  parts.push(`<span class="bk-ts">-${shown(c.ts)}-</span> ${c.verb.extra?'past sign':'imperfect sign'}`);
+  parts.push(`<span class="bk-en">-${shown(c.en)}</span> "${c.p.sub}"`);
+  let out=`<div class="parse">${parseName(c)} · ${c.verb.dict}</div>
+    <div class="form"><span>${shown(c.rt)}</span><span class="vwb">${shown(c.vw)}</span><span class="tsb">${shown(c.ts)}</span><span class="en">${shown(c.en)}</span></div>
+    <div class="tr">${E.main}</div>
+    ${E.alt?`<div class="job">also: ${E.alt}</div>`:''}
+    <div class="breakdown">${parts.join(' <span class="plus">+</span> ')}</div>`;
+  const note=NOTES[c.key], pats=PATTERNS.filter(p=>p.test(c));
+  if(note||pats.length) out+=`<div class="tip">${note?`<p>${note}</p>`:''}${pats.length?`<p>Patterns: ${pats.map(p=>`<b style="color:var(--p-${p.id})">${p.lab}</b> (${p.txt})`).join(' · ')}</p>`:''}</div>`;
+  card.innerHTML=out;
+}
+render();
+</script>
+</body>
+</html>

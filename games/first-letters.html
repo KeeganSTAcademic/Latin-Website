@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>First Letters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+[hidden]{display:none!important}
+img{max-width:100%}
+/* ===== Latin Site theme v1 ===== */
+:root{
+  color-scheme:light;
+  --bg:#F5F1EA; --surface:#FDFCF8; --surface2:#EFE9DF;
+  --ink:#2A2521; --muted:#6F665D; --faint:#978C80; --rule:#E2DACD; --rule2:#D3C8B8;
+  --accent:#7F2E22; --accent-ink:#FFFFFF; --accent-soft:#F1E1DC;
+  --mark:#9C5F0E; --mark-bg:#F5E6C8;
+  --good:#3D6B3F; --good-bg:#DDEBDC;
+  --warn:#C42A2F; --warn-bg:#FBE1DE;
+  --serif:"Gentium Book Plus","Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",P052,Georgia,serif;
+  --shadow:0 6px 24px rgba(80,60,40,.08),0 1px 2px rgba(80,60,40,.06);
+  --veil:rgba(42,37,33,.45);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#1A1613; --surface:#231E1A; --surface2:#2D2722;
+    --ink:#EDE6DA; --muted:#B5AA9C; --faint:#8C8174; --rule:#3A322B; --rule2:#4A4037;
+    --accent:#E0907C; --accent-ink:#1A1613; --accent-soft:#3B2520;
+    --mark:#E3AE5B; --mark-bg:#3A2E1B;
+    --good:#8CC48E; --good-bg:#223326;
+    --warn:#F2837B; --warn-bg:#3D1F1D;
+    --shadow:0 6px 24px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.4);
+    --veil:rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#1A1613; --surface:#231E1A; --surface2:#2D2722;
+  --ink:#EDE6DA; --muted:#B5AA9C; --faint:#8C8174; --rule:#3A322B; --rule2:#4A4037;
+  --accent:#E0907C; --accent-ink:#1A1613; --accent-soft:#3B2520;
+  --mark:#E3AE5B; --mark-bg:#3A2E1B;
+  --good:#8CC48E; --good-bg:#223326;
+  --warn:#F2837B; --warn-bg:#3D1F1D;
+  --shadow:0 6px 24px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.4);
+  --veil:rgba(0,0,0,.6);
+}
+/* ===== end theme ===== */
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.55;padding-inline:16px}
+h1,h2,h3,h4{margin:0}
+p{margin:0 0 .9em}
+p:last-child{margin-bottom:0}
+button{font:inherit;color:inherit}
+em{font-style:italic}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.label,.inscr{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;color:var(--muted);font-size:15px}
+
+/* ---------- frame ---------- */
+.shell{max-width:1120px;margin:0 auto;padding-block:30px 80px}
+.masthead{text-align:center;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+.masthead h1{font-weight:700;font-size:clamp(28px,4.2vw,40px);line-height:1.15;text-wrap:balance}
+.masthead .sub{font-style:italic;color:var(--muted);margin-top:4px}
+.tally{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:16px}
+.tally>div{display:flex;align-items:baseline;gap:7px;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:5px 14px}
+.tally b{font-weight:700;font-size:19px;font-variant-numeric:tabular-nums}
+.tally span{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;color:var(--muted);font-size:15px}
+.drawerbtn{display:none;border:1px solid var(--rule2);background:var(--surface);border-radius:10px;padding:6px 14px;cursor:pointer;font-size:16px}
+.drawerbtn[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* ---------- stage path ---------- */
+.path{display:flex;margin:22px 0 26px;overflow-x:auto;padding:4px 0}
+.node{flex:1 0 auto;min-width:92px;background:none;border:none;padding:0 4px;cursor:pointer;text-align:center;position:relative}
+.node::before{content:"";position:absolute;top:17px;left:0;right:0;height:1px;background:var(--rule2)}
+.node:first-child::before{left:50%}
+.node:last-child::before{right:50%}
+.node .pip{position:relative;width:34px;height:34px;border-radius:50%;margin:0 auto 6px;display:grid;place-items:center;
+  background:var(--surface);border:1px solid var(--rule2);color:var(--muted);font-weight:700;font-size:16px}
+.node .lb{font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;font-size:15px;color:var(--muted);display:block}
+.node:hover:not(:disabled) .pip{border-color:var(--accent)}
+.node[data-st="done"] .pip{background:var(--good-bg);border-color:var(--good);color:var(--good)}
+.node[data-st="done"] .lb{color:var(--ink)}
+.node[data-st="live"] .pip{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 0 0 4px var(--accent-soft)}
+.node[data-st="live"] .lb{color:var(--accent)}
+.node[data-st="lock"]{cursor:default;opacity:.45}
+
+/* ---------- layout ---------- */
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:32px;align-items:start}
+
+/* ---------- the working card ---------- */
+.slip{background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);
+  padding:22px clamp(18px,3.4vw,34px) 28px;transition:border-color .2s}
+.slip.ok{border-color:var(--good);box-shadow:inset 0 3px 0 var(--good),var(--shadow)}
+.slip.bad{border-color:var(--warn);box-shadow:inset 0 3px 0 var(--warn),var(--shadow)}
+.sliphead{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:20px}
+.sliphead .fno{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;color:var(--accent);font-size:15px}
+.sliphead .stg{font-size:15px;color:var(--muted);font-style:italic}
+.prompt{font-size:clamp(19px,2.4vw,22px);line-height:1.45;margin-bottom:18px}
+.lead{color:var(--muted);font-size:16px;margin-bottom:14px}
+.slip h2{font-weight:700;font-size:clamp(21px,2.6vw,25px);margin-bottom:12px;text-wrap:balance}
+
+/* ---------- stem + ending ---------- */
+.form{display:inline-flex;align-items:stretch;line-height:1;font-size:clamp(26px,5vw,40px);margin:2px 10px 10px 0;vertical-align:top;font-style:italic}
+.form .stem{background:var(--surface2);border:1px solid var(--rule2);border-right:none;border-radius:10px 0 0 10px;padding:.3em .2em .34em .36em}
+.form .stem:only-child{border-right:1px solid var(--rule2);border-radius:10px;padding-right:.36em}
+.form .end{background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent);border-radius:0 10px 10px 0;padding:.3em .36em .34em .2em;font-weight:700}
+.form .end.blank{background:transparent;border:1px dashed var(--accent);color:var(--accent);font-weight:400}
+.form.mute .end{background:var(--surface2);border-color:var(--rule2);color:var(--muted);font-weight:400}
+.form.sm{font-size:clamp(21px,3.4vw,28px)}
+.formrow{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 6px}
+.spec{text-align:center}
+.spec .cap,.swapunit .cap{display:block;font-size:15px;color:var(--muted);margin-top:3px;font-style:normal}
+
+/* ---------- choices ---------- */
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{display:block;text-align:left;background:var(--surface);border:1px solid var(--rule2);border-radius:10px;
+  padding:11px 16px;cursor:pointer;font-size:17px;transition:border-color .12s,background .12s}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--surface2)}
+.opt:disabled{cursor:default}
+.opt.pick{border-color:var(--accent);background:var(--accent-soft)}
+.opt.ok{background:var(--good-bg);border-color:var(--good);color:var(--ink);box-shadow:inset 3px 0 0 var(--good)}
+.opt.no{background:var(--warn-bg);border-color:var(--warn);color:var(--ink);box-shadow:inset 3px 0 0 var(--warn)}
+.opt.show{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+
+/* ---------- English sentence tokens ---------- */
+.sentence{margin:6px 0 20px;line-height:2}
+.tok{display:inline-block;background:none;border:none;border-bottom:2px solid transparent;border-radius:6px;
+  padding:2px 5px;margin:0 1px;font-size:clamp(20px,2.8vw,25px)}
+.tok.hot{cursor:pointer;border-bottom-color:var(--rule2)}
+.tok.hot:hover{border-bottom-color:var(--accent);background:var(--surface2)}
+.tok.ok{background:var(--good-bg);border-bottom-color:var(--good)}
+.tok.no{background:var(--warn-bg);border-bottom-color:var(--warn)}
+.tok.dead{cursor:default}
+
+/* ---------- feedback + buttons ---------- */
+.fb{margin-top:20px;padding:13px 17px;border-left:3px solid var(--good);background:var(--good-bg);border-radius:0 10px 10px 0;font-size:17px}
+.fb.no{border-left-color:var(--warn);background:var(--warn-bg)}
+.fb:not(.no):not(:has(b)){border-left-color:var(--accent);background:var(--accent-soft)}
+.fb b{display:block;margin-bottom:3px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;font-size:16px;font-weight:700}
+.go{font-size:17px;background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent);border-radius:10px;
+  padding:10px 22px;cursor:pointer;margin-top:20px}
+.go:hover:not(:disabled){filter:brightness(1.08)}
+.go:disabled{opacity:.45;cursor:default}
+.go.ghost{background:var(--surface);color:var(--ink);border-color:var(--rule2)}
+.go.ghost:hover{border-color:var(--accent)}
+.gorow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* ---------- sorting ---------- */
+.tray{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border:1px dashed var(--rule2);border-radius:12px;min-height:58px;margin-bottom:8px;background:var(--bg)}
+.tray:empty::after{content:"Tray empty \2014 every noun sorted.";color:var(--muted);font-style:italic;font-size:16px}
+.dcard{background:var(--surface);border:1px solid var(--rule2);border-radius:10px;padding:6px 13px;cursor:grab;font-size:17px;font-style:italic;user-select:none;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.dcard.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.dcard.set{cursor:default;border-color:var(--good);background:var(--good-bg);box-shadow:none}
+.dcard.bad{background:var(--warn-bg);border-color:var(--warn)}
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:14px}
+.bin{border:1px solid var(--rule);border-radius:12px;background:var(--surface2);padding:12px;min-height:130px;cursor:pointer}
+.bin.over,.bin:hover{border-color:var(--accent)}
+.bin h4{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:16px;font-weight:700;color:var(--ink)}
+.bin .hint{font-size:15px;color:var(--muted);font-style:italic;margin-bottom:9px;display:block}
+.bin .held{display:flex;flex-wrap:wrap;gap:6px}
+.combo{font-size:16px;color:var(--muted);margin-top:12px}
+.combo b{color:var(--good)}
+
+/* ---------- ending bank ---------- */
+.bank{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.endbtn{background:var(--surface);border:1px solid var(--rule2);border-radius:10px;padding:7px 14px;cursor:pointer;font-size:20px;font-style:italic;min-width:60px}
+.endbtn:hover:not(:disabled){border-color:var(--accent)}
+.endbtn.drag{cursor:grab}
+.endbtn.sel{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.endbtn.ok{background:var(--good-bg);border-color:var(--good)}
+.endbtn.no{background:var(--warn-bg);border-color:var(--warn);text-decoration:line-through}
+.endbtn:disabled{cursor:default}
+
+/* ---------- parsing ---------- */
+.noun{border:1px solid var(--rule);border-radius:12px;background:var(--bg);padding:14px 16px;margin-bottom:12px}
+.noun .nh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.noun .nf{font-size:25px;font-weight:700;font-style:italic;color:var(--accent)}
+.noun .ne{font-size:16px;color:var(--muted);font-style:italic}
+.prow{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 12px;align-items:start;margin:8px 0}
+.prow .lab{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:15px;color:var(--muted);padding-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--rule2);background:var(--surface);border-radius:10px;padding:5px 12px;font-size:16px;cursor:pointer}
+.chip:hover:not(:disabled){border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chip[aria-pressed="true"].ok{background:var(--good-bg);border-color:var(--good);color:var(--ink)}
+.chip[aria-pressed="true"].no{background:var(--warn-bg);border-color:var(--warn);color:var(--ink)}
+.chip:disabled{cursor:default}
+.latin{display:block;font-size:clamp(23px,3.6vw,30px);font-style:italic;margin:2px 0 6px}
+.gloss{display:block;font-size:16px;color:var(--muted);font-style:italic;margin-bottom:16px}
+
+/* ---------- word order ---------- */
+.order{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 18px;min-height:62px}
+.wt{background:var(--surface);border:1px solid var(--rule2);border-radius:10px;padding:10px 17px;font-size:clamp(20px,3vw,26px);font-style:italic;cursor:grab;user-select:none;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.wt.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.wt.verb{background:var(--surface2);border-style:dashed;color:var(--muted)}
+.readout{border:1px solid var(--rule);border-radius:12px;background:var(--bg);padding:12px 16px;margin-bottom:16px}
+.readout .mlab{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:15px;color:var(--muted)}
+.readout .mval{font-size:20px;margin-top:2px}
+.readout .soft{color:var(--muted);font-size:17px}
+.meter{height:8px;border-radius:4px;background:var(--surface2);margin-top:12px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--good);width:0;transition:width .3s ease}
+.tried{font-size:15px;color:var(--muted);margin-top:8px}
+
+/* ---------- stems with endings ---------- */
+.swaprow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:10px 0 18px}
+.swapunit{background:none;border:none;padding:0;cursor:pointer;text-align:center}
+.swapunit.static{cursor:default;padding:6px}
+.swapunit.slot2{padding:6px;border:1px dashed transparent;border-radius:12px}
+.swapunit.slot2:hover:not(:disabled),.swapunit.slot2.over{border-color:var(--accent);background:var(--accent-soft)}
+.swapunit.slot2:disabled{cursor:default}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto}
+table.chart{border-collapse:collapse;width:100%;font-size:17px;margin:4px 0 14px}
+table.chart th,table.chart td{border-bottom:1px solid var(--rule);padding:7px 10px;text-align:left}
+table.chart th{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:15px;color:var(--muted);font-weight:400;border-bottom-color:var(--rule2)}
+table.chart td:first-child{font-style:normal}
+table.chart td.c{color:var(--ink)}
+table.chart .c{color:var(--muted)}
+
+/* ---------- side rail ---------- */
+.rail{position:sticky;top:16px;font-size:16px;background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:18px 18px 8px}
+.railx{display:none;width:100%;margin-bottom:14px;border:1px solid var(--rule2);background:var(--surface2);border-radius:10px;padding:7px 14px;cursor:pointer;font-size:16px}
+.rblock{border-top:1px solid var(--rule);padding:14px 0 14px}
+.rblock:first-of-type{border-top:none;padding-top:0}
+.rblock h3{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:15px;color:var(--muted);font-weight:400;margin-bottom:8px}
+.slot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;color:var(--faint)}
+.slot .bx{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--rule2);margin-right:9px;font-size:11px;flex:none}
+.slot.on{color:var(--ink)}
+.slot.on .bx{background:var(--good);border-color:var(--good);color:var(--bg)}
+.slot.on .bx::after{content:"\2713"}
+.slot .nm{display:flex;align-items:center}
+.slot .fn{font-size:14px;font-style:italic;color:var(--muted);text-align:right}
+.slot.on.pop .bx{animation:stamp .45s ease}
+@keyframes stamp{0%{transform:scale(2.2);opacity:0}55%{transform:scale(.9);opacity:1}100%{transform:scale(1)}}
+.mrow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:3px 0}
+.mrow .st{color:var(--mark);letter-spacing:1px;white-space:nowrap}
+.mrow.lock{color:var(--faint)}
+.mrow.lock .st{color:var(--faint)}
+.diag{font-size:15px;color:var(--mark);background:var(--mark-bg);border-radius:10px;padding:8px 11px;margin-top:9px;line-height:1.45}
+.tool{display:flex;justify-content:space-between;gap:10px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--rule);
+  padding:7px 0;cursor:pointer;font-size:16px;color:var(--accent)}
+.tool:last-child{border-bottom:none}
+.tool:hover:not(:disabled){text-decoration:underline;text-underline-offset:3px}
+.tool.lk{color:var(--faint);cursor:default}
+.tool .k{font-size:14px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;flex:none}
+.badge{display:flex;gap:9px;padding:5px 0;font-size:16px;color:var(--faint)}
+.badge .sg{width:18px;flex:none;text-align:center}
+.badge.got{color:var(--ink)}
+.badge.got .sg{color:var(--mark)}
+.badge i{display:block;font-size:14px;color:var(--faint);font-style:italic}
+
+/* ---------- modal ---------- */
+.veil{position:fixed;inset:0;background:var(--veil);display:none;place-items:center;padding:16px;z-index:60}
+.veil.open{display:grid}
+.modal{background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);max-width:640px;width:100%;max-height:86vh;overflow:auto;padding:24px 26px 28px}
+.modal h3{font-weight:700;font-size:21px;margin-bottom:12px;padding-right:40px}
+.modal .x{float:right;background:var(--surface2);border:1px solid var(--rule2);border-radius:10px;width:34px;height:34px;cursor:pointer;line-height:1;font-size:18px}
+
+/* ---------- toasts ---------- */
+.toasts{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:9px;z-index:70;max-width:min(310px,calc(100vw - 32px))}
+.toast{background:var(--surface);color:var(--ink);border:1px solid var(--rule);border-left:3px solid var(--mark);border-radius:0 12px 12px 0;padding:11px 15px;font-size:16px;box-shadow:var(--shadow);animation:rise .3s ease}
+.toast b{display:block;margin-bottom:2px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:15px;color:var(--mark)}
+@keyframes rise{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+/* ---------- results ---------- */
+.score{font-weight:700;font-size:clamp(32px,7vw,52px);line-height:1.1;color:var(--accent);margin-bottom:10px;font-variant:normal;text-transform:none;letter-spacing:0}
+.bigrow{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--rule);padding:9px 0}
+.bigrow .st{color:var(--mark);letter-spacing:2px}
+
+/* ---------- papyrus figure + finds ---------- */
+figure.papyrus{margin:0 0 18px}
+figure.papyrus img{display:block;width:100%;max-width:100%;height:auto;max-height:340px;object-fit:cover;object-position:top;border-radius:12px;border:1px solid var(--rule2)}
+figure.papyrus figcaption{font-size:15px;color:var(--muted);font-style:italic;margin-top:6px}
+.modal h4.fh{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:16px;color:var(--accent);font-weight:700;margin:18px 0 6px}
+.modal p{font-size:17px}
+footer.src{margin-top:40px;border-top:1px solid var(--rule);padding-top:16px;font-size:14.5px;color:var(--muted)}
+footer.src p{margin:0 0 6px}
+footer.src a{color:var(--accent)}
+/* ---------- timer + facts ---------- */
+.clock{display:flex;align-items:center;gap:10px;margin:-8px 0 18px}
+.clock .clab{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:15px;color:var(--muted)}
+.clock .cbar{flex:1;height:6px;border-radius:3px;background:var(--surface2);overflow:hidden}
+.clock .cbar i{display:block;height:100%;width:100%;background:var(--good);transition:width .25s linear}
+.clock .ct{font-variant-numeric:tabular-nums;font-size:16px;color:var(--muted);min-width:3.2em;text-align:right;white-space:nowrap}
+.clock.low .cbar i{background:var(--mark)}
+.clock.low .ct{color:var(--mark)}
+.clock.over .cbar i{background:var(--warn);width:100%!important}
+.clock.over .ct{color:var(--warn)}
+.clock.beat .ct{color:var(--good);font-weight:700;min-width:0}
+.clocknote{font-size:15px;color:var(--warn);margin:-10px 0 16px}
+.fact{margin-top:14px;padding:13px 17px;border-left:3px solid var(--mark);background:var(--mark-bg);border-radius:0 10px 10px 0;font-size:16.5px}
+.fact b{display:block;margin-bottom:3px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;font-size:15px;color:var(--mark)}
+.tmodes{display:flex;flex-wrap:wrap;gap:6px}
+.diag2{font-size:14px;color:var(--muted);font-style:italic;margin-top:8px}
+.factlist{padding-left:1.2em;margin:0}
+.factlist li{margin-bottom:10px;font-size:17px}
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .drawerbtn{display:block}
+  .railx{display:block}
+  .rail{position:fixed;inset:0 0 0 auto;width:min(330px,88vw);border-radius:16px 0 0 16px;
+    padding:calc(20px + env(safe-area-inset-top,0px)) 18px 60px;overflow:auto;z-index:45;transform:translateX(105%);transition:transform .25s ease}
+  .rail.open{transform:translateX(0)}
+  .prow{grid-template-columns:1fr;gap:3px}
+  .prow .lab{padding-top:0}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+</style>
+<link rel="stylesheet" href="../css/gamebar.css?v=202609301700">
+</head>
+<body>
+<nav class="gamebar" aria-label="Site"><a class="gamebar-home" href="../">Latin</a><a href="../flashcards/">Flashcards</a><a href="../grammar/">Grammar</a><a href="./" aria-current="page">Games</a></nav>
+<div class="shell">
+  <header class="masthead">
+    <div>
+      <h1>First Letters</h1>
+      <div class="sub">Restoring a Roman letter &middot; subject and object, one and more than one</div>
+    </div>
+    <div class="tally">
+      <div><b id="pts">0</b><span>points</span></div>
+      <div><b id="rest">0%</b><span>restored</span></div>
+      <button class="drawerbtn" id="dbtn" type="button" aria-controls="rail" aria-expanded="false">Notebook</button>
+    </div>
+  </header>
+
+  <nav class="path" id="path" aria-label="Mission stages"></nav>
+
+  <div class="grid">
+    <main id="root"></main>
+    <aside class="rail" id="rail"></aside>
+  </div>
+  <footer class="src">
+    <p>The finds described in the toolkit are drawn from: Oxford, <a href="https://oxyrhynchus.web.ox.ac.uk/scribes-and-scholars" target="_blank" rel="noopener">The Oxyrhynchus Papyri: Scribes and Scholars</a>; University of Michigan, <a href="https://quod.lib.umich.edu/a/apis/x-2447" target="_blank" rel="noopener">Advanced Papyrological Information System</a> (letters of Claudius Terentianus); R.&nbsp;D. Anderson, P.&nbsp;J. Parsons and R.&nbsp;G.&nbsp;M. Nisbet, &ldquo;Elegiacs by Gallus from Qa&#7779;r Ibr&icirc;m&rdquo;, <em>Journal of Roman Studies</em> 69 (1979); Society for Classical Studies, <a href="https://classicalstudies.org/latin-papyri-herculaneum" target="_blank" rel="noopener">The Latin Papyri from Herculaneum</a>; Yale, Beinecke Library, <em>P.Dura</em> 54 (<em>Feriale Duranum</em>); British Museum, <a href="https://www.britishmuseum.org/collection/galleries/roman-britain/vindolanda-tablets" target="_blank" rel="noopener">The Vindolanda tablets</a>. Editorial signs follow the Leiden Conventions (1931).</p>
+  </footer>
+</div>
+
+<div class="veil" id="veil"><div class="modal" id="modal" role="dialog" aria-modal="true"></div></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script>
+/* ===================== DATA ===================== */
+const PAPYRUS_IMG='img/papyrus-letter.jpg';
+const CASES=['nominative','accusative'];
+const FUNCS=['subject','object'];
+
+const CHARTS={
+ finds:{t:'Where Latin papyri come from',html:
+  '<p>Papyrus survives only where it stays dry, so most finds come from the sands of Egypt. In Roman Egypt most people wrote Greek. Latin was used mainly by soldiers and Roman officials, so Latin papyri are a small share of what has been found.</p>'+
+  '<h4 class="fh">Egypt</h4>'+
+  '<p><strong>Oxyrhynchus.</strong> Bernard Grenfell and Arthur Hunt began digging the town’s ancient rubbish heaps in 1896. Almost all of the papyri are Greek. The Latin ones include a scribe’s practice copy of two lines of Virgil’s <em>Aeneid</em>.</p>'+
+  '<p><strong>Karanis.</strong> In 1928–29 a University of Michigan excavation found a bundle of letters hidden in a niche under the staircase of a house. Several are in Latin, from a soldier named Claudius Terentianus to his father, written in the early second century AD.</p>'+
+  '<p><strong>Qasr Ibrim,</strong> in Egyptian Nubia. In 1978 excavators found nine lines of love poetry by Cornelius Gallus. The copy dates to about 50–25 BC, which makes it the oldest surviving manuscript of Latin poetry.</p>'+
+  '<h4 class="fh">Beyond Egypt</h4>'+
+  '<p><strong>Herculaneum.</strong> The eruption of Vesuvius in AD 79 buried a library and turned its scrolls to charcoal. Around sixty of them are in Latin.</p>'+
+  '<p><strong>Masada.</strong> The Roman soldiers who captured this fortress in Judaea in the 70s AD left Latin papyri behind, including a line of Virgil and a soldier’s pay record.</p>'+
+  '<p><strong>Vindolanda,</strong> a fort in northern England. These are not papyrus. They are thin leaves of wood written in ink, first recognised in 1973. One is a birthday invitation from a woman called Claudia Severa, written around AD 100.</p>'},
+ leiden:{t:'The editor’s brackets',h:['Sign','Example','What it tells you'],r:[
+  ['[ ]','puell[ās]','The letters are lost in a gap. The editor has put them back.'],
+  ['[..]','puell[..]','Two letters are lost, and the editor has not put them back.'],
+  ['( )','s(alutem)','The writer used a short form. The editor has written the word out in full.']],
+  note:'Editors use these signs so that readers can tell which letters are on the papyrus and which the editor has added. Every ending you restore in this game is one an editor would print in square brackets.'},
+ nomacc:{t:'Subject and object',h:['Job','Case','Example'],r:[
+  ['subject: does the action','nominative','<em>Puella</em> aquam portat. <span class="c">(The girl carries the water.)</span>'],
+  ['object: receives the action','accusative','Puella <em>aquam</em> portat.']],
+  note:'In Latin the ending of the noun shows which job it is doing. The word order can change without changing the meaning.'},
+ verbs:{t:'The verb: one or more than one',h:['Verb','Subject','English'],r:[
+  ['portat','one','he or she carries'],
+  ['portant','more than one','they carry'],
+  ['ambulat','one','he or she walks'],
+  ['ambulant','more than one','they walk'],
+  ['est','one','he or she is'],
+  ['sunt','more than one','they are']],
+  note:'A verb ending in <strong>-t</strong> has one person or thing as its subject. A verb ending in <strong>-nt</strong> has more than one. <em>est</em> and <em>sunt</em>, from <em>sum</em>, follow the same pattern.'},
+ d1:{t:'First declension: puella',h:['Job','One','More than one'],r:[
+  ['subject (nominative)','puell<strong>a</strong>','puell<strong>ae</strong>'],
+  ['object (accusative)','puell<strong>am</strong>','puell<strong>ās</strong>']],
+  note:'Other nouns that work like <em>puella</em>: <em>aqua</em>, <em>casa</em>, <em>cēna</em>, <em>fīlia</em>, <em>taberna</em>, <em>terra</em>. Later you will learn that <em>-ae</em> has other uses too. In this game it always means more than one subject.'},
+ d2:{t:'Second declension: colōnus',h:['Job','One','More than one'],r:[
+  ['subject (nominative)','colōn<strong>us</strong>','colōn<strong>ī</strong>'],
+  ['object (accusative)','colōn<strong>um</strong>','colōn<strong>ōs</strong>']],
+  note:'<em>cibus</em> works the same way. <em>puer</em> (boy) has no ending in the subject singular: <em>puer, puerum, puerī, puerōs</em>. <em>ager</em> (field) drops the <em>e</em> in its other forms: <em>ager, agrum, agrī, agrōs</em>.'}
+};
+
+const BADGES={
+ caseClosed:{n:'Case Closed',d:'Find both cases.'},
+ rebel:{n:'Word Order Rebel',d:'Read three sentences whose word order is different from English.'},
+ detective:{n:'Sorting Expert',d:'Sort ten words in a row without an error.'},
+ many:{n:'Head Count',d:'Spot a plural five times.'},
+ context:{n:'Verb Detective',d:'Use the verb ending to decide between one and more than one.'},
+ perfect:{n:'Perfect Parse',d:'Parse every noun in a sentence correctly on the first try.'}
+};
+
+const MASTERY=[
+ {k:'func',n:'Subject and object'},
+ {k:'num',n:'One or more than one'},
+ {k:'case',n:'Nominative and accusative'},
+ {k:'parse',n:'Choosing endings'},
+ {k:'ctx',n:'Reading sentences'}
+];
+
+const E1=['a','am','ae','ās'];
+const E2=['us','um','ī','ōs'];
+const EALL=['a','am','ae','ās','us','um','ī','ōs'];
+
+const STAGES=[
+{id:'roles',name:'Roles',full:'Who Does What',screens:[
+ {t:'brief',h:'The find',html:
+  '<figure class="papyrus"><img src="'+PAPYRUS_IMG+'" alt="A Latin letter on papyrus, written in a flowing cursive hand, with worn and broken edges"><figcaption>A Latin letter on papyrus, written in Roman cursive.</figcaption></figure>'+
+  '<p>In this game you help a papyrologist, a person who reads ancient writing on papyrus. Papyrus is an early kind of paper made from a plant that grew in Egypt. Some letters that Romans wrote on it have survived for almost two thousand years.</p>'+
+  '<p>Many of these letters are torn, and a tear often cuts off the end of a word. In Latin, the ending of a noun shows what job the noun is doing in its sentence, and whether there is one of it or more than one. Latin nouns can do several different jobs. In this game we look at just two of them: the subject, which does the action, and the object, which receives it. If you can work out the job and the number from the rest of the sentence, you can put the missing ending back.</p>'+
+  '<p>This first stage is in English. You will find the noun that does the action and the noun that receives it.</p>'},
+ {t:'pick',s:'The girl carries the water.',toks:['The','girl','carries','the','water.'],hot:[1,4],ans:1,
+  q:'Who is doing the carrying?',res:'Subject found',
+  fb:'The girl does the carrying, so <em>girl</em> is the subject of the sentence.',m:'func'},
+ {t:'pick',s:'The girl carries the water.',toks:['The','girl','carries','the','water.'],hot:[1,4],ans:4,
+  q:'What is being carried?',res:'Object found',
+  fb:'The water is what gets carried, so <em>water</em> is the object of the sentence.',m:'func'},
+ {t:'ask',q:'In Latin, which case is used for the subject?',opts:CASES,ans:0,m:'case',unlock:'nominative',
+  fb:'The nominative. It is the first form you see in a dictionary entry: <em>puella</em>.'},
+ {t:'ask',q:'In Latin, which case is used for the object?',opts:CASES,ans:1,m:'case',unlock:'accusative',
+  fb:'The accusative. For a noun like <em>puella</em>, the accusative ends in <em>-am</em> when there is only one: <em>puellam</em>.'},
+ {t:'pick',s:'The daughter prepares dinner.',toks:['The','daughter','prepares','dinner.'],hot:[1,3],ans:1,
+  q:'Who is doing the preparing?',res:'Subject found',
+  fb:'The daughter prepares, so <em>daughter</em> is the subject.',m:'func'},
+ {t:'pick',s:'The girls greet the farmer.',toks:['The','girls','greet','the','farmer.'],hot:[1,4],ans:4,
+  q:'Who is being greeted?',res:'Object found',
+  fb:'The farmer receives the greeting, so <em>farmer</em> is the object.',m:'func'},
+ {t:'ask',q:'<strong>The farmer calls the girls.</strong> Which word is the subject?',opts:['farmer','calls','girls'],ans:0,m:'func',
+  fb:'The farmer does the calling, so <em>farmer</em> is the subject. <em>Calls</em> is the verb.'},
+ {t:'ask',q:'<strong>The farmer calls the girls.</strong> Which word is the object?',opts:['farmer','calls','girls'],ans:2,m:'func',
+  fb:'The girls are the ones being called, so <em>girls</em> is the object.'},
+ {t:'ask',q:'<strong>The girls look at the house.</strong> In Latin, which case would <em>house</em> be in?',opts:CASES,ans:1,m:'case',
+  fb:'Accusative, because the house is the object: it is what the girls look at.'}
+]},
+
+{id:'number',name:'Number',full:'One or More Than One',screens:[
+ {t:'brief',h:'Singular and plural',html:
+  '<p><strong>Singular</strong> means one. <strong>Plural</strong> means more than one. English usually adds <em>-s</em> to make a plural: <em>girl, girls</em>. Latin changes the ending of the noun.</p>'+
+  '<div class="formrow"><span class="spec"><span class="form"><span class="stem">puell</span><span class="end">a</span></span><span class="cap">one girl</span></span>'+
+  '<span class="spec"><span class="form"><span class="stem">puell</span><span class="end">ae</span></span><span class="cap">more than one girl</span></span></div>'+
+  '<p>The verb changes too. A verb ending in <strong>-t</strong> has one person as its subject. A verb ending in <strong>-nt</strong> has more than one.</p>'+
+  '<div class="formrow"><span class="spec"><span class="form"><span class="stem">ambula</span><span class="end">t</span></span><span class="cap">he or she walks</span></span>'+
+  '<span class="spec"><span class="form"><span class="stem">ambula</span><span class="end">nt</span></span><span class="cap">they walk</span></span></div>'},
+ {t:'ask',q:'<span class="latin">puella</span>One girl, or more than one?',opts:['one','more than one'],ans:0,m:'num',
+  fb:'One girl. <em>-a</em> is the singular ending.'},
+ {t:'ask',q:'<span class="latin">puellae</span>One girl, or more than one?',opts:['one','more than one'],ans:1,m:'num',counts:'plural',
+  fb:'More than one. <em>puellae</em> means <em>the girls</em>.'},
+ {t:'ask',q:'<span class="latin">ambulant</span>One person walking, or more than one?',opts:['one','more than one'],ans:1,m:'num',counts:'plural',
+  fb:'More than one. The ending <em>-nt</em> means <em>they</em>: <em>they walk</em>.'},
+ {t:'ask',q:'<span class="latin">portat</span>One person carrying, or more than one?',opts:['one','more than one'],ans:0,m:'num',
+  fb:'One. The ending <em>-t</em> means <em>he</em> or <em>she</em>: <em>she carries</em>.'},
+ {t:'sort',q:'Sort these words into one and more than one.',
+  bins:[{id:'s',n:'One',h:'singular: -a, -t'},{id:'p',n:'More than one',h:'plural: -ae, -nt'}],
+  cards:[{txt:'puella',bin:'s'},{txt:'puellae',bin:'p'},{txt:'fīlia',bin:'s'},{txt:'fīliae',bin:'p'},{txt:'casa',bin:'s'},{txt:'casae',bin:'p'},
+         {txt:'taberna',bin:'s'},{txt:'tabernae',bin:'p'},{txt:'ambulat',bin:'s'},{txt:'ambulant',bin:'p'},{txt:'laborat',bin:'s'},{txt:'laborant',bin:'p'}],
+  m:'num',streak:'detective'},
+ {t:'ask',q:'<span class="latin">Puellae ______ .</span><span class="gloss">The girls walk.</span>Which verb fits?',opts:['ambulat','ambulant'],ans:1,m:'ctx',counts:'context',
+  fb:'<em>puellae</em> is plural, so the verb needs the plural ending <em>-nt</em>: <em>ambulant</em>.'},
+ {t:'ask',q:'<span class="latin">Fīlia ______ .</span><span class="gloss">The daughter works.</span>Which verb fits?',opts:['laborat','laborant'],ans:0,m:'ctx',counts:'context',
+  fb:'<em>fīlia</em> is singular, so the verb needs the singular ending <em>-t</em>: <em>laborat</em>.'},
+ {t:'ask',q:'<span class="latin">Puell[ ] ambulant.</span>The verb ends in <em>-nt</em>. Which ending does the noun need?',opts:['-a','-ae'],ans:1,m:'ctx',counts:'context',
+  fb:'<em>ambulant</em> means that more than one person is walking, so the subject must be plural: <em>puellae</em>.'}
+]},
+
+{id:'endings',name:'Endings',full:'Four Endings',screens:[
+ {t:'brief',h:'Four endings for four jobs',html:
+  '<p>In this game a noun is either the subject or the object, and it is either singular or plural. That makes four combinations, and nouns like <em>puella</em> have a different ending for each one. Latin has more endings than these for the other jobs a noun can do, which you will learn later.</p>'+
+  '<div class="tablewrap"><table class="chart"><tr><th>Job</th><th>One</th><th>More than one</th></tr>'+
+  '<tr><td>subject (nominative)</td><td class="c">puell<strong>a</strong></td><td class="c">puell<strong>ae</strong></td></tr>'+
+  '<tr><td>object (accusative)</td><td class="c">puell<strong>am</strong></td><td class="c">puell<strong>ās</strong></td></tr></table></div>'+
+  '<p>This group of nouns is called the <strong>first declension</strong>. <em>aqua</em>, <em>casa</em>, <em>cēna</em>, <em>fīlia</em> and <em>taberna</em> all use the same four endings. Only the stem at the front changes.</p>'},
+ {t:'ask',q:'<span class="latin">puellam</span>Subject or object?',opts:['subject','object'],ans:1,m:'case',
+  fb:'Object. <em>-am</em> is the ending for one noun receiving the action.'},
+ {t:'ask',q:'<span class="latin">puellās</span>One girl, or more than one?',opts:['one','more than one'],ans:1,m:'num',counts:'plural',
+  fb:'More than one. <em>-ās</em> is the ending for more than one noun receiving the action.'},
+ {t:'ask',q:'<span class="latin">fīliae</span>Which description fits?',opts:['one, subject','one, object','more than one, subject','more than one, object'],ans:2,m:'case',counts:'plural',
+  fb:'More than one, subject. <em>fīliae</em> means <em>the daughters</em> doing the action.'},
+ {t:'ask',q:'<span class="latin">casam</span>Which description fits?',opts:['one, subject','one, object','more than one, subject','more than one, object'],ans:1,m:'case',
+  fb:'One, object. <em>casam</em> means <em>the house</em> receiving the action, as in <em>casam intrat</em>, <em>she enters the house</em>.'},
+ {t:'sort',q:'Sort each word by its job and number.',
+  bins:[{id:'ns',n:'One, subject',h:'-a'},{id:'as',n:'One, object',h:'-am'},{id:'np',n:'More, subject',h:'-ae'},{id:'ap',n:'More, object',h:'-ās'}],
+  cards:[{txt:'fīlia',bin:'ns'},{txt:'fīliam',bin:'as'},{txt:'fīliae',bin:'np'},{txt:'fīliās',bin:'ap'},
+         {txt:'casa',bin:'ns'},{txt:'casam',bin:'as'},{txt:'casae',bin:'np'},{txt:'casās',bin:'ap'},
+         {txt:'cēna',bin:'ns'},{txt:'cēnam',bin:'as'},{txt:'tabernae',bin:'np'},{txt:'tabernās',bin:'ap'}],
+  m:'case',streak:'detective'},
+ {t:'ask',q:'Which ending means <strong>more than one</strong>, as the <strong>object</strong>?',opts:['-a','-am','-ae','-ās'],ans:3,m:'case',
+  fb:'<em>-ās</em>, as in <em>puellās</em>: <em>the girls</em> receiving the action.'}
+]},
+
+{id:'gaps',name:'Gaps',full:'Fill the Gap',screens:[
+ {t:'brief',h:'The stem survives, the ending is lost',html:
+  '<p>In each sentence below, one word has lost its ending to a tear in the papyrus. The English translation shows you what the sentence means. Use it, and the verb ending, to choose the missing ending.</p>'+
+  '<p>An editor would print your answer in square brackets, for example <em>puell[ae]</em>.</p>'+
+  '<div class="formrow"><span class="form"><span class="stem">puell</span><span class="end blank">[ ]</span></span></div>'},
+ {t:'build',q:'<span class="latin">Puell[ ] aquam portat.</span><span class="gloss">The girl carries the water.</span>Which ending fills the gap?',w:'puella, -ae, f.',stem:'puell',bank:E1,ans:'a',m:'parse',
+  fb:'<em>Puella</em>. One girl is doing the carrying, so she needs the singular subject ending.'},
+ {t:'build',q:'<span class="latin">Puell[ ] aquam portant.</span><span class="gloss">The girls carry the water.</span>Which ending fills the gap?',w:'puella, -ae, f.',stem:'puell',bank:E1,ans:'ae',m:'parse',counts:'plural',
+  fb:'<em>Puellae</em>. The verb <em>portant</em> ends in <em>-nt</em>, so the subject is plural.'},
+ {t:'build',q:'<span class="latin">Fīlia cēn[ ] parat.</span><span class="gloss">The daughter prepares dinner.</span>Which ending fills the gap?',w:'cēna, -ae, f.',stem:'cēn',bank:E1,ans:'am',m:'parse',
+  fb:'<em>cēnam</em>. The dinner is what gets prepared, so it is the object, and there is one of it.'},
+ {t:'build',q:'<span class="latin">Fīlia cas[ ] spectat.</span><span class="gloss">The daughter looks at the houses.</span>Which ending fills the gap?',w:'casa, -ae, f.',stem:'cas',bank:E1,ans:'ās',m:'parse',counts:'plural',
+  fb:'<em>casās</em>. The houses are what she looks at, so they are the object, and there is more than one.'},
+ {t:'build',q:'<span class="latin">Fīli[ ] casam intrant.</span><span class="gloss">The daughters enter the house.</span>Which ending fills the gap?',w:'fīlia, -ae, f.',stem:'fīli',bank:E1,ans:'ae',m:'parse',counts:'plural',
+  fb:'<em>Fīliae</em>. The daughters do the entering, and <em>intrant</em> ends in <em>-nt</em>, so the subject is plural.'},
+ {t:'build',q:'<span class="latin">Puellae fīli[ ] uocant.</span><span class="gloss">The girls call the daughter.</span>Which ending fills the gap?',w:'fīlia, -ae, f.',stem:'fīli',bank:E1,ans:'am',m:'parse',
+  fb:'<em>fīliam</em>. The daughter is the one being called, so she is the object, and there is one of her.'},
+ {t:'build',q:'<span class="latin">Tabern[ ] puella intrat.</span><span class="gloss">The girl enters the shop.</span>Which ending fills the gap?',w:'taberna, -ae, f.',stem:'tabern',bank:E1,ans:'am',m:'parse',counts:'rebel',
+  fb:'<em>Tabernam</em>. It comes first in the Latin sentence, but the shop is still the object: it is what the girl enters. Latin can put the object first.'},
+ {t:'build',q:'<span class="latin">Puell[ ] fīliās laudant.</span><span class="gloss">The girls praise the daughters.</span>Which ending fills the gap?',w:'puella, -ae, f.',stem:'puell',bank:E1,ans:'ae',m:'parse',counts:'plural',
+  fb:'<em>Puellae</em>. The girls do the praising, and <em>laudant</em> tells you there is more than one of them.'},
+ {t:'ask',q:'In <em>Puell[ ] aquam portant</em>, how could you tell the missing ending was <em>-ae</em>?',
+  opts:['The verb ends in -nt, so the subject is plural','The word comes first in the sentence','Every noun ends in -ae'],ans:0,m:'ctx',counts:'context',
+  fb:'The verb ending told you. <em>-nt</em> means more than one person is doing the action, so the subject needs the plural ending.'}
+]},
+
+{id:'decode',name:'Decode',full:'Supply the Endings',screens:[
+ {t:'brief',h:'Two gaps in one line',html:
+  '<p>Now two words in each line have lost their endings. The verb is still complete, and its ending tells you whether the subject is one person or more than one.</p>'+
+  '<p>Drag an ending from the bank onto a stem, or tap an ending and then tap the stem. The line under the words shows what your Latin means as you work.</p>'+
+  '<div class="formrow"><span class="form"><span class="stem">puell</span><span class="end blank">[ ]</span></span>'+
+  '<span class="form"><span class="stem">aqu</span><span class="end blank">[ ]</span></span>'+
+  '<span class="form mute"><span class="stem">portat</span></span></div>'},
+ {t:'assemble',q:'Make the Latin say: <strong>The girl carries the water.</strong>',
+  tiles:['puell','aqu'],verb:'portat',bank:E1,target:'The girl carries the water.',m:'parse',
+  fb:'<em>Puella aquam portat.</em> <em>-a</em> makes the girl the subject, and <em>-am</em> makes the water the object.'},
+ {t:'assemble',q:'The verb has changed. Make it say: <strong>The girls carry the water.</strong>',
+  tiles:['aqu','puell'],verb:'portant',bank:E1,target:'The girls carry the water.',m:'ctx',counts:'plural',
+  fb:'<em>Aquam puellae portant.</em> The water comes first here, but <em>-am</em> still marks it as the object. <em>portant</em> needs a plural subject, so <em>puellae</em>.'},
+ {t:'assemble',q:'Make it say: <strong>The daughter looks at the houses.</strong>',
+  tiles:['fīli','cas'],verb:'spectat',bank:E1,target:'The daughter looks at the houses.',m:'parse',
+  fb:'<em>Fīlia casās spectat.</em> One daughter is the subject, and more than one house is the object.'},
+ {t:'order',tiles:[{w:'PUELLA',k:'n'},{w:'AQUAM',k:'a'},{w:'PORTAT',k:'v'}],meaning:'The girl carries the water.',need:3,
+  q:'These three words survive on separate scraps, and nobody knows what order they were in. Move them around. Does the meaning change?',
+  fb:'Every order means the same thing, because the endings stayed the same. <em>puella</em> is always the subject and <em>aquam</em> is always the object.'},
+ {t:'ask',q:'<span class="latin">Puella aquam portat.</span><span class="latin">Aquam puella portat.</span>What changes in the English translation?',
+  opts:['Nothing. Both mean <em>The girl carries the water.</em>','The water is now carrying the girl','The girl is now the object'],ans:0,m:'ctx',counts:'rebel',
+  fb:'The English stays the same. A Roman reader might notice that the second version puts <em>aquam</em> first, which draws attention to the water, but the meaning does not change.'},
+ {t:'assemble',q:'Make it say: <strong>The girls call the daughter.</strong>',
+  tiles:['puell','fīli'],verb:'uocant',bank:E1,target:'The girls call the daughter.',m:'ctx',counts:'context',
+  fb:'<em>Puellae fīliam uocant.</em> If you had written <em>puellam fīliae uocant</em>, it would mean <em>the daughters call the girl</em>. The endings decide who calls whom.'},
+ {t:'assemble',q:'Make it say: <strong>The daughter praises the girls.</strong>',
+  tiles:['fīli','puell'],verb:'laudat',bank:E1,target:'The daughter praises the girls.',m:'ctx',counts:'plural',
+  fb:'<em>Fīlia puellās laudat.</em> <em>laudat</em> ends in <em>-t</em>, so there is one subject, the daughter. The girls are the object, and there is more than one.'}
+]},
+
+{id:'second',name:'Second',full:'Boys and Farmers',screens:[
+ {t:'brief',h:'A second group of nouns',html:
+  '<p>Nouns like <em>colōnus</em> (farmer) and <em>cibus</em> (food) belong to a second group, called the <strong>second declension</strong>. They do the same four jobs, but with different endings.</p>'+
+  '<div class="tablewrap"><table class="chart"><tr><th>Job</th><th>One</th><th>More than one</th></tr>'+
+  '<tr><td>subject (nominative)</td><td class="c">colōn<strong>us</strong></td><td class="c">colōn<strong>ī</strong></td></tr>'+
+  '<tr><td>object (accusative)</td><td class="c">colōn<strong>um</strong></td><td class="c">colōn<strong>ōs</strong></td></tr></table></div>'+
+  '<p><em>puer</em> (boy) is slightly different. It has no ending when it is a singular subject: <em>puer, puerum, puerī, puerōs</em>.</p>'},
+ {t:'ask',q:'<span class="latin">colōnum</span>Which description fits?',opts:['one, subject','one, object','more than one, subject','more than one, object'],ans:1,m:'case',
+  fb:'One, object. <em>-um</em> does the same job as <em>-am</em> in <em>puellam</em>.'},
+ {t:'ask',q:'<span class="latin">colōnī</span>Which description fits?',opts:['one, subject','one, object','more than one, subject','more than one, object'],ans:2,m:'case',counts:'plural',
+  fb:'More than one, subject. <em>colōnī</em> means <em>the farmers</em> doing the action, like <em>puellae</em>.'},
+ {t:'ask',q:'<span class="latin">puerōs</span>Which description fits?',opts:['one, subject','one, object','more than one, subject','more than one, object'],ans:3,m:'case',counts:'plural',
+  fb:'More than one, object. <em>-ōs</em> does the same job as <em>-ās</em> in <em>puellās</em>.'},
+ {t:'build',q:'<span class="latin">Colōn[ ] agrum parat.</span><span class="gloss">The farmer prepares the field.</span>Which ending fills the gap?',w:'colōnus, -ī, m.',stem:'colōn',bank:E2,ans:'us',m:'parse',
+  fb:'<em>Colōnus</em>. One farmer is doing the preparing, so he needs the singular subject ending.'},
+ {t:'build',q:'<span class="latin">Puella cib[ ] portat.</span><span class="gloss">The girl carries the food.</span>Which ending fills the gap?',w:'cibus, -ī, m.',stem:'cib',bank:E2,ans:'um',m:'parse',
+  fb:'<em>cibum</em>. The food is what gets carried, so it is the object.'},
+ {t:'build',q:'<span class="latin">Colōn[ ] puellās salūtant.</span><span class="gloss">The farmers greet the girls.</span>Which ending fills the gap?',w:'colōnus, -ī, m.',stem:'colōn',bank:E2,ans:'ī',m:'parse',counts:'plural',
+  fb:'<em>Colōnī</em>. <em>salūtant</em> ends in <em>-nt</em>, so the subject is plural.'},
+ {t:'build',q:'<span class="latin">Fīlia puer[ ] uocat.</span><span class="gloss">The daughter calls the boys.</span>Which ending fills the gap?',w:'puer, puerī, m.',stem:'puer',bank:E2,ans:'ōs',m:'parse',counts:'plural',
+  fb:'<em>puerōs</em>. The boys are the ones being called, so they are the object, and there is more than one.'},
+ {t:'sort',q:'Sort words from both groups by their job and number.',
+  bins:[{id:'ns',n:'One, subject',h:'-a, -us'},{id:'as',n:'One, object',h:'-am, -um'},{id:'np',n:'More, subject',h:'-ae, -ī'},{id:'ap',n:'More, object',h:'-ās, -ōs'}],
+  cards:[{txt:'puella',bin:'ns'},{txt:'colōnus',bin:'ns'},{txt:'puer',bin:'ns'},{txt:'puellam',bin:'as'},{txt:'colōnum',bin:'as'},{txt:'puerum',bin:'as'},
+         {txt:'puellae',bin:'np'},{txt:'colōnī',bin:'np'},{txt:'puerī',bin:'np'},{txt:'puellās',bin:'ap'},{txt:'colōnōs',bin:'ap'},{txt:'puerōs',bin:'ap'}],
+  m:'case',streak:'detective'},
+ {t:'assemble',q:'Now both kinds of ending are in the bank. Make it say: <strong>The farmers greet the girl.</strong>',
+  tiles:['colōn','puell'],verb:'salūtant',bank:EALL,target:'The farmers greet the girl.',m:'ctx',counts:'plural',
+  fb:'<em>Colōnī puellam salūtant.</em> <em>-ī</em> makes the farmers a plural subject, and <em>-am</em> makes the girl the object.'},
+ {t:'assemble',q:'Make it say: <strong>The girls carry the food.</strong>',
+  tiles:['cib','puell'],verb:'portant',bank:EALL,target:'The girls carry the food.',m:'ctx',
+  fb:'<em>Cibum puellae portant.</em> The food is the object, so it takes <em>-um</em>. The girls are the plural subject, so they take <em>-ae</em>.'},
+ {t:'parse',s:'Colōnī puellās uocant.',gl:'uocant = they call',head:'The last line of the letter',
+  nouns:[{f:'Colōnī',e:'colōnus, -ī, m.',n:'plural',c:'nominative',fn:'subject'},
+         {f:'puellās',e:'puella, -ae, f.',n:'plural',c:'accusative',fn:'object'}],
+  tr:{opts:['The farmers call the girls.','The girls call the farmers.','The farmer calls the girl.','The farmers call the girl.'],ans:0},
+  fb:'Both nouns are plural. <em>colōnī</em> is the subject and <em>puellās</em> is the object.',m2:'ctx'},
+ {t:'multi',q:'Which of these are true about <em>Colōnī puellās uocant</em>? Select all that apply.',
+  opts:['The ending <em>-nt</em> on <em>uocant</em> shows that the subject is plural',
+        '<em>puellās</em> is the subject because it ends in <em>-s</em>',
+        '<em>colōnī</em> is nominative plural',
+        'The first word in a Latin sentence is always the subject'],
+  ans:[0,2],m:'ctx',
+  fb:'The verb ending shows the number of the subject, and the noun endings show which word is the subject and which is the object. Word order does not decide it.'}
+]}
+];
+STAGES[0].tools=['nomacc'];STAGES[1].tools=['verbs'];STAGES[2].tools=['d1'];
+STAGES[3].tools=[];STAGES[4].tools=[];STAGES[5].tools=['d2'];
+/* ===================== STATE ===================== */
+function freshState(){return{
+ stage:0,i:0,pts:0,
+ queue:[],retry:[],
+ done:{},
+ cases:{},
+ tools:{finds:1,leiden:1},
+ badges:{},
+ ctr:{rebel:0,plural:0,context:0,streak:0},
+ facts:[],factOrder:[],
+ caseOk:{},
+ miss:{number:0,'case':0,job:0},
+ mastery:{func:{c:0,t:0},num:{c:0,t:0},'case':{c:0,t:0},parse:{c:0,t:0},ctx:{c:0,t:0}}
+}}
+let S=freshState();
+
+const $=id=>document.getElementById(id);
+const root=$('root'),railEl=$('rail'),pathEl=$('path');
+function el(t,c,h){const n=document.createElement(t);if(c)n.className=c;if(h!=null)n.innerHTML=h;return n}
+function pad(n){return n<10?'0'+n:''+n}
+function cur(){return S.queue[S.i]}
+function stage(){return STAGES[S.stage]}
+
+/* ===================== SCORING ===================== */
+function rec(k,ok){if(!k||!S.mastery[k])return;S.mastery[k].t++;if(ok)S.mastery[k].c++;paintTally()}
+function pts(n){S.pts+=n;paintTally()}
+function overall(){let c=0,t=0;for(const k in S.mastery){c+=S.mastery[k].c;t+=S.mastery[k].t}return t?Math.round(c/t*100):0}
+function paintTally(){$('pts').textContent=S.pts;$('rest').textContent=overall()+'%'}
+
+function toast(title,body){
+ const n=el('div','toast','<b>'+title+'</b>'+body);
+ $('toasts').appendChild(n);
+ setTimeout(()=>{n.style.transition='opacity .4s';n.style.opacity='0';setTimeout(()=>n.remove(),420)},4200);
+}
+function award(k){if(S.badges[k])return;S.badges[k]=1;toast('Achievement',BADGES[k].n+' — '+BADGES[k].d);pts(150);renderRail()}
+function unlockCase(c,ok){
+ if(ok)S.caseOk[c]=1;
+ if(!S.cases[c]){S.cases[c]=1;renderRail(c)}
+ if(CASES.every(x=>S.caseOk[x]))award('caseClosed');
+}
+function unlockTool(k){if(S.tools[k])return;S.tools[k]=1;toast('Toolkit',CHARTS[k].t+' added to your reference.');renderRail()}
+function bump(k){
+ if(!k)return;S.ctr[k]=(S.ctr[k]||0)+1;
+ if(k==='rebel'&&S.ctr.rebel>=3)award('rebel');
+ if(k==='plural'&&S.ctr.plural>=5)award('many');
+ if(k==='context'&&S.ctr.context>=1)award('context');
+}
+
+/* ===================== FLOW ===================== */
+function startStage(n){
+ S.stage=n;S.i=0;S.retry=[];
+ (STAGES[n].tools||[]).forEach(k=>unlockTool(k));
+ S.queue=STAGES[n].screens.map(s=>Object.assign({},s));
+ render();
+}
+function next(){
+ S.i++;
+ if(S.i>=S.queue.length){
+  if(S.retry.length){
+   const r=S.retry.splice(0);
+   S.queue.push({t:'review',n:r.length});
+   r.forEach(x=>{const y=Object.assign({},x);delete y._flag;delete y._err;y._r=true;S.queue.push(y)});
+  }else{
+   S.queue.push({t:S.stage===STAGES.length-1?'end':'stagedone'});
+  }
+ }
+ render();
+ window.scrollTo({top:0});
+}
+function flagRetry(sc){if(!sc._r&&!sc._flag){sc._flag=1;S.retry.push(sc)}}
+function score(sc,ok){
+ if(ok)pts(sc._r?40:100);
+ if(!ok)flagRetry(sc);
+}
+
+/* ===================== SHELL RENDER ===================== */
+function renderPath(){
+ pathEl.innerHTML='';
+ const mo=maxOpen();
+ STAGES.forEach((st,n)=>{
+  const state=S.done[st.id]?'done':n===S.stage?'live':(n<=mo?'open':'lock');
+  const b=el('button','node');b.type='button';
+  b.dataset.st=state;
+  if(state==='live')b.setAttribute('aria-current','step');
+  b.innerHTML='<span class="pip">'+(state==='done'?'✓':n+1)+'</span><span class="lb">'+st.name+'</span>';
+  if(state==='lock'){b.disabled=true}
+  else b.onclick=()=>{if(n!==S.stage)startStage(n)};
+  pathEl.appendChild(b);
+ });
+}
+function maxOpen(){let m=0;STAGES.forEach((st,n)=>{if(S.done[st.id])m=Math.max(m,n+1)});return Math.max(m,S.stage)}
+
+function stars(k){
+ const m=S.mastery[k];
+ if(!m.t)return null;
+ const p=m.c/m.t;
+ return p>=.9?3:p>=.7?2:1;
+}
+function starStr(n){return n===null?'—':'★'.repeat(n)+'☆'.repeat(3-n)}
+
+function setDrawer(open){
+ railEl.classList.toggle('open',open);
+ $('dbtn').setAttribute('aria-expanded',open?'true':'false');
+}
+function renderRail(pop){
+ railEl.innerHTML='';
+ const x=el('button','railx','Close notebook');x.type='button';
+ x.onclick=()=>setDrawer(false);
+ railEl.appendChild(x);
+
+ const a=el('div','rblock','<h3>Cases recovered</h3>');
+ const fn={nominative:'subject',genitive:'possession',dative:'to / for — indirect object',accusative:'direct object',ablative:'means, place, prepositions'};
+ CASES.forEach(c=>{
+  const on=S.cases[c];
+  const r=el('div');
+  r.className='slot'+(on?' on':'')+(pop===c?' pop':'');
+  r.innerHTML='<span class="nm"><span class="bx"></span>'+c+'</span>'+(on?'<span class="fn">'+fn[c]+'</span>':'');
+  a.appendChild(r);
+ });
+ railEl.appendChild(a);
+
+ const b=el('div','rblock','<h3>Mastery map</h3>');
+ MASTERY.forEach(m=>{
+  const s=stars(m.k);
+  const r=el('div','mrow'+(s===null?' lock':''));
+  r.innerHTML='<span>'+m.n+'</span><span class="st">'+starStr(s)+'</span>';
+  b.appendChild(r);
+ });
+ const weak=weakest();
+ if(weak)b.appendChild(el('p','diag',diagFor(weak)));
+ railEl.appendChild(b);
+
+ const c=el('div','rblock','<h3>Toolkit</h3>');
+ Object.keys(CHARTS).forEach(k=>{
+  const on=S.tools[k];
+  const t=el('button','tool'+(on?'':' lk'),CHARTS[k].t+'<span class="k">'+(on?'Open':'Locked')+'</span>');
+  t.type='button';
+  if(on)t.onclick=()=>openChart(k);else t.disabled=true;
+  c.appendChild(t);
+ });
+ railEl.appendChild(c);
+
+ const tb=el('div','rblock','<h3>Timer</h3>');
+ const tr=el('div','tmodes');
+ Object.keys(TMODES).forEach(k=>{
+  const b=el('button','chip',TMODES[k].n);b.type='button';b.setAttribute('aria-pressed',k===tmode?'true':'false');
+  b.onclick=()=>{tmode=k;try{localStorage.setItem('rta.timer',k)}catch(e){};renderRail();
+   const sc=cur();if(T.active&&sc){const slip=root.querySelector('.slip');if(T.el){T.el.remove();const n=slip.querySelector('.clocknote');if(n)n.remove()}
+    const head=slip.querySelector('.sliphead');const tmp=el('div');startTimer(tmp,sc);if(T.el)head.insertAdjacentElement('afterend',T.el)}};
+  tr.appendChild(b);
+ });
+ tb.appendChild(tr);
+ tb.appendChild(el('p','diag2','Relaxed gives half as much time again. Opening a chart pauses the clock.'));
+ railEl.appendChild(tb);
+
+ const fk=el('div','rblock','<h3>Papyrology notes</h3>');
+ const fbtn=el('button','tool','<span>'+S.facts.length+' of '+FACTS.length+' papyrology notes</span><span class="k">'+(S.facts.length?'Read':'')+'</span>');
+ fbtn.type='button';
+ if(S.facts.length)fbtn.onclick=openFacts;else fbtn.disabled=true;
+ fk.appendChild(fbtn);
+ railEl.appendChild(fk);
+
+ const d=el('div','rblock','<h3>Achievements</h3>');
+ Object.keys(BADGES).forEach(k=>{
+  const got=S.badges[k];
+  d.appendChild(el('div','badge'+(got?' got':''),'<span class="sg">'+(got?'✦':'○')+'</span><span>'+BADGES[k].n+(got?'':'<i>'+BADGES[k].d+'</i>')+'</span>'));
+ });
+ railEl.appendChild(d);
+}
+function weakest(){
+ let w=null,lo=2;
+ MASTERY.forEach(m=>{const x=S.mastery[m.k];if(x.t>=3){const p=x.c/x.t;if(p<lo){lo=p;w=m.k}}});
+ return lo<.95?w:null;
+}
+function diagFor(k){
+ const m=S.mastery[k],p=Math.round(m.c/m.t*100);
+ const nm=MASTERY.find(x=>x.k===k).n.toLowerCase();
+ let s=p>=90?'Secure':p>=70?'Developing':'Unstable';
+ let out=s+' on '+nm+' — '+m.c+' of '+m.t+' correct.';
+ if(k==='parse'){
+  const o=Object.keys(S.miss).sort((a,b)=>S.miss[b]-S.miss[a]);
+  if(S.miss[o[0]]>0)out+=' Most slips are on '+o[0]+'.';
+ }
+ return out;
+}
+let lastFocus=null;
+function openChart(k){
+ const ch=CHARTS[k];
+ let body='';
+ if(ch.html)body=ch.html;
+ else{
+  body='<div class="tablewrap"><table class="chart"><tr>'+ch.h.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  ch.r.forEach(r=>{body+='<tr>'+r.map((c,i)=>'<td'+(i===0?'':' class="c"')+'>'+c+'</td>').join('')+'</tr>'});
+  body+='</table></div>';
+ }
+ if(ch.note)body+='<p>'+ch.note+'</p>';
+ openModal(ch.t,body);
+}
+function openModal(title,body){
+ const m=$('modal');
+ m.innerHTML='<button class="x" type="button" aria-label="Close">×</button><h3>'+title+'</h3>'+body;
+ m.setAttribute('aria-label',title);
+ m.querySelector('.x').onclick=closeChart;
+ lastFocus=document.activeElement;
+ $('veil').classList.add('open');
+ m.querySelector('.x').focus();
+}
+function closeChart(){
+ if(!$('veil').classList.contains('open'))return;
+ $('veil').classList.remove('open');
+ if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+/* ===================== FACTS FROM THE WORKBENCH ===================== */
+const FACT_PARTS=['What papyrology is','Why letters matter','How papyrologists work','Where papyri are found','What the letters tell us'];
+const FACTS=[
+ {p:0,h:'Papyrology is the study of ancient texts written on papyrus. Papyrologists also work on texts written on other everyday materials, such as thin wooden tablets and pieces of broken pottery. Most of their material comes from Egypt and dates from the time of Alexander the Great to the early Islamic period.'},
+ {p:0,h:'Papyrus was made from the pith of a tall reed that grew along the Nile. Strips were laid side by side, a second layer was laid across them at right angles, and the sheet was pressed and dried. The side with the fibres running across is called the <em>recto</em>, and the back is the <em>verso</em>.'},
+ {p:0,h:'Papyrus rots when it gets damp, so it survives mainly in very dry places. In Egypt that means the desert edges beyond the reach of the Nile flood. Elsewhere it usually survives only in unusual conditions, such as the scrolls at Herculaneum that were turned to charcoal by Vesuvius.'},
+ {p:0,h:'Most papyri from Egypt are in Greek, which was the language of government there after Alexander. Latin was used mainly by the Roman army and Roman officials, so Latin papyri are a small share of the total, and many of them are military documents or letters.'},
+ {p:0,h:'Most papyri are not works of literature. They are receipts, contracts, tax lists, petitions, school exercises and private letters. This is why papyrology is one of the best sources we have for everyday life in the ancient world.'},
+
+ {p:1,h:'Most Latin literature survives because it was copied again and again by hand, mostly in the Middle Ages. Private letters were never copied. The papyrus a letter was written on is usually the only copy that ever existed.'},
+ {p:1,h:'Letters show how ordinary people actually wrote. Claudius Terentianus, a soldier whose letters were found at Karanis in Egypt, often spells words the way he pronounced them. Linguists use letters like his to learn how everyday Latin sounded.'},
+ {p:1,h:'Many people dictated their letters to a scribe and then added a greeting in their own hand. When the handwriting changes at the end of a letter, it usually means the sender has taken the pen. This helps historians work out who could read and write.'},
+ {p:1,h:'Latin letters usually begin with the writer\u2019s name in the nominative, the case used for the subject. Then comes the reader\u2019s name, then <em>salutem</em>, \u201cgreetings\u201d. So <em>Claudia Severa Lepidinae salutem</em> means \u201cClaudia Severa to Lepidina, greetings\u201d.'},
+ {p:1,h:'Letters are often found in groups that belonged to one family, called an archive. Reading an archive lets historians follow the same people over several years, which a single letter cannot do.'},
+
+ {p:2,h:'The first job is reading the handwriting. Everyday Latin was written in a fast joined script called Roman cursive, and many of its letters look quite different from the capitals on inscriptions. Papyrologists learn the letter shapes of each period before they can read a text.'},
+ {p:2,h:'Handwriting changes over time, so the style of a hand can also date a text that has no date written on it. The study of ancient handwriting is called palaeography.'},
+ {p:2,h:'Where the papyrus is torn, the editor counts how many letters would fit in the gap and restores only what fits the space and the grammar. The restored letters go in square brackets, so <em>puell[ae]</em> means that only <em>puell</em> can be seen on the papyrus.'},
+ {p:2,h:'Scribes often shortened common words, and editors write the full word out in round brackets. For example, <em>s(alutem)</em> means that the papyrus has only the letter <em>s</em>, and the editor has supplied the rest.'},
+ {p:2,h:'Letters, receipts and contracts repeat the same set phrases. Because of this, a few surviving letters can be enough to restore a whole phrase. If the first line of a Latin letter ends in <em>\u2026lutem</em>, the missing word is almost certainly <em>salutem</em>.'},
+ {p:2,h:'Pieces of one papyrus sometimes end up in different collections, because finders and dealers split them up. Editors match the pieces by comparing the handwriting, the pattern of the fibres and the shape of the torn edges.'},
+ {p:2,h:'When ink has faded or the papyrus has blackened, photographs taken in infrared light can make the writing easier to see. The 2023 Vesuvius Challenge was won by a team that used X-ray scans and machine learning to read passages from a Herculaneum scroll that has never been unrolled.'},
+
+ {p:3,h:'Oxyrhynchus, a town in Middle Egypt, is the richest single source of papyri. Bernard Grenfell and Arthur Hunt began digging its ancient rubbish heaps in 1896. Almost all the texts are Greek, and scholars are still publishing them more than a century later.'},
+ {p:3,h:'Karanis is a farming town on the edge of the Fayum, a fertile area west of the Nile. The University of Michigan excavated it in the 1920s and 1930s. In 1928\u201329 the team found a family\u2019s letters, some in Latin and some in Greek, in a niche under a staircase.'},
+ {p:3,h:'Old papyrus was often reused. At Tebtunis, also in the Fayum, Grenfell and Hunt found mummified crocodiles wrapped in and stuffed with waste papyrus in 1899\u20131900, and recovered many documents from them.'},
+ {p:3,h:'At Qasr Ibrim, a fortress in Nubia on Egypt\u2019s southern frontier, excavators found nine lines of love poetry by Cornelius Gallus in 1978. Until then, only one line of his work was known. The papyrus is the oldest surviving manuscript of Latin poetry.'},
+ {p:3,h:'Latin texts have also been found outside Egypt. There are charred scrolls from Herculaneum in Italy, military papyri from Dura-Europos in Syria and from Masada in Judaea, and ink-written wooden tablets from Vindolanda, a fort near Hadrian\u2019s Wall in Britain.'},
+
+ {p:4,h:'Claudius Terentianus wrote to his father from the army in the early second century AD. In his letters he asks his father to send equipment, and he describes being wounded in a riot at Alexandria.'},
+ {p:4,h:'Around AD 100, Claudia Severa wrote from one fort in northern Britain to invite her friend Sulpicia Lepidina to her birthday party. A scribe wrote most of the letter, and Severa added the last lines herself. It is one of the earliest known examples of Latin written by a woman.'},
+ {p:4,h:'A Latin papyrus from Masada records deductions from the pay of a legionary called Gaius Messius, from Beirut, for barley and for clothing. Roman soldiers paid for part of their own food and kit out of their wages.'},
+ {p:4,h:'The letters from Karanis are written partly in Latin and partly in Greek. Many people in Roman Egypt, especially soldiers, used both languages.'}
+];
+function nextFact(){
+ if(S.facts.length>=FACTS.length)return null;
+ const i=S.facts.length;S.facts.push(i);
+ return i;
+}
+function factHead(i){
+ const f=FACTS[i];
+ return 'Papyrology '+(i+1)+' of '+FACTS.length+' \u00b7 '+FACT_PARTS[f.p];
+}
+function openFacts(){
+ let html='<p class="lead">'+S.facts.length+' of '+FACTS.length+' collected. A new one appears each time you answer correctly.</p>';
+ FACT_PARTS.forEach((name,pi)=>{
+  const got=S.facts.filter(i=>FACTS[i].p===pi);
+  if(!got.length)return;
+  html+='<h4 class="fh">'+name+'</h4><ol class="factlist" start="'+(got[0]+1)+'">'+got.map(i=>'<li>'+FACTS[i].h+'</li>').join('')+'</ol>';
+ });
+ openModal('Papyrology notes',html);
+}
+
+/* ===================== TIMER ===================== */
+/* Time scales with the work each activity asks for. */
+function textLen(h){return String(h||'').replace(/<[^>]+>/g,'').length}
+function budgetFor(sc){
+ const read=q=>Math.round(textLen(q)/25);            /* about a second per 25 characters of question */
+ const r5=n=>Math.max(10,Math.ceil(n/5)*5);
+ switch(sc.t){
+  case 'pick':return r5(8+read(sc.q)+sc.hot.length*2);            /* tap one of three words: ~15s */
+  case 'ask':return r5(6+read(sc.q)+sc.opts.length*2+textLen(sc.opts.join(''))/40);
+  case 'build':return r5(10+read(sc.q)+sc.bank.length);          /* one ending from the bank: ~20-25s */
+  case 'multi':return r5(8+read(sc.q)+sc.opts.length*4);
+  case 'sort':return r5(10+sc.cards.length*5);                   /* 12 nouns: 70s */
+  case 'parse':return r5(20*sc.nouns.length+20);                /* four choices per noun, then translate */
+  case 'order':return 45;
+  case 'assemble':return 45;
+ }
+ return 0;
+}
+const TMODES={standard:{n:'Standard',x:1},relaxed:{n:'Relaxed',x:1.5},off:{n:'Off',x:0}};
+let tmode='standard';
+try{const v=localStorage.getItem('rta.timer');if(v&&TMODES[v])tmode=v}catch(e){}
+const T={id:null,budget:0,left:0,last:0,active:false,over:false,sc:null,el:null};
+function fmt(sec){sec=Math.max(0,Math.ceil(sec));return Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0')}
+function stopTimer(){if(T.id){clearInterval(T.id);T.id=null}}
+function startTimer(slip,sc){
+ stopTimer();T.active=false;T.over=false;T.sc=sc;T.el=null;
+ const base=budgetFor(sc),x=TMODES[tmode].x;
+ if(!base||!x)return;
+ T.budget=Math.round(base*x);T.left=T.budget;T.active=true;T.last=performance.now();
+ const c=el('div','clock','<span class="clab">Time</span><span class="cbar"><i></i></span><span class="ct">'+fmt(T.left)+'</span>');
+ c.setAttribute('role','timer');c.setAttribute('aria-label','Time left for this fragment');
+ slip.appendChild(c);T.el=c;
+ T.id=setInterval(tick,250);
+}
+function tick(){
+ const now=performance.now(),dt=(now-T.last)/1000;T.last=now;
+ if(!T.active||!T.el)return;
+ if($('veil').classList.contains('open'))return;
+ T.left-=dt;
+ const f=Math.max(0,T.left/T.budget);
+ T.el.querySelector('.cbar i').style.width=(f*100)+'%';
+ T.el.querySelector('.ct').textContent=fmt(T.left);
+ T.el.classList.toggle('low',f<=.25&&T.left>0);
+ if(T.left<=0&&!T.over){
+  T.over=true;
+  T.el.classList.add('over');
+  T.el.querySelector('.ct').textContent='0:00';
+  const n=el('p','clocknote','Time’s up. Finish this one anyway — it will come back in the review round so you can beat the clock next time.');
+  T.el.insertAdjacentElement('afterend',n);
+  flagRetry(T.sc);
+  stopTimer();
+ }
+}
+/* Called when a fragment is resolved (the Continue button appears). */
+function settle(slip){
+ const timed=T.active;
+ const ok=slip.classList.contains('ok');
+ stopTimer();T.active=false;
+ if(!timed)return;
+ if(ok&&!T.over){
+  pts(20);
+  if(T.el){T.el.classList.add('beat');T.el.querySelector('.ct').textContent='Beat the clock +20'}
+ }
+ if(ok){
+  const f=nextFact();
+  if(f!==null)slip.appendChild(el('div','fact','<b>'+factHead(f)+'</b>'+FACTS[f].h));
+  renderRail();
+ }
+}
+
+/* ===================== SCREEN RENDERERS ===================== */
+const DRAW={};
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function fb(slip,ok,html,head){
+ const d=el('div','fb'+(ok?'':' no'));
+ d.innerHTML=(head?'<b>'+head+'</b>':'')+(html||'');
+ slip.appendChild(d);return d;
+}
+function mark(slip,ok){slip.classList.remove('ok','bad');slip.classList.add(ok?'ok':'bad')}
+function cont(slip,label,fn){
+ settle(slip);
+ const b=el('button','go',label||'Continue');b.type='button';
+ b.onclick=fn||next;slip.appendChild(b);return b;
+}
+
+function render(){
+ renderPath();renderRail();
+ const sc=cur();root.innerHTML='';
+ const slip=el('div','slip');
+ const label=sc.t==='end'?'Final report':sc.t==='stagedone'?'Stage complete':sc.t==='review'?'Review round':'Fragment '+pad(S.i+1);
+ slip.appendChild(el('div','sliphead','<span class="fno inscr">'+label+'</span><span class="stg">'+stage().full+'</span>'));
+ startTimer(slip,sc);
+ (DRAW[sc.t]||DRAW.brief)(slip,sc);
+ root.appendChild(slip);
+}
+
+/* ---- static panels ---- */
+DRAW.brief=(slip,sc)=>{
+ if(sc.h)slip.appendChild(el('h2','',sc.h));
+ slip.appendChild(el('div','',sc.html));
+ cont(slip,sc.t==='brief'?'Begin':'Continue');
+};
+DRAW.reveal=DRAW.brief;
+DRAW.review=(slip,sc)=>{
+ slip.appendChild(el('h2','','Review round'));
+ slip.appendChild(el('div','','<p>'+sc.n+' item'+(sc.n>1?'s':'')+' from this stage came back unstable. They are queued again now, while the reasoning is still fresh.</p>'));
+ cont(slip,'Take them again');
+};
+
+/* ---- single choice ---- */
+DRAW.ask=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const box=el('div','opts');
+ const btns=sc.opts.map((o,i)=>{
+  const b=el('button','opt',o);b.type='button';
+  b.onclick=()=>{
+   btns.forEach(x=>x.disabled=true);
+   const ok=i===sc.ans;
+   b.classList.add(ok?'ok':'no');
+   if(!ok)btns[sc.ans].classList.add('show');
+   rec(sc.m,ok);score(sc,ok);
+   if(sc.unlock)unlockCase(sc.unlock,ok);
+   if(ok){if(sc.unlockTool)unlockTool(sc.unlockTool);bump(sc.counts)}
+   mark(slip,ok);
+   fb(slip,ok,sc.fb,ok?(sc.unlock?sc.unlock+' unlocked':'Correct'):'Not this one');
+   cont(slip).focus();
+  };
+  box.appendChild(b);return b;
+ });
+ slip.appendChild(box);
+};
+
+/* ---- select all that apply ---- */
+DRAW.multi=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const sel=new Set(),box=el('div','opts');
+ const chk=el('button','go','Check reading');chk.type='button';chk.disabled=true;
+ const btns=sc.opts.map((o,i)=>{
+  const b=el('button','opt',o);b.type='button';b.setAttribute('aria-pressed','false');
+  b.onclick=()=>{
+   if(sel.has(i)){sel.delete(i);b.classList.remove('pick');b.setAttribute('aria-pressed','false')}
+   else{sel.add(i);b.classList.add('pick');b.setAttribute('aria-pressed','true')}
+   chk.disabled=sel.size===0;
+  };
+  box.appendChild(b);return b;
+ });
+ slip.appendChild(box);
+ chk.onclick=()=>{
+  btns.forEach(b=>b.disabled=true);chk.remove();
+  const want=sc.ans;
+  const ok=sel.size===want.length&&want.every(i=>sel.has(i));
+  btns.forEach((b,i)=>{
+   b.classList.remove('pick');
+   if(want.indexOf(i)>=0&&sel.has(i))b.classList.add('ok');
+   else if(sel.has(i))b.classList.add('no');
+   else if(want.indexOf(i)>=0)b.classList.add('show');
+  });
+  rec(sc.m,ok);score(sc,ok);if(ok)bump(sc.counts);
+  mark(slip,ok);
+  fb(slip,ok,sc.fb,ok?'Every reading accounted for':'Not the full set');
+  cont(slip).focus();
+ };
+ slip.appendChild(chk);
+};
+
+/* ---- pick the word doing the job ---- */
+DRAW.pick=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const s=el('div','sentence');let nudge=null;
+ sc.toks.forEach((t,i)=>{
+  if(sc.hot.indexOf(i)>=0){
+   const b=el('button','tok hot',t);b.type='button';
+   b.onclick=()=>{
+    if(i===sc.ans){
+     s.querySelectorAll('button').forEach(x=>{x.disabled=true;x.classList.remove('hot')});
+     b.classList.add('ok');if(nudge){nudge.remove();nudge=null}
+     rec(sc.m,!sc._err);score(sc,!sc._err);
+     mark(slip,true);
+     fb(slip,true,sc.fb,sc.res);
+     cont(slip).focus();
+    }else{
+     b.classList.add('no');b.disabled=true;
+     if(!sc._err){sc._err=1;nudge=fb(slip,false,'That word is in the sentence, but it is not doing this job. Try another.','Keep looking')}
+    }
+   };
+   s.appendChild(b);
+  }else s.appendChild(el('span','tok dead',t));
+  s.appendChild(document.createTextNode(' '));
+ });
+ slip.appendChild(s);
+};
+
+/* ---- sorting into bins ---- */
+DRAW.sort=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const cards=shuffle(sc.cards.slice());
+ const tray=el('div','tray'),bins=el('div','bins');
+ let left=cards.length,run=0,errs=0,sel=null;
+ const combo=el('p','combo','');
+ const upd=t=>{combo.innerHTML=t||('Sorted '+(cards.length-left)+' of '+cards.length+(run>1?' &nbsp;·&nbsp; streak <b>'+run+'</b>':''))};
+
+ function place(card,binId,node){
+  const ok=card.bin===binId;
+  rec(sc.m,ok);
+  if(ok){
+   node.classList.remove('sel');node.classList.add('set');node.draggable=false;node.onclick=null;node.onkeydown=null;node.tabIndex=-1;
+   bins.querySelector('[data-b="'+binId+'"] .held').appendChild(node);
+   run++;left--;pts(50+Math.min(run,6)*10);
+   if(sc.streak){S.ctr.streak++;if(S.ctr.streak>=10)award('detective')}
+   upd();
+   if(left===0)done();
+  }else{
+   errs++;run=0;if(sc.streak)S.ctr.streak=0;
+   node.classList.remove('sel');
+   node.classList.add('bad');setTimeout(()=>node.classList.remove('bad'),450);
+   upd('Not that group — check the second form of the entry. Streak reset.');
+   setTimeout(()=>{if(left)upd()},2200);
+  }
+  sel=null;
+ }
+ function done(){
+  score(sc,errs===0);
+  mark(slip,errs===0);
+  fb(slip,errs===0,errs===0
+   ?'All twelve sorted correctly. The genitive ending showed the declension every time.'
+   :'Sorted, with '+errs+' misplacement'+(errs>1?'s':'')+'. The nominative can mislead you, but the genitive ending always shows the declension.',
+   errs===0?'Sorted cleanly':'Sorted');
+  cont(slip).focus();
+ }
+
+ cards.forEach(c=>{
+  const n=el('div','dcard',c.txt);
+  n.draggable=true;n.tabIndex=0;n.setAttribute('role','button');
+  n.addEventListener('dragstart',e=>{sel={c:c,n:n};e.dataTransfer.setData('text/plain','x');e.dataTransfer.effectAllowed='move'});
+  n.onclick=()=>{
+   if(sel&&sel.n===n){n.classList.remove('sel');sel=null;return}
+   tray.querySelectorAll('.dcard').forEach(x=>x.classList.remove('sel'));
+   n.classList.add('sel');sel={c:c,n:n};
+  };
+  n.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();n.click()}};
+  tray.appendChild(n);
+ });
+ slip.appendChild(tray);
+
+ sc.bins.forEach(b=>{
+  const d=el('div','bin');d.dataset.b=b.id;
+  d.tabIndex=0;d.setAttribute('role','button');
+  d.innerHTML='<h4>'+b.n+'</h4><span class="hint">'+b.h+'</span>';
+  d.appendChild(el('div','held'));
+  d.addEventListener('dragover',e=>{e.preventDefault();d.classList.add('over')});
+  d.addEventListener('dragleave',()=>d.classList.remove('over'));
+  d.addEventListener('drop',e=>{e.preventDefault();d.classList.remove('over');if(sel)place(sel.c,b.id,sel.n)});
+  d.onclick=()=>{if(sel)place(sel.c,b.id,sel.n)};
+  d.onkeydown=e=>{if(e.target===d&&(e.key==='Enter'||e.key===' ')){e.preventDefault();d.click()}};
+  bins.appendChild(d);
+ });
+ slip.appendChild(bins);
+ slip.appendChild(combo);upd();
+ slip.appendChild(el('p','lead','Drag a noun into a group, or tap the noun and then the group.'));
+};
+
+/* ---- build a form from stem + ending ---- */
+DRAW.build=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ slip.appendChild(el('p','lead','Entry: <em>'+sc.w+'</em>'));
+ const row=el('div','formrow'),form=el('span','form');
+ const end=el('span','end blank','[ ]');
+ form.appendChild(el('span','stem',sc.stem));form.appendChild(end);
+ row.appendChild(form);slip.appendChild(row);
+ const bank=el('div','bank');let err=0;
+ sc.bank.forEach(e=>{
+  const b=el('button','endbtn','-'+e);b.type='button';
+  b.onclick=()=>{
+   if(e===sc.ans){
+    bank.querySelectorAll('.endbtn').forEach(x=>x.disabled=true);
+    b.classList.add('ok');end.className='end';end.textContent=e;
+    rec('parse',err===0);score(sc,err===0);if(!err)bump(sc.counts);
+    mark(slip,!err);
+    fb(slip,!err,sc.fb,(err?'Restored, after a detour':'Restored')+': '+sc.stem+'['+sc.ans+']');
+    cont(slip).focus();
+   }else{b.classList.add('no');b.disabled=true;err++}
+  };
+  bank.appendChild(b);
+ });
+ slip.appendChild(bank);
+};
+
+/* ---- full parse ---- */
+const PROWS=[['n','number',['singular','plural']],['c','case',CASES],['fn','job',FUNCS]];
+DRAW.parse=(slip,sc)=>{
+ if(sc.head)slip.appendChild(el('h2','',sc.head));
+ slip.appendChild(el('div','latin',sc.s));
+ slip.appendChild(el('div','gloss',sc.gl));
+ const picks=sc.nouns.map(()=>({})),boxes=[];
+ const btn=el('button','go','Check parse');btn.type='button';btn.disabled=true;
+ sc.nouns.forEach((nn,ni)=>{
+  const box=el('div','noun','<div class="nh"><span class="nf">'+nn.f+'</span><span class="ne">'+nn.e+'</span></div>');
+  PROWS.forEach(p=>{
+   const r=el('div','prow');r.appendChild(el('div','lab',p[1]));
+   const ch=el('div','chips');
+   p[2].forEach(o=>{
+    const b=el('button','chip',o);b.type='button';b.setAttribute('aria-pressed','false');
+    b.onclick=()=>{
+     ch.querySelectorAll('.chip').forEach(x=>{x.setAttribute('aria-pressed','false');x.classList.remove('ok','no')});
+     b.setAttribute('aria-pressed','true');picks[ni][p[0]]=o;
+     btn.disabled=!picks.every(x=>PROWS.every(p=>x[p[0]]));
+    };
+    ch.appendChild(b);
+   });
+   r.appendChild(ch);box.appendChild(r);
+  });
+  boxes.push(box);slip.appendChild(box);
+ });
+ let first=true;
+ btn.onclick=()=>{
+  let all=true;
+  sc.nouns.forEach((nn,ni)=>{
+   const rows=boxes[ni].querySelectorAll('.prow');let ci=-1,nounOk=true;
+   PROWS.forEach((p,ri)=>{
+    const want=nn[p[0]],got=picks[ni][p[0]];let ok;
+    if(Array.isArray(want)){
+     const idx=want.indexOf(got);
+     if(p[0]==='c')ci=idx;
+     ok=idx>=0&&(!nn.link||p[0]==='c'||idx===ci);
+    }else ok=got===want;
+    rows[ri].querySelectorAll('.chip').forEach(c=>{
+     c.classList.remove('ok','no');
+     if(c.getAttribute('aria-pressed')==='true')c.classList.add(ok?'ok':'no');
+    });
+    if(!ok){all=false;nounOk=false;if(first)S.miss[p[1]]++}
+   });
+   if(first)rec('parse',nounOk);
+  });
+  const wasFirst=first;first=false;
+  if(!all){
+   const old=slip.querySelector('.fb');if(old)old.remove();
+   mark(slip,false);flagRetry(sc);
+   fb(slip,false,'The rows marked in red are not right yet. Change them and check again — the toolkit is open in the margin.','Not yet stable');
+   slip.appendChild(btn);
+   return;
+  }
+  slip.querySelectorAll('.chip').forEach(c=>c.disabled=true);
+  btn.remove();
+  const old=slip.querySelector('.fb');if(old)old.remove();
+  mark(slip,true);
+  fb(slip,true,sc.fb,wasFirst?'Parsed clean on the first pass':'Parsed');
+  const tw=el('div',''),tq=el('div','prompt','Now translate the sentence.');
+  tq.style.marginTop='22px';
+  tw.appendChild(tq);
+  const tb=el('div','opts');
+  const tbs=sc.tr.opts.map((o,i)=>{
+   const b=el('button','opt',o);b.type='button';
+   b.onclick=()=>{
+    tbs.forEach(x=>x.disabled=true);
+    const ok=i===sc.tr.ans;
+    b.classList.add(ok?'ok':'no');
+    if(!ok)tbs[sc.tr.ans].classList.add('show');
+    rec(sc.m2||'ctx',ok);score(sc,ok);mark(slip,ok);
+    if(ok&&wasFirst)award('perfect');
+    fb(slip,ok,(sc.tr.note&&ok?sc.tr.note:'')||(ok?'':'Read the endings again, not the order of the words.'),ok?'Translation confirmed':'Not this one');
+    cont(slip).focus();
+   };
+   tb.appendChild(b);return b;
+  });
+  tw.appendChild(tb);slip.appendChild(tw);
+ };
+ slip.appendChild(btn);
+};
+
+/* ---- word order lab ---- */
+DRAW.order=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ let ord=sc.tiles.map((t,i)=>i);
+ const seen=new Set([ord.join('')]);
+ const wrap=el('div','order');
+ const out=el('div','readout','<span class="mlab">Meaning</span><div class="mval">'+sc.meaning+'</div><div class="meter"><i></i></div><div class="tried">Arrangements tried: 0 of '+sc.need+'.</div>');
+ let sel=null,done=false;
+ function repaint(){
+  wrap.innerHTML='';
+  ord.forEach((ti,pos)=>{
+   const t=sc.tiles[ti];
+   const n=el('div','wt'+(t.k==='v'?' verb':'')+(sel===pos?' sel':''),t.w);
+   n.draggable=!done;n.tabIndex=done?-1:0;n.setAttribute('role','button');
+   n.onclick=()=>{
+    if(done)return;
+    if(sel===null){sel=pos}
+    else if(sel===pos){sel=null}
+    else{const a=ord[sel];ord[sel]=ord[pos];ord[pos]=a;sel=null;log()}
+    repaint();
+    const again=wrap.children[pos];if(again&&!done)again.focus();
+   };
+   n.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();n.click()}};
+   n.addEventListener('dragstart',()=>{sel=pos});
+   n.addEventListener('dragover',e=>e.preventDefault());
+   n.addEventListener('drop',e=>{
+    e.preventDefault();if(done||sel===null||sel===pos)return;
+    const a=ord[sel];ord[sel]=ord[pos];ord[pos]=a;sel=null;log();repaint();
+   });
+   wrap.appendChild(n);
+  });
+ }
+ function log(){
+  seen.add(ord.join(''));
+  const found=seen.size-1;
+  out.querySelector('.meter i').style.width=Math.min(100,found/sc.need*100)+'%';
+  out.querySelector('.tried').textContent='Arrangements tried: '+found+' of '+sc.need+' — meaning unchanged every time.';
+  if(found>=sc.need&&!done){
+   done=true;repaint();
+   rec('ctx',true);pts(120);bump('rebel');
+   mark(slip,true);
+   fb(slip,true,sc.fb,'Meaning stable');
+   cont(slip).focus();
+  }
+ }
+ slip.appendChild(wrap);slip.appendChild(out);
+ slip.appendChild(el('p','lead','Tap two words to swap them, or drag one onto another. Find '+sc.need+' new arrangements.'));
+ repaint();
+};
+
+/* ---- ending swap lab ---- */
+DRAW.swap=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const st=(sc.start||[0,0]).slice();let done=false;
+ const row=el('div','swaprow');
+ const out=el('div','readout','<span class="mlab">Reads as</span><div class="mval"></div>');
+ function repaint(focusIdx){
+  row.innerHTML='';
+  sc.units.forEach((u,i)=>{
+   const f=u.forms[st[i]];
+   const b=el('button','swapunit');b.type='button';
+   b.innerHTML='<span class="form sm"><span class="stem">'+u.stem+'</span><span class="end">'+f.e+'</span></span><span class="cap">'+(f.c==='nom'?'nominative':'accusative')+'</span>';
+   if(!done)b.onclick=()=>{st[i]=(st[i]+1)%u.forms.length;repaint(i);check()};
+   else b.disabled=true;
+   row.appendChild(b);
+  });
+  const v=el('span','form sm mute');
+  v.innerHTML='<span class="stem">'+sc.verb+'</span>';
+  const vb=el('div','swapunit static');vb.appendChild(v);vb.appendChild(el('span','cap',sc.vg));
+  row.appendChild(vb);
+  const nom=sc.units.filter((u,i)=>u.forms[st[i]].c==='nom');
+  const acc=sc.units.filter((u,i)=>u.forms[st[i]].c==='acc');
+  const m=out.querySelector('.mval');
+  if(nom.length===1&&acc.length===1)m.textContent='The '+nom[0].eng+' sees the '+acc[0].eng+'.';
+  else if(nom.length===2)m.innerHTML='<em>Two subjects and nothing to see. This does not parse.</em>';
+  else m.innerHTML='<em>Two objects and nobody doing the seeing. This does not parse.</em>';
+  if(focusIdx!=null&&!done&&row.children[focusIdx])row.children[focusIdx].focus();
+ }
+ function check(){
+  if(done)return;
+  if(sc.units.every((u,i)=>u.forms[st[i]].c===sc.target[i])){
+   done=true;repaint();
+   rec('ctx',true);pts(140);
+   mark(slip,true);
+   fb(slip,true,sc.fb,'Relationship reversed');
+   cont(slip).focus();
+  }
+ }
+ slip.appendChild(row);slip.appendChild(out);
+ slip.appendChild(el('p','lead','Tap a word to change its ending. The words cannot move and the verb cannot change.'));
+ repaint();
+};
+
+/* ---- drag endings onto stems ---- */
+const DTAB={
+ '1':{a:[['nom','sg']],am:[['acc','sg']],ae:[['nom','pl']],'ās':[['acc','pl']]},
+ '2m':{us:[['nom','sg']],um:[['acc','sg']],'ī':[['nom','pl']],'ōs':[['acc','pl']]}
+};
+const DNAME={'1':'first declension (like puella)','2m':'second declension (like colōnus)'};
+const NN={
+ 'puell':{lat:'puella',d:'1',sg:'the girl',pl:'the girls'},
+ 'aqu':{lat:'aqua',d:'1',sg:'the water',pl:'the waters'},
+ 'fīli':{lat:'fīlia',d:'1',sg:'the daughter',pl:'the daughters'},
+ 'cas':{lat:'casa',d:'1',sg:'the house',pl:'the houses'},
+ 'colōn':{lat:'colōnus',d:'2m',sg:'the farmer',pl:'the farmers'},
+ 'cib':{lat:'cibus',d:'2m',sg:'the food',pl:'the foods'}
+};
+const VERBS={
+ portat:{n:'sg',eng:'carries',gloss:'carries'},portant:{n:'pl',eng:'carry',gloss:'they carry'},
+ spectat:{n:'sg',eng:'looks at',gloss:'looks at'},
+ uocant:{n:'pl',eng:'call',gloss:'they call'},
+ laudat:{n:'sg',eng:'praises',gloss:'praises'},
+ 'salūtant':{n:'pl',eng:'greet',gloss:'they greet'}
+};
+const EBANK=E1;
+const CAB={nom:'subject',acc:'object'};
+const NAB={sg:'one',pl:'more than one'};
+function capFirst(t){return t.charAt(0).toUpperCase()+t.slice(1)}
+function readSentence(tiles,ends,vk){
+ const v=VERBS[vk];
+ if(tiles.some(t=>!ends[t]))return{kind:'empty',text:'Put an ending on every word to read the sentence.'};
+ const R=[];
+ for(const t of tiles){
+  const nn=NN[t],raw=DTAB[nn.d][ends[t]];
+  if(!raw)return{kind:'bad',text:'<em>'+t+ends[t]+'</em> is not a form of <em>'+nn.lat+'</em>. The ending <strong>-'+ends[t]+'</strong> belongs to a different group of nouns. <em>'+nn.lat+'</em> is '+DNAME[nn.d]+'.'};
+  R.push({t:t,c:raw[0][0],n:raw[0][1]});
+ }
+ const nom=R.filter(x=>x.c==='nom'),acc=R.filter(x=>x.c==='acc');
+ if(nom.length===0)return{kind:'bad',text:'Nobody is doing the action. One word needs a subject ending.'};
+ if(nom.length>1)return{kind:'bad',text:'Both words have subject endings, so nothing is receiving the action. One word needs an object ending.'};
+ if(nom[0].n!==v.n)return{kind:'bad',text:'<em>'+nom[0].t+ends[nom[0].t]+'</em> is '+NAB[nom[0].n]+', but <em>'+vk+'</em> ends in <em>'+(v.n==='sg'?'-t':'-nt')+'</em>, which needs a subject that is '+NAB[v.n]+'.'};
+ const e=x=>NN[x.t][x.n];
+ return{kind:'one',text:capFirst(e(nom[0]))+' '+v.eng+' '+e(acc[0])+'.'};
+}
+DRAW.assemble=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const ends=Object.assign({},sc.pre||{});
+ let pick=null,done=false,first=true;
+ const row=el('div','swaprow');
+ const out=el('div','readout','<span class="mlab">Reads as</span><div class="mval"></div>');
+ const bank=el('div','bank');
+ const chk=el('button','go','Restore');chk.type='button';
+ function repaint(){
+  row.innerHTML='';
+  sc.tiles.forEach(t=>{
+   const nn=NN[t],e=ends[t];
+   const b=el('button','swapunit slot2');b.type='button';
+   b.innerHTML='<span class="form sm"><span class="stem">'+t+'</span><span class="end'+(e?'':' blank')+'">'+(e||'[ ]')+'</span></span>';
+   let cap='';
+   if(e){const raw=DTAB[nn.d][e];cap=raw?raw.map(r=>CAB[r[0]]+', '+NAB[r[1]]).join(' / '):'not a form of '+nn.lat}
+   else cap=nn.lat;
+   b.appendChild(el('span','cap',cap));
+   b.setAttribute('aria-label',t+(e?'-'+e:' with no ending'));
+   if(done)b.disabled=true;
+   else{
+    b.onclick=()=>{if(pick){ends[t]=pick;pick=null;paintBank();repaint()}};
+    b.addEventListener('dragover',ev=>{ev.preventDefault();b.classList.add('over')});
+    b.addEventListener('dragleave',()=>b.classList.remove('over'));
+    b.addEventListener('drop',ev=>{ev.preventDefault();b.classList.remove('over');const x=ev.dataTransfer.getData('text/plain');if(x){ends[t]=x;pick=null;paintBank();repaint()}});
+   }
+   row.appendChild(b);
+  });
+  const vb=el('div','swapunit static');
+  const v=el('span','form sm mute');v.innerHTML='<span class="stem">'+sc.verb+'</span>';
+  vb.appendChild(v);vb.appendChild(el('span','cap',VERBS[sc.verb].gloss));
+  row.appendChild(vb);
+  const r=readSentence(sc.tiles,ends,sc.verb);
+  const m=out.querySelector('.mval');
+  m.innerHTML=r.kind==='one'?r.text:'<em class="soft">'+r.text+'</em>';
+  chk.disabled=done||r.kind==='empty';
+ }
+ function paintBank(){
+  bank.querySelectorAll('.endbtn').forEach(b=>{b.classList.toggle('sel',b.dataset.e===pick);b.setAttribute('aria-pressed',b.dataset.e===pick?'true':'false')});
+ }
+ (sc.bank||EBANK).forEach(e=>{
+  const b=el('button','endbtn drag','-'+e);b.type='button';b.dataset.e=e;b.draggable=true;
+  b.addEventListener('dragstart',ev=>{ev.dataTransfer.setData('text/plain',e);ev.dataTransfer.effectAllowed='copy'});
+  b.onclick=()=>{if(done)return;pick=pick===e?null:e;paintBank()};
+  bank.appendChild(b);
+ });
+ chk.onclick=()=>{
+  const r=readSentence(sc.tiles,ends,sc.verb);
+  const ok=r.kind==='one'&&r.text===sc.target;
+  const old=slip.querySelector('.fb');if(old)old.remove();
+  if(!ok){
+   if(first){first=false;flagRetry(sc)}
+   mark(slip,false);
+   fb(slip,false,'The letter needs to say <em>'+sc.target+'</em> '+(r.kind==='one'?'Your Latin says <em>'+r.text+'</em>':'Your Latin does not say that yet.')+' Change an ending and try again.','Not yet');
+   slip.appendChild(chk);
+   return;
+  }
+  done=true;repaint();
+  bank.querySelectorAll('.endbtn').forEach(b=>b.disabled=true);
+  chk.remove();
+  rec(sc.m,first);if(first){pts(sc._r?40:100);bump(sc.counts)}else if(sc._r)pts(20);
+  if(sc.unlockTool)unlockTool(sc.unlockTool);
+  mark(slip,true);
+  fb(slip,true,sc.fb,first?'Restored on the first try':'Restored');
+  cont(slip).focus();
+ };
+ slip.appendChild(row);slip.appendChild(out);
+ slip.appendChild(el('p','lead','Ending bank — drag one onto a stem, or tap an ending and then a stem. Endings can be reused.'));
+ slip.appendChild(bank);
+ slip.appendChild(chk);
+ repaint();
+};
+
+/* ---- stage complete ---- */
+DRAW.stagedone=slip=>{
+ const st=stage();
+ if(!S.done[st.id]){S.done[st.id]=1;(st.tools||[]).forEach(k=>unlockTool(k));pts(200);renderPath();renderRail()}
+ slip.appendChild(el('h2','',st.full+' — complete'));
+ const box=el('div','');
+ MASTERY.forEach(m=>{
+  const s=stars(m.k);if(s===null)return;
+  box.appendChild(el('div','bigrow','<span>'+m.n+'</span><span class="st">'+starStr(s)+'</span>'));
+ });
+ slip.appendChild(box);
+ const nx=S.stage+1;
+ if(nx<STAGES.length){
+  slip.appendChild(el('p','lead','Next: '+STAGES[nx].full+'.'));
+  cont(slip,'Open '+STAGES[nx].full,()=>{startStage(nx);window.scrollTo({top:0})});
+ }else cont(slip,'See report',()=>{S.queue.push({t:'end'});S.i=S.queue.length-1;render()});
+};
+
+/* ---- final report ---- */
+const NEXT={func:'roles',num:'number','case':'endings',parse:'gaps',ctx:'decode'};
+DRAW.end=slip=>{
+ const st=stage();
+ if(!S.done[st.id]){S.done[st.id]=1;pts(300);renderPath()}
+ const p=overall();
+ slip.appendChild(el('div','','<div class="score inscr">Letter restored: '+p+'%</div>'));
+ slip.appendChild(el('p','lead','The letter is restored. '+S.pts+' points. '+Object.keys(S.badges).length+' of '+Object.keys(BADGES).length+' achievements. '+S.facts.length+' of '+FACTS.length+' papyrology notes collected.'));
+ MASTERY.forEach(m=>{
+  const s=stars(m.k);
+  slip.appendChild(el('div','bigrow','<span>'+m.n+'</span><span class="st">'+starStr(s)+'</span>'));
+ });
+ const w=weakest();
+ const d=el('div','fb');
+ if(w){
+  d.innerHTML='<b>Recommended next mission</b>'+diagFor(w)+' Run <strong>'+STAGES.find(x=>x.id===NEXT[w]).full+'</strong> again — the stages stay open in the path above.';
+ }else{
+  d.innerHTML='<b>Recommended next mission</b>Everything here is secure. The next step is the other Latin cases, which show jobs such as <em>of</em>, <em>to</em> and <em>with</em>.';
+ }
+ slip.appendChild(d);
+ const r=el('div','gorow');
+ const again=el('button','go ghost','Start over');again.type='button';
+ again.onclick=()=>{S=freshState();paintTally();startStage(0);window.scrollTo({top:0})};
+ r.appendChild(again);slip.appendChild(r);
+};
+
+/* ===================== BOOT ===================== */
+$('veil').onclick=e=>{if(e.target===$('veil'))closeChart()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeChart();setDrawer(false)}});
+$('dbtn').onclick=()=>setDrawer(!railEl.classList.contains('open'));
+startStage(0);
+paintTally();
+</script>
+</body>
+</html>

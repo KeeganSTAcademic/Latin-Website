@@ -1,0 +1,8 @@
+/* The thin bar at the top of every game page, linking back to the rest of the site.
+   Games keep their own look, so the bar borrows the game's text colour and font. */
+nav.gamebar{box-sizing:border-box;max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;gap:18px;flex-wrap:wrap;align-items:baseline;
+  font-size:15px;line-height:1.4;border-bottom:1px solid color-mix(in srgb,currentColor 18%,transparent);position:relative;z-index:5}
+nav.gamebar a{color:inherit;opacity:.72;text-decoration:none;font-weight:400;letter-spacing:normal;text-transform:none}
+nav.gamebar a:hover,nav.gamebar a:focus-visible{opacity:1;text-decoration:underline}
+nav.gamebar a[aria-current="page"]{opacity:1}
+nav.gamebar .gamebar-home{font-weight:700;opacity:1;margin-right:auto}

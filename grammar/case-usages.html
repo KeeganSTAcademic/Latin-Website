@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Cases</title>
+<link rel="stylesheet" href="../css/grammar.css?v=202609301700">
+<link rel="stylesheet" href="../css/gamebar.css?v=202609301700">
+<style>
+/* cases omnibus */
+.wrap{max-width:1180px}
+.top{padding-block:22px 14px}
+.toolbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;margin-bottom:6px;border-bottom:1px solid var(--rule)}
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--surface)}
+.tab{appearance:none;border:0;border-left:1px solid var(--rule);background:transparent;font:inherit;color:var(--ink);padding:9px 18px;cursor:pointer;display:grid;gap:0;justify-items:center;line-height:1.2;flex:1 1 auto}
+.tab:first-child{border-left:0}
+.tab .tn{font-size:18px}
+.tab .tq{font-size:13px;font-style:italic;color:var(--muted)}
+.tab:hover{background:var(--surface2)}
+.tab[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
+.tab[aria-selected="true"] .tq{color:var(--accent-ink);opacity:.85}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.panel-case{display:grid;gap:22px;padding-block:18px 8px}
+.intro{display:grid;gap:8px;max-width:78ch}
+.intro-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.intro h2{font-size:34px;margin:0}
+.intro .q{font-size:20px;font-style:italic;color:var(--accent)}
+.intro p{font-size:18px}
+.block{display:grid;gap:12px}
+.block h3{font-size:22px;font-weight:700;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.sec{font-size:14px;font-weight:400;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.forms-box{background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);overflow-x:auto}
+.forms{display:grid;grid-template-columns:auto repeat(8,minmax(84px,1fr));min-width:800px}
+.fh{padding:10px 6px 8px;text-align:center;display:grid;gap:1px;border-bottom:1px solid var(--rule)}
+.fh b{font-size:16px}
+.fh span{font-size:13px;font-style:italic;color:var(--muted)}
+.frl{font-size:15px;color:var(--muted);padding:0 12px 0 16px;display:flex;align-items:center;border-top:1px solid var(--rule)}
+.frl:nth-of-type(1){border-top:0}
+.fc{appearance:none;border:0;border-left:1px solid var(--rule);border-top:1px solid var(--rule);background:transparent;font-family:var(--serif);color:var(--ink);padding:10px 4px 9px;display:grid;justify-items:center;gap:1px;cursor:pointer;min-height:60px;transition:background .12s}
+.fc .fe{font-size:21px;line-height:1.1}
+.fc .fe.var{font-size:14px;font-style:italic;color:var(--muted)}
+.fc .ff{font-size:13px;font-style:italic;color:var(--muted)}
+.fc:hover{background:var(--surface2)}
+.fc.on{background:var(--accent);color:var(--accent-ink)}
+.fc.on .ff,.fc.on .fe.var{color:var(--accent-ink)}
+.fc.match{box-shadow:inset 0 0 0 2px var(--accent);background:var(--accent-soft)}
+.fc:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.finfo{font-size:15px;color:var(--muted);min-height:1.6em;padding-left:4px}
+.finfo i{color:var(--ink)}
+.pattern{font-size:17px;max-width:90ch;border-left:3px solid var(--accent);padding:6px 0 6px 14px;background:var(--surface);border-radius:0 10px 10px 0}
+.basic{background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:20px 24px;border-top:4px solid var(--accent)}
+.basic .rule{font-size:19px}
+.basic .how{font-size:16px;color:var(--muted)}
+.exs{display:grid;gap:8px}
+.exs.big{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.ex{background:var(--bg);border-radius:10px;padding:9px 14px;display:grid;gap:2px;cursor:default}
+.exs.big .ex .la{font-size:21px}
+.ex .la{font-size:18px;font-style:italic}
+.ex .la .hl{font-style:italic;color:var(--accent);font-weight:700}
+.ex .en{font-size:15px;color:var(--muted)}
+.ex .src{font-size:12px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.hide-tr .ex{cursor:pointer}
+.hide-tr .ex .en{filter:blur(5px);user-select:none;transition:filter .15s}
+.hide-tr .ex.reveal .en{filter:none;user-select:auto}
+.uses{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.use{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:14px 18px;display:grid;gap:8px;align-content:start}
+.use header{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:0;text-align:left;justify-items:start}
+.use h4{margin:0;font-size:19px}
+.use .sec{margin-left:auto}
+.use .what{font-size:16px}
+.use .clue{font-size:15px;color:var(--muted)}
+.use.adv{display:none;border-style:dashed}
+.show-adv .use.adv{display:grid}
+.tag{font-size:12px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:0 8px}
+.adv-note{font-size:15px;color:var(--muted)}
+.cite{max-width:none}
+@media (max-width:700px){.toolbar{position:static}.tab{padding:8px 10px}.tab .tq{display:none}.intro h2{font-size:28px}.basic{padding:16px}}
+</style>
+</head>
+<body>
+<nav class="gamebar" aria-label="Site"><a class="gamebar-home" href="../">Latin</a><a href="../flashcards/">Flashcards</a><a href="./" aria-current="page">Grammar</a><a href="../games/">Games</a></nav>
+<div class="wrap">
+<header class="top">
+  <h1>Case Usages</h1>
+  <p class="subtitle">What each case does, from the basic use to the less common ones</p>
+  <div class="primer">
+    <span>Start with the <b>basic use</b> on each tab</span>
+    <span>Examples: the word in the case is <b style="color:var(--accent)">highlighted</b></span>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="tabs" id="tabs" role="tablist" aria-label="Cases"></div>
+  <div class="tb-row">
+    <span class="tb-label">View</span>
+    <div class="seg">
+      <button class="chip plain" id="t-tr" aria-pressed="true">Show translations</button>
+      <button class="chip plain" id="t-adv" aria-pressed="false">Show advanced uses</button>
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+    </div>
+  </div>
+</div>
+
+<div id="panels"></div>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Rules and section numbers follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), in the Dickinson College Commentaries online edition. Examples marked "A&amp;G" are quoted from the grammar; the others were written for this page.
+  <a href="https://dcc.dickinson.edu/grammar/latin/important-rules-syntax" target="_blank" rel="noopener">Important Rules of Syntax</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/nominative" target="_blank" rel="noopener">The Nominative</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/agreement-nouns" target="_blank" rel="noopener">Agreement of Nouns</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/vocative" target="_blank" rel="noopener">The Vocative</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/genitive" target="_blank" rel="noopener">The Genitive</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/dative" target="_blank" rel="noopener">The Dative</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/accusative-direct-object" target="_blank" rel="noopener">Accusative Direct Object</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/idiomatic-accusatives" target="_blank" rel="noopener">Idiomatic Accusatives</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/ablative" target="_blank" rel="noopener">The Ablative</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/relations-space" target="_blank" rel="noopener">Relations of Space</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/expressions-time" target="_blank" rel="noopener">Expressions of Time</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/uses-prepositions" target="_blank" rel="noopener">Uses of Prepositions</a>.</p>
+</footer>
+</div>
+
+<script>
+// Column order matches the overview page.
+const COLS = [
+  {id:'d1', h:'1st', sub:'puella'}, {id:'d2', h:'2nd', sub:'equus'}, {id:'d2n', h:'2nd n.', sub:'forum'},
+  {id:'d3', h:'3rd m./f.', sub:'rēx'}, {id:'d3n', h:'3rd n.', sub:'corpus'}, {id:'d4', h:'4th', sub:'frūctus'},
+  {id:'d4n', h:'4th n.', sub:'cornū'}, {id:'d5', h:'5th', sub:'rēs'}
+];
+const EN = {d1:['girl','girls'], d2:['horse','horses'], d2n:['forum','forums'], d3:['king','kings'], d3n:['body','bodies'], d4:['fruit','fruits'], d4n:['horn','horns'], d5:['thing','things']};
+// [ending or null (no fixed ending), full form]
+const FORMS = {
+  nom:{sg:[['a','puella'],['us','equus'],['um','forum'],[null,'rēx'],[null,'corpus'],['us','frūctus'],['ū','cornū'],['ēs','rēs']],
+       pl:[['ae','puellae'],['ī','equī'],['a','fora'],['ēs','rēgēs'],['a','corpora'],['ūs','frūctūs'],['ua','cornua'],['ēs','rēs']]},
+  voc:{sg:[['a','puella'],['e','eque'],['um','forum'],[null,'rēx'],[null,'corpus'],['us','frūctus'],['ū','cornū'],['ēs','rēs']],
+       pl:[['ae','puellae'],['ī','equī'],['a','fora'],['ēs','rēgēs'],['a','corpora'],['ūs','frūctūs'],['ua','cornua'],['ēs','rēs']]},
+  gen:{sg:[['ae','puellae'],['ī','equī'],['ī','forī'],['is','rēgis'],['is','corporis'],['ūs','frūctūs'],['ūs','cornūs'],['eī','reī']],
+       pl:[['ārum','puellārum'],['ōrum','equōrum'],['ōrum','forōrum'],['um','rēgum'],['um','corporum'],['uum','frūctuum'],['uum','cornuum'],['ērum','rērum']]},
+  dat:{sg:[['ae','puellae'],['ō','equō'],['ō','forō'],['ī','rēgī'],['ī','corporī'],['uī','frūctuī'],['ū','cornū'],['eī','reī']],
+       pl:[['īs','puellīs'],['īs','equīs'],['īs','forīs'],['ibus','rēgibus'],['ibus','corporibus'],['ibus','frūctibus'],['ibus','cornibus'],['ēbus','rēbus']]},
+  acc:{sg:[['am','puellam'],['um','equum'],['um','forum'],['em','rēgem'],[null,'corpus'],['um','frūctum'],['ū','cornū'],['em','rem']],
+       pl:[['ās','puellās'],['ōs','equōs'],['a','fora'],['ēs','rēgēs'],['a','corpora'],['ūs','frūctūs'],['ua','cornua'],['ēs','rēs']]},
+  abl:{sg:[['ā','puellā'],['ō','equō'],['ō','forō'],['e','rēge'],['e','corpore'],['ū','frūctū'],['ū','cornū'],['ē','rē']],
+       pl:[['īs','puellīs'],['īs','equīs'],['īs','forīs'],['ibus','rēgibus'],['ibus','corporibus'],['ibus','frūctibus'],['ibus','cornibus'],['ēbus','rēbus']]}
+};
+const ENGL = {
+  nom:w=>`the ${w}`, voc:w=>`O ${w}!`, gen:w=>`of the ${w}`, dat:w=>`to / for the ${w}`, acc:w=>`the ${w}`, abl:w=>`by / with / from / in the ${w}`
+};
+
+// ex: [latin with **case word**, english, source?]
+const CASES = [
+ {id:'nom', name:'Nominative', q:'Who or what is doing it?', short:'the subject',
+  summary:'The nominative names the subject: the person or thing the sentence is about, the one doing the action of the verb.',
+  pattern:'<b>Pattern:</b> the singular varies the most (it\'s the dictionary\'s first word). In the plural, every neuter ends in <i>-a</i>, and from the 3rd declension on, the nominative plural is spelled the same as the accusative plural.',
+  basic:{name:'Subject of the verb', sec:'339',
+   rule:'The subject of a verb is in the nominative. It answers the question "who or what is doing this?"',
+   how:'Find the verb first, then look for the noun it agrees with in number. Remember that Latin often leaves the subject inside the verb ending: <i>cantat</i> alone means "she sings."',
+   ex:[['**Puella** cantat.','The girl sings.'],['**Rēx** equum videt.','The king sees the horse.'],['**Caesar** Rhēnum trānsīre dēcrēverat.','Caesar had determined to cross the Rhine.','A&G §339']]},
+  uses:[
+   {name:'Predicate nominative', sec:'283–284', lvl:'core',
+    what:'After <i>sum</i> ("be") and similar linking verbs, the noun that renames the subject is also nominative.',
+    clue:'A form of <i>sum</i> (<i>est, sunt, erat</i>) between two nominatives.',
+    ex:[['Mārcus **agricola** est.','Marcus is a farmer.'],['Pācis semper **auctor** fuī.','I have always been an adviser of peace.','A&G §283']]},
+   {name:'Appositive', sec:'282', lvl:'core',
+    what:'A noun placed next to another to describe it takes the same case. With a subject, that means nominative.',
+    clue:'A noun set off by commas right after another noun in the same case.',
+    ex:[['Mārcus, **agricola** bonus, in agrō labōrat.','Marcus, a good farmer, is working in the field.']]},
+   {name:'Exclamation', sec:'339.a', lvl:'adv',
+    what:'The nominative can stand alone in an exclamation, though the accusative is more common for this.',
+    clue:'An interjection like <i>ēn</i> or <i>ecce</i> ("look!") with no verb.',
+    ex:[['Ēn **dextra fidēsque**!','Lo, the faith and plighted word!','A&G §339.a']]}
+  ]},
+ {id:'voc', name:'Vocative', q:'Who is being spoken to?', short:'direct address',
+  summary:'The vocative is the case of direct address: the name or title of the person (or thing) being spoken to.',
+  pattern:'<b>Pattern:</b> the vocative looks exactly like the nominative, with one exception: 2nd declension nouns in <i>-us</i> change to <i>-e</i> (<i>equus → eque</i>, <i>Mārcus → Mārce</i>), and those in <i>-ius</i> to <i>-ī</i> (<i>fīlius → fīlī</i>). The plural is always the same as the nominative plural.',
+  basic:{name:'Direct address', sec:'340',
+   rule:'When someone is spoken to directly, their name or title goes in the vocative.',
+   how:'Usually set off by commas, often with a command or a question. Sometimes it follows <i>Ō</i>.',
+   ex:[['**Mārce**, venī!','Marcus, come!'],['Quid agis, **amīce**?','How are you, friend?'],['**Tiberīne pater**, tē, sāncte, precor.','O father Tiber, thee, holy one, I pray.','A&G §340']]},
+  uses:[
+   {name:'Macte', sec:'340.c', lvl:'adv',
+    what:'The vocative <i>macte</i> is used in the fixed expression <i>macte (estō)</i>, "well done," "success to you."',
+    clue:'Look for <i>macte</i> in words of praise.',
+    ex:[['**Macte** novā virtūte, puer!','Success attend your valor, boy!','A&G §340.c']]}
+  ]},
+ {id:'gen', name:'Genitive', q:'Whose? Of what?', short:'"of"',
+  summary:'The genitive connects one noun to another. Most of the time it can be translated with "of" or an English possessive ("\'s").',
+  pattern:'<b>Pattern:</b> the genitive singular is the second word in every dictionary entry and tells you the declension (<i>-ae, -ī, -is, -ūs, -eī</i>). Every genitive plural ends in <i>-um</i>: <i>-ārum, -ōrum, -um, -uum, -ērum</i>.',
+  basic:{name:'Possession', sec:'343',
+   rule:'The genitive shows the person or thing that something belongs to.',
+   how:'A genitive usually sits right next to the noun it describes. Translate with "of" or "\'s."',
+   ex:[['equus **rēgis**','the king\'s horse / the horse of the king'],['liber **puellae**','the girl\'s book'],['librī **Cicerōnis**','Cicero\'s books','A&G §343']]},
+  uses:[
+   {name:'Partitive (the whole)', sec:'346', lvl:'core',
+    what:'Words that mean a <em>part</em> are followed by the genitive of the <em>whole</em> it belongs to.',
+    clue:'Words like <i>pars</i>, <i>nēmō</i>, <i>multī</i>, <i>satis</i>, or a number.',
+    ex:[['pars **mīlitum**','part of the soldiers','A&G §346'],['satis **cibī**','enough (of) food']]},
+   {name:'Objective genitive', sec:'348', lvl:'core',
+    what:'With nouns of action or feeling, the genitive names the <em>object</em> of that action or feeling.',
+    clue:'A feeling noun (<i>amor, odium, metus</i>) + genitive. Often best translated "for."',
+    ex:[['amor **patriae**','love of (for) the country'],['odium **Caesaris**','hatred of Caesar','A&G §348']]},
+   {name:'Description (quality)', sec:'345', lvl:'core',
+    what:'The genitive can describe a person or thing by a quality, but only when the quality has an adjective.',
+    clue:'Noun + adjective, both genitive, describing another noun.',
+    ex:[['vir **magnae virtūtis**','a man of great courage']]},
+   {name:'Material', sec:'344', lvl:'core',
+    what:'The genitive can name what something is made of or consists of.',
+    clue:'A container or amount + genitive of its contents.',
+    ex:[['acervus **frūmentī**','a heap of grain']]},
+   {name:'With adjectives', sec:'349', lvl:'adv',
+    what:'Adjectives of desire, knowledge, memory, fullness, power, sharing, guilt, and their opposites take a genitive.',
+    clue:'<i>plēnus, cupidus, perītus, memor</i> + genitive.',
+    ex:[['plēnus **aquae**','full of water'],['cupidus **glōriae**','eager for glory']]},
+   {name:'With verbs of remembering and forgetting', sec:'350', lvl:'adv',
+    what:'<i>meminī</i> (remember) and <i>oblīvīscor</i> (forget) can take a genitive object.',
+    clue:'A verb of remembering or forgetting with a genitive where you\'d expect an accusative.',
+    ex:[['**iniūriārum** oblīvīscī','to forget wrongs']]},
+   {name:'Charge or penalty', sec:'352', lvl:'adv',
+    what:'Verbs of accusing, condemning, and acquitting put the charge in the genitive.',
+    clue:'<i>accūsō, damnō, absolvō</i> + genitive.',
+    ex:[['**prōditiōnis** accūsāre','to accuse of treason']]}
+  ]},
+ {id:'dat', name:'Dative', q:'To whom? For whom?', short:'"to / for"',
+  summary:'The dative marks the person or thing that is indirectly involved in an action: the one who receives, benefits, or is affected. Translate with "to" or "for."',
+  pattern:'<b>Pattern:</b> from the 3rd declension on, the dative singular ends in a long <i>-ī</i> (<i>rēgī, frūctuī, reī</i>). The dative plural is always spelled the same as the ablative plural: <i>-īs</i> or <i>-(i)bus</i>.',
+  basic:{name:'Indirect object', sec:'361–362',
+   rule:'The dative names the person or thing indirectly affected by the action, usually the receiver of something given, shown, or told.',
+   how:'Look for a verb of giving, showing, or telling (<i>dō, mōnstrō, dīcō</i>). The accusative is the thing handed over; the dative is who gets it.',
+   ex:[['Puella **rēgī** librum dat.','The girl gives the book to the king.'],['Dedit **puerō** librum.','He gave the boy a book.','A&G §362']]},
+  uses:[
+   {name:'With special verbs', sec:'367', lvl:'core',
+    what:'Many verbs meaning to favor, help, please, trust, obey, resist, spare, and their opposites take a dative instead of an accusative.',
+    clue:'<i>crēdō, faveō, noceō, pāreō, placeō, persuādeō, resistō, serviō, studeō, parcō, ignōscō, imperō</i>.',
+    ex:[['**Amīcō** crēdō.','I trust my friend.'],['Servus **dominō** pāret.','The slave obeys his master.']]},
+   {name:'Possession with sum', sec:'373', lvl:'core',
+    what:'With <i>sum</i>, the dative names the owner: "there is to me" means "I have."',
+    clue:'<i>est / sunt</i> + a dative person + a nominative thing.',
+    ex:[['Est **mihi** liber.','I have a book. (lit. There is a book to me.)'],['**Puellae** sunt multae rosae.','The girl has many roses.']]},
+   {name:'With adjectives', sec:'384', lvl:'core',
+    what:'Adjectives of fitness, nearness, likeness, friendliness, and their opposites take the dative.',
+    clue:'<i>amīcus, inimīcus, similis, fīnitimus, cārus, grātus, idōneus</i> + dative.',
+    ex:[['similis **patrī**','similar to his father'],['cārus **rēgī**','dear to the king']]},
+   {name:'Reference (interest)', sec:'376', lvl:'core',
+    what:'The dative can name the person for whom something is true or done, without depending on any single word.',
+    clue:'A dative person that makes sense as "for" or "in the eyes of."',
+    ex:[['Hoc **tibi** faciō.','I am doing this for you.']]},
+   {name:'Purpose, double dative', sec:'382', lvl:'adv',
+    what:'The dative can express purpose ("for" as "serving as"), often paired with a second dative of the person affected.',
+    clue:'Abstract nouns like <i>cūrae, auxiliō, praesidiō</i> with <i>sum</i> or a verb of sending.',
+    ex:[['Haec rēs **mihi cūrae** est.','This matter is a concern to me.'],['**Sociīs auxiliō** mittunt.','They send (them) as help to the allies.']]},
+   {name:'With compound verbs', sec:'370', lvl:'adv',
+    what:'Many verbs compounded with <i>ad, ante, con, in, inter, ob, post, prae, prō, sub, super</i> take a dative.',
+    clue:'A verb beginning with one of those prefixes (<i>praesum, īnferō, succurrō</i>).',
+    ex:[['**Exercituī** praeerat.','He was in command of the army.']]},
+   {name:'Agent with the gerundive', sec:'374', lvl:'adv',
+    what:'With the gerundive of obligation, the person who has to do the action is in the dative.',
+    clue:'A form in <i>-ndus</i> with <i>sum</i>.',
+    ex:[['**Mihi** pugnandum est.','I must fight.']]},
+   {name:'Separation', sec:'381', lvl:'adv',
+    what:'Some verbs of taking away use the dative (usually of a person) for the one something is taken from.',
+    clue:'<i>adimō, dētrahō, ēripiō</i> + a dative person.',
+    ex:[['Scūtum **mīlitī** dētrāxit.','He pulled the shield from the soldier.']]}
+  ]},
+ {id:'acc', name:'Accusative', q:'Whom? What? To where?', short:'the direct object',
+  summary:'The accusative marks the direct object, the person or thing the action is done to. It is also used after many prepositions, for motion toward a place, and for how long something lasts.',
+  pattern:'<b>Pattern:</b> every masculine and feminine accusative singular ends in <i>-m</i> (<i>puellam, equum, rēgem, frūctum, rem</i>); neuters just repeat the nominative. In the plural, masculine and feminine nouns end in a long vowel + <i>s</i> (<i>-ās, -ōs, -ēs, -ūs</i>); neuters end in <i>-a</i>.',
+  basic:{name:'Direct object', sec:'387',
+   rule:'The direct object of a transitive verb is in the accusative. It answers "whom?" or "what?" after the verb.',
+   how:'Find the subject (nominative) and the verb, then ask "the subject does what to whom?"',
+   ex:[['Rēx **equum** videt.','The king sees the horse.'],['Puella **rosās** amat.','The girl loves roses.'],['Brūtus **Caesarem** interfēcit.','Brutus killed Caesar.','A&G §387']]},
+  uses:[
+   {name:'With prepositions', sec:'220', lvl:'core',
+    what:'Many prepositions are followed by the accusative. <i>in</i> and <i>sub</i> take the accusative when they show motion.',
+    clue:'<i>ad, ante, apud, circum, contrā, inter, ob, per, post, prope, propter, trāns</i>, and <i>in</i> = "into."',
+    ex:[['per **silvam**','through the forest'],['post **cēnam**','after dinner'],['trāns **flūmen**','across the river']]},
+   {name:'Place to which', sec:'426', lvl:'core',
+    what:'Motion toward a place is shown by <i>ad</i> or <i>in</i> + the accusative.',
+    clue:'A verb of motion (<i>eō, veniō, ambulō, nāvigō</i>) + <i>ad</i>/<i>in</i>.',
+    ex:[['Ad **forum** ambulat.','He walks to the forum.'],['In **Āfricam** nāvigāvit.','He sailed to Africa.','A&G §426']]},
+   {name:'Duration of time', sec:'423–424', lvl:'core',
+    what:'How long something lasts is in the accusative, without a preposition.',
+    clue:'A time word (<i>hōra, diēs, annus</i>) in the accusative with a number.',
+    ex:[['Trēs **hōrās** labōrābat.','He was working for three hours.'],['**diēs** continuōs **trīgintā**','for thirty days together','A&G §423']]},
+   {name:'Extent of space', sec:'425', lvl:'core',
+    what:'How far or how big something is measures out in the accusative.',
+    clue:'A measurement (<i>pēs, passus, mīlia</i>) with no preposition.',
+    ex:[['mūrus decem **pedēs** altus','a wall ten feet high']]},
+   {name:'Exclamation', sec:'397.d', lvl:'core',
+    what:'The accusative is used in exclamations.',
+    clue:'An exclamation mark and no verb, often with <i>Ō</i> or <i>mē</i>.',
+    ex:[['**Mē miserum**!','Ah, wretched me!','A&G §397.d'],['Ō **fortūnātam rem pūblicam**!','O fortunate republic!','A&G §397.d']]},
+   {name:'Subject of an infinitive', sec:'397.e', lvl:'adv',
+    what:'When an infinitive has its own subject (as in indirect statement), that subject is accusative.',
+    clue:'A verb of saying, knowing, or perceiving + accusative + infinitive.',
+    ex:[['Intellegō **tē** sapere.','I perceive that you are wise.','A&G §397.e']]},
+   {name:'Predicate accusative', sec:'393', lvl:'adv',
+    what:'Verbs of naming, choosing, making, and considering take a second accusative that renames the object.',
+    clue:'<i>creō, appellō, faciō, habeō</i> + two accusatives for the same person.',
+    ex:[['Populus **Cicerōnem cōnsulem** creat.','The people elect Cicero consul.']]},
+   {name:'Two accusatives with asking and teaching', sec:'396', lvl:'adv',
+    what:'Some verbs of asking and teaching take two accusatives: the person and the thing.',
+    clue:'<i>doceō, rogō, cēlō</i> + a person and a thing, both accusative.',
+    ex:[['**Puerōs litterās** docet.','He teaches the boys literature.']]},
+   {name:'Cognate accusative', sec:'390', lvl:'adv',
+    what:'A verb that normally takes no object can take an accusative of related meaning.',
+    clue:'The noun repeats the idea of the verb (<i>vītam vīvere</i>).',
+    ex:[['**vītam** tūtiōrem vīvere','to live a safer life']]}
+  ]},
+ {id:'abl', name:'Ablative', q:'By what? With whom? From where? When?', short:'"by / with / from / in"',
+  summary:'The ablative combines three older cases, so it has three families of meaning: <strong>from</strong> (separation, source), <strong>with / by</strong> (means, company, manner), and <strong>in / on / at</strong> (place and time) (A&G §398). Choose the English preposition that fits.',
+  pattern:'<b>Pattern:</b> the ablative singular is a long vowel in most declensions (<i>puellā, equō, frūctū, rē</i>), but short <i>-e</i> in the 3rd (<i>rēge</i>). The ablative plural is always the same as the dative plural: <i>-īs</i> or <i>-(i)bus</i>.',
+  basic:{name:'With prepositions, and the three core meanings', sec:'220, 398, 409, 426',
+   rule:'Most ablatives you meet first come after a preposition. Without one, the most common meaning is <em>means</em>: the tool or thing used to do something.',
+   how:'Prepositions with the ablative: <i>ā/ab, cum, dē, ē/ex, in</i> (= "in, on"), <i>prō, prae, sine, sub</i>. No preposition and a thing, not a person? Try "with" or "by means of."',
+   ex:[['Ex **urbe** venit.','He comes out of the city. (from)'],['Cum **amīcīs** ambulat.','She walks with her friends. (with)'],['In **forō** stat.','He stands in the forum. (in)'],['**Gladiō** pugnat.','He fights with a sword. (means)','A&G §409']]},
+  uses:[
+   {name:'Means or instrument', sec:'409', lvl:'core',
+    what:'The tool or means by which something is done is in the ablative, with no preposition.',
+    clue:'A thing (not a person) with no preposition; translate "with" or "by."',
+    ex:[['**Gladiō** pugnat.','He fights with a sword.'],['occīsus **gladiō**','slain by the sword','A&G §398']]},
+   {name:'Accompaniment', sec:'413', lvl:'core',
+    what:'The person you are with is in the ablative with <i>cum</i>.',
+    clue:'<i>cum</i> + a person.',
+    ex:[['Cum **amīcīs** ambulat.','She walks with her friends.']]},
+   {name:'Manner', sec:'412', lvl:'core',
+    what:'How something is done: ablative with <i>cum</i>, or without <i>cum</i> if the noun has an adjective.',
+    clue:'An abstract noun (<i>cūra, dīligentia, silentium</i>) answering "how?"',
+    ex:[['Cum **cūrā** labōrat.','She works with care.'],['**Magnā cūrā** labōrat.','She works with great care.']]},
+   {name:'Place where', sec:'426', lvl:'core',
+    what:'Where something is: <i>in</i> + ablative.',
+    clue:'<i>in</i> with no motion (compare <i>in</i> + accusative = "into").',
+    ex:[['In **urbe** habitat.','He lives in the city.'],['In hāc **urbe** vītam dēgit.','He passed his life in this city.','A&G §426']]},
+   {name:'Place from which', sec:'426', lvl:'core',
+    what:'Motion away from a place: <i>ā/ab, dē, ē/ex</i> + ablative.',
+    clue:'A verb of motion with <i>ab, dē,</i> or <i>ex</i>.',
+    ex:[['Dē **monte** venit.','He comes down from the mountain.'],['Ex **Britanniā** obsidēs mīsērunt.','They sent hostages from Britain.','A&G §426']]},
+   {name:'Time when', sec:'423', lvl:'core',
+    what:'When something happens, or within what time, is in the ablative with no preposition.',
+    clue:'A time word (<i>hōra, diēs, hiems, lūx</i>) in the ablative. Compare the accusative for "how long."',
+    ex:[['**Prīmā lūce** discēdunt.','They leave at daybreak.'],['**cōnstitūtā diē**','on the appointed day','A&G §423']]},
+   {name:'Separation', sec:'400', lvl:'core',
+    what:'Words meaning to free, deprive, or lack take the ablative, sometimes with <i>ab</i> or <i>ex</i>.',
+    clue:'<i>līberō, careō, prīvō, egeō</i> + ablative.',
+    ex:[['līberāre **metū**','to free from fear','A&G §398']]},
+   {name:'Specification (respect)', sec:'418', lvl:'core',
+    what:'The ablative tells in what respect something is true.',
+    clue:'Translate "in" or "in respect to."',
+    ex:[['**nōmine** Mārcus','Marcus by name'],['excultus **doctrīnā**','trained in learning','A&G §398']]},
+   {name:'Personal agent', sec:'405', lvl:'adv',
+    what:'With a passive verb, the person by whom the action is done is <i>ā/ab</i> + ablative.',
+    clue:'A passive verb + <i>ā/ab</i> + a person.',
+    ex:[['Ā **rēge** laudātur.','He is praised by the king.']]},
+   {name:'Cause', sec:'404', lvl:'adv',
+    what:'The reason for something can be in the ablative, with or without a preposition.',
+    clue:'A feeling or reason noun answering "why?"',
+    ex:[['**Metū** tremit.','He trembles from fear.']]},
+   {name:'Comparison', sec:'406', lvl:'adv',
+    what:'After a comparative, the ablative can mean "than."',
+    clue:'A comparative adjective (<i>-ior</i>) + ablative, with no <i>quam</i>.',
+    ex:[['**melle** dulcior','sweeter than honey']]},
+   {name:'Degree of difference', sec:'414', lvl:'adv',
+    what:'With comparatives, the ablative shows by how much.',
+    clue:'<i>multō, paulō</i>, or a number with a comparative.',
+    ex:[['**multō** maior','much larger (larger by much)']]},
+   {name:'Description (quality)', sec:'415', lvl:'adv',
+    what:'Like the genitive of description, the ablative with an adjective can describe a person or thing.',
+    clue:'Noun + adjective, both ablative, describing another noun.',
+    ex:[['vir **magnā virtūte**','a man of great courage']]},
+   {name:'With ūtor, fruor, fungor, potior, vēscor', sec:'410', lvl:'adv',
+    what:'These five deponent verbs take the ablative, not the accusative.',
+    clue:'One of these verbs + an ablative object.',
+    ex:[['**Gladiō** ūtitur.','He uses a sword.']]},
+   {name:'Ablative absolute', sec:'419', lvl:'adv',
+    what:'A noun and a participle in the ablative, set apart from the rest of the sentence, give the time or circumstances.',
+    clue:'Noun + participle, both ablative, often at the start of a sentence.',
+    ex:[['**Rēge mortuō**, cīvēs timent.','With the king dead, the citizens are afraid.']]}
+  ]}
+];
+
+const strip = s => s.normalize('NFD').replace(/̄/g,'').normalize('NFC');
+const state = {mac:true, tr:true, adv:false, tab:'nom'};
+const shown = s => state.mac ? s : strip(s);
+const md = s => shown(s).replace(/\*\*(.+?)\*\*/g,'<b class="hl">$1</b>');
+
+const tabsEl=document.getElementById('tabs'), panelsEl=document.getElementById('panels');
+CASES.forEach(c=>{
+  const b=document.createElement('button');
+  b.className='tab'; b.id='tab-'+c.id; b.setAttribute('role','tab'); b.setAttribute('aria-controls','panel-'+c.id);
+  b.innerHTML=`<span class="tn">${c.name}</span><span class="tq">${c.short}</span>`;
+  b.onclick=()=>select(c.id,true);
+  tabsEl.appendChild(b);
+  const p=document.createElement('section');
+  p.className='panel-case'; p.id='panel-'+c.id; p.setAttribute('role','tabpanel'); p.setAttribute('aria-labelledby','tab-'+c.id);
+  panelsEl.appendChild(p);
+});
+tabsEl.addEventListener('keydown',e=>{
+  if(!['ArrowLeft','ArrowRight'].includes(e.key)) return;
+  const i=CASES.findIndex(c=>c.id===state.tab), n=CASES.length;
+  const next=CASES[(i+(e.key==='ArrowRight'?1:n-1))%n].id; select(next,true); document.getElementById('tab-'+next).focus();
+});
+
+function exHTML(list){
+  return list.map(([la,en,src])=>`<div class="ex"><div class="la">${md(la)}</div><div class="en">${en}${src?` <span class="src">${src}</span>`:''}</div></div>`).join('');
+}
+function formsHTML(c){
+  const row=n=>FORMS[c.id][n].map(([e,f],i)=>{
+    const col=COLS[i], w=EN[col.id][n==='sg'?0:1];
+    return `<button class="fc" data-e="${e===null?'':strip(e)}" data-info="${shown(f)}: ${ENGL[c.id](w)} (${col.h}, ${n==='sg'?'singular':'plural'})">
+      ${e===null?`<span class="fe var">${c.id==='acc'?'= nom.':'varies'}</span>`:`<span class="fe">-${shown(e)}</span>`}<span class="ff">${shown(f)}</span></button>`;}).join('');
+  return `<div class="forms-box"><div class="forms">
+    <div class="fh"></div>${COLS.map(col=>`<div class="fh"><b>${col.h}</b><span>${col.sub}</span></div>`).join('')}
+    <div class="frl">Singular</div>${row('sg')}
+    <div class="frl">Plural</div>${row('pl')}
+  </div></div><div class="finfo" aria-live="polite">Hover or tap a form to see it translated. Matching endings light up.</div>`;
+}
+function useHTML(u){
+  return `<article class="use${u.lvl==='adv'?' adv':''}">
+    <header><h4>${u.name}</h4>${u.lvl==='adv'?'<span class="tag">later</span>':''}<span class="sec">A&amp;G §${u.sec}</span></header>
+    <p class="what">${u.what}</p>
+    <p class="clue"><b>Clue:</b> ${u.clue}</p>
+    ${u.ex.length?`<div class="exs">${exHTML(u.ex)}</div>`:''}
+  </article>`;
+}
+function renderPanel(c){
+  const core=c.uses.filter(u=>u.lvl==='core'), adv=c.uses.filter(u=>u.lvl==='adv');
+  document.getElementById('panel-'+c.id).innerHTML=`
+    <div class="intro">
+      <div class="intro-h"><h2>${c.name}</h2><span class="q">${c.q}</span></div>
+      <p>${c.summary}</p>
+    </div>
+    <div class="block">
+      <h3>The forms</h3>
+      ${formsHTML(c)}
+      <p class="pattern">${c.pattern}</p>
+    </div>
+    <div class="block basic">
+      <h3>The basic use: ${c.basic.name} <span class="sec">A&amp;G §${c.basic.sec}</span></h3>
+      <p class="rule">${c.basic.rule}</p>
+      <p class="how"><b>How to spot it:</b> ${c.basic.how}</p>
+      <div class="exs big">${exHTML(c.basic.ex)}</div>
+    </div>
+    <div class="block">
+      <h3>Other uses</h3>
+      <div class="uses">${core.map(useHTML).join('')}${adv.map(useHTML).join('')}</div>
+      ${adv.length?`<p class="adv-note">${adv.length} more advanced ${adv.length===1?'use is':'uses are'} ${state.adv?'shown, marked <span class="tag">later</span>':'hidden. Turn on <b>Show advanced uses</b> above to see '+(adv.length===1?'it':'them')}.</p>`:''}
+    </div>`;
+  const panel=document.getElementById('panel-'+c.id), info=panel.querySelector('.finfo');
+  panel.querySelectorAll('.ex').forEach(ex=>ex.addEventListener('click',()=>{ if(!state.tr) ex.classList.toggle('reveal'); }));
+  panel.querySelectorAll('.fc').forEach(el=>{
+    const on=()=>{ panel.querySelectorAll('.fc').forEach(o=>{o.classList.toggle('match',!!el.dataset.e&&o!==el&&o.dataset.e===el.dataset.e); o.classList.toggle('on',o===el);}); info.innerHTML=`<i>${el.dataset.info.split(':')[0]}</i>:${el.dataset.info.slice(el.dataset.info.indexOf(':')+1)}`; };
+    const off=()=>{ panel.querySelectorAll('.fc').forEach(o=>o.classList.remove('match','on')); info.textContent='Hover or tap a form to see it translated. Matching endings light up.'; };
+    el.addEventListener('mouseenter',on); el.addEventListener('focus',on); el.addEventListener('click',on);
+    el.addEventListener('mouseleave',off); el.addEventListener('blur',off);
+  });
+}
+function select(id,push){
+  state.tab=id;
+  CASES.forEach(c=>{
+    const on=c.id===id;
+    document.getElementById('tab-'+c.id).setAttribute('aria-selected',on);
+    document.getElementById('tab-'+c.id).tabIndex=on?0:-1;
+    document.getElementById('panel-'+c.id).hidden=!on;
+  });
+  if(push){ try{ history.replaceState(null,'','#'+CASES.find(c=>c.id===id).name.toLowerCase()); }catch(e){} }
+}
+function renderAll(){
+  ['mac','tr','adv'].forEach(k=>document.getElementById('t-'+k).setAttribute('aria-pressed',state[k]));
+  document.body.classList.toggle('hide-tr',!state.tr);
+  document.body.classList.toggle('show-adv',state.adv);
+  CASES.forEach(renderPanel);
+  select(state.tab,false);
+}
+['mac','tr','adv'].forEach(k=>document.getElementById('t-'+k).onclick=()=>{state[k]=!state[k];renderAll();});
+const fromHash=(location.hash||'').slice(1).toLowerCase();
+const start=CASES.find(c=>c.name.toLowerCase()===fromHash);
+if(start) state.tab=start.id;
+renderAll();
+</script>
+</body>
+</html>

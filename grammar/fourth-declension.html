@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fourth Declension</title>
+<link rel="stylesheet" href="../css/grammar.css?v=202609301700">
+<link rel="stylesheet" href="../css/gamebar.css?v=202609301700">
+<style>
+:root{--p-genpl:#8E6412; --p-genpl-bg:#F3E6C6; --p-accsg:#9A2F68; --p-accsg-bg:#F4DDE9; --p-accpl:#1E6E66; --p-accpl-bg:#D6EAE5; --p-ablsg:#5E3F9E; --p-ablsg-bg:#E6DEF3; --p-datablpl:#2B5A99; --p-datablpl-bg:#DAE4F1; --p-nomaccpl:#4E5B6A; --p-nomaccpl-bg:#E1E5EA; --p-datsg:#3D6B3F; --p-datsg-bg:#DDEBDC; --p-neut:#8A5327; --p-neut-bg:#F0E0CF;}
+</style>
+</head>
+<body>
+<nav class="gamebar" aria-label="Site"><a class="gamebar-home" href="../">Latin</a><a href="../flashcards/">Flashcards</a><a href="./" aria-current="page">Grammar</a><a href="../games/">Games</a></nav>
+<div class="wrap">
+<header>
+  <h1>Fourth Declension</h1>
+  <p class="subtitle">An interactive grammar for <i>frūctus</i> and <i>cornū</i></p>
+  <div class="primer">
+    <span><b>Genitive</b> <i>-ūs</i> · listen for the <i>u</i></span>
+    <span><b>m./f.</b> <i>-us</i> · <b>n.</b> <i>-ū</i></span>
+    <span>Hover any form to see its case, meaning, and look-alikes</span>
+  </div>
+</header>
+
+<section id="background" class="bg">
+  <details class="fold">
+    <summary>What is the fourth declension?</summary>
+  <div class="prose">
+    <p>The fourth declension is a small family of nouns whose stem ends in <strong><i>u</i></strong> (A&amp;G §88). That <i>u</i> shows up in almost every form, which makes these nouns easy to spot once you listen for it: <i>frūct<b>u</b>s, frūct<b>ū</b>s, frūct<b>u</b>ī, frūct<b>u</b>m, frūct<b>ū</b></i>.</p>
+    <p><strong>Learn the genitive.</strong> The nominative <i>frūctus</i> looks just like 2nd declension <i>equus</i>; the genitive <i>frūctūs</i> (not <i>frūctī</i>) tells you it's 4th.</p>
+    <p>Most 4th declension nouns in <i>-us</i> are masculine (a few, like <i>manus</i> and <i>domus</i>, are feminine). Only four are neuter: <i>cornū, genū, pecū, verū</i> (A&amp;G §§90–91). As in the 3rd declension, <strong>masculine and feminine nouns share one pattern and neuters follow another.</strong></p>
+  </div>
+
+  <div class="two">
+    <div class="decl">
+      <h3>Masculine &amp; feminine</h3>
+      <div class="sig"><i>frūctus, frūctūs</i>, m. fruit, profit</div>
+      <ul>
+        <li>Singular: <i>-us, -ūs, -uī, <b>-um</b>, -ū</i></li>
+        <li>Plural: <i><b>-ūs</b>, -uum, -ibus, <b>-ūs</b>, -ibus</i></li>
+        <li><i>-ūs</i> appears three times: genitive singular and nominative and accusative plural.</li>
+      </ul>
+    </div>
+    <div class="decl">
+      <h3>Neuter</h3>
+      <div class="sig"><i>cornū, cornūs</i>, n. horn</div>
+      <ul>
+        <li>Singular: <i>-ū</i> everywhere except the genitive <i>-ūs</i></li>
+        <li>Plural: <i><b>-ua</b>, -uum, -ibus, <b>-ua</b>, -ibus</i></li>
+        <li>No <i>-m</i> in the accusative, and the plural ends in <i>-a</i>, like every neuter.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dict">
+    <span>frūctus, frūct<b>ūs</b>, m.</span>
+    <span>cornū, corn<b>ūs</b>, n.</span>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>What each case does</summary>
+  <div class="cases-box">
+  <table class="cases">
+    <thead><tr><th>Case</th><th>Main job</th><th>Typical English</th></tr></thead>
+    <tbody>
+      <tr><td>Nominative</td><td>Subject of the verb; also after <i>est</i> ("is")</td><td>the fruit</td></tr>
+      <tr><td>Genitive</td><td>Possession or relationship</td><td>of the fruit, the fruit's</td></tr>
+      <tr><td>Dative</td><td>Indirect object; person affected</td><td>to / for the fruit</td></tr>
+      <tr><td>Accusative</td><td>Direct object; after <i>ad, in</i> for motion toward</td><td>the fruit</td></tr>
+      <tr><td>Ablative</td><td>Means, manner, place, time, separation; after <i>cum, in, ā/ab, ē/ex, dē, sine</i></td><td>by / with / from / in the fruit</td></tr>
+    </tbody>
+  </table>
+  </div>
+  </details>
+</section>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-flag" aria-pressed="true">Mark look-alike forms</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+    <div class="legend">
+      <span><i class="lg a"></i>form you're inspecting</span>
+      <span><i class="lg t"></i>spelled the same: ambiguous</span>
+      <span><i class="lg h"></i>differs only by a macron</span>
+      <span><i class="lg d"></i>has a look-alike in its chart</span>
+    </div>
+  </div>
+
+  <div class="work">
+    <div class="charts-col" id="charts-col">
+      <div class="charts two-up" id="charts-grid"></div>
+
+      <details class="er" id="er">
+        <summary>Exceptions worth knowing</summary>
+        <div class="prose">
+          <ul class="rules">
+            <li><strong><i>-ubus</i> for <i>-ibus</i>.</strong> The stem <i>u</i> usually weakens to <i>i</i> before <i>-bus</i> (<i>cornibus</i>), but <i>lacus</i> lake regularly keeps <i>lacubus</i>, as do <i>artus</i> (and <i>partus, tribus</i>); <i>portus</i> and <i>specus</i> have both (A&amp;G §§88, 92.c).</li>
+            <li><strong>Feminine nouns in <i>-us</i>.</strong> Most are masculine, but <i>manus</i> hand, <i>domus</i> house, <i>porticus</i> colonnade, <i>tribus</i> tribe, <i>Īdūs</i> the Ides, and a few others are feminine (A&amp;G §90). Adjectives agreeing with them are feminine: <i>manus dextra</i>.</li>
+            <li><strong>Only four neuters.</strong> <i>cornū</i> horn, <i>genū</i> knee, <i>pecū</i> flock, <i>verū</i> spit (A&amp;G §91). If a 4th declension noun ends in <i>-ū</i>, it's neuter.</li>
+            <li><strong><i>domus</i> mixes declensions.</strong> It has both 4th and 2nd declension forms (A&amp;G §93).</li>
+            <li><strong>Shortened genitive plural.</strong> In poetry <i>-uum</i> is sometimes squeezed into one syllable and written <i>-um</i>: <i>currum</i> for <i>curruum</i> (A&amp;G §92.b).</li>
+            <li><strong>2nd declension look-alikes.</strong> Some nouns in <i>-tus</i> occasionally have a 2nd declension genitive: <i>senātī</i> for <i>senātūs</i> (A&amp;G §92.a).</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Stem, gender, and exceptions follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§88–93, in the Dickinson College Commentaries online edition:
+  <a href="https://dcc.dickinson.edu/grammar/latin/4th-declension-stem-paradigm-and-gender" target="_blank" rel="noopener">4th Declension: Stem, Paradigm, and Gender</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/4th-declension-case-forms" target="_blank" rel="noopener">4th Declension: Case Forms</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/4th-declension-nouns" target="_blank" rel="noopener">4th Declension: Nouns</a>.</p>
+</footer>
+</div>
+
+<script>
+const CASES = [
+  {k:'nom',name:'Nominative',job:'Subject of the verb, or the noun after est ("is").'},
+  {k:'gen',name:'Genitive',job:'Possession or relationship: whose? of what?'},
+  {k:'dat',name:'Dative',job:'Indirect object: to whom / for whom something is done.'},
+  {k:'acc',name:'Accusative',job:'Direct object. After ad or in it means motion toward.'},
+  {k:'abl',name:'Ablative',job:'Means, manner, place, time or separation. Often after cum, in, ā/ab, ē/ex, dē, sine.'}
+];
+const NUMS = [{k:'sg',name:'Singular'},{k:'pl',name:'Plural'}];
+
+const NOUNS = [
+  {id:'fructus', dict:'frūctus, frūctūs', g:'m', gName:'masculine', decl:'4th decl.', en:['fruit','fruits'], stem:'frūct',
+   sg:['us','ūs','uī','um','ū','us'], pl:['ūs','uum','ibus','ūs','ibus','ūs']},
+  {id:'cornu', dict:'cornū, cornūs', g:'n', gName:'neuter', decl:'4th decl.', en:['horn','horns'], stem:'corn',
+   sg:['ū','ūs','ū','ū','ū','ū'], pl:['ua','uum','ibus','ua','ibus','ua']}
+];
+
+const PATTERNS = [
+  {id:'accsg', lab:'-m', txt:'m./f. accusative singular', test:c=>c.case==='acc'&&c.num==='sg'&&c.noun.g!=='n',
+   note:'<b>-m marks the direct object, again.</b> <i>frūctum</i> ends in <i>-um</i> exactly like 2nd declension <i>equum</i>, and it does the same job. Neuters never take <i>-m</i>: <i>cornū</i> is its own accusative.'},
+  {id:'datsg', lab:'-ī', txt:'m./f. dative singular', test:c=>c.case==='dat'&&c.num==='sg'&&c.noun.g!=='n',
+   note:'<b>Long -ī dative, like the 3rd declension.</b> <i>frūctuī</i> is the stem\'s <i>u</i> plus the same long <i>-ī</i> as <i>rēgī</i> and <i>corporī</i>. Neuters use <i>-ū</i> instead: <i>cornū</i>.'},
+  {id:'ablsg', lab:'-ū', txt:'ablative singular', test:c=>c.case==='abl'&&c.num==='sg',
+   note:'<b>A long vowel alone, again.</b> Like <i>puellā</i> (1st) and <i>equō</i> (2nd), the 4th declension ablative singular is just the stem vowel, lengthened: <i>frūctū, cornū</i>.'},
+  {id:'accpl', lab:'-ūs', txt:'m./f. accusative plural', test:c=>c.case==='acc'&&c.num==='pl'&&c.noun.g!=='n',
+   warn:c=>c.noun.g!=='n'&&((c.num==='pl'&&(c.case==='nom'||c.case==='voc'))||(c.num==='sg'&&c.case==='gen')),
+   warnMsg:c=>`Watch out: this ${c.num==='sg'?'genitive singular':'nominative plural'} is also spelled <i>frūctūs</i>, just like the accusative plural.`,
+   note:'<b>Long vowel + s, again.</b> <i>-ās, -ōs, -ēs</i>, and now <i>-ūs</i>: <i>frūctūs</i>. <b>Careful:</b> <i>frūctūs</i> is also the nominative plural <i>and</i> the genitive singular (outlined in red), and without macrons it matches the nominative singular <i>frūctus</i> too.'},
+  {id:'nomaccpl', lab:'nom = acc', txt:'plural, like the 3rd', test:c=>c.num==='pl'&&['nom','acc','voc'].includes(c.case),
+   note:'<b>Nominative = accusative in the plural, like the 3rd declension.</b> <i>frūctūs / frūctūs</i> just as <i>rēgēs / rēgēs</i>, and neuter <i>cornua / cornua</i> just as <i>corpora / corpora</i>, with the neuter <i>-a</i> found in every declension.'},
+  {id:'datablpl', lab:'-ibus', txt:'dative & ablative plural', test:c=>(c.case==='dat'||c.case==='abl')&&c.num==='pl',
+   note:'<b>One shared form, again.</b> Like the 3rd declension, the dative and ablative plural are <i>-ibus</i>: <i>frūctibus, cornibus</i>. Decide dative vs. ablative from context.'},
+  {id:'genpl', lab:'-uum', txt:'genitive plural', test:c=>c.case==='gen'&&c.num==='pl',
+   note:'<b>-uum means "of the …s."</b> Like the 3rd declension <i>-um</i>, but easier: the double <i>u</i> appears nowhere else, so <i>frūctuum</i> and <i>cornuum</i> can\'t be mistaken for a 2nd declension accusative or neuter the way <i>rēgum</i> can.'},
+  {id:'neut', lab:'cornū', txt:'neuter singular, nearly unchanging', test:c=>c.noun.g==='n'&&c.num==='sg'&&c.case!=='gen',
+   note:'<b>Almost indeclinable in the singular.</b> <i>cornū</i> is the same in the nominative, dative, accusative, and ablative singular. Only the genitive <i>cornūs</i> is different, so context has to do all the work.'}
+];
+
+const NOTES = {
+  'fructus.nom.sg':'Ends in <i>-us</i> like <i>equus</i>, but the genitive <i>frūctūs</i> shows it\'s 4th declension. Without macrons, <i>frūctus</i> also looks like the genitive singular and two plural forms.',
+  'fructus.gen.sg':'<i>-ūs</i> does triple duty: genitive singular and nominative and accusative plural.',
+  'fructus.dat.sg':'<i>-uī</i>: the stem\'s <i>u</i> plus the long <i>-ī</i> dative you know from <i>rēgī</i>.',
+  'fructus.acc.sg':'<i>frūctum</i> looks exactly like a 2nd declension accusative (<i>equum</i>), and it is one: same ending, same job.',
+  'fructus.abl.sg':'Long <i>-ū</i>, just like <i>-ā</i> and <i>-ō</i> in the 1st and 2nd declensions. Without the macron it would look like <i>frūctu-</i> in other forms, but no other form ends in bare <i>-u</i>.',
+  'fructus.gen.pl':'<i>-uum</i>: the double <i>u</i> appears only here, so this form is unmistakable.',
+  'fructus.dat.pl':'<i>frūctibus</i>: the stem\'s <i>u</i> weakens to <i>i</i> before <i>-bus</i> (A&amp;G §88), just as in <i>cornibus</i>.',
+  'cornu.nom.sg':'<i>cornū</i> is the same in four of the five singular cases. Only the genitive <i>cornūs</i> is different.',
+  'cornu.gen.sg':'The one singular form that isn\'t <i>cornū</i>.',
+  'cornu.dat.sg':'Neuters have <i>-ū</i> in the dative, not <i>-uī</i> (A&amp;G gives <i>cornū</i>).',
+  'cornu.nom.pl':'<i>cornua</i>: the neuter plural <i>-a</i> found in every declension, attached to the stem\'s <i>u</i>.',
+  'cornu.gen.pl':'<i>-uum</i> genitive plural, "of the horns."',
+  'cornu.dat.pl':'<i>cornibus</i>: the stem\'s <i>u</i> weakens to <i>i</i> before <i>-bus</i> (A&amp;G §88).'
+};
+
+const strip = s => s.normalize('NFD').replace(/̄/g,'').normalize('NFC');
+const state = {mac:true, end:false, flag:true, er:false, pats:new Set(), active:null};
+
+const CELLS = [];
+NOUNS.forEach(n=>{
+  NUMS.forEach(num=>{
+    CASES.forEach((c,i)=>{
+      const k = `${c.k}.${num.k}`;
+      let stem = n.stem, [ending, alt] = n[num.k][i].split('|');
+      if(n.over && n.over[k]){ stem = n.over[k]; ending = ''; alt = undefined; }
+      CELLS.push({key:`${n.id}.${k}`, noun:n, case:c.k, num:num.k, stem, ending, alt, form:stem+ending});
+    });
+  });
+});
+const byKey = Object.fromEntries(CELLS.map(c=>[c.key,c]));
+const shown = s => state.mac ? s : strip(s);
+
+function english(c){
+  const w = c.noun.en[c.num==='sg'?0:1];
+  const poss = c.num==='sg' ? w+"'s" : (w.endsWith('s') ? w+"'" : w+"'s");
+  return {nom:`the ${w}`, gen:`of the ${w} · the ${poss}`, dat:`to / for the ${w}`, acc:`the ${w}`,
+          abl:`by / with / from / in the ${w}`}[c.case];
+}
+const caseObj = k => CASES.find(c=>c.k===k);
+const parseName = c => `${caseObj(c.case).name} ${c.num==='sg'?'singular':'plural'}`;
+const twinsOf = c => CELLS.filter(o=>o.noun===c.noun && o!==c && shown(o.form)===shown(c.form));
+const hiddenTwinsOf = c => state.mac ? CELLS.filter(o=>o.noun===c.noun && o.form!==c.form && strip(o.form)===strip(c.form)) : [];
+
+// Pattern chips
+const pRow = document.getElementById('patterns');
+PATTERNS.forEach(p=>{
+  const b = document.createElement('button');
+  b.className='chip'; b.id='p-'+p.id; b.setAttribute('aria-pressed','false');
+  b.style.setProperty('--c',`var(--p-${p.id})`); b.style.setProperty('--cbg',`var(--p-${p.id}-bg)`);
+  b.innerHTML=`<span class="sw"></span><span class="l">${p.lab}</span> ${p.txt}`;
+  b.onclick=()=>{ state.pats.has(p.id)?state.pats.delete(p.id):state.pats.add(p.id); render(); };
+  pRow.appendChild(b);
+});
+const clr=document.createElement('button');
+clr.className='chip plain clear'; clr.id='p-clear'; clr.textContent='Clear';
+clr.onclick=()=>{state.pats.clear();render();};
+pRow.appendChild(clr);
+
+// Charts
+const grid = document.getElementById('charts-col');
+const mainGrid = document.getElementById('charts-grid'), erGrid = document.getElementById('er-grid');
+NOUNS.forEach(n=>{
+  const box=document.createElement('div'); box.className='noun';
+  let h=`<div class="noun-h"><div class="de">${n.dict}, ${n.g}.</div><div class="meta">${n.decl} · ${n.gName} · ${n.en[0]}</div></div><div class="grid"><div class="hd"></div><div class="hd">Sing.</div><div class="hd">Plur.</div>`;
+  CASES.forEach(c=>{
+    h+=`<div class="rl">${c.name}</div>`;
+    NUMS.forEach(num=>{ h+=`<button class="cell" data-k="${n.id}.${c.k}.${num.k}" aria-label="${n.id} ${c.name} ${num.name}"></button>`; });
+  });
+  box.innerHTML=h+'</div>';
+  (n.extra?erGrid:mainGrid).appendChild(box);
+});
+const cellEls = [...document.querySelectorAll('.cell')];
+cellEls.forEach(el=>{
+  const go=()=>{state.active=el.dataset.k; renderActive();};
+  const stop=()=>{ if(state.active===el.dataset.k){state.active=null; renderActive();} };
+  el.addEventListener('mouseenter',go); el.addEventListener('focus',go); el.addEventListener('click',go);
+  el.addEventListener('mouseleave',stop); el.addEventListener('blur',stop);
+});
+
+function toggle(id,key){const b=document.getElementById(id);b.onclick=()=>{state[key]=!state[key];render();};}
+toggle('t-mac','mac'); toggle('t-end','end'); toggle('t-flag','flag');
+document.getElementById('er').addEventListener('toggle',e=>{state.er=e.target.open;render();});
+
+function render(){
+  document.getElementById('t-mac').setAttribute('aria-pressed',state.mac);
+  document.getElementById('t-end').setAttribute('aria-pressed',state.end);
+  document.getElementById('t-flag').setAttribute('aria-pressed',state.flag);
+  if(!state.er && state.active && byKey[state.active].noun.extra) state.active=null;
+  grid.classList.toggle('endonly',state.end);
+  grid.classList.toggle('flags',state.flag);
+  PATTERNS.forEach(p=>document.getElementById('p-'+p.id).setAttribute('aria-pressed',state.pats.has(p.id)));
+
+  cellEls.forEach(el=>{
+    const c=byKey[el.dataset.k];
+    el.innerHTML=`<span class="st">${shown(c.stem)}</span><span class="en">${shown(c.ending)}</span>${c.alt?`<span class="alt">-${shown(c.alt)}</span>`:''}`;
+    el.classList.toggle('amb', twinsOf(c).length>0);
+    const hit = PATTERNS.filter(p=>state.pats.has(p.id)&&p.test(c)).pop();
+    el.classList.toggle('pat',!!hit);
+    el.classList.toggle('warn', !hit && PATTERNS.some(p=>state.pats.has(p.id)&&p.warn&&p.warn(c)));
+    if(hit){el.style.setProperty('--pbg',`var(--p-${hit.id}-bg)`);el.style.setProperty('--pfg',`var(--p-${hit.id})`);}
+  });
+
+  document.getElementById('pnotes').innerHTML = PATTERNS.filter(p=>state.pats.has(p.id))
+    .map(p=>`<div class="pnote" style="--c:var(--p-${p.id})">${p.note}</div>`).join('');
+  renderActive();
+}
+
+document.addEventListener('click',e=>{ if(!e.target.closest('.cell') && state.active){state.active=null; renderActive();} });
+function renderActive(){
+  if(!state.active){
+    cellEls.forEach(el=>el.classList.remove('active','twin','htwin'));
+    document.getElementById('card').innerHTML=`<div class="parse">Inspect a form</div>
+      <div class="tr">Hover over or tap any form in the charts.</div>
+      <div class="job">You'll see its case and number, an English translation, and anything it could be mistaken for, shown in red.</div>`;
+    return;
+  }
+  const c = byKey[state.active];
+  const tw = twinsOf(c), ht = hiddenTwinsOf(c);
+  const twK = new Set(tw.map(t=>t.key)), htK = new Set(ht.map(t=>t.key));
+  cellEls.forEach(el=>{
+    const k=el.dataset.k;
+    el.classList.toggle('active',k===c.key);
+    el.classList.toggle('twin',twK.has(k));
+    el.classList.toggle('htwin',htK.has(k));
+  });
+  let h = `<div class="parse">${parseName(c)} · ${c.noun.dict}</div>
+    <div class="form"><span>${shown(c.stem)}</span><span class="en">${shown(c.ending)}</span></div>
+    ${c.alt?`<div class="job">also <i>${shown(c.noun.stem+c.alt)}</i></div>`:''}
+        <div class="tr">${english(c)}</div>
+    <div class="job">${caseObj(c.case).job}</div>`;
+  if(tw.length){
+    h+=`<div class="amb-box"><h4>Ambiguous: could also be</h4><ul>${
+      tw.map(t=>`<li><b>${parseName(t)}</b>: <i>${english(t)}</i></li>`).join('')
+    }</ul><div class="hint">Same spelling, different job. Use the verb, a preposition, or agreeing adjectives to decide.</div></div>`;
+  }
+  if(ht.length){
+    const byForm={}; ht.forEach(t=>{(byForm[t.form]=byForm[t.form]||{sg:[],pl:[]})[t.num].push(caseObj(t.case).name.toLowerCase());});
+    h+=`<div class="amb-box hidden-twin"><h4>Only a macron away</h4><ul>${
+      Object.entries(byForm).map(([f,g])=>`<li><i>${f}</i>: ${[g.sg.length?g.sg.join(', ')+' singular':'',g.pl.length?g.pl.join(', ')+' plural':''].filter(Boolean).join('; ')}</li>`).join('')
+    }</ul><div class="hint">Most printed texts omit macrons, so <i>${strip(c.form)}</i> could be any of these.</div></div>`;
+  }
+  const note = NOTES[c.key];
+  const pats = PATTERNS.filter(p=>p.test(c));
+  const warns = PATTERNS.filter(p=>p.warn&&p.warn(c));
+  if(note||pats.length||warns.length){
+    h+=`<div class="tip">${note?`<p>${note}</p>`:''}${pats.map(p=>`<p>Part of the <b>${p.lab}</b> pattern (${p.txt}).</p>`).join('')}${warns.map(p=>`<p>${p.warnMsg(c)}</p>`).join('')}</div>`;
+  }
+  if(!note&&!pats.length&&!tw.length&&!ht.length) h+=`<div class="hint">This spelling is unique in its chart: it can only be this case and number.</div>`;
+  document.getElementById('card').innerHTML=h;
+}
+render();
+</script>
+</body>
+</html>

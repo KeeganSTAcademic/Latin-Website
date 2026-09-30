@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview: The Five Declensions</title>
+<link rel="stylesheet" href="../css/grammar.css?v=202609301700">
+<link rel="stylesheet" href="../css/gamebar.css?v=202609301700">
+<style>
+:root{--p-accsg:#9A2F68; --p-accsg-bg:#F4DDE9; --p-ablsg:#5E3F9E; --p-ablsg-bg:#E6DEF3; --p-datsg:#3D6B3F; --p-datsg-bg:#DDEBDC; --p-accpl:#1E6E66; --p-accpl-bg:#D6EAE5; --p-nomaccpl:#4E5B6A; --p-nomaccpl-bg:#E1E5EA; --p-neut:#8A5327; --p-neut-bg:#F0E0CF; --p-datablpl:#2B5A99; --p-datablpl-bg:#DAE4F1; --p-genpl:#8E6412; --p-genpl-bg:#F3E6C6; --p-confuse:#B4471A; --p-confuse-bg:#FADFCF; --card-h:760px;}
+/* trends spread */
+.charts-col{gap:0}
+.spread-box{background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);overflow-x:auto}
+.spread{display:grid;grid-template-columns:auto repeat(8,minmax(88px,1fr));min-width:820px}
+.sh{padding:12px 8px 10px;text-align:center;display:grid;gap:1px;align-content:end;border-bottom:1px solid var(--rule)}
+.sh b{font-size:17px}
+.sh span{font-size:13px;font-style:italic;color:var(--muted);white-space:nowrap}
+.sh.n,.scell.n{background:color-mix(in srgb,var(--surface2) 45%,var(--surface))}
+.band{grid-column:1/-1;padding:6px 14px;font-size:14px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.14em;color:var(--muted);background:var(--surface2);border-top:1px solid var(--rule)}
+.spread .rl{font-size:15px;color:var(--muted);padding:0 10px 0 14px;display:flex;align-items:center;border-top:1px solid var(--rule)}
+.scell{position:relative;appearance:none;border:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule);background:transparent;color:var(--ink);font-family:var(--serif);text-align:center;padding:9px 4px 8px;cursor:pointer;display:grid;gap:1px;justify-items:center;align-content:center;min-height:58px;transition:background .12s}
+.scell .en{font-size:21px;line-height:1.1}
+.scell .en.var{font-size:14px;font-style:italic;color:var(--muted)}
+.scell .ex{font-size:13px;font-style:italic;color:var(--muted);white-space:nowrap}
+.noex .scell .ex{display:none}
+.noex .scell{min-height:46px}
+.scell:hover{background:var(--surface2)}
+.scell:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.scell.pat{background:var(--pbg)}
+.scell.pat .en{color:var(--pfg);font-weight:700}
+.flags .scell.amb::after{content:"";position:absolute;top:7px;right:7px;width:7px;height:7px;border-radius:50%;background:var(--red);opacity:.8}
+.scell.active{background:var(--accent);color:var(--accent-ink)}
+.scell.active .en,.scell.active .ex,.scell.active .en.var{color:var(--accent-ink);font-weight:700}
+.flags .scell.active.amb::after{background:var(--accent-ink)}
+.scell.twin{box-shadow:inset 0 0 0 2px var(--red);background:var(--red-bg)}
+.scell.twin .en{color:var(--red);font-weight:700}
+.scell.kin{box-shadow:inset 0 0 0 2px var(--accent)}
+.scell.htwin{box-shadow:inset 0 0 0 2px var(--red);background:repeating-linear-gradient(135deg,transparent 0 5px,var(--red-bg) 5px 9px)}
+.lg.k{box-shadow:inset 0 0 0 2px var(--accent);background:var(--surface)}
+.var-big{font-size:26px;font-style:italic;color:var(--muted)}
+.card .tip{font-size:15px}
+.kin-box{text-align:left;border:1px solid var(--accent);border-radius:10px;padding:10px 14px;font-size:16px;display:grid;gap:4px}
+.kin-box h4{margin:0;color:var(--accent);font-size:16px;font-weight:700;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em}
+/* rules at a glance */
+#rules h2{margin-bottom:6px}
+.rules-lede{color:var(--muted);margin-bottom:18px}
+.rule-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.rule-card{appearance:none;text-align:left;font:inherit;font-size:16px;line-height:1.5;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c,var(--accent));border-radius:12px;padding:14px 16px;display:grid;gap:8px;align-content:start;cursor:pointer;transition:background .15s}
+.rule-card:hover{background:var(--surface2)}
+.rule-card[aria-pressed="true"]{background:var(--cbg)}
+.rule-card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rule-card .rc-h{display:flex;align-items:center;gap:8px;font-size:17px}
+.rule-card .rc-h b{color:var(--c,var(--ink))}
+.rule-card .sw{width:11px;height:11px;border-radius:50%;background:var(--c);flex:none}
+.rule-card .rc-b b{color:var(--c)}
+.conf-list{cursor:default;border-left-color:var(--p-confuse);grid-column:span 2}
+.conf-list:hover{background:var(--surface)}
+.conf-list ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.conf-list li b{color:var(--p-confuse)}
+@media (max-width:700px){.conf-list{grid-column:auto}}
+</style>
+</head>
+<body>
+<nav class="gamebar" aria-label="Site"><a class="gamebar-home" href="../">Latin</a><a href="../flashcards/">Flashcards</a><a href="./" aria-current="page">Grammar</a><a href="../games/">Games</a></nav>
+<div class="wrap">
+<header>
+  <h1>Overview: The Five Declensions</h1>
+  <p class="subtitle">Patterns across the Declensions</p>
+  <div class="primer">
+    <span>Rows: <b>case &amp; number</b> · Columns: <b>declension</b></span>
+    <span>Hover any ending to see where else it appears</span>
+  </div>
+</header>
+
+<section id="background" class="bg">
+  <details class="fold">
+    <summary>How to read this page</summary>
+  <div class="prose">
+    <p>Each column is one declension, using the model nouns from the individual pages: <i>puella, equus, forum, rēx, corpus, frūctus, cornū, rēs</i>. Neuters get their own columns because their endings differ from masculine and feminine nouns.</p>
+    <p>Each row is one case and number. Read <strong>across a row</strong> to see how one job is marked in every declension, and <strong>down a column</strong> to see a single declension's endings.</p>
+    <p>The big letters are the endings; the small word underneath is the full form. Hover an ending to see its translation, what else it could be, and which patterns it belongs to. Use the pattern buttons to light up the rules that hold across declensions, including the <strong>cross-declension look-alikes</strong> that trip readers up most often.</p>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>What each case does</summary>
+  <div class="cases-box">
+  <table class="cases">
+    <thead><tr><th>Case</th><th>Main job</th><th>Typical English</th></tr></thead>
+    <tbody>
+      <tr><td>Nominative</td><td>Subject of the verb; also after <i>est</i> ("is")</td><td>the girl</td></tr>
+      <tr><td>Genitive</td><td>Possession or relationship</td><td>of the girl, the girl's</td></tr>
+      <tr><td>Dative</td><td>Indirect object; person affected</td><td>to / for the girl</td></tr>
+      <tr><td>Accusative</td><td>Direct object; after <i>ad, in</i> for motion toward</td><td>the girl</td></tr>
+      <tr><td>Ablative</td><td>Means, manner, place, time, separation; after <i>cum, in, ā/ab, ē/ex, dē, sine</i></td><td>by / with / from / in the girl</td></tr>
+    </tbody>
+  </table>
+  </div>
+  </details>
+</section>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-ex" aria-pressed="true">Show example words</button>
+      <button class="chip plain" id="t-flag" aria-pressed="true">Mark look-alike endings</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+    <div class="legend">
+      <span><i class="lg a"></i>ending you're inspecting</span>
+      <span><i class="lg t"></i>same spelling, different job</span>
+      <span><i class="lg k"></i>same spelling, same job</span>
+      <span><i class="lg h"></i>differs only by a macron</span>
+      <span><i class="lg d"></i>has a look-alike elsewhere</span>
+    </div>
+  </div>
+
+  <div class="work">
+    <div class="charts-col" id="charts-col">
+      <div class="spread-box"><div class="spread" id="spread"></div></div>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+</section>
+
+<section id="rules">
+  <h2>The rules at a glance</h2>
+  <p class="rules-lede">Everything the five declension pages point out, gathered in one place. Click a rule to highlight it in the spread above.</p>
+  <div class="rule-grid" id="rule-grid"></div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Declension-specific notes follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), in the <a href="https://dcc.dickinson.edu/grammar/latin" target="_blank" rel="noopener">Dickinson College Commentaries online edition</a>: 3rd declension §§53–72, 4th declension §§88–93, 5th declension §§95–98. See the individual declension pages for section-by-section citations.</p>
+</footer>
+</div>
+
+<script>
+const ROWS = [
+  {k:'nom.sg',c:'nom',n:'sg',name:'Nominative'},{k:'gen.sg',c:'gen',n:'sg',name:'Genitive'},{k:'dat.sg',c:'dat',n:'sg',name:'Dative'},
+  {k:'acc.sg',c:'acc',n:'sg',name:'Accusative'},{k:'abl.sg',c:'abl',n:'sg',name:'Ablative'},
+  {k:'nom.pl',c:'nom',n:'pl',name:'Nominative'},{k:'gen.pl',c:'gen',n:'pl',name:'Genitive'},{k:'dat.pl',c:'dat',n:'pl',name:'Dative'},
+  {k:'acc.pl',c:'acc',n:'pl',name:'Accusative'},{k:'abl.pl',c:'abl',n:'pl',name:'Ablative'}
+];
+const JOBS = {nom:'Subject of the verb, or the noun after est ("is").', gen:'Possession or relationship: whose? of what?',
+  dat:'Indirect object: to whom / for whom something is done.', acc:'Direct object. After ad or in it means motion toward.',
+  abl:'Means, manner, place, time or separation. Often after cum, in, ā/ab, ē/ex, dē, sine.'};
+
+// e = endings (10, in ROWS order); f = full forms. null ending = no fixed ending.
+const COLS = [
+  {id:'d1', h:'1st', sub:'puella, -ae', g:'f', decl:'1st declension', en:['girl','girls'],
+   e:['a','ae','ae','am','ā','ae','ārum','īs','ās','īs'],
+   f:['puella','puellae','puellae','puellam','puellā','puellae','puellārum','puellīs','puellās','puellīs']},
+  {id:'d2', h:'2nd', sub:'equus, -ī', g:'m', decl:'2nd declension', en:['horse','horses'],
+   e:['us','ī','ō','um','ō','ī','ōrum','īs','ōs','īs'],
+   f:['equus','equī','equō','equum','equō','equī','equōrum','equīs','equōs','equīs']},
+  {id:'d2n', h:'2nd n.', sub:'forum, -ī', g:'n', decl:'2nd declension neuter', en:['forum','forums'],
+   e:['um','ī','ō','um','ō','a','ōrum','īs','a','īs'],
+   f:['forum','forī','forō','forum','forō','fora','forōrum','forīs','fora','forīs']},
+  {id:'d3', h:'3rd m./f.', sub:'rēx, rēgis', g:'m', decl:'3rd declension', en:['king','kings'],
+   e:[null,'is','ī','em','e','ēs','um','ibus','ēs','ibus'],
+   f:['rēx','rēgis','rēgī','rēgem','rēge','rēgēs','rēgum','rēgibus','rēgēs','rēgibus']},
+  {id:'d3n', h:'3rd n.', sub:'corpus, -oris', g:'n', decl:'3rd declension neuter', en:['body','bodies'],
+   e:[null,'is','ī',null,'e','a','um','ibus','a','ibus'],
+   f:['corpus','corporis','corporī','corpus','corpore','corpora','corporum','corporibus','corpora','corporibus']},
+  {id:'d4', h:'4th', sub:'frūctus, -ūs', g:'m', decl:'4th declension', en:['fruit','fruits'],
+   e:['us','ūs','uī','um','ū','ūs','uum','ibus','ūs','ibus'],
+   f:['frūctus','frūctūs','frūctuī','frūctum','frūctū','frūctūs','frūctuum','frūctibus','frūctūs','frūctibus']},
+  {id:'d4n', h:'4th n.', sub:'cornū, -ūs', g:'n', decl:'4th declension neuter', en:['horn','horns'],
+   e:['ū','ūs','ū','ū','ū','ua','uum','ibus','ua','ibus'],
+   f:['cornū','cornūs','cornū','cornū','cornū','cornua','cornuum','cornibus','cornua','cornibus']},
+  {id:'d5', h:'5th', sub:'rēs, reī', g:'f', decl:'5th declension', en:['thing','things'],
+   e:['ēs','eī','eī','em','ē','ēs','ērum','ēbus','ēs','ēbus'],
+   f:['rēs','reī','reī','rem','rē','rēs','rērum','rēbus','rēs','rēbus']}
+];
+const NEUT = new Set(['d2n','d3n','d4n']);
+
+// Cross-declension look-alike groups: same (or nearly the same) ending, different jobs.
+const CONFUSIONS = [
+  {id:'um', lab:'-um', keys:['d2.acc.sg','d2n.nom.sg','d2n.acc.sg','d3.gen.pl','d3n.gen.pl','d4.acc.sg'],
+   note:'<i>-um</i> is a direct object in the 2nd and 4th declensions (<i>equum, frūctum</i>), a neuter subject or object in the 2nd (<i>forum</i>), and "of the …s" in the 3rd (<i>rēgum, corporum</i>).'},
+  {id:'i', lab:'-ī', keys:['d2.gen.sg','d2.nom.pl','d2n.gen.sg','d3.dat.sg','d3n.dat.sg','d4.dat.sg','d5.gen.sg','d5.dat.sg'],
+   note:'A word ending in <i>-ī</i> is genitive singular or nominative plural in the 2nd declension (<i>equī</i>), but dative singular in the 3rd, 4th, and 5th (<i>rēgī, frūctuī, reī</i>; <i>reī</i> is also genitive).'},
+  {id:'a', lab:'-a', keys:['d1.nom.sg','d2n.nom.pl','d2n.acc.pl','d3n.nom.pl','d3n.acc.pl','d4n.nom.pl','d4n.acc.pl'],
+   note:'<i>-a</i> is a 1st declension nominative singular (<i>puella</i>) but a neuter nominative or accusative <em>plural</em> everywhere else (<i>fora, corpora, cornua</i>).'},
+  {id:'is', lab:'-is / -īs', keys:['d3.gen.sg','d3n.gen.sg','d1.dat.pl','d1.abl.pl','d2.dat.pl','d2.abl.pl','d2n.dat.pl','d2n.abl.pl'],
+   note:'Short <i>-is</i> is the 3rd declension genitive singular (<i>rēgis</i>); long <i>-īs</i> is the 1st/2nd declension dative or ablative plural (<i>puellīs, equīs</i>). Without macrons they look identical.'},
+  {id:'us', lab:'-us / -ūs', keys:['d2.nom.sg','d3n.nom.sg','d3n.acc.sg','d4.nom.sg','d4.gen.sg','d4.nom.pl','d4.acc.pl','d4n.gen.sg'],
+   note:'<i>-us</i> is a nominative singular in the 2nd and 4th declensions (<i>equus, frūctus</i>) and a neuter nominative/accusative in the 3rd (<i>corpus</i>); <i>-ūs</i> is a 4th declension genitive singular or nominative/accusative plural.'},
+  {id:'es', lab:'-ēs', keys:['d3.nom.pl','d3.acc.pl','d5.nom.sg','d5.nom.pl','d5.acc.pl'],
+   note:'<i>-ēs</i> is always plural in the 3rd declension (<i>rēgēs</i>), but in the 5th it can also be the nominative <em>singular</em> (<i>rēs</i>).'}
+];
+
+const PATTERNS = [
+  {id:'accsg', lab:'-m', txt:'accusative singular', test:(c,r)=>r.k==='acc.sg'&&!NEUT.has(c.id),
+   note:'<b>-m marks the direct object in every declension.</b> <i>puellam, equum, rēgem, frūctum, rem</i>. Neuters never take <i>-m</i>: their accusative is the same as the nominative.'},
+  {id:'ablsg', lab:'long vowel', txt:'ablative singular', test:(c,r)=>r.k==='abl.sg'&&!['d3','d3n'].includes(c.id),
+   note:'<b>The ablative singular is the stem vowel, lengthened.</b> <i>-ā, -ō, -ū, -ē</i>: <i>puellā, equō, frūctū, rē</i>. The 3rd declension is the exception with short <i>-e</i> (<i>rēge</i>), though <i>i</i>-stems can have long <i>-ī</i>. Watch the macron: <i>puella</i> vs. <i>puellā</i>.'},
+  {id:'datsg', lab:'-ī', txt:'dative singular, 3rd–5th', test:(c,r)=>r.k==='dat.sg'&&['d3','d3n','d4','d5'].includes(c.id),
+   note:'<b>A long -ī dative from the 3rd declension on.</b> <i>rēgī, corporī, frūctuī, reī</i>. The 1st and 2nd declensions have their own datives (<i>puellae, equō</i>), and 4th declension neuters use <i>-ū</i> (<i>cornū</i>).'},
+  {id:'accpl', lab:'long vowel + s', txt:'m./f. accusative plural', test:(c,r)=>r.k==='acc.pl'&&!NEUT.has(c.id),
+   note:'<b>Masculine and feminine plural objects end in a long vowel + s.</b> <i>-ās, -ōs, -ēs, -ūs, -ēs</i>. In the 1st and 2nd declensions this form is unique; from the 3rd on, the nominative plural is spelled the same.'},
+  {id:'nomaccpl', lab:'nom = acc', txt:'plural, 3rd–5th & all neuters', test:(c,r)=>(r.k==='nom.pl'||r.k==='acc.pl')&&(['d3','d4','d5'].includes(c.id)||NEUT.has(c.id)),
+   note:'<b>Nominative and accusative plural are identical from the 3rd declension on</b> (<i>rēgēs, frūctūs, rēs</i>), and in every neuter. Only the 1st and 2nd declension masculine and feminine keep them apart (<i>puellae / puellās, equī / equōs</i>). Use the verb and word order.'},
+  {id:'neut', lab:'neuter', txt:'nom = acc, plural -a', test:(c,r)=>NEUT.has(c.id)&&(r.c==='nom'||r.c==='acc'),
+   note:'<b>The neuter rule holds in every declension.</b> Nominative and accusative are always identical, singular and plural, and the plural always ends in <i>-a</i>: <i>fora, corpora, cornua</i>.'},
+  {id:'datablpl', lab:'dat = abl', txt:'plural, every declension', test:(c,r)=>r.k==='dat.pl'||r.k==='abl.pl',
+   note:'<b>The dative and ablative plural are always the same form.</b> <i>-īs</i> in the 1st and 2nd declensions, <i>-ibus</i> in the 3rd and 4th, <i>-ēbus</i> in the 5th. Decide by context: a preposition points to ablative, a verb of giving, showing, or telling to dative.'},
+  {id:'genpl', lab:'-rum / -um', txt:'genitive plural', test:(c,r)=>r.k==='gen.pl',
+   note:'<b>Every genitive plural ends in -um.</b> A long vowel + <i>-rum</i> in the 1st, 2nd, and 5th (<i>-ārum, -ōrum, -ērum</i>); plain <i>-um</i> in the 3rd (<i>rēgum</i>, easily mistaken for a 2nd declension <i>-um</i>) and <i>-uum</i> in the 4th (unmistakable).'},
+  {id:'confuse', lab:'look-alikes', txt:'across declensions', test:(c,r)=>CONF_KEYS.has(`${c.id}.${r.k}`),
+   note:'<b>Same ending, different job.</b> These endings mean one thing in one declension and something else in another: <i>-um, -ī, -a, -is/-īs, -us/-ūs, -ēs</i>. You can\'t parse them from the ending alone; you have to know the noun\'s declension from its dictionary entry. Hover one to see its look-alikes.'}
+];
+const CONF_KEYS = new Set(CONFUSIONS.flatMap(g=>g.keys));
+
+const strip = s => s.normalize('NFD').replace(/̄/g,'').normalize('NFC');
+const state = {mac:true, ex:true, flag:true, pats:new Set(), active:null};
+const shown = s => state.mac ? s : strip(s);
+
+const CELLS = [];
+COLS.forEach(col=>ROWS.forEach((r,i)=>CELLS.push({key:`${col.id}.${r.k}`, col, row:r, ending:col.e[i], form:col.f[i]})));
+const byKey = Object.fromEntries(CELLS.map(c=>[c.key,c]));
+
+function english(c){
+  const w = c.col.en[c.row.n==='sg'?0:1];
+  const poss = c.row.n==='sg' ? w+"'s" : (w.endsWith('s') ? w+"'" : w+"'s");
+  return {nom:`the ${w}`, gen:`of the ${w} · the ${poss}`, dat:`to / for the ${w}`, acc:`the ${w}`, abl:`by / with / from / in the ${w}`}[c.row.c];
+}
+const parseName = c => `${c.row.name} ${c.row.n==='sg'?'singular':'plural'}`;
+const sameJob = (a,b) => a.row.k===b.row.k;
+const matches = c => c.ending ? CELLS.filter(o=>o!==c && o.ending && shown(o.ending)===shown(c.ending)) : [];
+const hidden = c => (c.ending && state.mac) ? CELLS.filter(o=>o!==c && o.ending && o.ending!==c.ending && strip(o.ending)===strip(c.ending)) : [];
+const hasLookalike = c => c.ending && CELLS.some(o=>o!==c && o.ending && strip(o.ending)===strip(c.ending) && !sameJob(o,c));
+
+// Pattern chips
+const pRow = document.getElementById('patterns');
+PATTERNS.forEach(p=>{
+  const b=document.createElement('button');
+  b.className='chip'; b.id='p-'+p.id; b.setAttribute('aria-pressed','false');
+  b.style.setProperty('--c',`var(--p-${p.id})`); b.style.setProperty('--cbg',`var(--p-${p.id}-bg)`);
+  b.innerHTML=`<span class="sw"></span><span class="l">${p.lab}</span> ${p.txt}`;
+  b.onclick=()=>togglePat(p.id);
+  pRow.appendChild(b);
+});
+const clr=document.createElement('button');
+clr.className='chip plain clear'; clr.id='p-clear'; clr.textContent='Clear';
+clr.onclick=()=>{state.pats.clear();render();};
+pRow.appendChild(clr);
+function togglePat(id){ state.pats.has(id)?state.pats.delete(id):state.pats.add(id); render(); }
+
+// Rules at a glance
+const rg=document.getElementById('rule-grid');
+PATTERNS.forEach(p=>{
+  const b=document.createElement('button');
+  b.className='rule-card'; b.id='r-'+p.id; b.setAttribute('aria-pressed','false');
+  b.style.setProperty('--c',`var(--p-${p.id})`); b.style.setProperty('--cbg',`var(--p-${p.id}-bg)`);
+  b.innerHTML=`<span class="rc-h"><span class="sw"></span><b>${p.lab}</b> ${p.txt}</span><span class="rc-b">${p.note}</span>`;
+  b.onclick=()=>{togglePat(p.id); document.getElementById('charts').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});};
+  rg.appendChild(b);
+});
+const conf=document.createElement('div');
+conf.className='rule-card conf-list';
+conf.innerHTML=`<span class="rc-h"><b>The six look-alikes</b></span><ul>${CONFUSIONS.map(g=>`<li><b>${g.lab}</b>: ${g.note}</li>`).join('')}</ul>`;
+rg.appendChild(conf);
+
+// Spread
+const sp=document.getElementById('spread');
+let h=`<div class="sh corner"></div>${COLS.map(c=>`<div class="sh colh${NEUT.has(c.id)?' n':''}"><b>${c.h}</b><span>${c.sub}</span></div>`).join('')}`;
+ROWS.forEach((r,i)=>{
+  if(i===0||i===5) h+=`<div class="band">${i===0?'Singular':'Plural'}</div>`;
+  h+=`<div class="rl">${r.name}</div>`;
+  COLS.forEach(col=>{ h+=`<button class="scell${NEUT.has(col.id)?' n':''}" data-k="${col.id}.${r.k}" aria-label="${col.decl} ${r.name} ${r.n==='sg'?'singular':'plural'}"></button>`; });
+});
+sp.innerHTML=h;
+const cellEls=[...sp.querySelectorAll('.scell')];
+cellEls.forEach(el=>{
+  const go=()=>{state.active=el.dataset.k; renderActive();};
+  const stop=()=>{ if(state.active===el.dataset.k){state.active=null; renderActive();} };
+  el.addEventListener('mouseenter',go); el.addEventListener('focus',go); el.addEventListener('click',go);
+  el.addEventListener('mouseleave',stop); el.addEventListener('blur',stop);
+});
+document.addEventListener('click',e=>{ if(!e.target.closest('.scell') && state.active){state.active=null; renderActive();} });
+
+function toggle(id,key){document.getElementById(id).onclick=()=>{state[key]=!state[key];render();};}
+toggle('t-mac','mac'); toggle('t-ex','ex'); toggle('t-flag','flag');
+
+function render(){
+  ['mac','ex','flag'].forEach(k=>document.getElementById('t-'+k).setAttribute('aria-pressed',state[k]));
+  sp.classList.toggle('noex',!state.ex); sp.classList.toggle('flags',state.flag);
+  PATTERNS.forEach(p=>{
+    document.getElementById('p-'+p.id).setAttribute('aria-pressed',state.pats.has(p.id));
+    document.getElementById('r-'+p.id).setAttribute('aria-pressed',state.pats.has(p.id));
+  });
+  cellEls.forEach(el=>{
+    const c=byKey[el.dataset.k];
+    const end = c.ending===null ? `<span class="en var">${c.row.k==='acc.sg'?'= nom.':'varies'}</span>` : `<span class="en">-${shown(c.ending)}</span>`;
+    el.innerHTML=`${end}<span class="ex">${shown(c.form)}</span>`;
+    el.classList.toggle('amb', hasLookalike(c));
+    const hit=PATTERNS.filter(p=>state.pats.has(p.id)&&p.test(c.col,c.row)).pop();
+    el.classList.toggle('pat',!!hit);
+    if(hit){el.style.setProperty('--pbg',`var(--p-${hit.id}-bg)`);el.style.setProperty('--pfg',`var(--p-${hit.id})`);}
+  });
+  document.getElementById('pnotes').innerHTML=PATTERNS.filter(p=>state.pats.has(p.id))
+    .map(p=>`<div class="pnote" style="--c:var(--p-${p.id})">${p.note}</div>`).join('');
+  renderActive();
+}
+
+function renderActive(){
+  const card=document.getElementById('card');
+  if(!state.active){
+    cellEls.forEach(el=>el.classList.remove('active','twin','kin','htwin'));
+    card.innerHTML=`<div class="parse">Inspect an ending</div>
+      <div class="tr">Hover over or tap any ending in the spread.</div>
+      <div class="job">You'll see its case, number, and translation, every other place the same ending appears, and whether it does the same job there or a different one.</div>`;
+    return;
+  }
+  const c=byKey[state.active];
+  const m=matches(c), diff=m.filter(o=>!sameJob(o,c)), same=m.filter(o=>sameJob(o,c)), ht=hidden(c);
+  const dK=new Set(diff.map(o=>o.key)), sK=new Set(same.map(o=>o.key)), hK=new Set(ht.map(o=>o.key));
+  cellEls.forEach(el=>{const k=el.dataset.k;
+    el.classList.toggle('active',k===c.key); el.classList.toggle('twin',dK.has(k));
+    el.classList.toggle('kin',sK.has(k)); el.classList.toggle('htwin',hK.has(k));});
+  const endTxt = c.ending===null ? (c.row.k==='acc.sg'?'same as nominative':'no fixed ending') : '-'+shown(c.ending);
+  let out=`<div class="parse">${parseName(c)} · ${c.col.decl}</div>
+    <div class="form">${c.ending===null?`<span class="var-big">${endTxt}</span>`:`<span class="en">${endTxt}</span>`}</div>
+    <div class="tr"><i>${shown(c.form)}</i>: ${english(c)}</div>
+    <div class="job">${JOBS[c.row.c]}</div>`;
+  const grouped=list=>{const g=new Map();list.forEach(o=>{if(!g.has(o.col))g.set(o.col,[]);g.get(o.col).push(o);});
+    return [...g].map(([col,os])=>`<li><b>${col.h}</b> <i>${[...new Set(os.map(o=>shown(o.form)))].join(', ')}</i>: ${os.map(o=>parseName(o).toLowerCase()).join('; ')}</li>`).join('');};
+  if(diff.length) out+=`<div class="amb-box"><h4>Same ending, different job</h4><ul>${grouped(diff)}</ul></div>`;
+  if(ht.length) out+=`<div class="amb-box hidden-twin"><h4>Only a macron away</h4><ul>${grouped(ht)}</ul></div>`;
+  if(same.length) out+=`<div class="kin-box"><h4>Same ending, same job</h4><p>${same.map(o=>`<i>${shown(o.form)}</i>`).join(', ')}</p></div>`;
+  const groups=CONFUSIONS.filter(g=>g.keys.includes(c.key));
+  const pats=PATTERNS.filter(p=>p.id!=='confuse'&&p.test(c.col,c.row));
+  if(groups.length||pats.length){
+    out+=`<div class="tip">${groups.map(g=>`<p><b>Look-alike ${g.lab}:</b> ${g.note}</p>`).join('')}${pats.length?`<p>Patterns: ${pats.map(p=>`<b style="color:var(--p-${p.id})">${p.lab}</b> (${p.txt})`).join(' · ')}</p>`:''}</div>`;
+  }
+  card.innerHTML=out;
+}
+render();
+</script>
+</body>
+</html>

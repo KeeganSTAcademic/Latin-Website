@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Present Active Indicative</title>
+<link rel="stylesheet" href="../css/grammar.css?v=202609301700">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202609301700">
+<link rel="stylesheet" href="../css/gamebar.css?v=202609301700">
+<style>
+:root{--p-third:#2B5A99; --p-third-bg:#DAE4F1; --p-iobreak:#B4471A; --p-iobreak-bg:#FADFCF; --p-io1:#3D6B3F; --p-io1-bg:#DDEBDC;}
+</style>
+</head>
+<body>
+<nav class="gamebar" aria-label="Site"><a class="gamebar-home" href="../">Latin</a><a href="../flashcards/">Flashcards</a><a href="./" aria-current="page">Grammar</a><a href="../games/">Games</a></nav>
+<div class="wrap">
+<header>
+  <h1>Present Active Indicative</h1>
+  <p class="subtitle">An interactive grammar for all four conjugations plus 3rd <i>-iō</i></p>
+  <div class="primer">
+    <span><b>Personal endings</b> <i>-ō, -s, -t, -mus, -tis, -nt</i></span>
+    <span><b>Stem vowels</b> <i>ā · ē · e/i/u · ī</i></span>
+    <span>Hover any form to see what it means and how it's built</span>
+  </div>
+</header>
+
+<section id="background" class="bg">
+  <details class="fold">
+    <summary>What is a conjugation?</summary>
+  <div class="prose">
+    <p>Latin verbs change their endings to show <strong>who</strong> is doing the action. The ending does the job of an English pronoun: <i>ama<b>t</b></i> already means "he (or she, or it) is loving," so Latin often leaves the subject out.</p>
+    <p>A <strong>conjugation</strong> is a family of verbs that share a <strong>stem vowel</strong>. You find it in the infinitive, the second word in the dictionary entry: drop the <i>-re</i> and look at the vowel that's left (A&amp;G §§171, 175).</p>
+  </div>
+  <div class="conj-box">
+  <table class="rule-table conj-table">
+    <thead><tr><th>Conjugation</th><th>Dictionary entry</th><th>Stem vowel</th><th>How to spot it</th></tr></thead>
+    <tbody>
+      <tr><td>1st</td><td><i>amō, amāre</i> love</td><td><b>ā</b></td><td>infinitive in <i>-āre</i></td></tr>
+      <tr><td>2nd</td><td><i>moneō, monēre</i> warn</td><td><b>ē</b></td><td><i>-eō</i> and <i>-ēre</i></td></tr>
+      <tr><td>3rd</td><td><i>regō, regere</i> rule</td><td><b>e</b> (short; <i>i</i> or <i>u</i> in the forms)</td><td>infinitive in short <i>-ere</i></td></tr>
+      <tr><td>3rd <i>-iō</i></td><td><i>capiō, capere</i> take</td><td><b>e</b> (short), with an <i>i</i></td><td><i>-iō</i> and short <i>-ere</i></td></tr>
+      <tr><td>4th</td><td><i>audiō, audīre</i> hear</td><td><b>ī</b></td><td><i>-iō</i> and <i>-īre</i></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="aside"><strong>Tip:</strong> <i>-eō</i> always means 2nd conjugation. <i>-iō</i> could be 3rd <i>-iō</i> or 4th, so check the infinitive: <i>capere</i> (short <i>e</i>) vs. <i>audīre</i> (long <i>ī</i>).</p>
+  </details>
+  <details class="fold">
+    <summary>Personal endings &amp; what the present means</summary>
+  <div class="cases-box">
+  <table class="cases">
+    <thead><tr><th>Person</th><th>Ending</th><th>English subject</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>1st singular</td><td><b>-ō</b> (or <b>-m</b>)</td><td>I</td><td><i>amō</i> I am loving · <i>sum</i> I am</td></tr>
+      <tr><td>2nd singular</td><td><b>-s</b></td><td>you</td><td><i>amās</i> you are loving</td></tr>
+      <tr><td>3rd singular</td><td><b>-t</b></td><td>he, she, it</td><td><i>amat</i> he/she/it is loving</td></tr>
+      <tr><td>1st plural</td><td><b>-mus</b></td><td>we</td><td><i>amāmus</i> we are loving</td></tr>
+      <tr><td>2nd plural</td><td><b>-tis</b></td><td>you (all)</td><td><i>amātis</i> you all are loving</td></tr>
+      <tr><td>3rd plural</td><td><b>-nt</b></td><td>they</td><td><i>amant</i> they are loving</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="aside"><strong>What the present means.</strong> The present tense describes an action that is going on right now. At heart, <i>amat</i> means "she is loving." English often uses its simple present for the same idea, so <i>amat</i> can also be translated "she loves." Choose whichever sounds natural in the sentence. (A&amp;G §163)</p>
+  </details>
+</section>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-en" aria-pressed="false">Show English</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+    <div class="legend">
+      <span><i class="lg a"></i>form you're inspecting</span>
+      <span><i class="lg v"></i>stem vowel</span>
+    </div>
+  </div>
+
+  <div class="work">
+    <div class="charts-col" id="charts-col">
+      <div class="charts three-up" id="charts-grid"></div>
+
+      <details class="er" id="er">
+        <summary>Irregular: <i>sum, esse</i> (to be)</summary>
+        <div class="prose"><p>The most common verb in Latin doesn't belong to any conjugation, but its endings are the same personal endings you see above, with <i>-m</i> instead of <i>-ō</i> for "I." Learn it early: you'll need it for sentences like <i>puella est bona</i>.</p></div>
+        <div class="charts one-up" id="er-grid"></div>
+      </details>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Personal endings, the four conjugations, the present stem, and 3rd conjugation <i>-iō</i> verbs follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§163, 171, 174–176, 188, in the Dickinson College Commentaries online edition:
+  <a href="https://dcc.dickinson.edu/grammar/latin/personal-endings" target="_blank" rel="noopener">Personal Endings</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/four-conjugations" target="_blank" rel="noopener">The Four Conjugations</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/present-stem" target="_blank" rel="noopener">The Present Stem</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/3rd-conjugation-io-verbs" target="_blank" rel="noopener">3rd Conjugation -iō Verbs</a>.</p>
+</footer>
+</div>
+
+<script>
+const PERSONS = [
+  {k:'1sg',p:'1st',n:'sg',sub:'I'},{k:'2sg',p:'2nd',n:'sg',sub:'you'},{k:'3sg',p:'3rd',n:'sg',sub:'he/she/it'},
+  {k:'1pl',p:'1st',n:'pl',sub:'we'},{k:'2pl',p:'2nd',n:'pl',sub:'you (all)'},{k:'3pl',p:'3rd',n:'pl',sub:'they'}
+];
+const ROWS = ['1st','2nd','3rd'];
+
+// forms: [root, stem vowel, personal ending] in PERSONS order
+const VERBS = [
+  {id:'amo', dict:'amō, amāre', conj:'1st conjugation', short:'1st', en:['love','loves','loving'],
+   f:[['am','','ō'],['am','ā','s'],['am','a','t'],['am','ā','mus'],['am','ā','tis'],['am','a','nt']]},
+  {id:'moneo', dict:'moneō, monēre', conj:'2nd conjugation', short:'2nd', en:['warn','warns','warning'],
+   f:[['mon','e','ō'],['mon','ē','s'],['mon','e','t'],['mon','ē','mus'],['mon','ē','tis'],['mon','e','nt']]},
+  {id:'rego', dict:'regō, regere', conj:'3rd conjugation', short:'3rd', en:['rule','rules','ruling'],
+   f:[['reg','','ō'],['reg','i','s'],['reg','i','t'],['reg','i','mus'],['reg','i','tis'],['reg','u','nt']]},
+  {id:'capio', dict:'capiō, capere', conj:'3rd conjugation -iō', short:'3rd -iō', en:['take','takes','taking'],
+   f:[['cap','i','ō'],['cap','i','s'],['cap','i','t'],['cap','i','mus'],['cap','i','tis'],['cap','iu','nt']]},
+  {id:'audio', dict:'audiō, audīre', conj:'4th conjugation', short:'4th', en:['hear','hears','hearing'],
+   f:[['aud','i','ō'],['aud','ī','s'],['aud','i','t'],['aud','ī','mus'],['aud','ī','tis'],['aud','iu','nt']]},
+  {id:'sum', extra:true, dict:'sum, esse', conj:'irregular', short:'irregular', en:null,
+   eng:['I am','you are','he/she/it is','we are','you (all) are','they are'],
+   f:[['su','','m'],['e','','s'],['es','','t'],['su','','mus'],['es','','tis'],['su','','nt']]}
+];
+
+const PATTERNS = [
+  {id:'third', lab:'e → i, u', txt:'3rd conjugation stem vowel', part:'vw', test:c=>c.verb.id==='rego',
+   note:'<b>The 3rd conjugation\'s stem vowel e becomes i in most forms and u before -nt.</b> The 1st, 2nd, and 4th keep the same stem vowel throughout (<i>amā-, monē-, audī-</i>). The 3rd\'s stem vowel is an <i>e</i> (seen in <i>regere</i>) that turns into <i>i</i> in most forms (<i>regis, regit, regimus, regitis</i>), into <i>u</i> before <i>-nt</i> (<i>regunt</i>), and drops out entirely in <i>regō</i>.'},
+  {id:'iobreak', lab:'capiō, capiunt', txt:'3rd -iō keeps its i', part:'vwen', test:c=>c.verb.id==='capio'&&['1sg','3pl'].includes(c.p.k),
+   note:'<b>3rd -iō verbs keep an i before -ō and -unt.</b> A normal 3rd conjugation verb has <i>regō</i> and <i>regunt</i>, but <i>capiō</i> keeps an <i>i</i> in exactly these two forms: <i>capiō, capiunt</i>, like a 4th conjugation verb (<i>audiō, audiunt</i>). Everywhere else it behaves like <i>regō</i> (A&amp;G §188).'},
+  {id:'io1', lab:'capi-ō, audi-ō', txt:'the i is stem, the ending is -ō', part:'vwen', test:c=>['capio','audio'].includes(c.verb.id)&&c.p.k==='1sg',
+   note:'<b>In capiō and audiō the ending is just -ō; the i belongs to the stem.</b> Read them as <i>capi-ō</i> and <i>audi-ō</i>, not as a stem plus an ending <i>-iō</i>. So <i>-iō</i> isn\'t a special "I" ending, and you can\'t get <i>capiō</i> by putting <i>-ō</i> on the infinitive: <i>capere</i> has no <i>i</i> at all, while <i>capiō</i> does.'},
+];
+
+const NOTES = {
+  'amo.1sg':'<i>amō</i>: the <i>a</i> of <i>amāre</i> merges into the <i>-ō</i>, so a 1st conjugation verb shows no <i>a</i> in the "I" form.',
+  'moneo.1sg':'<i>moneō</i> keeps its <i>e</i>: <i>-eō</i> always means 2nd conjugation.',
+  'moneo.3pl':'<i>monent</i>: <i>-ent</i>, not the <i>-unt</i> of the 3rd and 4th conjugations.',
+  'rego.1sg':'No stem vowel shows in <i>regō</i>. The 3rd conjugation\'s vowel appears as <i>i</i> or <i>u</i> in the other forms.',
+  'rego.2sg':'<i>regis</i>, not <i>regēs</i>. Same with <i>dīcō</i>: "you say" is <i>dīcis</i>, not <i>dīcēs</i>.',
+  'rego.3pl':'The vowel changes to <i>u</i> before <i>-nt</i>: <i>regunt</i>.',
+  'capio.1sg':'<i>capi-ō</i>: the <i>i</i> is part of the stem and the ending is just <i>-ō</i>. It looks like <i>audiō</i>, but the infinitive <i>capere</i> shows it\'s 3rd conjugation.',
+  'capio.2sg':'<i>capis</i>, exactly like <i>regis</i> (and not <i>capēs</i>).',
+  'capio.3pl':'<i>capiunt</i>: the <i>i</i> comes back before <i>-unt</i>, just as in <i>audiunt</i> (A&amp;G §188).',
+  'audio.1sg':'<i>audi-ō</i>: the <i>i</i> is the stem\'s <i>ī</i> (from <i>audīre</i>) and the ending is just <i>-ō</i>. <i>-iō</i> with an infinitive in <i>-īre</i> = 4th conjugation.',
+  'audio.3pl':'<i>audiunt</i>: <i>-iunt</i>, the same as <i>capiunt</i>.',
+  'sum.1sg':'<i>sum</i> uses <i>-m</i> for "I" instead of <i>-ō</i>. You\'ll see <i>-m</i> again in other tenses.',
+  'sum.3sg':'<i>est</i>: the <i>-t</i> of "he/she/it" is still there.',
+  'sum.3pl':'<i>sunt</i>: the <i>-nt</i> of "they."'
+};
+
+const strip = s => s.normalize('NFD').replace(/̄/g,'').normalize('NFC');
+const state = {mac:true, end:false, en:false, pats:new Set(), active:null};
+const shown = s => state.mac ? s : strip(s);
+
+const CELLS=[];
+VERBS.forEach(v=>PERSONS.forEach((p,i)=>{const [rt,vw,en]=v.f[i];
+  CELLS.push({key:`${v.id}.${p.k}`, verb:v, p, rt, vw, en, tail:vw+en, form:rt+vw+en});}));
+const byKey=Object.fromEntries(CELLS.map(c=>[c.key,c]));
+
+function english(c){
+  if(c.verb.eng) return {main:c.verb.eng[PERSONS.indexOf(c.p)], alt:''};
+  const [b,s,ing]=c.verb.en, sub=c.p.sub, third=c.p.k==='3sg';
+  const be = c.p.k==='1sg'?'am':third?'is':'are';
+  return {main:`${sub} ${third?s:b}`, alt:`${sub} ${be} ${ing}`};
+}
+const parseName = c => `${c.p.p} person ${c.p.n==='sg'?'singular':'plural'}`;
+
+// Pattern chips
+const pRow=document.getElementById('patterns');
+PATTERNS.forEach(p=>{
+  const b=document.createElement('button');
+  b.className='chip'; b.id='p-'+p.id; b.setAttribute('aria-pressed','false');
+  b.style.setProperty('--c',`var(--p-${p.id})`); b.style.setProperty('--cbg',`var(--p-${p.id}-bg)`);
+  b.innerHTML=`<span class="sw"></span><span class="l">${p.lab}</span> ${p.txt}`;
+  b.onclick=()=>{ state.pats.has(p.id)?state.pats.delete(p.id):state.pats.add(p.id); render(); };
+  pRow.appendChild(b);
+});
+const clr=document.createElement('button');
+clr.className='chip plain clear'; clr.id='p-clear'; clr.textContent='Clear';
+clr.onclick=()=>{state.pats.clear();render();};
+pRow.appendChild(clr);
+
+// Charts
+const grid=document.getElementById('charts-col');
+const mainGrid=document.getElementById('charts-grid'), erGrid=document.getElementById('er-grid');
+VERBS.forEach(v=>{
+  const box=document.createElement('div'); box.className='noun';
+  let h=`<div class="noun-h"><div class="de">${v.dict}</div><div class="meta">${v.conj}${v.en?' · '+v.en[0]:' · be'}</div></div><div class="grid"><div class="hd"></div><div class="hd">Sing.</div><div class="hd">Plur.</div>`;
+  ROWS.forEach(r=>{
+    h+=`<div class="rl">${r}</div>`;
+    ['sg','pl'].forEach(n=>{ h+=`<button class="cell" data-k="${v.id}.${r[0]}${n}" aria-label="${v.id} ${r} person ${n==='sg'?'singular':'plural'}"></button>`; });
+  });
+  box.innerHTML=h+'</div>';
+  (v.extra?erGrid:mainGrid).appendChild(box);
+});
+const cellEls=[...document.querySelectorAll('.cell')];
+cellEls.forEach(el=>{
+  const go=()=>{state.active=el.dataset.k; renderActive();};
+  const stop=()=>{ if(state.active===el.dataset.k){state.active=null; renderActive();} };
+  el.addEventListener('mouseenter',go); el.addEventListener('focus',go); el.addEventListener('click',go);
+  el.addEventListener('mouseleave',stop); el.addEventListener('blur',stop);
+});
+document.addEventListener('click',e=>{ if(!e.target.closest('.cell') && state.active){state.active=null; renderActive();} });
+
+function toggle(id,key){document.getElementById(id).onclick=()=>{state[key]=!state[key];render();};}
+toggle('t-mac','mac'); toggle('t-end','end'); toggle('t-en','en');
+
+function render(){
+  ['mac','end','en'].forEach(k=>document.getElementById('t-'+k).setAttribute('aria-pressed',state[k]));
+  grid.classList.toggle('endonly',state.end); grid.classList.toggle('showen',state.en);
+  PATTERNS.forEach(p=>document.getElementById('p-'+p.id).setAttribute('aria-pressed',state.pats.has(p.id)));
+  cellEls.forEach(el=>{
+    const c=byKey[el.dataset.k];
+    const hits=PATTERNS.filter(p=>state.pats.has(p.id)&&p.test(c));
+    const hit=hits.pop();
+    el.innerHTML=`<span class="fm"><span class="st">${shown(c.rt)}</span><span class="vw">${shown(c.vw)}</span><span class="en">${shown(c.en)}</span></span><span class="eng">${english(c).main}</span>`;
+    el.className='cell';
+    if(hit){ el.classList.add('pat','pp-'+(typeof hit.part==='function'?hit.part(c):hit.part)); el.style.setProperty('--pbg',`var(--p-${hit.id}-bg)`); el.style.setProperty('--pfg',`var(--p-${hit.id})`); }
+  });
+  document.getElementById('pnotes').innerHTML=PATTERNS.filter(p=>state.pats.has(p.id))
+    .map(p=>`<div class="pnote" style="--c:var(--p-${p.id})">${p.note}</div>`).join('');
+  renderActive();
+}
+
+function renderActive(){
+  const card=document.getElementById('card');
+  if(!state.active){
+    cellEls.forEach(el=>el.classList.remove('active'));
+    card.innerHTML=`<div class="parse">Inspect a form</div>
+      <div class="tr">Hover over or tap any form in the charts.</div>
+      <div class="job">You'll see who is doing the action, how to translate it, and how the form is built from root, stem vowel, and personal ending.</div>`;
+    return;
+  }
+  const c=byKey[state.active];
+  cellEls.forEach(el=>el.classList.toggle('active',el.dataset.k===c.key));
+  const E=english(c);
+  const parts=[`<span class="bk-st">${shown(c.rt)}-</span> root`];
+  if(c.vw) parts.push(`<span class="bk-vw">${shown(c.vw)}</span> stem vowel`);
+  parts.push(`<span class="bk-en">-${shown(c.en)}</span> "${c.p.sub}"`);
+  let out=`<div class="parse">${parseName(c)} · ${c.verb.dict}</div>
+    <div class="form"><span>${shown(c.rt)}</span><span class="vwb">${shown(c.vw)}</span><span class="en">${shown(c.en)}</span></div>
+    <div class="tr">${E.main}</div>
+    ${E.alt?`<div class="job">also: ${E.alt} (the ongoing sense)</div>`:''}
+    <div class="breakdown">${parts.join(' <span class="plus">+</span> ')}</div>`;
+  const note=NOTES[c.key], pats=PATTERNS.filter(p=>p.test(c));
+  if(note||pats.length) out+=`<div class="tip">${note?`<p>${note}</p>`:''}${pats.length?`<p>Patterns: ${pats.map(p=>`<b style="color:var(--p-${p.id})">${p.lab}</b> (${p.txt})`).join(' · ')}</p>`:''}</div>`;
+  card.innerHTML=out;
+}
+render();
+</script>
+</body>
+</html>
