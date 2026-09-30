@@ -138,3 +138,26 @@
 .fc-srs-start .btn{display:inline-block;text-decoration:none}
 .fc-srs-start p{margin:0}
 @media (min-width:980px){ #picker .fc-srs-start{max-width:760px;margin-left:auto;margin-right:auto} }
+
+/* search: deck list and player */
+.fc-search{margin:6px 0 4px}
+.fc-search input,.fc-q{width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--surface);border:1px solid var(--rule2);border-radius:var(--radius);padding:10px 14px}
+.fc-search input:focus,.fc-q:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.fc-q{font-size:16px;padding:6px 10px;border-radius:8px}
+.fc-row .fc-q{flex:1;min-width:10rem}
+.fc-results{margin:10px 0 6px;display:grid;gap:10px}
+.fc-results[hidden]{display:none}
+.fc-results .deck-group{margin:10px 0 0}
+.fc-results > .fc-sub{margin:0}
+.fc-hitdeck{padding:12px 16px}
+.fc-hithead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;text-decoration:none;color:var(--ink)}
+.fc-hithead span{color:var(--accent);font-size:15px;white-space:nowrap}
+.fc-hithead:hover span{text-decoration:underline}
+.fc-hits{list-style:none;padding:0;margin:6px 0 0;font-size:17px;line-height:1.5}
+.fc-hits .la{font-style:italic;color:var(--accent)}
+.fc-hits .ps{color:var(--muted);font-size:15px}
+.fc-hitdeck > .fc-sub{margin:2px 0 0;font-size:15px}
+@media (min-width:980px){
+  #picker .fc-search,#picker .fc-results{max-width:760px;margin-left:auto;margin-right:auto}
+  .fc-results{grid-template-columns:1fr}
+}

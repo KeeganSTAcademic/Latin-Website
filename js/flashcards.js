@@ -23,9 +23,25 @@
     el.addEventListener("toggle", () => store.set(k, el.open));
   }
 
+  // Search ignores macrons and case: "fero" finds ferō. Every word of the query must appear.
+  const fold = x => String(x ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  const terms = q => fold(q).split(/[^a-z0-9]+/).filter(Boolean);
+  // Each query word must start a word on the card, so "war" finds war and warfare but not toward
+  const haystack = c => c._hay || (c._hay = " " + fold([c.la, c.en, c.pp, c.parse, c.pn, c.tl, c.lemma, c.gloss, c.tag].filter(Boolean).join(" ")).replace(/[^a-z0-9]+/g, " "));
+  const matches = (c, ts) => ts.every(t => haystack(c).includes(" " + t));
+  // Best matches first: the Latin starts with the query, then a Latin word does, then an English word does
+  function score(c, q){
+    const la = fold(c.la), en = fold(c.en), words = s => s.split(/[\s,;()/.\-]+/);
+    if(la === q || la.startsWith(q + " ") || la.startsWith(q + ",")) return 0;
+    if(la.startsWith(q)) return 1;
+    if(words(la).some(w => w.startsWith(q))) return 2;
+    if(words(en).includes(q)) return 3;
+    if(words(en).some(w => w.startsWith(q))) return 4;
+    return 5;
+  }
+
   /* ---------- entry ---------- */
-  const id = param("deck");
-  if(param("review") === "all") loadAllReview(); else if(id) loadDeck(id); else showPicker();
+  // (started at the bottom of this file, once every helper is defined)
 
   async function showPicker(){
     $("player").hidden = true; $("picker").hidden = false;
@@ -45,6 +61,7 @@
       remember($("srs-panel"), "progress", false);
       wireProgressPanel();
       showDueCounts(decks);
+      wireSearch(decks, secs);
     }catch(e){ $("deck-groups").innerHTML = `<p class="callout">Couldn't load the deck list. (${esc(e.message)})</p>`; }
   }
 
@@ -71,6 +88,53 @@
     $("srs-idle").hidden = !!total;
     $("srs-idle").textContent = Object.keys(db.cards).length ? "Nothing due today. Open a deck to learn new cards." : "Open any deck to start: it uses spaced repetition, so each card comes back just before you'd forget it.";
     $("srs-stats").textContent = `${Object.keys(db.cards).length} cards studied with spaced repetition on this device.`;
+  }
+
+  /* Search on the deck list: narrows the decks by title and lists matching words from every deck */
+  function wireSearch(entries, secs){
+    const box = $("search"), out = $("search-results");
+    let all = null, timer = null, before = null;
+    // every deck file once, on the first search
+    const loadAll = () => all || (all = Promise.all([...new Set(entries.map(e => e.id))].map(id =>
+      loadJSON(DATA+encodeURIComponent(id)+".json").catch(() => null))).then(ds => ds.filter(Boolean)));
+    async function run(){
+      const raw = box.value.trim(), q = fold(raw), ts = terms(raw);
+      if(!ts.length){
+        out.hidden = true; out.innerHTML = "";
+        document.querySelectorAll(".deck-list li").forEach(li => li.hidden = false);
+        secs.forEach((d, j) => { d.hidden = false; if(before) d.open = before[j]; });
+        before = null; return;
+      }
+      if(!before) before = secs.map(d => d.open);
+      // decks whose name (or group) matches
+      secs.forEach(d => {
+        const course = fold(d.dataset.course); let any = false;
+        d.querySelectorAll("li").forEach(li => { const hit = ts.every(t => (course + " " + fold(li.textContent)).includes(t)); li.hidden = !hit; any = any || hit; });
+        d.hidden = !any; if(any) d.open = true;
+      });
+      const nDecks = secs.reduce((n, d) => n + d.querySelectorAll("li:not([hidden])").length, 0);
+      // words from every deck, grouped by deck
+      out.hidden = false; out.innerHTML = '<p class="fc-sub">Searching…</p>';
+      const decks = await loadAll();
+      if(box.value.trim() !== raw) return;          // the student kept typing
+      const groups = decks.map(d => {
+        const hits = d.cards.filter(c => matches(c, ts)).map(c => ({ c, s: score(c, q) })).sort((a, b) => a.s - b.s);
+        return { d, hits, best: hits.length ? hits[0].s : 9 };
+      }).filter(g => g.hits.length).sort((a, b) => a.best - b.best || a.hits.length - b.hits.length);
+      const total = groups.reduce((n, g) => n + g.hits.length, 0);
+      const link = d => `?deck=${encodeURIComponent(d.id)}&q=${encodeURIComponent(raw)}&study=practice`;
+      const line = c => `<li><span class="la" lang="la">${esc(c.la)}</span> <span class="en">${esc(c.en)}</span>` +
+        ((c.pn || c.tl || c.parse) ? ` <span class="ps">${esc(c.parse || [c.pn, c.tl].filter(Boolean).join(", "))}</span>` : "") + `</li>`;
+      out.innerHTML = `<h2 class="label deck-group">Words</h2>` + (groups.length
+        ? `<p class="fc-sub">${total} card${total > 1 ? "s" : ""} in ${groups.length} deck${groups.length > 1 ? "s" : ""}${nDecks ? "" : " · no deck names match"}</p>` +
+          groups.map(g => `<div class="panel fc-hitdeck"><a class="fc-hithead" href="${link(g.d)}"><b>${esc(g.d.title)}</b><span>${g.hits.length > 1 ? `study these ${g.hits.length} cards →` : "study this card →"}</span></a>` +
+            `<ul class="fc-hits">${g.hits.slice(0, 5).map(h => line(h.c)).join("")}</ul>` +
+            (g.hits.length > 5 ? `<p class="fc-sub">and ${g.hits.length - 5} more</p>` : "") + `</div>`).join("")
+        : `<p class="fc-sub">No cards contain “${esc(raw)}”.${nDecks ? "" : " No deck names match either."}</p>`);
+    }
+    box.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(run, 180); });
+    box.addEventListener("keydown", e => { if(e.key === "Escape"){ box.value = ""; run(); } });
+    if(box.value) run();                            // the browser kept the text after Back
   }
 
   // Export / import / reset of this browser's review history
@@ -111,6 +175,7 @@
 
     // grammar note and paradigm tables are written by us, so they're inserted as HTML
     if(deck.intro){ $("intro-body").innerHTML = deck.intro; $("intro").hidden = false; }
+    if(deck.introTitle) $("intro").querySelector("summary").textContent = deck.introTitle;
     if(deck.paradigm){ $("paradigms").hidden = false; $("paradigm-note").innerHTML = deck.paradigmNote || ""; }
 
     deck.cards.forEach((c, i) => c._i = i);
@@ -133,6 +198,9 @@
       const want = q.split(","), vals = f.values.map(v => v.v).filter(v => want.includes(String(v)));
       if(vals.length){ st.sel[f.field] = new Set(vals); st.preset = true; }
     });
+    // a search from the deck list: every card that matches, whatever this deck's saved filters are (never saved)
+    st.q = param("q") || "";
+    if(st.q){ deck.filters.forEach(f => { if(!param(f.field)) st.sel[f.field] = new Set(f.values.map(v => v.v)); }); st.preset = true; }
     const m = param("mode"); if(m && deck.modes.includes(m)){ st.mode = m; st.preset = true; }
     st.study = param("study") || store.get("fc:study:"+deck.id, "review");   // spaced repetition by default
 
@@ -206,7 +274,8 @@
 
   function currentDeck(){
     if(st.all) return st.pool;
-    return deck.cards.filter(c => passes(c, deck.filters) && (st.mode !== "pp" || c.pp));
+    const ts = terms(st.q);
+    return deck.cards.filter(c => passes(c, deck.filters) && (st.mode !== "pp" || c.pp) && (!ts.length || matches(c, ts)));
   }
 
   /* ---------- controls ---------- */
@@ -214,10 +283,21 @@
     const box = $("controls"); box.innerHTML = "";
     const row = (key, label) => { const r = document.createElement("div"); r.className = "fc-row"; r.id = "row-"+key;
       r.innerHTML = `<span class="label">${esc(label)}</span>`; box.appendChild(r); };
+    if(!st.all) row("search", "Search");
     if(!st.all) row("study", "Study");
     if(deck.modes.length > 1) row("mode", "Mode");
     deck.filters.forEach(f => { if(!st.hidden.has(f.field)) row(f.field, f.label); });
     row("timer", "Timer");
+    if(!st.all){
+      // search this deck: Latin, English, principal parts or parse
+      const inp = document.createElement("input");
+      inp.type = "search"; inp.id = "fc-q"; inp.className = "fc-q"; inp.value = st.q;
+      inp.placeholder = "Latin or English"; inp.setAttribute("aria-label", "Search this deck");
+      let t = null;
+      inp.addEventListener("input", () => { clearTimeout(t); t = setTimeout(() => { st.q = inp.value.trim(); reset(); }, 200); });
+      inp.addEventListener("keydown", e => { if(e.key === "Escape" && inp.value){ inp.value = ""; st.q = ""; reset(); } });
+      $("row-search").appendChild(inp);
+    }
   }
 
   function renderControls(){
@@ -259,6 +339,7 @@
       parts.push(labels.length > 2 ? `${f.label}: ${labels.length} chosen` : labels.join(", "));
     });
     if(st.timer) parts.push(`${st.timer} s timer`);
+    if(st.q) parts.push(`“${st.q}”`);
     $("settings-summary").textContent = parts.join(" · ");
   }
 
@@ -333,7 +414,7 @@
     card.classList.toggle("flipped", st.flipped);
     if(!d.length){
       showButtons(null);
-      $("front").innerHTML = '<p class="fc-empty">No cards match these filters.</p>'; $("back").innerHTML = ""; return;
+      $("front").innerHTML = `<p class="fc-empty">${st.q ? `No cards match “${esc(st.q)}” with these settings.` : "No cards match these filters."}</p>`; $("back").innerHTML = ""; return;
     }
     const c = d[st.i], dk = deckOf(c), m = dk.meta || { front:["",""], back:["",""] };
     showButtons(c);
@@ -509,4 +590,7 @@
     // don't let the timer run out while the tab is hidden
     document.addEventListener("visibilitychange", () => { if(document.hidden) stopTimer(); else if(st.timer && !st.flipped && !st.finished) render(); });
   }
+
+  const id = param("deck");
+  if(param("review") === "all") loadAllReview(); else if(id) loadDeck(id); else showPicker();
 })();

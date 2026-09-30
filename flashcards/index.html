@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap">
-<link rel="stylesheet" href="../css/site.css">
-<link rel="stylesheet" href="../css/flashcards.css">
+<link rel="stylesheet" href="../css/site.css?v=202609301140">
+<link rel="stylesheet" href="../css/flashcards.css?v=202609301140">
 </head>
 <body>
 <nav class="sitenav">
@@ -39,6 +39,10 @@
       <input type="file" id="srs-file" accept=".json,application/json" hidden>
       <p class="fc-sub" id="srs-msg" role="status"></p>
     </details>
+    <div class="fc-search">
+      <input type="search" id="search" placeholder="Search decks and words: Latin or English" aria-label="Search decks and words" autocomplete="off">
+    </div>
+    <div id="search-results" class="fc-results" hidden></div>
     <p class="fc-sub fc-allgroups"><button type="button" class="linkbtn" id="expand-all">Expand all</button> · <button type="button" class="linkbtn" id="collapse-all">Collapse all</button></p>
     <div id="deck-groups"></div>
   </section>
@@ -112,8 +116,8 @@
   </section>
 </main>
 
-<script src="../js/common.js"></script>
-<script src="../js/srs.js"></script>
-<script src="../js/flashcards.js"></script>
+<script src="../js/common.js?v=202609301140"></script>
+<script src="../js/srs.js?v=202609301140"></script>
+<script src="../js/flashcards.js?v=202609301140"></script>
 </body>
 </html>

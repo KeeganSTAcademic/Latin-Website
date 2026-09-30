@@ -12,6 +12,12 @@
   "count": 120
  },
  {
+  "id": "dcc-core",
+  "title": "DCC Latin Core Vocabulary (1–1000)",
+  "course": "Latin IV",
+  "count": 997
+ },
+ {
   "id": "noun-declensions",
   "title": "Noun Declensions",
   "course": "Nouns",
