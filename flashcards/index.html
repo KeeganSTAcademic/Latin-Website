@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
-<link rel="stylesheet" href="../css/site.css?v=202610011400">
-<link rel="stylesheet" href="../css/flashcards.css?v=202610011400">
+<link rel="stylesheet" href="../css/site.css?v=202610011900">
+<link rel="stylesheet" href="../css/flashcards.css?v=202610011900">
 </head>
 <body>
 
@@ -19,6 +19,7 @@
       <h1>Flashcards</h1>
       <p class="subtitle">Choose a deck</p>
     </header>
+    <div class="level-switch" id="level-switch"></div>
     <div class="panel fc-srs-start">
       <a class="btn primary" id="srs-start" href="?review=all" hidden>Spaced repetition: <span id="srs-start-n"></span> due today, from all decks →</a>
       <p class="fc-sub" id="srs-idle"></p>
@@ -41,6 +42,7 @@
     <div id="search-results" class="fc-results" hidden></div>
     <p class="fc-sub fc-allgroups"><button type="button" class="linkbtn" id="expand-all">Expand all</button> · <button type="button" class="linkbtn" id="collapse-all">Collapse all</button></p>
     <div id="deck-groups"></div>
+    <p class="level-empty" id="level-empty" hidden>No decks for this level yet.</p>
   </section>
 
   <!-- Player -->
@@ -112,8 +114,9 @@
   </section>
 </main>
 
-<script src="../js/common.js?v=202610011400"></script>
-<script src="../js/srs.js?v=202610011400"></script>
-<script src="../js/flashcards.js?v=202610011400"></script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/srs.js?v=202610011900"></script>
+<script src="../js/levels.js?v=202610011900"></script>
+<script src="../js/flashcards.js?v=202610011900"></script>
 </body>
 </html>

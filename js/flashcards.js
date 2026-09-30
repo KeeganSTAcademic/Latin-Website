@@ -5,7 +5,7 @@
    Page: flashcards/index.html?deck=<id>
    ========================================================= */
 (function(){
-  const { $, esc, shuffle, store, param, loadJSON, chip, srs } = window.Site;
+  const { $, esc, shuffle, store, param, loadJSON, chip, srs, levels } = window.Site;
   const DATA = "../data/decks/";
 
   const MODE_LABELS = { le:"Latin → English", el:"English → Latin", pp:"Principal parts" };
@@ -47,15 +47,17 @@
     $("player").hidden = true; $("picker").hidden = false;
     document.title = "Flashcards";
     try{
-      const decks = await loadJSON(DATA+"index.json");
+      const [decks] = await Promise.all([loadJSON(DATA+"index.json"), levels.load("../")]);
       const groups = {};
       decks.forEach(d => (groups[d.course] = groups[d.course] || []).push(d));
       $("deck-groups").innerHTML = Object.entries(groups).map(([course, ds]) =>
         `<details class="deck-sec" data-course="${esc(course)}"><summary><h2 class="label deck-group">${esc(course)}</h2><span class="deck-sec-n">${ds.length} deck${ds.length > 1 ? "s" : ""}</span></summary><ul class="deck-list">` +
-        ds.map((d, j) => `<li><a class="panel" href="?deck=${encodeURIComponent(d.id)}${d.view ? "&view="+encodeURIComponent(d.view) : ""}"><span class="t">${esc(d.title)}</span><span class="n"><span class="due" data-entry="${decks.indexOf(d)}" hidden></span>${d.count} cards</span></a></li>`).join("") +
+        ds.map((d, j) => { const href = `?deck=${encodeURIComponent(d.id)}${d.view ? "&view="+encodeURIComponent(d.view) : ""}`; return `<li data-id="${esc(d.id)}" data-view="${esc(d.view || "")}"><a class="panel" data-href="${href}" href="${href}"><span class="t">${esc(d.title)}</span><span class="n"><span class="due" data-entry="${decks.indexOf(d)}" hidden></span>${d.count} cards</span></a></li>`; }).join("") +
         `</ul></details>`).join("");
       const secs = [...document.querySelectorAll(".deck-sec")];
       secs.forEach(d => remember(d, "group:" + d.dataset.course, true));
+      levels.render($("level-switch"), () => { applyVis(secs); $("search").dispatchEvent(new Event("input")); });
+      applyVis(secs);
       $("expand-all").onclick = () => secs.forEach(d => d.open = true);
       $("collapse-all").onclick = () => secs.forEach(d => d.open = false);
       remember($("srs-panel"), "progress", false);
@@ -90,6 +92,26 @@
     $("srs-stats").textContent = `${Object.keys(db.cards).length} cards studied with spaced repetition on this device.`;
   }
 
+  /* Level switcher (js/levels.js, data/levels.json) and search both hide decks on the list.
+     A deck shows when it's in the chosen level and (while searching) matches the search. */
+  const levelKeys = li => [li.dataset.view && li.dataset.id + "/" + li.dataset.view, li.dataset.id];
+  const inLevel = li => levels.shows("flashcards", levelKeys(li));
+  function applyVis(secs){
+    secs.forEach(sec => {
+      let n = 0;
+      sec.querySelectorAll("li").forEach(li => {
+        li.hidden = !inLevel(li) || li.dataset.q === "0"; if(!li.hidden) n++;
+        // at a lower level some decks open narrowed to what that level has covered (e.g. indicative only)
+        const a = li.querySelector("a"), extra = levels.linkExtra("flashcards", levelKeys(li));
+        a.href = a.dataset.href + (extra ? "&" + extra : "");
+      });
+      sec.hidden = !n;
+      sec.querySelector(".deck-sec-n").textContent = `${n} deck${n === 1 ? "" : "s"}`;
+    });
+    const none = !document.querySelector(".deck-list li:not([hidden])");
+    $("level-empty").hidden = !none || !!$("search").value.trim();
+  }
+
   /* Search on the deck list: narrows the decks by title and lists matching words from every deck */
   function wireSearch(entries, secs){
     const box = $("search"), out = $("search-results");
@@ -101,23 +123,26 @@
       const raw = box.value.trim(), q = fold(raw), ts = terms(raw);
       if(!ts.length){
         out.hidden = true; out.innerHTML = "";
-        document.querySelectorAll(".deck-list li").forEach(li => li.hidden = false);
-        secs.forEach((d, j) => { d.hidden = false; if(before) d.open = before[j]; });
+        document.querySelectorAll(".deck-list li").forEach(li => delete li.dataset.q);
+        secs.forEach((d, j) => { if(before) d.open = before[j]; });
+        applyVis(secs);
         before = null; return;
       }
       if(!before) before = secs.map(d => d.open);
       // decks whose name (or group) matches
       secs.forEach(d => {
         const course = fold(d.dataset.course); let any = false;
-        d.querySelectorAll("li").forEach(li => { const hit = ts.every(t => (course + " " + fold(li.textContent)).includes(t)); li.hidden = !hit; any = any || hit; });
-        d.hidden = !any; if(any) d.open = true;
+        d.querySelectorAll("li").forEach(li => { const hit = ts.every(t => (course + " " + fold(li.textContent)).includes(t)); li.dataset.q = hit ? "1" : "0"; any = any || (hit && inLevel(li)); });
+        if(any) d.open = true;
       });
+      applyVis(secs);
       const nDecks = secs.reduce((n, d) => n + d.querySelectorAll("li:not([hidden])").length, 0);
       // words from every deck, grouped by deck
       out.hidden = false; out.innerHTML = '<p class="fc-sub">Searching…</p>';
       const decks = await loadAll();
       if(box.value.trim() !== raw) return;          // the student kept typing
-      const groups = decks.map(d => {
+      const levelIds = new Set([...document.querySelectorAll(".deck-list li")].filter(inLevel).map(li => li.dataset.id));
+      const groups = decks.filter(d => levelIds.has(d.id)).map(d => {
         const hits = d.cards.filter(c => matches(c, ts)).map(c => ({ c, s: score(c, q) })).sort((a, b) => a.s - b.s);
         return { d, hits, best: hits.length ? hits[0].s : 9 };
       }).filter(g => g.hits.length).sort((a, b) => a.best - b.best || a.hits.length - b.hits.length);

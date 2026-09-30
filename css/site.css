@@ -91,3 +91,8 @@ kbd{font-family:var(--font);font-size:1rem;border:1px solid var(--rule2);border-
 .site-foot{max-width:760px;margin:24px auto 0;padding:14px 0 32px;border-top:1px solid var(--rule);color:var(--muted);font-size:1rem}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation-duration:0s!important}}
+
+/* ===== Level switcher (lists of decks, grammar pages, games) ===== */
+.level-switch{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;margin:0 0 18px}
+.level-switch .label{margin-right:6px}
+.level-empty{color:var(--muted);text-align:center}

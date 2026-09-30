@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
-<link rel="stylesheet" href="../css/site.css?v=202610011400">
-<link rel="stylesheet" href="../css/flashcards.css?v=202610011400">
+<link rel="stylesheet" href="../css/site.css?v=202610011900">
+<link rel="stylesheet" href="../css/flashcards.css?v=202610011900">
 </head>
 <body>
 <main class="wrap">
@@ -16,9 +16,11 @@
     <h1>Grammar</h1>
     <p class="subtitle">Interactive charts: hover any form to see what it is and what it could be mistaken for</p>
   </header>
-  <div id="page-list" data-src="../data/grammar.json" data-what="grammar pages"></div>
+  <div class="level-switch" id="level-switch"></div>
+  <div id="page-list" data-section="grammar" data-src="../data/grammar.json" data-what="grammar pages"></div>
 </main>
-<script src="../js/common.js?v=202610011400"></script>
-<script src="../js/pagelist.js?v=202610011400"></script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/levels.js?v=202610011900"></script>
+<script src="../js/pagelist.js?v=202610011900"></script>
 </body>
 </html>

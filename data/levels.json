@@ -1,0 +1,62 @@
+{
+ "_about": "The level switcher at the top of the flashcard, grammar and game lists. Each item has the level where it is first taught (1 = Latin I … 4 = Latin IV); choosing a level shows everything up to and including it, so Latin II shows Latin I and II content. Flashcard keys are deck ids, or deck/view for one view of a deck. A deck can also narrow itself at lower levels with 'links': the extra link settings used at that level (same as a link preset, e.g. mood=ind). Anything not listed shows at every level.",
+ "levels": ["Latin I", "Latin II", "Latin III", "Latin IV"],
+ "flashcards": {
+  "noun-declensions": 1,
+  "present-active": 1,
+  "imperatives-infinitives/imp-act": 1,
+  "imperatives-infinitives/imp-pass": 1,
+  "imperatives-infinitives/inf-pres": 1,
+  "sum": { "level": 1, "links": { "1": "mood=ind,imp,nf&tense=pres", "2": "mood=ind,imp,nf" } },
+
+  "latin2-vocab": 2,
+  "imperfect-active": 2,
+  "future-active": 2,
+  "perfect-active": 2,
+  "pluperfect-active": 2,
+  "future-perfect-active": 2,
+  "present-passive": 2,
+  "imperfect-passive": 2,
+  "future-passive": 2,
+  "incomplete-passive": 2,
+  "perfect-passive": 2,
+  "pluperfect-passive": 2,
+  "future-perfect-passive": 2,
+  "complete-passive": 2,
+  "irregular-verbs": { "level": 1, "links": { "1": "mood=ind,imp,inf&tense=pres&voice=act", "2": "mood=ind,imp,inf" } },
+  "adjective-degrees": 2,
+  "participles/pres": 2,
+  "participles/perf": 2,
+  "participles": { "level": 2, "links": { "2": "part=pres,perf" } },
+  "imperatives-infinitives/inf-perf": 2,
+  "imperatives-infinitives/inf-fut": 2,
+  "imperatives-infinitives": 2,
+
+  "latin3-vocab": 3,
+  "present-subjunctive": 3,
+  "imperfect-subjunctive": 3,
+  "perfect-subjunctive": 3,
+  "pluperfect-subjunctive": 3,
+  "participles/fut": 3,
+  "participles/ger": 3,
+
+  "dcc-core": 4
+ },
+ "grammar": {
+  "first-second-declension": 1,
+  "third-declension": 1,
+  "fourth-declension": 1,
+  "fifth-declension": 1,
+  "declensions-overview": 1,
+  "case-usages": 1,
+  "present-active": 1,
+  "imperfect-active": 2
+ },
+ "games": {
+  "first-letters": 1,
+  "restore-the-archive": 1,
+  "arena-latin-2": 2,
+  "arena-latin-3": 3,
+  "haruspex": 3
+ }
+}
