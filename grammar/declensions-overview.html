@@ -4,23 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Overview: The Five Declensions</title>
-<link rel="stylesheet" href="../css/grammar.css?v=202609301700">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610011400">
 <style>
-:root{--p-accsg:#9A2F68; --p-accsg-bg:#F4DDE9; --p-ablsg:#5E3F9E; --p-ablsg-bg:#E6DEF3; --p-datsg:#3D6B3F; --p-datsg-bg:#DDEBDC; --p-accpl:#1E6E66; --p-accpl-bg:#D6EAE5; --p-nomaccpl:#4E5B6A; --p-nomaccpl-bg:#E1E5EA; --p-neut:#8A5327; --p-neut-bg:#F0E0CF; --p-datablpl:#2B5A99; --p-datablpl-bg:#DAE4F1; --p-genpl:#8E6412; --p-genpl-bg:#F3E6C6; --p-confuse:#B4471A; --p-confuse-bg:#FADFCF; --card-h:760px;}
+:root{--p-accsg:#7F2756; --p-accsg-bg:#F4DDE9; --p-ablsg:#52378A; --p-ablsg-bg:#E6DEF3; --p-datsg:#2F5331; --p-datsg-bg:#DDEBDC; --p-accpl:#16524C; --p-accpl-bg:#D6EAE5; --p-nomaccpl:#404B57; --p-nomaccpl-bg:#E1E5EA; --p-neut:#683F1D; --p-neut-bg:#F0E0CF; --p-datablpl:#23487B; --p-datablpl-bg:#DAE4F1; --p-genpl:#63460D; --p-genpl-bg:#F3E6C6; --p-confuse:#7C3112; --p-confuse-bg:#FADFCF; --card-h:760px;}
 /* trends spread */
 .charts-col{gap:0}
 .spread-box{background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);overflow-x:auto}
 .spread{display:grid;grid-template-columns:auto repeat(8,minmax(88px,1fr));min-width:820px}
 .sh{padding:12px 8px 10px;text-align:center;display:grid;gap:1px;align-content:end;border-bottom:1px solid var(--rule)}
-.sh b{font-size:17px}
-.sh span{font-size:13px;font-style:italic;color:var(--muted);white-space:nowrap}
+.sh b{font-size:1.0625rem}
+.sh span{font-size:1rem;font-style:italic;color:var(--muted);white-space:nowrap}
 .sh.n,.scell.n{background:color-mix(in srgb,var(--surface2) 45%,var(--surface))}
-.band{grid-column:1/-1;padding:6px 14px;font-size:14px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.14em;color:var(--muted);background:var(--surface2);border-top:1px solid var(--rule)}
-.spread .rl{font-size:15px;color:var(--muted);padding:0 10px 0 14px;display:flex;align-items:center;border-top:1px solid var(--rule)}
-.scell{position:relative;appearance:none;border:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule);background:transparent;color:var(--ink);font-family:var(--serif);text-align:center;padding:9px 4px 8px;cursor:pointer;display:grid;gap:1px;justify-items:center;align-content:center;min-height:58px;transition:background .12s}
-.scell .en{font-size:21px;line-height:1.1}
-.scell .en.var{font-size:14px;font-style:italic;color:var(--muted)}
-.scell .ex{font-size:13px;font-style:italic;color:var(--muted);white-space:nowrap}
+.band{grid-column:1/-1;padding:6px 14px;font-size:1rem;font-variant:small-caps;text-transform:lowercase;letter-spacing:.14em;color:var(--muted);background:var(--surface2);border-top:1px solid var(--rule)}
+.spread .rl{font-size:1rem;color:var(--muted);padding:0 10px 0 14px;display:flex;align-items:center;border-top:1px solid var(--rule)}
+.scell{position:relative;appearance:none;border:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule);background:transparent;color:var(--ink);font-family:var(--font);text-align:center;padding:9px 4px 8px;cursor:pointer;display:grid;gap:1px;justify-items:center;align-content:center;min-height:58px;transition:background .12s}
+.scell .en{font-size:1.3125rem;line-height:1.5}
+.scell .en.var{font-size:1rem;font-style:italic;color:var(--muted)}
+.scell .ex{font-size:1rem;font-style:italic;color:var(--muted);white-space:nowrap}
 .noex .scell .ex{display:none}
 .noex .scell{min-height:46px}
 .scell:hover{background:var(--surface2)}
@@ -36,19 +39,19 @@
 .scell.kin{box-shadow:inset 0 0 0 2px var(--accent)}
 .scell.htwin{box-shadow:inset 0 0 0 2px var(--red);background:repeating-linear-gradient(135deg,transparent 0 5px,var(--red-bg) 5px 9px)}
 .lg.k{box-shadow:inset 0 0 0 2px var(--accent);background:var(--surface)}
-.var-big{font-size:26px;font-style:italic;color:var(--muted)}
-.card .tip{font-size:15px}
-.kin-box{text-align:left;border:1px solid var(--accent);border-radius:10px;padding:10px 14px;font-size:16px;display:grid;gap:4px}
-.kin-box h4{margin:0;color:var(--accent);font-size:16px;font-weight:700;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em}
+.var-big{font-size:1.625rem;font-style:italic;color:var(--muted)}
+.card .tip{font-size:1rem}
+.kin-box{text-align:left;border:1px solid var(--accent);border-radius:10px;padding:10px 14px;font-size:1rem;display:grid;gap:4px}
+.kin-box h4{margin:0;color:var(--accent);font-size:1rem;font-weight:700;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em}
 /* rules at a glance */
 #rules h2{margin-bottom:6px}
 .rules-lede{color:var(--muted);margin-bottom:18px}
 .rule-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
-.rule-card{appearance:none;text-align:left;font:inherit;font-size:16px;line-height:1.5;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c,var(--accent));border-radius:12px;padding:14px 16px;display:grid;gap:8px;align-content:start;cursor:pointer;transition:background .15s}
+.rule-card{appearance:none;text-align:left;font:inherit;font-size:1rem;line-height:1.5;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c,var(--accent));border-radius:12px;padding:14px 16px;display:grid;gap:8px;align-content:start;cursor:pointer;transition:background .15s}
 .rule-card:hover{background:var(--surface2)}
 .rule-card[aria-pressed="true"]{background:var(--cbg)}
 .rule-card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.rule-card .rc-h{display:flex;align-items:center;gap:8px;font-size:17px}
+.rule-card .rc-h{display:flex;align-items:center;gap:8px;font-size:1.0625rem}
 .rule-card .rc-h b{color:var(--c,var(--ink))}
 .rule-card .sw{width:11px;height:11px;border-radius:50%;background:var(--c);flex:none}
 .rule-card .rc-b b{color:var(--c)}

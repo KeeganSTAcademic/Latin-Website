@@ -5,7 +5,7 @@
 .fc-row .label{width:7.5rem;flex:none}
 
 .fc-status{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
-.fc-count{color:var(--muted);font-size:16px;font-variant-numeric:tabular-nums}
+.fc-count{color:var(--muted);font-size:1rem;font-variant-numeric:tabular-nums}
 .fc-progress{height:3px;background:var(--rule);border-radius:3px;overflow:hidden;margin-bottom:18px}
 .fc-progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
 
@@ -18,15 +18,15 @@
 .fc-face.back{transform:rotateY(180deg);background:var(--surface2)}
 .fc-meta{position:absolute;top:14px;left:20px;right:20px;display:flex;justify-content:space-between}
 .fc-meta b{color:var(--accent);font-weight:400}
-.fc-main{font-size:clamp(26px,5.5vw,38px);font-weight:700;line-height:1.25;text-wrap:balance;overflow-wrap:anywhere}
+.fc-main{font-size:clamp(1.625rem,5.5vw,2.375rem);font-weight:700;line-height:1.5;text-wrap:balance;overflow-wrap:anywhere}
 .fc-main.la{font-style:italic;color:var(--accent)}
 .fc-main.en{font-weight:400}
-.fc-sub{color:var(--muted);font-size:16px;max-width:32rem}
-.fc-also{color:var(--warn);background:var(--warn-bg);padding:3px 10px;border-radius:8px;font-size:15px}
-.fc-hint{position:absolute;bottom:14px;color:var(--faint);font-size:14px}
+.fc-sub{color:var(--muted);font-size:1rem;max-width:32rem}
+.fc-also{color:var(--warn);background:var(--warn-bg);padding:3px 10px;border-radius:8px;font-size:1rem}
+.fc-hint{position:absolute;bottom:14px;color:var(--faint);font-size:1rem}
 
 /* principal parts grid */
-.fc-pp{display:grid;grid-template-columns:repeat(4,auto);justify-content:center;font-size:18px}
+.fc-pp{display:grid;grid-template-columns:repeat(4,auto);justify-content:center;font-size:1.125rem}
 .fc-pp div{padding:6px 12px;border-left:1px solid var(--rule2)}
 .fc-pp div:first-child{border-left:0}
 .fc-pp small{display:block}
@@ -38,15 +38,15 @@
 
 .fc-nav{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
 .fc-nav .btn{flex:1;min-width:6rem}
-.fc-keys{font-size:15px;color:var(--muted);text-align:center;margin-top:14px}
+.fc-keys{font-size:1rem;color:var(--muted);text-align:center;margin-top:14px}
 .fc-empty{color:var(--muted)}
 
 /* deck picker */
 .deck-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
 .deck-list a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 20px;text-decoration:none;color:var(--ink)}
 .deck-list a:hover{background:var(--surface2)}
-.deck-list .t{font-weight:700;font-size:20px}
-.deck-list .n{color:var(--muted);font-size:15px;white-space:nowrap}
+.deck-list .t{font-weight:700;font-size:1.25rem}
+.deck-list .n{color:var(--muted);font-size:1rem;white-space:nowrap}
 .deck-group{margin:22px 0 8px}
 
 @media (max-width:520px){
@@ -58,35 +58,38 @@
 
 /* ---- verb decks: grammar note, scoring, rounds, paradigms ---- */
 .end{color:var(--accent);font-weight:700}
-.fc-intro{margin:0 0 20px;font-size:16px}
+.fc-intro{margin:0 0 20px;font-size:1rem}
 .fc-intro summary,.fc-paradigms summary{cursor:pointer;color:var(--accent);font-weight:700}
 .fc-intro ul{margin:6px 0 0;padding-left:22px}
+/* paragraph spacing: 2 × the font size between paragraphs */
+.fc-intro p{margin:0}
+.fc-intro p + *,.fc-intro * + p{margin-top:2em}
 .fc-count{display:flex;gap:16px}
 .btn.knew{background:var(--good-bg);border-color:var(--good-bg);color:var(--good)}
 .btn.again{background:var(--mark-bg);border-color:var(--mark-bg);color:var(--mark)}
 .fc-done{text-align:center;padding:34px 20px}
-.fc-done-title{font-size:34px;font-weight:700;margin:0 0 6px;color:var(--accent)}
+.fc-done-title{font-size:2.125rem;font-weight:700;margin:0 0 6px;color:var(--accent)}
 .fc-paradigms{margin-top:24px;padding:14px 18px}
-.fc-tensehead{font-size:19px;color:var(--accent);margin:20px 0 0;border-bottom:1px solid var(--rule);padding-bottom:4px}
+.fc-tensehead{font-size:1.1875rem;color:var(--accent);margin:20px 0 0;border-bottom:1px solid var(--rule);padding-bottom:4px}
 .fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-top:12px}
-.fc-grid h4{font-size:17px;margin:0 0 2px}
+.fc-grid h4{font-size:1.0625rem;margin:0 0 2px}
 .fc-grid h4 small{color:var(--muted);font-weight:400;font-style:italic}
-.fc-tnote{color:var(--mark);font-size:15px}
-.fc-grid table{width:100%;border-collapse:collapse;margin-top:6px;font-size:17px}
+.fc-tnote{color:var(--mark);font-size:1rem}
+.fc-grid table{width:100%;border-collapse:collapse;margin-top:6px;font-size:1.0625rem}
 .fc-grid th,.fc-grid td{padding:5px 6px;border-bottom:1px solid var(--rule);text-align:left}
 .fc-grid th{font-weight:400}
 
 /* noun decks: every possible reading of a form */
-.fc-readings{list-style:none;padding:0;margin:0;font-size:18px;line-height:1.6}
-.fc-readings span{color:var(--muted);font-size:16px}
+.fc-readings{list-style:none;padding:0;margin:0;font-size:1.125rem;line-height:1.6}
+.fc-readings span{color:var(--muted);font-size:1rem}
 
 /* a table written into the paradigm note (e.g. the adverb list) */
 .fc-grid.fc-adv{display:block;color:var(--ink)}
 .fc-adv small{color:var(--muted);font-style:italic}
 
 /* spaced repetition: grade buttons show when each card would come back */
-.btn.grade{display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1.2}
-.btn.grade small{font-weight:400;font-size:13px;opacity:.8}
+.btn.grade{display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1.5}
+.btn.grade small{font-weight:400;font-size:1rem;opacity:.8}
 .btn.g1{background:var(--warn-bg);border-color:var(--warn-bg);color:var(--warn)}
 .btn.g2{background:var(--mark-bg);border-color:var(--mark-bg);color:var(--mark)}
 .btn.g3{background:var(--good-bg);border-color:var(--good-bg);color:var(--good)}
@@ -97,39 +100,40 @@
 .fc-srs summary{cursor:pointer;display:flex;justify-content:space-between;gap:12px;font-weight:700;color:var(--accent)}
 .fc-srs-due{font-weight:400;color:var(--muted)}
 .fc-srs p{margin:10px 0 0}
-.deck-list .due{color:var(--good);background:var(--good-bg);border-radius:8px;padding:1px 8px;margin-right:10px;font-size:14px}
+.fc-srs p + p{margin-top:2em}
+.deck-list .due{color:var(--good);background:var(--good-bg);border-radius:8px;padding:1px 8px;margin-right:10px;font-size:1rem}
 
 /* ---------- layout: collapsible sections, desktop sidebar ---------- */
-.linkbtn{background:none;border:0;padding:0;color:var(--accent);cursor:pointer;font-size:15px;text-decoration:underline}
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);cursor:pointer;font-size:1rem;text-decoration:underline}
 .fc-allgroups{margin:4px 0 0;text-align:right}
 .fc-settings{padding:12px 16px;margin-bottom:16px}
 .fc-settings > summary,.deck-sec > summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:12px}
 .fc-settings > summary::-webkit-details-marker,.deck-sec > summary::-webkit-details-marker{display:none}
-.fc-settings > summary::before,.deck-sec > summary::before{content:"▸";color:var(--accent);font-size:14px;transition:transform .15s}
+.fc-settings > summary::before,.deck-sec > summary::before{content:"▸";color:var(--accent);font-size:1rem;transition:transform .15s}
 .fc-settings[open] > summary::before,.deck-sec[open] > summary::before{transform:rotate(90deg)}
 .fc-sum-title{font-weight:700;color:var(--accent)}
-.fc-sum{color:var(--muted);font-size:15px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right}
+.fc-sum{color:var(--muted);font-size:1rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right}
 .fc-settings[open] .fc-sum{visibility:hidden}
 .fc-settings .fc-controls{margin:12px 0 0}
 .deck-sec > summary{margin:18px 0 8px}
 .deck-sec > summary .deck-group{margin:0}
-.deck-sec-n{color:var(--faint);font-size:14px}
+.deck-sec-n{color:var(--faint);font-size:1rem}
 
 @media (min-width:980px){
   .wrap,.sitenav{max-width:1180px}
   .page-head{margin-bottom:18px}
-  .page-head h1{font-size:34px}
+  .page-head h1{font-size:2.125rem}
   .fc-layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:28px;align-items:start}
   .fc-side{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;padding-bottom:4px}
   .fc-side .fc-row{gap:5px}
   .fc-side .fc-row .label{width:100%}
-  .fc-side .chip{font-size:15px;padding:4px 10px}
-  .fc-side .fc-intro{font-size:15px;margin:0}
+  .fc-side .chip{font-size:1rem;padding:4px 10px}
+  .fc-side .fc-intro{font-size:1rem;margin:0}
   .fc-col .fc-card{min-height:340px}
   /* deck list: a grid instead of one long column */
   .deck-list{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
   .deck-list a{padding:12px 16px}
-  .deck-list .t{font-size:18px}
+  .deck-list .t{font-size:1.125rem}
   #picker .fc-srs{max-width:760px;margin-left:auto;margin-right:auto}
 }
 
@@ -141,9 +145,9 @@
 
 /* search: deck list and player */
 .fc-search{margin:6px 0 4px}
-.fc-search input,.fc-q{width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--surface);border:1px solid var(--rule2);border-radius:var(--radius);padding:10px 14px}
+.fc-search input,.fc-q{width:100%;font:inherit;font-size:1.0625rem;color:var(--ink);background:var(--surface);border:1px solid var(--rule2);border-radius:var(--radius);padding:10px 14px}
 .fc-search input:focus,.fc-q:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
-.fc-q{font-size:16px;padding:6px 10px;border-radius:8px}
+.fc-q{font-size:1rem;padding:6px 10px;border-radius:8px}
 .fc-row .fc-q{flex:1;min-width:10rem}
 .fc-results{margin:10px 0 6px;display:grid;gap:10px}
 .fc-results[hidden]{display:none}
@@ -151,12 +155,12 @@
 .fc-results > .fc-sub{margin:0}
 .fc-hitdeck{padding:12px 16px}
 .fc-hithead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;text-decoration:none;color:var(--ink)}
-.fc-hithead span{color:var(--accent);font-size:15px;white-space:nowrap}
+.fc-hithead span{color:var(--accent);font-size:1rem;white-space:nowrap}
 .fc-hithead:hover span{text-decoration:underline}
-.fc-hits{list-style:none;padding:0;margin:6px 0 0;font-size:17px;line-height:1.5}
+.fc-hits{list-style:none;padding:0;margin:6px 0 0;font-size:1.0625rem;line-height:1.5}
 .fc-hits .la{font-style:italic;color:var(--accent)}
-.fc-hits .ps{color:var(--muted);font-size:15px}
-.fc-hitdeck > .fc-sub{margin:2px 0 0;font-size:15px}
+.fc-hits .ps{color:var(--muted);font-size:1rem}
+.fc-hitdeck > .fc-sub{margin:2px 0 0;font-size:1rem}
 @media (min-width:980px){
   #picker .fc-search,#picker .fc-results{max-width:760px;margin-left:auto;margin-right:auto}
   .fc-results{grid-template-columns:1fr}

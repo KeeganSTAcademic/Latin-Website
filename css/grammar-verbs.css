@@ -2,7 +2,7 @@
 .charts.three-up{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
 .cell{display:grid;gap:1px;align-content:center}
 .cell .vw{color:var(--accent)}
-.cell .eng{display:none;font-size:13px;font-style:italic;color:var(--muted);white-space:normal;line-height:1.25}
+.cell .eng{display:none;font-size:1rem;font-style:italic;color:var(--muted);white-space:normal;line-height:1.5}
 .showen .cell .eng{display:block}
 .cell.pat .en,.cell.pat .vw{color:inherit;font-weight:400}
 .cell.pp-en .en,.cell.pp-vw .vw,.cell.pp-vwen .vw,.cell.pp-vwen .en{color:var(--pfg);font-weight:700}
@@ -13,15 +13,15 @@
 .lg.k{box-shadow:inset 0 0 0 2px var(--accent);background:var(--surface)}
 .lg.v{background:var(--accent);width:14px;height:3px;border-radius:2px;align-self:center}
 .card .form .vwb{color:var(--accent);opacity:.75}
-.breakdown{font-size:15px;color:var(--muted);background:var(--bg);border-radius:10px;padding:8px 12px}
-.breakdown span[class^="bk"]{font-style:italic;font-size:17px;color:var(--ink)}
+.breakdown{font-size:1rem;color:var(--muted);background:var(--bg);border-radius:10px;padding:8px 12px}
+.breakdown span[class^="bk"]{font-style:italic;font-size:1.0625rem;color:var(--ink)}
 .breakdown .bk-vw{color:var(--accent)!important}
 .breakdown .bk-en{font-weight:700}
 .breakdown .plus{color:var(--muted)}
-.kin-box{text-align:left;border:1px solid var(--accent);border-radius:10px;padding:10px 14px;font-size:16px;display:grid;gap:4px}
-.kin-box h4{margin:0;color:var(--accent);font-size:16px;font-weight:700;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em}
+.kin-box{text-align:left;border:1px solid var(--accent);border-radius:10px;padding:10px 14px;font-size:1rem;display:grid;gap:4px}
+.kin-box h4{margin:0;color:var(--accent);font-size:1rem;font-weight:700;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em}
 .conj-box{overflow-x:auto;margin-top:16px}
-.conj-table th{text-align:left;font-weight:400;font-size:14px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--rule)}
+.conj-table th{text-align:left;font-weight:400;font-size:1rem;font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--rule)}
 .conj-table td:first-child{width:auto;font-weight:700}
 .conj-table td:nth-child(2){width:auto;color:var(--ink)}
 .bg .aside{margin-top:14px}
@@ -29,3 +29,4 @@
 .cell.pp-ts .ts{color:var(--pfg);font-weight:700}
 .card .form .tsb{font-weight:400}
 .breakdown .bk-ts{font-weight:700}
+.cell.active.pat .fm,.cell.active.pat .en,.cell.active.pat .vw,.cell.active.pat .ts{color:var(--accent-ink)}

@@ -161,6 +161,17 @@ Each game is one self-contained page in `games/` with its own look (style, data 
 
 **Arena score reports are switched off.** The Google Sites version had a "Send my score" button (name and period, then email or a Google Form post). It's been removed until there's a safe way to collect scores: the end screen still shows the result, and nothing leaves the student's browser. The original code is still on the Google Site if it's needed as a starting point.
 
+## Readability
+
+Every page, games included, follows the same rules:
+
+- **Font:** Source Sans 3 (sans-serif, loaded from Google Fonts), set once as `--font` in `css/site.css` and `css/grammar.css`. The games keep their own colours but use the same font.
+- **Size:** every font size is in `rem`, so text scales with the browser's text-size setting, and nothing is smaller than `1rem` (16px). Body text is `1.125rem` (18px).
+- **Contrast:** text is at least 4.5:1 against its background (3:1 for large text); the site's body text and the grammar pattern colours are 7:1 or better, in light and dark mode. Colours live in the theme tokens (`--ink`, `--muted`, `--accent`, …) at the top of `css/site.css` and `css/grammar.css`, and each grammar page's `--p-…` pattern colours.
+- **Spacing:** line height is at least 1.5, and paragraphs of reading text are 2 × the font size apart.
+
+When adding a page or a colour, keep to these: a new colour for text needs 4.5:1 against every background it sits on (7:1 to match the rest of the site).
+
 ## Spaced repetition
 
 Decks open in **Standard** mode, the free run-through (Got it / Still learning), which never touches the schedule. Spaced repetition is opt-in: Settings → Study: Standard / Spaced repetition (a student's choice is remembered per deck; in links and code, Standard is `study=practice` and spaced repetition is `study=review`). The scheduler is Anki-style, in `js/srs.js`:
