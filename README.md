@@ -249,5 +249,5 @@ Choosing Latin I–IV on the flashcard, grammar or game list shows that level's 
 - The images are in `img/banners/`, in two sizes (`<name>.webp` and `<name>-800.webp` for phones). All four paintings are public domain.
 - Which painting goes with which level is set in `data/levels.json` under `banners`. `focus` there is the part of the painting kept in view when the banner crops it, as x% y%. For example, Cleopatra uses `50% 22%` to keep her face in view.
 - `js/levels.js` draws the banner, and its styles are `.level-banner` in `css/site.css`.
-- When a list is embedded in another page (such as the Google Site, which has its own banner), no banner is shown. Add `&banner=1` to the link to show it anyway.
+- The banner also shows when a list is embedded on the Google Site. To turn it off on a page that already has its own banner, add `&banner=0` to the embed link.
 - `banners-preview.html` shows all four banners with credits.

@@ -5,13 +5,12 @@
    a link can set it for one visit with ?level=2 (1 = Latin I … 4 = Latin IV, 0 = all), e.g. to embed
    a Latin II list on the Google Site.
    Choosing a level also shows that level's banner painting across the top of the page (data/levels.json
-   "banners"), like the Google Site's level pages. No banner for All levels, or when the page is embedded
-   in another site (the Google Site already has one), unless the link adds ?banner=1. */
+   "banners"), like the Google Site's level pages, including when the list is embedded on the Google Site.
+   No banner for All levels; a link can turn it off with ?banner=0 (e.g. on a page that already has one). */
 (function(){
   const { store, param, loadJSON, chip, esc } = window.Site;
   let data = null, level = 0, root = "";
-  let embedded = false; try{ embedded = window.self !== window.top; }catch(e){ embedded = true; }
-  const bannersOn = param("banner") === "1" || (param("banner") !== "0" && !embedded);
+  const bannersOn = param("banner") !== "0";
 
   async function load(base){
     root = base;
