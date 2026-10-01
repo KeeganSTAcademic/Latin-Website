@@ -234,3 +234,16 @@ Then open <http://localhost:8000>.
 
 Repo → Settings → Pages → Source: *Deploy from a branch*, branch `main`, folder `/ (root)`.
 The site appears at `https://<username>.github.io/<repo-name>/` within a minute or two of each push.
+
+## Level banners
+
+Each level has a banner painting in `img/banners/` (public domain, in two sizes: full and `-800`). The `.level-banner` styles are in `css/site.css`; `banners-preview.html` shows all four.
+
+| Level | Painting |
+|---|---|
+| Latin I | Lionel Royer, *Vercingetorix Throws Down His Arms at the Feet of Julius Caesar*, 1899 |
+| Latin II | J. W. Waterhouse, *The Remorse of Nero after the Murder of His Mother*, 1878 |
+| Latin III | Thomas Cole, *The Course of Empire: Destruction*, 1836 |
+| Latin IV | J. W. Waterhouse, *Cleopatra*, 1888 |
+
+To use one, copy a `<figure class="level-banner">` block from `banners-preview.html`. Fix the `img/` path for pages in subfolders (e.g. `../img/banners/…`). `--focus` on the `<img>` sets which part of the painting stays in view when a phone crops it.
