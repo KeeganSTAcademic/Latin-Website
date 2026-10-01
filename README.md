@@ -237,7 +237,7 @@ The site appears at `https://<username>.github.io/<repo-name>/` within a minute 
 
 ## Level banners
 
-Each level has a banner painting in `img/banners/` (public domain, in two sizes: full and `-800`). The `.level-banner` styles are in `css/site.css`; `banners-preview.html` shows all four.
+Choosing Latin I–IV on the flashcard, grammar or game list shows that level's painting as a full-width banner across the top of the page, with the level name on it, like the level pages on the Google Site. "All levels" shows no banner.
 
 | Level | Painting |
 |---|---|
@@ -246,4 +246,8 @@ Each level has a banner painting in `img/banners/` (public domain, in two sizes:
 | Latin III | Thomas Cole, *The Course of Empire: Destruction*, 1836 |
 | Latin IV | J. W. Waterhouse, *Cleopatra*, 1888 |
 
-To use one, copy a `<figure class="level-banner">` block from `banners-preview.html`. Fix the `img/` path for pages in subfolders (e.g. `../img/banners/…`). `--focus` on the `<img>` sets which part of the painting stays in view when a phone crops it.
+- The images are in `img/banners/`, in two sizes (`<name>.webp` and `<name>-800.webp` for phones). All four paintings are public domain.
+- Which painting goes with which level is set in `data/levels.json` under `banners`. `focus` there is the part of the painting kept in view when the banner crops it, as x% y%. For example, Cleopatra uses `50% 22%` to keep her face in view.
+- `js/levels.js` draws the banner, and its styles are `.level-banner` in `css/site.css`.
+- When a list is embedded in another page (such as the Google Site, which has its own banner), no banner is shown. Add `&banner=1` to the link to show it anyway.
+- `banners-preview.html` shows all four banners with credits.

@@ -1,6 +1,13 @@
 {
  "_about": "The level switcher at the top of the flashcard, grammar and game lists. Each item has the level where it is first taught (1 = Latin I … 4 = Latin IV); choosing a level shows everything up to and including it, so Latin II shows Latin I and II content. Flashcard keys are deck ids, or deck/view for one view of a deck. Add \"only\": true to show an item at its own level alone (the vocabulary lists). A deck can also narrow itself at lower levels with 'links': the extra link settings used at that level (same as a link preset, e.g. mood=ind). Anything not listed shows at every level.",
  "levels": ["Latin I", "Latin II", "Latin III", "Latin IV"],
+ "_banners": "One banner per level, shown full-width above the flashcard, grammar and game lists when that level is chosen (not for All levels, and not when the page is embedded in another site such as the Google Site, unless the link adds ?banner=1). file = img/banners/<file>.webp (plus <file>-800.webp for phones); focus = the part of the painting kept in view when the banner crops it (CSS object-position, x% y%).",
+ "banners": [
+  { "file": "latin1-vercingetorix", "focus": "50% 40%", "credit": "Lionel Royer, Vercingetorix Throws Down His Arms at the Feet of Julius Caesar, 1899" },
+  { "file": "latin2-nero", "focus": "60% 45%", "credit": "John William Waterhouse, The Remorse of Nero after the Murder of His Mother, 1878" },
+  { "file": "latin3-course-of-empire", "focus": "55% 58%", "credit": "Thomas Cole, The Course of Empire: Destruction, 1836" },
+  { "file": "latin4-cleopatra", "focus": "50% 22%", "credit": "John William Waterhouse, Cleopatra, 1888" }
+ ],
  "flashcards": {
   "noun-declensions": 1,
   "present-active": 1,
