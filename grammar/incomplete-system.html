@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Incomplete System: Patterns</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#FAF9F6; --paper:#FFFFFF; --soft:#EEECE6; --ink:#111111; --muted:#3D3A36; --line:#C9C4BA;
+  --accent:#7A1E12; --accent-ink:#FFFFFF; --accent-soft:#F6DDD8;
+  --stem:#23487B; --stem-2:#2F5E95; --stem-bg:#DAE4F1;
+  --mark:#6E3F00; --mark-bg:#FBEACB;
+  --end:#7A1E12; --end-bg:#F6DDD8;
+  --warn:#A1141C; --link:#7A1E12;
+  --font:"Source Sans 3","Source Sans Pro",Arial,Helvetica,sans-serif;
+  --serif:var(--font); --sans:var(--font); --mono:var(--font);
+  --shadow:0 6px 24px rgba(80,60,40,.08), 0 1px 2px rgba(80,60,40,.06);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:1.125rem;line-height:1.55;padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:980px;margin:0 auto}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;line-height:1.5;margin:0}
+h1{font-size:clamp(1.875rem,4.2vw,2.5rem);font-weight:700;letter-spacing:.01em}
+h2{font-size:1.625rem;font-weight:700}
+p{margin:0;max-width:68ch}
+a{color:var(--link)}
+.eyebrow{font-family:var(--mono);font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.s{color:var(--stem)} .v{color:var(--stem-2)} .m{color:var(--mark)} .e{color:var(--end)}
+.lat{font-family:var(--serif);font-weight:500}
+i.lat, .lat i{font-style:italic}
+i.lat{white-space:nowrap}
+
+/* header */
+header{padding-block:22px 22px;display:grid;gap:8px;justify-items:center;text-align:center;border-bottom:1px solid var(--line)}
+.subtitle{font-style:italic;color:var(--muted);font-size:1.1875rem}
+.lede{max-width:64ch;color:var(--muted);margin-top:6px}
+header .legend,header nav.toc{justify-content:center;margin-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:1rem}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:14px;height:14px;border-radius:3px;display:inline-block}
+.sw.s{background:var(--stem)} .sw.m{background:var(--mark)} .sw.e{background:var(--end)}
+nav.toc{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:1rem}
+nav.toc a{text-decoration:none}
+nav.toc a:hover{text-decoration:underline}
+nav.toc b{font-family:var(--mono);font-size:1rem;font-weight:500;color:var(--muted);margin-right:3px}
+
+/* A&G references */
+.ag{display:inline-block;font-family:var(--mono);font-size:1rem;letter-spacing:.03em;text-decoration:none;color:var(--link);border:1px solid var(--line);background:var(--paper);border-radius:4px;padding:1px 6px;white-space:nowrap;vertical-align:1px}
+.ag:hover{border-color:var(--link)}
+.refs{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.refs .eyebrow{margin-right:2px}
+
+/* numbered sections */
+.sec{display:grid;grid-template-columns:3.2rem 1fr;gap:0 16px;padding-block:30px;border-bottom:1px solid var(--line)}
+.sec > .num{font-family:var(--serif);font-weight:700;font-size:1.45rem;color:var(--muted);line-height:1.5}
+.sec > .body{display:grid;gap:2em;min-width:0}
+.sec ol.sub{margin:0;padding-left:1.3em;display:grid;gap:6px;max-width:68ch}
+.sec ol.sub li::marker{font-family:var(--mono);font-size:1rem;color:var(--muted)}
+@media (max-width:560px){ .sec{grid-template-columns:1fr} .sec > .num{font-size:1.1rem;margin-bottom:4px} }
+
+/* generator */
+.gen{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;gap:20px;margin-block:26px 6px}
+.gen-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ctl{display:grid;gap:6px;align-content:start}
+.seg{display:flex;flex-wrap:wrap;gap:4px}
+.seg button{font:inherit;font-size:1rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:6px 11px;border-radius:6px;cursor:pointer}
+.seg button:hover{border-color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--stem);outline-offset:2px}
+.display{display:grid;gap:14px;padding:22px;border-radius:10px;background:var(--soft)}
+.word{display:flex;flex-wrap:wrap;gap:3px;align-items:flex-start}
+.piece{display:grid;gap:5px;justify-items:center}
+.piece .t{font-family:var(--serif);font-weight:700;font-size:clamp(2.2rem,7vw,3.6rem);line-height:1.2;padding:8px 10px;border-radius:7px;border:2px solid transparent}
+.piece.s .t{background:var(--stem-bg)} .piece.v .t{background:var(--stem-bg);color:var(--stem-2)}
+.piece.m .t{background:var(--mark-bg)} .piece.e .t{background:var(--end-bg)}
+.piece.ghost .t{background:transparent;border:2px dashed var(--mark);color:var(--mark);opacity:.75;font-weight:400}
+.piece.x .t{border-color:var(--warn)}
+.piece .l{font-family:var(--mono);font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;max-width:12ch}
+.piece.x .l{color:var(--warn)}
+.english{font-family:var(--serif);font-size:1.45rem}
+.english .alt{font-size:1rem;color:var(--muted);font-family:var(--sans);margin-left:8px}
+.notes{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.notes li{border-left:3px solid var(--warn);padding:4px 0 4px 12px;font-size:1rem;max-width:74ch}
+.notes li.plain{border-left-color:var(--line)}
+.notes a{font-family:var(--mono);font-size:1rem}
+
+/* tables */
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;font-variant-numeric:tabular-nums;width:100%}
+th,td{padding:7px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.lat{font-size:1.2rem;white-space:nowrap}
+td.who{font-size:1rem;color:var(--muted);white-space:nowrap}
+.para tr{cursor:pointer}
+.para tr:hover td{background:var(--soft)}
+.para tr.sel td{background:var(--soft);font-weight:700}
+.xm{outline:2px solid var(--warn);outline-offset:1px;border-radius:2px}
+table.ref{background:var(--paper);border:1px solid var(--line);border-radius:8px}
+table.ref th{background:var(--soft)}
+
+/* tense grid */
+.tgrid{display:grid;grid-template-columns:auto repeat(3,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);min-width:660px}
+.tgrid > div{padding:14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:4px;align-content:start}
+.tgrid .hd{background:var(--soft);font-family:var(--mono);font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tgrid .hd b{display:block;font-family:var(--serif);font-size:1.25rem;letter-spacing:0;text-transform:none;color:var(--ink)}
+.tgrid .row-h{background:var(--soft);font-weight:700;font-size:1rem}
+.tgrid .row-h small{display:block;font-weight:400;color:var(--muted)}
+.cell .f{font-family:var(--serif);font-size:1.6rem;font-weight:700;line-height:1.5}
+.cell .n{font-size:1rem;color:var(--muted)}
+.cell .tn{font-family:var(--mono);font-size:1rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.cell.def{background:repeating-linear-gradient(135deg,transparent 0 8px,var(--soft) 8px 9px)}
+.mk{display:inline-block;font-family:var(--mono);font-size:1rem;padding:1px 6px;border-radius:4px;background:var(--mark-bg);color:var(--mark)}
+.obs{font-size:1rem;color:var(--muted);max-width:74ch}
+.obs b{color:var(--ink)}
+
+/* endings */
+.endings{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:6px 28px;align-items:baseline;font-family:var(--serif);font-size:1.3rem;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px 20px}
+.endings .who{font-family:var(--sans);font-size:1rem;color:var(--muted)}
+.endings .arr{color:var(--muted);font-family:var(--sans)}
+.endings .r{background:var(--end-bg);border-radius:3px;padding:0 2px}
+.ex{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.ex div{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:2px}
+.ex .f{font-family:var(--serif);font-size:1.4rem;font-weight:700}
+.ex .n{font-size:1rem;color:var(--muted)}
+
+/* overview */
+.overview{display:grid;gap:22px;padding-block:30px 6px}
+.ov-intro{display:grid;gap:2em}
+.tu{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.hv{}
+.hv b.m{font-weight:800}
+.worked{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin-block:4px}
+.wk{display:grid;gap:3px;align-content:start;padding:10px 12px;border-radius:8px;background:var(--paper);border:1px solid var(--line)}
+.wk.s{background:var(--stem-bg);border-color:transparent} .wk.m{background:var(--mark-bg);border-color:transparent} .wk.e{background:var(--end-bg);border-color:transparent}
+.wk.eq{background:transparent;border:0;align-content:center;padding-inline:2px}
+.wk.out{align-content:center}
+.wf{font-family:var(--serif);font-size:1.6rem;font-weight:700;line-height:1.5}
+.wk.s .wf{color:var(--stem)} .wk.m .wf{color:var(--mark)} .wk.e .wf{color:var(--end)}
+.wk.out .wf{font-size:1.25rem;font-weight:500}
+.wl{font-family:var(--mono);font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.wg{font-size:1rem}
+.defs{display:grid;gap:14px;margin:0}
+.defs > div{display:grid;grid-template-columns:9.5rem 1fr;gap:4px 18px;padding-top:12px;border-top:1px solid var(--line)}
+.defs dt{font-family:var(--serif);font-weight:700;font-size:1.15rem;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;align-self:start}
+.defs .where{font-family:var(--mono);font-size:1rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);flex-basis:100%;padding-left:22px}
+.defs dd{margin:0;max-width:68ch}
+@media (max-width:560px){ .defs > div{grid-template-columns:1fr} .defs .where{flex-basis:auto;padding-left:0} }
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:4px}
+.fx{font-family:var(--mono);font-size:1rem;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:6px}
+.fx.s{background:var(--stem-bg)} .fx.m{background:var(--mark-bg)} .fx.e{background:var(--end-bg)}
+.plus{color:var(--muted);font-weight:700}
+.ov-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.ov{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px;align-content:start}
+.ov h3{font-size:1.35rem}
+.ov-eng{font-size:1rem;color:var(--muted)} .ov-eng b{color:var(--mark)}
+.ov-ex{font-size:2.2rem;font-weight:700;line-height:1.5;display:flex;gap:2px;align-items:baseline}
+.ov-ex span{padding:4px 6px;border-radius:5px}
+.ov-ex .s{background:var(--stem-bg)} .ov-ex .m{background:var(--mark-bg)} .ov-ex .e{background:var(--end-bg)}
+.ov-ex .ghost-in{background:transparent;border:1.5px dashed var(--mark);font-weight:400;font-size:1.4rem;opacity:.75;align-self:center}
+.ov p{font-size:1rem}
+.ov-tr{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:10px}
+.ov-tr ul{margin:0;padding-left:1.1em;display:grid;gap:4px;font-size:1rem}
+footer{padding-top:32px;color:var(--muted);font-size:1rem;display:grid;gap:6px}
+@media (max-width:520px){ .gen{padding:16px} .display{padding:14px} .endings{font-size:1.1rem;gap:4px 10px;padding:12px} }
+@media (prefers-reduced-motion: reduce){ *{transition:none!important;scroll-behavior:auto!important} }
+
+/* ---- site theme normalization ---- */
+.eyebrow, th, .piece .l, .wl, .fx, .tgrid .hd, .cell .tn, .defs .where, .slot .lbl, .score{
+  font-family:var(--serif); font-variant:small-caps; text-transform:lowercase; letter-spacing:.12em; color:var(--muted); font-weight:400}
+.eyebrow{font-size:1rem}
+th{font-size:1rem}
+.piece .l, .wl, .cell .tn, .defs .where{font-size:1rem;letter-spacing:.08em}
+.fx{font-size:1rem}
+.tgrid .hd{font-size:1rem}
+nav.toc b{font-family:var(--serif);font-size:1rem;font-weight:400}
+.ag{font-family:var(--serif);font-size:1rem;letter-spacing:0;border-radius:8px;padding:1px 8px;color:var(--accent);border-color:var(--line);background:var(--paper)}
+.ag:hover{border-color:var(--accent)}
+.notes a{font-family:var(--serif);font-size:1rem}
+.gen,.ov,.endings,table.ref,.tgrid,.ex div,.wk.out{border-radius:16px}
+.gen,.ov{box-shadow:var(--shadow);border-color:var(--line);background:var(--paper)}
+.display{background:var(--soft);border-radius:12px}
+.seg button{font-family:var(--serif);font-size:1.0625rem;border-radius:10px;padding:8px 14px;background:var(--paper);border-color:var(--line)}
+.seg button:hover{background:var(--soft);border-color:var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:focus-visible,a:focus-visible{outline-color:var(--accent)}
+.para tr:hover td,.para tr.sel td{background:var(--soft)}
+.mk{font-family:var(--serif);font-size:1rem;border-radius:6px}
+.notes li{font-size:1.0625rem}
+.english .alt{font-family:var(--serif);font-style:italic}
+.sec{border-bottom-color:var(--line)}
+.sec > .num{color:var(--accent);font-weight:400}
+.obs,.ov p,.ov-tr ul{font-size:1.0625rem}
+footer{border-top:1px solid var(--line);margin-top:28px;padding-top:18px;font-size:1rem}
+footer a{color:var(--accent)}
+
+/* site readability pass */
+body{font-size:1.125rem;line-height:1.5}
+small{font-size:1rem}
+.ghost,.piece.ghost .t,.ov-ex .ghost-in{opacity:1}
+.wrap{max-width:1040px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>The Incomplete System: Patterns</h1>
+  <p class="subtitle">A reference grammar for the present, imperfect, and future indicative</p>
+  <p class="lede">Each form is analyzed into a <b class="s">stem</b>, which carries aspect; a <b class="m">time marker</b>, which carries time; and an <b class="e">ending</b>, which carries person, number, and voice. Section references point to Allen &amp; Greenough's <i>New Latin Grammar</i> on Dickinson College Commentaries.</p>
+  <div class="legend">
+    <span><i class="sw s"></i>Stem · aspect</span>
+    <span><i class="sw m"></i>Marker · time</span>
+    <span><i class="sw e"></i>Ending · person, number, voice</span>
+  </div>
+  <nav class="toc" aria-label="Sections">
+    <a href="#overview"><b>▸</b>Overview</a>
+    <a href="#gen"><b>▸</b>Form generator</a>
+    <a href="#s1"><b>§1</b>Structure</a>
+    <a href="#s2"><b>§2</b>Aspect</a>
+    <a href="#s3"><b>§3</b>Time</a>
+    <a href="#s4"><b>§4</b>Unmarked tenses</a>
+    <a href="#s5"><b>§5</b>Endings</a>
+    <a href="#s6"><b>§6</b>Future in -bō</a>
+    <a href="#s7"><b>§7</b>Future in -am</a>
+    <a href="#s8"><b>§8</b>Stem vowel</a>
+    <a href="#s9"><b>§9</b>Comparative table</a>
+  </nav>
+</header>
+
+<section class="overview" id="overview">
+  <div class="ov-intro">
+    <div class="eyebrow">Overview</div>
+    <h2>How a Latin verb carries its meaning</h2>
+    <p>An English verb spreads its information across several words. In <i>they were being loved</i>, the pronoun <i>they</i> tells us who is involved, <i>were</i> tells us the action is in the past and that more than one person is involved, <i>being</i> tells us the action was in progress, and <i>being loved</i> tells us the subject received the action rather than performed it.</p>
+    <p>Latin puts all of this into a single word, <i class="lat"><span class="s">amā</span><span class="m">ba</span><span class="e">ntur</span></i>, and it always puts each piece of information in the same position. The front of the word (the <b class="s">stem</b>) gives the verb's meaning and its aspect. The middle (the <b class="m">time marker</b>) says when the action happens. The end (the <b class="e">personal ending</b>) says who does it, how many, and whether they are doing it or having it done to them. Reading a Latin verb is a matter of taking the word apart in that order.</p>
+    <div class="worked" aria-label="amābantur broken into its parts">
+      <div class="wk s"><span class="wf lat">amā</span><span class="wl">stem</span><span class="wg">"love," incomplete action</span></div>
+      <div class="wk m"><span class="wf lat">ba</span><span class="wl">time marker</span><span class="wg">past</span></div>
+      <div class="wk e"><span class="wf lat">ntur</span><span class="wl">ending</span><span class="wg">3rd person, plural, passive</span></div>
+      <div class="wk eq"><span class="wf">=</span></div>
+      <div class="wk out"><span class="wf"><span class="e">they</span> <span class="hv">were</span> <span class="e">being</span> <span class="s">loved</span></span></div>
+    </div>
+
+    <h3 style="margin-top:10px">The five pieces of information</h3>
+    <dl class="defs">
+      <div><dt><span class="sw s"></span>Aspect <span class="where">stem</span></dt>
+        <dd>Aspect is how the action is viewed: as <b>incomplete</b> (in progress, repeated, or not yet finished) or as <b>complete</b> (finished). <i>He was writing</i> and <i>he had written</i> are both in the past; they differ only in aspect. Whether an action is ongoing or finished is a separate question from when it happens: <i>I have arrived</i> describes an action completed in the present, <i>I had arrived</i> an action completed in the past. Latin communicates aspect through verb stems. The present stem (<i class="lat">amā-</i>, from the 2nd principal part) is used for incomplete action; the perfect stem (<i class="lat">amāv-</i>, from the 3rd principal part) for complete action.</dd></div>
+      <div><dt><span class="sw m"></span>Time <span class="where">marker</span></dt>
+        <dd>Time is when the action takes place: in the past, now, or in the future. Latin shows it with a marker between stem and ending, built on <span class="mk">a</span> for the past and <span class="mk">i</span> for the future, with no marker for the present. What we call a <i>tense</i> (imperfect, future perfect, and so on) is a combination of aspect and time. Two aspects times three times gives Latin its six indicative tenses: the <b>present</b>, <b>imperfect</b>, and <b>future</b> (incomplete), and the <b>perfect</b>, <b>pluperfect</b>, and <b>future perfect</b> (complete). English does something similar with its helping verbs: the vowel of w<b class="m">a</b>s lines up with the <span class="mk">a</span> of the past marker, and the vowel of w<b class="m">i</b>ll with the <span class="mk">i</span> of the future marker.</dd></div>
+      <div><dt><span class="sw e"></span>Person <span class="where">ending</span></dt>
+        <dd>The personal ending determines both person and number. Person tells who performs the action in relation to the speaker. The 1st person is the speaker (<i>I, we</i>); the 2nd person is the one spoken to (<i>you, y'all</i>); the 3rd person is anyone or anything else (<i>he, she, it, they</i>). Because the ending already names the person, Latin usually leaves out the subject pronoun: <i class="lat">amat</i> by itself means "he loves" or "she loves."</dd></div>
+      <div><dt><span class="sw e"></span>Number <span class="where">ending</span></dt>
+        <dd>Number tells whether the subject is one (<b>singular</b>) or more than one (<b>plural</b>). The verb must agree with its subject in number: <i class="lat">puella amat</i> "the girl loves," <i class="lat">puellae amant</i> "the girls love."</dd></div>
+      <div><dt><span class="sw e"></span>Voice <span class="where">ending</span></dt>
+        <dd>Voice tells whether the subject performs the action (<b>active</b>: <i class="lat">puella amat</i> "the girl loves") or receives it (<b>passive</b>: <i class="lat">puella amātur</i> "the girl is loved"). English needs a helping verb and a participle for the passive (<i>is loved, was being loved, will be loved</i>). Latin changes only the ending, usually by adding an <b class="e">r</b>. In the incomplete tenses, voice is determined by the ending alone.</dd></div>
+    </dl>
+    <p>Person, number, and voice share the last slot, so a single ending answers three questions at once. <i class="lat e">-ntur</i> means 3rd person, plural, passive; <i class="lat e">-mus</i> means 1st person, plural, active.</p>
+
+  </div>
+  <div class="ov-cards">
+    <article class="ov">
+      <div class="eyebrow">Incomplete · present time</div>
+      <h3>The present</h3>
+      <div class="ov-eng">English is / are (no time marker)</div>
+      <div class="ov-ex lat"><span class="s">ama</span><span class="m ghost-in">∅</span><span class="e">t</span></div>
+      <p>Take the present stem (<i class="lat">amā-re → amā-</i>) and add the ending for person and number. There is no time marker; the present is the default form.</p>
+      <div class="ov-tr"><span class="eyebrow">Translations</span>
+        <ul>
+          <li><i class="lat">amat</i>: he loves · he is loving · he does love</li>
+          <li><i class="lat">amātur</i>: he is loved · he is being loved</li>
+          <li>With <i class="lat">iam diū</i>: "has been loving" <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/present-tense" target="_blank" rel="noopener">§466</a></li>
+          <li>In narrative, a vivid past: "he loves" = "he loved" <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/present-tense" target="_blank" rel="noopener">§469</a></li>
+        </ul>
+      </div>
+    </article>
+    <article class="ov">
+      <div class="eyebrow">Incomplete · past time</div>
+      <h3>The imperfect</h3>
+      <div class="ov-eng">English <span class="hv">w<b class="m">a</b>s</span> / <span class="hv">were</span></div>
+      <div class="ov-ex lat"><span class="s">amā</span><span class="m">ba</span><span class="e">t</span></div>
+      <p>Take the present stem (<i class="lat">amā-re → amā-</i>), add the very distinctive infix <i class="lat m">-ba-</i>, then the ending for person and number. The <span class="mk">a</span> as a past-time marker appears again in the pluperfect: <i class="lat">amāv-er-<span class="m">a</span>-m</i>.</p>
+      <div class="ov-tr"><span class="eyebrow">Translations</span>
+        <ul>
+          <li><i class="lat">amābat</i>: he w<b class="m">a</b>s loving · he used to love · he kept loving</li>
+          <li>He began to love · he tried to love <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/imperfect-tense" target="_blank" rel="noopener">§471</a></li>
+          <li>For states and description, a plain past: "he loved" <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/imperfect-tense" target="_blank" rel="noopener">§§470–471</a></li>
+          <li><i class="lat">amābātur</i>: he was being loved · he used to be loved</li>
+        </ul>
+      </div>
+    </article>
+    <article class="ov">
+      <div class="eyebrow">Incomplete · future time</div>
+      <h3>The future</h3>
+      <div class="ov-eng">English <span class="hv">w<b class="m">i</b>ll</span> / <span class="hv">w<b class="m">i</b>ll</span> be verbing</div>
+      <div class="ov-ex lat"><span class="s">amā</span><span class="m">bi</span><span class="e">t</span></div>
+      <p>In the 1st (<i class="lat">-āre</i>) and 2nd (<i class="lat">-ēre</i>) conjugations, take the present stem (<i class="lat">amā-re → amā-</i>), add the infix <i class="lat m">-bi-</i>, then the ending for person and number. The <span class="mk">i</span> as a future-time marker appears again in the future perfect: <i class="lat">amāv-er-<span class="m">i</span>-t</i>. The 3rd and 4th conjugations use a vowel instead (<a href="#s7">§7</a>).</p>
+      <div class="ov-tr"><span class="eyebrow">Translations</span>
+        <ul>
+          <li><i class="lat">amābit</i>: he w<b class="m">i</b>ll love · he w<b class="m">i</b>ll be loving · (older) he shall love</li>
+          <li><i class="lat">amābitur</i>: he will be loved</li>
+          <li>Often "loves" in English after <i>if</i> or <i>when</i>: <i class="lat">sī amābit</i> "if he loves" <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/future-tense" target="_blank" rel="noopener">§472</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+<div class="gen" id="gen">
+  <div class="gen-head">
+    <h2>Form generator</h2>
+    <span class="eyebrow">Change one slot at a time</span>
+  </div>
+  <div class="controls">
+    <div class="ctl"><span class="eyebrow">Verb</span><div class="seg" id="c-conj"></div></div>
+    <div class="ctl"><span class="eyebrow">Time</span><div class="seg" id="c-tense"></div></div>
+    <div class="ctl"><span class="eyebrow">Voice</span><div class="seg" id="c-voice"></div></div>
+    <div class="ctl"><span class="eyebrow">Person &amp; number</span><div class="seg" id="c-pers"></div></div>
+  </div>
+  <div class="display">
+    <div class="word" id="word" aria-live="polite"></div>
+    <div class="english" id="english"></div>
+  </div>
+  <ul class="notes" id="notes"></ul>
+  <div>
+    <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="eyebrow" id="para-title"></span>
+      <span id="para-ref"></span>
+    </div>
+    <div class="tbl-wrap"><table class="para"><tbody id="para"></tbody></table></div>
+  </div>
+</div>
+
+<div class="sec" id="s1"><div class="num">§1</div><div class="body">
+  <h2>Structure of the finite verb</h2>
+  <p>A finite verb in the incomplete system is read in three slots, left to right:</p>
+  <ol class="sub">
+    <li>The <b class="s">stem</b> carries the <b>aspect</b>: whether the action is presented as ongoing (incomplete) or finished (complete). It includes the conjugation's stem vowel.</li>
+    <li>The <b class="m">time marker</b> carries the <b>tense</b> proper: past, present, or future.</li>
+    <li>The <b class="e">ending</b> carries <b>person</b>, <b>number</b>, and <b>voice</b>.</li>
+  </ol>
+  <p>Thus <span class="lat"><span class="s">amā</span><span class="m">bi</span><span class="e">tis</span></span> = <b class="e">y'all</b> <span class="hv">w<b class="m">i</b>ll</span> <b class="s">love</b>. Allen &amp; Greenough divide the verb into stem and ending, with the ending made up of a "mood or tense sign" plus a personal ending. The time marker here is their tense sign.</p>
+  <div class="refs"><span class="eyebrow">See</span>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/stems" target="_blank" rel="noopener">A&amp;G §164 Stems</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/verb-endings" target="_blank" rel="noopener">A&amp;G §§165–167 Verb endings</a>
+  </div>
+</div></div>
+
+<div class="sec" id="s2"><div class="num">§2</div><div class="body">
+  <h2>Aspect: the two stems</h2>
+  <ol class="sub">
+    <li>The <b>present stem</b> is found by dropping <i class="lat">-re</i> from the present infinitive: <i class="lat">amāre → <span class="s">amā-</span></i>, <i class="lat">monēre → <span class="s">monē-</span></i>, <i class="lat">regere → <span class="s">rege-</span></i>, <i class="lat">audīre → <span class="s">audī-</span></i>. It forms the three <b>incomplete</b> tenses: present, imperfect, future.</li>
+    <li>The <b>perfect stem</b> (3rd principal part minus <i class="lat">-ī</i>: <i class="lat">amāvī → <span class="s">amāv-</span></i>) forms the three <b>complete</b> tenses: perfect, pluperfect, future perfect (active).</li>
+    <li>The stem is chosen before anything else. Once the stem tells you "ongoing" or "finished," the marker only has to add the time.</li>
+  </ol>
+  <div class="refs"><span class="eyebrow">See</span>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/tenses" target="_blank" rel="noopener">A&amp;G §160 Continued vs. completed action</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/present-stem" target="_blank" rel="noopener">A&amp;G §§174–176 Present stem</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/four-conjugations" target="_blank" rel="noopener">A&amp;G §§171–173 Conjugations</a>
+  </div>
+</div></div>
+
+<div class="sec" id="s3"><div class="num">§3</div><div class="body">
+  <h2>Time: the markers</h2>
+  <p>Both systems mark time the same way: a marker with <span class="mk">a</span> for past time, a marker with <span class="mk">i</span> for future time, and no marker for present time.</p>
+  <div class="tbl-wrap"><div class="tgrid" id="tgrid"></div></div>
+  <ol class="sub">
+    <li>Incomplete markers: <i class="lat m">-b<u class="tu">ā</u>-</i> (imperfect), <i class="lat m">-b<u class="tu">i</u>-</i> (future, 1st &amp; 2nd conj.; see §6–7 for the others).</li>
+    <li>Complete markers: <i class="lat m">-er<u class="tu">ā</u>-</i> (pluperfect), <i class="lat m">-er<u class="tu">i</u>-</i> (future perfect).</li>
+    <li>English uses the same slot and, by coincidence, the same vowels: w<b class="m"><u class="tu">a</u></b>s / w<b class="m"><u class="tu">i</u></b>ll.</li>
+  </ol>
+  <p class="obs"><b>Parallel irregularities.</b> The 1st singular future drops the <span class="mk">i</span> before <i class="lat">-ō</i> in both systems: <i class="lat">amā<span class="m">b</span>ō</i>, <i class="lat">amāv<span class="m">er</span>ō</i>. In the 3rd plural the future perfect keeps it (<i class="lat">amāv<span class="m">er<u class="tu">i</u></span>nt</i>), while the future changes it to u (<i class="lat">amā<span class="m">bu</span>nt</i>).</p>
+  <div class="refs"><span class="eyebrow">See</span>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/present-system" target="_blank" rel="noopener">A&amp;G §168 Present system</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/perfect-system" target="_blank" rel="noopener">A&amp;G §169 Perfect system</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/imperfect-tense" target="_blank" rel="noopener">A&amp;G §470 Imperfect</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/future-tense" target="_blank" rel="noopener">A&amp;G §472 Future</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/pluperfect-and-future-perfect-tenses" target="_blank" rel="noopener">A&amp;G §§477–478 Plupf. &amp; fut. pf.</a>
+  </div>
+</div></div>
+
+<div class="sec" id="s4"><div class="num">§4</div><div class="body">
+  <h2>The unmarked tenses: present and perfect</h2>
+  <ol class="sub">
+    <li>The present and perfect carry no time marker. Each is the default "now" of its system, identified only by its stem and endings: <i class="lat"><span class="s">ama</span><span class="e">t</span></i>, <i class="lat"><span class="s">amāv</span><span class="e">it</span></i>.</li>
+    <li>The perfect's primary sense is the <b>complete present</b> (A&amp;G's <i>perfect definite</i>): an action finished as of now. <i class="lat">amāvit</i> "he has loved."</li>
+    <li>Its secondary sense is the simple past (<i>historical perfect</i>): <i class="lat">amāvit</i> "he loved." This is the usual sense in narrative.</li>
+  </ol>
+  <div class="refs"><span class="eyebrow">See</span>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/present-tense" target="_blank" rel="noopener">A&amp;G §465 Present</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/tenses" target="_blank" rel="noopener">A&amp;G §161 Two uses of the perfect</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/perfect-tense" target="_blank" rel="noopener">A&amp;G §473 Perfect definite &amp; historical</a>
+  </div>
+</div></div>
+
+<div class="sec" id="s5"><div class="num">§5</div><div class="body">
+  <h2>Person, number, and voice: the endings</h2>
+  <p>The passive endings are the active endings with an <b class="e">r</b> added or substituted. The 2nd plural <i class="lat e">-minī</i> is the only exception.</p>
+  <div class="tbl-wrap"><div class="endings">
+    <span class="eyebrow">Person</span><span class="eyebrow">Active</span><span></span><span class="eyebrow">Passive</span>
+    <span class="who">1st sg · I</span><span class="e">-ō / -m</span><span class="arr">→</span><span class="e">-o<span class="r">r</span> / -<span class="r">r</span></span>
+    <span class="who">2nd sg · you</span><span class="e">-s</span><span class="arr">→</span><span class="e">-<span class="r">r</span>is</span>
+    <span class="who">3rd sg · he/she/it</span><span class="e">-t</span><span class="arr">→</span><span class="e">-tu<span class="r">r</span></span>
+    <span class="who">1st pl · we</span><span class="e">-mus</span><span class="arr">→</span><span class="e">-mu<span class="r">r</span></span>
+    <span class="who">2nd pl · y'all</span><span class="e">-tis</span><span class="arr">→</span><span class="e">-minī</span>
+    <span class="who">3rd pl · they</span><span class="e">-nt</span><span class="arr">→</span><span class="e">-ntu<span class="r">r</span></span>
+  </div></div>
+  <ol class="sub">
+    <li>1st sg <i class="lat">-ō / -or</i> is used in the present and in the <i class="lat">-bō</i> future; <i class="lat">-m / -r</i> after a marker in a: <i class="lat">amā<span class="m">ba</span>m</i>, <i class="lat">reg<span class="m">a</span>m</i>.</li>
+    <li>A long vowel shortens before <i class="lat">-m (-r), -t, -nt (-ntur)</i>: <i class="lat">amā<span class="m">bā</span>s</i> but <i class="lat">amā<span class="m">ba</span>t</i>; <i class="lat">audīs</i> but <i class="lat">audit</i>.</li>
+  </ol>
+  <div class="refs"><span class="eyebrow">See</span>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/personal-endings" target="_blank" rel="noopener">A&amp;G §163 Personal endings</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/verb-endings" target="_blank" rel="noopener">A&amp;G §167 Vowel shortening</a>
+  </div>
+</div></div>
+
+<div class="sec" id="s6"><div class="num">§6</div><div class="body">
+  <h2>Future of the 1st and 2nd conjugations: -bi-</h2>
+  <p>The marker is <i class="lat m">-bi-</i>, but its vowel is lost or changed next to three endings. The b remains in every form.</p>
+  <div class="ex">
+    <div><span class="f lat">amā<span class="m">b</span>ō / amā<span class="m">b</span>or</span><span class="n">1st sg: i lost before -ō, -or</span></div>
+    <div><span class="f lat">amā<span class="m">be</span>ris</span><span class="n">2nd sg passive: i → e before -ris</span></div>
+    <div><span class="f lat">amā<span class="m">bu</span>nt / amā<span class="m">bu</span>ntur</span><span class="n">3rd pl: i → u before -nt, -ntur</span></div>
+  </div>
+  <div class="refs"><span class="eyebrow">See</span>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/present-system" target="_blank" rel="noopener">A&amp;G §168 Future in -bō</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/1st-conjugation" target="_blank" rel="noopener">A&amp;G §184 amō</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/2nd-conjugation" target="_blank" rel="noopener">A&amp;G §185 moneō</a>
+  </div>
+</div></div>
+
+<div class="sec" id="s7"><div class="num">§7</div><div class="body">
+  <h2>Future of the 3rd, 3rd -iō, and 4th conjugations: the vowel shift</h2>
+  <ol class="sub">
+    <li>These conjugations do not use <i class="lat">-bi-</i>. The future is marked by a vowel: <i class="lat m">-a-</i> in the 1st singular, <i class="lat m">-ē-</i> in all other persons (shortened by §5.2). In origin these are subjunctive forms used with future meaning.</li>
+    <li>These future vowels are a <b>vowel shift</b>, not the a/i time pattern seen throughout the rest of the indicative (§3). The <i class="lat">-a-</i> of <i class="lat">regam</i> does not mark the past, and the <i class="lat">-ē-</i> of <i class="lat">regēs</i> is not the future <span class="mk">i</span>.</li>
+    <li>The 1st sg (<i class="lat">regam, audiar</i>) has an a and an m/r ending and can be mistaken for a past form.</li>
+    <li>Because the marker is a single vowel, several futures look like present forms of another conjugation. The conjugation must be known from the dictionary entry.</li>
+  </ol>
+  <div class="ex">
+    <div><span class="f lat">reg<span class="m">ē</span>s</span><span class="n">you will rule · 3rd, future</span></div>
+    <div><span class="f lat">reg<span class="v">i</span>s</span><span class="n">you rule · 3rd, present</span></div>
+    <div><span class="f lat">mon<span class="v">ē</span>s</span><span class="n">you warn · 2nd, present</span></div>
+    <div><span class="f lat">audi<span class="m">ē</span>s</span><span class="n">you will hear · 4th, future</span></div>
+  </div>
+  <div class="refs"><span class="eyebrow">See</span>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/present-system" target="_blank" rel="noopener">A&amp;G §168 Future in -am, -ēs</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/3rd-conjugation" target="_blank" rel="noopener">A&amp;G §186 regō</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/4th-conjugation" target="_blank" rel="noopener">A&amp;G §187 audiō</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/3rd-conjugation-io-verbs" target="_blank" rel="noopener">A&amp;G §188 capiō</a>
+  </div>
+</div></div>
+
+<div class="sec" id="s8"><div class="num">§8</div><div class="body">
+  <h2>The stem vowel of the 3rd conjugation</h2>
+  <ol class="sub">
+    <li>The 3rd conjugation's stem vowel is short e/o (seen in <i class="lat">regere</i>), which appears as <b class="v">i</b> inside the word and <b class="v">u</b> before <i class="lat">-nt</i>: <i class="lat">reg<span class="v">i</span>s, reg<span class="v">i</span>t, reg<span class="v">u</span>nt</i>.</li>
+    <li>It stays <b class="v">e</b> in the 2nd sg present passive: <i class="lat">reg<span class="v">e</span>ris</i>. Compare the future <i class="lat">reg<span class="m">ē</span>ris</i>, which differs only in vowel length.</li>
+    <li>3rd -iō and 4th verbs keep their i throughout and show <b class="v">iu</b> in the 3rd plural: <i class="lat">cap<span class="v">iu</span>nt, aud<span class="v">iu</span>nt</i>.</li>
+    <li>In the imperfect the vowel is <b class="v">ē</b> (3rd) or <b class="v">iē</b> (3rd -iō, 4th): <i class="lat">reg<span class="v">ē</span><span class="m">ba</span>m, cap<span class="v">iē</span><span class="m">ba</span>m, aud<span class="v">iē</span><span class="m">ba</span>m</i>.</li>
+  </ol>
+  <div class="refs"><span class="eyebrow">See</span>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/present-stem" target="_blank" rel="noopener">A&amp;G §176 Formation of the present stem</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/3rd-conjugation" target="_blank" rel="noopener">A&amp;G §186</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/3rd-conjugation-io-verbs" target="_blank" rel="noopener">A&amp;G §188</a>
+  </div>
+</div></div>
+
+<div class="sec" id="s9"><div class="num">§9</div><div class="body">
+  <h2>Comparative table</h2>
+  <p>All five model verbs side by side. Choose a tense and voice; red outlines mark the forms discussed in §§6–8.</p>
+  <div class="controls" style="grid-template-columns:repeat(auto-fit,minmax(220px,max-content))">
+    <div class="ctl"><span class="eyebrow">Tense</span><div class="seg" id="k-tense"></div></div>
+    <div class="ctl"><span class="eyebrow">Voice</span><div class="seg" id="k-voice"></div></div>
+  </div>
+  <div class="tbl-wrap"><table class="ref"><thead id="k-head"></thead><tbody id="k-body"></tbody></table></div>
+</div></div>
+
+<footer>
+  <div>Model verbs: <span class="lat">amō, amāre</span> (1) · <span class="lat">moneō, monēre</span> (2) · <span class="lat">regō, regere</span> (3) · <span class="lat">capiō, capere</span> (3 -iō) · <span class="lat">audiō, audīre</span> (4).</div>
+  <div>Cross-references: Allen &amp; Greenough, <i>New Latin Grammar</i>, ed. Dickinson College Commentaries, <a href="https://dcc.dickinson.edu/grammar/latin/verb-conjugations" target="_blank" rel="noopener">dcc.dickinson.edu</a>.</div>
+</footer>
+</div>
+
+<script>
+(function(){
+const CONJ = {
+  '1':  {stem:'am',  dict:'amō, amāre, amāvī, amātum',   name:'1st · amō',   eng:['love','loves','loving','loved']},
+  '2':  {stem:'mon', dict:'moneō, monēre, monuī, monitum', name:'2nd · moneō', eng:['warn','warns','warning','warned']},
+  '3':  {stem:'reg', dict:'regō, regere, rēxī, rēctum',  name:'3rd · regō',  eng:['rule','rules','ruling','ruled']},
+  '3io':{stem:'cap', dict:'capiō, capere, cēpī, captum', name:'3rd -iō · capiō', eng:['take','takes','taking','taken']},
+  '4':  {stem:'aud', dict:'audiō, audīre, audīvī, audītum', name:'4th · audiō', eng:['hear','hears','hearing','heard']}
+};
+const CONJ_NUM = {'1':'1st','2':'2nd','3':'3rd','3io':'3rd -iō','4':'4th'};
+const TENSES = [['impf','Past','imperfect'],['pres','Now','present'],['fut','Later','future']];
+const PERS = ['1st sg','2nd sg','3rd sg','1st pl','2nd pl','3rd pl'];
+const PRON = ['I','you','he/she/it','we',"y'all",'they'];
+const BE_NOW = ['am','are','is','are','are','are'];
+const BE_PAST = ['was','were','was','were','were','were'];
+
+const END_A = ['ō','s','t','mus','tis','nt'];
+const END_Am = ['m','s','t','mus','tis','nt'];
+const END_P = ['or','ris','tur','mur','minī','ntur'];
+const END_Pr = ['r','ris','tur','mur','minī','ntur'];
+
+const PRES_V = {
+  A:{'1':['','ā','a','ā','ā','a'],'2':['e','ē','e','ē','ē','e'],'3':['','i','i','i','i','u'],'3io':['i','i','i','i','i','iu'],'4':['i','ī','i','ī','ī','iu']},
+  P:{'1':['','ā','ā','ā','ā','a'],'2':['e','ē','ē','ē','ē','e'],'3':['','e','i','i','i','u'],'3io':['i','e','i','i','i','iu'],'4':['i','ī','ī','ī','ī','iu']}
+};
+const IMPF_V = {'1':'ā','2':'ē','3':'ē','3io':'iē','4':'iē'};
+const IMPF_M = {A:['ba','bā','ba','bā','bā','ba'],P:['ba','bā','bā','bā','bā','ba']};
+const FUT12_M = {A:['b','bi','bi','bi','bi','bu'],P:['b','be','bi','bi','bi','bu']};
+const FUT34_M = {A:['a','ē','e','ē','ē','e'],P:['a','ē','ē','ē','ē','e']};
+const FUT34_V = {'3':'','3io':'i','4':'i'};
+
+function form(c,t,vo,p){
+  const st = CONJ[c].stem, segs=[], notes=[];
+  const is12 = (c==='1'||c==='2');
+  segs.push({t:st,r:'s',l:'stem'});
+  if(t==='pres'){
+    const v = PRES_V[vo][c][p];
+    const xv = (c==='3' && v) || ((c==='3io'||c==='4') && p===5);
+    if(v) segs.push({t:v,r:'v',l:'stem vowel',x:xv});
+    segs.push({t:'∅',r:'ghost',l:'now: no marker'});
+    segs.push({t:(vo==='A'?END_A:END_P)[p],r:'e',l:'ending'});
+    if(c==='1'&&p===0) notes.push({plain:1,h:'1st conjugation: the stem vowel <b>ā</b> merges into the ending, so <i>amā + ō</i> becomes <i>amō</i>.'});
+    if(c==='3'&&p>0) notes.push({h:'3rd conjugation: the short <b>e</b> of <i>regere</i> weakens to <b>i</b> inside the word and to <b>u</b> before -nt'+(vo==='P'&&p===1?'. In the 2nd sg passive it stays <b>e</b>: <i>regeris</i>. Compare the future <i>regēris</i>, where the long ē is the time marker.':'.')});
+    if((c==='3io'||c==='4')&&p===5) notes.push({h:'The i of the stem stays, and a <b>u</b> joins it before -nt: <i>'+st+'iunt</i>.'});
+    if(c==='3io'&&vo==='P'&&p===1) notes.push({h:'3rd -iō 2nd sg passive: <i>caperis</i>, with e, just like <i>regeris</i>.'});
+    notes.push({plain:1,h:'Present: no time marker; identified by stem and ending alone.'});
+  } else if(t==='impf'){
+    segs.push({t:IMPF_V[c],r:'v',l:'stem vowel'});
+    segs.push({t:IMPF_M[vo][p],r:'m',l:'past marker'});
+    segs.push({t:(vo==='A'?END_Am:END_Pr)[p],r:'e',l:'ending'});
+    notes.push({plain:1,h:'Imperfect: the marker <b>-bā-</b> means past time. All conjugations use it. The ā shortens before -m, -t, -nt, -r, and -ntur.'});
+    if(c==='3'||c==='3io'||c==='4') notes.push({plain:1,h:'The 3rd, 3rd -iō, and 4th conjugations join the stem to -bā- with <b>'+IMPF_V[c]+'</b>: <i>'+st+IMPF_V[c]+'bam</i>.'});
+  } else {
+    if(is12){
+      segs.push({t:(c==='1'?'ā':'ē'),r:'v',l:'stem vowel'});
+      const mk = FUT12_M[vo][p];
+      const x = (p===0 || p===5 || (vo==='P'&&p===1));
+      segs.push({t:mk,r:'m',l:'future marker',x:x});
+      segs.push({t:(vo==='A'?END_A:END_P)[p],r:'e',l:'ending'});
+      if(p===0) notes.push({h:'1st sg: the <b>i</b> of -bi- drops before -ō'+(vo==='P'?'r':'')+'. The marker is clipped to <b>-b-</b>.'});
+      if(p===5) notes.push({h:'3rd pl: <b>-bi-</b> becomes <b>-bu-</b> before -nt'+(vo==='P'?'ur':'')+'.'});
+      if(vo==='P'&&p===1) notes.push({h:'2nd sg passive: <b>-bi-</b> becomes <b>-be-</b> before -ris.'});
+      notes.push({plain:1,h:'Future (1st &amp; 2nd conj.): the marker <b>-bi-</b> means later time.'});
+    } else {
+      const v = FUT34_V[c];
+      if(v) segs.push({t:v,r:'v',l:'stem vowel'});
+      segs.push({t:FUT34_M[vo][p],r:'m',l:'vowel shift',x:true});
+      segs.push({t:(vo==='A'?END_Am:END_Pr)[p],r:'e',l:'ending'});
+      notes.push({h:'Vowel shift: the 3rd, 3rd -iō, and 4th conjugations do <b>not</b> use -bi-. Time is carried by a vowel: <b>-a-</b> in the 1st sg, <b>-ē-</b> elsewhere (short e before -t, -nt, -ntur). This is a vowel shift, not the a/i time pattern seen elsewhere in the indicative: the <b>a</b> of <i>'+st+(FUT34_V[c])+'am</i> does not mean past, and the <b>ē</b> is not the future <b>i</b>.'});
+      if(p===0) notes.push({h:'1st sg: <i>'+st+v+'a'+(vo==='A'?'m':'r')+'</i> has a and -'+(vo==='A'?'m':'r')+' like a past form but is future.'});
+      if(p===1&&vo==='A') notes.push({h:'<i>'+st+v+'ēs</i> is future; the 2nd-conjugation <i>monēs</i> is present. Only the dictionary entry distinguishes them.'});
+      if(p===1&&vo==='P'&&c==='3') notes.push({h:'<i>regēris</i> (future) vs. <i>regeris</i> (present): only the long mark on the e differs.'});
+    }
+  }
+  return {segs,notes,text:segs.filter(s=>s.r!=='ghost').map(s=>s.t).join('')};
+}
+
+function hv(w){ return w.replace(/[ai]/, x=>'<b class="m">'+x+'</b>'); }
+function english(c,t,vo,p){
+  const [base,s3,ing,pp] = CONJ[c].eng;
+  const pr = '<b class="e">'+PRON[p]+'</b>';
+  let main, alt='';
+  if(vo==='A'){
+    if(t==='pres'){ main = pr+' <b class="s">'+(p===2?s3:base)+'</b>'; alt='or: '+PRON[p]+' '+BE_NOW[p]+' '+ing; }
+    if(t==='impf'){ main = pr+' '+hv(BE_PAST[p])+' <b class="s">'+ing+'</b>'; alt='or: '+PRON[p]+' used to '+base; }
+    if(t==='fut'){ main = pr+' '+hv('will')+' <b class="s">'+base+'</b>'; }
+  } else {
+    if(t==='pres'){ main = pr+' <b class="e">'+BE_NOW[p]+'</b> <b class="s">'+pp+'</b>'; alt='or: '+PRON[p]+' '+BE_NOW[p]+' being '+pp; }
+    if(t==='impf'){ main = pr+' '+hv(BE_PAST[p])+' <b class="e">being</b> <b class="s">'+pp+'</b>'; }
+    if(t==='fut'){ main = pr+' '+hv('will')+' <b class="e">be</b> <b class="s">'+pp+'</b>'; }
+  }
+  return {main,alt};
+}
+
+
+const PARA_URL = {'1':['1st-conjugation',184],'2':['2nd-conjugation',185],'3':['3rd-conjugation',186],'3io':['3rd-conjugation-io-verbs',188],'4':['4th-conjugation',187]};
+const ORDER=['1','2','3','3io','4'];
+const state = {c:'1',t:'fut',vo:'A',p:4};
+const kstate = {t:'pres',vo:'A'};
+const $=id=>document.getElementById(id);
+
+function segBtns(el, items, onPick){
+  el.innerHTML='';
+  items.forEach(([val,label])=>{
+    const b=document.createElement('button'); b.type='button'; b.textContent=label; b.dataset.val=val;
+    b.addEventListener('click',()=>onPick(val));
+    el.appendChild(b);
+  });
+}
+function mark(el,val){ el.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.val===String(val)))); }
+function segHTML(segs){
+  return segs.map(s=>{
+    const cls = s.r==='ghost'?'ghost':s.r;
+    return '<div class="piece '+cls+(s.x?' x':'')+'"><span class="t">'+s.t+'</span><span class="l">'+(s.x?'⚑ ':'')+s.l+'</span></div>';
+  }).join('');
+}
+function inlineHTML(segs){
+  return segs.filter(s=>s.r!=='ghost').map(s=>'<span class="'+s.r+(s.x?' xm':'')+'">'+s.t+'</span>').join('');
+}
+function secsFor(c,t){
+  const out=['§1'];
+  if(t==='pres'){ out.push('§4'); if(c==='3'||c==='3io'||c==='4') out.push('§8'); }
+  if(t==='impf'){ out.push('§3'); if(c==='3'||c==='3io'||c==='4') out.push('§8'); }
+  if(t==='fut'){ out.push(c==='1'||c==='2'?'§6':'§7'); }
+  out.push('§5');
+  return out;
+}
+
+segBtns($('c-conj'), ORDER.map(k=>[k,CONJ[k].name]), v=>{state.c=v;render();});
+segBtns($('c-tense'), TENSES.map(([k,l,n])=>[k,l+' · '+n]), v=>{state.t=v;render();});
+segBtns($('c-voice'), [['A','Active'],['P','Passive']], v=>{state.vo=v;render();});
+segBtns($('c-pers'), PERS.map((l,i)=>[String(i),l]), v=>{state.p=+v;render();});
+
+function render(){
+  mark($('c-conj'),state.c); mark($('c-tense'),state.t); mark($('c-voice'),state.vo); mark($('c-pers'),state.p);
+  const f = form(state.c,state.t,state.vo,state.p);
+  $('word').innerHTML = segHTML(f.segs);
+  const en = english(state.c,state.t,state.vo,state.p);
+  $('english').innerHTML = en.main + (en.alt?'<span class="alt">'+en.alt+'</span>':'');
+  const see = secsFor(state.c,state.t).map(s=>'<a href="#s'+s.slice(1)+'">'+s+'</a>').join(' · ');
+  $('notes').innerHTML = f.notes.map(n=>'<li class="'+(n.plain?'plain':'')+'">'+n.h+'</li>').join('') + '<li class="plain">See '+see+'</li>';
+  const tn = TENSES.find(x=>x[0]===state.t)[2];
+  $('para-title').textContent = CONJ[state.c].dict+' · '+tn+' '+(state.vo==='A'?'active':'passive')+' · click a row';
+  const pu = PARA_URL[state.c];
+  $('para-ref').innerHTML = '<a class="ag" href="https://dcc.dickinson.edu/grammar/latin/'+pu[0]+'" target="_blank" rel="noopener">Full paradigm · A&amp;G §'+pu[1]+'</a>';
+  let rows='';
+  for(let i=0;i<6;i++){
+    const fi = form(state.c,state.t,state.vo,i), ei = english(state.c,state.t,state.vo,i);
+    rows+='<tr data-p="'+i+'" class="'+(i===state.p?'sel':'')+'"><td class="who">'+PERS[i]+'</td><td class="lat">'+inlineHTML(fi.segs)+'</td><td>'+ei.main+'</td></tr>';
+  }
+  $('para').innerHTML=rows;
+  $('para').querySelectorAll('tr').forEach(tr=>tr.addEventListener('click',()=>{state.p=+tr.dataset.p;render();}));
+}
+
+/* §3 tense grid */
+(function(){
+  const cols=[['Past','marker in a'],['Present','no marker'],['Future','marker in i']];
+  let h='<div class="hd"></div>';
+  cols.forEach(c=>h+='<div class="hd">'+c[1]+'<b>'+c[0]+'</b></div>');
+  h+='<div class="row-h">Incomplete<small>present stem <span class="lat">amā-</span></small></div>';
+  [['amā','<span class="m">b<u class="tu">a</u></span><span class="e">t</span>','he w<b class="m">a</b>s loving','Imperfect',0],
+   ['ama','<span class="e">t</span>','he loves, is loving','Present',1],
+   ['amā','<span class="m">b<u class="tu">i</u></span><span class="e">t</span>','he w<b class="m">i</b>ll love','Future',0]].forEach(([s,r,n,tn,d])=>{
+    h+='<div class="cell'+(d?' def':'')+'"><span class="tn">'+tn+'</span><span class="f lat"><span class="s">'+s+'</span>'+r+'</span><span class="n">'+n+'</span></div>';
+  });
+  h+='<div class="row-h">Complete<small>perfect stem <span class="lat">amāv-</span></small></div>';
+  [['<span class="m">er<u class="tu">a</u></span><span class="e">t</span>','he had loved','Pluperfect',0],
+   ['<span class="e">it</span>','he has loved (he loved)','Perfect',1],
+   ['<span class="m">er<u class="tu">i</u></span><span class="e">t</span>','he w<b class="m">i</b>ll have loved','Future perfect',0]].forEach(([r,n,tn,d])=>{
+    h+='<div class="cell'+(d?' def':'')+'"><span class="tn">'+tn+'</span><span class="f lat"><span class="s">amāv</span>'+r+'</span><span class="n">'+n+'</span></div>';
+  });
+  $('tgrid').innerHTML=h;
+})();
+
+/* §9 comparative table */
+segBtns($('k-tense'), TENSES.map(([k,,n])=>[k,n[0].toUpperCase()+n.slice(1)]), v=>{kstate.t=v;renderK();});
+segBtns($('k-voice'), [['A','Active'],['P','Passive']], v=>{kstate.vo=v;renderK();});
+function renderK(){
+  mark($('k-tense'),kstate.t); mark($('k-voice'),kstate.vo);
+  const keys=ORDER;
+  $('k-head').innerHTML='<tr><th></th>'+keys.map(k=>'<th>'+CONJ_NUM[k]+'<br><a class="ag" href="https://dcc.dickinson.edu/grammar/latin/'+PARA_URL[k][0]+'" target="_blank" rel="noopener">§'+PARA_URL[k][1]+'</a></th>').join('')+'</tr>';
+  let h='';
+  for(let p=0;p<6;p++){
+    h+='<tr><td class="who">'+PERS[p]+'</td>'+keys.map(k=>'<td class="lat">'+inlineHTML(form(k,kstate.t,kstate.vo,p).segs)+'</td>').join('')+'</tr>';
+  }
+  $('k-body').innerHTML=h;
+}
+
+render(); renderK();
+
+})();
+</script>
+
+</body>
+</html>
