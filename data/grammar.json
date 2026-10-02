@@ -46,5 +46,35 @@
   "title": "Imperfect Active Indicative",
   "group": "Verbs",
   "about": "The -ba- tense in every conjugation, and sum."
+ },
+ {
+  "page": "future-active",
+  "title": "Future Active Indicative",
+  "group": "Verbs",
+  "about": "The -bi- future of the 1st and 2nd conjugations, and sum."
+ },
+ {
+  "page": "incomplete-passive",
+  "title": "Incomplete Passives",
+  "group": "Verbs",
+  "about": "Present, imperfect and future passive together: the same stems and time markers, with passive endings."
+ },
+ {
+  "page": "perfect-active",
+  "title": "Perfect Active Indicative",
+  "group": "Verbs",
+  "about": "The perfect stem (3rd principal part) and the perfect endings, in every conjugation, and sum."
+ },
+ {
+  "page": "pluperfect-active",
+  "title": "Pluperfect Active Indicative",
+  "group": "Verbs",
+  "about": "Perfect stem + -era-: \"had loved.\""
+ },
+ {
+  "page": "future-perfect-active",
+  "title": "Future Perfect Active Indicative",
+  "group": "Verbs",
+  "about": "Perfect stem + -eri-: \"will have loved.\""
  }
 ]

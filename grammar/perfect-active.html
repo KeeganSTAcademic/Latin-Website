@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perfect Active Indicative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610011500">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202610011500">
+<style>
+:root{--p-stem:#23487B; --p-stem-bg:#DAE4F1; --p-isti:#7F2756; --p-isti-bg:#F4DDE9; --p-erunt:#2F5331; --p-erunt-bg:#DDEBDC; --p-same:#7C3112; --p-same-bg:#FADFCF;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Perfect Active Indicative</h1>
+  <p class="subtitle">An interactive grammar for all four conjugations plus 3rd <i>-iō</i></p>
+  <div class="primer">
+    <span><b>Perfect stem + perfect ending</b> <i>amāv-it</i></span>
+    <span><b>Endings</b> <i>-ī, -istī, -it, -imus, -istis, -ērunt</i></span>
+    <span>Hover any form to see what it means and how it's built</span>
+  </div>
+</header>
+
+<section id="background" class="bg">
+  <details class="fold">
+    <summary>The perfect tense</summary>
+  <div class="prose">
+    <p>The Latin perfect tense describes either complete action that occurs now or simple action that occurred in the past. The completed present time translates like "he has loved," while the secondary simple past translates like "he loved." Translating the perfect can be difficult due to this ambiguity and often depends on context.</p>
+    <p>The perfect is formed by adding the perfect endings to the 3rd principal part. These endings are quite similar to the incomplete endings in everything but the 1st (<i>-ī</i>) and 2nd singular (<i>-istī</i>). On one hand, this makes them easier to learn, but it also means that students must pay close attention to the stem to distinguish the perfect from the present tense. Note that the 3rd principal part is used for all active verbs with complete action in Latin, much in the same way the 2nd principal part is used for all incomplete tenses.</p>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>Has loved or loved?</summary>
+  <div class="prose">
+    <p>The complete present can be difficult to get one's head around, as the idea of aspect (an action's completion being separate from time) is rarely broached in traditional English grammar. However, it is a distinction we organically make in our day-to-day speech.</p>
+    <p>Imagine that you are late to work and receive a call from your boss just after you entered the building. You would tell your boss "I have arrived" because you want them to know that you just finished arriving and are at work. Telling them "I am arriving" would imply you are still running up to the door or perhaps pulling into the car park. Telling them "I arrived" would imply you already arrived at some past point in time and perhaps something else happened to make you leave work.</p>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>How to build it</summary>
+  <div class="conj-box">
+  <table class="rule-table conj-table">
+    <thead><tr><th>Conjugation</th><th>Principal parts</th><th>Perfect stem</th></tr></thead>
+    <tbody>
+      <tr><td>1st</td><td><i>amō, amāre, <b>amāvī</b></i></td><td><b>amāv-</b></td></tr>
+      <tr><td>2nd</td><td><i>moneō, monēre, <b>monuī</b></i></td><td><b>monu-</b></td></tr>
+      <tr><td>3rd</td><td><i>regō, regere, <b>rēxī</b></i></td><td><b>rēx-</b></td></tr>
+      <tr><td>3rd <i>-iō</i></td><td><i>capiō, capere, <b>cēpī</b></i></td><td><b>cēp-</b></td></tr>
+      <tr><td>4th</td><td><i>audiō, audīre, <b>audīvī</b></i></td><td><b>audīv-</b></td></tr>
+      <tr><td>irregular</td><td><i>sum, esse, <b>fuī</b></i></td><td><b>fu-</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  </details>
+</section>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-en" aria-pressed="false">Show English</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+  </div>
+
+  <div class="work">
+    <div class="charts-col" id="charts-col">
+      <div class="charts three-up" id="charts-grid"></div>
+      <details class="er" id="er">
+        <summary>Irregular: <i>sum, esse</i> (to be)</summary>
+        <div class="prose"><p><i>sum</i> is irregular in the present system, but its perfect is completely regular: the stem <i>fu-</i> plus the perfect endings, <i>fuī, fuistī, fuit, fuimus, fuistis, fuērunt</i>.</p></div>
+        <div class="charts one-up" id="er-grid"></div>
+      </details>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Paradigms follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), in the <a href="https://dcc.dickinson.edu/grammar/latin" target="_blank" rel="noopener">Dickinson College Commentaries online edition</a>.</p>
+</footer>
+</div>
+
+<script src="../js/verb-chart.js?v=202610011500"></script>
+<script>
+
+const SUB = ['I','you','he/she/it','we','you (all)','they'];
+const HAVE = ['have','have','has','have','have','have'];
+const BE = ['am','are','is','are','are','are'];
+const WAS = ['was','were','was','were','were','were'];
+const rep = (st, vw, signs, ends) => ends.map((e, i) => [st, vw, signs[i], e]);
+
+
+const PV = {
+  amo:  {dict:'amō, amāre, amāvī, amātum', meta:'1st conjugation · love', st:'amāv', pp:'loved', past:'loved'},
+  moneo:{dict:'moneō, monēre, monuī, monitum', meta:'2nd conjugation · warn', st:'monu', pp:'warned', past:'warned'},
+  rego: {dict:'regō, regere, rēxī, rēctum', meta:'3rd conjugation · rule', st:'rēx', pp:'ruled', past:'ruled'},
+  capio:{dict:'capiō, capere, cēpī, captum', meta:'3rd conjugation -iō · take', st:'cēp', pp:'taken', past:'took'},
+  audio:{dict:'audiō, audīre, audīvī, audītum', meta:'4th conjugation · hear', st:'audīv', pp:'heard', past:'heard'},
+  sum:  {dict:'sum, esse, fuī, futūrus', meta:'irregular · be', st:'fu', pp:'been', extra:true}
+};
+const perfVerbs = mk => Object.entries(PV).map(([id, v]) => ({id, dict:v.dict, meta:v.meta, extra:v.extra, f:mk(v.st)}));
+
+VerbChart({
+  verbs: perfVerbs(st => rep(st, '', ['','','','','',''], ['ī','istī','it','imus','istis','ērunt'])),
+  english: c => {
+    const v = PV[c.verb.id], s = SUB[c.i];
+    if(c.verb.id === 'sum') return {main:`${s} ${HAVE[c.i]} been`, alt:`${s} ${WAS[c.i]}`};
+    return {main:`${s} ${HAVE[c.i]} ${v.pp}`, alt:`${s} ${v.past}`};
+  },
+  labels: c => ({st:'perfect stem', vw:'', ts:'', en:'perfect ending'}),
+  patterns: [
+    {id:'stem', lab:'amāv-', txt:'the perfect stem', part:'st', test:c=>true,
+     note:'<b>The perfect stem is the 3rd principal part minus its -ī.</b> It carries the "complete" meaning: <i>amāv-, monu-, rēx-, cēp-, audīv-, fu-</i>. It often looks nothing like the present stem (<i>regō → rēxī, capiō → cēpī</i>), which is why the principal parts have to be learned.'},
+    {id:'isti', lab:'-istī, -istis', txt:'2nd person', part:'en', test:c=>c.p.p === '2nd',
+     note:'<b>Both "you" endings have -is-:</b> <i>amāvistī, amāvistis</i>. With <i>-ī</i> for "I," these are the endings that differ most from the present.'},
+    {id:'erunt', lab:'-ērunt', txt:'3rd plural', part:'en', test:c=>c.p.k === '3pl',
+     note:'<b>"They" is -ērunt:</b> <i>amāvērunt, rēxērunt, fuērunt</i>. Poets sometimes shorten it to <i>-ēre</i> (<i>amāvēre</i>).'},
+    {id:'same', lab:'-it, -imus', txt:'same as the present', part:'en', test:c=>['3sg','1pl'].includes(c.p.k),
+     note:'<b>These endings are the same as in the present</b>, so only the stem shows the tense: <i>amat</i> "he loves" but <i>amāvit</i> "he has loved"; <i>regimus</i> "we rule" but <i>rēximus</i> "we have ruled."'}
+  ],
+  notes: {
+    'amo.1sg':'<i>amāvī</i> is the 3rd principal part itself: "I have loved" or "I loved."',
+    'amo.3sg':'<i>amāvit</i>: compare the present <i>amat</i>. The ending is the same; the stem <i>amāv-</i> makes it perfect.',
+    'moneo.1sg':'<i>monuī</i>: many 2nd conjugation verbs have a perfect in <i>-uī</i>.',
+    'rego.1sg':'<i>rēxī</i>: <i>g</i> + <i>s</i> make <i>x</i>, and the <i>e</i> lengthens. Nothing in <i>regō</i> predicts this, so learn the principal part.',
+    'capio.1sg':'<i>cēpī</i>: the vowel changes from <i>a</i> to <i>ē</i> and the <i>i</i> of <i>capiō</i> is gone.',
+    'audio.1sg':'<i>audīvī</i>: the 4th conjugation usually adds <i>-v-</i> to its <i>ī</i>, like the 1st conjugation\'s <i>amāvī</i>.',
+    'sum.1sg':'<i>fuī</i>: "I have been" or "I was." Its imperfect is <i>eram</i>, but the perfect is perfectly regular.'
+  },
+  idle: "You'll see how to translate the form (it has two meanings) and how it is built from the perfect stem and the perfect ending."
+});
+</script>
+</body>
+</html>

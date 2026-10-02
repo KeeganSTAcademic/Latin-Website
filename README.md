@@ -141,10 +141,17 @@ Interactive charts in `grammar/`: hover or tap any form to see what it is, how t
 | `case-usages.html` | each case's basic and further uses, with A&G references (link to a tab: `case-usages.html#ablative`) |
 | `present-active.html` | present active indicative, all conjugations and sum |
 | `imperfect-active.html` | imperfect active indicative, all conjugations and sum |
+| `future-active.html` | -bi- future, 1st and 2nd conjugations, and sum (3rd/4th to come) |
+| `incomplete-passive.html` | present, imperfect and future passive on one page, with a Tense switch (future: 1st/2nd only) |
+| `perfect-active.html` | perfect active indicative, all conjugations and sum |
+| `pluperfect-active.html` | pluperfect active indicative (-era-), all conjugations and sum |
+| `future-perfect-active.html` | future perfect active indicative (-eri-), all conjugations and sum |
 
 Each page holds its own content and script (the forms, notes and patterns are in the `<script>` at the bottom). The look is shared: `css/grammar.css` for every page and `css/grammar-verbs.css` for verb pages, so a change there changes them all. A page's own `<style>` only has its pattern colours (`--p-…`), `--card-h` (the height of the detail card, where a page needs a different one) and anything only that page uses.
 
-**Adding a page:** copy the nearest existing page (e.g. `imperfect-active.html` for another tense), change its content and script, and add it to `data/grammar.json` (`page`, `title`, `group`, `about`).
+The five newer verb pages (future, incomplete passives, perfect, pluperfect, future perfect) share one chart engine, `js/verb-chart.js`: each page lists its verbs (every form as stem + vowel + tense sign + ending), its English, its pattern buttons and notes, and calls `VerbChart({...})`. A page with several tenses passes `groups` and gets a Tense switch. The commentary for these pages is in the "background" folds at the top of each page.
+
+**Adding a page:** copy the nearest existing page (e.g. `perfect-active.html` for another tense), change its content and script, and add it to `data/grammar.json` (`page`, `title`, `group`, `about`) and `data/levels.json` (the level it's first taught).
 
 ## Games
 
@@ -234,20 +241,3 @@ Then open <http://localhost:8000>.
 
 Repo → Settings → Pages → Source: *Deploy from a branch*, branch `main`, folder `/ (root)`.
 The site appears at `https://<username>.github.io/<repo-name>/` within a minute or two of each push.
-
-## Level banners
-
-Choosing Latin I–IV on the flashcard, grammar or game list shows that level's painting as a full-width banner across the top of the page, with the level name on it, like the level pages on the Google Site. "All levels" shows no banner.
-
-| Level | Painting |
-|---|---|
-| Latin I | Lionel Royer, *Vercingetorix Throws Down His Arms at the Feet of Julius Caesar*, 1899 |
-| Latin II | J. W. Waterhouse, *The Remorse of Nero after the Murder of His Mother*, 1878 |
-| Latin III | Thomas Cole, *The Course of Empire: Destruction*, 1836 |
-| Latin IV | J. W. Waterhouse, *Cleopatra*, 1888 |
-
-- The images are in `img/banners/`, in two sizes (`<name>.webp` and `<name>-800.webp` for phones). All four paintings are public domain.
-- Which painting goes with which level is set in `data/levels.json` under `banners`. `focus` there is the part of the painting kept in view when the banner crops it, as x% y%. For example, Cleopatra uses `50% 22%` to keep her face in view.
-- `js/levels.js` draws the banner, and its styles are `.level-banner` in `css/site.css`.
-- The banner also shows when a list is embedded on the Google Site. To turn it off on a page that already has its own banner, add `&banner=0` to the embed link.
-- `banners-preview.html` shows all four banners with credits.

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Future Perfect Active Indicative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610011500">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202610011500">
+<style>
+:root{--p-eri:#23487B; --p-eri-bg:#DAE4F1; --p-erint:#7F2756; --p-erint-bg:#F4DDE9; --p-stem:#2F5331; --p-stem-bg:#DDEBDC;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Future Perfect Active Indicative</h1>
+  <p class="subtitle">An interactive grammar for all four conjugations plus 3rd <i>-iō</i></p>
+  <div class="primer">
+    <span><b>Perfect stem + <i>-eri-</i> + ending</b> <i>amāv-eri-t</i></span>
+    <span><b>Endings</b> <i>-erō, -eris, -erit, -erimus, -eritis, -erint</i></span>
+    <span>Hover any form to see what it means and how it's built</span>
+  </div>
+</header>
+
+<section id="background" class="bg">
+  <details class="fold">
+    <summary>The future perfect tense</summary>
+  <div class="prose">
+    <p>The Latin future perfect tense describes complete action that will occur at some later time. We translate it like "he will have loved." Its formation is incredibly simple: we attach the future of the verb <i>sum</i> (<i>erō, eris, erit …</i>) to the perfect stem.</p>
+    <p>This is a way of marking time very similar to the <i>-bi-</i> seen in the future tense, with the same <i>-i-</i> as a time vowel. We may understand the future perfect as the combination of a stem communicating completed aspect, an <i>-i-</i> vowel marking future time, and personal endings marking the person and number of a verb. Note that the expected <i>-erunt</i> (the future of <i>sum</i>) becomes <i>-erint</i> in the 3rd plural.</p>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>Will love or will have loved?</summary>
+  <div class="prose">
+    <p>The future perfect can be odd to translate, but we may essentially think of it as a much more definite future tense. If I tell you that "I will be grading" (an incomplete future) on the weekend, I am making a much more wishy-washy claim than if I say that "I will have graded" (a complete future) on the weekend.</p>
+    <p>A very common use of the future perfect is delivering prophecy.</p>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>How to build it</summary>
+  <div class="conj-box">
+  <table class="rule-table conj-table">
+    <thead><tr><th>Conjugation</th><th>Principal parts</th><th>Perfect stem</th><th>"I will have ___"</th></tr></thead>
+    <tbody>
+      <tr><td>1st</td><td><i>amō, amāre, <b>amāvī</b></i></td><td><b>amāv-</b></td><td><i>amāverō</i></td></tr>
+      <tr><td>2nd</td><td><i>moneō, monēre, <b>monuī</b></i></td><td><b>monu-</b></td><td><i>monuerō</i></td></tr>
+      <tr><td>3rd</td><td><i>regō, regere, <b>rēxī</b></i></td><td><b>rēx-</b></td><td><i>rēxerō</i></td></tr>
+      <tr><td>3rd <i>-iō</i></td><td><i>capiō, capere, <b>cēpī</b></i></td><td><b>cēp-</b></td><td><i>cēperō</i></td></tr>
+      <tr><td>4th</td><td><i>audiō, audīre, <b>audīvī</b></i></td><td><b>audīv-</b></td><td><i>audīverō</i></td></tr>
+      <tr><td>irregular</td><td><i>sum, esse, <b>fuī</b></i></td><td><b>fu-</b></td><td><i>fuerō</i></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  </details>
+</section>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-en" aria-pressed="false">Show English</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+  </div>
+
+  <div class="work">
+    <div class="charts-col" id="charts-col">
+      <div class="charts three-up" id="charts-grid"></div>
+      <details class="er" id="er">
+        <summary>Irregular: <i>sum, esse</i> (to be)</summary>
+        <div class="prose"><p><i>sum</i> forms its future perfect regularly from <i>fu-</i>: <i>fuerō, fueris, fuerit …</i>, "I will have been."</p></div>
+        <div class="charts one-up" id="er-grid"></div>
+      </details>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Paradigms follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), in the <a href="https://dcc.dickinson.edu/grammar/latin" target="_blank" rel="noopener">Dickinson College Commentaries online edition</a>.</p>
+</footer>
+</div>
+
+<script src="../js/verb-chart.js?v=202610011500"></script>
+<script>
+
+const SUB = ['I','you','he/she/it','we','you (all)','they'];
+const HAVE = ['have','have','has','have','have','have'];
+const BE = ['am','are','is','are','are','are'];
+const WAS = ['was','were','was','were','were','were'];
+const rep = (st, vw, signs, ends) => ends.map((e, i) => [st, vw, signs[i], e]);
+
+
+const PV = {
+  amo:  {dict:'amō, amāre, amāvī, amātum', meta:'1st conjugation · love', st:'amāv', pp:'loved', past:'loved'},
+  moneo:{dict:'moneō, monēre, monuī, monitum', meta:'2nd conjugation · warn', st:'monu', pp:'warned', past:'warned'},
+  rego: {dict:'regō, regere, rēxī, rēctum', meta:'3rd conjugation · rule', st:'rēx', pp:'ruled', past:'ruled'},
+  capio:{dict:'capiō, capere, cēpī, captum', meta:'3rd conjugation -iō · take', st:'cēp', pp:'taken', past:'took'},
+  audio:{dict:'audiō, audīre, audīvī, audītum', meta:'4th conjugation · hear', st:'audīv', pp:'heard', past:'heard'},
+  sum:  {dict:'sum, esse, fuī, futūrus', meta:'irregular · be', st:'fu', pp:'been', extra:true}
+};
+const perfVerbs = mk => Object.entries(PV).map(([id, v]) => ({id, dict:v.dict, meta:v.meta, extra:v.extra, f:mk(v.st)}));
+
+VerbChart({
+  verbs: perfVerbs(st => rep(st, '', ['er','eri','eri','eri','eri','eri'], ['ō','s','t','mus','tis','nt'])),
+  english: c => ({main:`${SUB[c.i]} will have ${PV[c.verb.id].pp}`, alt:''}),
+  labels: c => ({st:'perfect stem', vw:'', ts:'future marker (from erō)', en:'personal ending'}),
+  patterns: [
+    {id:'eri', lab:'-eri-', txt:'future of sum', part:'ts', test:c=>true,
+     note:'<b>-eri- is the future of sum without its endings</b> (<i>erō, eris, erit</i>): <i>amāv<b>eri</b>t</i> "he will have loved." Its <i>-i-</i> is the same "will" vowel as the <i>-bi-</i> of the future.'},
+    {id:'erint', lab:'-erint', txt:'3rd plural, not -erunt', part:'tsen', test:c=>c.p.k === '3pl',
+     note:'<b>"They" is -erint, not -erunt:</b> <i>amāverint</i> "they will have loved." Don\'t confuse it with the perfect <i>amāvērunt</i> "they have loved."'},
+    {id:'stem', lab:'amāv-', txt:'the perfect stem', part:'st', test:c=>true,
+     note:'<b>The perfect stem gives the "complete" meaning</b>, as in the perfect and pluperfect: <i>amāv-, monu-, rēx-, cēp-, audīv-, fu-</i>.'}
+  ],
+  notes: {
+    'amo.1sg':'<i>amāv-er-ō</i>: the perfect stem plus <i>erō</i>, "I will have loved."',
+    'amo.3sg':'<i>amāverit</i>: compare the future <i>amābit</i> "he will love." Both have the future <i>i</i>; the perfect stem makes this one complete.',
+    'amo.3pl':'<i>amāverint</i>, not <i>*amāverunt</i>. Compare the perfect <i>amāvērunt</i>.',
+    'sum.1sg':'<i>fuerō</i>: "I will have been."'
+  },
+  idle: "You'll see how to translate the form and how it is built from the perfect stem, <i>-eri-</i>, and the personal ending."
+});
+</script>
+</body>
+</html>

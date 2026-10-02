@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Incomplete Passives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610011500">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202610011500">
+<style>
+:root{--p-r:#23487B; --p-r-bg:#DAE4F1; --p-mini:#7F2756; --p-mini-bg:#F4DDE9; --p-eris:#2F5331; --p-eris-bg:#DDEBDC; --p-beris:#7C3112; --p-beris-bg:#FADFCF;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Incomplete Passives</h1>
+  <p class="subtitle">Present, imperfect and future passive indicative</p>
+  <div class="primer">
+    <span><b>Same stem and time marker, passive endings</b> <i>amā-ba-tur</i></span>
+    <span><b>Endings</b> <i>-r, -ris, -tur, -mur, -minī, -ntur</i></span>
+    <span>Hover any form to see what it means and how it's built</span>
+  </div>
+</header>
+
+<section id="background" class="bg">
+  <details class="fold">
+    <summary>Passive verbs</summary>
+  <div class="prose">
+    <p>Passive verbs are those in which the action is done to the subject rather than the subject doing the action. In the Latin incomplete system (present, future, and imperfect) these verbs are formed by adding a second set of personal endings to the same stem, linking vowel, and time marker as the active.</p>
+    <p>Note that these personal endings look, with the exception of <i>-minī</i> for the 2nd plural, mostly like the active, just with an <i>r</i> somewhere in them.</p>
+    <p>We translate them in the present like "he is loved" or "he is being loved," in the imperfect like "he was being loved," and in the future like "he will be loved" or "he will be being loved."</p>
+    <p class="aside">The future passive is shown for the 1st and 2nd conjugations only, like the future active page.</p>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>How to build it</summary>
+  <div class="conj-box">
+  <table class="rule-table conj-table">
+    <thead><tr><th>Person</th><th>Active ending</th><th>Passive ending</th><th>Present, imperfect, future</th></tr></thead>
+    <tbody>
+      <tr><td>1st sg.</td><td><i>-ō / -m</i></td><td><i>-r</i> (<i>-or</i>)</td><td><i>amor, amābar, amābor</i></td></tr>
+      <tr><td>2nd sg.</td><td><i>-s</i></td><td><i>-ris</i></td><td><i>amāris, amābāris, amāberis</i></td></tr>
+      <tr><td>3rd sg.</td><td><i>-t</i></td><td><i>-tur</i></td><td><i>amātur, amābātur, amābitur</i></td></tr>
+      <tr><td>1st pl.</td><td><i>-mus</i></td><td><i>-mur</i></td><td><i>amāmur, amābāmur, amābimur</i></td></tr>
+      <tr><td>2nd pl.</td><td><i>-tis</i></td><td><i>-minī</i></td><td><i>amāminī, amābāminī, amābiminī</i></td></tr>
+      <tr><td>3rd pl.</td><td><i>-nt</i></td><td><i>-ntur</i></td><td><i>amantur, amābantur, amābuntur</i></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  </details>
+</section>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-en" aria-pressed="false">Show English</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+  </div>
+
+  <div class="work">
+    <div class="charts-col" id="charts-col">
+      <div class="charts three-up" id="charts-grid"></div>
+      <div id="er" hidden><div id="er-grid"></div></div>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Paradigms follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), in the <a href="https://dcc.dickinson.edu/grammar/latin" target="_blank" rel="noopener">Dickinson College Commentaries online edition</a>.</p>
+</footer>
+</div>
+
+<script src="../js/verb-chart.js?v=202610011500"></script>
+<script>
+
+const SUB = ['I','you','he/she/it','we','you (all)','they'];
+const HAVE = ['have','have','has','have','have','have'];
+const BE = ['am','are','is','are','are','are'];
+const WAS = ['was','were','was','were','were','were'];
+const rep = (st, vw, signs, ends) => ends.map((e, i) => [st, vw, signs[i], e]);
+
+
+const PE = ['r','ris','tur','mur','minī','ntur'];
+const PRES = (st, v) => v.map((x, i) => [st, x, '', ['or','ris','tur','mur','minī','ntur'][i]]);
+const IMPF = (st, vw) => rep(st, vw, ['ba','bā','bā','bā','bā','ba'], PE);
+const FUT = (st, vw) => rep(st, vw, ['b','be','bi','bi','bi','bu'], ['or','ris','tur','mur','minī','ntur']);
+const PP = {amo:'loved', moneo:'warned', rego:'ruled', capio:'taken', audio:'heard'};
+const D = {amo:['amō, amāre','1st conjugation · love'], moneo:['moneō, monēre','2nd conjugation · warn'], rego:['regō, regere','3rd conjugation · rule'],
+           capio:['capiō, capere','3rd conjugation -iō · take'], audio:['audiō, audīre','4th conjugation · hear']};
+const mk = (id, group, f) => ({id, group, dict:D[id][0], meta:D[id][1], f});
+VerbChart({
+  groups: [{id:'pres', name:'Present'}, {id:'impf', name:'Imperfect'}, {id:'fut', name:'Future'}],
+  verbs: [
+    mk('amo','pres', PRES('am',['','ā','ā','ā','ā','a'])),
+    mk('moneo','pres', PRES('mon',['e','ē','ē','ē','ē','e'])),
+    mk('rego','pres', PRES('reg',['','e','i','i','i','u'])),
+    mk('capio','pres', PRES('cap',['i','e','i','i','i','iu'])),
+    mk('audio','pres', PRES('aud',['i','ī','ī','ī','ī','iu'])),
+    mk('amo','impf', IMPF('am','ā')), mk('moneo','impf', IMPF('mon','ē')), mk('rego','impf', IMPF('reg','ē')),
+    mk('capio','impf', IMPF('cap','iē')), mk('audio','impf', IMPF('aud','iē')),
+    mk('amo','fut', FUT('am','ā')), mk('moneo','fut', FUT('mon','ē'))
+  ],
+  english: c => {
+    const s = SUB[c.i], pp = PP[c.verb.id];
+    if(c.verb.group === 'pres') return {main:`${s} ${BE[c.i]} ${pp}`, alt:`${s} ${BE[c.i]} being ${pp}`};
+    if(c.verb.group === 'impf') return {main:`${s} ${WAS[c.i]} being ${pp}`, alt:''};
+    return {main:`${s} will be ${pp}`, alt:`${s} will be being ${pp}`};
+  },
+  labels: c => ({st:'root', vw:'stem vowel', ts: c.verb.group === 'impf' ? 'imperfect sign' : 'future sign', en:'passive ending'}),
+  patterns: [
+    {id:'r', lab:'r', txt:'passive endings carry an r', part:'en', test:c=>c.p.k !== '2pl',
+     note:'<b>The passive endings are the active ones with an r:</b> <i>-r, -ris, -tur, -mur, -ntur</i> beside <i>-ō/-m, -s, -t, -mus, -nt</i>. The time markers (<i>-ba-</i>, <i>-bi-</i>) and stem vowels stay the same as in the active.'},
+    {id:'mini', lab:'-minī', txt:'2nd plural', part:'en', test:c=>c.p.k === '2pl',
+     note:'<b>-minī is the one passive ending with no r.</b> <i>amāminī</i> "you (all) are loved," <i>amābāminī, amābiminī</i>. Learn it on its own.'},
+    {id:'eris', lab:'regeris', txt:'3rd conjugation 2nd sg.', part:'vw', test:c=>c.verb.group === 'pres' && c.p.k === '2sg' && ['rego','capio'].includes(c.verb.id),
+     note:'<b>In the present passive, 3rd conjugation "you" has e, not i:</b> <i>regeris, caperis</i> (compare the active <i>regis, capis</i>). Before <i>-ris</i> the short <i>i</i> turns back into the <i>e</i> of <i>regere</i>.'},
+    {id:'beris', lab:'amāberis', txt:'future 2nd sg.', part:'ts', test:c=>c.verb.group === 'fut' && c.p.k === '2sg',
+     note:'<b>In the future passive, "you" has -be-, not -bi-:</b> <i>amāberis, monēberis</i>. Every other form keeps <i>-bi-</i> (<i>amābitur</i>), with <i>-bor</i> and <i>-buntur</i> changing it just as <i>-bō</i> and <i>-bunt</i> do in the active.'}
+  ],
+  notes: {
+    'amo.pres.1sg':'<i>amor</i>: <i>-or</i> takes the place of <i>-ō</i>, and the <i>ā</i> of the stem disappears just as in <i>amō</i>.',
+    'amo.pres.3pl':'<i>amantur</i>: the active <i>amant</i> plus <i>-ur</i>.',
+    'rego.pres.2sg':'<i>regeris</i>, not <i>*regiris</i>: before <i>-ris</i> the 3rd conjugation shows its <i>e</i> again.',
+    'rego.pres.3pl':'<i>reguntur</i>: the same <i>u</i> as the active <i>regunt</i>.',
+    'capio.pres.2sg':'<i>caperis</i>: like <i>regeris</i>, with no <i>i</i> before the <i>e</i>.',
+    'audio.pres.3pl':'<i>audiuntur</i>, like <i>capiuntur</i>.',
+    'amo.impf.1sg':'<i>amā-ba-r</i>: the imperfect "I" ends in <i>-r</i>, just as the active ends in <i>-m</i> (<i>amābam</i>).',
+    'amo.fut.1sg':'<i>amā-b-or</i>: as in <i>amābō</i>, the ending has absorbed the <i>-i-</i>.',
+    'amo.fut.2sg':'<i>amā-be-ris</i>: the one future form with <i>-be-</i>.',
+    'amo.fut.3pl':'<i>amā-bu-ntur</i>: <i>-bunt</i> plus <i>-ur</i>.'
+  },
+  idle: "You'll see who the action is done to, how to translate it, and how the form is built from root, stem vowel, time marker and passive ending."
+});
+</script>
+</body>
+</html>

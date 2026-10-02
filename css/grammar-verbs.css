@@ -30,3 +30,10 @@
 .card .form .tsb{font-weight:400}
 .breakdown .bk-ts{font-weight:700}
 .cell.active.pat .fm,.cell.active.pat .en,.cell.active.pat .vw,.cell.active.pat .ts{color:var(--accent-ink)}
+/* shared verb-chart engine (js/verb-chart.js): perfect stems, sign + ending highlights, tense groups */
+.cell.pp-st .st{color:var(--pfg);font-weight:700}
+.cell.pp-tsen .ts,.cell.pp-tsen .en{color:var(--pfg);font-weight:700}
+.vgroups{display:grid;gap:26px}
+.vgroup{display:grid;gap:12px}
+.vgroup-h{margin:0;font-size:1.375rem;color:var(--accent);border-bottom:1px solid var(--rule);padding-bottom:4px}
+.cell.active.pat .st{color:var(--accent-ink)}
