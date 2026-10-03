@@ -240,4 +240,5 @@
   .fc-seg i{letter-spacing:.03em;line-height:1.25;text-align:center;text-wrap:balance}
   .fc-seg .sg-full{display:none}
   .fc-seg .sg-short{display:inline}
+  .fc-alts{display:none}          /* phones: the "also" translations / vocative are left off to save space */
 }
