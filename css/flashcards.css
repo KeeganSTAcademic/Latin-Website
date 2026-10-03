@@ -230,3 +230,14 @@
 
 /* vocabulary verbs: the principal parts as the Latin side */
 .fc-ppline{font-size:clamp(1.375rem,4.2vw,2rem)}
+
+/* breakdown labels: full on wider screens, abbreviated on phones so the blocks stay in one row */
+.fc-seg .sg-short{display:none}
+@media (max-width:600px){
+  .fc-seg{flex-wrap:nowrap;gap:3px;max-width:100%}
+  .fc-seg .sg{flex:0 1 auto;min-width:0;padding:3px 7px 2px}
+  .fc-seg b{font-size:1.25rem}
+  .fc-seg i{letter-spacing:.03em;line-height:1.25;text-align:center;text-wrap:balance}
+  .fc-seg .sg-full{display:none}
+  .fc-seg .sg-short{display:inline}
+}

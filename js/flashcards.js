@@ -532,6 +532,14 @@
     same.forEach(x => { const [cs, n] = (x.pn || "").split(" "); if(!cs) return; (by[n] = by[n] || []).push(cs.slice(0, 3).toLowerCase() + "."); });
     return Object.entries(by).map(([n, cs]) => `${[...new Set(cs)].join("/")} ${n === "Singular" ? "sg" : "pl"}`).join(" · ");
   }
+  // phones: the breakdown's labels, abbreviated so the blocks fit side by side
+  function shortLabel(l){
+    return l.replace(/^ending · /, "").replace(/^time: /, "")
+      .replace("complete active stem", "compl. act. stem").replace("incomplete stem", "incompl. stem")
+      .replace("perfect passive participle", "perf. pass. part.")
+      .replace("past subjunctive marker", "past subj.").replace("subjunctive marker", "subj.")
+      .replace(/^sum · /, "sum: ").replace(/ · (act\.|pass\.)$/, " $1");
+  }
   function faces(c){
     const dk = deckOf(c);
     // vocabulary verbs: the Latin side is all the principal parts (sum, esse, fuī, futūrus); the other side is just the meaning
@@ -554,7 +562,7 @@
       return [t, r, l];
     }) : null;
     const seg = segParts ? `<div class="fc-seg" aria-label="${esc(segParts.map(x => x[0] ? x[0] + " (" + x[2] + ")" : x[2]).join(" + "))}">` +
-      segParts.map(([t, r, l]) => `<span class="sg sg-${r === "0" ? "none" : r}"><b lang="la">${t ? timeVowel(t, l) : "∅"}</b><i>${esc(l)}</i></span>`).join("") + `</div>` : "";
+      segParts.map(([t, r, l]) => `<span class="sg sg-${r === "0" ? "none" : r}"><b lang="la">${t ? timeVowel(t, l) : "∅"}</b><i><span class="sg-full">${esc(l)}</span><span class="sg-short">${esc(shortLabel(l))}</span></i></span>`).join("") + `</div>` : "";
     // Forms that need parsing (verb and noun cards) get a prompt on the Latin side
     const cue = c.pn ? `<div class="fc-sub">${dk.cue || (dk.allReadings ? "Translate: give every possible case" : "Translate and parse")}</div>` : "";
     switch(st.mode){
