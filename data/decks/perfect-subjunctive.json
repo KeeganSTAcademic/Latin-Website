@@ -100,7 +100,6 @@
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
    "t": "act",
-   "note": "Compare the future perfect indicative amāverō.",
    "seg": [
     [
      "amāv",
@@ -133,7 +132,6 @@
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
    "t": "act",
-   "note": "Future perfect indicative is amāveris: only the vowel length differs.",
    "seg": [
     [
      "amāv",
@@ -199,7 +197,6 @@
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
    "t": "act",
-   "note": "Future perfect indicative is amāverimus: only the vowel length differs.",
    "seg": [
     [
      "amāv",
@@ -232,7 +229,6 @@
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
    "t": "act",
-   "note": "Future perfect indicative is amāveritis: only the vowel length differs.",
    "seg": [
     [
      "amāv",
@@ -298,7 +294,6 @@
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
    "t": "act",
-   "note": "Compare the future perfect indicative vīderō.",
    "seg": [
     [
      "vīd",
@@ -331,7 +326,6 @@
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
    "t": "act",
-   "note": "Future perfect indicative is vīderis: only the vowel length differs.",
    "seg": [
     [
      "vīd",
@@ -397,7 +391,6 @@
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
    "t": "act",
-   "note": "Future perfect indicative is vīderimus: only the vowel length differs.",
    "seg": [
     [
      "vīd",
@@ -430,7 +423,6 @@
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
    "t": "act",
-   "note": "Future perfect indicative is vīderitis: only the vowel length differs.",
    "seg": [
     [
      "vīd",
@@ -496,7 +488,6 @@
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
    "t": "act",
-   "note": "Compare the future perfect indicative mīserō.",
    "seg": [
     [
      "mīs",
@@ -529,7 +520,6 @@
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
    "t": "act",
-   "note": "Future perfect indicative is mīseris: only the vowel length differs.",
    "seg": [
     [
      "mīs",
@@ -595,7 +585,6 @@
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
    "t": "act",
-   "note": "Future perfect indicative is mīserimus: only the vowel length differs.",
    "seg": [
     [
      "mīs",
@@ -628,7 +617,6 @@
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
    "t": "act",
-   "note": "Future perfect indicative is mīseritis: only the vowel length differs.",
    "seg": [
     [
      "mīs",
@@ -694,7 +682,6 @@
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
    "t": "act",
-   "note": "Compare the future perfect indicative cēperō.",
    "seg": [
     [
      "cēp",
@@ -727,7 +714,6 @@
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
    "t": "act",
-   "note": "Future perfect indicative is cēperis: only the vowel length differs.",
    "seg": [
     [
      "cēp",
@@ -793,7 +779,6 @@
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
    "t": "act",
-   "note": "Future perfect indicative is cēperimus: only the vowel length differs.",
    "seg": [
     [
      "cēp",
@@ -826,7 +811,6 @@
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
    "t": "act",
-   "note": "Future perfect indicative is cēperitis: only the vowel length differs.",
    "seg": [
     [
      "cēp",
@@ -892,7 +876,6 @@
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
    "t": "act",
-   "note": "Compare the future perfect indicative audīverō.",
    "seg": [
     [
      "audīv",
@@ -925,7 +908,6 @@
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
    "t": "act",
-   "note": "Future perfect indicative is audīveris: only the vowel length differs.",
    "seg": [
     [
      "audīv",
@@ -991,7 +973,6 @@
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
    "t": "act",
-   "note": "Future perfect indicative is audīverimus: only the vowel length differs.",
    "seg": [
     [
      "audīv",
@@ -1024,7 +1005,6 @@
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
    "t": "act",
-   "note": "Future perfect indicative is audīveritis: only the vowel length differs.",
    "seg": [
     [
      "audīv",

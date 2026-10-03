@@ -118,4 +118,21 @@
   .has-sb .panel{position:sticky;bottom:calc(env(safe-area-inset-bottom,0px) + 8px);top:auto}
   .has-sb .card{box-shadow:0 -6px 24px rgba(60,40,20,.18);height:auto;max-height:42vh;gap:10px;padding:14px}
 }
+/* ---------- combine decks (flashcards) ---------- */
+.sb-allrow{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.sb-allrow .sb-all{flex:1;margin:0}
+.sb-combine{border:1px solid var(--rule);background:var(--surface);color:var(--ink);border-radius:8px;padding:2px 10px;font:inherit;font-size:1rem;cursor:pointer}
+.sb-combine:hover{background:var(--surface2)}
+.sb-combine[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.sb-pick{display:flex;align-items:baseline;gap:8px;padding:5px 10px;border-radius:8px;cursor:pointer;line-height:1.5}
+.sb-pick:hover{background:var(--surface2)}
+.sb-pick input{width:1.05rem;height:1.05rem;margin:0;accent-color:var(--accent);flex:none;transform:translateY(2px)}
+.sb-pick:has(input:checked){background:var(--accent-soft);color:var(--accent);font-weight:600}
+.sb-combine-bar{display:grid;gap:8px;padding:10px 12px;border-top:1px solid var(--rule);background:var(--surface2)}
+.sb-combine-bar[hidden]{display:none}
+.sb-combine-bar span{font-size:1rem}
+.sb-combine-btns{display:flex;gap:8px}
+.sb-combine-btns button,.sb-combine-btns a{flex:1;text-align:center;border:1px solid var(--rule);background:var(--surface);color:var(--ink);border-radius:8px;padding:5px 8px;font:inherit;font-size:1rem;cursor:pointer;text-decoration:none}
+.sb-combine-btns a{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.sb-combine-btns a[hidden]{display:none}
 @media (prefers-reduced-motion:reduce){.sb-group summary::before{transition:none}}

@@ -29,9 +29,10 @@
       href: `${base}grammar/${encodeURIComponent(g.page)}.html`, current: g.page === page }));
     return items.flatMap(d => {
       const e = { path: d.path || [d.course], title: d.title, short: d.short, solo: d.solo, keys: [d.view && d.id + "/" + d.view, d.id], n: d.count,
+        ck: d.id + (d.view ? "." + d.view : ""),   // combine key (?decks=id.view,…)
         href: `${base}flashcards/index.html?deck=${encodeURIComponent(d.id)}${d.view ? "&view=" + encodeURIComponent(d.view) : ""}`,
         current: d.id === deck && (d.view || null) === (view || null) };
-      if(!d.split) return [e];
+      if(!d.split || combining) return [e];   // combining takes the whole list, not one week
       // a deck split into parts (a vocabulary list's weeks): a sub-menu of links that preset that filter
       const f = d.split.field, chosen = param(f);
       return d.split.values.map(v => ({ ...e, path: [...e.path, e.short || e.title], title: `${d.title}: ${v.label}`, short: v.label,
@@ -39,6 +40,20 @@
     });
   }
   const onIndex = section === "grammar" ? page === "index" : !deck && !param("decks") && !param("review");
+
+  // ---------- combine decks (flashcards): tick decks in the list, then "Study together" (?decks=…) ----------
+  let combining = section === "flashcards" && store.get("sb:combining", false);
+  const fromLink = (param("decks") || "").split(",").filter(Boolean);
+  const picked = new Set(fromLink.length ? fromLink : store.get("sb:picked", []));
+  function drawBar(){
+    const bar = q("#sb-combine-bar"); if(!bar) return;
+    bar.hidden = !combining;
+    const n = picked.size;
+    q("#sb-combine-n").textContent = n ? `${n} deck${n > 1 ? "s" : ""} chosen` : "Tick the decks to study together";
+    const go = q("#sb-combine-go");
+    go.hidden = n < 2;
+    go.href = `${base}flashcards/index.html?decks=${[...picked].map(encodeURIComponent).join(",")}`;
+  }
 
   // ---------- build ----------
   const nav = document.createElement("nav");
@@ -58,7 +73,11 @@
       <button type="button" role="tab" id="sb-tab-tools" aria-controls="sb-tools">${words.tools}</button>
     </div>
     <div class="sb-panel" id="sb-list" role="tabpanel" aria-labelledby="sb-tab-list"></div>
-    <div class="sb-panel" id="sb-tools" role="tabpanel" aria-labelledby="sb-tab-tools"></div>`;
+    <div class="sb-panel" id="sb-tools" role="tabpanel" aria-labelledby="sb-tab-tools"></div>
+    ${section === "flashcards" ? `<div class="sb-combine-bar" id="sb-combine-bar" role="region" aria-label="Combine decks" hidden>
+      <span id="sb-combine-n" aria-live="polite"></span>
+      <span class="sb-combine-btns"><button type="button" id="sb-combine-clear">Clear</button><a id="sb-combine-go" hidden>Study together →</a></span>
+    </div>` : ""}`;
   document.body.prepend(nav);
   const q = s => nav.querySelector(s);
 
@@ -94,7 +113,9 @@
     return root;
   }
   function drawNode(node, depth){
-    const link = (e, label) => `<li><a href="${e.href}"${e.current ? ' aria-current="page"' : ""}${label !== e.title ? ` title="${esc(e.title)}"` : ""}>${esc(label)}</a></li>`;
+    const link = (e, label) => combining && e.ck
+      ? `<li><label class="sb-pick"${label !== e.title ? ` title="${esc(e.title)}"` : ""}><input type="checkbox" data-ck="${esc(e.ck)}"${picked.has(e.ck) ? " checked" : ""}> <span>${esc(label)}</span></label></li>`
+      : `<li><a href="${e.href}"${e.current ? ' aria-current="page"' : ""}${label !== e.title ? ` title="${esc(e.title)}"` : ""}>${esc(label)}</a></li>`;
     return node.kids.map(k => {
       // "short": the title without what the headings above it already say (Present, not Present Active Indicative)
       if(!k.group) return link(k, k.short || k.title);
@@ -110,11 +131,19 @@
   function drawList(){
     const es = entries().filter(e => e.current || levels.shows(section, e.keys));
     const box = q("#sb-list");
+    const all = `<a class="sb-all" href="${base}${section}/index.html"${onIndex ? ' aria-current="page"' : ""}>${words.all}</a>`;
     box.innerHTML =
-      `<a class="sb-all" href="${base}${section}/index.html"${onIndex ? ' aria-current="page"' : ""}>${words.all}</a>` +
+      (section === "flashcards" ? `<div class="sb-allrow">${all}<button type="button" class="sb-combine" aria-pressed="${combining}" title="Pick several decks and study them as one">Combine</button></div>` : all) +
       drawNode(tree(es), 0) +
       (es.length ? "" : `<p class="sb-empty">Nothing for this level yet.</p>`);
     box.querySelectorAll(".sb-group").forEach(d => d.addEventListener("toggle", () => store.set(openKey(d.dataset.g), d.open)));
+    const cb = box.querySelector(".sb-combine");
+    if(cb) cb.onclick = () => { combining = !combining; store.set("sb:combining", combining); drawList(); drawBar(); };
+    box.querySelectorAll(".sb-pick input").forEach(i => i.onchange = () => {
+      i.checked ? picked.add(i.dataset.ck) : picked.delete(i.dataset.ck);
+      store.set("sb:picked", [...picked]); drawBar();
+    });
+    if(combining) box.querySelectorAll(".sb-pick input:checked").forEach(i => { for(let d = i.closest("details"); d; d = d.parentElement.closest("details")) d.open = true; });
     const cur = box.querySelector('[aria-current="page"]:not(.sb-all)');
     if(cur) requestAnimationFrame(() => {
       const y = cur.getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop;
@@ -173,13 +202,14 @@
 
   // ---------- tabs ----------
   const tabKey = "sb:tab:" + section;
+  let enterDeck = section === "flashcards" && !onIndex;   // cleared once the student picks a tab
   function showTab(t){
     const tools = t === "tools" && root.classList.contains("sb-tools-out");
     q("#sb-tab-list").setAttribute("aria-selected", !tools); q("#sb-tab-tools").setAttribute("aria-selected", tools);
     q("#sb-list").hidden = tools; q("#sb-tools").hidden = !tools;
   }
-  q("#sb-tab-list").onclick = () => { store.set(tabKey, "list"); showTab("list"); };
-  q("#sb-tab-tools").onclick = () => { store.set(tabKey, "tools"); showTab("tools"); };
+  q("#sb-tab-list").onclick = () => { enterDeck = false; store.set(tabKey, "list"); showTab("list"); };
+  q("#sb-tab-tools").onclick = () => { enterDeck = false; store.set(tabKey, "tools"); showTab("tools"); };
 
   // ---------- layout ----------
   function layout(){
@@ -188,7 +218,9 @@
     root.classList.toggle("sb-narrow", !wide);
     placeTools(wide);
     q(".sb-tabs").hidden = !root.classList.contains("sb-tools-out");
-    showTab(root.classList.contains("sb-tools-out") ? store.get(tabKey, "tools") : "list");
+    // opening a deck lands on its "This deck" tab (Settings); after that, the student's tab choice holds for the visit
+    const want = enterDeck ? "tools" : store.get(tabKey, "tools");
+    showTab(root.classList.contains("sb-tools-out") ? want : "list");
     if(wide) drawer(false);
   }
   WIDE.addEventListener("change", layout);
@@ -213,7 +245,9 @@
         levels.load(base)]);
       items = list;
     }catch(e){ q("#sb-list").innerHTML = `<p class="sb-empty">Couldn't load the list.</p>`; return; }
-    drawLevel(); drawList();
+    drawLevel(); drawList(); drawBar();
+    const clr = q("#sb-combine-clear");
+    if(clr) clr.onclick = () => { picked.clear(); store.set("sb:picked", []); drawList(); drawBar(); };
     window.addEventListener("site:level", () => { drawLevel(); drawList(); });
   })();
 })();
