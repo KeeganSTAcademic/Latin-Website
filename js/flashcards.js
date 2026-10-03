@@ -534,11 +534,12 @@
   }
   function faces(c){
     const dk = deckOf(c);
-    const la = `<div class="fc-main la" lang="la">${formHTML(c)}</div>`;
+    // vocabulary verbs: the Latin side is all the principal parts (sum, esse, fuī, futūrus); the other side is just the meaning
+    const la = c.pp ? `<div class="fc-main la fc-ppline" lang="la">${esc(c.pp)}</div>` : `<div class="fc-main la" lang="la">${formHTML(c)}</div>`;
     const en = `<div class="fc-main en">${esc(c.en)}</div>`;
     const parseText = c.parse || [c.pn, c.tl].filter(Boolean).join(" · ");
     const parse = parseText ? `<div class="parse">${esc(parseText)}</div>` : "";
-    const pp = c.pp ? ppGrid(c.pp) : "";
+    const pp = "";   // principal parts are on the Latin side now (see la); the "Principal parts" mode still drills them
     const detail = c.detail ? `<div class="fc-sub">${esc(c.detail)}</div>` : "";
     const also = c.also ? `<div class="fc-also">Same spelling: ${esc(c.also)}</div>` : "";
     const note = c.note ? `<div class="fc-also">${esc(c.note)}</div>` : "";

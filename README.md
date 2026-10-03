@@ -51,6 +51,7 @@ games/img/              images the games use
       "values": [ { "v": "verb", "label": "Verbs", "short": "verb" } ] }
   ],                                    // a value with "off": true starts unchosen (the 3rd declension i-stems)
   "modes": ["le", "el", "pp"],          // Latin→English (default: the first one), English→Latin, Principal parts
+                                        // a card with "pp" (a vocabulary verb) shows all its principal parts as its Latin side
   "meta": { "front": ["{w}", "{p}"],    // small corner labels; {field} is filled in
             "back":  ["{w}", "{p}"] },
   "lookalikes": false,                  // true = warn when two cards share a Latin form
