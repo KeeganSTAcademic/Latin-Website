@@ -112,7 +112,8 @@
 .has-sb .work{grid-template-columns:minmax(0,1fr) clamp(260px,21vw,340px)}
 .has-sb .card{height:auto;max-height:calc(100vh - 32px);padding:18px 18px 16px}
 .has-sb .card .form{font-size:2.25rem}
-.has-sb .charts:not(.one-up){grid-template-columns:repeat(auto-fit,minmax(max(230px,calc((100% - 28px) / 3)),1fr))}
+.has-sb .charts.three-up{grid-template-columns:repeat(auto-fit,minmax(max(230px,calc((100% - 28px) / 3)),1fr))}   /* verb charts: up to three across */
+.has-sb .charts:not(.one-up):not(.three-up),.has-sb #er-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}             /* noun charts: case names need the room */
 @media (max-width:1279px){
   .has-sb .work{grid-template-columns:1fr;grid-template-areas:"charts" "panel"}
   .has-sb .panel{position:sticky;bottom:calc(env(safe-area-inset-bottom,0px) + 8px);top:auto}

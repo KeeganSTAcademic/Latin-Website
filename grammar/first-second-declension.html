@@ -7,80 +7,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
-<link rel="stylesheet" href="../css/grammar.css?v=202610011400">
+<link rel="stylesheet" href="../css/grammar.css?v=202610061100">
 <style>
 :root{--p-genpl:#63460D; --p-genpl-bg:#F3E6C6; --p-accsg:#7F2756; --p-accsg-bg:#F4DDE9; --p-accpl:#16524C; --p-accpl-bg:#D6EAE5; --p-ablsg:#52378A; --p-ablsg-bg:#E6DEF3; --p-datablpl:#23487B; --p-datablpl-bg:#DAE4F1; --p-gensg:#2F5331; --p-gensg-bg:#DDEBDC; --p-neut:#683F1D; --p-neut-bg:#F0E0CF; --card-h:560px;}
 </style>
-<link rel="stylesheet" href="../css/sidebar.css?v=202610051000">
+<link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
 </head>
 <body>
 <div class="wrap">
 <header>
   <h1>First &amp; Second Declension</h1>
   <p class="subtitle">An interactive grammar for <i>puella</i>, <i>equus</i>, and <i>forum</i></p>
+  <p class="about">The two most regular declensions, and the place to start. The first is built on <i>a</i>, the second on <i>o</i> (usually written <i>u</i>), and many adjectives use both: <i>bonus, bona, bonum</i>.</p>
   <div class="primer">
     <span><b>1st decl.</b> <i>-a, -ae</i> · mostly feminine</span>
     <span><b>2nd decl.</b> <i>-us / -um, -ī</i> · masculine &amp; neuter</span>
     <span>Hover any form to see its case, meaning, and look-alikes</span>
   </div>
 </header>
-
-<section id="background" class="bg">
-  <details class="fold">
-    <summary>What is a declension?</summary>
-
-  <div class="prose">
-    <p>English shows a noun's job mostly through word order and small words like <i>of</i>, <i>to</i>, and <i>with</i>. Latin does most of that work with <strong>endings</strong>. The different jobs are called <strong>cases</strong>, and a family of nouns that shares one set of case endings is a <strong>declension</strong>.</p>
-    <p>Latin has five declensions. The first two cover a large share of the nouns you'll meet, and they share many habits, so it pays to learn them side by side.</p>
-  </div>
-
-  <div class="two">
-    <div class="decl">
-      <h3>First declension</h3>
-      <div class="sig">nom. <b class="la" style="font-style:normal;color:var(--accent)">-a</b> · gen. <b style="color:var(--accent)">-ae</b></div>
-      <ul>
-        <li>Mostly <strong>feminine</strong>: <span class="la">puella</span> girl, <span class="la">via</span> road, <span class="la">aqua</span> water.</li>
-        <li>A few <strong>masculine</strong> nouns for jobs Romans gave to men: <span class="la">agricola</span> farmer, <span class="la">nauta</span> sailor, <span class="la">poēta</span> poet. Same endings, masculine adjectives.</li>
-        <li>Its signature vowel is <strong>a</strong>: <span class="la">-am, -ā, -ārum, -ās</span>.</li>
-      </ul>
-    </div>
-    <div class="decl">
-      <h3>Second declension</h3>
-      <div class="sig">nom. <b style="color:var(--accent)">-us / -er / -um</b> · gen. <b style="color:var(--accent)">-ī</b></div>
-      <ul>
-        <li><strong>Masculine</strong> in <span class="la">-us</span> (<span class="la">equus</span> horse) (a smaller group ends in <span class="la">-er</span>; see the bottom of the charts).</li>
-        <li><strong>Neuter</strong> in <span class="la">-um</span> (<span class="la">forum</span> marketplace, <span class="la">bellum</span> war).</li>
-        <li>Its signature vowel is <strong>o</strong>: <span class="la">-ō, -ōrum, -ōs</span>.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="prose" style="margin-top:22px">
-    <p><strong>How to tell the declension:</strong> look at the <em>genitive singular</em>, the second word in every dictionary entry. <span class="la">-ae</span> means first declension, <span class="la">-ī</span> means second. Drop that ending and you have the <strong>stem</strong> that every other ending attaches to.</p>
-  </div>
-  <div class="dict">
-    <span>puella, puell<b>ae</b>, f.</span>
-    <span>equus, equ<b>ī</b>, m.</span>
-    <span>forum, for<b>ī</b>, n.</span>
-  </div>
-  </details>
-  <details class="fold">
-    <summary>What each case does</summary>
-  <div class="cases-box">
-  <table class="cases">
-    <thead><tr><th>Case</th><th>Main job</th><th>Typical English</th></tr></thead>
-    <tbody>
-      <tr><td>Nominative</td><td>Subject of the verb; also after <i>est</i> ("is")</td><td>the girl</td></tr>
-      <tr><td>Genitive</td><td>Possession or relationship</td><td>of the girl, the girl's</td></tr>
-      <tr><td>Dative</td><td>Indirect object; person affected</td><td>to / for the girl</td></tr>
-      <tr><td>Accusative</td><td>Direct object; after <i>ad, in</i> for motion toward</td><td>the girl</td></tr>
-      <tr><td>Ablative</td><td>Means, manner, place, time, separation; after <i>cum, in, ā/ab, ē/ex, dē, sine</i></td><td>by / with / from / in the girl</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  </details>
-</section>
 
 <section id="charts">
   <div class="toolbar">
@@ -114,6 +58,13 @@
     <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
   </div>
 </section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Stems, endings, and gender follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§40–52, in the Dickinson College Commentaries online edition:
+  <a href="https://dcc.dickinson.edu/grammar/latin/1st-declension-stem-paradigm-and-gender" target="_blank" rel="noopener">1st Declension: Stem, Paradigm, and Gender</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/2nd-declension-stem-paradigm-and-gender" target="_blank" rel="noopener">2nd Declension: Stem, Paradigm, and Gender</a>.</p>
+</footer>
 </div>
 
 <script>
