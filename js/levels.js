@@ -12,7 +12,9 @@
   let data = null, level = 0, root = "";
   const bannersOn = param("banner") !== "0";
 
-  async function load(base){
+  let loading = null;   // the sidebar and the list both ask for the levels; fetch them once
+  function load(base){ return loading || (loading = fetchLevels(base)); }
+  async function fetchLevels(base){
     root = base;
     try{ data = await loadJSON(base + "data/levels.json"); }catch(e){ data = { levels:[], flashcards:{}, grammar:{}, games:{} }; }
     const q = param("level");
@@ -45,16 +47,23 @@
   }
 
   // chips: All levels · Latin I · Latin II …
+  // change the level from anywhere (the switcher, or the sidebar): saves it and tells every listener
+  let usesBanner = false;
+  function set(i){
+    level = i; store.set("level", i);
+    if(usesBanner) banner();
+    window.dispatchEvent(new CustomEvent("site:level", { detail: level }));
+  }
   function render(box, onChange){
+    usesBanner = true;
     box.innerHTML = '<span class="label">Level</span>';
     const make = () => {
       box.querySelectorAll(".chip").forEach(c => c.remove());
-      ["All levels", ...data.levels].forEach((name, i) => chip(box, name, level === i, () => {
-        level = i; store.set("level", i); make(); banner(); onChange(level);
-      }));
+      ["All levels", ...data.levels].forEach((name, i) => chip(box, name, level === i, () => set(i)));
     };
+    window.addEventListener("site:level", () => { make(); onChange(level); });
     make();
     banner();
   }
-  window.Site.levels = { load, shows, linkExtra, render, get current(){ return level; } };
+  window.Site.levels = { load, shows, linkExtra, render, set, get data(){ return data; }, get current(){ return level; } };
 })();

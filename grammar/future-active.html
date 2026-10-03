@@ -12,6 +12,7 @@
 <style>
 :root{--p-bi:#23487B; --p-bi-bg:#DAE4F1; --p-bobunt:#7F2756; --p-bobunt-bg:#F4DDE9; --p-eri:#2F5331; --p-eri-bg:#DDEBDC;}
 </style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610032200">
 </head>
 <body>
 <div class="wrap">
@@ -102,9 +103,9 @@ VerbChart({
      f:rep('er','',['','i','i','i','i','u'],['ō','s','t','mus','tis','nt'])}
   ],
   english: c => c.verb.eng ? {main:c.verb.eng[c.i], alt:''} : {main:`${SUB[c.i]} will ${c.verb.en[0]}`, alt:`${SUB[c.i]} will be ${c.verb.en[1]}`},
-  labels: c => ({st:'root', vw:'stem vowel', ts: c.verb.extra ? 'future vowel' : 'future sign', en:'personal ending'}),
+  labels: c => ({st:'root', vw:'stem vowel', ts: c.verb.extra ? 'later time marker (a vowel)' : 'later time marker', en:'personal ending'}),
   patterns: [
-    {id:'bi', lab:'-bi-', txt:'the future sign', part:'ts', test:c=>!c.verb.extra,
+    {id:'bi', lab:'-bi-', txt:'the later time marker', part:'ts', test:c=>!c.verb.extra,
      note:'<b>-bi- between the stem and the ending marks the future</b> in the 1st and 2nd conjugations: <i>amā<b>bi</b>t, monē<b>bi</b>t</i>. Its <i>-i-</i> is the "will" of the future.'},
     {id:'bobunt', lab:'-bō, -bunt', txt:'1st singular and 3rd plural', part:'tsen', test:c=>['1sg','3pl'].includes(c.p.k),
      note:'<b>Two forms change the -i-.</b> In <i>amābō</i> the <i>ō</i> has absorbed it; in <i>amābunt</i> it has become <i>u</i>, the same shift as <i>regunt</i> in the present. <i>erō</i> and <i>erunt</i> do the same.'},
@@ -113,15 +114,18 @@ VerbChart({
   ],
   notes: {
     'amo.1sg':'<i>amā-b-ō</i>: the <i>ō</i> has absorbed the <i>-i-</i> of <i>-bi-</i>.',
-    'amo.2sg':'<i>amā-bi-s</i>: stem, the future sign <i>-bi-</i>, and the same <i>-s</i> as in the present.',
+    'amo.2sg':'<i>amā-bi-s</i>: stem, the later time marker <i>-bi-</i>, and the same <i>-s</i> as in the present.',
     'amo.3pl':'<i>amā-bu-nt</i>: the <i>-i-</i> becomes <i>-u-</i> before <i>-nt</i>, as in <i>regunt</i>.',
     'moneo.1sg':'<i>monē-b-ō</i>: the 2nd conjugation keeps its <i>ē</i> before <i>-bi-</i>.',
     'moneo.3sg':'<i>monēbit</i>: compare the imperfect <i>monēbat</i>. Only the time vowel differs: <i>i</i> for "will," <i>a</i> for "was."',
     'sum.1sg':'<i>erō</i>: "I will be." Compare the imperfect <i>eram</i>, "I was."',
     'sum.3pl':'<i>erunt</i>: "they will be." The future perfect builds on these forms.'
   },
-  idle: "You'll see who is doing the action, how to translate it, and how the form is built from root, stem vowel, the future sign <i>-bi-</i>, and personal ending."
+  idle: "You'll see who is doing the action, how to translate it, and how the form is built from root, stem vowel, the later time marker <i>-bi-</i>, and personal ending."
 });
 </script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610032200"></script>
 </body>
 </html>

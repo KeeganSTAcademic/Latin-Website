@@ -3,7 +3,7 @@
  "title": "Future Perfect Active Indicative",
  "course": "Verbs · Active Indicative",
  "subtitle": "Complete aspect: all four conjugations plus 3rd -iō",
- "intro": "The future perfect is the <b>perfect stem</b> (amāv-, vīd-, mīs-, cēp-, audīv-) +\n    the <b>future of sum</b>: <span class=\"end\">erō, eris, erit, erimus, eritis, erint</span>.\n    <p style=\"margin:8px 0 0\">The perfect stem marks the action as complete. The future of sum (“will be”) puts it in <b>future time</b>:\n    complete before some point in the future, so “will have loved” (amāverō). The endings are the same in every conjugation, and only the stem differs.</p>\n    <p style=\"margin:8px 0 0\"><b>Watch out:</b> the 3rd person plural is <b>-erint</b>, not erunt (amāverint). That keeps it separate from the perfect amāvērunt.</p>",
+ "intro": "The future perfect is the <b>complete stem</b> (amāv-, vīd-, mīs-, cēp-, audīv-) +\n    the <b>future of sum</b>: <span class=\"end\">erō, eris, erit, erimus, eritis, erint</span>.\n    <p style=\"margin:8px 0 0\">The complete stem marks the action as complete. The future of sum (“will be”) puts it in <b>future time</b>:\n    complete before some point in the future, so “will have loved” (amāverō). The endings are the same in every conjugation, and only the stem differs.</p>\n    <p style=\"margin:8px 0 0\"><b>Watch out:</b> the 3rd person plural is <b>-erint</b>, not erunt (amāverint). That keeps it separate from the perfect amāvērunt.</p>",
  "paradigmNote": "Future perfect endings (all conjugations): <span class=\"end\">-erō, -eris, -erit, -erimus, -eritis, -erint</span>",
  "filters": [
   {
@@ -80,8 +80,24 @@
    "pi": 0,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -erō · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "er",
+     "m",
+     "time: later"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāveris",
@@ -96,8 +112,24 @@
    "pi": 1,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -eris · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāverit",
@@ -112,8 +144,24 @@
    "pi": 2,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -erit · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāverimus",
@@ -128,8 +176,24 @@
    "pi": 3,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -erimus · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāveritis",
@@ -144,8 +208,24 @@
    "pi": 4,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -eritis · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāverint",
@@ -160,8 +240,24 @@
    "pi": 5,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -erint · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīderō",
@@ -176,8 +272,24 @@
    "pi": 0,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -erō · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "er",
+     "m",
+     "time: later"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīderis",
@@ -192,8 +304,24 @@
    "pi": 1,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -eris · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīderit",
@@ -208,8 +336,24 @@
    "pi": 2,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -erit · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīderimus",
@@ -224,8 +368,24 @@
    "pi": 3,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -erimus · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīderitis",
@@ -240,8 +400,24 @@
    "pi": 4,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -eritis · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīderint",
@@ -256,8 +432,24 @@
    "pi": 5,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -erint · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīserō",
@@ -272,8 +464,24 @@
    "pi": 0,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -erō · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "er",
+     "m",
+     "time: later"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīseris",
@@ -288,8 +496,24 @@
    "pi": 1,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -eris · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīserit",
@@ -304,8 +528,24 @@
    "pi": 2,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -erit · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīserimus",
@@ -320,8 +560,24 @@
    "pi": 3,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -erimus · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīseritis",
@@ -336,8 +592,24 @@
    "pi": 4,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -eritis · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīserint",
@@ -352,8 +624,24 @@
    "pi": 5,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -erint · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēperō",
@@ -368,8 +656,24 @@
    "pi": 0,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -erō · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "er",
+     "m",
+     "time: later"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēperis",
@@ -384,8 +688,24 @@
    "pi": 1,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -eris · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēperit",
@@ -400,8 +720,24 @@
    "pi": 2,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -erit · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēperimus",
@@ -416,8 +752,24 @@
    "pi": 3,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -erimus · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēperitis",
@@ -432,8 +784,24 @@
    "pi": 4,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -eritis · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēperint",
@@ -448,8 +816,24 @@
    "pi": 5,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -erint · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīverō",
@@ -464,8 +848,24 @@
    "pi": 0,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -erō · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "er",
+     "m",
+     "time: later"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīveris",
@@ -480,8 +880,24 @@
    "pi": 1,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -eris · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīverit",
@@ -496,8 +912,24 @@
    "pi": 2,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -erit · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīverimus",
@@ -512,8 +944,24 @@
    "pi": 3,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -erimus · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīveritis",
@@ -528,8 +976,24 @@
    "pi": 4,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -eritis · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīverint",
@@ -544,8 +1008,24 @@
    "pi": 5,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -erint · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   }
  ]
 }

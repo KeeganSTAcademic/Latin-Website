@@ -213,43 +213,61 @@
    "mood": "ind",
    "tense": "perf",
    "la": "fuī",
-   "en": "I was / have been.",
-   "parse": "1st sg., perf., ind., act"
+   "en": "I was.",
+   "parse": "1st sg., perf., ind., act",
+   "alt": [
+    "I have been."
+   ]
   },
   {
    "mood": "ind",
    "tense": "perf",
    "la": "fuistī",
-   "en": "You were / have been.",
-   "parse": "2nd sg., perf., ind., act"
+   "en": "You were.",
+   "parse": "2nd sg., perf., ind., act",
+   "alt": [
+    "You have been."
+   ]
   },
   {
    "mood": "ind",
    "tense": "perf",
    "la": "fuit",
-   "en": "He/she/it was / has been.",
-   "parse": "3rd sg., perf., ind., act"
+   "en": "He/she/it was.",
+   "parse": "3rd sg., perf., ind., act",
+   "alt": [
+    "He/she/it has been."
+   ]
   },
   {
    "mood": "ind",
    "tense": "perf",
    "la": "fuimus",
-   "en": "We were / have been.",
-   "parse": "1st pl., perf., ind., act"
+   "en": "We were.",
+   "parse": "1st pl., perf., ind., act",
+   "alt": [
+    "We have been."
+   ]
   },
   {
    "mood": "ind",
    "tense": "perf",
    "la": "fuistis",
-   "en": "You (pl.) were / have been.",
-   "parse": "2nd pl., perf., ind., act"
+   "en": "You (pl.) were.",
+   "parse": "2nd pl., perf., ind., act",
+   "alt": [
+    "You (pl.) have been."
+   ]
   },
   {
    "mood": "ind",
    "tense": "perf",
    "la": "fuērunt",
-   "en": "They were / have been.",
-   "parse": "3rd pl., perf., ind., act"
+   "en": "They were.",
+   "parse": "3rd pl., perf., ind., act",
+   "alt": [
+    "They have been."
+   ]
   },
   {
    "mood": "ind",

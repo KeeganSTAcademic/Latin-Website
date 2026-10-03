@@ -182,3 +182,48 @@
 .fc-combine-bar{position:sticky;bottom:12px;z-index:5;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;padding:12px 16px;margin-top:16px;box-shadow:0 6px 24px rgba(0,0,0,.18)}
 .fc-combine-bar .btn{text-decoration:none;display:inline-block}
 @media (min-width:980px){ #picker .fc-combine-bar{max-width:760px;margin-left:auto;margin-right:auto} }
+
+/* grammar note: a sub-section at the top of "Show paradigms" */
+.fc-paradigms .fc-intro{margin:12px 0 14px;padding:10px 14px;border:1px solid var(--rule);border-radius:var(--radius-sm);background:var(--surface2)}
+.fc-paradigms .fc-intro[open]{padding-bottom:14px}
+.fc-paradigms .fc-intro > div{margin-top:8px}
+.fc-paradigms .fc-intro.solo{border:0;background:none;padding:0}
+.fc-paradigms .fc-intro.solo > summary{display:none}
+
+/* other translations / readings, under the main one and its parse */
+.fc-alts{display:grid;gap:2px;justify-items:center;color:var(--muted);font-size:1rem;line-height:1.5}
+.fc-alts .label{font-size:1rem}
+.fc-alts ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.fc-alt-p{font-variant:small-caps;text-transform:lowercase;letter-spacing:.06em;margin-left:4px}
+
+/* stem + time marker + ending (verb cards), coloured as on the grammar pages */
+:root{--seg-s:#23487B;--seg-s-bg:#DAE4F1;--seg-m:#6E3F00;--seg-m-bg:#FBEACB;--seg-e:#7A1E12;--seg-e-bg:#F6DDD8}   /* stem blue · time brown · ending red */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--seg-s:#A9C8F2;--seg-s-bg:#1B2A40;--seg-m:#F6C26B;--seg-m-bg:#382A12;--seg-e:#FF9F8C;--seg-e-bg:#3D1F1A}}
+:root[data-theme="dark"]{--seg-s:#A9C8F2;--seg-s-bg:#1B2A40;--seg-m:#F6C26B;--seg-m-bg:#382A12;--seg-e:#FF9F8C;--seg-e-bg:#3D1F1A}
+.fc-seg{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin:4px 0}
+.fc-seg .sg{display:grid;justify-items:center;gap:2px;padding:4px 10px 3px;border-radius:8px;border:2px solid transparent}
+.fc-seg b{font-size:1.375rem;font-weight:700;line-height:1.3}
+.fc-seg i{font-style:normal;font-size:1rem;font-variant:small-caps;text-transform:lowercase;letter-spacing:.06em;color:var(--muted)}
+.fc-seg .sg-s{background:var(--seg-s-bg)} .fc-seg .sg-s b{color:var(--seg-s)}
+.fc-seg .sg-m{background:var(--seg-m-bg)} .fc-seg .sg-m b{color:var(--seg-m)}
+.fc-seg .sg-e{background:var(--seg-e-bg)} .fc-seg .sg-e b{color:var(--seg-e)}
+.fc-seg .sg-none{border:2px dashed var(--seg-m);background:transparent} .fc-seg .sg-none b{color:var(--seg-m);font-weight:400}
+
+/* noun / adjective cards: every reading of a shared spelling, alike */
+.fc-readings2{display:grid;gap:12px;justify-items:center}
+.fc-reading{display:grid;gap:4px;justify-items:center}
+.fc-r-en{font-size:1.375rem;line-height:1.35}
+
+/* the time vowel: a = past, i = later (amā-ba-t / amāv-era-t, amā-bi-t / amāv-eri-t) */
+.fc-seg .sg-m b{font-weight:500}
+.fc-seg .sg-m b u{font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+
+/* translation coloured to match the form's parts */
+.tw{font-weight:600}
+.tw-s{color:var(--seg-s)} .tw-m{color:var(--seg-m)} .tw-e{color:var(--seg-e)}
+
+/* passive helpers (is, are, was, were; and the form of sum) carry time AND voice: brown with the ending's red underline */
+.tw-x{color:var(--seg-m);text-decoration:underline 3px var(--seg-e);text-underline-offset:5px}
+.fc-seg .sg-x{background:linear-gradient(90deg,var(--seg-m-bg) 50%,var(--seg-e-bg) 50%)}
+.fc-seg .sg-x b{color:var(--seg-m);text-decoration:underline 3px var(--seg-e);text-underline-offset:5px}
+.fc-seg .sg-x b u{text-decoration:none;font-weight:800}

@@ -12,6 +12,7 @@
 <style>
 :root{--p-era:#23487B; --p-era-bg:#DAE4F1; --p-stem:#7F2756; --p-stem-bg:#F4DDE9; --p-m1:#2F5331; --p-m1-bg:#DDEBDC;}
 </style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610032200">
 </head>
 <body>
 <div class="wrap">
@@ -19,7 +20,7 @@
   <h1>Pluperfect Active Indicative</h1>
   <p class="subtitle">An interactive grammar for all four conjugations plus 3rd <i>-iō</i></p>
   <div class="primer">
-    <span><b>Perfect stem + <i>-era-</i> + ending</b> <i>amāv-era-t</i></span>
+    <span><b>Complete stem + <i>-era-</i> + ending</b> <i>amāv-era-t</i></span>
     <span><b>Endings</b> <i>-eram, -erās, -erat, -erāmus, -erātis, -erant</i></span>
     <span>Hover any form to see what it means and how it's built</span>
   </div>
@@ -29,7 +30,7 @@
   <details class="fold">
     <summary>The pluperfect tense</summary>
   <div class="prose">
-    <p>The Latin pluperfect tense describes complete action that occurred in the past. We translate it like "he had loved." Its formation is incredibly simple: we attach the imperfect of the verb <i>sum</i> (<i>eram, erās, erat …</i>) to the perfect stem, the 3rd principal part minus its <i>-ī</i>.</p>
+    <p>The Latin pluperfect tense describes complete action that occurred in the past. We translate it like "he had loved." Its formation is incredibly simple: we attach the imperfect of the verb <i>sum</i> (<i>eram, erās, erat …</i>) to the complete stem, the 3rd principal part minus its <i>-ī</i>.</p>
     <p>This is a way of marking time very similar to the <i>-ba-</i> seen in the imperfect, with the same <i>-a-</i> as a time vowel. We may understand the pluperfect as the combination of a stem communicating completed aspect, an <i>-a-</i> vowel marking past time, and personal endings marking the person and number of a verb.</p>
   </div>
   </details>
@@ -44,7 +45,7 @@
     <summary>How to build it</summary>
   <div class="conj-box">
   <table class="rule-table conj-table">
-    <thead><tr><th>Conjugation</th><th>Principal parts</th><th>Perfect stem</th><th>"I had ___"</th></tr></thead>
+    <thead><tr><th>Conjugation</th><th>Principal parts</th><th>Complete stem</th><th>"I had ___"</th></tr></thead>
     <tbody>
       <tr><td>1st</td><td><i>amō, amāre, <b>amāvī</b></i></td><td><b>amāv-</b></td><td><i>amāveram</i></td></tr>
       <tr><td>2nd</td><td><i>moneō, monēre, <b>monuī</b></i></td><td><b>monu-</b></td><td><i>monueram</i></td></tr>
@@ -115,23 +116,26 @@ const perfVerbs = mk => Object.entries(PV).map(([id, v]) => ({id, dict:v.dict, m
 VerbChart({
   verbs: perfVerbs(st => rep(st, '', ['era','erā','era','erā','erā','era'], ['m','s','t','mus','tis','nt'])),
   english: c => ({main:`${SUB[c.i]} had ${PV[c.verb.id].pp}`, alt:''}),
-  labels: c => ({st:'perfect stem', vw:'', ts:'past marker (from eram)', en:'personal ending'}),
+  labels: c => ({st:'complete stem', vw:'', ts:'past time marker (from eram)', en:'personal ending'}),
   patterns: [
     {id:'era', lab:'-era-', txt:'imperfect of sum', part:'ts', test:c=>true,
      note:'<b>-era- is the imperfect of sum without its endings</b> (<i>eram, erās, erat</i>): <i>amāv<b>era</b>t</i> "he had loved." Its <i>-a-</i> is the same past-time vowel as the <i>-ba-</i> of the imperfect.'},
-    {id:'stem', lab:'amāv-', txt:'the perfect stem', part:'st', test:c=>true,
-     note:'<b>The perfect stem gives the "complete" meaning</b>, just as in the perfect: <i>amāv-, monu-, rēx-, cēp-, audīv-, fu-</i>.'},
+    {id:'stem', lab:'amāv-', txt:'the complete stem', part:'st', test:c=>true,
+     note:'<b>The complete stem makes it complete</b>, just as in the perfect: <i>amāv-, monu-, rēx-, cēp-, audīv-, fu-</i>.'},
     {id:'m1', lab:'-eram', txt:'"I" ends in -m', part:'en', test:c=>c.p.k === '1sg',
      note:'<b>Like the imperfect, the pluperfect "I" ends in -m:</b> <i>amāveram</i>, as <i>amābam</i> and <i>eram</i>.'}
   ],
   notes: {
-    'amo.1sg':'<i>amāv-era-m</i>: the perfect stem plus <i>eram</i>, "I had loved."',
-    'amo.3sg':'<i>amāverat</i>: compare the imperfect <i>amābat</i> "he was loving." Both have the past <i>a</i>; the perfect stem makes this one complete.',
+    'amo.1sg':'<i>amāv-era-m</i>: the complete stem plus <i>eram</i>, "I had loved."',
+    'amo.3sg':'<i>amāverat</i>: compare the imperfect <i>amābat</i> "he was loving." Both have the past <i>a</i>; the complete stem makes this one complete.',
     'rego.1sg':'<i>rēxeram</i>: the stem <i>rēx-</i> comes from the 3rd principal part <i>rēxī</i>.',
     'sum.1sg':'<i>fueram</i>: "I had been."'
   },
-  idle: "You'll see how to translate the form and how it is built from the perfect stem, <i>-era-</i>, and the personal ending."
+  idle: "You'll see how to translate the form and how it is built from the complete stem, <i>-era-</i>, and the personal ending."
 });
 </script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610032200"></script>
 </body>
 </html>

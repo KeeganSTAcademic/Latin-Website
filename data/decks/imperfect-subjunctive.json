@@ -99,7 +99,24 @@
    "pi": 0,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amārēs",
@@ -114,7 +131,24 @@
    "pi": 1,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāret",
@@ -129,7 +163,24 @@
    "pi": 2,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amārēmus",
@@ -144,7 +195,24 @@
    "pi": 3,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amārētis",
@@ -159,7 +227,24 @@
    "pi": 4,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amārent",
@@ -174,7 +259,24 @@
    "pi": 5,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidērem",
@@ -189,7 +291,24 @@
    "pi": 0,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidērēs",
@@ -204,7 +323,24 @@
    "pi": 1,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēret",
@@ -219,7 +355,24 @@
    "pi": 2,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidērēmus",
@@ -234,7 +387,24 @@
    "pi": 3,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidērētis",
@@ -249,7 +419,24 @@
    "pi": 4,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidērent",
@@ -264,7 +451,24 @@
    "pi": 5,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitterem",
@@ -279,7 +483,24 @@
    "pi": 0,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitterēs",
@@ -294,7 +515,24 @@
    "pi": 1,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitteret",
@@ -309,7 +547,24 @@
    "pi": 2,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitterēmus",
@@ -324,7 +579,24 @@
    "pi": 3,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitterētis",
@@ -339,7 +611,24 @@
    "pi": 4,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitterent",
@@ -354,7 +643,24 @@
    "pi": 5,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperem",
@@ -369,7 +675,24 @@
    "pi": 0,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperēs",
@@ -384,7 +707,24 @@
    "pi": 1,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperet",
@@ -399,7 +739,24 @@
    "pi": 2,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperēmus",
@@ -414,7 +771,24 @@
    "pi": 3,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperētis",
@@ -429,7 +803,24 @@
    "pi": 4,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperent",
@@ -444,7 +835,24 @@
    "pi": 5,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīrem",
@@ -459,7 +867,24 @@
    "pi": 0,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīrēs",
@@ -474,7 +899,24 @@
    "pi": 1,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīret",
@@ -489,7 +931,24 @@
    "pi": 2,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīrēmus",
@@ -504,7 +963,24 @@
    "pi": 3,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīrētis",
@@ -519,7 +995,24 @@
    "pi": 4,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīrent",
@@ -534,7 +1027,24 @@
    "pi": 5,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "act"
+   "t": "act",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amārer",
@@ -549,7 +1059,24 @@
    "pi": 0,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "r",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amārēris",
@@ -564,7 +1091,24 @@
    "pi": 1,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amārētur",
@@ -579,7 +1123,24 @@
    "pi": 2,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amārēmur",
@@ -594,7 +1155,24 @@
    "pi": 3,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amārēminī",
@@ -609,7 +1187,24 @@
    "pi": 4,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amārentur",
@@ -624,7 +1219,24 @@
    "pi": 5,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidērer",
@@ -639,7 +1251,24 @@
    "pi": 0,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "r",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidērēris",
@@ -654,7 +1283,24 @@
    "pi": 1,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidērētur",
@@ -669,7 +1315,24 @@
    "pi": 2,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidērēmur",
@@ -684,7 +1347,24 @@
    "pi": 3,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidērēminī",
@@ -699,7 +1379,24 @@
    "pi": 4,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidērentur",
@@ -714,7 +1411,24 @@
    "pi": 5,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitterer",
@@ -729,7 +1443,24 @@
    "pi": 0,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "r",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitterēris",
@@ -744,7 +1475,24 @@
    "pi": 1,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitterētur",
@@ -759,7 +1507,24 @@
    "pi": 2,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitterēmur",
@@ -774,7 +1539,24 @@
    "pi": 3,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitterēminī",
@@ -789,7 +1571,24 @@
    "pi": 4,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitterentur",
@@ -804,7 +1603,24 @@
    "pi": 5,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperer",
@@ -819,7 +1635,24 @@
    "pi": 0,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "r",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperēris",
@@ -834,7 +1667,24 @@
    "pi": 1,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperētur",
@@ -849,7 +1699,24 @@
    "pi": 2,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperēmur",
@@ -864,7 +1731,24 @@
    "pi": 3,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperēminī",
@@ -879,7 +1763,24 @@
    "pi": 4,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperentur",
@@ -894,7 +1795,24 @@
    "pi": 5,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīrer",
@@ -909,7 +1827,24 @@
    "pi": 0,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "r",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīrēris",
@@ -924,7 +1859,24 @@
    "pi": 1,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīrētur",
@@ -939,7 +1891,24 @@
    "pi": 2,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīrēmur",
@@ -954,7 +1923,24 @@
    "pi": 3,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīrēminī",
@@ -969,7 +1955,24 @@
    "pi": 4,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīrentur",
@@ -984,7 +1987,24 @@
    "pi": 5,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pass"
+   "t": "pass",
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   }
  ]
 }

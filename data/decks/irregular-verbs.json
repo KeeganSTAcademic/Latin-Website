@@ -143,7 +143,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 0
+   "pi": 0,
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -158,7 +175,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 1
+   "pi": 1,
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -173,7 +207,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 2
+   "pi": 2,
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -188,7 +239,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 3
+   "pi": 3,
+   "seg": [
+    [
+     "feri",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -203,7 +271,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 4
+   "pi": 4,
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -218,7 +303,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 5
+   "pi": 5,
+   "seg": [
+    [
+     "feru",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -235,7 +337,24 @@
    "tm": "ind-impf",
    "pi": 0,
    "stem": "ferē",
-   "end": "bam"
+   "end": "bam",
+   "seg": [
+    [
+     "ferē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -252,7 +371,24 @@
    "tm": "ind-impf",
    "pi": 1,
    "stem": "ferē",
-   "end": "bās"
+   "end": "bās",
+   "seg": [
+    [
+     "ferē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -269,7 +405,24 @@
    "tm": "ind-impf",
    "pi": 2,
    "stem": "ferē",
-   "end": "bat"
+   "end": "bat",
+   "seg": [
+    [
+     "ferē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -286,7 +439,24 @@
    "tm": "ind-impf",
    "pi": 3,
    "stem": "ferē",
-   "end": "bāmus"
+   "end": "bāmus",
+   "seg": [
+    [
+     "ferē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -303,7 +473,24 @@
    "tm": "ind-impf",
    "pi": 4,
    "stem": "ferē",
-   "end": "bātis"
+   "end": "bātis",
+   "seg": [
+    [
+     "ferē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -320,7 +507,24 @@
    "tm": "ind-impf",
    "pi": 5,
    "stem": "ferē",
-   "end": "bant"
+   "end": "bant",
+   "seg": [
+    [
+     "ferē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -337,7 +541,24 @@
    "tm": "ind-fut",
    "pi": 0,
    "stem": "fer",
-   "end": "am"
+   "end": "am",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "time: later"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -354,7 +575,24 @@
    "tm": "ind-fut",
    "pi": 1,
    "stem": "fer",
-   "end": "ēs"
+   "end": "ēs",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -371,7 +609,24 @@
    "tm": "ind-fut",
    "pi": 2,
    "stem": "fer",
-   "end": "et"
+   "end": "et",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -388,7 +643,24 @@
    "tm": "ind-fut",
    "pi": 3,
    "stem": "fer",
-   "end": "ēmus"
+   "end": "ēmus",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -405,7 +677,24 @@
    "tm": "ind-fut",
    "pi": 4,
    "stem": "fer",
-   "end": "ētis"
+   "end": "ētis",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -422,7 +711,24 @@
    "tm": "ind-fut",
    "pi": 5,
    "stem": "fer",
-   "end": "ent"
+   "end": "ent",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -431,7 +737,7 @@
    "gloss": "carry, bear",
    "tag": "ferō · ferō, ferre, tulī, lātum (carry, bear)",
    "la": "tulī",
-   "en": "I carried, I have carried",
+   "en": "I carried",
    "pn": "1st Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -439,7 +745,27 @@
    "tm": "ind-perf",
    "pi": 0,
    "stem": "tul",
-   "end": "ī"
+   "end": "ī",
+   "alt": [
+    "I have carried"
+   ],
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -448,7 +774,7 @@
    "gloss": "carry, bear",
    "tag": "ferō · ferō, ferre, tulī, lātum (carry, bear)",
    "la": "tulistī",
-   "en": "you carried, you have carried",
+   "en": "you carried",
    "pn": "2nd Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -456,7 +782,27 @@
    "tm": "ind-perf",
    "pi": 1,
    "stem": "tul",
-   "end": "istī"
+   "end": "istī",
+   "alt": [
+    "you have carried"
+   ],
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -465,7 +811,7 @@
    "gloss": "carry, bear",
    "tag": "ferō · ferō, ferre, tulī, lātum (carry, bear)",
    "la": "tulit",
-   "en": "he/she/it carried, he/she/it has carried",
+   "en": "he/she/it carried",
    "pn": "3rd Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -473,7 +819,27 @@
    "tm": "ind-perf",
    "pi": 2,
    "stem": "tul",
-   "end": "it"
+   "end": "it",
+   "alt": [
+    "he/she/it has carried"
+   ],
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "it",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -482,7 +848,7 @@
    "gloss": "carry, bear",
    "tag": "ferō · ferō, ferre, tulī, lātum (carry, bear)",
    "la": "tulimus",
-   "en": "we carried, we have carried",
+   "en": "we carried",
    "pn": "1st Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -490,7 +856,27 @@
    "tm": "ind-perf",
    "pi": 3,
    "stem": "tul",
-   "end": "imus"
+   "end": "imus",
+   "alt": [
+    "we have carried"
+   ],
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "imus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -499,7 +885,7 @@
    "gloss": "carry, bear",
    "tag": "ferō · ferō, ferre, tulī, lātum (carry, bear)",
    "la": "tulistis",
-   "en": "you (pl.) carried, you (pl.) have carried",
+   "en": "you (pl.) carried",
    "pn": "2nd Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -507,7 +893,27 @@
    "tm": "ind-perf",
    "pi": 4,
    "stem": "tul",
-   "end": "istis"
+   "end": "istis",
+   "alt": [
+    "you (pl.) have carried"
+   ],
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -516,7 +922,7 @@
    "gloss": "carry, bear",
    "tag": "ferō · ferō, ferre, tulī, lātum (carry, bear)",
    "la": "tulērunt",
-   "en": "they carried, they have carried",
+   "en": "they carried",
    "pn": "3rd Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -524,7 +930,27 @@
    "tm": "ind-perf",
    "pi": 5,
    "stem": "tul",
-   "end": "ērunt"
+   "end": "ērunt",
+   "alt": [
+    "they have carried"
+   ],
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ērunt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -541,7 +967,24 @@
    "tm": "ind-plup",
    "pi": 0,
    "stem": "tul",
-   "end": "eram"
+   "end": "eram",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -558,7 +1001,24 @@
    "tm": "ind-plup",
    "pi": 1,
    "stem": "tul",
-   "end": "erās"
+   "end": "erās",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -575,7 +1035,24 @@
    "tm": "ind-plup",
    "pi": 2,
    "stem": "tul",
-   "end": "erat"
+   "end": "erat",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -592,7 +1069,24 @@
    "tm": "ind-plup",
    "pi": 3,
    "stem": "tul",
-   "end": "erāmus"
+   "end": "erāmus",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -609,7 +1103,24 @@
    "tm": "ind-plup",
    "pi": 4,
    "stem": "tul",
-   "end": "erātis"
+   "end": "erātis",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -626,7 +1137,24 @@
    "tm": "ind-plup",
    "pi": 5,
    "stem": "tul",
-   "end": "erant"
+   "end": "erant",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -643,7 +1171,24 @@
    "tm": "ind-futp",
    "pi": 0,
    "stem": "tul",
-   "end": "erō"
+   "end": "erō",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "er",
+     "m",
+     "time: later"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -660,7 +1205,24 @@
    "tm": "ind-futp",
    "pi": 1,
    "stem": "tul",
-   "end": "eris"
+   "end": "eris",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -677,7 +1239,24 @@
    "tm": "ind-futp",
    "pi": 2,
    "stem": "tul",
-   "end": "erit"
+   "end": "erit",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -694,7 +1273,24 @@
    "tm": "ind-futp",
    "pi": 3,
    "stem": "tul",
-   "end": "erimus"
+   "end": "erimus",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -711,7 +1307,24 @@
    "tm": "ind-futp",
    "pi": 4,
    "stem": "tul",
-   "end": "eritis"
+   "end": "eritis",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -728,7 +1341,24 @@
    "tm": "ind-futp",
    "pi": 5,
    "stem": "tul",
-   "end": "erint"
+   "end": "erint",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -745,7 +1375,24 @@
    "tm": "subj-pres",
    "pi": 0,
    "stem": "fer",
-   "end": "am"
+   "end": "am",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -762,7 +1409,24 @@
    "tm": "subj-pres",
    "pi": 1,
    "stem": "fer",
-   "end": "ās"
+   "end": "ās",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ā",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -779,7 +1443,24 @@
    "tm": "subj-pres",
    "pi": 2,
    "stem": "fer",
-   "end": "at"
+   "end": "at",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -796,7 +1477,24 @@
    "tm": "subj-pres",
    "pi": 3,
    "stem": "fer",
-   "end": "āmus"
+   "end": "āmus",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ā",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -813,7 +1511,24 @@
    "tm": "subj-pres",
    "pi": 4,
    "stem": "fer",
-   "end": "ātis"
+   "end": "ātis",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ā",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -830,7 +1545,24 @@
    "tm": "subj-pres",
    "pi": 5,
    "stem": "fer",
-   "end": "ant"
+   "end": "ant",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -847,7 +1579,24 @@
    "tm": "subj-impf",
    "pi": 0,
    "stem": "ferre",
-   "end": "m"
+   "end": "m",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -864,7 +1613,24 @@
    "tm": "subj-impf",
    "pi": 1,
    "stem": "ferrē",
-   "end": "s"
+   "end": "s",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -881,7 +1647,24 @@
    "tm": "subj-impf",
    "pi": 2,
    "stem": "ferre",
-   "end": "t"
+   "end": "t",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -898,7 +1681,24 @@
    "tm": "subj-impf",
    "pi": 3,
    "stem": "ferrē",
-   "end": "mus"
+   "end": "mus",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -915,7 +1715,24 @@
    "tm": "subj-impf",
    "pi": 4,
    "stem": "ferrē",
-   "end": "tis"
+   "end": "tis",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "rē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -932,7 +1749,24 @@
    "tm": "subj-impf",
    "pi": 5,
    "stem": "ferre",
-   "end": "nt"
+   "end": "nt",
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "re",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -949,7 +1783,24 @@
    "tm": "subj-perf",
    "pi": 0,
    "stem": "tul",
-   "end": "erim"
+   "end": "erim",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -966,7 +1817,24 @@
    "tm": "subj-perf",
    "pi": 1,
    "stem": "tul",
-   "end": "erīs"
+   "end": "erīs",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -983,7 +1851,24 @@
    "tm": "subj-perf",
    "pi": 2,
    "stem": "tul",
-   "end": "erit"
+   "end": "erit",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1000,7 +1885,24 @@
    "tm": "subj-perf",
    "pi": 3,
    "stem": "tul",
-   "end": "erīmus"
+   "end": "erīmus",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1017,7 +1919,24 @@
    "tm": "subj-perf",
    "pi": 4,
    "stem": "tul",
-   "end": "erītis"
+   "end": "erītis",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1034,7 +1953,24 @@
    "tm": "subj-perf",
    "pi": 5,
    "stem": "tul",
-   "end": "erint"
+   "end": "erint",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1051,7 +1987,24 @@
    "tm": "subj-plup",
    "pi": 0,
    "stem": "tul",
-   "end": "issem"
+   "end": "issem",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1068,7 +2021,24 @@
    "tm": "subj-plup",
    "pi": 1,
    "stem": "tul",
-   "end": "issēs"
+   "end": "issēs",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1085,7 +2055,24 @@
    "tm": "subj-plup",
    "pi": 2,
    "stem": "tul",
-   "end": "isset"
+   "end": "isset",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1102,7 +2089,24 @@
    "tm": "subj-plup",
    "pi": 3,
    "stem": "tul",
-   "end": "issēmus"
+   "end": "issēmus",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1119,7 +2123,24 @@
    "tm": "subj-plup",
    "pi": 4,
    "stem": "tul",
-   "end": "issētis"
+   "end": "issētis",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1136,7 +2157,24 @@
    "tm": "subj-plup",
    "pi": 5,
    "stem": "tul",
-   "end": "issent"
+   "end": "issent",
+   "seg": [
+    [
+     "tul",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1151,7 +2189,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres-pass",
-   "pi": 0
+   "pi": 0,
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "or",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1166,7 +2221,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres-pass",
-   "pi": 1
+   "pi": 1,
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1181,7 +2253,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres-pass",
-   "pi": 2
+   "pi": 2,
+   "seg": [
+    [
+     "fer",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1196,7 +2285,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres-pass",
-   "pi": 3
+   "pi": 3,
+   "seg": [
+    [
+     "feri",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1211,7 +2317,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres-pass",
-   "pi": 4
+   "pi": 4,
+   "seg": [
+    [
+     "feri",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1226,7 +2349,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres-pass",
-   "pi": 5
+   "pi": 5,
+   "seg": [
+    [
+     "feru",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "fero",
@@ -1306,7 +2446,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 0
+   "pi": 0,
+   "seg": [
+    [
+     "vol",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1321,7 +2478,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 1
+   "pi": 1,
+   "seg": [
+    [
+     "vī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1337,7 +2511,24 @@
    "tense": "pres",
    "tm": "ind-pres",
    "pi": 2,
-   "note": "Older spelling: volt."
+   "note": "Older spelling: volt.",
+   "seg": [
+    [
+     "vul",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1352,7 +2543,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 3
+   "pi": 3,
+   "seg": [
+    [
+     "volu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1368,7 +2576,24 @@
    "tense": "pres",
    "tm": "ind-pres",
    "pi": 4,
-   "note": "Older spelling: voltis."
+   "note": "Older spelling: voltis.",
+   "seg": [
+    [
+     "vul",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1383,7 +2608,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 5
+   "pi": 5,
+   "seg": [
+    [
+     "volu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1392,7 +2634,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "volēbam",
-   "en": "I wanted, I used to want",
+   "en": "I wanted",
    "pn": "1st Person Singular",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -1400,7 +2642,27 @@
    "tm": "ind-impf",
    "pi": 0,
    "stem": "volē",
-   "end": "bam"
+   "end": "bam",
+   "alt": [
+    "I used to want"
+   ],
+   "seg": [
+    [
+     "volē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1409,7 +2671,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "volēbās",
-   "en": "you wanted, you used to want",
+   "en": "you wanted",
    "pn": "2nd Person Singular",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -1417,7 +2679,27 @@
    "tm": "ind-impf",
    "pi": 1,
    "stem": "volē",
-   "end": "bās"
+   "end": "bās",
+   "alt": [
+    "you used to want"
+   ],
+   "seg": [
+    [
+     "volē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1426,7 +2708,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "volēbat",
-   "en": "he/she/it wanted, he/she/it used to want",
+   "en": "he/she/it wanted",
    "pn": "3rd Person Singular",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -1434,7 +2716,27 @@
    "tm": "ind-impf",
    "pi": 2,
    "stem": "volē",
-   "end": "bat"
+   "end": "bat",
+   "alt": [
+    "he/she/it used to want"
+   ],
+   "seg": [
+    [
+     "volē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1443,7 +2745,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "volēbāmus",
-   "en": "we wanted, we used to want",
+   "en": "we wanted",
    "pn": "1st Person Plural",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -1451,7 +2753,27 @@
    "tm": "ind-impf",
    "pi": 3,
    "stem": "volē",
-   "end": "bāmus"
+   "end": "bāmus",
+   "alt": [
+    "we used to want"
+   ],
+   "seg": [
+    [
+     "volē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1460,7 +2782,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "volēbātis",
-   "en": "you (pl.) wanted, you (pl.) used to want",
+   "en": "you (pl.) wanted",
    "pn": "2nd Person Plural",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -1468,7 +2790,27 @@
    "tm": "ind-impf",
    "pi": 4,
    "stem": "volē",
-   "end": "bātis"
+   "end": "bātis",
+   "alt": [
+    "you (pl.) used to want"
+   ],
+   "seg": [
+    [
+     "volē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1477,7 +2819,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "volēbant",
-   "en": "they wanted, they used to want",
+   "en": "they wanted",
    "pn": "3rd Person Plural",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -1485,7 +2827,27 @@
    "tm": "ind-impf",
    "pi": 5,
    "stem": "volē",
-   "end": "bant"
+   "end": "bant",
+   "alt": [
+    "they used to want"
+   ],
+   "seg": [
+    [
+     "volē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1502,7 +2864,24 @@
    "tm": "ind-fut",
    "pi": 0,
    "stem": "vol",
-   "end": "am"
+   "end": "am",
+   "seg": [
+    [
+     "vol",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "time: later"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1519,7 +2898,24 @@
    "tm": "ind-fut",
    "pi": 1,
    "stem": "vol",
-   "end": "ēs"
+   "end": "ēs",
+   "seg": [
+    [
+     "vol",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1536,7 +2932,24 @@
    "tm": "ind-fut",
    "pi": 2,
    "stem": "vol",
-   "end": "et"
+   "end": "et",
+   "seg": [
+    [
+     "vol",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1553,7 +2966,24 @@
    "tm": "ind-fut",
    "pi": 3,
    "stem": "vol",
-   "end": "ēmus"
+   "end": "ēmus",
+   "seg": [
+    [
+     "vol",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1570,7 +3000,24 @@
    "tm": "ind-fut",
    "pi": 4,
    "stem": "vol",
-   "end": "ētis"
+   "end": "ētis",
+   "seg": [
+    [
+     "vol",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1587,7 +3034,24 @@
    "tm": "ind-fut",
    "pi": 5,
    "stem": "vol",
-   "end": "ent"
+   "end": "ent",
+   "seg": [
+    [
+     "vol",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1596,7 +3060,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "voluī",
-   "en": "I wanted, I have wanted",
+   "en": "I wanted",
    "pn": "1st Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -1604,7 +3068,27 @@
    "tm": "ind-perf",
    "pi": 0,
    "stem": "volu",
-   "end": "ī"
+   "end": "ī",
+   "alt": [
+    "I have wanted"
+   ],
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1613,7 +3097,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "voluistī",
-   "en": "you wanted, you have wanted",
+   "en": "you wanted",
    "pn": "2nd Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -1621,7 +3105,27 @@
    "tm": "ind-perf",
    "pi": 1,
    "stem": "volu",
-   "end": "istī"
+   "end": "istī",
+   "alt": [
+    "you have wanted"
+   ],
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1630,7 +3134,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "voluit",
-   "en": "he/she/it wanted, he/she/it has wanted",
+   "en": "he/she/it wanted",
    "pn": "3rd Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -1638,7 +3142,27 @@
    "tm": "ind-perf",
    "pi": 2,
    "stem": "volu",
-   "end": "it"
+   "end": "it",
+   "alt": [
+    "he/she/it has wanted"
+   ],
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "it",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1647,7 +3171,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "voluimus",
-   "en": "we wanted, we have wanted",
+   "en": "we wanted",
    "pn": "1st Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -1655,7 +3179,27 @@
    "tm": "ind-perf",
    "pi": 3,
    "stem": "volu",
-   "end": "imus"
+   "end": "imus",
+   "alt": [
+    "we have wanted"
+   ],
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "imus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1664,7 +3208,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "voluistis",
-   "en": "you (pl.) wanted, you (pl.) have wanted",
+   "en": "you (pl.) wanted",
    "pn": "2nd Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -1672,7 +3216,27 @@
    "tm": "ind-perf",
    "pi": 4,
    "stem": "volu",
-   "end": "istis"
+   "end": "istis",
+   "alt": [
+    "you (pl.) have wanted"
+   ],
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1681,7 +3245,7 @@
    "gloss": "want, be willing",
    "tag": "volō · volō, velle, voluī, — (want, be willing)",
    "la": "voluērunt",
-   "en": "they wanted, they have wanted",
+   "en": "they wanted",
    "pn": "3rd Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -1689,7 +3253,27 @@
    "tm": "ind-perf",
    "pi": 5,
    "stem": "volu",
-   "end": "ērunt"
+   "end": "ērunt",
+   "alt": [
+    "they have wanted"
+   ],
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ērunt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1706,7 +3290,24 @@
    "tm": "ind-plup",
    "pi": 0,
    "stem": "volu",
-   "end": "eram"
+   "end": "eram",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1723,7 +3324,24 @@
    "tm": "ind-plup",
    "pi": 1,
    "stem": "volu",
-   "end": "erās"
+   "end": "erās",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1740,7 +3358,24 @@
    "tm": "ind-plup",
    "pi": 2,
    "stem": "volu",
-   "end": "erat"
+   "end": "erat",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1757,7 +3392,24 @@
    "tm": "ind-plup",
    "pi": 3,
    "stem": "volu",
-   "end": "erāmus"
+   "end": "erāmus",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1774,7 +3426,24 @@
    "tm": "ind-plup",
    "pi": 4,
    "stem": "volu",
-   "end": "erātis"
+   "end": "erātis",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1791,7 +3460,24 @@
    "tm": "ind-plup",
    "pi": 5,
    "stem": "volu",
-   "end": "erant"
+   "end": "erant",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1808,7 +3494,24 @@
    "tm": "ind-futp",
    "pi": 0,
    "stem": "volu",
-   "end": "erō"
+   "end": "erō",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "er",
+     "m",
+     "time: later"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1825,7 +3528,24 @@
    "tm": "ind-futp",
    "pi": 1,
    "stem": "volu",
-   "end": "eris"
+   "end": "eris",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1842,7 +3562,24 @@
    "tm": "ind-futp",
    "pi": 2,
    "stem": "volu",
-   "end": "erit"
+   "end": "erit",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1859,7 +3596,24 @@
    "tm": "ind-futp",
    "pi": 3,
    "stem": "volu",
-   "end": "erimus"
+   "end": "erimus",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1876,7 +3630,24 @@
    "tm": "ind-futp",
    "pi": 4,
    "stem": "volu",
-   "end": "eritis"
+   "end": "eritis",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1893,7 +3664,24 @@
    "tm": "ind-futp",
    "pi": 5,
    "stem": "volu",
-   "end": "erint"
+   "end": "erint",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1910,7 +3698,24 @@
    "tm": "subj-pres",
    "pi": 0,
    "stem": "vel",
-   "end": "im"
+   "end": "im",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "i",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1927,7 +3732,24 @@
    "tm": "subj-pres",
    "pi": 1,
    "stem": "vel",
-   "end": "īs"
+   "end": "īs",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1944,7 +3766,24 @@
    "tm": "subj-pres",
    "pi": 2,
    "stem": "vel",
-   "end": "it"
+   "end": "it",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "i",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1961,7 +3800,24 @@
    "tm": "subj-pres",
    "pi": 3,
    "stem": "vel",
-   "end": "īmus"
+   "end": "īmus",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1978,7 +3834,24 @@
    "tm": "subj-pres",
    "pi": 4,
    "stem": "vel",
-   "end": "ītis"
+   "end": "ītis",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -1995,7 +3868,24 @@
    "tm": "subj-pres",
    "pi": 5,
    "stem": "vel",
-   "end": "int"
+   "end": "int",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "i",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2012,7 +3902,24 @@
    "tm": "subj-impf",
    "pi": 0,
    "stem": "velle",
-   "end": "m"
+   "end": "m",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "le",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2029,7 +3936,24 @@
    "tm": "subj-impf",
    "pi": 1,
    "stem": "vellē",
-   "end": "s"
+   "end": "s",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "lē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2046,7 +3970,24 @@
    "tm": "subj-impf",
    "pi": 2,
    "stem": "velle",
-   "end": "t"
+   "end": "t",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "le",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2063,7 +4004,24 @@
    "tm": "subj-impf",
    "pi": 3,
    "stem": "vellē",
-   "end": "mus"
+   "end": "mus",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "lē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2080,7 +4038,24 @@
    "tm": "subj-impf",
    "pi": 4,
    "stem": "vellē",
-   "end": "tis"
+   "end": "tis",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "lē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2097,7 +4072,24 @@
    "tm": "subj-impf",
    "pi": 5,
    "stem": "velle",
-   "end": "nt"
+   "end": "nt",
+   "seg": [
+    [
+     "vel",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "le",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2114,7 +4106,24 @@
    "tm": "subj-perf",
    "pi": 0,
    "stem": "volu",
-   "end": "erim"
+   "end": "erim",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2131,7 +4140,24 @@
    "tm": "subj-perf",
    "pi": 1,
    "stem": "volu",
-   "end": "erīs"
+   "end": "erīs",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2148,7 +4174,24 @@
    "tm": "subj-perf",
    "pi": 2,
    "stem": "volu",
-   "end": "erit"
+   "end": "erit",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2165,7 +4208,24 @@
    "tm": "subj-perf",
    "pi": 3,
    "stem": "volu",
-   "end": "erīmus"
+   "end": "erīmus",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2182,7 +4242,24 @@
    "tm": "subj-perf",
    "pi": 4,
    "stem": "volu",
-   "end": "erītis"
+   "end": "erītis",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2199,7 +4276,24 @@
    "tm": "subj-perf",
    "pi": 5,
    "stem": "volu",
-   "end": "erint"
+   "end": "erint",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2216,7 +4310,24 @@
    "tm": "subj-plup",
    "pi": 0,
    "stem": "volu",
-   "end": "issem"
+   "end": "issem",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2233,7 +4344,24 @@
    "tm": "subj-plup",
    "pi": 1,
    "stem": "volu",
-   "end": "issēs"
+   "end": "issēs",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2250,7 +4378,24 @@
    "tm": "subj-plup",
    "pi": 2,
    "stem": "volu",
-   "end": "isset"
+   "end": "isset",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2267,7 +4412,24 @@
    "tm": "subj-plup",
    "pi": 3,
    "stem": "volu",
-   "end": "issēmus"
+   "end": "issēmus",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2284,7 +4446,24 @@
    "tm": "subj-plup",
    "pi": 4,
    "stem": "volu",
-   "end": "issētis"
+   "end": "issētis",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2301,7 +4480,24 @@
    "tm": "subj-plup",
    "pi": 5,
    "stem": "volu",
-   "end": "issent"
+   "end": "issent",
+   "seg": [
+    [
+     "volu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "volo",
@@ -2342,7 +4538,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 0
+   "pi": 0,
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2358,7 +4571,19 @@
    "tense": "pres",
    "tm": "ind-pres",
    "pi": 1,
-   "note": "nōlō = nē + volō: the forms from vīs and vult are written as two words."
+   "note": "nōlō = nē + volō: the forms from vīs and vult are written as two words.",
+   "seg": [
+    [
+     "nōn",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "vīs",
+     "m",
+     "sum"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2373,7 +4598,19 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 2
+   "pi": 2,
+   "seg": [
+    [
+     "nōn",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "vult",
+     "m",
+     "sum"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2388,7 +4625,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 3
+   "pi": 3,
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2403,7 +4657,19 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 4
+   "pi": 4,
+   "seg": [
+    [
+     "nōn",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "vultis",
+     "m",
+     "sum"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2418,7 +4684,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 5
+   "pi": 5,
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2427,7 +4710,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōlēbam",
-   "en": "I did not want, I used not to want",
+   "en": "I did not want",
    "pn": "1st Person Singular",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -2435,7 +4718,27 @@
    "tm": "ind-impf",
    "pi": 0,
    "stem": "nōlē",
-   "end": "bam"
+   "end": "bam",
+   "alt": [
+    "I used not to want"
+   ],
+   "seg": [
+    [
+     "nōlē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2444,7 +4747,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōlēbās",
-   "en": "you did not want, you used not to want",
+   "en": "you did not want",
    "pn": "2nd Person Singular",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -2452,7 +4755,27 @@
    "tm": "ind-impf",
    "pi": 1,
    "stem": "nōlē",
-   "end": "bās"
+   "end": "bās",
+   "alt": [
+    "you used not to want"
+   ],
+   "seg": [
+    [
+     "nōlē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2461,7 +4784,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōlēbat",
-   "en": "he/she/it did not want, he/she/it used not to want",
+   "en": "he/she/it did not want",
    "pn": "3rd Person Singular",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -2469,7 +4792,27 @@
    "tm": "ind-impf",
    "pi": 2,
    "stem": "nōlē",
-   "end": "bat"
+   "end": "bat",
+   "alt": [
+    "he/she/it used not to want"
+   ],
+   "seg": [
+    [
+     "nōlē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2478,7 +4821,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōlēbāmus",
-   "en": "we did not want, we used not to want",
+   "en": "we did not want",
    "pn": "1st Person Plural",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -2486,7 +4829,27 @@
    "tm": "ind-impf",
    "pi": 3,
    "stem": "nōlē",
-   "end": "bāmus"
+   "end": "bāmus",
+   "alt": [
+    "we used not to want"
+   ],
+   "seg": [
+    [
+     "nōlē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2495,7 +4858,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōlēbātis",
-   "en": "you (pl.) did not want, you (pl.) used not to want",
+   "en": "you (pl.) did not want",
    "pn": "2nd Person Plural",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -2503,7 +4866,27 @@
    "tm": "ind-impf",
    "pi": 4,
    "stem": "nōlē",
-   "end": "bātis"
+   "end": "bātis",
+   "alt": [
+    "you (pl.) used not to want"
+   ],
+   "seg": [
+    [
+     "nōlē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2512,7 +4895,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōlēbant",
-   "en": "they did not want, they used not to want",
+   "en": "they did not want",
    "pn": "3rd Person Plural",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -2520,7 +4903,27 @@
    "tm": "ind-impf",
    "pi": 5,
    "stem": "nōlē",
-   "end": "bant"
+   "end": "bant",
+   "alt": [
+    "they used not to want"
+   ],
+   "seg": [
+    [
+     "nōlē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2537,7 +4940,24 @@
    "tm": "ind-fut",
    "pi": 0,
    "stem": "nōl",
-   "end": "am"
+   "end": "am",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "time: later"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2554,7 +4974,24 @@
    "tm": "ind-fut",
    "pi": 1,
    "stem": "nōl",
-   "end": "ēs"
+   "end": "ēs",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2571,7 +5008,24 @@
    "tm": "ind-fut",
    "pi": 2,
    "stem": "nōl",
-   "end": "et"
+   "end": "et",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2588,7 +5042,24 @@
    "tm": "ind-fut",
    "pi": 3,
    "stem": "nōl",
-   "end": "ēmus"
+   "end": "ēmus",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2605,7 +5076,24 @@
    "tm": "ind-fut",
    "pi": 4,
    "stem": "nōl",
-   "end": "ētis"
+   "end": "ētis",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2622,7 +5110,24 @@
    "tm": "ind-fut",
    "pi": 5,
    "stem": "nōl",
-   "end": "ent"
+   "end": "ent",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2631,7 +5136,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōluī",
-   "en": "I did not want, I have not wanted",
+   "en": "I did not want",
    "pn": "1st Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -2639,7 +5144,27 @@
    "tm": "ind-perf",
    "pi": 0,
    "stem": "nōlu",
-   "end": "ī"
+   "end": "ī",
+   "alt": [
+    "I have not wanted"
+   ],
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2648,7 +5173,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōluistī",
-   "en": "you did not want, you have not wanted",
+   "en": "you did not want",
    "pn": "2nd Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -2656,7 +5181,27 @@
    "tm": "ind-perf",
    "pi": 1,
    "stem": "nōlu",
-   "end": "istī"
+   "end": "istī",
+   "alt": [
+    "you have not wanted"
+   ],
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2665,7 +5210,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōluit",
-   "en": "he/she/it did not want, he/she/it has not wanted",
+   "en": "he/she/it did not want",
    "pn": "3rd Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -2673,7 +5218,27 @@
    "tm": "ind-perf",
    "pi": 2,
    "stem": "nōlu",
-   "end": "it"
+   "end": "it",
+   "alt": [
+    "he/she/it has not wanted"
+   ],
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "it",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2682,7 +5247,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōluimus",
-   "en": "we did not want, we have not wanted",
+   "en": "we did not want",
    "pn": "1st Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -2690,7 +5255,27 @@
    "tm": "ind-perf",
    "pi": 3,
    "stem": "nōlu",
-   "end": "imus"
+   "end": "imus",
+   "alt": [
+    "we have not wanted"
+   ],
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "imus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2699,7 +5284,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōluistis",
-   "en": "you (pl.) did not want, you (pl.) have not wanted",
+   "en": "you (pl.) did not want",
    "pn": "2nd Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -2707,7 +5292,27 @@
    "tm": "ind-perf",
    "pi": 4,
    "stem": "nōlu",
-   "end": "istis"
+   "end": "istis",
+   "alt": [
+    "you (pl.) have not wanted"
+   ],
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2716,7 +5321,7 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōluērunt",
-   "en": "they did not want, they have not wanted",
+   "en": "they did not want",
    "pn": "3rd Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -2724,7 +5329,27 @@
    "tm": "ind-perf",
    "pi": 5,
    "stem": "nōlu",
-   "end": "ērunt"
+   "end": "ērunt",
+   "alt": [
+    "they have not wanted"
+   ],
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ērunt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2741,7 +5366,24 @@
    "tm": "ind-plup",
    "pi": 0,
    "stem": "nōlu",
-   "end": "eram"
+   "end": "eram",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2758,7 +5400,24 @@
    "tm": "ind-plup",
    "pi": 1,
    "stem": "nōlu",
-   "end": "erās"
+   "end": "erās",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2775,7 +5434,24 @@
    "tm": "ind-plup",
    "pi": 2,
    "stem": "nōlu",
-   "end": "erat"
+   "end": "erat",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2792,7 +5468,24 @@
    "tm": "ind-plup",
    "pi": 3,
    "stem": "nōlu",
-   "end": "erāmus"
+   "end": "erāmus",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2809,7 +5502,24 @@
    "tm": "ind-plup",
    "pi": 4,
    "stem": "nōlu",
-   "end": "erātis"
+   "end": "erātis",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2826,7 +5536,24 @@
    "tm": "ind-plup",
    "pi": 5,
    "stem": "nōlu",
-   "end": "erant"
+   "end": "erant",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2843,7 +5570,24 @@
    "tm": "ind-futp",
    "pi": 0,
    "stem": "nōlu",
-   "end": "erō"
+   "end": "erō",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "er",
+     "m",
+     "time: later"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2860,7 +5604,24 @@
    "tm": "ind-futp",
    "pi": 1,
    "stem": "nōlu",
-   "end": "eris"
+   "end": "eris",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2877,7 +5638,24 @@
    "tm": "ind-futp",
    "pi": 2,
    "stem": "nōlu",
-   "end": "erit"
+   "end": "erit",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2894,7 +5672,24 @@
    "tm": "ind-futp",
    "pi": 3,
    "stem": "nōlu",
-   "end": "erimus"
+   "end": "erimus",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2911,7 +5706,24 @@
    "tm": "ind-futp",
    "pi": 4,
    "stem": "nōlu",
-   "end": "eritis"
+   "end": "eritis",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2928,7 +5740,24 @@
    "tm": "ind-futp",
    "pi": 5,
    "stem": "nōlu",
-   "end": "erint"
+   "end": "erint",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2945,7 +5774,24 @@
    "tm": "subj-pres",
    "pi": 0,
    "stem": "nōl",
-   "end": "im"
+   "end": "im",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "i",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2962,7 +5808,24 @@
    "tm": "subj-pres",
    "pi": 1,
    "stem": "nōl",
-   "end": "īs"
+   "end": "īs",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2979,7 +5842,24 @@
    "tm": "subj-pres",
    "pi": 2,
    "stem": "nōl",
-   "end": "it"
+   "end": "it",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "i",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -2996,7 +5876,24 @@
    "tm": "subj-pres",
    "pi": 3,
    "stem": "nōl",
-   "end": "īmus"
+   "end": "īmus",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3013,7 +5910,24 @@
    "tm": "subj-pres",
    "pi": 4,
    "stem": "nōl",
-   "end": "ītis"
+   "end": "ītis",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3030,7 +5944,24 @@
    "tm": "subj-pres",
    "pi": 5,
    "stem": "nōl",
-   "end": "int"
+   "end": "int",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "i",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3047,7 +5978,24 @@
    "tm": "subj-impf",
    "pi": 0,
    "stem": "nōlle",
-   "end": "m"
+   "end": "m",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "le",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3064,7 +6012,24 @@
    "tm": "subj-impf",
    "pi": 1,
    "stem": "nōllē",
-   "end": "s"
+   "end": "s",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "lē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3081,7 +6046,24 @@
    "tm": "subj-impf",
    "pi": 2,
    "stem": "nōlle",
-   "end": "t"
+   "end": "t",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "le",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3098,7 +6080,24 @@
    "tm": "subj-impf",
    "pi": 3,
    "stem": "nōllē",
-   "end": "mus"
+   "end": "mus",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "lē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3115,7 +6114,24 @@
    "tm": "subj-impf",
    "pi": 4,
    "stem": "nōllē",
-   "end": "tis"
+   "end": "tis",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "lē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3132,7 +6148,24 @@
    "tm": "subj-impf",
    "pi": 5,
    "stem": "nōlle",
-   "end": "nt"
+   "end": "nt",
+   "seg": [
+    [
+     "nōl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "le",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3149,7 +6182,24 @@
    "tm": "subj-perf",
    "pi": 0,
    "stem": "nōlu",
-   "end": "erim"
+   "end": "erim",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3166,7 +6216,24 @@
    "tm": "subj-perf",
    "pi": 1,
    "stem": "nōlu",
-   "end": "erīs"
+   "end": "erīs",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3183,7 +6250,24 @@
    "tm": "subj-perf",
    "pi": 2,
    "stem": "nōlu",
-   "end": "erit"
+   "end": "erit",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3200,7 +6284,24 @@
    "tm": "subj-perf",
    "pi": 3,
    "stem": "nōlu",
-   "end": "erīmus"
+   "end": "erīmus",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3217,7 +6318,24 @@
    "tm": "subj-perf",
    "pi": 4,
    "stem": "nōlu",
-   "end": "erītis"
+   "end": "erītis",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3234,7 +6352,24 @@
    "tm": "subj-perf",
    "pi": 5,
    "stem": "nōlu",
-   "end": "erint"
+   "end": "erint",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3251,7 +6386,24 @@
    "tm": "subj-plup",
    "pi": 0,
    "stem": "nōlu",
-   "end": "issem"
+   "end": "issem",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3268,7 +6420,24 @@
    "tm": "subj-plup",
    "pi": 1,
    "stem": "nōlu",
-   "end": "issēs"
+   "end": "issēs",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3285,7 +6454,24 @@
    "tm": "subj-plup",
    "pi": 2,
    "stem": "nōlu",
-   "end": "isset"
+   "end": "isset",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3302,7 +6488,24 @@
    "tm": "subj-plup",
    "pi": 3,
    "stem": "nōlu",
-   "end": "issēmus"
+   "end": "issēmus",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3319,7 +6522,24 @@
    "tm": "subj-plup",
    "pi": 4,
    "stem": "nōlu",
-   "end": "issētis"
+   "end": "issētis",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3336,7 +6556,24 @@
    "tm": "subj-plup",
    "pi": 5,
    "stem": "nōlu",
-   "end": "issent"
+   "end": "issent",
+   "seg": [
+    [
+     "nōlu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "nolo",
@@ -3373,11 +6610,14 @@
    "gloss": "not want, be unwilling",
    "tag": "nōlō · nōlō, nōlle, nōluī, — (not want, be unwilling)",
    "la": "nōlle",
-   "en": "to not want, to be unwilling",
+   "en": "to not want",
    "pn": "Infinitive",
    "tl": "present active infinitive",
    "mood": "inf",
-   "tense": "pres"
+   "tense": "pres",
+   "alt": [
+    "to be unwilling"
+   ]
   },
   {
    "verb": "nolo",
@@ -3405,7 +6645,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 0
+   "pi": 0,
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3421,7 +6678,24 @@
    "tense": "pres",
    "tm": "ind-pres",
    "pi": 1,
-   "note": "mālō = magis + volō (“want more”): māvīs, māvult, māvultis keep the v."
+   "note": "mālō = magis + volō (“want more”): māvīs, māvult, māvultis keep the v.",
+   "seg": [
+    [
+     "māvī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3436,7 +6710,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 2
+   "pi": 2,
+   "seg": [
+    [
+     "māvul",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3451,7 +6742,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 3
+   "pi": 3,
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3466,7 +6774,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 4
+   "pi": 4,
+   "seg": [
+    [
+     "māvul",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3481,7 +6806,24 @@
    "mood": "ind",
    "tense": "pres",
    "tm": "ind-pres",
-   "pi": 5
+   "pi": 5,
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3490,7 +6832,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "mālēbam",
-   "en": "I preferred, I used to prefer",
+   "en": "I preferred",
    "pn": "1st Person Singular",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -3498,7 +6840,27 @@
    "tm": "ind-impf",
    "pi": 0,
    "stem": "mālē",
-   "end": "bam"
+   "end": "bam",
+   "alt": [
+    "I used to prefer"
+   ],
+   "seg": [
+    [
+     "mālē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3507,7 +6869,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "mālēbās",
-   "en": "you preferred, you used to prefer",
+   "en": "you preferred",
    "pn": "2nd Person Singular",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -3515,7 +6877,27 @@
    "tm": "ind-impf",
    "pi": 1,
    "stem": "mālē",
-   "end": "bās"
+   "end": "bās",
+   "alt": [
+    "you used to prefer"
+   ],
+   "seg": [
+    [
+     "mālē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3524,7 +6906,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "mālēbat",
-   "en": "he/she/it preferred, he/she/it used to prefer",
+   "en": "he/she/it preferred",
    "pn": "3rd Person Singular",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -3532,7 +6914,27 @@
    "tm": "ind-impf",
    "pi": 2,
    "stem": "mālē",
-   "end": "bat"
+   "end": "bat",
+   "alt": [
+    "he/she/it used to prefer"
+   ],
+   "seg": [
+    [
+     "mālē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3541,7 +6943,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "mālēbāmus",
-   "en": "we preferred, we used to prefer",
+   "en": "we preferred",
    "pn": "1st Person Plural",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -3549,7 +6951,27 @@
    "tm": "ind-impf",
    "pi": 3,
    "stem": "mālē",
-   "end": "bāmus"
+   "end": "bāmus",
+   "alt": [
+    "we used to prefer"
+   ],
+   "seg": [
+    [
+     "mālē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3558,7 +6980,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "mālēbātis",
-   "en": "you (pl.) preferred, you (pl.) used to prefer",
+   "en": "you (pl.) preferred",
    "pn": "2nd Person Plural",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -3566,7 +6988,27 @@
    "tm": "ind-impf",
    "pi": 4,
    "stem": "mālē",
-   "end": "bātis"
+   "end": "bātis",
+   "alt": [
+    "you (pl.) used to prefer"
+   ],
+   "seg": [
+    [
+     "mālē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3575,7 +7017,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "mālēbant",
-   "en": "they preferred, they used to prefer",
+   "en": "they preferred",
    "pn": "3rd Person Plural",
    "tl": "imperfect active indicative",
    "mood": "ind",
@@ -3583,7 +7025,27 @@
    "tm": "ind-impf",
    "pi": 5,
    "stem": "mālē",
-   "end": "bant"
+   "end": "bant",
+   "alt": [
+    "they used to prefer"
+   ],
+   "seg": [
+    [
+     "mālē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3600,7 +7062,24 @@
    "tm": "ind-fut",
    "pi": 0,
    "stem": "māl",
-   "end": "am"
+   "end": "am",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "time: later"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3617,7 +7096,24 @@
    "tm": "ind-fut",
    "pi": 1,
    "stem": "māl",
-   "end": "ēs"
+   "end": "ēs",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3634,7 +7130,24 @@
    "tm": "ind-fut",
    "pi": 2,
    "stem": "māl",
-   "end": "et"
+   "end": "et",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3651,7 +7164,24 @@
    "tm": "ind-fut",
    "pi": 3,
    "stem": "māl",
-   "end": "ēmus"
+   "end": "ēmus",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3668,7 +7198,24 @@
    "tm": "ind-fut",
    "pi": 4,
    "stem": "māl",
-   "end": "ētis"
+   "end": "ētis",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3685,7 +7232,24 @@
    "tm": "ind-fut",
    "pi": 5,
    "stem": "māl",
-   "end": "ent"
+   "end": "ent",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3694,7 +7258,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "māluī",
-   "en": "I preferred, I have preferred",
+   "en": "I preferred",
    "pn": "1st Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -3702,7 +7266,27 @@
    "tm": "ind-perf",
    "pi": 0,
    "stem": "mālu",
-   "end": "ī"
+   "end": "ī",
+   "alt": [
+    "I have preferred"
+   ],
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3711,7 +7295,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "māluistī",
-   "en": "you preferred, you have preferred",
+   "en": "you preferred",
    "pn": "2nd Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -3719,7 +7303,27 @@
    "tm": "ind-perf",
    "pi": 1,
    "stem": "mālu",
-   "end": "istī"
+   "end": "istī",
+   "alt": [
+    "you have preferred"
+   ],
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3728,7 +7332,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "māluit",
-   "en": "he/she/it preferred, he/she/it has preferred",
+   "en": "he/she/it preferred",
    "pn": "3rd Person Singular",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -3736,7 +7340,27 @@
    "tm": "ind-perf",
    "pi": 2,
    "stem": "mālu",
-   "end": "it"
+   "end": "it",
+   "alt": [
+    "he/she/it has preferred"
+   ],
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "it",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3745,7 +7369,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "māluimus",
-   "en": "we preferred, we have preferred",
+   "en": "we preferred",
    "pn": "1st Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -3753,7 +7377,27 @@
    "tm": "ind-perf",
    "pi": 3,
    "stem": "mālu",
-   "end": "imus"
+   "end": "imus",
+   "alt": [
+    "we have preferred"
+   ],
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "imus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3762,7 +7406,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "māluistis",
-   "en": "you (pl.) preferred, you (pl.) have preferred",
+   "en": "you (pl.) preferred",
    "pn": "2nd Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -3770,7 +7414,27 @@
    "tm": "ind-perf",
    "pi": 4,
    "stem": "mālu",
-   "end": "istis"
+   "end": "istis",
+   "alt": [
+    "you (pl.) have preferred"
+   ],
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3779,7 +7443,7 @@
    "gloss": "prefer",
    "tag": "mālō · mālō, mālle, māluī, — (prefer)",
    "la": "māluērunt",
-   "en": "they preferred, they have preferred",
+   "en": "they preferred",
    "pn": "3rd Person Plural",
    "tl": "perfect active indicative",
    "mood": "ind",
@@ -3787,7 +7451,27 @@
    "tm": "ind-perf",
    "pi": 5,
    "stem": "mālu",
-   "end": "ērunt"
+   "end": "ērunt",
+   "alt": [
+    "they have preferred"
+   ],
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ērunt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3804,7 +7488,24 @@
    "tm": "ind-plup",
    "pi": 0,
    "stem": "mālu",
-   "end": "eram"
+   "end": "eram",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3821,7 +7522,24 @@
    "tm": "ind-plup",
    "pi": 1,
    "stem": "mālu",
-   "end": "erās"
+   "end": "erās",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3838,7 +7556,24 @@
    "tm": "ind-plup",
    "pi": 2,
    "stem": "mālu",
-   "end": "erat"
+   "end": "erat",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3855,7 +7590,24 @@
    "tm": "ind-plup",
    "pi": 3,
    "stem": "mālu",
-   "end": "erāmus"
+   "end": "erāmus",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3872,7 +7624,24 @@
    "tm": "ind-plup",
    "pi": 4,
    "stem": "mālu",
-   "end": "erātis"
+   "end": "erātis",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3889,7 +7658,24 @@
    "tm": "ind-plup",
    "pi": 5,
    "stem": "mālu",
-   "end": "erant"
+   "end": "erant",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "era",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3906,7 +7692,24 @@
    "tm": "ind-futp",
    "pi": 0,
    "stem": "mālu",
-   "end": "erō"
+   "end": "erō",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "er",
+     "m",
+     "time: later"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3923,7 +7726,24 @@
    "tm": "ind-futp",
    "pi": 1,
    "stem": "mālu",
-   "end": "eris"
+   "end": "eris",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3940,7 +7760,24 @@
    "tm": "ind-futp",
    "pi": 2,
    "stem": "mālu",
-   "end": "erit"
+   "end": "erit",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3957,7 +7794,24 @@
    "tm": "ind-futp",
    "pi": 3,
    "stem": "mālu",
-   "end": "erimus"
+   "end": "erimus",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3974,7 +7828,24 @@
    "tm": "ind-futp",
    "pi": 4,
    "stem": "mālu",
-   "end": "eritis"
+   "end": "eritis",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -3991,7 +7862,24 @@
    "tm": "ind-futp",
    "pi": 5,
    "stem": "mālu",
-   "end": "erint"
+   "end": "erint",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4008,7 +7896,24 @@
    "tm": "subj-pres",
    "pi": 0,
    "stem": "māl",
-   "end": "im"
+   "end": "im",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "i",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4025,7 +7930,24 @@
    "tm": "subj-pres",
    "pi": 1,
    "stem": "māl",
-   "end": "īs"
+   "end": "īs",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4042,7 +7964,24 @@
    "tm": "subj-pres",
    "pi": 2,
    "stem": "māl",
-   "end": "it"
+   "end": "it",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "i",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4059,7 +7998,24 @@
    "tm": "subj-pres",
    "pi": 3,
    "stem": "māl",
-   "end": "īmus"
+   "end": "īmus",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4076,7 +8032,24 @@
    "tm": "subj-pres",
    "pi": 4,
    "stem": "māl",
-   "end": "ītis"
+   "end": "ītis",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4093,7 +8066,24 @@
    "tm": "subj-pres",
    "pi": 5,
    "stem": "māl",
-   "end": "int"
+   "end": "int",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "i",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4110,7 +8100,24 @@
    "tm": "subj-impf",
    "pi": 0,
    "stem": "mālle",
-   "end": "m"
+   "end": "m",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "le",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4127,7 +8134,24 @@
    "tm": "subj-impf",
    "pi": 1,
    "stem": "māllē",
-   "end": "s"
+   "end": "s",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "lē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4144,7 +8168,24 @@
    "tm": "subj-impf",
    "pi": 2,
    "stem": "mālle",
-   "end": "t"
+   "end": "t",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "le",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4161,7 +8202,24 @@
    "tm": "subj-impf",
    "pi": 3,
    "stem": "māllē",
-   "end": "mus"
+   "end": "mus",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "lē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4178,7 +8236,24 @@
    "tm": "subj-impf",
    "pi": 4,
    "stem": "māllē",
-   "end": "tis"
+   "end": "tis",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "lē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4195,7 +8270,24 @@
    "tm": "subj-impf",
    "pi": 5,
    "stem": "mālle",
-   "end": "nt"
+   "end": "nt",
+   "seg": [
+    [
+     "māl",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "le",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4212,7 +8304,24 @@
    "tm": "subj-perf",
    "pi": 0,
    "stem": "mālu",
-   "end": "erim"
+   "end": "erim",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4229,7 +8338,24 @@
    "tm": "subj-perf",
    "pi": 1,
    "stem": "mālu",
-   "end": "erīs"
+   "end": "erīs",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4246,7 +8372,24 @@
    "tm": "subj-perf",
    "pi": 2,
    "stem": "mālu",
-   "end": "erit"
+   "end": "erit",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4263,7 +8406,24 @@
    "tm": "subj-perf",
    "pi": 3,
    "stem": "mālu",
-   "end": "erīmus"
+   "end": "erīmus",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4280,7 +8440,24 @@
    "tm": "subj-perf",
    "pi": 4,
    "stem": "mālu",
-   "end": "erītis"
+   "end": "erītis",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "erī",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4297,7 +8474,24 @@
    "tm": "subj-perf",
    "pi": 5,
    "stem": "mālu",
-   "end": "erint"
+   "end": "erint",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "eri",
+     "m",
+     "subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4314,7 +8508,24 @@
    "tm": "subj-plup",
    "pi": 0,
    "stem": "mālu",
-   "end": "issem"
+   "end": "issem",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4331,7 +8542,24 @@
    "tm": "subj-plup",
    "pi": 1,
    "stem": "mālu",
-   "end": "issēs"
+   "end": "issēs",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4348,7 +8576,24 @@
    "tm": "subj-plup",
    "pi": 2,
    "stem": "mālu",
-   "end": "isset"
+   "end": "isset",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4365,7 +8610,24 @@
    "tm": "subj-plup",
    "pi": 3,
    "stem": "mālu",
-   "end": "issēmus"
+   "end": "issēmus",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4382,7 +8644,24 @@
    "tm": "subj-plup",
    "pi": 4,
    "stem": "mālu",
-   "end": "issētis"
+   "end": "issētis",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "issē",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",
@@ -4399,7 +8678,24 @@
    "tm": "subj-plup",
    "pi": 5,
    "stem": "mālu",
-   "end": "issent"
+   "end": "issent",
+   "seg": [
+    [
+     "mālu",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "isse",
+     "m",
+     "past subjunctive marker"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "verb": "malo",

@@ -12,6 +12,7 @@
 <style>
 :root{--p-r:#23487B; --p-r-bg:#DAE4F1; --p-mini:#7F2756; --p-mini-bg:#F4DDE9; --p-eris:#2F5331; --p-eris-bg:#DDEBDC; --p-beris:#7C3112; --p-beris-bg:#FADFCF;}
 </style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610032200">
 </head>
 <body>
 <div class="wrap">
@@ -119,7 +120,7 @@ VerbChart({
     if(c.verb.group === 'impf') return {main:`${s} ${WAS[c.i]} being ${pp}`, alt:''};
     return {main:`${s} will be ${pp}`, alt:`${s} will be being ${pp}`};
   },
-  labels: c => ({st:'root', vw:'stem vowel', ts: c.verb.group === 'impf' ? 'imperfect sign' : 'future sign', en:'passive ending'}),
+  labels: c => ({st:'root', vw:'stem vowel', ts: c.verb.group === 'impf' ? 'past time marker' : 'later time marker', en:'passive ending'}),
   patterns: [
     {id:'r', lab:'r', txt:'passive endings carry an r', part:'en', test:c=>c.p.k !== '2pl',
      note:'<b>The passive endings are the active ones with an r:</b> <i>-r, -ris, -tur, -mur, -ntur</i> beside <i>-ō/-m, -s, -t, -mus, -nt</i>. The time markers (<i>-ba-</i>, <i>-bi-</i>) and stem vowels stay the same as in the active.'},
@@ -145,5 +146,8 @@ VerbChart({
   idle: "You'll see who the action is done to, how to translate it, and how the form is built from root, stem vowel, time marker and passive ending."
 });
 </script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610032200"></script>
 </body>
 </html>

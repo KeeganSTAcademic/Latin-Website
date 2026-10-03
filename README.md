@@ -15,6 +15,7 @@ css/grammar.css         shared look of the grammar pages (grammar-verbs.css adds
 js/common.js            shared helpers (shuffle, safe storage, loading data)
 js/pagelist.js          the grouped list on the games and grammar pages
 js/levels.js            the level switcher (levels in data/levels.json)
+js/sidebar.js           the sidebar on grammar pages and flashcards (css/sidebar.css); see Screen layout
 js/flashcards.js        the flashcard engine, used by every deck
 flashcards/index.html   deck list + player  →  flashcards/?deck=latin2-vocab
 data/decks/*.json       one file per deck (content only, no code)
@@ -41,14 +42,14 @@ games/img/              images the games use
 {
   "id": "latin2-vocab",
   "title": "Latin II Vocabulary",
-  "course": "Latin II",                 // groups decks on the list page
+  "course": "Vocab",                    // groups decks on the list page
   "subtitle": "Core vocabulary by week",
   "filters": [                          // each becomes a row of toggle buttons
     { "field": "w", "label": "Week",
       "values": [ { "v": 1, "label": "Week 1" } ] },
     { "field": "p", "label": "Words",
       "values": [ { "v": "verb", "label": "Verbs", "short": "verb" } ] }
-  ],
+  ],                                    // a value with "off": true starts unchosen (the 3rd declension i-stems)
   "modes": ["le", "el", "pp"],          // Latin→English (default: the first one), English→Latin, Principal parts
   "meta": { "front": ["{w}", "{p}"],    // small corner labels; {field} is filled in
             "back":  ["{w}", "{p}"] },
@@ -71,7 +72,7 @@ Paradigm decks (e.g. `perfect-active.json`) use the same two modes as every deck
 | `stem`, `end` | the form split so the ending is highlighted (`la` is the whole form) |
 | `pn`, `tl` | person/number (“1st Person Singular”) and tense label (“perfect active indicative”) |
 | `tag` | verb shown at the top of the card |
-| `detail`, `note` | an extra line (e.g. “ending: -ī · perfect stem: amāv-”) and a warning (look-alike forms) |
+| `detail`, `note` | an extra line (e.g. “ending: -ī · complete stem: amāv-”) and a warning (look-alike forms) |
 | `pi`, `lemma`, `gloss`, `tnote` | person index 0–5 and the verb's details, used to build the paradigm tables |
 
 Deck-level `intro` (HTML grammar note), `paradigmNote`, and
@@ -84,6 +85,30 @@ The noun deck (`noun-declensions.json`) reuse the same card fields: `pn` holds t
 - `"allReadings": "noun"`: in Latin → English mode, the answer lists every card of the same noun with that spelling (equī = genitive singular *and* nominative plural).
 - `"paradigm": {"table": "noun", "rows": ["Nominative", …], "rowLabel": "Case", "tableSuffix": ""}` builds one case table per noun.
 
+In Latin → English mode a spelling that several cards of the same noun share (rēgibus: dative *and* ablative plural) is asked once; its back gives the first reading as the translation with its parse, and lists the others under "also". English → Latin keeps every card, since "to the kings" and "by the kings" are different questions. The same goes for any deck with `allReadings` (the adjectives).
+
+The list shows it as five sets, one view per declension (`?deck=noun-declensions&view=3`); within a set the noun buttons still pick the variants (equus / forum, rēx / corpus …). The 3rd declension also has two i-stems, cīvis (m./f.) and animal (n.), marked `"off": true`, so they're out until a student turns them on in Settings (or opens the whole deck and chooses them). Combined decks leave them out too.
+
+### One main translation (`alt`)
+
+A card's `en` is its one main translation; other translations go in `"alt": [...]` and show smaller, under the parse, labelled "also" (Latin → English), or under the Latin (English → Latin). The present active lists the progressive and the emphatic: `"en": "I love", "alt": ["I am loving", "I do love"]`. Search looks in `alt` too. 
+
+### Stem + time marker + ending (`seg`)
+
+Verb cards carry `"seg": [[text, role, label], …]`, the form taken apart the way the course teaches it, shown on the back as coloured blocks (blue stem, brown time marker, red ending: the site's theme colours): `amā | ba | t` = incomplete stem · time: past · ending. The time marker's vowel is in heavy type, a for past and i for later (amā-b**a**-t / amāv-er**a**-t, amā-b**i**-t / amāv-er**i**-t, and in sum: er**a**t, er**i**t), so the imperfect and pluperfect, and the future and future perfect, visibly pair up. The present and perfect show an empty dashed block, "time: now"; the perfect passive system is participle + a form of sum, which carries the time (`amātus | eram`, "sum · time: past"). The imperatives and infinitives have no split.
+
+**Terms used everywhere on the site** (pages, cards, notes):
+
+- **incomplete stem** (amā-, from the 2nd principal part) and **complete stem** (amāv-, the 3rd principal part minus -ī; on the cards, *complete active stem*, beside the **perfect passive participle**, the 4th part), never "present stem" / "perfect stem" (A&G's section titles keep their own names);
+- **time marker**, named by **time**: now (no marker) · past (-ba-, -era-) · later (-bi-, -eri-; the 3rd and 4th conjugations' -ē-). A **tense** is aspect + time (the pluperfect is complete + past), so markers are never "tense signs";
+- subjunctive: **subjunctive marker** (-e-/-a-, -eri-), and **past subjunctive marker** for -re- and -isse- (amā-re-m, amāv-isse-m).
+
+**Colour-linked translation** (nouns only for now; verbs are switched off with `COLOUR_VERBS = false` in `js/flashcards.js`, because English helpers mix time, voice and person too much to stay clear). When on, the main translation is coloured to match the breakdown: the meaning in the stem's blue (amā → *love*), the time words in the marker's brown (*was, will, had, may, might*), and the subject in the ending's red (-t → *he/she/it*; the passive's *be / being / been* too). The passive's helpers *am / is / are / was / were*, and the form of sum in the perfect passive system, carry time **and** voice: brown with a red underline, and a half-brown, half-red block in the breakdown. The ending's label gives person, number and voice ("ending · 3rd sg · act."); a noun's gives every case it can be ("ending · gen./dat. sg · nom. pl"). Noun cards do the same: *horse* blue (equ-), and *of*, *-s*, *-'s*, *(subject)* red (-ōrum).
+
+### Noun readings and the vocative
+
+A noun card's back has the same stem + ending breakdown (`seg`) and lists every reading of its spelling alike (puellae: genitive singular, dative singular, nominative plural), each translation with its parse under it. The vocative isn't drilled; nominative cards carry a `"voc"` note ("O girls!", and for equus "the vocative is different: eque") shown under "also".
+
 ### Adjective deck
 
 `adjective-degrees.json` works like the noun deck, with `"allReadings": "deg"` so every reading of a form within its degree is listed (clārius = neuter comparative adjective *and* comparative adverb). A card that lacks a filter's field ignores that filter, so the adverb cards (no gender or number) stay in when you filter by gender. `"cue"` sets the prompt shown under the Latin.
@@ -94,7 +119,7 @@ The noun deck (`noun-declensions.json`) reuse the same card fields: `pn` holds t
 
 ### Vocabulary lists: DCC Latin Core (Latin IV)
 
-`dcc-core.json` is the [DCC Latin Core Vocabulary](https://dcc.dickinson.edu/vocab/core-vocabulary) (Dickinson College Commentaries), the thousand most common Latin words, as cards in frequency order. Each card has its `rank`, a `band` (1 = words 1–50, 2 = 51–100, … 20 = 951–1000) and a part of speech `p`; `id` is fixed (`r1`, `r2`, …) so progress survives edits to the wording. Spaced repetition introduces new cards in deck order, so students meet the most frequent words first. Link a band with `flashcards/?deck=dcc-core&band=3` (words 101–150). A deck's `introTitle` renames the "Grammar note" panel (here "About this list").
+`dcc-core.json` is the [DCC Latin Core Vocabulary](https://dcc.dickinson.edu/vocab/core-vocabulary) (Dickinson College Commentaries), the thousand most common Latin words, as cards in frequency order. Each card has its `rank`, a `band` (1 = words 1–50, 2 = 51–100, … 20 = 951–1000) and a part of speech `p`; `id` is fixed (`r1`, `r2`, …) so progress survives edits to the wording. Spaced repetition introduces new cards in deck order, so students meet the most frequent words first. Link a band with `flashcards/?deck=dcc-core&band=3` (words 101–150). A deck's `introTitle` renames the "Grammar note" (here "About this list").
 
 The word list is licensed **CC BY-SA 3.0**: keep the attribution in the deck's intro, and any changed version of `dcc-core.json` stays under the same licence. The source has a few quirks, fixed in the file: rank 12 is missing, rank 280 is shared by quisquam and vērō (`r280`, `r280b`), fore (985) had no definition, and vōs was tagged as an adjective.
 
@@ -111,7 +136,7 @@ A deck can define named slices in `"views"`, each shown as its own entry on the 
 }
 ```
 
-In `index.json`, point an entry at the view with `"view": "perf"` (link: `flashcards/?deck=participles&view=perf`). A view also hides any filter row none of its cards use (adverbs have no gender) and any chip that would match nothing. The participles, imperatives & infinitives, and adjectives & adverbs decks use views. There are no "mixed review" entries on the list: students build their own mixes with **Combine decks** (below). The whole-deck links still work (`flashcards/?deck=participles`), as do the old Incomplete/Complete Passive decks (`?deck=complete-passive`), which are just off the list.
+In `index.json`, point an entry at the view with `"view": "perf"` (link: `flashcards/?deck=participles&view=perf`). A view also hides any filter row none of its cards use (adverbs have no gender) and any chip that would match nothing. The participles, imperatives & infinitives, noun (one per declension) and adjectives & adverbs (one per part of speech and degree, e.g. `adj-comp`, `adv-sup`) decks use views. Each view remembers its own settings (`fc:<deck>/<view>`), so choosing the i-stems in the 3rd declension doesn't change the 2nd. There are no "mixed review" entries on the list: students build their own mixes with **Combine decks** (below). The whole-deck links still work (`flashcards/?deck=participles`), as do the old Incomplete/Complete Passive decks (`?deck=complete-passive`), which are just off the list.
 
 ### Linking to part of a deck
 
@@ -150,7 +175,7 @@ Interactive charts in `grammar/`: hover or tap any form to see what it is, how t
 
 Each page holds its own content and script (the forms, notes and patterns are in the `<script>` at the bottom). The look is shared: `css/grammar.css` for every page and `css/grammar-verbs.css` for verb pages, so a change there changes them all. A page's own `<style>` only has its pattern colours (`--p-…`), `--card-h` (the height of the detail card, where a page needs a different one) and anything only that page uses.
 
-The five newer verb pages (future, incomplete passives, perfect, pluperfect, future perfect) share one chart engine, `js/verb-chart.js`: each page lists its verbs (every form as stem + vowel + tense sign + ending), its English, its pattern buttons and notes, and calls `VerbChart({...})`. A page with several tenses passes `groups` and gets a Tense switch. The commentary for these pages is in the "background" folds at the top of each page.
+The five newer verb pages (future, incomplete passives, perfect, pluperfect, future perfect) share one chart engine, `js/verb-chart.js`: each page lists its verbs (every form as stem + vowel + time marker + ending), its English, its pattern buttons and notes, and calls `VerbChart({...})`. A page with several tenses passes `groups` and gets a Tense switch. The commentary for these pages is in the "background" folds at the top of each page.
 
 **Adding a page:** copy the nearest existing page (e.g. `perfect-active.html` for another tense), change its content and script, and add it to `data/grammar.json` (`page`, `title`, `group`, `about`) and `data/levels.json` (the level it's first taught).
 
@@ -180,7 +205,7 @@ On the deck list, **Combine decks** turns every deck into a checkbox. Tick any m
 
 ## Level switcher
 
-The flashcard, grammar and game lists have a switcher at the top: **All levels · Latin I · Latin II · Latin III · Latin IV**. Levels are cumulative: Latin II shows everything first taught in Latin I or II and hides Latin III and IV content. The exception is the vocabulary lists, which show only in their own year (`"only": true`): Latin III shows the Latin III list but not Latin II's. Each item's level is set in `data/levels.json`:
+The flashcard, grammar and game lists have a switcher at the top (on wide screens the flashcard and grammar lists show it in the sidebar instead): **All levels · Latin I · Latin II · Latin III · Latin IV**. Levels are cumulative: Latin II shows everything first taught in Latin I or II and hides Latin III and IV content. The exception is the vocabulary lists, which show only in their own year (`"only": true`): Latin III shows the Latin III list but not Latin II's. Each item's level is set in `data/levels.json`:
 
 - Latin I: the five declensions, present active, present active imperatives and infinitives (no passives), and the present of sum and the irregular verbs (ferō, volō, nōlō, mālō).
 - Latin II: the rest of the indicative system, active and passive, passive imperatives (including the other tenses of the irregular verbs), every infinitive, the present active and perfect passive participles, adjectives and adverbs in all degrees, and the Latin II vocabulary.
@@ -222,7 +247,18 @@ Decks open in **Standard** mode, the free run-through (Got it / Still learning),
 
 ## Screen layout
 
-On screens 980px and wider the player uses two columns: a sticky sidebar (Settings, Grammar note) beside the card. Settings, the grammar note, "Show paradigms", the progress panel and each group on the deck list are collapsible, and each remembers whether it was left open (separately for wide and narrow screens). Collapsed, Settings shows a one-line summary of the current choices. On phones, Settings and the grammar note start collapsed so the card is on screen straight away.
+**Sidebar (wide screens, 1100px and up).** Every grammar page, the grammar list and flashcards have a fixed sidebar on the left (`js/sidebar.js`, `css/sidebar.css`). At the top: links to Grammar · Flashcards · Games and the level switcher (it replaces the list's own switcher, and the two stay in step). Below, two tabs:
+
+- **Pages / Decks:** every grammar page or deck, nested by its `path` and filtered by level, with the one you're on marked. Grammar starts fully open; flashcards open only down to the current deck, and every group remembers whether it was left open.
+- **This page / This deck:** the page's own controls, moved there from the page. On a grammar page that's the pattern buttons, the view toggles, the legend and jump links to its sections (The Incomplete System: its section list); on a deck it's Settings (always open there). The page itself is then just the charts or the card.
+
+The nesting comes from the data files: an item's optional `"path"` (e.g. `["Verbs", "Incomplete", "Active"]`; without one it sits under its `group` / `course`) and an optional `"short"` title for inside the tree ("Present" under Verbs › Incomplete › Active; the full title shows on hover). Both are in `data/grammar.json` and `data/decks/index.json`; the list pages themselves still use `group` / `course`. A deck entry with `"split": {"field": "w", "values": [{"v": 1, "label": "Week 1"}, …]}` gets a sub-menu, one link per value, that presets that filter (`?deck=latin2-vocab&w=2`): the vocabulary lists by week, and the DCC list by its 50-word bands. A deck entry with `"solo": true` (the vocabulary lists) is shown as just its group's name when it's the only one left in the group: at a single level the sidebar shows **Vocab**, not Vocab › Latin II.
+
+Flashcards are grouped as Vocab · Nouns (one set per declension) · Adjectives and Adverbs (Positive · Comparative · Superlative) · Verbs (Incomplete / Complete › Active / Passive, Subjunctive, Imperatives, Infinitives, Irregular) · Participles.
+
+**Narrower screens** keep the usual layout, with the controls in the page; a menu button at the top opens the Pages / Decks list as a drawer.
+
+**Flashcard player.** Settings, "Show paradigms", the progress panel and each group on the deck list are collapsible, and each remembers whether it was left open (separately for wide and narrow screens). On wide screens Settings is in the sidebar's "This deck" tab, always open. Without the sidebar (phones and narrow windows) it moves under the card, above "Show paradigms", so the card is on screen straight away; there it can be collapsed to a one-line summary of the current choices. The grammar note is a collapsed sub-section at the top of "Show paradigms"; a deck with a note but no paradigm tables (the DCC list) shows the note as that panel instead, titled by its `introTitle`.
 
 ## Updating CSS or JavaScript: bump the version
 

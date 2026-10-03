@@ -10,7 +10,8 @@
 
   const MODE_LABELS = { le:"Latin → English", el:"English → Latin", pp:"Principal parts" };
   const TIMER_CHOICES = [0, 5, 10, 20];           // seconds; 0 = off
-  const PPL = ["1st","2nd","3rd","4th"];
+  const COLOUR_VERBS = false;   // see faces(): verb translations are not colour-linked for now
+  const PPL = ["1st","2nd","3rd","4th"];   // vocab cards: just the numbers
 
   let deck, st, timerId = null;
 
@@ -27,11 +28,11 @@
   const fold = x => String(x ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
   const terms = q => fold(q).split(/[^a-z0-9]+/).filter(Boolean);
   // Each query word must start a word on the card, so "war" finds war and warfare but not toward
-  const haystack = c => c._hay || (c._hay = " " + fold([c.la, c.en, c.pp, c.parse, c.pn, c.tl, c.lemma, c.gloss, c.tag].filter(Boolean).join(" ")).replace(/[^a-z0-9]+/g, " "));
+  const haystack = c => c._hay || (c._hay = " " + fold([c.la, c.en, ...(c.alt || []), c.pp, c.parse, c.pn, c.tl, c.lemma, c.gloss, c.tag].filter(Boolean).join(" ")).replace(/[^a-z0-9]+/g, " "));
   const matches = (c, ts) => ts.every(t => haystack(c).includes(" " + t));
   // Best matches first: the Latin starts with the query, then a Latin word does, then an English word does
   function score(c, q){
-    const la = fold(c.la), en = fold(c.en), words = s => s.split(/[\s,;()/.\-]+/);
+    const la = fold(c.la), en = fold([c.en, ...(c.alt || [])].join(", ")), words = s => s.split(/[\s,;()/.\-]+/);
     if(la === q || la.startsWith(q + " ") || la.startsWith(q + ",")) return 0;
     if(la.startsWith(q)) return 1;
     if(words(la).some(w => w.startsWith(q))) return 2;
@@ -238,21 +239,26 @@
     $("subtitle").textContent = deck.subtitle || "";
 
     // grammar note and paradigm tables are written by us, so they're inserted as HTML
+    // the grammar note is a sub-section of "Show paradigms"; a deck with a note but no paradigms gets the note alone
     if(deck.intro){ $("intro-body").innerHTML = deck.intro; $("intro").hidden = false; }
     if(deck.introTitle) $("intro").querySelector("summary").textContent = deck.introTitle;
     if(deck.paradigm){ $("paradigms").hidden = false; $("paradigm-note").innerHTML = deck.paradigmNote || ""; }
+    else if(deck.intro){ $("paradigms").hidden = false; $("paradigms-title").textContent = deck.introTitle || "Grammar note"; $("intro").classList.add("solo"); }
 
     deck.cards.forEach((c, i) => c._i = i);
     if(deck.lookalikes) markLookalikes(deck.cards);
 
-    // restore saved settings for THIS deck (each deck has its own slot)
-    const saved = store.get("fc:"+deck.id, {});
-    st = { sel:{}, mode: deck.modes.includes(saved.mode) ? saved.mode : deck.modes[0],
+    // restore saved settings for THIS deck, or this view of it (each deck and each view has its own slot)
+    const vname = param("view"), view = vname && deck.views && deck.views[vname];
+    const slot = deck.id + (view ? "/" + vname : "");
+    const saved = store.get("fc:"+slot, {});
+    st = { slot, sel:{}, mode: deck.modes.includes(saved.mode) ? saved.mode : deck.modes[0],
            timer: store.get("fc:timer", 0), order:[], i:0, flipped:false, known:{}, finished:false };
     deck.filters.forEach(f => {
       const all = f.values.map(v => v.v);
       const keep = (saved.sel && saved.sel[f.field] || []).filter(v => all.includes(v));
-      st.sel[f.field] = new Set(keep.length ? keep : all);
+      // a value marked "off" (e.g. the 3rd declension i-stems) starts unchosen; the student can turn it on
+      st.sel[f.field] = new Set(keep.length ? keep : f.values.filter(v => !v.off).map(v => v.v));
     });
 
     // A link can preset filters and mode, e.g. ?deck=noun-declensions&decl=3,4&mode=el
@@ -271,9 +277,8 @@
     // A view is a named slice of the deck with its own entry on the deck list (?deck=participles&view=pres).
     // It fixes some filters, hides their rows, and hides rows that none of its cards use (adverbs have no gender).
     st.hidden = new Set();
-    const vname = param("view"), view = vname && deck.views && deck.views[vname];
     if(view){
-      st.view = view; st.preset = true;
+      st.view = view;
       Object.entries(view.sel || {}).forEach(([field, vals]) => {
         const f = filterOf(field); if(!f) return;
         st.sel[field] = new Set(f.values.map(v => v.v).filter(v => vals.includes(v)));
@@ -289,8 +294,9 @@
       if(view.paradigmNote !== undefined) $("paradigm-note").innerHTML = view.paradigmNote;
     }
 
-    remember($("settings"), "settings", wide());           // open on desktop, a one-line summary on phones
-    remember($("intro"), "intro:" + deck.id, wide());      // open beside the card on desktop; tucked away on phones
+    remember($("settings"), "settings", true);           // open; on narrow screens it sits under the card (js/sidebar.js)
+    remember($("intro"), "intro:" + deck.id, false);      // a closed sub-section of the paradigms panel
+    if($("intro").classList.contains("solo")) $("intro").open = true;
     remember($("paradigms"), "paradigms:" + deck.id, false);
 
     buildControlRows();
@@ -318,7 +324,9 @@
         const f = d.filters.find(f => f.field === field);
         sel[field] = val.split(",").map(x => { const hit = f && f.values.find(y => String(y.v) === x); return hit ? hit.v : x; });
       });
-      d.cards.forEach(c => { if(Object.entries(sel).every(([f, vals]) => c[f] === undefined || vals.includes(c[f])) && !pool.includes(c)) pool.push(c); });
+      // values marked "off" (the i-stems) stay out unless the view or level chose them
+      const off = d.filters.flatMap(f => f.values.filter(v => v.off && !(sel[f.field] || []).includes(v.v)).map(v => [f.field, v.v]));
+      d.cards.forEach(c => { if(Object.entries(sel).every(([f, vals]) => c[f] === undefined || vals.includes(c[f])) && !off.some(([f, v]) => c[f] === v) && !pool.includes(c)) pool.push(c); });
       titles.push(v ? v.title : d.title);
     }
     if(!pool.length){ $("player").innerHTML = `<p class="callout">No cards in that combination. <a href="./">See all decks</a>.</p>`; return; }
@@ -330,7 +338,7 @@
     document.title = "Combined decks · Flashcards";
     $("title").textContent = titles.length > 1 ? `${titles.length} decks combined` : titles[0];
     $("subtitle").textContent = titles.join(" · ");
-    remember($("settings"), "settings", wide());
+    remember($("settings"), "settings", true);
     buildControlRows(); wireEvents(); reset();
   }
 
@@ -353,7 +361,7 @@
     document.title = "Spaced repetition · Flashcards";
     $("title").textContent = "Spaced repetition";
     $("subtitle").textContent = "Everything due today, from every deck you've studied";
-    remember($("settings"), "settings", wide());
+    remember($("settings"), "settings", true);
     buildControlRows(); wireEvents(); reset();
   }
 
@@ -373,10 +381,22 @@
   const passes = (c, fields) => fields.every(f => c[f.field] === undefined || st.sel[f.field].has(c[f.field]));
 
   function currentDeck(){
-    if(st.all || st.combo) return st.pool;
+    if(st.all || st.combo) return dedupe(st.pool);
     const ts = terms(st.q);
-    return deck.cards.filter(c => passes(c, deck.filters) && (st.mode !== "pp" || c.pp) && (!ts.length || matches(c, ts)));
+    return dedupe(deck.cards.filter(c => passes(c, deck.filters) && (st.mode !== "pp" || c.pp) && (!ts.length || matches(c, ts))));
   }
+  // Latin → English: a form that several cards of the same word share (rēgibus = dative AND ablative plural) is asked
+  // once, and its back gives every reading. English → Latin keeps them apart: "to the kings" and "by the kings" are different questions.
+  function dedupe(cards){
+    if(st.mode !== "le") return cards;
+    const seen = new Set();
+    return cards.filter(c => {
+      const dk = deckOf(c), f = dk.allReadings; if(!f) return true;
+      const k = dk.id + "|" + c.la + "|" + c[f];
+      if(seen.has(k)) return false; seen.add(k); return true;
+    });
+  }
+  const usesReadings = () => st.all || st.combo ? st.pool.some(c => deckOf(c).allReadings) : !!deck.allReadings;
 
   /* ---------- controls ---------- */
   function buildControlRows(){
@@ -421,7 +441,8 @@
     }
     if(deck.modes.length > 1)
       deck.modes.forEach(m => chip($("row-mode"), (deck.modeLabels && deck.modeLabels[m]) || MODE_LABELS[m], st.mode === m, () => {
-        st.mode = m; save(); renderControls(); render();   // same cards and history in either direction
+        st.mode = m; save(); renderControls();   // same cards and history in either direction
+        if(usesReadings()) reset(); else render();   // nouns and adjectives: Latin → English asks each shared form once
       }));
     TIMER_CHOICES.forEach(s => chip($("row-timer"), s ? s+" s" : "Off", st.timer === s, () => {
       st.timer = s; store.set("fc:timer", s); renderControls(); render();
@@ -447,7 +468,7 @@
     if(st.all || st.combo){ store.set(st.all ? "fc:all" : "fc:combo", { mode: st.mode }); return; }
     if(st.preset) return;
     const sel = {}; for(const k in st.sel) sel[k] = [...st.sel[k]];
-    store.set("fc:"+deck.id, { sel, mode: st.mode });
+    store.set("fc:"+st.slot, { sel, mode: st.mode });
   }
 
   /* ---------- card rendering ---------- */
@@ -461,6 +482,56 @@
   const meta = ([l, r]) => `<div class="fc-meta label"><span>${esc(l)}</span><b>${esc(r)}</b></div>`;
   const cap = s => s ? s[0].toUpperCase() + s.slice(1) : "";
 
+  // past time is built on a (-ba-, -era-, eram), later time on i (-bi-, -eri-, erit): show that vowel in heavy type
+  function timeVowel(t, label){
+    const rx = /time: past/.test(label) ? /[aā]/ : /time: later/.test(label) ? /[iī]/ : null;
+    const m = rx && t.match(rx);
+    return m ? esc(t.slice(0, m.index)) + `<u>${esc(m[0])}</u>` + esc(t.slice(m.index + 1)) : esc(t);
+  }
+  /* Colour the translation to match the form's parts (the same blue / amber / red as the breakdown):
+     verbs: the meaning ← stem, the time words (was, will, had, may, might) ← time marker, the subject ← ending
+       (and am / is / being / be, the passive, ← ending); in the perfect passive system the form of sum gives subject + time.
+     nouns: the noun ← stem; of / to / for / by…, -s, -'s and (subject) / (direct object) ← ending. */
+  const tw = (t, r) => r ? `<span class="tw tw-${r}">${esc(t)}</span>` : esc(t);
+  function colourVerb(en, c){
+    const parts = c.seg || [], perfPass = parts.some(x => /participle/.test(x[2])), passive = perfPass || /passive/.test(c.tl || "");
+    const m = en.match(/^(I|you \(pl\.\)|you|he\/she\/it|we|they)(?=\s|$)/i);
+    if(!m) return esc(en);
+    const subj = m[0], rest = en.slice(subj.length);
+    let out = tw(subj, "e");
+    rest.split(/(\s+)/).forEach(w => {
+      if(!w.trim()){ out += w; return; }
+      let r = "s";
+      if(passive && /^(am|is|are|was|were)$/i.test(w)) r = "x";          // the passive's helper: time AND voice
+      else if(/^(was|were|will|had|may|might)$/i.test(w) || (perfPass && /^(has|have)$/i.test(w))) r = "m";
+      else if(passive && /^(be|being|been)$/i.test(w)) r = "e";
+      out += tw(w, r);
+    });
+    return out;
+  }
+  function colourNoun(en, gloss){
+    const g = gloss || "", y = g.endsWith("y") ? g.slice(0, -1) : null;
+    return en.split(/(\s+|,)/).map(w => {
+      if(!w || /^\s+$|^,$/.test(w)) return w;
+      if(/^(of|to|for|by|with|from|\/|\(subject\)|\(direct|object\))$/.test(w)) return tw(w, "e");
+      if(g && w.startsWith(g)) return tw(g, "s") + (w.length > g.length ? tw(w.slice(g.length), "e") : "");
+      if(y && w.startsWith(y + "ies")) return tw(y, "s") + tw(w.slice(y.length), "e");
+      return esc(w);
+    }).join("");
+  }
+  // "3rd Person Singular" + passive → "3rd sg · pass."
+  function whoOf(c){
+    const m = (c.pn || "").match(/(1st|2nd|3rd) Person (Singular|Plural)/);
+    const voice = /passive/.test(c.tl || "") || (c.seg || []).some(x => /participle/.test(x[2])) ? "pass." : "act.";
+    return m ? `${m[1]} ${m[2] === "Singular" ? "sg" : "pl"} · ${voice}` : voice;
+  }
+  // every case this spelling can be, by number: puellae → "gen./dat. sg · nom. pl"
+  function casesOf(c, dk){
+    const f = dk.allReadings, same = dk.cards.filter(x => x.la === c.la && x[f] === c[f]).sort((a, b) => (a.pi ?? 0) - (b.pi ?? 0));
+    const by = {};
+    same.forEach(x => { const [cs, n] = (x.pn || "").split(" "); if(!cs) return; (by[n] = by[n] || []).push(cs.slice(0, 3).toLowerCase() + "."); });
+    return Object.entries(by).map(([n, cs]) => `${[...new Set(cs)].join("/")} ${n === "Singular" ? "sg" : "pl"}`).join(" · ");
+  }
   function faces(c){
     const dk = deckOf(c);
     const la = `<div class="fc-main la" lang="la">${formHTML(c)}</div>`;
@@ -471,20 +542,41 @@
     const detail = c.detail ? `<div class="fc-sub">${esc(c.detail)}</div>` : "";
     const also = c.also ? `<div class="fc-also">Same spelling: ${esc(c.also)}</div>` : "";
     const note = c.note ? `<div class="fc-also">${esc(c.note)}</div>` : "";
+    // one main translation; the others sit underneath with the parse, so there's one thing to focus on
+    const alts = list => list.length ? `<div class="fc-alts"><span class="label">also</span><ul>${list.join("")}</ul></div>` : "";
+    const altEn = alts((c.alt || []).map(a => `<li>${esc(a)}</li>`));
+    // verbs: the form taken apart into stem + time marker + ending, colour-coded as on the grammar pages
+    const segParts = c.seg ? c.seg.map(([t, r, l]) => {
+      if(r === "e" && !dk.allReadings) l = "ending · " + whoOf(c);                        // -t: 3rd sg · act.
+      if(r === "e" && dk.allReadings) l = "ending · " + casesOf(c, dk);                   // -ōrum: gen. pl.
+      if(r === "m" && /^sum/.test(l)){ r = "x"; l = l.replace("sum · time: ", "sum · ").replace(/^sum · (subjunctive|past subjunctive)$/, "sum · $1") + " · " + whoOf(c); }
+      return [t, r, l];
+    }) : null;
+    const seg = segParts ? `<div class="fc-seg" aria-label="${esc(segParts.map(x => x[0] ? x[0] + " (" + x[2] + ")" : x[2]).join(" + "))}">` +
+      segParts.map(([t, r, l]) => `<span class="sg sg-${r === "0" ? "none" : r}"><b lang="la">${t ? timeVowel(t, l) : "∅"}</b><i>${esc(l)}</i></span>`).join("") + `</div>` : "";
     // Forms that need parsing (verb and noun cards) get a prompt on the Latin side
     const cue = c.pn ? `<div class="fc-sub">${dk.cue || (dk.allReadings ? "Translate: give every possible case" : "Translate and parse")}</div>` : "";
     switch(st.mode){
       case "le": {
         if(dk.allReadings){
-          // every card of the same word with the same spelling (e.g. equī = gen. sg. AND nom. pl.)
-          const f = dk.allReadings, same = dk.cards.filter(x => x.la === c.la && x[f] === c[f]);
-          const head = same.length > 1 ? `<div class="fc-also">${same.length} possibilities</div>` : "";
-          return [la + cue, la + head +
-                  `<ul class="fc-readings">${same.map(x => `<li><b>${esc(x.pn)}</b>${x.tl ? ` · ${esc(x.tl)}` : ""} <span>— ${esc(x.en)}</span></li>`).join("")}</ul>`];
+          // every card of the same word with the same spelling (equī = genitive singular AND nominative plural):
+          // all of them are answers, listed alike, each translation with its parse under it.
+          // The vocative (not drilled) is mentioned under "also".
+          const f = dk.allReadings, same = dk.cards.filter(x => x.la === c.la && x[f] === c[f]).sort((a, b) => (a.pi ?? 0) - (b.pi ?? 0));
+          const p = x => [x.pn, x.tl].filter(Boolean).join(" · ");
+          const one = same.length === 1;
+          const enOf = x => x.seg ? colourNoun(x.en, x.gloss) : esc(x.en);
+          const reading = x => `<div class="fc-reading"><div class="${one ? "fc-main en" : "fc-r-en"}">${enOf(x)}</div>${p(x) ? `<div class="parse">${esc(p(x))}</div>` : ""}</div>`;
+          const vocs = same.filter(x => x.voc).map(x => `<li>${esc(x.voc)}</li>`);
+          return [la + cue, `<div class="fc-readings2">${same.map(reading).join("")}</div>` + alts(vocs) + seg +
+                  (same[0].detail ? `<div class="fc-sub">${esc(same[0].detail)}</div>` : "")];
         }
-        return [la + cue, en + parse + pp + detail + also + note];
+        // colour-linking the verb translation is switched off for now (too much overlap of time, voice and person
+        // in English helpers to stay clear for students); nouns keep theirs. Set COLOUR_VERBS to true to bring it back.
+        const enC = COLOUR_VERBS && c.seg ? `<div class="fc-main en">${colourVerb(c.en, c)}</div>` : en;
+        return [la + cue, enC + parse + altEn + seg + pp + detail + also + note];
       }
-      case "el": return [en + parse, la + pp + detail + also + note];
+      case "el": return [en + parse, la + seg + altEn + pp + detail + also + note];
       case "pp": return [`<div class="fc-main la" lang="la">${esc(c.pp.split(",")[0])}</div><div class="fc-sub">${esc(c.en)}</div><div class="fc-sub">Give the principal parts</div>`,
                          ppGrid(c.pp) + `<div class="fc-sub">${esc(c.en)}</div>`];
     }

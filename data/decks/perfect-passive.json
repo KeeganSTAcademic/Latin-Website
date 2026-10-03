@@ -73,7 +73,7 @@
    "la": "amātus sum",
    "stem": "amātus ",
    "end": "sum",
-   "en": "I was loved, I have been loved",
+   "en": "I was loved",
    "pn": "1st Person Singular",
    "tl": "perfect passive indicative",
    "tag": "1st conj. · amō, amāre, amāvī, amātum (love)",
@@ -82,13 +82,28 @@
    "pi": 0,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "I have been loved"
+   ],
+   "seg": [
+    [
+     "amātus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sum",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "amātus es",
    "stem": "amātus ",
    "end": "es",
-   "en": "you were loved, you have been loved",
+   "en": "you were loved",
    "pn": "2nd Person Singular",
    "tl": "perfect passive indicative",
    "tag": "1st conj. · amō, amāre, amāvī, amātum (love)",
@@ -97,13 +112,28 @@
    "pi": 1,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "you have been loved"
+   ],
+   "seg": [
+    [
+     "amātus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "es",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "amātus est",
    "stem": "amātus ",
    "end": "est",
-   "en": "he/she/it was loved, he/she/it has been loved",
+   "en": "he/she/it was loved",
    "pn": "3rd Person Singular",
    "tl": "perfect passive indicative",
    "tag": "1st conj. · amō, amāre, amāvī, amātum (love)",
@@ -112,13 +142,28 @@
    "pi": 2,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "he/she/it has been loved"
+   ],
+   "seg": [
+    [
+     "amātus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "est",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "amātī sumus",
    "stem": "amātī ",
    "end": "sumus",
-   "en": "we were loved, we have been loved",
+   "en": "we were loved",
    "pn": "1st Person Plural",
    "tl": "perfect passive indicative",
    "tag": "1st conj. · amō, amāre, amāvī, amātum (love)",
@@ -127,13 +172,28 @@
    "pi": 3,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "we have been loved"
+   ],
+   "seg": [
+    [
+     "amātī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sumus",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "amātī estis",
    "stem": "amātī ",
    "end": "estis",
-   "en": "you (pl.) were loved, you (pl.) have been loved",
+   "en": "you (pl.) were loved",
    "pn": "2nd Person Plural",
    "tl": "perfect passive indicative",
    "tag": "1st conj. · amō, amāre, amāvī, amātum (love)",
@@ -142,13 +202,28 @@
    "pi": 4,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "you (pl.) have been loved"
+   ],
+   "seg": [
+    [
+     "amātī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "estis",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "amātī sunt",
    "stem": "amātī ",
    "end": "sunt",
-   "en": "they were loved, they have been loved",
+   "en": "they were loved",
    "pn": "3rd Person Plural",
    "tl": "perfect passive indicative",
    "tag": "1st conj. · amō, amāre, amāvī, amātum (love)",
@@ -157,13 +232,28 @@
    "pi": 5,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "they have been loved"
+   ],
+   "seg": [
+    [
+     "amātī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sunt",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "vīsus sum",
    "stem": "vīsus ",
    "end": "sum",
-   "en": "I was seen, I have been seen",
+   "en": "I was seen",
    "pn": "1st Person Singular",
    "tl": "perfect passive indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī, vīsum (see)",
@@ -172,13 +262,28 @@
    "pi": 0,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "I have been seen"
+   ],
+   "seg": [
+    [
+     "vīsus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sum",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "vīsus es",
    "stem": "vīsus ",
    "end": "es",
-   "en": "you were seen, you have been seen",
+   "en": "you were seen",
    "pn": "2nd Person Singular",
    "tl": "perfect passive indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī, vīsum (see)",
@@ -187,13 +292,28 @@
    "pi": 1,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "you have been seen"
+   ],
+   "seg": [
+    [
+     "vīsus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "es",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "vīsus est",
    "stem": "vīsus ",
    "end": "est",
-   "en": "he/she/it was seen, he/she/it has been seen",
+   "en": "he/she/it was seen",
    "pn": "3rd Person Singular",
    "tl": "perfect passive indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī, vīsum (see)",
@@ -202,13 +322,28 @@
    "pi": 2,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "he/she/it has been seen"
+   ],
+   "seg": [
+    [
+     "vīsus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "est",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "vīsī sumus",
    "stem": "vīsī ",
    "end": "sumus",
-   "en": "we were seen, we have been seen",
+   "en": "we were seen",
    "pn": "1st Person Plural",
    "tl": "perfect passive indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī, vīsum (see)",
@@ -217,13 +352,28 @@
    "pi": 3,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "we have been seen"
+   ],
+   "seg": [
+    [
+     "vīsī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sumus",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "vīsī estis",
    "stem": "vīsī ",
    "end": "estis",
-   "en": "you (pl.) were seen, you (pl.) have been seen",
+   "en": "you (pl.) were seen",
    "pn": "2nd Person Plural",
    "tl": "perfect passive indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī, vīsum (see)",
@@ -232,13 +382,28 @@
    "pi": 4,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "you (pl.) have been seen"
+   ],
+   "seg": [
+    [
+     "vīsī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "estis",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "vīsī sunt",
    "stem": "vīsī ",
    "end": "sunt",
-   "en": "they were seen, they have been seen",
+   "en": "they were seen",
    "pn": "3rd Person Plural",
    "tl": "perfect passive indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī, vīsum (see)",
@@ -247,13 +412,28 @@
    "pi": 5,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "they have been seen"
+   ],
+   "seg": [
+    [
+     "vīsī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sunt",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "missus sum",
    "stem": "missus ",
    "end": "sum",
-   "en": "I was sent, I have been sent",
+   "en": "I was sent",
    "pn": "1st Person Singular",
    "tl": "perfect passive indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī, missum (send)",
@@ -262,13 +442,28 @@
    "pi": 0,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "I have been sent"
+   ],
+   "seg": [
+    [
+     "missus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sum",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "missus es",
    "stem": "missus ",
    "end": "es",
-   "en": "you were sent, you have been sent",
+   "en": "you were sent",
    "pn": "2nd Person Singular",
    "tl": "perfect passive indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī, missum (send)",
@@ -277,13 +472,28 @@
    "pi": 1,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "you have been sent"
+   ],
+   "seg": [
+    [
+     "missus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "es",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "missus est",
    "stem": "missus ",
    "end": "est",
-   "en": "he/she/it was sent, he/she/it has been sent",
+   "en": "he/she/it was sent",
    "pn": "3rd Person Singular",
    "tl": "perfect passive indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī, missum (send)",
@@ -292,13 +502,28 @@
    "pi": 2,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "he/she/it has been sent"
+   ],
+   "seg": [
+    [
+     "missus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "est",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "missī sumus",
    "stem": "missī ",
    "end": "sumus",
-   "en": "we were sent, we have been sent",
+   "en": "we were sent",
    "pn": "1st Person Plural",
    "tl": "perfect passive indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī, missum (send)",
@@ -307,13 +532,28 @@
    "pi": 3,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "we have been sent"
+   ],
+   "seg": [
+    [
+     "missī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sumus",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "missī estis",
    "stem": "missī ",
    "end": "estis",
-   "en": "you (pl.) were sent, you (pl.) have been sent",
+   "en": "you (pl.) were sent",
    "pn": "2nd Person Plural",
    "tl": "perfect passive indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī, missum (send)",
@@ -322,13 +562,28 @@
    "pi": 4,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "you (pl.) have been sent"
+   ],
+   "seg": [
+    [
+     "missī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "estis",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "missī sunt",
    "stem": "missī ",
    "end": "sunt",
-   "en": "they were sent, they have been sent",
+   "en": "they were sent",
    "pn": "3rd Person Plural",
    "tl": "perfect passive indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī, missum (send)",
@@ -337,13 +592,28 @@
    "pi": 5,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "they have been sent"
+   ],
+   "seg": [
+    [
+     "missī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sunt",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "captus sum",
    "stem": "captus ",
    "end": "sum",
-   "en": "I was taken, I have been taken",
+   "en": "I was taken",
    "pn": "1st Person Singular",
    "tl": "perfect passive indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī, captum (take)",
@@ -352,13 +622,28 @@
    "pi": 0,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "I have been taken"
+   ],
+   "seg": [
+    [
+     "captus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sum",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "captus es",
    "stem": "captus ",
    "end": "es",
-   "en": "you were taken, you have been taken",
+   "en": "you were taken",
    "pn": "2nd Person Singular",
    "tl": "perfect passive indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī, captum (take)",
@@ -367,13 +652,28 @@
    "pi": 1,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "you have been taken"
+   ],
+   "seg": [
+    [
+     "captus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "es",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "captus est",
    "stem": "captus ",
    "end": "est",
-   "en": "he/she/it was taken, he/she/it has been taken",
+   "en": "he/she/it was taken",
    "pn": "3rd Person Singular",
    "tl": "perfect passive indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī, captum (take)",
@@ -382,13 +682,28 @@
    "pi": 2,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "he/she/it has been taken"
+   ],
+   "seg": [
+    [
+     "captus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "est",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "captī sumus",
    "stem": "captī ",
    "end": "sumus",
-   "en": "we were taken, we have been taken",
+   "en": "we were taken",
    "pn": "1st Person Plural",
    "tl": "perfect passive indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī, captum (take)",
@@ -397,13 +712,28 @@
    "pi": 3,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "we have been taken"
+   ],
+   "seg": [
+    [
+     "captī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sumus",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "captī estis",
    "stem": "captī ",
    "end": "estis",
-   "en": "you (pl.) were taken, you (pl.) have been taken",
+   "en": "you (pl.) were taken",
    "pn": "2nd Person Plural",
    "tl": "perfect passive indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī, captum (take)",
@@ -412,13 +742,28 @@
    "pi": 4,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "you (pl.) have been taken"
+   ],
+   "seg": [
+    [
+     "captī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "estis",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "captī sunt",
    "stem": "captī ",
    "end": "sunt",
-   "en": "they were taken, they have been taken",
+   "en": "they were taken",
    "pn": "3rd Person Plural",
    "tl": "perfect passive indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī, captum (take)",
@@ -427,13 +772,28 @@
    "pi": 5,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "they have been taken"
+   ],
+   "seg": [
+    [
+     "captī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sunt",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "audītus sum",
    "stem": "audītus ",
    "end": "sum",
-   "en": "I was heard, I have been heard",
+   "en": "I was heard",
    "pn": "1st Person Singular",
    "tl": "perfect passive indicative",
    "tag": "4th conj. · audiō, audīre, audīvī, audītum (hear)",
@@ -442,13 +802,28 @@
    "pi": 0,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "I have been heard"
+   ],
+   "seg": [
+    [
+     "audītus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sum",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "audītus es",
    "stem": "audītus ",
    "end": "es",
-   "en": "you were heard, you have been heard",
+   "en": "you were heard",
    "pn": "2nd Person Singular",
    "tl": "perfect passive indicative",
    "tag": "4th conj. · audiō, audīre, audīvī, audītum (hear)",
@@ -457,13 +832,28 @@
    "pi": 1,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "you have been heard"
+   ],
+   "seg": [
+    [
+     "audītus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "es",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "audītus est",
    "stem": "audītus ",
    "end": "est",
-   "en": "he/she/it was heard, he/she/it has been heard",
+   "en": "he/she/it was heard",
    "pn": "3rd Person Singular",
    "tl": "perfect passive indicative",
    "tag": "4th conj. · audiō, audīre, audīvī, audītum (hear)",
@@ -472,13 +862,28 @@
    "pi": 2,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "he/she/it has been heard"
+   ],
+   "seg": [
+    [
+     "audītus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "est",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "audītī sumus",
    "stem": "audītī ",
    "end": "sumus",
-   "en": "we were heard, we have been heard",
+   "en": "we were heard",
    "pn": "1st Person Plural",
    "tl": "perfect passive indicative",
    "tag": "4th conj. · audiō, audīre, audīvī, audītum (hear)",
@@ -487,13 +892,28 @@
    "pi": 3,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "we have been heard"
+   ],
+   "seg": [
+    [
+     "audītī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sumus",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "audītī estis",
    "stem": "audītī ",
    "end": "estis",
-   "en": "you (pl.) were heard, you (pl.) have been heard",
+   "en": "you (pl.) were heard",
    "pn": "2nd Person Plural",
    "tl": "perfect passive indicative",
    "tag": "4th conj. · audiō, audīre, audīvī, audītum (hear)",
@@ -502,13 +922,28 @@
    "pi": 4,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "you (pl.) have been heard"
+   ],
+   "seg": [
+    [
+     "audītī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "estis",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   },
   {
    "la": "audītī sunt",
    "stem": "audītī ",
    "end": "sunt",
-   "en": "they were heard, they have been heard",
+   "en": "they were heard",
    "pn": "3rd Person Plural",
    "tl": "perfect passive indicative",
    "tag": "4th conj. · audiō, audīre, audīvī, audītum (hear)",
@@ -517,7 +952,22 @@
    "pi": 5,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "perf"
+   "t": "perf",
+   "alt": [
+    "they have been heard"
+   ],
+   "seg": [
+    [
+     "audītī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "sunt",
+     "m",
+     "sum · time: now"
+    ]
+   ]
   }
  ]
 }

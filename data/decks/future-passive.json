@@ -3,7 +3,7 @@
  "title": "Future Passive Indicative",
  "course": "Verbs · Passive Indicative",
  "subtitle": "Flashcards for all four conjugations plus 3rd -iō",
- "intro": "The passive uses the same stems and tense signs as the active. Only the personal endings change: <span class=\"end\">-r, -ris, -tur, -mur, -minī, -ntur</span> replace <span class=\"end\">-ō/-m, -s, -t, -mus, -tis, -nt</span>.<p style=\"margin:8px 0 0\">The future keeps its <b>two patterns</b>:</p><ul><li><b>1st and 2nd (-bi- future):</b> <span class=\"end\">-bor, -beris, -bitur, -bimur, -biminī, -buntur</span>. Note the short <b>e</b> in amāb<b>e</b>ris.</li><li><b>3rd, 3rd -iō and 4th (vowel shift):</b> <span class=\"end\">-ar, -ēris, -ētur, -ēmur, -ēminī, -entur</span> (mittar, audiar).</li></ul><p style=\"margin:8px 0 0\"><b>Watch out:</b> mittēris (future, “you will be sent”) and mitteris (present, “you are sent”) differ only in vowel length.</p>",
+ "intro": "The passive uses the same stems and time markers as the active. Only the personal endings change: <span class=\"end\">-r, -ris, -tur, -mur, -minī, -ntur</span> replace <span class=\"end\">-ō/-m, -s, -t, -mus, -tis, -nt</span>.<p style=\"margin:8px 0 0\">The future keeps its <b>two patterns</b>:</p><ul><li><b>1st and 2nd (-bi- future):</b> <span class=\"end\">-bor, -beris, -bitur, -bimur, -biminī, -buntur</span>. Note the short <b>e</b> in amāb<b>e</b>ris.</li><li><b>3rd, 3rd -iō and 4th (vowel shift):</b> <span class=\"end\">-ar, -ēris, -ētur, -ēmur, -ēminī, -entur</span> (mittar, audiar).</li></ul><p style=\"margin:8px 0 0\"><b>Watch out:</b> mittēris (future, “you will be sent”) and mitteris (present, “you are sent”) differ only in vowel length.</p>",
  "paradigmNote": "Passive endings: <span class=\"end\">-r, -ris, -tur, -mur, -minī, -ntur</span>",
  "filters": [
   {
@@ -82,7 +82,24 @@
    "pi": 0,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "b",
+     "m",
+     "time: later"
+    ],
+    [
+     "or",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāberis",
@@ -97,7 +114,24 @@
    "pi": 1,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "be",
+     "m",
+     "time: later"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābitur",
@@ -112,7 +146,24 @@
    "pi": 2,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābimur",
@@ -127,7 +178,24 @@
    "pi": 3,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābiminī",
@@ -142,7 +210,24 @@
    "pi": 4,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābuntur",
@@ -157,7 +242,24 @@
    "pi": 5,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bu",
+     "m",
+     "time: later"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbor",
@@ -172,7 +274,24 @@
    "pi": 0,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "b",
+     "m",
+     "time: later"
+    ],
+    [
+     "or",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēberis",
@@ -187,7 +306,24 @@
    "pi": 1,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "be",
+     "m",
+     "time: later"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbitur",
@@ -202,7 +338,24 @@
    "pi": 2,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbimur",
@@ -217,7 +370,24 @@
    "pi": 3,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbiminī",
@@ -232,7 +402,24 @@
    "pi": 4,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbuntur",
@@ -247,7 +434,24 @@
    "pi": 5,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bu",
+     "m",
+     "time: later"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittar",
@@ -262,7 +466,24 @@
    "pi": 0,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "time: later"
+    ],
+    [
+     "r",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittēris",
@@ -277,7 +498,24 @@
    "pi": 1,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittētur",
@@ -292,7 +530,24 @@
    "pi": 2,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittēmur",
@@ -307,7 +562,24 @@
    "pi": 3,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittēminī",
@@ -322,7 +594,24 @@
    "pi": 4,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittentur",
@@ -337,7 +626,24 @@
    "pi": 5,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiar",
@@ -352,7 +658,24 @@
    "pi": 0,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "time: later"
+    ],
+    [
+     "r",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiēris",
@@ -367,7 +690,24 @@
    "pi": 1,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiētur",
@@ -382,7 +722,24 @@
    "pi": 2,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiēmur",
@@ -397,7 +754,24 @@
    "pi": 3,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiēminī",
@@ -412,7 +786,24 @@
    "pi": 4,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capientur",
@@ -427,7 +818,24 @@
    "pi": 5,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiar",
@@ -442,7 +850,24 @@
    "pi": 0,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "time: later"
+    ],
+    [
+     "r",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiēris",
@@ -457,7 +882,24 @@
    "pi": 1,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiētur",
@@ -472,7 +914,24 @@
    "pi": 2,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiēmur",
@@ -487,7 +946,24 @@
    "pi": 3,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiēminī",
@@ -502,7 +978,24 @@
    "pi": 4,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audientur",
@@ -517,7 +1010,24 @@
    "pi": 5,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "fut"
+   "t": "fut",
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   }
  ]
 }

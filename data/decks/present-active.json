@@ -3,7 +3,7 @@
  "title": "Present Active Indicative",
  "course": "Verbs · Active Indicative",
  "subtitle": "Flashcards for all four conjugations plus 3rd -iō",
- "intro": "The present is the <b>present stem</b> (the infinitive minus -re: amā-, vidē-, mitte-, cape-, audī-) + the personal endings <span class=\"end\">-ō, -s, -t, -mus, -tis, -nt</span>.<ul><li><b>1st (amō):</b> the ā disappears in the 1st singular (am<b>ō</b>) and shortens before -t and -nt (ama<b>t</b>, ama<b>nt</b>).</li><li><b>2nd (videō):</b> the ē stays in every form (vide<b>ō</b>, vidē<b>s</b>), short before -t and -nt.</li><li><b>3rd (mittō):</b> the short e becomes <b>i</b> (mitti<b>s</b>, mitti<b>t</b>, mitti<b>mus</b>) and <b>u</b> in the 3rd plural (mittu<b>nt</b>).</li><li><b>3rd -iō (capiō) and 4th (audiō):</b> the i stays throughout, and the 3rd plural adds u: capi<b>unt</b>, audi<b>unt</b>. The 4th has a long ī (audīs, audīmus); the 3rd -iō has a short i (capis, capimus).</li></ul><p style=\"margin:8px 0 0\"><b>Translation:</b> the present has two English versions: “I love” or “I am loving.”</p>",
+ "intro": "The present is the <b>incomplete stem</b> (the infinitive minus -re: amā-, vidē-, mitte-, cape-, audī-) + the personal endings <span class=\"end\">-ō, -s, -t, -mus, -tis, -nt</span>.<ul><li><b>1st (amō):</b> the ā disappears in the 1st singular (am<b>ō</b>) and shortens before -t and -nt (ama<b>t</b>, ama<b>nt</b>).</li><li><b>2nd (videō):</b> the ē stays in every form (vide<b>ō</b>, vidē<b>s</b>), short before -t and -nt.</li><li><b>3rd (mittō):</b> the short e becomes <b>i</b> (mitti<b>s</b>, mitti<b>t</b>, mitti<b>mus</b>) and <b>u</b> in the 3rd plural (mittu<b>nt</b>).</li><li><b>3rd -iō (capiō) and 4th (audiō):</b> the i stays throughout, and the 3rd plural adds u: capi<b>unt</b>, audi<b>unt</b>. The 4th has a long ī (audīs, audīmus); the 3rd -iō has a short i (capis, capimus).</li></ul><p style=\"margin:8px 0 0\"><b>Translation:</b> the present has two English versions: “I love” or “I am loving.”</p>",
  "paradigmNote": "Endings: <span class=\"end\">-ō</span>, <span class=\"end\">-s</span>, <span class=\"end\">-t</span>, <span class=\"end\">-mus</span>, <span class=\"end\">-tis</span>, <span class=\"end\">-nt</span>",
  "filters": [
   {
@@ -71,7 +71,7 @@
    "la": "amō",
    "stem": "am",
    "end": "ō",
-   "en": "I love, I am loving",
+   "en": "I love",
    "pn": "1st Person Singular",
    "tl": "present active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -80,13 +80,33 @@
    "pi": 0,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -ō"
+   "alt": [
+    "I am loving",
+    "I do love"
+   ],
+   "seg": [
+    [
+     "am",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amās",
    "stem": "amā",
    "end": "s",
-   "en": "you love, you are loving",
+   "en": "you love",
    "pn": "2nd Person Singular",
    "tl": "present active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -95,13 +115,33 @@
    "pi": 1,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -s"
+   "alt": [
+    "you are loving",
+    "you do love"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amat",
    "stem": "ama",
    "end": "t",
-   "en": "he/she/it loves, he/she/it is loving",
+   "en": "he/she/it loves",
    "pn": "3rd Person Singular",
    "tl": "present active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -110,13 +150,33 @@
    "pi": 2,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -t"
+   "alt": [
+    "he/she/it is loving",
+    "he/she/it does love"
+   ],
+   "seg": [
+    [
+     "ama",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāmus",
    "stem": "amā",
    "end": "mus",
-   "en": "we love, we are loving",
+   "en": "we love",
    "pn": "1st Person Plural",
    "tl": "present active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -125,13 +185,33 @@
    "pi": 3,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -mus"
+   "alt": [
+    "we are loving",
+    "we do love"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amātis",
    "stem": "amā",
    "end": "tis",
-   "en": "you (pl.) love, you (pl.) are loving",
+   "en": "you (pl.) love",
    "pn": "2nd Person Plural",
    "tl": "present active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -140,13 +220,33 @@
    "pi": 4,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -tis"
+   "alt": [
+    "you (pl.) are loving",
+    "you (pl.) do love"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amant",
    "stem": "ama",
    "end": "nt",
-   "en": "they love, they are loving",
+   "en": "they love",
    "pn": "3rd Person Plural",
    "tl": "present active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -155,13 +255,33 @@
    "pi": 5,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -nt"
+   "alt": [
+    "they are loving",
+    "they do love"
+   ],
+   "seg": [
+    [
+     "ama",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "videō",
    "stem": "vide",
    "end": "ō",
-   "en": "I see, I am seeing",
+   "en": "I see",
    "pn": "1st Person Singular",
    "tl": "present active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -170,13 +290,33 @@
    "pi": 0,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -ō"
+   "alt": [
+    "I am seeing",
+    "I do see"
+   ],
+   "seg": [
+    [
+     "vide",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēs",
    "stem": "vidē",
    "end": "s",
-   "en": "you see, you are seeing",
+   "en": "you see",
    "pn": "2nd Person Singular",
    "tl": "present active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -185,13 +325,33 @@
    "pi": 1,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -s"
+   "alt": [
+    "you are seeing",
+    "you do see"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "videt",
    "stem": "vide",
    "end": "t",
-   "en": "he/she/it sees, he/she/it is seeing",
+   "en": "he/she/it sees",
    "pn": "3rd Person Singular",
    "tl": "present active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -200,13 +360,33 @@
    "pi": 2,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -t"
+   "alt": [
+    "he/she/it is seeing",
+    "he/she/it does see"
+   ],
+   "seg": [
+    [
+     "vide",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēmus",
    "stem": "vidē",
    "end": "mus",
-   "en": "we see, we are seeing",
+   "en": "we see",
    "pn": "1st Person Plural",
    "tl": "present active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -215,13 +395,33 @@
    "pi": 3,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -mus"
+   "alt": [
+    "we are seeing",
+    "we do see"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidētis",
    "stem": "vidē",
    "end": "tis",
-   "en": "you (pl.) see, you (pl.) are seeing",
+   "en": "you (pl.) see",
    "pn": "2nd Person Plural",
    "tl": "present active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -230,13 +430,33 @@
    "pi": 4,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -tis"
+   "alt": [
+    "you (pl.) are seeing",
+    "you (pl.) do see"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vident",
    "stem": "vide",
    "end": "nt",
-   "en": "they see, they are seeing",
+   "en": "they see",
    "pn": "3rd Person Plural",
    "tl": "present active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -245,13 +465,33 @@
    "pi": 5,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -nt"
+   "alt": [
+    "they are seeing",
+    "they do see"
+   ],
+   "seg": [
+    [
+     "vide",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittō",
    "stem": "mitt",
    "end": "ō",
-   "en": "I send, I am sending",
+   "en": "I send",
    "pn": "1st Person Singular",
    "tl": "present active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -260,13 +500,33 @@
    "pi": 0,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -ō"
+   "alt": [
+    "I am sending",
+    "I do send"
+   ],
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittis",
    "stem": "mitti",
    "end": "s",
-   "en": "you send, you are sending",
+   "en": "you send",
    "pn": "2nd Person Singular",
    "tl": "present active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -275,13 +535,33 @@
    "pi": 1,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -s"
+   "alt": [
+    "you are sending",
+    "you do send"
+   ],
+   "seg": [
+    [
+     "mitti",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittit",
    "stem": "mitti",
    "end": "t",
-   "en": "he/she/it sends, he/she/it is sending",
+   "en": "he/she/it sends",
    "pn": "3rd Person Singular",
    "tl": "present active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -290,13 +570,33 @@
    "pi": 2,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -t"
+   "alt": [
+    "he/she/it is sending",
+    "he/she/it does send"
+   ],
+   "seg": [
+    [
+     "mitti",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittimus",
    "stem": "mitti",
    "end": "mus",
-   "en": "we send, we are sending",
+   "en": "we send",
    "pn": "1st Person Plural",
    "tl": "present active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -305,13 +605,33 @@
    "pi": 3,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -mus"
+   "alt": [
+    "we are sending",
+    "we do send"
+   ],
+   "seg": [
+    [
+     "mitti",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittitis",
    "stem": "mitti",
    "end": "tis",
-   "en": "you (pl.) send, you (pl.) are sending",
+   "en": "you (pl.) send",
    "pn": "2nd Person Plural",
    "tl": "present active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -320,13 +640,33 @@
    "pi": 4,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -tis"
+   "alt": [
+    "you (pl.) are sending",
+    "you (pl.) do send"
+   ],
+   "seg": [
+    [
+     "mitti",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittunt",
    "stem": "mittu",
    "end": "nt",
-   "en": "they send, they are sending",
+   "en": "they send",
    "pn": "3rd Person Plural",
    "tl": "present active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -335,13 +675,33 @@
    "pi": 5,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -nt"
+   "alt": [
+    "they are sending",
+    "they do send"
+   ],
+   "seg": [
+    [
+     "mittu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiō",
    "stem": "capi",
    "end": "ō",
-   "en": "I take, I am taking",
+   "en": "I take",
    "pn": "1st Person Singular",
    "tl": "present active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -350,13 +710,33 @@
    "pi": 0,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -ō"
+   "alt": [
+    "I am taking",
+    "I do take"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capis",
    "stem": "capi",
    "end": "s",
-   "en": "you take, you are taking",
+   "en": "you take",
    "pn": "2nd Person Singular",
    "tl": "present active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -365,13 +745,33 @@
    "pi": 1,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -s"
+   "alt": [
+    "you are taking",
+    "you do take"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capit",
    "stem": "capi",
    "end": "t",
-   "en": "he/she/it takes, he/she/it is taking",
+   "en": "he/she/it takes",
    "pn": "3rd Person Singular",
    "tl": "present active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -380,13 +780,33 @@
    "pi": 2,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -t"
+   "alt": [
+    "he/she/it is taking",
+    "he/she/it does take"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capimus",
    "stem": "capi",
    "end": "mus",
-   "en": "we take, we are taking",
+   "en": "we take",
    "pn": "1st Person Plural",
    "tl": "present active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -395,13 +815,33 @@
    "pi": 3,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -mus"
+   "alt": [
+    "we are taking",
+    "we do take"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capitis",
    "stem": "capi",
    "end": "tis",
-   "en": "you (pl.) take, you (pl.) are taking",
+   "en": "you (pl.) take",
    "pn": "2nd Person Plural",
    "tl": "present active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -410,13 +850,33 @@
    "pi": 4,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -tis"
+   "alt": [
+    "you (pl.) are taking",
+    "you (pl.) do take"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiunt",
    "stem": "capiu",
    "end": "nt",
-   "en": "they take, they are taking",
+   "en": "they take",
    "pn": "3rd Person Plural",
    "tl": "present active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -425,13 +885,33 @@
    "pi": 5,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -nt"
+   "alt": [
+    "they are taking",
+    "they do take"
+   ],
+   "seg": [
+    [
+     "capiu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiō",
    "stem": "audi",
    "end": "ō",
-   "en": "I hear, I am hearing",
+   "en": "I hear",
    "pn": "1st Person Singular",
    "tl": "present active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -440,13 +920,33 @@
    "pi": 0,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -ō"
+   "alt": [
+    "I am hearing",
+    "I do hear"
+   ],
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīs",
    "stem": "audī",
    "end": "s",
-   "en": "you hear, you are hearing",
+   "en": "you hear",
    "pn": "2nd Person Singular",
    "tl": "present active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -455,13 +955,33 @@
    "pi": 1,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -s"
+   "alt": [
+    "you are hearing",
+    "you do hear"
+   ],
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audit",
    "stem": "audi",
    "end": "t",
-   "en": "he/she/it hears, he/she/it is hearing",
+   "en": "he/she/it hears",
    "pn": "3rd Person Singular",
    "tl": "present active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -470,13 +990,33 @@
    "pi": 2,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -t"
+   "alt": [
+    "he/she/it is hearing",
+    "he/she/it does hear"
+   ],
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīmus",
    "stem": "audī",
    "end": "mus",
-   "en": "we hear, we are hearing",
+   "en": "we hear",
    "pn": "1st Person Plural",
    "tl": "present active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -485,13 +1025,33 @@
    "pi": 3,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -mus"
+   "alt": [
+    "we are hearing",
+    "we do hear"
+   ],
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audītis",
    "stem": "audī",
    "end": "tis",
-   "en": "you (pl.) hear, you (pl.) are hearing",
+   "en": "you (pl.) hear",
    "pn": "2nd Person Plural",
    "tl": "present active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -500,13 +1060,33 @@
    "pi": 4,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -tis"
+   "alt": [
+    "you (pl.) are hearing",
+    "you (pl.) do hear"
+   ],
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiunt",
    "stem": "audiu",
    "end": "nt",
-   "en": "they hear, they are hearing",
+   "en": "they hear",
    "pn": "3rd Person Plural",
    "tl": "present active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -515,7 +1095,27 @@
    "pi": 5,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -nt"
+   "alt": [
+    "they are hearing",
+    "they do hear"
+   ],
+   "seg": [
+    [
+     "audiu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   }
  ]
 }

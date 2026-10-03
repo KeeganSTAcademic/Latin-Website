@@ -624,7 +624,7 @@
    "la": "clārior",
    "stem": "clār",
    "end": "ior",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Nominative Singular Masculine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -634,13 +634,16 @@
    "num": "sg",
    "pi": 0,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōris",
    "stem": "clār",
    "end": "iōris",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Genitive Singular Masculine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -650,13 +653,16 @@
    "num": "sg",
    "pi": 1,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrī",
    "stem": "clār",
    "end": "iōrī",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Dative Singular Masculine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -666,13 +672,16 @@
    "num": "sg",
    "pi": 2,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrem",
    "stem": "clār",
    "end": "iōrem",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Accusative Singular Masculine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -682,13 +691,16 @@
    "num": "sg",
    "pi": 3,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōre",
    "stem": "clār",
    "end": "iōre",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Ablative Singular Masculine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -698,13 +710,16 @@
    "num": "sg",
    "pi": 4,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrēs",
    "stem": "clār",
    "end": "iōrēs",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Nominative Plural Masculine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -714,13 +729,16 @@
    "num": "pl",
    "pi": 5,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrum",
    "stem": "clār",
    "end": "iōrum",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Genitive Plural Masculine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -730,13 +748,16 @@
    "num": "pl",
    "pi": 6,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōribus",
    "stem": "clār",
    "end": "iōribus",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Dative Plural Masculine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -746,13 +767,16 @@
    "num": "pl",
    "pi": 7,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrēs",
    "stem": "clār",
    "end": "iōrēs",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Accusative Plural Masculine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -762,13 +786,16 @@
    "num": "pl",
    "pi": 8,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōribus",
    "stem": "clār",
    "end": "iōribus",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Ablative Plural Masculine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -778,13 +805,16 @@
    "num": "pl",
    "pi": 9,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clārior",
    "stem": "clār",
    "end": "ior",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Nominative Singular Feminine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -794,13 +824,16 @@
    "num": "sg",
    "pi": 0,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōris",
    "stem": "clār",
    "end": "iōris",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Genitive Singular Feminine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -810,13 +843,16 @@
    "num": "sg",
    "pi": 1,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrī",
    "stem": "clār",
    "end": "iōrī",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Dative Singular Feminine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -826,13 +862,16 @@
    "num": "sg",
    "pi": 2,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrem",
    "stem": "clār",
    "end": "iōrem",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Accusative Singular Feminine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -842,13 +881,16 @@
    "num": "sg",
    "pi": 3,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōre",
    "stem": "clār",
    "end": "iōre",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Ablative Singular Feminine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -858,13 +900,16 @@
    "num": "sg",
    "pi": 4,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrēs",
    "stem": "clār",
    "end": "iōrēs",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Nominative Plural Feminine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -874,13 +919,16 @@
    "num": "pl",
    "pi": 5,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrum",
    "stem": "clār",
    "end": "iōrum",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Genitive Plural Feminine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -890,13 +938,16 @@
    "num": "pl",
    "pi": 6,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōribus",
    "stem": "clār",
    "end": "iōribus",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Dative Plural Feminine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -906,13 +957,16 @@
    "num": "pl",
    "pi": 7,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrēs",
    "stem": "clār",
    "end": "iōrēs",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Accusative Plural Feminine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -922,13 +976,16 @@
    "num": "pl",
    "pi": 8,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōribus",
    "stem": "clār",
    "end": "iōribus",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Ablative Plural Feminine",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -938,13 +995,16 @@
    "num": "pl",
    "pi": 9,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clārius",
    "stem": "clār",
    "end": "ius",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Nominative Singular Neuter",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -954,13 +1014,16 @@
    "num": "sg",
    "pi": 0,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōris",
    "stem": "clār",
    "end": "iōris",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Genitive Singular Neuter",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -970,13 +1033,16 @@
    "num": "sg",
    "pi": 1,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrī",
    "stem": "clār",
    "end": "iōrī",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Dative Singular Neuter",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -986,13 +1052,16 @@
    "num": "sg",
    "pi": 2,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clārius",
    "stem": "clār",
    "end": "ius",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Accusative Singular Neuter",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -1002,13 +1071,16 @@
    "num": "sg",
    "pi": 3,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōre",
    "stem": "clār",
    "end": "iōre",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Ablative Singular Neuter",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -1018,13 +1090,16 @@
    "num": "sg",
    "pi": 4,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōra",
    "stem": "clār",
    "end": "iōra",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Nominative Plural Neuter",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -1034,13 +1109,16 @@
    "num": "pl",
    "pi": 5,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōrum",
    "stem": "clār",
    "end": "iōrum",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Genitive Plural Neuter",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -1050,13 +1128,16 @@
    "num": "pl",
    "pi": 6,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōribus",
    "stem": "clār",
    "end": "iōribus",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Dative Plural Neuter",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -1066,13 +1147,16 @@
    "num": "pl",
    "pi": 7,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōra",
    "stem": "clār",
    "end": "iōra",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Accusative Plural Neuter",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -1082,13 +1166,16 @@
    "num": "pl",
    "pi": 8,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clāriōribus",
    "stem": "clār",
    "end": "iōribus",
-   "en": "clearer, more clear",
+   "en": "clearer",
    "pn": "Ablative Plural Neuter",
    "tl": "comparative adjective",
    "tag": "comparative · clārior, clārius (clearer)",
@@ -1098,7 +1185,10 @@
    "num": "pl",
    "pi": 9,
    "lemma": "clārior, clārius",
-   "gloss": "clearer"
+   "gloss": "clearer",
+   "alt": [
+    "more clear"
+   ]
   },
   {
    "la": "clārius",
@@ -1117,7 +1207,7 @@
    "la": "clārissimus",
    "stem": "clār",
    "end": "issimus",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Nominative Singular Masculine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1127,13 +1217,16 @@
    "num": "sg",
    "pi": 0,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimī",
    "stem": "clār",
    "end": "issimī",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Genitive Singular Masculine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1143,13 +1236,16 @@
    "num": "sg",
    "pi": 1,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimō",
    "stem": "clār",
    "end": "issimō",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Dative Singular Masculine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1159,13 +1255,16 @@
    "num": "sg",
    "pi": 2,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimum",
    "stem": "clār",
    "end": "issimum",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Accusative Singular Masculine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1175,13 +1274,16 @@
    "num": "sg",
    "pi": 3,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimō",
    "stem": "clār",
    "end": "issimō",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Ablative Singular Masculine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1191,13 +1293,16 @@
    "num": "sg",
    "pi": 4,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimī",
    "stem": "clār",
    "end": "issimī",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Nominative Plural Masculine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1207,13 +1312,16 @@
    "num": "pl",
    "pi": 5,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimōrum",
    "stem": "clār",
    "end": "issimōrum",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Genitive Plural Masculine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1223,13 +1331,16 @@
    "num": "pl",
    "pi": 6,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimīs",
    "stem": "clār",
    "end": "issimīs",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Dative Plural Masculine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1239,13 +1350,16 @@
    "num": "pl",
    "pi": 7,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimōs",
    "stem": "clār",
    "end": "issimōs",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Accusative Plural Masculine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1255,13 +1369,16 @@
    "num": "pl",
    "pi": 8,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimīs",
    "stem": "clār",
    "end": "issimīs",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Ablative Plural Masculine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1271,13 +1388,16 @@
    "num": "pl",
    "pi": 9,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissima",
    "stem": "clār",
    "end": "issima",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Nominative Singular Feminine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1287,13 +1407,16 @@
    "num": "sg",
    "pi": 0,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimae",
    "stem": "clār",
    "end": "issimae",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Genitive Singular Feminine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1303,13 +1426,16 @@
    "num": "sg",
    "pi": 1,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimae",
    "stem": "clār",
    "end": "issimae",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Dative Singular Feminine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1319,13 +1445,16 @@
    "num": "sg",
    "pi": 2,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimam",
    "stem": "clār",
    "end": "issimam",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Accusative Singular Feminine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1335,13 +1464,16 @@
    "num": "sg",
    "pi": 3,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimā",
    "stem": "clār",
    "end": "issimā",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Ablative Singular Feminine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1351,13 +1483,16 @@
    "num": "sg",
    "pi": 4,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimae",
    "stem": "clār",
    "end": "issimae",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Nominative Plural Feminine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1367,13 +1502,16 @@
    "num": "pl",
    "pi": 5,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimārum",
    "stem": "clār",
    "end": "issimārum",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Genitive Plural Feminine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1383,13 +1521,16 @@
    "num": "pl",
    "pi": 6,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimīs",
    "stem": "clār",
    "end": "issimīs",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Dative Plural Feminine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1399,13 +1540,16 @@
    "num": "pl",
    "pi": 7,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimās",
    "stem": "clār",
    "end": "issimās",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Accusative Plural Feminine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1415,13 +1559,16 @@
    "num": "pl",
    "pi": 8,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimīs",
    "stem": "clār",
    "end": "issimīs",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Ablative Plural Feminine",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1431,13 +1578,16 @@
    "num": "pl",
    "pi": 9,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimum",
    "stem": "clār",
    "end": "issimum",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Nominative Singular Neuter",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1447,13 +1597,16 @@
    "num": "sg",
    "pi": 0,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimī",
    "stem": "clār",
    "end": "issimī",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Genitive Singular Neuter",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1463,13 +1616,16 @@
    "num": "sg",
    "pi": 1,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimō",
    "stem": "clār",
    "end": "issimō",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Dative Singular Neuter",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1479,13 +1635,16 @@
    "num": "sg",
    "pi": 2,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimum",
    "stem": "clār",
    "end": "issimum",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Accusative Singular Neuter",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1495,13 +1654,16 @@
    "num": "sg",
    "pi": 3,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimō",
    "stem": "clār",
    "end": "issimō",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Ablative Singular Neuter",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1511,13 +1673,16 @@
    "num": "sg",
    "pi": 4,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissima",
    "stem": "clār",
    "end": "issima",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Nominative Plural Neuter",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1527,13 +1692,16 @@
    "num": "pl",
    "pi": 5,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimōrum",
    "stem": "clār",
    "end": "issimōrum",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Genitive Plural Neuter",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1543,13 +1711,16 @@
    "num": "pl",
    "pi": 6,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimīs",
    "stem": "clār",
    "end": "issimīs",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Dative Plural Neuter",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1559,13 +1730,16 @@
    "num": "pl",
    "pi": 7,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissima",
    "stem": "clār",
    "end": "issima",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Accusative Plural Neuter",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1575,13 +1749,16 @@
    "num": "pl",
    "pi": 8,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimīs",
    "stem": "clār",
    "end": "issimīs",
-   "en": "clearest, very clear",
+   "en": "clearest",
    "pn": "Ablative Plural Neuter",
    "tl": "superlative adjective",
    "tag": "superlative · clārissimus, clārissima, clārissimum (clearest)",
@@ -1591,20 +1768,26 @@
    "num": "pl",
    "pi": 9,
    "lemma": "clārissimus, clārissima, clārissimum",
-   "gloss": "clearest"
+   "gloss": "clearest",
+   "alt": [
+    "very clear"
+   ]
   },
   {
    "la": "clārissimē",
    "stem": "clār",
    "end": "issimē",
-   "en": "most clearly, very clearly",
+   "en": "most clearly",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · from clārus (clear)",
    "pos": "adv",
    "deg": "sup",
    "detail": "superlative adverb: stem + -issimē",
-   "atype": "reg"
+   "atype": "reg",
+   "alt": [
+    "very clearly"
+   ]
   },
   {
    "la": "fortiter",
@@ -1636,27 +1819,33 @@
    "la": "fortissimē",
    "stem": "fort",
    "end": "issimē",
-   "en": "most bravely, very bravely",
+   "en": "most bravely",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · from fortis, forte (brave)",
    "pos": "adv",
    "deg": "sup",
    "atype": "third",
-   "detail": "superlative: stem + -issimē"
+   "detail": "superlative: stem + -issimē",
+   "alt": [
+    "very bravely"
+   ]
   },
   {
    "la": "ācriter",
    "stem": "ācr",
    "end": "iter",
-   "en": "fiercely, keenly",
+   "en": "fiercely",
    "pn": "Adverb",
    "tl": "positive adverb",
    "tag": "positive adverb · from ācer, ācris, ācre (sharp, fierce)",
    "pos": "adv",
    "deg": "pos",
    "atype": "third",
-   "detail": "3rd-declension adjectives: stem + -iter"
+   "detail": "3rd-declension adjectives: stem + -iter",
+   "alt": [
+    "keenly"
+   ]
   },
   {
    "la": "ācrius",
@@ -1675,14 +1864,17 @@
    "la": "ācerrimē",
    "stem": "ācer",
    "end": "rimē",
-   "en": "most fiercely, very fiercely",
+   "en": "most fiercely",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · from ācer, ācris, ācre (sharp, fierce)",
    "pos": "adv",
    "deg": "sup",
    "atype": "third",
-   "detail": "adjectives in -er: -errimus → -errimē"
+   "detail": "adjectives in -er: -errimus → -errimē",
+   "alt": [
+    "very fiercely"
+   ]
   },
   {
    "la": "celeriter",
@@ -1714,27 +1906,33 @@
    "la": "celerrimē",
    "stem": "celer",
    "end": "rimē",
-   "en": "most quickly, very quickly",
+   "en": "most quickly",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · from celer, celeris, celere (quick)",
    "pos": "adv",
    "deg": "sup",
    "atype": "third",
-   "detail": "adjectives in -er: -errimus → -errimē"
+   "detail": "adjectives in -er: -errimus → -errimē",
+   "alt": [
+    "very quickly"
+   ]
   },
   {
    "la": "fēlīciter",
    "stem": "fēlīc",
    "end": "iter",
-   "en": "luckily, happily",
+   "en": "luckily",
    "pn": "Adverb",
    "tl": "positive adverb",
    "tag": "positive adverb · from fēlīx, fēlīcis (lucky, happy)",
    "pos": "adv",
    "deg": "pos",
    "atype": "third",
-   "detail": "3rd-declension adjectives: stem + -iter"
+   "detail": "3rd-declension adjectives: stem + -iter",
+   "alt": [
+    "happily"
+   ]
   },
   {
    "la": "fēlīcius",
@@ -1753,14 +1951,17 @@
    "la": "fēlīcissimē",
    "stem": "fēlīc",
    "end": "issimē",
-   "en": "most luckily, very luckily",
+   "en": "most luckily",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · from fēlīx, fēlīcis (lucky, happy)",
    "pos": "adv",
    "deg": "sup",
    "atype": "third",
-   "detail": "superlative: stem + -issimē"
+   "detail": "superlative: stem + -issimē",
+   "alt": [
+    "very luckily"
+   ]
   },
   {
    "la": "bene",
@@ -1786,14 +1987,17 @@
   },
   {
    "la": "optimē",
-   "en": "best, very well",
+   "en": "best",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · from bonus (good)",
    "pos": "adv",
    "deg": "sup",
    "atype": "irreg",
-   "detail": "irregular: bene, melius, optimē"
+   "detail": "irregular: bene, melius, optimē",
+   "alt": [
+    "very well"
+   ]
   },
   {
    "la": "male",
@@ -1819,25 +2023,31 @@
   },
   {
    "la": "pessimē",
-   "en": "worst, very badly",
+   "en": "worst",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · from malus (bad)",
    "pos": "adv",
    "deg": "sup",
    "atype": "irreg",
-   "detail": "irregular: male, peius, pessimē"
+   "detail": "irregular: male, peius, pessimē",
+   "alt": [
+    "very badly"
+   ]
   },
   {
    "la": "multum",
-   "en": "much, a lot",
+   "en": "much",
    "pn": "Adverb",
    "tl": "positive adverb",
    "tag": "positive adverb · from multus (much)",
    "pos": "adv",
    "deg": "pos",
    "atype": "irreg",
-   "detail": "irregular: multum, plūs, plūrimum"
+   "detail": "irregular: multum, plūs, plūrimum",
+   "alt": [
+    "a lot"
+   ]
   },
   {
    "la": "plūs",
@@ -1852,14 +2062,17 @@
   },
   {
    "la": "plūrimum",
-   "en": "most, very much",
+   "en": "most",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · from multus (much)",
    "pos": "adv",
    "deg": "sup",
    "atype": "irreg",
-   "detail": "irregular: multum, plūs, plūrimum"
+   "detail": "irregular: multum, plūs, plūrimum",
+   "alt": [
+    "very much"
+   ]
   },
   {
    "la": "magnopere",
@@ -1874,36 +2087,45 @@
   },
   {
    "la": "magis",
-   "en": "more, rather",
+   "en": "more",
    "pn": "Adverb",
    "tl": "comparative adverb",
    "tag": "comparative adverb · from magnus (great)",
    "pos": "adv",
    "deg": "comp",
    "atype": "irreg",
-   "detail": "irregular: magnopere, magis, maximē"
+   "detail": "irregular: magnopere, magis, maximē",
+   "alt": [
+    "rather"
+   ]
   },
   {
    "la": "maximē",
-   "en": "most, especially",
+   "en": "most",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · from magnus (great)",
    "pos": "adv",
    "deg": "sup",
    "atype": "irreg",
-   "detail": "irregular: magnopere, magis, maximē"
+   "detail": "irregular: magnopere, magis, maximē",
+   "alt": [
+    "especially"
+   ]
   },
   {
    "la": "parum",
-   "en": "too little, not enough",
+   "en": "too little",
    "pn": "Adverb",
    "tl": "positive adverb",
    "tag": "positive adverb · from parvus (small)",
    "pos": "adv",
    "deg": "pos",
    "atype": "irreg",
-   "detail": "irregular: parum, minus, minimē"
+   "detail": "irregular: parum, minus, minimē",
+   "alt": [
+    "not enough"
+   ]
   },
   {
    "la": "minus",
@@ -1918,14 +2140,17 @@
   },
   {
    "la": "minimē",
-   "en": "least, not at all",
+   "en": "least",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · from parvus (small)",
    "pos": "adv",
    "deg": "sup",
    "atype": "irreg",
-   "detail": "irregular: parum, minus, minimē"
+   "detail": "irregular: parum, minus, minimē",
+   "alt": [
+    "not at all"
+   ]
   },
   {
    "la": "facile",
@@ -1951,14 +2176,17 @@
   },
   {
    "la": "facillimē",
-   "en": "most easily, very easily",
+   "en": "most easily",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · from facilis (easy)",
    "pos": "adv",
    "deg": "sup",
    "atype": "irreg",
-   "detail": "irregular: facile, facilius, facillimē"
+   "detail": "irregular: facile, facilius, facillimē",
+   "alt": [
+    "very easily"
+   ]
   },
   {
    "la": "saepe",
@@ -1984,14 +2212,17 @@
   },
   {
    "la": "saepissimē",
-   "en": "most often, very often",
+   "en": "most often",
    "pn": "Adverb",
    "tl": "superlative adverb",
    "tag": "superlative adverb · saepe, saepius, saepissimē",
    "pos": "adv",
    "deg": "sup",
    "atype": "irreg",
-   "detail": "irregular: saepe, saepius, saepissimē"
+   "detail": "irregular: saepe, saepius, saepissimē",
+   "alt": [
+    "very often"
+   ]
   },
   {
    "la": "diū",
@@ -2047,6 +2278,72 @@
     ]
    },
    "groups": []
+  },
+  "adj-pos": {
+   "title": "Adjectives: Positive",
+   "sel": {
+    "pos": [
+     "adj"
+    ],
+    "deg": [
+     "pos"
+    ]
+   }
+  },
+  "adj-comp": {
+   "title": "Adjectives: Comparative",
+   "sel": {
+    "pos": [
+     "adj"
+    ],
+    "deg": [
+     "comp"
+    ]
+   }
+  },
+  "adj-sup": {
+   "title": "Adjectives: Superlative",
+   "sel": {
+    "pos": [
+     "adj"
+    ],
+    "deg": [
+     "sup"
+    ]
+   }
+  },
+  "adv-pos": {
+   "title": "Adverbs: Positive",
+   "sel": {
+    "pos": [
+     "adv"
+    ],
+    "deg": [
+     "pos"
+    ]
+   }
+  },
+  "adv-comp": {
+   "title": "Adverbs: Comparative",
+   "sel": {
+    "pos": [
+     "adv"
+    ],
+    "deg": [
+     "comp"
+    ]
+   }
+  },
+  "adv-sup": {
+   "title": "Adverbs: Superlative",
+   "sel": {
+    "pos": [
+     "adv"
+    ],
+    "deg": [
+     "sup"
+    ]
+   }
   }
  }
 }

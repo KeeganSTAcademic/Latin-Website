@@ -82,7 +82,19 @@
    "pi": 0,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "amātus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "eram",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "amātus erās",
@@ -97,7 +109,19 @@
    "pi": 1,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "amātus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erās",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "amātus erat",
@@ -112,7 +136,19 @@
    "pi": 2,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "amātus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erat",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "amātī erāmus",
@@ -127,7 +163,19 @@
    "pi": 3,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "amātī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erāmus",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "amātī erātis",
@@ -142,7 +190,19 @@
    "pi": 4,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "amātī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erātis",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "amātī erant",
@@ -157,7 +217,19 @@
    "pi": 5,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "amātī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erant",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "vīsus eram",
@@ -172,7 +244,19 @@
    "pi": 0,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "vīsus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "eram",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "vīsus erās",
@@ -187,7 +271,19 @@
    "pi": 1,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "vīsus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erās",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "vīsus erat",
@@ -202,7 +298,19 @@
    "pi": 2,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "vīsus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erat",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "vīsī erāmus",
@@ -217,7 +325,19 @@
    "pi": 3,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "vīsī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erāmus",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "vīsī erātis",
@@ -232,7 +352,19 @@
    "pi": 4,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "vīsī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erātis",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "vīsī erant",
@@ -247,7 +379,19 @@
    "pi": 5,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "vīsī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erant",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "missus eram",
@@ -262,7 +406,19 @@
    "pi": 0,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "missus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "eram",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "missus erās",
@@ -277,7 +433,19 @@
    "pi": 1,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "missus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erās",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "missus erat",
@@ -292,7 +460,19 @@
    "pi": 2,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "missus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erat",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "missī erāmus",
@@ -307,7 +487,19 @@
    "pi": 3,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "missī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erāmus",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "missī erātis",
@@ -322,7 +514,19 @@
    "pi": 4,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "missī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erātis",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "missī erant",
@@ -337,7 +541,19 @@
    "pi": 5,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "missī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erant",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "captus eram",
@@ -352,7 +568,19 @@
    "pi": 0,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "captus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "eram",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "captus erās",
@@ -367,7 +595,19 @@
    "pi": 1,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "captus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erās",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "captus erat",
@@ -382,7 +622,19 @@
    "pi": 2,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "captus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erat",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "captī erāmus",
@@ -397,7 +649,19 @@
    "pi": 3,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "captī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erāmus",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "captī erātis",
@@ -412,7 +676,19 @@
    "pi": 4,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "captī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erātis",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "captī erant",
@@ -427,7 +703,19 @@
    "pi": 5,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "captī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erant",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "audītus eram",
@@ -442,7 +730,19 @@
    "pi": 0,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "audītus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "eram",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "audītus erās",
@@ -457,7 +757,19 @@
    "pi": 1,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "audītus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erās",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "audītus erat",
@@ -472,7 +784,19 @@
    "pi": 2,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "audītus",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erat",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "audītī erāmus",
@@ -487,7 +811,19 @@
    "pi": 3,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "audītī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erāmus",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "audītī erātis",
@@ -502,7 +838,19 @@
    "pi": 4,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "audītī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erātis",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   },
   {
    "la": "audītī erant",
@@ -517,7 +865,19 @@
    "pi": 5,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "plup"
+   "t": "plup",
+   "seg": [
+    [
+     "audītī",
+     "s",
+     "perfect passive participle"
+    ],
+    [
+     "erant",
+     "m",
+     "sum · time: past"
+    ]
+   ]
   }
  ]
 }

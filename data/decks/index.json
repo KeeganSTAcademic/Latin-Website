@@ -2,210 +2,594 @@
  {
   "id": "latin2-vocab",
   "title": "Latin II Vocabulary",
-  "course": "Latin II",
-  "count": 120
+  "course": "Vocab",
+  "count": 120,
+  "path": [
+   "Vocab"
+  ],
+  "short": "Latin II",
+  "solo": true,
+  "split": {
+   "field": "w",
+   "values": [
+    {
+     "v": 1,
+     "label": "Week 1"
+    },
+    {
+     "v": 2,
+     "label": "Week 2"
+    },
+    {
+     "v": 3,
+     "label": "Week 3"
+    },
+    {
+     "v": 4,
+     "label": "Week 4"
+    }
+   ]
+  }
  },
  {
   "id": "latin3-vocab",
   "title": "Latin III Vocabulary",
-  "course": "Latin III",
-  "count": 120
+  "course": "Vocab",
+  "count": 120,
+  "path": [
+   "Vocab"
+  ],
+  "short": "Latin III",
+  "solo": true,
+  "split": {
+   "field": "w",
+   "values": [
+    {
+     "v": 1,
+     "label": "Week 1"
+    },
+    {
+     "v": 2,
+     "label": "Week 2"
+    },
+    {
+     "v": 3,
+     "label": "Week 3"
+    },
+    {
+     "v": 4,
+     "label": "Week 4"
+    }
+   ]
+  }
  },
  {
   "id": "dcc-core",
   "title": "DCC Latin Core Vocabulary (1–1000)",
-  "course": "Latin IV",
-  "count": 997
+  "course": "Vocab",
+  "count": 997,
+  "path": [
+   "Vocab"
+  ],
+  "short": "Latin IV: DCC core 1000",
+  "solo": true,
+  "split": {
+   "field": "band",
+   "values": [
+    {
+     "v": 1,
+     "label": "Words 1–50"
+    },
+    {
+     "v": 2,
+     "label": "Words 51–100"
+    },
+    {
+     "v": 3,
+     "label": "Words 101–150"
+    },
+    {
+     "v": 4,
+     "label": "Words 151–200"
+    },
+    {
+     "v": 5,
+     "label": "Words 201–250"
+    },
+    {
+     "v": 6,
+     "label": "Words 251–300"
+    },
+    {
+     "v": 7,
+     "label": "Words 301–350"
+    },
+    {
+     "v": 8,
+     "label": "Words 351–400"
+    },
+    {
+     "v": 9,
+     "label": "Words 401–450"
+    },
+    {
+     "v": 10,
+     "label": "Words 451–500"
+    },
+    {
+     "v": 11,
+     "label": "Words 501–550"
+    },
+    {
+     "v": 12,
+     "label": "Words 551–600"
+    },
+    {
+     "v": 13,
+     "label": "Words 601–650"
+    },
+    {
+     "v": 14,
+     "label": "Words 651–700"
+    },
+    {
+     "v": 15,
+     "label": "Words 701–750"
+    },
+    {
+     "v": 16,
+     "label": "Words 751–800"
+    },
+    {
+     "v": 17,
+     "label": "Words 801–850"
+    },
+    {
+     "v": 18,
+     "label": "Words 851–900"
+    },
+    {
+     "v": 19,
+     "label": "Words 901–950"
+    },
+    {
+     "v": 20,
+     "label": "Words 951–1000"
+    }
+   ]
+  }
  },
  {
   "id": "noun-declensions",
-  "title": "Noun Declensions",
+  "title": "First Declension",
   "course": "Nouns",
-  "count": 80
+  "count": 10,
+  "view": "1",
+  "path": [
+   "Nouns"
+  ],
+  "short": "1st declension"
+ },
+ {
+  "id": "noun-declensions",
+  "title": "Second Declension",
+  "course": "Nouns",
+  "count": 20,
+  "view": "2",
+  "path": [
+   "Nouns"
+  ],
+  "short": "2nd declension"
+ },
+ {
+  "id": "noun-declensions",
+  "title": "Third Declension",
+  "course": "Nouns",
+  "count": 20,
+  "view": "3",
+  "path": [
+   "Nouns"
+  ],
+  "short": "3rd declension"
+ },
+ {
+  "id": "noun-declensions",
+  "title": "Fourth Declension",
+  "course": "Nouns",
+  "count": 20,
+  "view": "4",
+  "path": [
+   "Nouns"
+  ],
+  "short": "4th declension"
+ },
+ {
+  "id": "noun-declensions",
+  "title": "Fifth Declension",
+  "course": "Nouns",
+  "count": 10,
+  "view": "5",
+  "path": [
+   "Nouns"
+  ],
+  "short": "5th declension"
  },
  {
   "id": "adjective-degrees",
-  "title": "Adjectives: positive, comparative, superlative",
-  "course": "Adjectives & Adverbs",
-  "count": 90,
-  "view": "adj"
+  "title": "Adjectives: Positive",
+  "course": "Adjectives",
+  "count": 30,
+  "view": "adj-pos",
+  "path": [
+   "Adjectives"
+  ],
+  "short": "Positive"
  },
  {
   "id": "adjective-degrees",
-  "title": "Adverbs: positive, comparative, superlative",
-  "course": "Adjectives & Adverbs",
-  "count": 39,
-  "view": "adv"
+  "title": "Adjectives: Comparative",
+  "course": "Adjectives",
+  "count": 30,
+  "view": "adj-comp",
+  "path": [
+   "Adjectives"
+  ],
+  "short": "Comparative"
+ },
+ {
+  "id": "adjective-degrees",
+  "title": "Adjectives: Superlative",
+  "course": "Adjectives",
+  "count": 30,
+  "view": "adj-sup",
+  "path": [
+   "Adjectives"
+  ],
+  "short": "Superlative"
+ },
+ {
+  "id": "adjective-degrees",
+  "title": "Adverbs: Positive",
+  "course": "Adverbs",
+  "count": 13,
+  "view": "adv-pos",
+  "path": [
+   "Adverbs"
+  ],
+  "short": "Positive"
+ },
+ {
+  "id": "adjective-degrees",
+  "title": "Adverbs: Comparative",
+  "course": "Adverbs",
+  "count": 13,
+  "view": "adv-comp",
+  "path": [
+   "Adverbs"
+  ],
+  "short": "Comparative"
+ },
+ {
+  "id": "adjective-degrees",
+  "title": "Adverbs: Superlative",
+  "course": "Adverbs",
+  "count": 13,
+  "view": "adv-sup",
+  "path": [
+   "Adverbs"
+  ],
+  "short": "Superlative"
  },
  {
   "id": "present-active",
   "title": "Present Active Indicative",
   "course": "Verbs · Active Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Incomplete",
+   "Active"
+  ],
+  "short": "Present"
  },
  {
   "id": "imperfect-active",
   "title": "Imperfect Active Indicative",
   "course": "Verbs · Active Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Incomplete",
+   "Active"
+  ],
+  "short": "Imperfect"
  },
  {
   "id": "future-active",
   "title": "Future Active Indicative",
   "course": "Verbs · Active Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Incomplete",
+   "Active"
+  ],
+  "short": "Future"
  },
  {
   "id": "perfect-active",
   "title": "Perfect Active Indicative",
   "course": "Verbs · Active Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Complete",
+   "Active"
+  ],
+  "short": "Perfect"
  },
  {
   "id": "pluperfect-active",
   "title": "Pluperfect Active Indicative",
   "course": "Verbs · Active Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Complete",
+   "Active"
+  ],
+  "short": "Pluperfect"
  },
  {
   "id": "future-perfect-active",
   "title": "Future Perfect Active Indicative",
   "course": "Verbs · Active Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Complete",
+   "Active"
+  ],
+  "short": "Future perfect"
  },
  {
   "id": "present-passive",
   "title": "Present Passive Indicative",
   "course": "Verbs · Passive Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Incomplete",
+   "Passive"
+  ],
+  "short": "Present"
  },
  {
   "id": "imperfect-passive",
   "title": "Imperfect Passive Indicative",
   "course": "Verbs · Passive Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Incomplete",
+   "Passive"
+  ],
+  "short": "Imperfect"
  },
  {
   "id": "future-passive",
   "title": "Future Passive Indicative",
   "course": "Verbs · Passive Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Incomplete",
+   "Passive"
+  ],
+  "short": "Future"
  },
  {
   "id": "perfect-passive",
   "title": "Perfect Passive Indicative",
   "course": "Verbs · Passive Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Complete",
+   "Passive"
+  ],
+  "short": "Perfect"
  },
  {
   "id": "pluperfect-passive",
   "title": "Pluperfect Passive Indicative",
   "course": "Verbs · Passive Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Complete",
+   "Passive"
+  ],
+  "short": "Pluperfect"
  },
  {
   "id": "future-perfect-passive",
   "title": "Future Perfect Passive Indicative",
   "course": "Verbs · Passive Indicative",
-  "count": 30
+  "count": 30,
+  "path": [
+   "Verbs",
+   "Complete",
+   "Passive"
+  ],
+  "short": "Future perfect"
  },
  {
   "id": "present-subjunctive",
   "title": "Present Subjunctive",
   "course": "Verbs · Subjunctive",
-  "count": 60
+  "count": 60,
+  "path": [
+   "Verbs",
+   "Subjunctive"
+  ],
+  "short": "Present"
  },
  {
   "id": "imperfect-subjunctive",
   "title": "Imperfect Subjunctive",
   "course": "Verbs · Subjunctive",
-  "count": 60
+  "count": 60,
+  "path": [
+   "Verbs",
+   "Subjunctive"
+  ],
+  "short": "Imperfect"
  },
  {
   "id": "perfect-subjunctive",
   "title": "Perfect Subjunctive",
   "course": "Verbs · Subjunctive",
-  "count": 60
+  "count": 60,
+  "path": [
+   "Verbs",
+   "Subjunctive"
+  ],
+  "short": "Perfect"
  },
  {
   "id": "pluperfect-subjunctive",
   "title": "Pluperfect Subjunctive",
   "course": "Verbs · Subjunctive",
-  "count": 60
- },
- {
-  "id": "participles",
-  "title": "Present Active Participle",
-  "course": "Verbs · Participles",
-  "count": 34,
-  "view": "pres"
- },
- {
-  "id": "participles",
-  "title": "Perfect Passive Participle",
-  "course": "Verbs · Participles",
-  "count": 34,
-  "view": "perf"
- },
- {
-  "id": "participles",
-  "title": "Future Active Participle",
-  "course": "Verbs · Participles",
-  "count": 34,
-  "view": "fut"
- },
- {
-  "id": "participles",
-  "title": "Future Passive Participle (Gerundive)",
-  "course": "Verbs · Participles",
-  "count": 34,
-  "view": "ger"
+  "count": 60,
+  "path": [
+   "Verbs",
+   "Subjunctive"
+  ],
+  "short": "Pluperfect"
  },
  {
   "id": "imperatives-infinitives",
   "title": "Present Active Imperatives",
   "course": "Verbs · Imperatives",
   "count": 18,
-  "view": "imp-act"
+  "view": "imp-act",
+  "path": [
+   "Verbs",
+   "Imperatives"
+  ],
+  "short": "Present active"
  },
  {
   "id": "imperatives-infinitives",
   "title": "Present Passive Imperatives",
   "course": "Verbs · Imperatives",
   "count": 10,
-  "view": "imp-pass"
+  "view": "imp-pass",
+  "path": [
+   "Verbs",
+   "Imperatives"
+  ],
+  "short": "Present passive"
  },
  {
   "id": "imperatives-infinitives",
   "title": "Present Infinitives",
   "course": "Verbs · Infinitives",
   "count": 10,
-  "view": "inf-pres"
+  "view": "inf-pres",
+  "path": [
+   "Verbs",
+   "Infinitives"
+  ],
+  "short": "Present"
  },
  {
   "id": "imperatives-infinitives",
   "title": "Perfect Infinitives",
   "course": "Verbs · Infinitives",
   "count": 10,
-  "view": "inf-perf"
+  "view": "inf-perf",
+  "path": [
+   "Verbs",
+   "Infinitives"
+  ],
+  "short": "Perfect"
  },
  {
   "id": "imperatives-infinitives",
   "title": "Future Infinitives",
   "course": "Verbs · Infinitives",
   "count": 10,
-  "view": "inf-fut"
+  "view": "inf-fut",
+  "path": [
+   "Verbs",
+   "Infinitives"
+  ],
+  "short": "Future"
  },
  {
   "id": "irregular-verbs",
   "title": "Irregular Verbs: ferō, volō, nōlō, mālō",
   "course": "Verbs · Irregular",
-  "count": 259
+  "count": 259,
+  "path": [
+   "Verbs",
+   "Irregular"
+  ]
  },
  {
   "id": "sum",
   "title": "Sum, esse, fuī, futūrus",
   "course": "Verbs · Irregular",
-  "count": 69
+  "count": 69,
+  "path": [
+   "Verbs",
+   "Irregular"
+  ]
+ },
+ {
+  "id": "participles",
+  "title": "Present Active Participle",
+  "course": "Participles",
+  "count": 34,
+  "view": "pres",
+  "path": [
+   "Participles"
+  ],
+  "short": "Present active"
+ },
+ {
+  "id": "participles",
+  "title": "Perfect Passive Participle",
+  "course": "Participles",
+  "count": 34,
+  "view": "perf",
+  "path": [
+   "Participles"
+  ],
+  "short": "Perfect passive"
+ },
+ {
+  "id": "participles",
+  "title": "Future Active Participle",
+  "course": "Participles",
+  "count": 34,
+  "view": "fut",
+  "path": [
+   "Participles"
+  ],
+  "short": "Future active"
+ },
+ {
+  "id": "participles",
+  "title": "Future Passive Participle (Gerundive)",
+  "course": "Participles",
+  "count": 34,
+  "view": "ger",
+  "path": [
+   "Participles"
+  ],
+  "short": "Future passive (gerundive)"
  }
 ]

@@ -12,6 +12,7 @@
 <style>
 :root{--p-ba:#23487B; --p-ba-bg:#DAE4F1; --p-m1:#7F2756; --p-m1-bg:#F4DDE9; --p-third:#2F5331; --p-third-bg:#DDEBDC; --p-ie:#7C3112; --p-ie-bg:#FADFCF;}
 </style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610032200">
 </head>
 <body>
 <div class="wrap">
@@ -45,7 +46,7 @@
   <details class="fold">
     <summary>How to build the imperfect</summary>
   <div class="prose">
-    <p>Take the present stem, add the imperfect sign <strong><i>-ba-</i></strong>, then a personal ending. The endings are the same as in the present, except that "I" is <strong><i>-m</i></strong> instead of <i>-ō</i>.</p>
+    <p>Take the incomplete stem, add the past time marker <strong><i>-ba-</i></strong>, then a personal ending. The endings are the same as in the present, except that "I" is <strong><i>-m</i></strong> instead of <i>-ō</i>.</p>
   </div>
   <div class="conj-box">
   <table class="rule-table conj-table">
@@ -97,7 +98,7 @@
 
 <footer class="cite">
   <h4>Sources</h4>
-  <p>Personal endings and the present stem follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§163, 175, in the Dickinson College Commentaries online edition:
+  <p>Personal endings and the incomplete stem follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§163, 175, in the Dickinson College Commentaries online edition:
   <a href="https://dcc.dickinson.edu/grammar/latin/personal-endings" target="_blank" rel="noopener">Personal Endings</a> ·
   <a href="https://dcc.dickinson.edu/grammar/latin/present-stem" target="_blank" rel="noopener">The Present Stem</a>.</p>
 </footer>
@@ -111,7 +112,7 @@ const PERSONS = [
 ];
 const ROWS = ['1st','2nd','3rd'];
 
-// forms: [root, stem vowel, tense sign, personal ending] in PERSONS order
+// forms: [root, stem vowel, time marker, personal ending] in PERSONS order
 const T=(rt,vw)=>[[rt,vw,'ba','m'],[rt,vw,'bā','s'],[rt,vw,'ba','t'],[rt,vw,'bā','mus'],[rt,vw,'bā','tis'],[rt,vw,'ba','nt']];
 const VERBS = [
   {id:'amo', dict:'amō, amāre', conj:'1st conjugation', short:'1st', en:['love','loving'], f:T('am','ā')},
@@ -125,7 +126,7 @@ const VERBS = [
 ];
 
 const PATTERNS = [
-  {id:'ba', lab:'-ba-', txt:'the imperfect sign', part:'ts', test:c=>!c.verb.extra,
+  {id:'ba', lab:'-ba-', txt:'the past time marker', part:'ts', test:c=>!c.verb.extra,
    note:'<b>-ba- between the stem and the ending marks the imperfect.</b> Every conjugation uses it: <i>amā<b>ba</b>t, monē<b>ba</b>t, regē<b>ba</b>t, capiē<b>ba</b>t, audiē<b>ba</b>t</i>. If you see <i>-ba-</i> right before a personal ending, the verb is imperfect.'},
   {id:'m1', lab:'-bam', txt:'"I" ends in -m, not -ō', part:'en', test:c=>c.p.k==='1sg',
    note:'<b>In the imperfect, "I" ends in -m instead of -ō.</b> <i>amābam, monēbam, regēbam, capiēbam, audiēbam</i>, and <i>eram</i> for <i>sum</i>. The other five endings (<i>-s, -t, -mus, -tis, -nt</i>) are the same as in the present.'},
@@ -229,7 +230,7 @@ function renderActive(){
     cellEls.forEach(el=>el.classList.remove('active'));
     card.innerHTML=`<div class="parse">Inspect a form</div>
       <div class="tr">Hover over or tap any form in the charts.</div>
-      <div class="job">You'll see who is doing the action, how to translate it, and how the form is built from root, stem vowel, the imperfect sign <i>-ba-</i>, and personal ending.</div>`;
+      <div class="job">You'll see who is doing the action, how to translate it, and how the form is built from root, stem vowel, the past time marker <i>-ba-</i>, and personal ending.</div>`;
     return;
   }
   const c=byKey[state.active];
@@ -237,7 +238,7 @@ function renderActive(){
   const E=english(c);
   const parts=[`<span class="bk-st">${shown(c.rt)}-</span> root`];
   if(c.vw) parts.push(`<span class="bk-vw">${shown(c.vw)}</span> stem vowel`);
-  parts.push(`<span class="bk-ts">-${shown(c.ts)}-</span> ${c.verb.extra?'past sign':'imperfect sign'}`);
+  parts.push(`<span class="bk-ts">-${shown(c.ts)}-</span> ${c.verb.extra?'past time marker':'past time marker'}`);
   parts.push(`<span class="bk-en">-${shown(c.en)}</span> "${c.p.sub}"`);
   let out=`<div class="parse">${parseName(c)} · ${c.verb.dict}</div>
     <div class="form"><span>${shown(c.rt)}</span><span class="vwb">${shown(c.vw)}</span><span class="tsb">${shown(c.ts)}</span><span class="en">${shown(c.en)}</span></div>
@@ -250,5 +251,8 @@ function renderActive(){
 }
 render();
 </script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610032200"></script>
 </body>
 </html>

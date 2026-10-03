@@ -3,7 +3,7 @@
  "title": "Present Passive Indicative",
  "course": "Verbs · Passive Indicative",
  "subtitle": "Flashcards for all four conjugations plus 3rd -iō",
- "intro": "The passive uses the same stems and tense signs as the active. Only the personal endings change: <span class=\"end\">-r, -ris, -tur, -mur, -minī, -ntur</span> replace <span class=\"end\">-ō/-m, -s, -t, -mus, -tis, -nt</span>. Where the active ends in -ō, the passive adds -r (amō → amor).<p style=\"margin:8px 0 0\"><b>Watch the 2nd person singular:</b> the 3rd conjugation has a short <b>e</b> before -ris (mitt<b>e</b>ris, cap<b>e</b>ris), not i. The ending -ris also has an alternate <b>-re</b> (amāre), which is not drilled here.</p>",
+ "intro": "The passive uses the same stems and time markers as the active. Only the personal endings change: <span class=\"end\">-r, -ris, -tur, -mur, -minī, -ntur</span> replace <span class=\"end\">-ō/-m, -s, -t, -mus, -tis, -nt</span>. Where the active ends in -ō, the passive adds -r (amō → amor).<p style=\"margin:8px 0 0\"><b>Watch the 2nd person singular:</b> the 3rd conjugation has a short <b>e</b> before -ris (mitt<b>e</b>ris, cap<b>e</b>ris), not i. The ending -ris also has an alternate <b>-re</b> (amāre), which is not drilled here.</p>",
  "paradigmNote": "Passive endings: <span class=\"end\">-r, -ris, -tur, -mur, -minī, -ntur</span>",
  "filters": [
   {
@@ -73,7 +73,7 @@
    "la": "amor",
    "stem": "amo",
    "end": "r",
-   "en": "I am loved, I am being loved",
+   "en": "I am loved",
    "pn": "1st Person Singular",
    "tl": "present passive indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -82,13 +82,33 @@
    "pi": 0,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "I am being loved"
+   ],
+   "seg": [
+    [
+     "am",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "or",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāris",
    "stem": "amā",
    "end": "ris",
-   "en": "you are loved, you are being loved",
+   "en": "you are loved",
    "pn": "2nd Person Singular",
    "tl": "present passive indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -97,13 +117,33 @@
    "pi": 1,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "you are being loved"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amātur",
    "stem": "amā",
    "end": "tur",
-   "en": "he/she/it is loved, he/she/it is being loved",
+   "en": "he/she/it is loved",
    "pn": "3rd Person Singular",
    "tl": "present passive indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -112,13 +152,33 @@
    "pi": 2,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "he/she/it is being loved"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāmur",
    "stem": "amā",
    "end": "mur",
-   "en": "we are loved, we are being loved",
+   "en": "we are loved",
    "pn": "1st Person Plural",
    "tl": "present passive indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -127,13 +187,33 @@
    "pi": 3,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "we are being loved"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāminī",
    "stem": "amā",
    "end": "minī",
-   "en": "you (pl.) are loved, you (pl.) are being loved",
+   "en": "you (pl.) are loved",
    "pn": "2nd Person Plural",
    "tl": "present passive indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -142,13 +222,33 @@
    "pi": 4,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "you (pl.) are being loved"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amantur",
    "stem": "ama",
    "end": "ntur",
-   "en": "they are loved, they are being loved",
+   "en": "they are loved",
    "pn": "3rd Person Plural",
    "tl": "present passive indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -157,13 +257,33 @@
    "pi": 5,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "they are being loved"
+   ],
+   "seg": [
+    [
+     "ama",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "videor",
    "stem": "video",
    "end": "r",
-   "en": "I am seen, I am being seen",
+   "en": "I am seen",
    "pn": "1st Person Singular",
    "tl": "present passive indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -172,13 +292,33 @@
    "pi": 0,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "I am being seen"
+   ],
+   "seg": [
+    [
+     "vide",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "or",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēris",
    "stem": "vidē",
    "end": "ris",
-   "en": "you are seen, you are being seen",
+   "en": "you are seen",
    "pn": "2nd Person Singular",
    "tl": "present passive indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -187,13 +327,33 @@
    "pi": 1,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "you are being seen"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidētur",
    "stem": "vidē",
    "end": "tur",
-   "en": "he/she/it is seen, he/she/it is being seen",
+   "en": "he/she/it is seen",
    "pn": "3rd Person Singular",
    "tl": "present passive indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -202,13 +362,33 @@
    "pi": 2,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "he/she/it is being seen"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēmur",
    "stem": "vidē",
    "end": "mur",
-   "en": "we are seen, we are being seen",
+   "en": "we are seen",
    "pn": "1st Person Plural",
    "tl": "present passive indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -217,13 +397,33 @@
    "pi": 3,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "we are being seen"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēminī",
    "stem": "vidē",
    "end": "minī",
-   "en": "you (pl.) are seen, you (pl.) are being seen",
+   "en": "you (pl.) are seen",
    "pn": "2nd Person Plural",
    "tl": "present passive indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -232,13 +432,33 @@
    "pi": 4,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "you (pl.) are being seen"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "videntur",
    "stem": "vide",
    "end": "ntur",
-   "en": "they are seen, they are being seen",
+   "en": "they are seen",
    "pn": "3rd Person Plural",
    "tl": "present passive indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -247,13 +467,33 @@
    "pi": 5,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "they are being seen"
+   ],
+   "seg": [
+    [
+     "vide",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittor",
    "stem": "mitto",
    "end": "r",
-   "en": "I am sent, I am being sent",
+   "en": "I am sent",
    "pn": "1st Person Singular",
    "tl": "present passive indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -262,13 +502,33 @@
    "pi": 0,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "I am being sent"
+   ],
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "or",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mitteris",
    "stem": "mitte",
    "end": "ris",
-   "en": "you are sent, you are being sent",
+   "en": "you are sent",
    "pn": "2nd Person Singular",
    "tl": "present passive indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -277,13 +537,33 @@
    "pi": 1,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "you are being sent"
+   ],
+   "seg": [
+    [
+     "mitte",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittitur",
    "stem": "mitti",
    "end": "tur",
-   "en": "he/she/it is sent, he/she/it is being sent",
+   "en": "he/she/it is sent",
    "pn": "3rd Person Singular",
    "tl": "present passive indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -292,13 +572,33 @@
    "pi": 2,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "he/she/it is being sent"
+   ],
+   "seg": [
+    [
+     "mitti",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittimur",
    "stem": "mitti",
    "end": "mur",
-   "en": "we are sent, we are being sent",
+   "en": "we are sent",
    "pn": "1st Person Plural",
    "tl": "present passive indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -307,13 +607,33 @@
    "pi": 3,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "we are being sent"
+   ],
+   "seg": [
+    [
+     "mitti",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittiminī",
    "stem": "mitti",
    "end": "minī",
-   "en": "you (pl.) are sent, you (pl.) are being sent",
+   "en": "you (pl.) are sent",
    "pn": "2nd Person Plural",
    "tl": "present passive indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -322,13 +642,33 @@
    "pi": 4,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "you (pl.) are being sent"
+   ],
+   "seg": [
+    [
+     "mitti",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittuntur",
    "stem": "mittu",
    "end": "ntur",
-   "en": "they are sent, they are being sent",
+   "en": "they are sent",
    "pn": "3rd Person Plural",
    "tl": "present passive indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -337,13 +677,33 @@
    "pi": 5,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "they are being sent"
+   ],
+   "seg": [
+    [
+     "mittu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capior",
    "stem": "capio",
    "end": "r",
-   "en": "I am taken, I am being taken",
+   "en": "I am taken",
    "pn": "1st Person Singular",
    "tl": "present passive indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -352,13 +712,33 @@
    "pi": 0,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "I am being taken"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "or",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "caperis",
    "stem": "cape",
    "end": "ris",
-   "en": "you are taken, you are being taken",
+   "en": "you are taken",
    "pn": "2nd Person Singular",
    "tl": "present passive indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -367,13 +747,33 @@
    "pi": 1,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "you are being taken"
+   ],
+   "seg": [
+    [
+     "cape",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capitur",
    "stem": "capi",
    "end": "tur",
-   "en": "he/she/it is taken, he/she/it is being taken",
+   "en": "he/she/it is taken",
    "pn": "3rd Person Singular",
    "tl": "present passive indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -382,13 +782,33 @@
    "pi": 2,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "he/she/it is being taken"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capimur",
    "stem": "capi",
    "end": "mur",
-   "en": "we are taken, we are being taken",
+   "en": "we are taken",
    "pn": "1st Person Plural",
    "tl": "present passive indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -397,13 +817,33 @@
    "pi": 3,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "we are being taken"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiminī",
    "stem": "capi",
    "end": "minī",
-   "en": "you (pl.) are taken, you (pl.) are being taken",
+   "en": "you (pl.) are taken",
    "pn": "2nd Person Plural",
    "tl": "present passive indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -412,13 +852,33 @@
    "pi": 4,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "you (pl.) are being taken"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiuntur",
    "stem": "capiu",
    "end": "ntur",
-   "en": "they are taken, they are being taken",
+   "en": "they are taken",
    "pn": "3rd Person Plural",
    "tl": "present passive indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -427,13 +887,33 @@
    "pi": 5,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "they are being taken"
+   ],
+   "seg": [
+    [
+     "capiu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audior",
    "stem": "audio",
    "end": "r",
-   "en": "I am heard, I am being heard",
+   "en": "I am heard",
    "pn": "1st Person Singular",
    "tl": "present passive indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -442,13 +922,33 @@
    "pi": 0,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "I am being heard"
+   ],
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "or",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīris",
    "stem": "audī",
    "end": "ris",
-   "en": "you are heard, you are being heard",
+   "en": "you are heard",
    "pn": "2nd Person Singular",
    "tl": "present passive indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -457,13 +957,33 @@
    "pi": 1,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "you are being heard"
+   ],
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ris",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audītur",
    "stem": "audī",
    "end": "tur",
-   "en": "he/she/it is heard, he/she/it is being heard",
+   "en": "he/she/it is heard",
    "pn": "3rd Person Singular",
    "tl": "present passive indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -472,13 +992,33 @@
    "pi": 2,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "he/she/it is being heard"
+   ],
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "tur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīmur",
    "stem": "audī",
    "end": "mur",
-   "en": "we are heard, we are being heard",
+   "en": "we are heard",
    "pn": "1st Person Plural",
    "tl": "present passive indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -487,13 +1027,33 @@
    "pi": 3,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "we are being heard"
+   ],
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "mur",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīminī",
    "stem": "audī",
    "end": "minī",
-   "en": "you (pl.) are heard, you (pl.) are being heard",
+   "en": "you (pl.) are heard",
    "pn": "2nd Person Plural",
    "tl": "present passive indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -502,13 +1062,33 @@
    "pi": 4,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "you (pl.) are being heard"
+   ],
+   "seg": [
+    [
+     "audī",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "minī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiuntur",
    "stem": "audiu",
    "end": "ntur",
-   "en": "they are heard, they are being heard",
+   "en": "they are heard",
    "pn": "3rd Person Plural",
    "tl": "present passive indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -517,7 +1097,27 @@
    "pi": 5,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "t": "pres"
+   "t": "pres",
+   "alt": [
+    "they are being heard"
+   ],
+   "seg": [
+    [
+     "audiu",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ntur",
+     "e",
+     "ending"
+    ]
+   ]
   }
  ]
 }

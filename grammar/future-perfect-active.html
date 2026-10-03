@@ -12,6 +12,7 @@
 <style>
 :root{--p-eri:#23487B; --p-eri-bg:#DAE4F1; --p-erint:#7F2756; --p-erint-bg:#F4DDE9; --p-stem:#2F5331; --p-stem-bg:#DDEBDC;}
 </style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610032200">
 </head>
 <body>
 <div class="wrap">
@@ -19,7 +20,7 @@
   <h1>Future Perfect Active Indicative</h1>
   <p class="subtitle">An interactive grammar for all four conjugations plus 3rd <i>-iō</i></p>
   <div class="primer">
-    <span><b>Perfect stem + <i>-eri-</i> + ending</b> <i>amāv-eri-t</i></span>
+    <span><b>Complete stem + <i>-eri-</i> + ending</b> <i>amāv-eri-t</i></span>
     <span><b>Endings</b> <i>-erō, -eris, -erit, -erimus, -eritis, -erint</i></span>
     <span>Hover any form to see what it means and how it's built</span>
   </div>
@@ -29,7 +30,7 @@
   <details class="fold">
     <summary>The future perfect tense</summary>
   <div class="prose">
-    <p>The Latin future perfect tense describes complete action that will occur at some later time. We translate it like "he will have loved." Its formation is incredibly simple: we attach the future of the verb <i>sum</i> (<i>erō, eris, erit …</i>) to the perfect stem.</p>
+    <p>The Latin future perfect tense describes complete action that will occur at some later time. We translate it like "he will have loved." Its formation is incredibly simple: we attach the future of the verb <i>sum</i> (<i>erō, eris, erit …</i>) to the complete stem.</p>
     <p>This is a way of marking time very similar to the <i>-bi-</i> seen in the future tense, with the same <i>-i-</i> as a time vowel. We may understand the future perfect as the combination of a stem communicating completed aspect, an <i>-i-</i> vowel marking future time, and personal endings marking the person and number of a verb. Note that the expected <i>-erunt</i> (the future of <i>sum</i>) becomes <i>-erint</i> in the 3rd plural.</p>
   </div>
   </details>
@@ -44,7 +45,7 @@
     <summary>How to build it</summary>
   <div class="conj-box">
   <table class="rule-table conj-table">
-    <thead><tr><th>Conjugation</th><th>Principal parts</th><th>Perfect stem</th><th>"I will have ___"</th></tr></thead>
+    <thead><tr><th>Conjugation</th><th>Principal parts</th><th>Complete stem</th><th>"I will have ___"</th></tr></thead>
     <tbody>
       <tr><td>1st</td><td><i>amō, amāre, <b>amāvī</b></i></td><td><b>amāv-</b></td><td><i>amāverō</i></td></tr>
       <tr><td>2nd</td><td><i>moneō, monēre, <b>monuī</b></i></td><td><b>monu-</b></td><td><i>monuerō</i></td></tr>
@@ -115,23 +116,26 @@ const perfVerbs = mk => Object.entries(PV).map(([id, v]) => ({id, dict:v.dict, m
 VerbChart({
   verbs: perfVerbs(st => rep(st, '', ['er','eri','eri','eri','eri','eri'], ['ō','s','t','mus','tis','nt'])),
   english: c => ({main:`${SUB[c.i]} will have ${PV[c.verb.id].pp}`, alt:''}),
-  labels: c => ({st:'perfect stem', vw:'', ts:'future marker (from erō)', en:'personal ending'}),
+  labels: c => ({st:'complete stem', vw:'', ts:'later time marker (from erō)', en:'personal ending'}),
   patterns: [
     {id:'eri', lab:'-eri-', txt:'future of sum', part:'ts', test:c=>true,
      note:'<b>-eri- is the future of sum without its endings</b> (<i>erō, eris, erit</i>): <i>amāv<b>eri</b>t</i> "he will have loved." Its <i>-i-</i> is the same "will" vowel as the <i>-bi-</i> of the future.'},
     {id:'erint', lab:'-erint', txt:'3rd plural, not -erunt', part:'tsen', test:c=>c.p.k === '3pl',
      note:'<b>"They" is -erint, not -erunt:</b> <i>amāverint</i> "they will have loved." Don\'t confuse it with the perfect <i>amāvērunt</i> "they have loved."'},
-    {id:'stem', lab:'amāv-', txt:'the perfect stem', part:'st', test:c=>true,
-     note:'<b>The perfect stem gives the "complete" meaning</b>, as in the perfect and pluperfect: <i>amāv-, monu-, rēx-, cēp-, audīv-, fu-</i>.'}
+    {id:'stem', lab:'amāv-', txt:'the complete stem', part:'st', test:c=>true,
+     note:'<b>The complete stem makes it complete</b>, as in the perfect and pluperfect: <i>amāv-, monu-, rēx-, cēp-, audīv-, fu-</i>.'}
   ],
   notes: {
-    'amo.1sg':'<i>amāv-er-ō</i>: the perfect stem plus <i>erō</i>, "I will have loved."',
-    'amo.3sg':'<i>amāverit</i>: compare the future <i>amābit</i> "he will love." Both have the future <i>i</i>; the perfect stem makes this one complete.',
+    'amo.1sg':'<i>amāv-er-ō</i>: the complete stem plus <i>erō</i>, "I will have loved."',
+    'amo.3sg':'<i>amāverit</i>: compare the future <i>amābit</i> "he will love." Both have the future <i>i</i>; the complete stem makes this one complete.',
     'amo.3pl':'<i>amāverint</i>, not <i>*amāverunt</i>. Compare the perfect <i>amāvērunt</i>.',
     'sum.1sg':'<i>fuerō</i>: "I will have been."'
   },
-  idle: "You'll see how to translate the form and how it is built from the perfect stem, <i>-eri-</i>, and the personal ending."
+  idle: "You'll see how to translate the form and how it is built from the complete stem, <i>-eri-</i>, and the personal ending."
 });
 </script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610032200"></script>
 </body>
 </html>

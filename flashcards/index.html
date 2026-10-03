@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
 <link rel="stylesheet" href="../css/site.css?v=202610021200">
-<link rel="stylesheet" href="../css/flashcards.css?v=202610012300">
+<link rel="stylesheet" href="../css/flashcards.css?v=202610042100">
+<link rel="stylesheet" href="../css/sidebar.css?v=202610032200">
 </head>
 <body>
 
@@ -62,10 +63,6 @@
           <summary><span class="fc-sum-title">Settings</span><span class="fc-sum" id="settings-summary"></span></summary>
           <div class="fc-controls" id="controls"></div>
         </details>
-        <details class="callout fc-intro" id="intro" hidden>
-          <summary>Grammar note</summary>
-          <div id="intro-body"></div>
-        </details>
       </aside>
       <div class="fc-col">
         <div class="fc-status"><a href="./">← All decks</a><span class="fc-count"><span id="count"></span><span id="score"></span></span></div>
@@ -109,7 +106,11 @@
         </div>
 
         <details class="panel fc-paradigms" id="paradigms" hidden>
-          <summary>Show paradigms</summary>
+          <summary id="paradigms-title">Show paradigms</summary>
+          <details class="fc-intro" id="intro" hidden>
+            <summary>Grammar note</summary>
+            <div id="intro-body"></div>
+          </details>
           <div class="fc-sub" id="paradigm-note"></div>
           <div id="paradigm"></div>
         </details>
@@ -120,7 +121,8 @@
 
 <script src="../js/common.js?v=202610011900"></script>
 <script src="../js/srs.js?v=202610011900"></script>
-<script src="../js/levels.js?v=202610011500"></script>
-<script src="../js/flashcards.js?v=202610012300"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/flashcards.js?v=202610042200"></script>
+<script src="../js/sidebar.js?v=202610032200"></script>
 </body>
 </html>

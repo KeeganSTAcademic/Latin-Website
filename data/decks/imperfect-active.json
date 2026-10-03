@@ -3,7 +3,7 @@
  "title": "Imperfect Active Indicative",
  "course": "Verbs · Active Indicative",
  "subtitle": "Flashcards for all four conjugations plus 3rd -iō",
- "intro": "The imperfect is built the same way in every conjugation:\n    present stem + linking vowel + <span class=\"end\">-bā-</span> + personal ending\n    (<span class=\"end\">-m, -s, -t, -mus, -tis, -nt</span>).\n    Only the linking vowel changes: <b>-ā-</b> in the 1st (amābam), <b>-ē-</b> in the 2nd and 3rd (vidēbam, mittēbam),\n    <b>-iē-</b> in the 3rd -iō and 4th (capiēbam, audiēbam). All five verbs are included anyway for practice.",
+ "intro": "The imperfect is built the same way in every conjugation:\n    incomplete stem + linking vowel + <span class=\"end\">-bā-</span> + personal ending\n    (<span class=\"end\">-m, -s, -t, -mus, -tis, -nt</span>).\n    Only the linking vowel changes: <b>-ā-</b> in the 1st (amābam), <b>-ē-</b> in the 2nd and 3rd (vidēbam, mittēbam),\n    <b>-iē-</b> in the 3rd -iō and 4th (capiēbam, audiēbam). All five verbs are included anyway for practice.",
  "paradigmNote": "Endings: <span class=\"end\">-bam</span>, <span class=\"end\">-bās</span>, <span class=\"end\">-bat</span>, <span class=\"end\">-bāmus</span>, <span class=\"end\">-bātis</span>, <span class=\"end\">-bant</span>",
  "filters": [
   {
@@ -71,7 +71,7 @@
    "la": "amābam",
    "stem": "amā",
    "end": "bam",
-   "en": "I was loving, I used to love",
+   "en": "I was loving",
    "pn": "1st Person Singular",
    "tl": "imperfect active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -80,13 +80,32 @@
    "pi": 0,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bam"
+   "alt": [
+    "I used to love"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābās",
    "stem": "amā",
    "end": "bās",
-   "en": "you were loving, you used to love",
+   "en": "you were loving",
    "pn": "2nd Person Singular",
    "tl": "imperfect active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -95,13 +114,32 @@
    "pi": 1,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bās"
+   "alt": [
+    "you used to love"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābat",
    "stem": "amā",
    "end": "bat",
-   "en": "he/she/it was loving, he/she/it used to love",
+   "en": "he/she/it was loving",
    "pn": "3rd Person Singular",
    "tl": "imperfect active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -110,13 +148,32 @@
    "pi": 2,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bat"
+   "alt": [
+    "he/she/it used to love"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābāmus",
    "stem": "amā",
    "end": "bāmus",
-   "en": "we were loving, we used to love",
+   "en": "we were loving",
    "pn": "1st Person Plural",
    "tl": "imperfect active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -125,13 +182,32 @@
    "pi": 3,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bāmus"
+   "alt": [
+    "we used to love"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābātis",
    "stem": "amā",
    "end": "bātis",
-   "en": "you (pl.) were loving, you (pl.) used to love",
+   "en": "you (pl.) were loving",
    "pn": "2nd Person Plural",
    "tl": "imperfect active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -140,13 +216,32 @@
    "pi": 4,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bātis"
+   "alt": [
+    "you (pl.) used to love"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābant",
    "stem": "amā",
    "end": "bant",
-   "en": "they were loving, they used to love",
+   "en": "they were loving",
    "pn": "3rd Person Plural",
    "tl": "imperfect active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -155,13 +250,32 @@
    "pi": 5,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bant"
+   "alt": [
+    "they used to love"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbam",
    "stem": "vidē",
    "end": "bam",
-   "en": "I was seeing, I used to see",
+   "en": "I was seeing",
    "pn": "1st Person Singular",
    "tl": "imperfect active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -170,13 +284,32 @@
    "pi": 0,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bam"
+   "alt": [
+    "I used to see"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbās",
    "stem": "vidē",
    "end": "bās",
-   "en": "you were seeing, you used to see",
+   "en": "you were seeing",
    "pn": "2nd Person Singular",
    "tl": "imperfect active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -185,13 +318,32 @@
    "pi": 1,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bās"
+   "alt": [
+    "you used to see"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbat",
    "stem": "vidē",
    "end": "bat",
-   "en": "he/she/it was seeing, he/she/it used to see",
+   "en": "he/she/it was seeing",
    "pn": "3rd Person Singular",
    "tl": "imperfect active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -200,13 +352,32 @@
    "pi": 2,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bat"
+   "alt": [
+    "he/she/it used to see"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbāmus",
    "stem": "vidē",
    "end": "bāmus",
-   "en": "we were seeing, we used to see",
+   "en": "we were seeing",
    "pn": "1st Person Plural",
    "tl": "imperfect active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -215,13 +386,32 @@
    "pi": 3,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bāmus"
+   "alt": [
+    "we used to see"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbātis",
    "stem": "vidē",
    "end": "bātis",
-   "en": "you (pl.) were seeing, you (pl.) used to see",
+   "en": "you (pl.) were seeing",
    "pn": "2nd Person Plural",
    "tl": "imperfect active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -230,13 +420,32 @@
    "pi": 4,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bātis"
+   "alt": [
+    "you (pl.) used to see"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbant",
    "stem": "vidē",
    "end": "bant",
-   "en": "they were seeing, they used to see",
+   "en": "they were seeing",
    "pn": "3rd Person Plural",
    "tl": "imperfect active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -245,13 +454,32 @@
    "pi": 5,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bant"
+   "alt": [
+    "they used to see"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittēbam",
    "stem": "mittē",
    "end": "bam",
-   "en": "I was sending, I used to send",
+   "en": "I was sending",
    "pn": "1st Person Singular",
    "tl": "imperfect active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -260,13 +488,32 @@
    "pi": 0,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -bam"
+   "alt": [
+    "I used to send"
+   ],
+   "seg": [
+    [
+     "mittē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittēbās",
    "stem": "mittē",
    "end": "bās",
-   "en": "you were sending, you used to send",
+   "en": "you were sending",
    "pn": "2nd Person Singular",
    "tl": "imperfect active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -275,13 +522,32 @@
    "pi": 1,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -bās"
+   "alt": [
+    "you used to send"
+   ],
+   "seg": [
+    [
+     "mittē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittēbat",
    "stem": "mittē",
    "end": "bat",
-   "en": "he/she/it was sending, he/she/it used to send",
+   "en": "he/she/it was sending",
    "pn": "3rd Person Singular",
    "tl": "imperfect active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -290,13 +556,32 @@
    "pi": 2,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -bat"
+   "alt": [
+    "he/she/it used to send"
+   ],
+   "seg": [
+    [
+     "mittē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittēbāmus",
    "stem": "mittē",
    "end": "bāmus",
-   "en": "we were sending, we used to send",
+   "en": "we were sending",
    "pn": "1st Person Plural",
    "tl": "imperfect active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -305,13 +590,32 @@
    "pi": 3,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -bāmus"
+   "alt": [
+    "we used to send"
+   ],
+   "seg": [
+    [
+     "mittē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittēbātis",
    "stem": "mittē",
    "end": "bātis",
-   "en": "you (pl.) were sending, you (pl.) used to send",
+   "en": "you (pl.) were sending",
    "pn": "2nd Person Plural",
    "tl": "imperfect active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -320,13 +624,32 @@
    "pi": 4,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -bātis"
+   "alt": [
+    "you (pl.) used to send"
+   ],
+   "seg": [
+    [
+     "mittē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittēbant",
    "stem": "mittē",
    "end": "bant",
-   "en": "they were sending, they used to send",
+   "en": "they were sending",
    "pn": "3rd Person Plural",
    "tl": "imperfect active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -335,13 +658,32 @@
    "pi": 5,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -bant"
+   "alt": [
+    "they used to send"
+   ],
+   "seg": [
+    [
+     "mittē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiēbam",
    "stem": "capiē",
    "end": "bam",
-   "en": "I was taking, I used to take",
+   "en": "I was taking",
    "pn": "1st Person Singular",
    "tl": "imperfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -350,13 +692,32 @@
    "pi": 0,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -bam"
+   "alt": [
+    "I used to take"
+   ],
+   "seg": [
+    [
+     "capiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiēbās",
    "stem": "capiē",
    "end": "bās",
-   "en": "you were taking, you used to take",
+   "en": "you were taking",
    "pn": "2nd Person Singular",
    "tl": "imperfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -365,13 +726,32 @@
    "pi": 1,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -bās"
+   "alt": [
+    "you used to take"
+   ],
+   "seg": [
+    [
+     "capiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiēbat",
    "stem": "capiē",
    "end": "bat",
-   "en": "he/she/it was taking, he/she/it used to take",
+   "en": "he/she/it was taking",
    "pn": "3rd Person Singular",
    "tl": "imperfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -380,13 +760,32 @@
    "pi": 2,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -bat"
+   "alt": [
+    "he/she/it used to take"
+   ],
+   "seg": [
+    [
+     "capiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiēbāmus",
    "stem": "capiē",
    "end": "bāmus",
-   "en": "we were taking, we used to take",
+   "en": "we were taking",
    "pn": "1st Person Plural",
    "tl": "imperfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -395,13 +794,32 @@
    "pi": 3,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -bāmus"
+   "alt": [
+    "we used to take"
+   ],
+   "seg": [
+    [
+     "capiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiēbātis",
    "stem": "capiē",
    "end": "bātis",
-   "en": "you (pl.) were taking, you (pl.) used to take",
+   "en": "you (pl.) were taking",
    "pn": "2nd Person Plural",
    "tl": "imperfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -410,13 +828,32 @@
    "pi": 4,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -bātis"
+   "alt": [
+    "you (pl.) used to take"
+   ],
+   "seg": [
+    [
+     "capiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiēbant",
    "stem": "capiē",
    "end": "bant",
-   "en": "they were taking, they used to take",
+   "en": "they were taking",
    "pn": "3rd Person Plural",
    "tl": "imperfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -425,13 +862,32 @@
    "pi": 5,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -bant"
+   "alt": [
+    "they used to take"
+   ],
+   "seg": [
+    [
+     "capiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiēbam",
    "stem": "audiē",
    "end": "bam",
-   "en": "I was hearing, I used to hear",
+   "en": "I was hearing",
    "pn": "1st Person Singular",
    "tl": "imperfect active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -440,13 +896,32 @@
    "pi": 0,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -bam"
+   "alt": [
+    "I used to hear"
+   ],
+   "seg": [
+    [
+     "audiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiēbās",
    "stem": "audiē",
    "end": "bās",
-   "en": "you were hearing, you used to hear",
+   "en": "you were hearing",
    "pn": "2nd Person Singular",
    "tl": "imperfect active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -455,13 +930,32 @@
    "pi": 1,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -bās"
+   "alt": [
+    "you used to hear"
+   ],
+   "seg": [
+    [
+     "audiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiēbat",
    "stem": "audiē",
    "end": "bat",
-   "en": "he/she/it was hearing, he/she/it used to hear",
+   "en": "he/she/it was hearing",
    "pn": "3rd Person Singular",
    "tl": "imperfect active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -470,13 +964,32 @@
    "pi": 2,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -bat"
+   "alt": [
+    "he/she/it used to hear"
+   ],
+   "seg": [
+    [
+     "audiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiēbāmus",
    "stem": "audiē",
    "end": "bāmus",
-   "en": "we were hearing, we used to hear",
+   "en": "we were hearing",
    "pn": "1st Person Plural",
    "tl": "imperfect active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -485,13 +998,32 @@
    "pi": 3,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -bāmus"
+   "alt": [
+    "we used to hear"
+   ],
+   "seg": [
+    [
+     "audiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiēbātis",
    "stem": "audiē",
    "end": "bātis",
-   "en": "you (pl.) were hearing, you (pl.) used to hear",
+   "en": "you (pl.) were hearing",
    "pn": "2nd Person Plural",
    "tl": "imperfect active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -500,13 +1032,32 @@
    "pi": 4,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -bātis"
+   "alt": [
+    "you (pl.) used to hear"
+   ],
+   "seg": [
+    [
+     "audiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bā",
+     "m",
+     "time: past"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiēbant",
    "stem": "audiē",
    "end": "bant",
-   "en": "they were hearing, they used to hear",
+   "en": "they were hearing",
    "pn": "3rd Person Plural",
    "tl": "imperfect active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -515,7 +1066,26 @@
    "pi": 5,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -bant"
+   "alt": [
+    "they used to hear"
+   ],
+   "seg": [
+    [
+     "audiē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ba",
+     "m",
+     "time: past"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   }
  ]
 }

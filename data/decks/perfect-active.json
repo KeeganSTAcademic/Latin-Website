@@ -3,7 +3,7 @@
  "title": "Perfect Active Indicative",
  "course": "Verbs · Active Indicative",
  "subtitle": "Complete aspect: all four conjugations plus 3rd -iō",
- "intro": "The perfect is built from the <b>perfect stem</b>: the 3rd principal part minus its -ī\n    (amāvī → <b>amāv-</b>, mīsī → <b>mīs-</b>). Add the perfect endings\n    <span class=\"end\">-ī, -istī, -it, -imus, -istis, -ērunt</span>.\n    <p style=\"margin:8px 0 0\">These endings are <b>the same in every conjugation</b>. The only difference is the stem itself, which has to be learned from the principal parts. All five verbs are included anyway for practice.</p>\n    <p style=\"margin:8px 0 0\">-ērunt has an alternate ending <b>-ēre</b> (amāvēre). It's not drilled here.</p>",
+ "intro": "The perfect is built from the <b>complete stem</b>: the 3rd principal part minus its -ī\n    (amāvī → <b>amāv-</b>, mīsī → <b>mīs-</b>). Add the perfect endings\n    <span class=\"end\">-ī, -istī, -it, -imus, -istis, -ērunt</span>.\n    <p style=\"margin:8px 0 0\">These endings are <b>the same in every conjugation</b>. The only difference is the stem itself, which has to be learned from the principal parts. All five verbs are included anyway for practice.</p>\n    <p style=\"margin:8px 0 0\">-ērunt has an alternate ending <b>-ēre</b> (amāvēre). It's not drilled here.</p>",
  "paradigmNote": "Perfect endings (all conjugations): <span class=\"end\">-ī, -istī, -it, -imus, -istis, -ērunt</span>",
  "filters": [
   {
@@ -71,7 +71,7 @@
    "la": "amāvī",
    "stem": "amāv",
    "end": "ī",
-   "en": "I loved, I have loved",
+   "en": "I loved",
    "pn": "1st Person Singular",
    "tl": "perfect active indicative",
    "tag": "1st conj. · amō, amāre, amāvī (love)",
@@ -80,14 +80,33 @@
    "pi": 0,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -ī · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "alt": [
+    "I have loved"
+   ],
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāvistī",
    "stem": "amāv",
    "end": "istī",
-   "en": "you loved, you have loved",
+   "en": "you loved",
    "pn": "2nd Person Singular",
    "tl": "perfect active indicative",
    "tag": "1st conj. · amō, amāre, amāvī (love)",
@@ -96,14 +115,33 @@
    "pi": 1,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -istī · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "alt": [
+    "you have loved"
+   ],
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāvit",
    "stem": "amāv",
    "end": "it",
-   "en": "he/she/it loved, he/she/it has loved",
+   "en": "he/she/it loved",
    "pn": "3rd Person Singular",
    "tl": "perfect active indicative",
    "tag": "1st conj. · amō, amāre, amāvī (love)",
@@ -112,14 +150,33 @@
    "pi": 2,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -it · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "alt": [
+    "he/she/it has loved"
+   ],
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "it",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāvimus",
    "stem": "amāv",
    "end": "imus",
-   "en": "we loved, we have loved",
+   "en": "we loved",
    "pn": "1st Person Plural",
    "tl": "perfect active indicative",
    "tag": "1st conj. · amō, amāre, amāvī (love)",
@@ -128,14 +185,33 @@
    "pi": 3,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -imus · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "alt": [
+    "we have loved"
+   ],
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "imus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāvistis",
    "stem": "amāv",
    "end": "istis",
-   "en": "you (pl.) loved, you (pl.) have loved",
+   "en": "you (pl.) loved",
    "pn": "2nd Person Plural",
    "tl": "perfect active indicative",
    "tag": "1st conj. · amō, amāre, amāvī (love)",
@@ -144,14 +220,33 @@
    "pi": 4,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -istis · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "alt": [
+    "you (pl.) have loved"
+   ],
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amāvērunt",
    "stem": "amāv",
    "end": "ērunt",
-   "en": "they loved, they have loved",
+   "en": "they loved",
    "pn": "3rd Person Plural",
    "tl": "perfect active indicative",
    "tag": "1st conj. · amō, amāre, amāvī (love)",
@@ -160,14 +255,33 @@
    "pi": 5,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -ērunt · perfect stem: amāv-",
-   "tnote": "perfect stem: amāv-"
+   "tnote": "complete stem: amāv-",
+   "alt": [
+    "they have loved"
+   ],
+   "seg": [
+    [
+     "amāv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ērunt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīdī",
    "stem": "vīd",
    "end": "ī",
-   "en": "I saw, I have seen",
+   "en": "I saw",
    "pn": "1st Person Singular",
    "tl": "perfect active indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī (see)",
@@ -176,14 +290,33 @@
    "pi": 0,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -ī · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "alt": [
+    "I have seen"
+   ],
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīdistī",
    "stem": "vīd",
    "end": "istī",
-   "en": "you saw, you have seen",
+   "en": "you saw",
    "pn": "2nd Person Singular",
    "tl": "perfect active indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī (see)",
@@ -192,14 +325,33 @@
    "pi": 1,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -istī · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "alt": [
+    "you have seen"
+   ],
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīdit",
    "stem": "vīd",
    "end": "it",
-   "en": "he/she/it saw, he/she/it has seen",
+   "en": "he/she/it saw",
    "pn": "3rd Person Singular",
    "tl": "perfect active indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī (see)",
@@ -208,14 +360,33 @@
    "pi": 2,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -it · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "alt": [
+    "he/she/it has seen"
+   ],
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "it",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīdimus",
    "stem": "vīd",
    "end": "imus",
-   "en": "we saw, we have seen",
+   "en": "we saw",
    "pn": "1st Person Plural",
    "tl": "perfect active indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī (see)",
@@ -224,14 +395,33 @@
    "pi": 3,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -imus · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "alt": [
+    "we have seen"
+   ],
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "imus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīdistis",
    "stem": "vīd",
    "end": "istis",
-   "en": "you (pl.) saw, you (pl.) have seen",
+   "en": "you (pl.) saw",
    "pn": "2nd Person Plural",
    "tl": "perfect active indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī (see)",
@@ -240,14 +430,33 @@
    "pi": 4,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -istis · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "alt": [
+    "you (pl.) have seen"
+   ],
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vīdērunt",
    "stem": "vīd",
    "end": "ērunt",
-   "en": "they saw, they have seen",
+   "en": "they saw",
    "pn": "3rd Person Plural",
    "tl": "perfect active indicative",
    "tag": "2nd conj. · videō, vidēre, vīdī (see)",
@@ -256,14 +465,33 @@
    "pi": 5,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -ērunt · perfect stem: vīd-",
-   "tnote": "perfect stem: vīd-"
+   "tnote": "complete stem: vīd-",
+   "alt": [
+    "they have seen"
+   ],
+   "seg": [
+    [
+     "vīd",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ērunt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīsī",
    "stem": "mīs",
    "end": "ī",
-   "en": "I sent, I have sent",
+   "en": "I sent",
    "pn": "1st Person Singular",
    "tl": "perfect active indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī (send)",
@@ -272,14 +500,33 @@
    "pi": 0,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -ī · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "alt": [
+    "I have sent"
+   ],
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīsistī",
    "stem": "mīs",
    "end": "istī",
-   "en": "you sent, you have sent",
+   "en": "you sent",
    "pn": "2nd Person Singular",
    "tl": "perfect active indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī (send)",
@@ -288,14 +535,33 @@
    "pi": 1,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -istī · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "alt": [
+    "you have sent"
+   ],
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīsit",
    "stem": "mīs",
    "end": "it",
-   "en": "he/she/it sent, he/she/it has sent",
+   "en": "he/she/it sent",
    "pn": "3rd Person Singular",
    "tl": "perfect active indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī (send)",
@@ -304,14 +570,33 @@
    "pi": 2,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -it · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "alt": [
+    "he/she/it has sent"
+   ],
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "it",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīsimus",
    "stem": "mīs",
    "end": "imus",
-   "en": "we sent, we have sent",
+   "en": "we sent",
    "pn": "1st Person Plural",
    "tl": "perfect active indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī (send)",
@@ -320,14 +605,33 @@
    "pi": 3,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -imus · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "alt": [
+    "we have sent"
+   ],
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "imus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīsistis",
    "stem": "mīs",
    "end": "istis",
-   "en": "you (pl.) sent, you (pl.) have sent",
+   "en": "you (pl.) sent",
    "pn": "2nd Person Plural",
    "tl": "perfect active indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī (send)",
@@ -336,14 +640,33 @@
    "pi": 4,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -istis · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "alt": [
+    "you (pl.) have sent"
+   ],
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mīsērunt",
    "stem": "mīs",
    "end": "ērunt",
-   "en": "they sent, they have sent",
+   "en": "they sent",
    "pn": "3rd Person Plural",
    "tl": "perfect active indicative",
    "tag": "3rd conj. · mittō, mittere, mīsī (send)",
@@ -352,14 +675,33 @@
    "pi": 5,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -ērunt · perfect stem: mīs-",
-   "tnote": "perfect stem: mīs-"
+   "tnote": "complete stem: mīs-",
+   "alt": [
+    "they have sent"
+   ],
+   "seg": [
+    [
+     "mīs",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ērunt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēpī",
    "stem": "cēp",
    "end": "ī",
-   "en": "I took, I have taken",
+   "en": "I took",
    "pn": "1st Person Singular",
    "tl": "perfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī (take)",
@@ -368,14 +710,33 @@
    "pi": 0,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -ī · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "alt": [
+    "I have taken"
+   ],
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēpistī",
    "stem": "cēp",
    "end": "istī",
-   "en": "you took, you have taken",
+   "en": "you took",
    "pn": "2nd Person Singular",
    "tl": "perfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī (take)",
@@ -384,14 +745,33 @@
    "pi": 1,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -istī · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "alt": [
+    "you have taken"
+   ],
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēpit",
    "stem": "cēp",
    "end": "it",
-   "en": "he/she/it took, he/she/it has taken",
+   "en": "he/she/it took",
    "pn": "3rd Person Singular",
    "tl": "perfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī (take)",
@@ -400,14 +780,33 @@
    "pi": 2,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -it · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "alt": [
+    "he/she/it has taken"
+   ],
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "it",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēpimus",
    "stem": "cēp",
    "end": "imus",
-   "en": "we took, we have taken",
+   "en": "we took",
    "pn": "1st Person Plural",
    "tl": "perfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī (take)",
@@ -416,14 +815,33 @@
    "pi": 3,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -imus · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "alt": [
+    "we have taken"
+   ],
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "imus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēpistis",
    "stem": "cēp",
    "end": "istis",
-   "en": "you (pl.) took, you (pl.) have taken",
+   "en": "you (pl.) took",
    "pn": "2nd Person Plural",
    "tl": "perfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī (take)",
@@ -432,14 +850,33 @@
    "pi": 4,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -istis · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "alt": [
+    "you (pl.) have taken"
+   ],
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cēpērunt",
    "stem": "cēp",
    "end": "ērunt",
-   "en": "they took, they have taken",
+   "en": "they took",
    "pn": "3rd Person Plural",
    "tl": "perfect active indicative",
    "tag": "3rd -iō conj. · capiō, capere, cēpī (take)",
@@ -448,14 +885,33 @@
    "pi": 5,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -ērunt · perfect stem: cēp-",
-   "tnote": "perfect stem: cēp-"
+   "tnote": "complete stem: cēp-",
+   "alt": [
+    "they have taken"
+   ],
+   "seg": [
+    [
+     "cēp",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ērunt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīvī",
    "stem": "audīv",
    "end": "ī",
-   "en": "I heard, I have heard",
+   "en": "I heard",
    "pn": "1st Person Singular",
    "tl": "perfect active indicative",
    "tag": "4th conj. · audiō, audīre, audīvī (hear)",
@@ -464,14 +920,33 @@
    "pi": 0,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -ī · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "alt": [
+    "I have heard"
+   ],
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīvistī",
    "stem": "audīv",
    "end": "istī",
-   "en": "you heard, you have heard",
+   "en": "you heard",
    "pn": "2nd Person Singular",
    "tl": "perfect active indicative",
    "tag": "4th conj. · audiō, audīre, audīvī (hear)",
@@ -480,14 +955,33 @@
    "pi": 1,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -istī · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "alt": [
+    "you have heard"
+   ],
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīvit",
    "stem": "audīv",
    "end": "it",
-   "en": "he/she/it heard, he/she/it has heard",
+   "en": "he/she/it heard",
    "pn": "3rd Person Singular",
    "tl": "perfect active indicative",
    "tag": "4th conj. · audiō, audīre, audīvī (hear)",
@@ -496,14 +990,33 @@
    "pi": 2,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -it · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "alt": [
+    "he/she/it has heard"
+   ],
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "it",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīvimus",
    "stem": "audīv",
    "end": "imus",
-   "en": "we heard, we have heard",
+   "en": "we heard",
    "pn": "1st Person Plural",
    "tl": "perfect active indicative",
    "tag": "4th conj. · audiō, audīre, audīvī (hear)",
@@ -512,14 +1025,33 @@
    "pi": 3,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -imus · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "alt": [
+    "we have heard"
+   ],
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "imus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīvistis",
    "stem": "audīv",
    "end": "istis",
-   "en": "you (pl.) heard, you (pl.) have heard",
+   "en": "you (pl.) heard",
    "pn": "2nd Person Plural",
    "tl": "perfect active indicative",
    "tag": "4th conj. · audiō, audīre, audīvī (hear)",
@@ -528,14 +1060,33 @@
    "pi": 4,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -istis · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "alt": [
+    "you (pl.) have heard"
+   ],
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "istis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audīvērunt",
    "stem": "audīv",
    "end": "ērunt",
-   "en": "they heard, they have heard",
+   "en": "they heard",
    "pn": "3rd Person Plural",
    "tl": "perfect active indicative",
    "tag": "4th conj. · audiō, audīre, audīvī (hear)",
@@ -544,8 +1095,27 @@
    "pi": 5,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -ērunt · perfect stem: audīv-",
-   "tnote": "perfect stem: audīv-"
+   "tnote": "complete stem: audīv-",
+   "alt": [
+    "they have heard"
+   ],
+   "seg": [
+    [
+     "audīv",
+     "s",
+     "complete active stem"
+    ],
+    [
+     "",
+     "0",
+     "time: now"
+    ],
+    [
+     "ērunt",
+     "e",
+     "ending"
+    ]
+   ]
   }
  ]
 }

@@ -71,7 +71,7 @@
    "la": "amābō",
    "stem": "amā",
    "end": "bō",
-   "en": "I will love, I will be loving",
+   "en": "I will love",
    "pn": "1st Person Singular",
    "tl": "future active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -80,14 +80,33 @@
    "pi": 0,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bō (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "I will be loving"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "b",
+     "m",
+     "time: later"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābis",
    "stem": "amā",
    "end": "bis",
-   "en": "you will love, you will be loving",
+   "en": "you will love",
    "pn": "2nd Person Singular",
    "tl": "future active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -96,14 +115,33 @@
    "pi": 1,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bis (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "you will be loving"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābit",
    "stem": "amā",
    "end": "bit",
-   "en": "he/she/it will love, he/she/it will be loving",
+   "en": "he/she/it will love",
    "pn": "3rd Person Singular",
    "tl": "future active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -112,14 +150,33 @@
    "pi": 2,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bit (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "he/she/it will be loving"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābimus",
    "stem": "amā",
    "end": "bimus",
-   "en": "we will love, we will be loving",
+   "en": "we will love",
    "pn": "1st Person Plural",
    "tl": "future active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -128,14 +185,33 @@
    "pi": 3,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bimus (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "we will be loving"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābitis",
    "stem": "amā",
    "end": "bitis",
-   "en": "you (pl.) will love, you (pl.) will be loving",
+   "en": "you (pl.) will love",
    "pn": "2nd Person Plural",
    "tl": "future active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -144,14 +220,33 @@
    "pi": 4,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bitis (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "you (pl.) will be loving"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "amābunt",
    "stem": "amā",
    "end": "bunt",
-   "en": "they will love, they will be loving",
+   "en": "they will love",
    "pn": "3rd Person Plural",
    "tl": "future active indicative",
    "tag": "1st conj. · amō, amāre (love)",
@@ -160,14 +255,33 @@
    "pi": 5,
    "lemma": "amō, amāre, amāvī, amātum",
    "gloss": "love",
-   "detail": "ending: -bunt (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "they will be loving"
+   ],
+   "seg": [
+    [
+     "amā",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bu",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbō",
    "stem": "vidē",
    "end": "bō",
-   "en": "I will see, I will be seeing",
+   "en": "I will see",
    "pn": "1st Person Singular",
    "tl": "future active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -176,14 +290,33 @@
    "pi": 0,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bō (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "I will be seeing"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "b",
+     "m",
+     "time: later"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbis",
    "stem": "vidē",
    "end": "bis",
-   "en": "you will see, you will be seeing",
+   "en": "you will see",
    "pn": "2nd Person Singular",
    "tl": "future active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -192,14 +325,33 @@
    "pi": 1,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bis (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "you will be seeing"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbit",
    "stem": "vidē",
    "end": "bit",
-   "en": "he/she/it will see, he/she/it will be seeing",
+   "en": "he/she/it will see",
    "pn": "3rd Person Singular",
    "tl": "future active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -208,14 +360,33 @@
    "pi": 2,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bit (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "he/she/it will be seeing"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbimus",
    "stem": "vidē",
    "end": "bimus",
-   "en": "we will see, we will be seeing",
+   "en": "we will see",
    "pn": "1st Person Plural",
    "tl": "future active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -224,14 +395,33 @@
    "pi": 3,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bimus (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "we will be seeing"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbitis",
    "stem": "vidē",
    "end": "bitis",
-   "en": "you (pl.) will see, you (pl.) will be seeing",
+   "en": "you (pl.) will see",
    "pn": "2nd Person Plural",
    "tl": "future active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -240,14 +430,33 @@
    "pi": 4,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bitis (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "you (pl.) will be seeing"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bi",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "vidēbunt",
    "stem": "vidē",
    "end": "bunt",
-   "en": "they will see, they will be seeing",
+   "en": "they will see",
    "pn": "3rd Person Plural",
    "tl": "future active indicative",
    "tag": "2nd conj. · videō, vidēre (see)",
@@ -256,14 +465,33 @@
    "pi": 5,
    "lemma": "videō, vidēre, vīdī, vīsum",
    "gloss": "see",
-   "detail": "ending: -bunt (-bi- future)",
-   "tnote": "-bi- future"
+   "tnote": "-bi- future",
+   "alt": [
+    "they will be seeing"
+   ],
+   "seg": [
+    [
+     "vidē",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "bu",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittam",
    "stem": "mitt",
    "end": "am",
-   "en": "I will send, I will be sending",
+   "en": "I will send",
    "pn": "1st Person Singular",
    "tl": "future active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -272,14 +500,33 @@
    "pi": 0,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -am (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "I will be sending"
+   ],
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "time: later"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittēs",
    "stem": "mitt",
    "end": "ēs",
-   "en": "you will send, you will be sending",
+   "en": "you will send",
    "pn": "2nd Person Singular",
    "tl": "future active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -288,14 +535,33 @@
    "pi": 1,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -ēs (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "you will be sending"
+   ],
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittet",
    "stem": "mitt",
    "end": "et",
-   "en": "he/she/it will send, he/she/it will be sending",
+   "en": "he/she/it will send",
    "pn": "3rd Person Singular",
    "tl": "future active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -304,14 +570,33 @@
    "pi": 2,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -et (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "he/she/it will be sending"
+   ],
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittēmus",
    "stem": "mitt",
    "end": "ēmus",
-   "en": "we will send, we will be sending",
+   "en": "we will send",
    "pn": "1st Person Plural",
    "tl": "future active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -320,14 +605,33 @@
    "pi": 3,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -ēmus (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "we will be sending"
+   ],
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittētis",
    "stem": "mitt",
    "end": "ētis",
-   "en": "you (pl.) will send, you (pl.) will be sending",
+   "en": "you (pl.) will send",
    "pn": "2nd Person Plural",
    "tl": "future active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -336,14 +640,33 @@
    "pi": 4,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -ētis (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "you (pl.) will be sending"
+   ],
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "mittent",
    "stem": "mitt",
    "end": "ent",
-   "en": "they will send, they will be sending",
+   "en": "they will send",
    "pn": "3rd Person Plural",
    "tl": "future active indicative",
    "tag": "3rd conj. · mittō, mittere (send)",
@@ -352,14 +675,33 @@
    "pi": 5,
    "lemma": "mittō, mittere, mīsī, missum",
    "gloss": "send",
-   "detail": "ending: -ent (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "they will be sending"
+   ],
+   "seg": [
+    [
+     "mitt",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiam",
    "stem": "capi",
    "end": "am",
-   "en": "I will take, I will be taking",
+   "en": "I will take",
    "pn": "1st Person Singular",
    "tl": "future active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -368,14 +710,33 @@
    "pi": 0,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -am (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "I will be taking"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "time: later"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiēs",
    "stem": "capi",
    "end": "ēs",
-   "en": "you will take, you will be taking",
+   "en": "you will take",
    "pn": "2nd Person Singular",
    "tl": "future active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -384,14 +745,33 @@
    "pi": 1,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -ēs (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "you will be taking"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiet",
    "stem": "capi",
    "end": "et",
-   "en": "he/she/it will take, he/she/it will be taking",
+   "en": "he/she/it will take",
    "pn": "3rd Person Singular",
    "tl": "future active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -400,14 +780,33 @@
    "pi": 2,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -et (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "he/she/it will be taking"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiēmus",
    "stem": "capi",
    "end": "ēmus",
-   "en": "we will take, we will be taking",
+   "en": "we will take",
    "pn": "1st Person Plural",
    "tl": "future active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -416,14 +815,33 @@
    "pi": 3,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -ēmus (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "we will be taking"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capiētis",
    "stem": "capi",
    "end": "ētis",
-   "en": "you (pl.) will take, you (pl.) will be taking",
+   "en": "you (pl.) will take",
    "pn": "2nd Person Plural",
    "tl": "future active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -432,14 +850,33 @@
    "pi": 4,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -ētis (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "you (pl.) will be taking"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "capient",
    "stem": "capi",
    "end": "ent",
-   "en": "they will take, they will be taking",
+   "en": "they will take",
    "pn": "3rd Person Plural",
    "tl": "future active indicative",
    "tag": "3rd -iō conj. · capiō, capere (take)",
@@ -448,14 +885,33 @@
    "pi": 5,
    "lemma": "capiō, capere, cēpī, captum",
    "gloss": "take",
-   "detail": "ending: -ent (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "they will be taking"
+   ],
+   "seg": [
+    [
+     "capi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiam",
    "stem": "audi",
    "end": "am",
-   "en": "I will hear, I will be hearing",
+   "en": "I will hear",
    "pn": "1st Person Singular",
    "tl": "future active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -464,14 +920,33 @@
    "pi": 0,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -am (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "I will be hearing"
+   ],
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "a",
+     "m",
+     "time: later"
+    ],
+    [
+     "m",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiēs",
    "stem": "audi",
    "end": "ēs",
-   "en": "you will hear, you will be hearing",
+   "en": "you will hear",
    "pn": "2nd Person Singular",
    "tl": "future active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -480,14 +955,33 @@
    "pi": 1,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -ēs (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "you will be hearing"
+   ],
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "s",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiet",
    "stem": "audi",
    "end": "et",
-   "en": "he/she/it will hear, he/she/it will be hearing",
+   "en": "he/she/it will hear",
    "pn": "3rd Person Singular",
    "tl": "future active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -496,14 +990,33 @@
    "pi": 2,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -et (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "he/she/it will be hearing"
+   ],
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "t",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiēmus",
    "stem": "audi",
    "end": "ēmus",
-   "en": "we will hear, we will be hearing",
+   "en": "we will hear",
    "pn": "1st Person Plural",
    "tl": "future active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -512,14 +1025,33 @@
    "pi": 3,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -ēmus (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "we will be hearing"
+   ],
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "mus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audiētis",
    "stem": "audi",
    "end": "ētis",
-   "en": "you (pl.) will hear, you (pl.) will be hearing",
+   "en": "you (pl.) will hear",
    "pn": "2nd Person Plural",
    "tl": "future active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -528,14 +1060,33 @@
    "pi": 4,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -ētis (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "you (pl.) will be hearing"
+   ],
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "ē",
+     "m",
+     "time: later"
+    ],
+    [
+     "tis",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "audient",
    "stem": "audi",
    "end": "ent",
-   "en": "they will hear, they will be hearing",
+   "en": "they will hear",
    "pn": "3rd Person Plural",
    "tl": "future active indicative",
    "tag": "4th conj. · audiō, audīre (hear)",
@@ -544,8 +1095,27 @@
    "pi": 5,
    "lemma": "audiō, audīre, audīvī, audītum",
    "gloss": "hear",
-   "detail": "ending: -ent (vowel-shift future)",
-   "tnote": "vowel-shift future"
+   "tnote": "vowel-shift future",
+   "alt": [
+    "they will be hearing"
+   ],
+   "seg": [
+    [
+     "audi",
+     "s",
+     "incomplete stem"
+    ],
+    [
+     "e",
+     "m",
+     "time: later"
+    ],
+    [
+     "nt",
+     "e",
+     "ending"
+    ]
+   ]
   }
  ]
 }

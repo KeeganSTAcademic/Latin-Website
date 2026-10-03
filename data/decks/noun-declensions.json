@@ -57,6 +57,16 @@
      "label": "corpus (n.)"
     },
     {
+     "v": "civis",
+     "label": "cīvis (m./f., i-stem)",
+     "off": true
+    },
+    {
+     "v": "animal",
+     "label": "animal (n., i-stem)",
+     "off": true
+    },
+    {
      "v": "fructus",
      "label": "frūctus (m.)"
     },
@@ -134,7 +144,19 @@
    "pi": 0,
    "lemma": "puella, puellae (f.)",
    "gloss": "girl",
-   "detail": "ending: -a"
+   "voc": "O girl! · vocative singular",
+   "seg": [
+    [
+     "puell",
+     "s",
+     "stem"
+    ],
+    [
+     "a",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "puellae",
@@ -149,7 +171,19 @@
    "pi": 5,
    "lemma": "puella, puellae (f.)",
    "gloss": "girl",
-   "detail": "ending: -ae"
+   "voc": "O girls! · vocative plural",
+   "seg": [
+    [
+     "puell",
+     "s",
+     "stem"
+    ],
+    [
+     "ae",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "puellae",
@@ -164,7 +198,18 @@
    "pi": 1,
    "lemma": "puella, puellae (f.)",
    "gloss": "girl",
-   "detail": "ending: -ae"
+   "seg": [
+    [
+     "puell",
+     "s",
+     "stem"
+    ],
+    [
+     "ae",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "puellārum",
@@ -179,7 +224,18 @@
    "pi": 6,
    "lemma": "puella, puellae (f.)",
    "gloss": "girl",
-   "detail": "ending: -ārum"
+   "seg": [
+    [
+     "puell",
+     "s",
+     "stem"
+    ],
+    [
+     "ārum",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "puellae",
@@ -194,7 +250,18 @@
    "pi": 2,
    "lemma": "puella, puellae (f.)",
    "gloss": "girl",
-   "detail": "ending: -ae"
+   "seg": [
+    [
+     "puell",
+     "s",
+     "stem"
+    ],
+    [
+     "ae",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "puellīs",
@@ -209,7 +276,18 @@
    "pi": 7,
    "lemma": "puella, puellae (f.)",
    "gloss": "girl",
-   "detail": "ending: -īs"
+   "seg": [
+    [
+     "puell",
+     "s",
+     "stem"
+    ],
+    [
+     "īs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "puellam",
@@ -224,7 +302,18 @@
    "pi": 3,
    "lemma": "puella, puellae (f.)",
    "gloss": "girl",
-   "detail": "ending: -am"
+   "seg": [
+    [
+     "puell",
+     "s",
+     "stem"
+    ],
+    [
+     "am",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "puellās",
@@ -239,7 +328,18 @@
    "pi": 8,
    "lemma": "puella, puellae (f.)",
    "gloss": "girl",
-   "detail": "ending: -ās"
+   "seg": [
+    [
+     "puell",
+     "s",
+     "stem"
+    ],
+    [
+     "ās",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "puellā",
@@ -254,7 +354,18 @@
    "pi": 4,
    "lemma": "puella, puellae (f.)",
    "gloss": "girl",
-   "detail": "ending: -ā"
+   "seg": [
+    [
+     "puell",
+     "s",
+     "stem"
+    ],
+    [
+     "ā",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "puellīs",
@@ -269,7 +380,18 @@
    "pi": 9,
    "lemma": "puella, puellae (f.)",
    "gloss": "girl",
-   "detail": "ending: -īs"
+   "seg": [
+    [
+     "puell",
+     "s",
+     "stem"
+    ],
+    [
+     "īs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "equus",
@@ -284,7 +406,19 @@
    "pi": 0,
    "lemma": "equus, equī (m.)",
    "gloss": "horse",
-   "detail": "ending: -us"
+   "voc": "vocative is different: eque, O horse! (2nd declension -us → -e)",
+   "seg": [
+    [
+     "equ",
+     "s",
+     "stem"
+    ],
+    [
+     "us",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "equī",
@@ -299,7 +433,19 @@
    "pi": 5,
    "lemma": "equus, equī (m.)",
    "gloss": "horse",
-   "detail": "ending: -ī"
+   "voc": "O horses! · vocative plural",
+   "seg": [
+    [
+     "equ",
+     "s",
+     "stem"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "equī",
@@ -314,7 +460,18 @@
    "pi": 1,
    "lemma": "equus, equī (m.)",
    "gloss": "horse",
-   "detail": "ending: -ī"
+   "seg": [
+    [
+     "equ",
+     "s",
+     "stem"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "equōrum",
@@ -329,7 +486,18 @@
    "pi": 6,
    "lemma": "equus, equī (m.)",
    "gloss": "horse",
-   "detail": "ending: -ōrum"
+   "seg": [
+    [
+     "equ",
+     "s",
+     "stem"
+    ],
+    [
+     "ōrum",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "equō",
@@ -344,7 +512,18 @@
    "pi": 2,
    "lemma": "equus, equī (m.)",
    "gloss": "horse",
-   "detail": "ending: -ō"
+   "seg": [
+    [
+     "equ",
+     "s",
+     "stem"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "equīs",
@@ -359,7 +538,18 @@
    "pi": 7,
    "lemma": "equus, equī (m.)",
    "gloss": "horse",
-   "detail": "ending: -īs"
+   "seg": [
+    [
+     "equ",
+     "s",
+     "stem"
+    ],
+    [
+     "īs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "equum",
@@ -374,7 +564,18 @@
    "pi": 3,
    "lemma": "equus, equī (m.)",
    "gloss": "horse",
-   "detail": "ending: -um"
+   "seg": [
+    [
+     "equ",
+     "s",
+     "stem"
+    ],
+    [
+     "um",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "equōs",
@@ -389,7 +590,18 @@
    "pi": 8,
    "lemma": "equus, equī (m.)",
    "gloss": "horse",
-   "detail": "ending: -ōs"
+   "seg": [
+    [
+     "equ",
+     "s",
+     "stem"
+    ],
+    [
+     "ōs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "equō",
@@ -404,7 +616,18 @@
    "pi": 4,
    "lemma": "equus, equī (m.)",
    "gloss": "horse",
-   "detail": "ending: -ō"
+   "seg": [
+    [
+     "equ",
+     "s",
+     "stem"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "equīs",
@@ -419,7 +642,18 @@
    "pi": 9,
    "lemma": "equus, equī (m.)",
    "gloss": "horse",
-   "detail": "ending: -īs"
+   "seg": [
+    [
+     "equ",
+     "s",
+     "stem"
+    ],
+    [
+     "īs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "forum",
@@ -434,7 +668,19 @@
    "pi": 0,
    "lemma": "forum, forī (n.)",
    "gloss": "forum",
-   "detail": "ending: -um"
+   "voc": "O forum! · vocative singular",
+   "seg": [
+    [
+     "for",
+     "s",
+     "stem"
+    ],
+    [
+     "um",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "fora",
@@ -449,7 +695,19 @@
    "pi": 5,
    "lemma": "forum, forī (n.)",
    "gloss": "forum",
-   "detail": "ending: -a"
+   "voc": "O forums! · vocative plural",
+   "seg": [
+    [
+     "for",
+     "s",
+     "stem"
+    ],
+    [
+     "a",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "forī",
@@ -464,7 +722,18 @@
    "pi": 1,
    "lemma": "forum, forī (n.)",
    "gloss": "forum",
-   "detail": "ending: -ī"
+   "seg": [
+    [
+     "for",
+     "s",
+     "stem"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "forōrum",
@@ -479,7 +748,18 @@
    "pi": 6,
    "lemma": "forum, forī (n.)",
    "gloss": "forum",
-   "detail": "ending: -ōrum"
+   "seg": [
+    [
+     "for",
+     "s",
+     "stem"
+    ],
+    [
+     "ōrum",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "forō",
@@ -494,7 +774,18 @@
    "pi": 2,
    "lemma": "forum, forī (n.)",
    "gloss": "forum",
-   "detail": "ending: -ō"
+   "seg": [
+    [
+     "for",
+     "s",
+     "stem"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "forīs",
@@ -509,7 +800,18 @@
    "pi": 7,
    "lemma": "forum, forī (n.)",
    "gloss": "forum",
-   "detail": "ending: -īs"
+   "seg": [
+    [
+     "for",
+     "s",
+     "stem"
+    ],
+    [
+     "īs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "forum",
@@ -524,7 +826,18 @@
    "pi": 3,
    "lemma": "forum, forī (n.)",
    "gloss": "forum",
-   "detail": "ending: -um"
+   "seg": [
+    [
+     "for",
+     "s",
+     "stem"
+    ],
+    [
+     "um",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "fora",
@@ -539,7 +852,18 @@
    "pi": 8,
    "lemma": "forum, forī (n.)",
    "gloss": "forum",
-   "detail": "ending: -a"
+   "seg": [
+    [
+     "for",
+     "s",
+     "stem"
+    ],
+    [
+     "a",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "forō",
@@ -554,7 +878,18 @@
    "pi": 4,
    "lemma": "forum, forī (n.)",
    "gloss": "forum",
-   "detail": "ending: -ō"
+   "seg": [
+    [
+     "for",
+     "s",
+     "stem"
+    ],
+    [
+     "ō",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "forīs",
@@ -569,7 +904,18 @@
    "pi": 9,
    "lemma": "forum, forī (n.)",
    "gloss": "forum",
-   "detail": "ending: -īs"
+   "seg": [
+    [
+     "for",
+     "s",
+     "stem"
+    ],
+    [
+     "īs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēx",
@@ -584,7 +930,19 @@
    "pi": 0,
    "lemma": "rēx, rēgis (m.)",
    "gloss": "king",
-   "detail": "no ending: the dictionary form"
+   "voc": "O king! · vocative singular",
+   "seg": [
+    [
+     "rēx",
+     "s",
+     "stem"
+    ],
+    [
+     "",
+     "0",
+     "no ending"
+    ]
+   ]
   },
   {
    "la": "rēgēs",
@@ -599,7 +957,19 @@
    "pi": 5,
    "lemma": "rēx, rēgis (m.)",
    "gloss": "king",
-   "detail": "ending: -ēs"
+   "voc": "O kings! · vocative plural",
+   "seg": [
+    [
+     "rēg",
+     "s",
+     "stem"
+    ],
+    [
+     "ēs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēgis",
@@ -614,7 +984,18 @@
    "pi": 1,
    "lemma": "rēx, rēgis (m.)",
    "gloss": "king",
-   "detail": "ending: -is"
+   "seg": [
+    [
+     "rēg",
+     "s",
+     "stem"
+    ],
+    [
+     "is",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēgum",
@@ -629,7 +1010,18 @@
    "pi": 6,
    "lemma": "rēx, rēgis (m.)",
    "gloss": "king",
-   "detail": "ending: -um"
+   "seg": [
+    [
+     "rēg",
+     "s",
+     "stem"
+    ],
+    [
+     "um",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēgī",
@@ -644,7 +1036,18 @@
    "pi": 2,
    "lemma": "rēx, rēgis (m.)",
    "gloss": "king",
-   "detail": "ending: -ī"
+   "seg": [
+    [
+     "rēg",
+     "s",
+     "stem"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēgibus",
@@ -659,7 +1062,18 @@
    "pi": 7,
    "lemma": "rēx, rēgis (m.)",
    "gloss": "king",
-   "detail": "ending: -ibus"
+   "seg": [
+    [
+     "rēg",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēgem",
@@ -674,7 +1088,18 @@
    "pi": 3,
    "lemma": "rēx, rēgis (m.)",
    "gloss": "king",
-   "detail": "ending: -em"
+   "seg": [
+    [
+     "rēg",
+     "s",
+     "stem"
+    ],
+    [
+     "em",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēgēs",
@@ -689,7 +1114,18 @@
    "pi": 8,
    "lemma": "rēx, rēgis (m.)",
    "gloss": "king",
-   "detail": "ending: -ēs"
+   "seg": [
+    [
+     "rēg",
+     "s",
+     "stem"
+    ],
+    [
+     "ēs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēge",
@@ -704,7 +1140,18 @@
    "pi": 4,
    "lemma": "rēx, rēgis (m.)",
    "gloss": "king",
-   "detail": "ending: -e"
+   "seg": [
+    [
+     "rēg",
+     "s",
+     "stem"
+    ],
+    [
+     "e",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēgibus",
@@ -719,7 +1166,18 @@
    "pi": 9,
    "lemma": "rēx, rēgis (m.)",
    "gloss": "king",
-   "detail": "ending: -ibus"
+   "seg": [
+    [
+     "rēg",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "corpus",
@@ -734,7 +1192,19 @@
    "pi": 0,
    "lemma": "corpus, corporis (n.)",
    "gloss": "body",
-   "detail": "no ending: the dictionary form"
+   "voc": "O body! · vocative singular",
+   "seg": [
+    [
+     "corpus",
+     "s",
+     "stem"
+    ],
+    [
+     "",
+     "0",
+     "no ending"
+    ]
+   ]
   },
   {
    "la": "corpora",
@@ -749,7 +1219,19 @@
    "pi": 5,
    "lemma": "corpus, corporis (n.)",
    "gloss": "body",
-   "detail": "ending: -a"
+   "voc": "O bodies! · vocative plural",
+   "seg": [
+    [
+     "corpor",
+     "s",
+     "stem"
+    ],
+    [
+     "a",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "corporis",
@@ -764,7 +1246,18 @@
    "pi": 1,
    "lemma": "corpus, corporis (n.)",
    "gloss": "body",
-   "detail": "ending: -is"
+   "seg": [
+    [
+     "corpor",
+     "s",
+     "stem"
+    ],
+    [
+     "is",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "corporum",
@@ -779,7 +1272,18 @@
    "pi": 6,
    "lemma": "corpus, corporis (n.)",
    "gloss": "body",
-   "detail": "ending: -um"
+   "seg": [
+    [
+     "corpor",
+     "s",
+     "stem"
+    ],
+    [
+     "um",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "corporī",
@@ -794,7 +1298,18 @@
    "pi": 2,
    "lemma": "corpus, corporis (n.)",
    "gloss": "body",
-   "detail": "ending: -ī"
+   "seg": [
+    [
+     "corpor",
+     "s",
+     "stem"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "corporibus",
@@ -809,7 +1324,18 @@
    "pi": 7,
    "lemma": "corpus, corporis (n.)",
    "gloss": "body",
-   "detail": "ending: -ibus"
+   "seg": [
+    [
+     "corpor",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "corpus",
@@ -824,7 +1350,19 @@
    "pi": 3,
    "lemma": "corpus, corporis (n.)",
    "gloss": "body",
-   "detail": "no ending: same as the nominative (neuter)"
+   "detail": "Same as the nominative (neuter)",
+   "seg": [
+    [
+     "corpus",
+     "s",
+     "stem"
+    ],
+    [
+     "",
+     "0",
+     "no ending"
+    ]
+   ]
   },
   {
    "la": "corpora",
@@ -839,7 +1377,18 @@
    "pi": 8,
    "lemma": "corpus, corporis (n.)",
    "gloss": "body",
-   "detail": "ending: -a"
+   "seg": [
+    [
+     "corpor",
+     "s",
+     "stem"
+    ],
+    [
+     "a",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "corpore",
@@ -854,7 +1403,18 @@
    "pi": 4,
    "lemma": "corpus, corporis (n.)",
    "gloss": "body",
-   "detail": "ending: -e"
+   "seg": [
+    [
+     "corpor",
+     "s",
+     "stem"
+    ],
+    [
+     "e",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "corporibus",
@@ -869,7 +1429,549 @@
    "pi": 9,
    "lemma": "corpus, corporis (n.)",
    "gloss": "body",
-   "detail": "ending: -ibus"
+   "seg": [
+    [
+     "corpor",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "cīvis",
+   "stem": "cīv",
+   "end": "is",
+   "en": "the citizen (subject)",
+   "pn": "Nominative Singular",
+   "tag": "third declension (i-stem) · cīvis, cīvis (m./f.) · citizen",
+   "decl": "3",
+   "noun": "civis",
+   "num": "sg",
+   "pi": 0,
+   "lemma": "cīvis, cīvis (m./f.)",
+   "gloss": "citizen",
+   "detail": "The nominative and genitive have the same number of syllables: a sign of an i-stem",
+   "voc": "O citizen! · vocative singular",
+   "seg": [
+    [
+     "cīv",
+     "s",
+     "stem"
+    ],
+    [
+     "is",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "cīvis",
+   "stem": "cīv",
+   "end": "is",
+   "en": "of the citizen, the citizen's",
+   "pn": "Genitive Singular",
+   "tag": "third declension (i-stem) · cīvis, cīvis (m./f.) · citizen",
+   "decl": "3",
+   "noun": "civis",
+   "num": "sg",
+   "pi": 1,
+   "lemma": "cīvis, cīvis (m./f.)",
+   "gloss": "citizen",
+   "seg": [
+    [
+     "cīv",
+     "s",
+     "stem"
+    ],
+    [
+     "is",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "cīvī",
+   "stem": "cīv",
+   "end": "ī",
+   "en": "to / for the citizen",
+   "pn": "Dative Singular",
+   "tag": "third declension (i-stem) · cīvis, cīvis (m./f.) · citizen",
+   "decl": "3",
+   "noun": "civis",
+   "num": "sg",
+   "pi": 2,
+   "lemma": "cīvis, cīvis (m./f.)",
+   "gloss": "citizen",
+   "seg": [
+    [
+     "cīv",
+     "s",
+     "stem"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "cīvem",
+   "stem": "cīv",
+   "end": "em",
+   "en": "the citizen (direct object)",
+   "pn": "Accusative Singular",
+   "tag": "third declension (i-stem) · cīvis, cīvis (m./f.) · citizen",
+   "decl": "3",
+   "noun": "civis",
+   "num": "sg",
+   "pi": 3,
+   "lemma": "cīvis, cīvis (m./f.)",
+   "gloss": "citizen",
+   "seg": [
+    [
+     "cīv",
+     "s",
+     "stem"
+    ],
+    [
+     "em",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "cīve",
+   "stem": "cīv",
+   "end": "e",
+   "en": "by / with / from the citizen",
+   "pn": "Ablative Singular",
+   "tag": "third declension (i-stem) · cīvis, cīvis (m./f.) · citizen",
+   "decl": "3",
+   "noun": "civis",
+   "num": "sg",
+   "pi": 4,
+   "lemma": "cīvis, cīvis (m./f.)",
+   "gloss": "citizen",
+   "seg": [
+    [
+     "cīv",
+     "s",
+     "stem"
+    ],
+    [
+     "e",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "cīvēs",
+   "stem": "cīv",
+   "end": "ēs",
+   "en": "the citizens (subject)",
+   "pn": "Nominative Plural",
+   "tag": "third declension (i-stem) · cīvis, cīvis (m./f.) · citizen",
+   "decl": "3",
+   "noun": "civis",
+   "num": "pl",
+   "pi": 5,
+   "lemma": "cīvis, cīvis (m./f.)",
+   "gloss": "citizen",
+   "voc": "O citizens! · vocative plural",
+   "seg": [
+    [
+     "cīv",
+     "s",
+     "stem"
+    ],
+    [
+     "ēs",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "cīvium",
+   "stem": "cīv",
+   "end": "ium",
+   "en": "of the citizens, the citizens'",
+   "pn": "Genitive Plural",
+   "tag": "third declension (i-stem) · cīvis, cīvis (m./f.) · citizen",
+   "decl": "3",
+   "noun": "civis",
+   "num": "pl",
+   "pi": 6,
+   "lemma": "cīvis, cīvis (m./f.)",
+   "gloss": "citizen",
+   "detail": "i-stem: rēx has rēgum",
+   "seg": [
+    [
+     "cīv",
+     "s",
+     "stem"
+    ],
+    [
+     "ium",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "cīvibus",
+   "stem": "cīv",
+   "end": "ibus",
+   "en": "to / for the citizens",
+   "pn": "Dative Plural",
+   "tag": "third declension (i-stem) · cīvis, cīvis (m./f.) · citizen",
+   "decl": "3",
+   "noun": "civis",
+   "num": "pl",
+   "pi": 7,
+   "lemma": "cīvis, cīvis (m./f.)",
+   "gloss": "citizen",
+   "seg": [
+    [
+     "cīv",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "cīvēs",
+   "stem": "cīv",
+   "end": "ēs",
+   "en": "the citizens (direct object)",
+   "pn": "Accusative Plural",
+   "tag": "third declension (i-stem) · cīvis, cīvis (m./f.) · citizen",
+   "decl": "3",
+   "noun": "civis",
+   "num": "pl",
+   "pi": 8,
+   "lemma": "cīvis, cīvis (m./f.)",
+   "gloss": "citizen",
+   "detail": "Older texts also have -īs: cīvīs",
+   "seg": [
+    [
+     "cīv",
+     "s",
+     "stem"
+    ],
+    [
+     "ēs",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "cīvibus",
+   "stem": "cīv",
+   "end": "ibus",
+   "en": "by / with / from the citizens",
+   "pn": "Ablative Plural",
+   "tag": "third declension (i-stem) · cīvis, cīvis (m./f.) · citizen",
+   "decl": "3",
+   "noun": "civis",
+   "num": "pl",
+   "pi": 9,
+   "lemma": "cīvis, cīvis (m./f.)",
+   "gloss": "citizen",
+   "seg": [
+    [
+     "cīv",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "animal",
+   "stem": "animal",
+   "end": "",
+   "en": "the animal (subject)",
+   "pn": "Nominative Singular",
+   "tag": "third declension (i-stem) · animal, animālis (n.) · animal",
+   "decl": "3",
+   "noun": "animal",
+   "num": "sg",
+   "pi": 0,
+   "lemma": "animal, animālis (n.)",
+   "gloss": "animal",
+   "voc": "O animal! · vocative singular",
+   "seg": [
+    [
+     "animal",
+     "s",
+     "stem"
+    ],
+    [
+     "",
+     "0",
+     "no ending"
+    ]
+   ]
+  },
+  {
+   "la": "animālis",
+   "stem": "animāl",
+   "end": "is",
+   "en": "of the animal, the animal's",
+   "pn": "Genitive Singular",
+   "tag": "third declension (i-stem) · animal, animālis (n.) · animal",
+   "decl": "3",
+   "noun": "animal",
+   "num": "sg",
+   "pi": 1,
+   "lemma": "animal, animālis (n.)",
+   "gloss": "animal",
+   "seg": [
+    [
+     "animāl",
+     "s",
+     "stem"
+    ],
+    [
+     "is",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "animālī",
+   "stem": "animāl",
+   "end": "ī",
+   "en": "to / for the animal",
+   "pn": "Dative Singular",
+   "tag": "third declension (i-stem) · animal, animālis (n.) · animal",
+   "decl": "3",
+   "noun": "animal",
+   "num": "sg",
+   "pi": 2,
+   "lemma": "animal, animālis (n.)",
+   "gloss": "animal",
+   "seg": [
+    [
+     "animāl",
+     "s",
+     "stem"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "animal",
+   "stem": "animal",
+   "end": "",
+   "en": "the animal (direct object)",
+   "pn": "Accusative Singular",
+   "tag": "third declension (i-stem) · animal, animālis (n.) · animal",
+   "decl": "3",
+   "noun": "animal",
+   "num": "sg",
+   "pi": 3,
+   "lemma": "animal, animālis (n.)",
+   "gloss": "animal",
+   "detail": "Same as the nominative (neuter)",
+   "seg": [
+    [
+     "animal",
+     "s",
+     "stem"
+    ],
+    [
+     "",
+     "0",
+     "no ending"
+    ]
+   ]
+  },
+  {
+   "la": "animālī",
+   "stem": "animāl",
+   "end": "ī",
+   "en": "by / with / from the animal",
+   "pn": "Ablative Singular",
+   "tag": "third declension (i-stem) · animal, animālis (n.) · animal",
+   "decl": "3",
+   "noun": "animal",
+   "num": "sg",
+   "pi": 4,
+   "lemma": "animal, animālis (n.)",
+   "gloss": "animal",
+   "detail": "i-stem neuter: corpus has corpore",
+   "seg": [
+    [
+     "animāl",
+     "s",
+     "stem"
+    ],
+    [
+     "ī",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "animālia",
+   "stem": "animāl",
+   "end": "ia",
+   "en": "the animals (subject)",
+   "pn": "Nominative Plural",
+   "tag": "third declension (i-stem) · animal, animālis (n.) · animal",
+   "decl": "3",
+   "noun": "animal",
+   "num": "pl",
+   "pi": 5,
+   "lemma": "animal, animālis (n.)",
+   "gloss": "animal",
+   "detail": "i-stem neuter: corpus has corpora",
+   "voc": "O animals! · vocative plural",
+   "seg": [
+    [
+     "animāl",
+     "s",
+     "stem"
+    ],
+    [
+     "ia",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "animālium",
+   "stem": "animāl",
+   "end": "ium",
+   "en": "of the animals, the animals'",
+   "pn": "Genitive Plural",
+   "tag": "third declension (i-stem) · animal, animālis (n.) · animal",
+   "decl": "3",
+   "noun": "animal",
+   "num": "pl",
+   "pi": 6,
+   "lemma": "animal, animālis (n.)",
+   "gloss": "animal",
+   "detail": "i-stem",
+   "seg": [
+    [
+     "animāl",
+     "s",
+     "stem"
+    ],
+    [
+     "ium",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "animālibus",
+   "stem": "animāl",
+   "end": "ibus",
+   "en": "to / for the animals",
+   "pn": "Dative Plural",
+   "tag": "third declension (i-stem) · animal, animālis (n.) · animal",
+   "decl": "3",
+   "noun": "animal",
+   "num": "pl",
+   "pi": 7,
+   "lemma": "animal, animālis (n.)",
+   "gloss": "animal",
+   "seg": [
+    [
+     "animāl",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "animālia",
+   "stem": "animāl",
+   "end": "ia",
+   "en": "the animals (direct object)",
+   "pn": "Accusative Plural",
+   "tag": "third declension (i-stem) · animal, animālis (n.) · animal",
+   "decl": "3",
+   "noun": "animal",
+   "num": "pl",
+   "pi": 8,
+   "lemma": "animal, animālis (n.)",
+   "gloss": "animal",
+   "seg": [
+    [
+     "animāl",
+     "s",
+     "stem"
+    ],
+    [
+     "ia",
+     "e",
+     "ending"
+    ]
+   ]
+  },
+  {
+   "la": "animālibus",
+   "stem": "animāl",
+   "end": "ibus",
+   "en": "by / with / from the animals",
+   "pn": "Ablative Plural",
+   "tag": "third declension (i-stem) · animal, animālis (n.) · animal",
+   "decl": "3",
+   "noun": "animal",
+   "num": "pl",
+   "pi": 9,
+   "lemma": "animal, animālis (n.)",
+   "gloss": "animal",
+   "seg": [
+    [
+     "animāl",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "frūctus",
@@ -884,7 +1986,19 @@
    "pi": 0,
    "lemma": "frūctus, frūctūs (m.)",
    "gloss": "fruit",
-   "detail": "ending: -us"
+   "voc": "O fruit! · vocative singular",
+   "seg": [
+    [
+     "frūct",
+     "s",
+     "stem"
+    ],
+    [
+     "us",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "frūctūs",
@@ -899,7 +2013,19 @@
    "pi": 5,
    "lemma": "frūctus, frūctūs (m.)",
    "gloss": "fruit",
-   "detail": "ending: -ūs"
+   "voc": "O fruits! · vocative plural",
+   "seg": [
+    [
+     "frūct",
+     "s",
+     "stem"
+    ],
+    [
+     "ūs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "frūctūs",
@@ -914,7 +2040,18 @@
    "pi": 1,
    "lemma": "frūctus, frūctūs (m.)",
    "gloss": "fruit",
-   "detail": "ending: -ūs"
+   "seg": [
+    [
+     "frūct",
+     "s",
+     "stem"
+    ],
+    [
+     "ūs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "frūctuum",
@@ -929,7 +2066,18 @@
    "pi": 6,
    "lemma": "frūctus, frūctūs (m.)",
    "gloss": "fruit",
-   "detail": "ending: -uum"
+   "seg": [
+    [
+     "frūct",
+     "s",
+     "stem"
+    ],
+    [
+     "uum",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "frūctuī",
@@ -944,7 +2092,18 @@
    "pi": 2,
    "lemma": "frūctus, frūctūs (m.)",
    "gloss": "fruit",
-   "detail": "ending: -uī"
+   "seg": [
+    [
+     "frūct",
+     "s",
+     "stem"
+    ],
+    [
+     "uī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "frūctibus",
@@ -959,7 +2118,18 @@
    "pi": 7,
    "lemma": "frūctus, frūctūs (m.)",
    "gloss": "fruit",
-   "detail": "ending: -ibus"
+   "seg": [
+    [
+     "frūct",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "frūctum",
@@ -974,7 +2144,18 @@
    "pi": 3,
    "lemma": "frūctus, frūctūs (m.)",
    "gloss": "fruit",
-   "detail": "ending: -um"
+   "seg": [
+    [
+     "frūct",
+     "s",
+     "stem"
+    ],
+    [
+     "um",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "frūctūs",
@@ -989,7 +2170,18 @@
    "pi": 8,
    "lemma": "frūctus, frūctūs (m.)",
    "gloss": "fruit",
-   "detail": "ending: -ūs"
+   "seg": [
+    [
+     "frūct",
+     "s",
+     "stem"
+    ],
+    [
+     "ūs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "frūctū",
@@ -1004,7 +2196,18 @@
    "pi": 4,
    "lemma": "frūctus, frūctūs (m.)",
    "gloss": "fruit",
-   "detail": "ending: -ū"
+   "seg": [
+    [
+     "frūct",
+     "s",
+     "stem"
+    ],
+    [
+     "ū",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "frūctibus",
@@ -1019,7 +2222,18 @@
    "pi": 9,
    "lemma": "frūctus, frūctūs (m.)",
    "gloss": "fruit",
-   "detail": "ending: -ibus"
+   "seg": [
+    [
+     "frūct",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cornū",
@@ -1034,7 +2248,19 @@
    "pi": 0,
    "lemma": "cornū, cornūs (n.)",
    "gloss": "horn",
-   "detail": "ending: -ū"
+   "voc": "O horn! · vocative singular",
+   "seg": [
+    [
+     "corn",
+     "s",
+     "stem"
+    ],
+    [
+     "ū",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cornua",
@@ -1049,7 +2275,19 @@
    "pi": 5,
    "lemma": "cornū, cornūs (n.)",
    "gloss": "horn",
-   "detail": "ending: -ua"
+   "voc": "O horns! · vocative plural",
+   "seg": [
+    [
+     "corn",
+     "s",
+     "stem"
+    ],
+    [
+     "ua",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cornūs",
@@ -1064,7 +2302,18 @@
    "pi": 1,
    "lemma": "cornū, cornūs (n.)",
    "gloss": "horn",
-   "detail": "ending: -ūs"
+   "seg": [
+    [
+     "corn",
+     "s",
+     "stem"
+    ],
+    [
+     "ūs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cornuum",
@@ -1079,7 +2328,18 @@
    "pi": 6,
    "lemma": "cornū, cornūs (n.)",
    "gloss": "horn",
-   "detail": "ending: -uum"
+   "seg": [
+    [
+     "corn",
+     "s",
+     "stem"
+    ],
+    [
+     "uum",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cornū",
@@ -1094,7 +2354,18 @@
    "pi": 2,
    "lemma": "cornū, cornūs (n.)",
    "gloss": "horn",
-   "detail": "ending: -ū"
+   "seg": [
+    [
+     "corn",
+     "s",
+     "stem"
+    ],
+    [
+     "ū",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cornibus",
@@ -1109,7 +2380,18 @@
    "pi": 7,
    "lemma": "cornū, cornūs (n.)",
    "gloss": "horn",
-   "detail": "ending: -ibus"
+   "seg": [
+    [
+     "corn",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cornū",
@@ -1124,7 +2406,18 @@
    "pi": 3,
    "lemma": "cornū, cornūs (n.)",
    "gloss": "horn",
-   "detail": "ending: -ū"
+   "seg": [
+    [
+     "corn",
+     "s",
+     "stem"
+    ],
+    [
+     "ū",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cornua",
@@ -1139,7 +2432,18 @@
    "pi": 8,
    "lemma": "cornū, cornūs (n.)",
    "gloss": "horn",
-   "detail": "ending: -ua"
+   "seg": [
+    [
+     "corn",
+     "s",
+     "stem"
+    ],
+    [
+     "ua",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cornū",
@@ -1154,7 +2458,18 @@
    "pi": 4,
    "lemma": "cornū, cornūs (n.)",
    "gloss": "horn",
-   "detail": "ending: -ū"
+   "seg": [
+    [
+     "corn",
+     "s",
+     "stem"
+    ],
+    [
+     "ū",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "cornibus",
@@ -1169,7 +2484,18 @@
    "pi": 9,
    "lemma": "cornū, cornūs (n.)",
    "gloss": "horn",
-   "detail": "ending: -ibus"
+   "seg": [
+    [
+     "corn",
+     "s",
+     "stem"
+    ],
+    [
+     "ibus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēs",
@@ -1184,7 +2510,19 @@
    "pi": 0,
    "lemma": "rēs, reī (f.)",
    "gloss": "thing",
-   "detail": "ending: -ēs"
+   "voc": "O thing! · vocative singular",
+   "seg": [
+    [
+     "r",
+     "s",
+     "stem"
+    ],
+    [
+     "ēs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēs",
@@ -1199,7 +2537,19 @@
    "pi": 5,
    "lemma": "rēs, reī (f.)",
    "gloss": "thing",
-   "detail": "ending: -ēs"
+   "voc": "O things! · vocative plural",
+   "seg": [
+    [
+     "r",
+     "s",
+     "stem"
+    ],
+    [
+     "ēs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "reī",
@@ -1214,7 +2564,18 @@
    "pi": 1,
    "lemma": "rēs, reī (f.)",
    "gloss": "thing",
-   "detail": "ending: -eī"
+   "seg": [
+    [
+     "r",
+     "s",
+     "stem"
+    ],
+    [
+     "eī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rērum",
@@ -1229,7 +2590,18 @@
    "pi": 6,
    "lemma": "rēs, reī (f.)",
    "gloss": "thing",
-   "detail": "ending: -ērum"
+   "seg": [
+    [
+     "r",
+     "s",
+     "stem"
+    ],
+    [
+     "ērum",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "reī",
@@ -1244,7 +2616,18 @@
    "pi": 2,
    "lemma": "rēs, reī (f.)",
    "gloss": "thing",
-   "detail": "ending: -eī"
+   "seg": [
+    [
+     "r",
+     "s",
+     "stem"
+    ],
+    [
+     "eī",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēbus",
@@ -1259,7 +2642,18 @@
    "pi": 7,
    "lemma": "rēs, reī (f.)",
    "gloss": "thing",
-   "detail": "ending: -ēbus"
+   "seg": [
+    [
+     "r",
+     "s",
+     "stem"
+    ],
+    [
+     "ēbus",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rem",
@@ -1274,7 +2668,18 @@
    "pi": 3,
    "lemma": "rēs, reī (f.)",
    "gloss": "thing",
-   "detail": "ending: -em"
+   "seg": [
+    [
+     "r",
+     "s",
+     "stem"
+    ],
+    [
+     "em",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēs",
@@ -1289,7 +2694,18 @@
    "pi": 8,
    "lemma": "rēs, reī (f.)",
    "gloss": "thing",
-   "detail": "ending: -ēs"
+   "seg": [
+    [
+     "r",
+     "s",
+     "stem"
+    ],
+    [
+     "ēs",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rē",
@@ -1304,7 +2720,18 @@
    "pi": 4,
    "lemma": "rēs, reī (f.)",
    "gloss": "thing",
-   "detail": "ending: -ē"
+   "seg": [
+    [
+     "r",
+     "s",
+     "stem"
+    ],
+    [
+     "ē",
+     "e",
+     "ending"
+    ]
+   ]
   },
   {
    "la": "rēbus",
@@ -1319,7 +2746,65 @@
    "pi": 9,
    "lemma": "rēs, reī (f.)",
    "gloss": "thing",
-   "detail": "ending: -ēbus"
+   "seg": [
+    [
+     "r",
+     "s",
+     "stem"
+    ],
+    [
+     "ēbus",
+     "e",
+     "ending"
+    ]
+   ]
   }
- ]
+ ],
+ "views": {
+  "1": {
+   "title": "First Declension",
+   "subtitle": "puella, puellae (f.)",
+   "sel": {
+    "decl": [
+     "1"
+    ]
+   }
+  },
+  "2": {
+   "title": "Second Declension",
+   "subtitle": "equus, equī (m.) · forum, forī (n.)",
+   "sel": {
+    "decl": [
+     "2"
+    ]
+   }
+  },
+  "3": {
+   "title": "Third Declension",
+   "subtitle": "rēx, rēgis (m.) · corpus, corporis (n.) · i-stems cīvis and animal (off until you choose them in Settings)",
+   "sel": {
+    "decl": [
+     "3"
+    ]
+   }
+  },
+  "4": {
+   "title": "Fourth Declension",
+   "subtitle": "frūctus, frūctūs (m.) · cornū, cornūs (n.)",
+   "sel": {
+    "decl": [
+     "4"
+    ]
+   }
+  },
+  "5": {
+   "title": "Fifth Declension",
+   "subtitle": "rēs, reī (f.)",
+   "sel": {
+    "decl": [
+     "5"
+    ]
+   }
+  }
+ }
 }

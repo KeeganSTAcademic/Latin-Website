@@ -11,6 +11,7 @@
 :root{
   color-scheme:light;
   --bg:#FAF9F6; --paper:#FFFFFF; --soft:#EEECE6; --ink:#111111; --muted:#3D3A36; --line:#C9C4BA;
+  --surface:#FFFFFF; --surface2:#EEECE6; --rule:#C9C4BA;
   --accent:#7A1E12; --accent-ink:#FFFFFF; --accent-soft:#F6DDD8;
   --stem:#23487B; --stem-2:#2F5E95; --stem-bg:#DAE4F1;
   --mark:#6E3F00; --mark-bg:#FBEACB;
@@ -204,6 +205,7 @@ small{font-size:1rem}
 .ghost,.piece.ghost .t,.ov-ex .ghost-in{opacity:1}
 .wrap{max-width:1040px}
 </style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610032200">
 </head>
 <body>
 <div class="wrap">
@@ -248,9 +250,9 @@ small{font-size:1rem}
     <h3 style="margin-top:10px">The five pieces of information</h3>
     <dl class="defs">
       <div><dt><span class="sw s"></span>Aspect <span class="where">stem</span></dt>
-        <dd>Aspect is how the action is viewed: as <b>incomplete</b> (in progress, repeated, or not yet finished) or as <b>complete</b> (finished). <i>He was writing</i> and <i>he had written</i> are both in the past; they differ only in aspect. Whether an action is ongoing or finished is a separate question from when it happens: <i>I have arrived</i> describes an action completed in the present, <i>I had arrived</i> an action completed in the past. Latin communicates aspect through verb stems. The present stem (<i class="lat">amā-</i>, from the 2nd principal part) is used for incomplete action; the perfect stem (<i class="lat">amāv-</i>, from the 3rd principal part) for complete action.</dd></div>
+        <dd>Aspect is how the action is viewed: as <b>incomplete</b> (in progress, repeated, or not yet finished) or as <b>complete</b> (finished). <i>He was writing</i> and <i>he had written</i> are both in the past; they differ only in aspect. Whether an action is ongoing or finished is a separate question from when it happens: <i>I have arrived</i> describes an action completed in the present, <i>I had arrived</i> an action completed in the past. Latin communicates aspect through verb stems. The incomplete stem (<i class="lat">amā-</i>, from the 2nd principal part) is used for incomplete action; the complete stem (<i class="lat">amāv-</i>, from the 3rd principal part) for complete action.</dd></div>
       <div><dt><span class="sw m"></span>Time <span class="where">marker</span></dt>
-        <dd>Time is when the action takes place: in the past, now, or in the future. Latin shows it with a marker between stem and ending, built on <span class="mk">a</span> for the past and <span class="mk">i</span> for the future, with no marker for the present. What we call a <i>tense</i> (imperfect, future perfect, and so on) is a combination of aspect and time. Two aspects times three times gives Latin its six indicative tenses: the <b>present</b>, <b>imperfect</b>, and <b>future</b> (incomplete), and the <b>perfect</b>, <b>pluperfect</b>, and <b>future perfect</b> (complete). English does something similar with its helping verbs: the vowel of w<b class="m">a</b>s lines up with the <span class="mk">a</span> of the past marker, and the vowel of w<b class="m">i</b>ll with the <span class="mk">i</span> of the future marker.</dd></div>
+        <dd>Time is when the action takes place: in the past, now, or in the future. Latin shows it with a marker between stem and ending, built on <span class="mk">a</span> for the past and <span class="mk">i</span> for the future, with no marker for the present. What we call a <i>tense</i> (imperfect, future perfect, and so on) is a combination of aspect and time. Two aspects times three times gives Latin its six indicative tenses: the <b>present</b>, <b>imperfect</b>, and <b>future</b> (incomplete), and the <b>perfect</b>, <b>pluperfect</b>, and <b>future perfect</b> (complete). English does something similar with its helping verbs: the vowel of w<b class="m">a</b>s lines up with the <span class="mk">a</span> of the past marker, and the vowel of w<b class="m">i</b>ll with the <span class="mk">i</span> of the later marker.</dd></div>
       <div><dt><span class="sw e"></span>Person <span class="where">ending</span></dt>
         <dd>The personal ending determines both person and number. Person tells who performs the action in relation to the speaker. The 1st person is the speaker (<i>I, we</i>); the 2nd person is the one spoken to (<i>you, y'all</i>); the 3rd person is anyone or anything else (<i>he, she, it, they</i>). Because the ending already names the person, Latin usually leaves out the subject pronoun: <i class="lat">amat</i> by itself means "he loves" or "she loves."</dd></div>
       <div><dt><span class="sw e"></span>Number <span class="where">ending</span></dt>
@@ -267,7 +269,7 @@ small{font-size:1rem}
       <h3>The present</h3>
       <div class="ov-eng">English is / are (no time marker)</div>
       <div class="ov-ex lat"><span class="s">ama</span><span class="m ghost-in">∅</span><span class="e">t</span></div>
-      <p>Take the present stem (<i class="lat">amā-re → amā-</i>) and add the ending for person and number. There is no time marker; the present is the default form.</p>
+      <p>Take the incomplete stem (<i class="lat">amā-re → amā-</i>) and add the ending for person and number. There is no time marker; the present is the default form.</p>
       <div class="ov-tr"><span class="eyebrow">Translations</span>
         <ul>
           <li><i class="lat">amat</i>: he loves · he is loving · he does love</li>
@@ -282,7 +284,7 @@ small{font-size:1rem}
       <h3>The imperfect</h3>
       <div class="ov-eng">English <span class="hv">w<b class="m">a</b>s</span> / <span class="hv">were</span></div>
       <div class="ov-ex lat"><span class="s">amā</span><span class="m">ba</span><span class="e">t</span></div>
-      <p>Take the present stem (<i class="lat">amā-re → amā-</i>), add the very distinctive infix <i class="lat m">-ba-</i>, then the ending for person and number. The <span class="mk">a</span> as a past-time marker appears again in the pluperfect: <i class="lat">amāv-er-<span class="m">a</span>-m</i>.</p>
+      <p>Take the incomplete stem (<i class="lat">amā-re → amā-</i>), add the very distinctive infix <i class="lat m">-ba-</i>, then the ending for person and number. The <span class="mk">a</span> as a past-time marker appears again in the pluperfect: <i class="lat">amāv-er-<span class="m">a</span>-m</i>.</p>
       <div class="ov-tr"><span class="eyebrow">Translations</span>
         <ul>
           <li><i class="lat">amābat</i>: he w<b class="m">a</b>s loving · he used to love · he kept loving</li>
@@ -297,7 +299,7 @@ small{font-size:1rem}
       <h3>The future</h3>
       <div class="ov-eng">English <span class="hv">w<b class="m">i</b>ll</span> / <span class="hv">w<b class="m">i</b>ll</span> be verbing</div>
       <div class="ov-ex lat"><span class="s">amā</span><span class="m">bi</span><span class="e">t</span></div>
-      <p>In the 1st (<i class="lat">-āre</i>) and 2nd (<i class="lat">-ēre</i>) conjugations, take the present stem (<i class="lat">amā-re → amā-</i>), add the infix <i class="lat m">-bi-</i>, then the ending for person and number. The <span class="mk">i</span> as a future-time marker appears again in the future perfect: <i class="lat">amāv-er-<span class="m">i</span>-t</i>. The 3rd and 4th conjugations use a vowel instead (<a href="#s7">§7</a>).</p>
+      <p>In the 1st (<i class="lat">-āre</i>) and 2nd (<i class="lat">-ēre</i>) conjugations, take the incomplete stem (<i class="lat">amā-re → amā-</i>), add the infix <i class="lat m">-bi-</i>, then the ending for person and number. The <span class="mk">i</span> as a future-time marker appears again in the future perfect: <i class="lat">amāv-er-<span class="m">i</span>-t</i>. The 3rd and 4th conjugations use a vowel instead (<a href="#s7">§7</a>).</p>
       <div class="ov-tr"><span class="eyebrow">Translations</span>
         <ul>
           <li><i class="lat">amābit</i>: he w<b class="m">i</b>ll love · he w<b class="m">i</b>ll be loving · (older) he shall love</li>
@@ -343,7 +345,7 @@ small{font-size:1rem}
     <li>The <b class="m">time marker</b> carries the <b>tense</b> proper: past, present, or future.</li>
     <li>The <b class="e">ending</b> carries <b>person</b>, <b>number</b>, and <b>voice</b>.</li>
   </ol>
-  <p>Thus <span class="lat"><span class="s">amā</span><span class="m">bi</span><span class="e">tis</span></span> = <b class="e">y'all</b> <span class="hv">w<b class="m">i</b>ll</span> <b class="s">love</b>. Allen &amp; Greenough divide the verb into stem and ending, with the ending made up of a "mood or tense sign" plus a personal ending. The time marker here is their tense sign.</p>
+  <p>Thus <span class="lat"><span class="s">amā</span><span class="m">bi</span><span class="e">tis</span></span> = <b class="e">y'all</b> <span class="hv">w<b class="m">i</b>ll</span> <b class="s">love</b>. Allen &amp; Greenough divide the verb into stem and ending, with the ending made up of a "mood or time marker" plus a personal ending. The time marker here is their tense sign.</p>
   <div class="refs"><span class="eyebrow">See</span>
     <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/stems" target="_blank" rel="noopener">A&amp;G §164 Stems</a>
     <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/verb-endings" target="_blank" rel="noopener">A&amp;G §§165–167 Verb endings</a>
@@ -353,8 +355,8 @@ small{font-size:1rem}
 <div class="sec" id="s2"><div class="num">§2</div><div class="body">
   <h2>Aspect: the two stems</h2>
   <ol class="sub">
-    <li>The <b>present stem</b> is found by dropping <i class="lat">-re</i> from the present infinitive: <i class="lat">amāre → <span class="s">amā-</span></i>, <i class="lat">monēre → <span class="s">monē-</span></i>, <i class="lat">regere → <span class="s">rege-</span></i>, <i class="lat">audīre → <span class="s">audī-</span></i>. It forms the three <b>incomplete</b> tenses: present, imperfect, future.</li>
-    <li>The <b>perfect stem</b> (3rd principal part minus <i class="lat">-ī</i>: <i class="lat">amāvī → <span class="s">amāv-</span></i>) forms the three <b>complete</b> tenses: perfect, pluperfect, future perfect (active).</li>
+    <li>The <b>incomplete stem</b> is found by dropping <i class="lat">-re</i> from the present infinitive: <i class="lat">amāre → <span class="s">amā-</span></i>, <i class="lat">monēre → <span class="s">monē-</span></i>, <i class="lat">regere → <span class="s">rege-</span></i>, <i class="lat">audīre → <span class="s">audī-</span></i>. It forms the three <b>incomplete</b> tenses: present, imperfect, future.</li>
+    <li>The <b>complete stem</b> (3rd principal part minus <i class="lat">-ī</i>: <i class="lat">amāvī → <span class="s">amāv-</span></i>) forms the three <b>complete</b> tenses: perfect, pluperfect, future perfect (active).</li>
     <li>The stem is chosen before anything else. Once the stem tells you "ongoing" or "finished," the marker only has to add the time.</li>
   </ol>
   <div class="refs"><span class="eyebrow">See</span>
@@ -465,7 +467,7 @@ small{font-size:1rem}
     <li>In the imperfect the vowel is <b class="v">ē</b> (3rd) or <b class="v">iē</b> (3rd -iō, 4th): <i class="lat">reg<span class="v">ē</span><span class="m">ba</span>m, cap<span class="v">iē</span><span class="m">ba</span>m, aud<span class="v">iē</span><span class="m">ba</span>m</i>.</li>
   </ol>
   <div class="refs"><span class="eyebrow">See</span>
-    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/present-stem" target="_blank" rel="noopener">A&amp;G §176 Formation of the present stem</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/present-stem" target="_blank" rel="noopener">A&amp;G §176 Formation of the incomplete stem</a>
     <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/3rd-conjugation" target="_blank" rel="noopener">A&amp;G §186</a>
     <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/3rd-conjugation-io-verbs" target="_blank" rel="noopener">A&amp;G §188</a>
   </div>
@@ -526,7 +528,7 @@ function form(c,t,vo,p){
     const v = PRES_V[vo][c][p];
     const xv = (c==='3' && v) || ((c==='3io'||c==='4') && p===5);
     if(v) segs.push({t:v,r:'v',l:'stem vowel',x:xv});
-    segs.push({t:'∅',r:'ghost',l:'now: no marker'});
+    segs.push({t:'∅',r:'ghost',l:'time: now'});
     segs.push({t:(vo==='A'?END_A:END_P)[p],r:'e',l:'ending'});
     if(c==='1'&&p===0) notes.push({plain:1,h:'1st conjugation: the stem vowel <b>ā</b> merges into the ending, so <i>amā + ō</i> becomes <i>amō</i>.'});
     if(c==='3'&&p>0) notes.push({h:'3rd conjugation: the short <b>e</b> of <i>regere</i> weakens to <b>i</b> inside the word and to <b>u</b> before -nt'+(vo==='P'&&p===1?'. In the 2nd sg passive it stays <b>e</b>: <i>regeris</i>. Compare the future <i>regēris</i>, where the long ē is the time marker.':'.')});
@@ -535,7 +537,7 @@ function form(c,t,vo,p){
     notes.push({plain:1,h:'Present: no time marker; identified by stem and ending alone.'});
   } else if(t==='impf'){
     segs.push({t:IMPF_V[c],r:'v',l:'stem vowel'});
-    segs.push({t:IMPF_M[vo][p],r:'m',l:'past marker'});
+    segs.push({t:IMPF_M[vo][p],r:'m',l:'time: past'});
     segs.push({t:(vo==='A'?END_Am:END_Pr)[p],r:'e',l:'ending'});
     notes.push({plain:1,h:'Imperfect: the marker <b>-bā-</b> means past time. All conjugations use it. The ā shortens before -m, -t, -nt, -r, and -ntur.'});
     if(c==='3'||c==='3io'||c==='4') notes.push({plain:1,h:'The 3rd, 3rd -iō, and 4th conjugations join the stem to -bā- with <b>'+IMPF_V[c]+'</b>: <i>'+st+IMPF_V[c]+'bam</i>.'});
@@ -544,7 +546,7 @@ function form(c,t,vo,p){
       segs.push({t:(c==='1'?'ā':'ē'),r:'v',l:'stem vowel'});
       const mk = FUT12_M[vo][p];
       const x = (p===0 || p===5 || (vo==='P'&&p===1));
-      segs.push({t:mk,r:'m',l:'future marker',x:x});
+      segs.push({t:mk,r:'m',l:'time: later',x:x});
       segs.push({t:(vo==='A'?END_A:END_P)[p],r:'e',l:'ending'});
       if(p===0) notes.push({h:'1st sg: the <b>i</b> of -bi- drops before -ō'+(vo==='P'?'r':'')+'. The marker is clipped to <b>-b-</b>.'});
       if(p===5) notes.push({h:'3rd pl: <b>-bi-</b> becomes <b>-bu-</b> before -nt'+(vo==='P'?'ur':'')+'.'});
@@ -643,16 +645,16 @@ function render(){
 
 /* §3 tense grid */
 (function(){
-  const cols=[['Past','marker in a'],['Present','no marker'],['Future','marker in i']];
+  const cols=[['Past','marker in a'],['Now','no marker'],['Later','marker in i']];   // columns are times; the cells are tenses
   let h='<div class="hd"></div>';
   cols.forEach(c=>h+='<div class="hd">'+c[1]+'<b>'+c[0]+'</b></div>');
-  h+='<div class="row-h">Incomplete<small>present stem <span class="lat">amā-</span></small></div>';
+  h+='<div class="row-h">Incomplete<small>incomplete stem <span class="lat">amā-</span></small></div>';
   [['amā','<span class="m">b<u class="tu">a</u></span><span class="e">t</span>','he w<b class="m">a</b>s loving','Imperfect',0],
    ['ama','<span class="e">t</span>','he loves, is loving','Present',1],
    ['amā','<span class="m">b<u class="tu">i</u></span><span class="e">t</span>','he w<b class="m">i</b>ll love','Future',0]].forEach(([s,r,n,tn,d])=>{
     h+='<div class="cell'+(d?' def':'')+'"><span class="tn">'+tn+'</span><span class="f lat"><span class="s">'+s+'</span>'+r+'</span><span class="n">'+n+'</span></div>';
   });
-  h+='<div class="row-h">Complete<small>perfect stem <span class="lat">amāv-</span></small></div>';
+  h+='<div class="row-h">Complete<small>complete stem <span class="lat">amāv-</span></small></div>';
   [['<span class="m">er<u class="tu">a</u></span><span class="e">t</span>','he had loved','Pluperfect',0],
    ['<span class="e">it</span>','he has loved (he loved)','Perfect',1],
    ['<span class="m">er<u class="tu">i</u></span><span class="e">t</span>','he w<b class="m">i</b>ll have loved','Future perfect',0]].forEach(([r,n,tn,d])=>{
@@ -680,5 +682,8 @@ render(); renderK();
 })();
 </script>
 
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610032200"></script>
 </body>
 </html>

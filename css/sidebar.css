@@ -1,0 +1,121 @@
+/* Sidebar for the grammar pages and flashcards (see js/sidebar.js).
+   Uses only the theme tokens every page defines (--bg, --surface, --surface2, --ink, --muted,
+   --rule, --accent, --accent-ink, --accent-soft, --font), so it follows dark mode where the page has it. */
+:root{--sbw:300px}
+.sb{display:none;font-family:var(--font);font-size:1rem;line-height:1.5;color:var(--ink)}
+.sb-open,.sb-scrim{display:none}
+
+/* ---------- wide screens: fixed on the left ---------- */
+.has-sb body{padding-left:calc(var(--sbw) + 16px)}
+.has-sb .sb{display:flex;flex-direction:column;position:fixed;z-index:30;top:0;bottom:0;left:0;width:var(--sbw);
+  background:var(--surface);border-right:1px solid var(--rule)}
+.sb-drawer-bar{display:none}
+/* the lists' own level switcher repeats the sidebar's */
+.has-sb .wrap > .level-switch,.has-sb #picker > .level-switch{display:none}
+
+.sb-head{display:grid;gap:12px;padding:16px 16px 12px;border-bottom:1px solid var(--rule)}
+.sb-sections{display:flex;gap:4px;flex-wrap:wrap}
+.sb-sections a{flex:1;text-align:center;padding:6px 8px;border-radius:10px;color:var(--ink);text-decoration:none;font-weight:600}
+.sb-sections a:hover{background:var(--surface2)}
+.sb-sections a[aria-current]{background:var(--accent);color:var(--accent-ink)}
+.sb-level{display:flex;border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.sb-level button{flex:1;border:0;background:none;padding:5px 0;cursor:pointer;color:var(--ink);font:inherit;font-size:1rem;border-left:1px solid var(--rule)}
+.sb-level button:first-child{border-left:0}
+.sb-level button:hover{background:var(--surface2)}
+.sb-level button[aria-pressed="true"]{background:var(--ink);color:var(--surface);font-weight:700}
+
+.sb-tabs{display:flex;padding:0 12px;border-bottom:1px solid var(--rule)}
+.sb-tabs[hidden]{display:none}
+.sb-tabs button{flex:1;border:0;background:none;padding:10px 4px 8px;font:inherit;font-size:1rem;font-weight:600;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent}
+.sb-tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+
+.sb-panel{flex:1;overflow:auto;padding:10px 12px 16px;overscroll-behavior:contain}
+.sb-panel[hidden]{display:none}
+.sb-all{display:block;padding:6px 10px;margin-bottom:6px;border-radius:10px;color:var(--ink);text-decoration:none;font-weight:600}
+.sb-all:hover{background:var(--surface2)}
+.sb-group{margin:2px 0 6px}
+.sb-group summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:8px;padding:6px 10px;border-radius:8px;
+  font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-weight:600}
+.sb-group summary::-webkit-details-marker{display:none}
+.sb-group summary::before{content:"▸";font-variant:normal;letter-spacing:0;transition:transform .15s}
+.sb-group[open] > summary::before{transform:rotate(90deg)}
+.sb-group summary span{margin-left:auto;font-variant:normal;letter-spacing:0;font-weight:400}
+.sb-group summary:hover{background:var(--surface2)}
+.sb-group ul{list-style:none;margin:0;padding:0 0 0 12px;border-left:1px solid var(--rule);margin-left:15px}
+.sb-group li a{display:block;padding:5px 10px;border-radius:8px;color:var(--ink);text-decoration:none;line-height:1.5}
+.sb-group li a:hover{background:var(--surface2)}
+.sb a[aria-current="page"]{background:var(--accent-soft);color:var(--accent);font-weight:700;box-shadow:inset 3px 0 0 var(--accent)}
+.sb-sub{list-style:none}
+.sb-top{list-style:none;margin:0 0 6px;padding:0}
+.sb-top a{display:block;padding:6px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:600}
+.sb-top a:hover{background:var(--surface2)}
+.sb-sub .sb-group{margin:2px 0}
+/* nested headings (Incomplete, Active …): plain text, so the top-level small caps still read as the sections */
+.sb-group .sb-group summary{font-variant:normal;text-transform:none;letter-spacing:0;font-weight:600;color:var(--ink);padding:4px 10px}
+.sb-group .sb-group ul{margin-left:13px}
+.sb-empty{color:var(--muted);padding:6px 10px;margin:0}
+
+/* ---------- the page's own controls, in the "This page" / "This deck" tab ---------- */
+.sb-label{display:block;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-weight:600;margin:4px 0 6px}
+.sb-jumps{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:baseline;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid var(--rule)}
+.sb-jumps .sb-label{width:100%}
+.sb-jumps a{color:var(--accent);padding:2px 8px;border-radius:8px;border:1px solid var(--rule);text-decoration:none}
+.sb-jumps a:hover{background:var(--surface2)}
+/* grammar toolbar rows, stacked */
+#sb-tools .tb-row{display:flex;flex-direction:column;align-items:stretch;gap:6px;margin:0 0 16px;padding:0;justify-content:flex-start}
+#sb-tools .tb-row .tb-label{margin:0;text-align:left}
+#sb-tools .tb-row .chip{width:100%;justify-content:flex-start;text-align:left;margin:0}
+#sb-tools #patterns .chip{display:block;line-height:1.4}
+#sb-tools #patterns .chip .sw{display:inline-block;vertical-align:.1em;margin-right:8px}
+#sb-tools #patterns .chip .l{margin-right:4px}
+#sb-tools .seg{display:flex;flex-direction:column;gap:6px;border:0;background:none;padding:0;box-shadow:none}
+#sb-tools .seg .chip{border-radius:10px!important;border:1px solid var(--rule)}
+#sb-tools .legend{display:grid;gap:6px;margin:0;justify-content:start}
+#sb-tools nav.toc{display:grid;gap:2px;justify-content:start;margin:0;font-size:1rem}
+#sb-tools nav.toc a{padding:4px 8px;border-radius:8px}
+#sb-tools nav.toc a:hover{background:var(--surface2)}
+/* flashcard settings */
+#sb-tools .fc-settings{margin:0 0 12px;box-shadow:none;border:0;background:none;padding:0}
+#sb-tools .fc-settings > summary{display:none}            /* always open in the sidebar: the tab names it */
+#sb-tools .fc-settings .fc-controls{margin:0}
+/* without the sidebar, Settings sits under the card (moved there by js/sidebar.js) */
+.sb-settings-below .fc-layout{display:block}
+.sb-settings-below .fc-side{position:static;max-height:none;overflow:visible;margin:24px 0 0}
+.sb-settings-below .fc-side .fc-settings{margin:0}
+#sb-tools .fc-row{gap:5px}
+#sb-tools .fc-row .label{width:100%}
+#sb-tools .chip{font-size:1rem}
+.sb-tools-out .fc-layout{display:block}
+.sb-tools-out .fc-side{display:none}
+.sb-tools-out #player{max-width:900px;margin:0 auto}
+/* deck list: one column of content, aligned (the panels above the list were 760px and centred) */
+.has-sb #picker{max-width:1000px;margin:0 auto}
+.has-sb #picker .fc-srs-start,.has-sb #picker .fc-srs,.has-sb #picker .fc-search,.has-sb #picker .fc-results,.has-sb #picker .fc-combine-bar{max-width:none}
+
+/* ---------- narrow screens: a menu button opens the list as a drawer ---------- */
+.sb-narrow .sb-open{display:inline-flex;align-items:center;gap:8px;margin-top:10px;
+  border:1px solid var(--rule);background:var(--surface);color:var(--ink);border-radius:10px;padding:5px 12px;font:600 1rem/1.5 var(--font);cursor:pointer}
+.sb-burger,.sb-burger::before,.sb-burger::after{display:block;width:16px;height:2px;background:currentColor;border-radius:1px;position:relative}
+.sb-burger::before,.sb-burger::after{content:"";position:absolute;left:0}
+.sb-burger::before{top:-5px}.sb-burger::after{top:5px}
+.sb-narrow.sb-drawer .sb{display:flex;flex-direction:column;position:fixed;z-index:50;top:0;bottom:0;left:0;width:min(var(--sbw),86vw);
+  background:var(--surface);box-shadow:0 0 40px rgba(0,0,0,.3)}
+.sb-narrow.sb-drawer .sb-scrim{display:block;position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.4)}
+.sb-narrow .sb-tabs{display:none}
+.sb-narrow .sb-drawer-bar{display:flex;align-items:center;justify-content:space-between;order:-1;padding:8px 8px 0 16px;
+  font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-weight:600}
+.sb-close{border:0;background:none;font:400 1.75rem/1 var(--font);color:var(--ink);cursor:pointer;padding:4px 8px;border-radius:8px}
+.sb-close:hover{background:var(--surface2)}
+/* ---------- grammar pages with the sidebar: give the charts the room ----------
+   The sidebar takes ~320px, so the inspector (detail card) gets narrower and only as tall as what it shows,
+   and the charts keep two or three columns. Under 1280px it becomes the bottom sheet phones use. */
+.has-sb .work{grid-template-columns:minmax(0,1fr) clamp(260px,21vw,340px)}
+.has-sb .card{height:auto;max-height:calc(100vh - 32px);padding:18px 18px 16px}
+.has-sb .card .form{font-size:2.25rem}
+.has-sb .charts:not(.one-up){grid-template-columns:repeat(auto-fit,minmax(max(230px,calc((100% - 28px) / 3)),1fr))}
+@media (max-width:1279px){
+  .has-sb .work{grid-template-columns:1fr;grid-template-areas:"charts" "panel"}
+  .has-sb .panel{position:sticky;bottom:calc(env(safe-area-inset-bottom,0px) + 8px);top:auto}
+  .has-sb .card{box-shadow:0 -6px 24px rgba(60,40,20,.18);height:auto;max-height:42vh;gap:10px;padding:14px}
+}
+@media (prefers-reduced-motion:reduce){.sb-group summary::before{transition:none}}
