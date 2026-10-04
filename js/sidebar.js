@@ -1,7 +1,7 @@
 /* Sidebar for the grammar pages and flashcards.
    On wide screens (1100px and up) a fixed sidebar on the left holds:
-     - links to the three sections (Grammar · Flashcards · Games)
-     - the level switcher (shared with the lists; see js/levels.js)
+     - links to the three sections (Grammar · Flashcards · Games)   [off for now: see SITE_NAV]
+     - the level switcher (shared with the lists; see js/levels.js)   [off for now: see SITE_NAV]
      - every grammar page or deck, grouped, filtered by level, with the current one marked
    A second tab, "This page" / "This deck", holds the page's own controls, moved there from the page
    (a grammar page's pattern buttons and view toggles; a deck's Settings), so the page itself is just
@@ -13,6 +13,10 @@
   const base = document.currentScript.src.replace(/js\/sidebar\.js.*$/, "");
   const section = document.body.dataset.sb || (/\/flashcards\//.test(location.pathname) ? "flashcards" : "grammar");
   const WIDE = matchMedia("(min-width:1100px)");
+  // Section links (Grammar · Flashcards · Games) and the level switcher at the top of the sidebar.
+  // Off while the site is reached through Google Sites, which does that navigation; set true to bring them back.
+  // With it off, the lists still honour ?level=N in the link (and a level saved earlier).
+  const SITE_NAV = false;
   const root = document.documentElement;
 
   const words = section === "flashcards"
@@ -59,14 +63,14 @@
   const nav = document.createElement("nav");
   nav.className = "sb"; nav.id = "sb"; nav.setAttribute("aria-label", "Site");
   nav.innerHTML = `
-    <div class="sb-head">
+    ${SITE_NAV ? `    <div class="sb-head">
       <div class="sb-sections">
         <a href="${base}grammar/index.html"${section === "grammar" ? ' aria-current="true"' : ""}>Grammar</a>
         <a href="${base}flashcards/index.html"${section === "flashcards" ? ' aria-current="true"' : ""}>Flashcards</a>
         <a href="${base}games/index.html">Games</a>
       </div>
       <div class="sb-level" role="group" aria-label="Level"></div>
-    </div>
+    </div>` : ""}
     <div class="sb-drawer-bar"><span>Menu</span><button type="button" class="sb-close" aria-label="Close menu">×</button></div>
     <div class="sb-tabs" role="tablist">
       <button type="button" role="tab" id="sb-tab-list" aria-controls="sb-list">${words.list}</button>
@@ -89,7 +93,8 @@
 
   // ---------- level ----------
   function drawLevel(){
-    const box = q(".sb-level"), names = (levels.data && levels.data.levels) || [];
+    const box = q(".sb-level"); if(!box) return;
+    const names = (levels.data && levels.data.levels) || [];
     const short = ["All", "I", "II", "III", "IV"];
     box.innerHTML = ["All levels", ...names].map((n, i) =>
       `<button type="button" data-i="${i}" aria-pressed="${levels.current === i}" title="${esc(n)}" aria-label="${esc(n)}">${short[i] || i}</button>`).join("");
