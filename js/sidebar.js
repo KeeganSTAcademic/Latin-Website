@@ -207,7 +207,7 @@
 
   // ---------- tabs ----------
   const tabKey = "sb:tab:" + section;
-  let enterDeck = section === "flashcards" && !onIndex;   // cleared once the student picks a tab
+  let enterDeck = !onIndex;   // opening a grammar page or a deck lands on its own tab; cleared once the student picks a tab
   function showTab(t){
     const tools = t === "tools" && root.classList.contains("sb-tools-out");
     q("#sb-tab-list").setAttribute("aria-selected", !tools); q("#sb-tab-tools").setAttribute("aria-selected", tools);
@@ -223,7 +223,7 @@
     root.classList.toggle("sb-narrow", !wide);
     placeTools(wide);
     q(".sb-tabs").hidden = !root.classList.contains("sb-tools-out");
-    // opening a deck lands on its "This deck" tab (Settings); after that, the student's tab choice holds for the visit
+    // opening a grammar page or deck lands on its "This page" / "This deck" tab; after that, the student's tab choice holds for the visit
     const want = enterDeck ? "tools" : store.get(tabKey, "tools");
     showTab(root.classList.contains("sb-tools-out") ? want : "list");
     if(wide) drawer(false);

@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
-<link rel="stylesheet" href="../css/grammar.css?v=202610061100">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071210">
 <style>
 :root{--p-accsg:#7F2756; --p-accsg-bg:#F4DDE9; --p-ablsg:#52378A; --p-ablsg-bg:#E6DEF3; --p-datsg:#2F5331; --p-datsg-bg:#DDEBDC; --p-accpl:#16524C; --p-accpl-bg:#D6EAE5; --p-nomaccpl:#404B57; --p-nomaccpl-bg:#E1E5EA; --p-neut:#683F1D; --p-neut-bg:#F0E0CF; --p-datablpl:#23487B; --p-datablpl-bg:#DAE4F1; --p-genpl:#63460D; --p-genpl-bg:#F3E6C6; --p-confuse:#7C3112; --p-confuse-bg:#FADFCF; --card-h:760px;}
 /* trends spread */
@@ -212,10 +212,23 @@ const CELLS = [];
 COLS.forEach(col=>ROWS.forEach((r,i)=>CELLS.push({key:`${col.id}.${r.k}`, col, row:r, ending:col.e[i], form:col.f[i]})));
 const byKey = Object.fromEntries(CELLS.map(c=>[c.key,c]));
 
+// The English, with what the ending contributes marked in the ending colour (as on the flashcards):
+// the preposition, the plural -s / -ies, the possessive 's, and (subject) / (direct object).
+function markEn(t, sg){
+  const e = s => `<span class="ee">${s}</span>`;
+  const y = sg.endsWith('y') ? sg.slice(0,-1) : null;
+  return t.split(/(\s+|\(subject\)|\(direct object\))/).map(w => {
+    if(!w || /^\s+$/.test(w)) return w;
+    if(/^\((subject|direct object)\)$/.test(w) || /^(of|to|for|by|with|from|in|\/)$/.test(w)) return e(w);
+    if(w.startsWith(sg) && w.length > sg.length) return sg + e(w.slice(sg.length));
+    if(y && w.startsWith(y+'ies')) return y + e(w.slice(y.length));
+    return w;
+  }).join('');
+}
 function english(c){
   const w = c.col.en[c.row.n==='sg'?0:1];
   const poss = c.row.n==='sg' ? w+"'s" : (w.endsWith('s') ? w+"'" : w+"'s");
-  return {nom:`the ${w}`, gen:`of the ${w} · the ${poss}`, dat:`to / for the ${w}`, acc:`the ${w}`, abl:`by / with / from / in the ${w}`}[c.row.c];
+  return {nom:`the ${w} (subject)`, gen:`of the ${w} · the ${poss}`, dat:`to / for the ${w}`, acc:`the ${w} (direct object)`, abl:`by / with / from / in the ${w}`}[c.row.c];
 }
 const parseName = c => `${c.row.name} ${c.row.n==='sg'?'singular':'plural'}`;
 const sameJob = (a,b) => a.row.k===b.row.k;
@@ -314,7 +327,7 @@ function renderActive(){
   const endTxt = c.ending===null ? (c.row.k==='acc.sg'?'same as nominative':'no fixed ending') : '-'+shown(c.ending);
   let out=`<div class="parse">${parseName(c)} · ${c.col.decl}</div>
     <div class="form">${c.ending===null?`<span class="var-big">${endTxt}</span>`:`<span class="en">${endTxt}</span>`}</div>
-    <div class="tr"><i>${shown(c.form)}</i>: ${english(c)}</div>
+    <div class="tr"><i>${shown(c.form)}</i>: ${markEn(english(c), c.col.en[0])}</div>
     <div class="job">${JOBS[c.row.c]}</div>`;
   const grouped=list=>{const g=new Map();list.forEach(o=>{if(!g.has(o.col))g.set(o.col,[]);g.get(o.col).push(o);});
     return [...g].map(([col,os])=>`<li><b>${col.h}</b> <i>${[...new Set(os.map(o=>shown(o.form)))].join(', ')}</i>: ${os.map(o=>parseName(o).toLowerCase()).join('; ')}</li>`).join('');};
@@ -332,6 +345,7 @@ render();
 </script>
 <script src="../js/common.js?v=202610011900"></script>
 <script src="../js/levels.js?v=202610021500"></script>
-<script src="../js/sidebar.js?v=202610061200"></script>
+<script src="../js/sidebar.js?v=202610071000"></script>
+<script src="../js/pattern-notes.js?v=202610071100"></script>
 </body>
 </html>

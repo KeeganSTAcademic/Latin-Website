@@ -175,3 +175,13 @@ h2{font-size:1.625rem;font-weight:700;margin-bottom:14px}
 @media (max-width:1180px){.charts.two-up,.er .charts.three-up{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}}
 @media (max-width:700px){.rule-table td{display:block;width:auto!important;border-bottom:0;padding:3px 12px}.rule-table tr{display:block;border-bottom:1px solid var(--rule);padding:6px 0}}
 [hidden]{display:none!important} body{margin:0}
+
+/* Pattern notes shown in the inspector (js/pattern-notes.js) */
+.pcard[hidden],.panel .card[hidden]{display:none}
+.pcard{text-align:left}
+.pcard .parse{text-align:center}
+.pcard .pnotes{max-width:none;gap:10px}
+.pcard .pnote{background:none;padding:2px 0 2px 12px;font-size:1rem;line-height:1.5}
+.pcard .pc-hint{text-align:center;color:var(--muted);font-size:1rem}
+/* the part of the English that the ending supplies (same colour as the ending above it) */
+.card .tr .ee{color:var(--accent);font-weight:700}

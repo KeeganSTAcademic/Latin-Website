@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
-<link rel="stylesheet" href="../css/grammar.css?v=202610061100">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071210">
 <style>
 :root{--p-genpl:#63460D; --p-genpl-bg:#F3E6C6; --p-accsg:#7F2756; --p-accsg-bg:#F4DDE9; --p-accpl:#16524C; --p-accpl-bg:#D6EAE5; --p-ablsg:#52378A; --p-ablsg-bg:#E6DEF3; --p-datablpl:#23487B; --p-datablpl-bg:#DAE4F1; --p-nomaccpl:#404B57; --p-nomaccpl-bg:#E1E5EA; --p-datsg:#2F5331; --p-datsg-bg:#DDEBDC; --p-neut:#683F1D; --p-neut-bg:#F0E0CF;}
 </style>
@@ -148,10 +148,23 @@ NOUNS.forEach(n=>{
 const byKey = Object.fromEntries(CELLS.map(c=>[c.key,c]));
 const shown = s => state.mac ? s : strip(s);
 
+// The English, with what the ending contributes marked in the ending colour (as on the flashcards):
+// the preposition, the plural -s / -ies, the possessive 's, and (subject) / (direct object).
+function markEn(t, sg){
+  const e = s => `<span class="ee">${s}</span>`;
+  const y = sg.endsWith('y') ? sg.slice(0,-1) : null;
+  return t.split(/(\s+|\(subject\)|\(direct object\))/).map(w => {
+    if(!w || /^\s+$/.test(w)) return w;
+    if(/^\((subject|direct object)\)$/.test(w) || /^(of|to|for|by|with|from|in|\/)$/.test(w)) return e(w);
+    if(w.startsWith(sg) && w.length > sg.length) return sg + e(w.slice(sg.length));
+    if(y && w.startsWith(y+'ies')) return y + e(w.slice(y.length));
+    return w;
+  }).join('');
+}
 function english(c){
   const w = c.noun.en[c.num==='sg'?0:1];
   const poss = c.num==='sg' ? w+"'s" : (w.endsWith('s') ? w+"'" : w+"'s");
-  return {nom:`the ${w}`, gen:`of the ${w} · the ${poss}`, dat:`to / for the ${w}`, acc:`the ${w}`,
+  return {nom:`the ${w} (subject)`, gen:`of the ${w} · the ${poss}`, dat:`to / for the ${w}`, acc:`the ${w} (direct object)`,
           abl:`by / with / from / in the ${w}`}[c.case];
 }
 const caseObj = k => CASES.find(c=>c.k===k);
@@ -244,7 +257,7 @@ function renderActive(){
   let h = `<div class="parse">${parseName(c)} · ${c.noun.dict}</div>
     <div class="form"><span>${shown(c.stem)}</span><span class="en">${shown(c.ending)}</span></div>
     ${c.alt?`<div class="job">also <i>${shown(c.noun.stem+c.alt)}</i></div>`:''}
-        <div class="tr">${english(c)}</div>
+        <div class="tr">${markEn(english(c), c.noun.en[0])}</div>
     <div class="job">${caseObj(c.case).job}</div>`;
   if(tw.length){
     h+=`<div class="amb-box"><h4>Ambiguous: could also be</h4><ul>${
@@ -270,6 +283,7 @@ render();
 </script>
 <script src="../js/common.js?v=202610011900"></script>
 <script src="../js/levels.js?v=202610021500"></script>
-<script src="../js/sidebar.js?v=202610061200"></script>
+<script src="../js/sidebar.js?v=202610071000"></script>
+<script src="../js/pattern-notes.js?v=202610071100"></script>
 </body>
 </html>
