@@ -72,7 +72,22 @@
   "incomplete-system": 2,
   "perfect-active": 2,
   "pluperfect-active": 2,
-  "future-perfect-active": 2
+  "future-perfect-active": 2,
+  "pronouns-personal": 3,
+  "pronouns-reflexive": 3,
+  "pronouns-demonstrative": 2,
+  "pronouns-is": 2,
+  "pronouns-hic": 2,
+  "pronouns-ille": 3,
+  "pronouns-iste": 3,
+  "pronouns-idem": 3,
+  "pronouns-intensive": 3,
+  "pronouns-relative": 2,
+  "pronouns-interrogative": 3,
+  "pronouns-indefinite": 3,
+  "pronouns-aliquis": 3,
+  "pronouns-quidam": 3,
+  "pronouns-unus-nauta": 3
  },
  "games": {
   "first-letters": 1,

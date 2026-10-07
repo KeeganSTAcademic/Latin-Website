@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ille, illa, illud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071210">
+<style>
+/* pattern colours: the noun pages' 7:1 set, plus a few more */
+:root{
+  --p-accsg:#7F2756; --p-accsg-bg:#F4DDE9; --p-ablsg:#52378A; --p-ablsg-bg:#E6DEF3; --p-datsg:#2F5331; --p-datsg-bg:#DDEBDC;
+  --p-neutpl:#16524C; --p-neutpl-bg:#D6EAE5; --p-genpl:#63460D; --p-genpl-bg:#F3E6C6; --p-datablpl:#23487B; --p-datablpl-bg:#DAE4F1;
+  --p-like12:#3D4451; --p-like12-bg:#E4E7EC; --p-like3:#0F4C5C; --p-like3-bg:#D5E8EE;
+  --p-gd:#7F2756; --p-gd-bg:#F4DDE9; --p-nd:#52378A; --p-nd-bg:#E6DEF3; --p-odd:#5A3D1E; --p-odd-bg:#EFE3D5;
+  --p-same:#16524C; --p-same-bg:#D6EAE5; --p-aa:#63460D; --p-aa-bg:#F3E6C6;
+}
+.intro{display:grid;gap:8px;max-width:80ch}
+.intro-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.intro .q{font-size:1.25rem;font-style:italic;color:var(--accent)}
+.intro .sec{margin-left:auto}
+.intro p{font-size:1.125rem}
+.block{display:grid;gap:12px;margin-top:26px}
+.block h3{font-size:1.375rem;font-weight:700;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.sec{font-size:1rem;font-weight:400;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.pick{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pick:empty{display:none}
+.dem-table{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);box-shadow:var(--shadow);margin-top:6px}
+.dem-table table{border-collapse:collapse;width:100%;font-size:1.0625rem}
+.dem-table th{font-weight:400;font-size:1rem;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule)}
+.dem-table td{padding:10px 14px;border-top:1px solid var(--rule);vertical-align:top}
+.dem-table td:first-child{font-size:1.1875rem;white-space:nowrap}
+.dem-table td:last-child{color:var(--muted);white-space:nowrap}
+/* distance diagram: hic / iste / ille in a row, closer → further, is underneath */
+.like-noun{margin-top:12px;padding:12px 14px;border:1px solid var(--rule);border-radius:12px;background:var(--surface2);text-align:left}
+.like-noun h4{margin:0 0 6px;font-size:1rem;font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;color:var(--muted)}
+.like-noun p{margin:0;font-size:1rem;line-height:1.45;padding-left:10px;border-left:3px solid var(--c)}
+.like-noun p+p{margin-top:8px}
+.dist{margin:10px 0 6px;display:grid;gap:10px}
+.dist figcaption{font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-weight:600;font-size:1rem}
+.dist-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.dist .st{display:grid;gap:2px;align-content:start;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 14px}
+.dist .st.on{background:var(--accent-soft);border-color:var(--accent)}
+.dist .who{font-weight:600}
+.dist .la{font-style:italic;font-size:1.1875rem;color:var(--accent-strong,var(--accent))}
+.dist .eg{color:var(--muted);font-size:1rem}
+.dist .here{justify-self:start;font-size:1rem;font-weight:600;color:var(--accent-strong,var(--accent));font-variant:small-caps;text-transform:lowercase;letter-spacing:.06em}
+.dist-axis{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--muted);font-size:1rem;margin-top:-2px}
+.dist-axis::before{content:"";order:1;flex:1;height:2px;background:linear-gradient(90deg,var(--rule2,var(--rule)),var(--rule2,var(--rule))) center/100% 2px no-repeat}
+.dist-axis span:last-child{order:2}
+.dist-axis span:last-child::after{content:" →"}
+.dist-axis span:first-child::before{content:"← "}
+@media (max-width:640px){.dist-row{grid-template-columns:1fr}.dist-axis{display:none}}
+#patterns .tb-sub{flex-basis:100%;text-align:center;font-size:1rem;color:var(--muted);margin-top:4px}
+/* the charts: noun-style cards; six columns for pronouns with genders */
+.charts.prons{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.charts.prons.wide{grid-template-columns:1fr}
+.grid.g6{grid-template-columns:auto repeat(6,minmax(0,1fr))}
+.grid.g6 .mob,.grid.g6 .short{display:none}
+@media (max-width:640px){
+  .grid.g6{grid-template-columns:auto repeat(3,minmax(0,1fr))}
+  .grid.g6>*{grid-row:var(--mr);grid-column:var(--mc)}
+  .grid.g6 .mob{display:flex}
+  .grid.g6 .full{display:none}.grid.g6 .short{display:inline}
+  .grid.g6 .pl1,.grid.g6 .hd.pl{border-left:0}
+  .grid.g6 .pltop{border-top:1px solid var(--rule);margin-top:0}
+  .grid.g6 .cell{font-size:1.125rem;padding:10px 8px}
+  .grid.g6.long .cell{font-size:1.0625rem;padding:10px 6px}
+}
+.grid.cmp{grid-template-columns:auto repeat(8,minmax(0,1fr))}
+.grid.cmp .cell,.grid.g6.long .cell{font-size:1.0625rem;padding-left:6px;padding-right:6px;overflow-wrap:anywhere}
+.grid.g6.long .cell{font-size:1rem;padding-left:5px;padding-right:5px}
+.grid .hd.span3{grid-column:span 3;text-align:center;border-left:1px solid var(--rule)}
+.grid .hd.sub{border-top:0;padding-top:0}
+.grid .hd.pl{border-left:1px solid var(--rule)}
+.cell.pl1{border-left-width:2px}
+.cell.dash{color:var(--muted);cursor:default}
+.cell.kin{box-shadow:inset 0 0 0 2px var(--accent);background:var(--accent-soft)}
+.lg.k{box-shadow:inset 0 0 0 2px var(--accent);background:var(--accent-soft)}
+.noun-h .de{font-style:italic}
+.cmp-row{font-style:italic;color:var(--ink)!important}
+.pattern{font-size:1.0625rem;max-width:90ch;border-left:3px solid var(--accent);padding:6px 0 6px 14px;background:var(--surface);border-radius:0 10px 10px 0;margin:0}
+.basic{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);box-shadow:var(--shadow);padding:20px 24px;border-top:4px solid var(--accent)}
+.basic .rule{font-size:1.1875rem}
+.basic .how{font-size:1rem;color:var(--muted)}
+.exs{display:grid;gap:8px}
+.exs.big{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.ex{background:var(--bg);border-radius:10px;padding:9px 14px;display:grid;gap:2px}
+.exs.big .ex .la{font-size:1.3125rem}
+.ex .la{font-size:1.125rem;font-style:italic}
+.ex .la .hl{font-style:italic;color:var(--accent);font-weight:700}
+.ex .en{font-size:1rem;color:var(--muted)}
+.ex .src{font-size:1rem;font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.hide-tr .ex{cursor:pointer}
+.hide-tr .ex .en{filter:blur(5px);user-select:none;transition:filter .15s}
+.hide-tr .ex.reveal .en{filter:none;user-select:auto}
+.uses{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.use{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:14px 18px;display:grid;gap:8px;align-content:start}
+.use header{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:0;text-align:left;justify-items:start}
+.use h4{margin:0;font-size:1.1875rem}
+.use .sec{margin-left:auto}
+.use .what{font-size:1rem}
+.use .clue{font-size:1rem;color:var(--muted)}
+.use.adv{display:none;border-style:dashed}
+.show-adv .use.adv{display:grid}
+.tag{font-size:1rem;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:0 8px}
+.adv-note{font-size:1rem;color:var(--muted)}
+.cite{max-width:none}
+@media (max-width:700px){.basic{padding:16px}.grid.cmp .cell{font-size:1.0625rem;padding:10px 4px}}
+</style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Ille, illa, illud</h1>
+  <div class="primer">
+    <span><b>Away</b> from the speaker: that</span>
+    <span><b>Genitive</b> <i>illīus</i> · <b>dative</b> <i>illī</i></span>
+    <span>Hover any form to see its case, meaning, and look-alikes</span>
+  </div>
+</header>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-flag" aria-pressed="true">Mark look-alike forms</button>
+      <button class="chip plain" id="t-tr" aria-pressed="true">Show translations</button>
+      <button class="chip plain" id="t-adv" aria-pressed="false">Show advanced uses</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+    <div class="legend">
+      <span><i class="lg a"></i>form you're inspecting</span>
+      <span><i class="lg k"></i>same form, another gender</span>
+      <span><i class="lg t"></i>spelled the same: ambiguous</span>
+      <span><i class="lg h"></i>differs only by a macron</span>
+      <span><i class="lg d"></i>has a look-alike in its chart</span>
+    </div>
+  </div>
+
+  <div class="intro" id="intro"></div>
+
+  <div class="block">
+    <h3>The forms</h3>
+    <div class="pick" id="pick"></div>
+    <div class="work">
+      <div class="charts-col" id="charts-col">
+        <div class="charts prons" id="charts-grid"></div>
+        <div class="charts prons wide" id="cmp-grid"></div>
+      </div>
+      <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+    </div>
+    <p class="pattern" id="pattern"></p>
+  </div>
+  <div class="block basic" id="basic"></div>
+  <div class="block" id="uses"></div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Forms, rules and section numbers follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§113, 143–151 (forms) and §§295–315 (syntax), in the Dickinson College Commentaries online edition. Examples marked with a citation are quoted there; examples with no citation are simple ones of our own.
+  <a href="https://dcc.dickinson.edu/grammar/latin/personal-pronouns-paradigm" target="_blank" rel="noopener">Personal Pronouns</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/reflexive-pronouns-paradigm" target="_blank" rel="noopener">Reflexive Pronouns</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/demonstrative-pronouns-paradigms" target="_blank" rel="noopener">Demonstrative Pronouns</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/relative-interrogative-and-indefinite-pronouns" target="_blank" rel="noopener">Relative, Interrogative, and Indefinite Pronouns</a> ·
+  <a href="https://dcc.dickinson.edu/node/26683" target="_blank" rel="noopener">Adjectives with Genitive in -īus</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/pronouns" target="_blank" rel="noopener">Pronouns (Syntax)</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/reflexive-pronouns" target="_blank" rel="noopener">Reflexive Pronouns (Syntax)</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/possessive-pronouns" target="_blank" rel="noopener">Possessive Pronouns</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/demonstrative-pronouns" target="_blank" rel="noopener">Demonstrative Pronouns (Syntax)</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/relative-pronouns" target="_blank" rel="noopener">Relative Pronouns (Syntax)</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/indefinite-pronouns" target="_blank" rel="noopener">Indefinite Pronouns (Syntax)</a>.</p>
+</footer>
+</div>
+
+<script>
+const P = {"ille": {"lemma": "ille, illa, illud", "gloss": "that; he, she, it", "cols": {"m": [{"f": "ille", "en": "that man (subject)"}, {"f": "illīus", "en": "of that man"}, {"f": "illī", "en": "to / for that man"}, {"f": "illum", "en": "that man (direct object)"}, {"f": "illō", "en": "by / with / from that man"}, {"f": "illī", "en": "those men (subject)"}, {"f": "illōrum", "en": "of those men"}, {"f": "illīs", "en": "to / for those men"}, {"f": "illōs", "en": "those men (direct object)"}, {"f": "illīs", "en": "by / with / from those men"}], "f": [{"f": "illa", "en": "that woman (subject)"}, {"f": "illīus", "en": "of that woman"}, {"f": "illī", "en": "to / for that woman"}, {"f": "illam", "en": "that woman (direct object)"}, {"f": "illā", "en": "by / with / from that woman"}, {"f": "illae", "en": "those women (subject)"}, {"f": "illārum", "en": "of those women"}, {"f": "illīs", "en": "to / for those women"}, {"f": "illās", "en": "those women (direct object)"}, {"f": "illīs", "en": "by / with / from those women"}], "n": [{"f": "illud", "en": "that thing (subject)"}, {"f": "illīus", "en": "of that thing"}, {"f": "illī", "en": "to / for that thing"}, {"f": "illud", "en": "that thing (direct object)"}, {"f": "illō", "en": "by / with / from that thing"}, {"f": "illa", "en": "those things (subject)"}, {"f": "illōrum", "en": "of those things"}, {"f": "illīs", "en": "to / for those things"}, {"f": "illa", "en": "those things (direct object)"}, {"f": "illīs", "en": "by / with / from those things"}]}}};
+const T = {"id": "dem-ille", "name": "Ille, illa, illud", "q": "that (over there)", "prons": ["ille"], "secs": "146, 297.b", "summary": "<i>Ille, illa, illud</i> is the far demonstrative: it points to something away from the speaker. It's the English <i>that</i>: that mountain over there, those days long ago. As with <i>hic</i>, the distance can be in place, in time (<i>illō tempore</i>, at that time, back then), or in the conversation. Paired with <i>hic</i>, it means the former; after a name, it can mean that famous.", "extra": "<figure class=\"dist\"><figcaption>How far away is it?</figcaption><div class=\"dist-row\"><div class=\"st\"><span class=\"who\">Near me</span><span class=\"la\" lang=\"la\">hic, haec, hoc</span><span class=\"eg\"><b>this</b> book, the one in my hand</span></div><div class=\"st\"><span class=\"who\">Near you</span><span class=\"la\" lang=\"la\">iste, ista, istud</span><span class=\"eg\"><b><em>that</em></b> book, the one by you</span></div><div class=\"st on\"><span class=\"here\">This page</span><span class=\"who\">Over there</span><span class=\"la\" lang=\"la\">ille, illa, illud</span><span class=\"eg\"><b>that</b> book, the one across the room</span></div></div><div class=\"dist-axis\" aria-hidden=\"true\"><span>closer</span><span>further away</span></div><div class=\"st\"><span class=\"who\">In between: doesn't say</span><span class=\"la\" lang=\"la\">is, ea, id</span><span class=\"eg\"><b>this</b>, <b>that</b>, or just <b>it</b>: the book we were talking about</span></div></figure>", "pattern": "<b>Pattern:</b> masculine nominative singular in <i>-e</i>, neuter in <i>-d</i> (<i>ille, illud</i>), genitive <i>illīus</i> and dative <i>illī</i> in every gender. Everything else is like <i>bonus</i>: <i>illum, illam, illō; illī, illae, illa, illōrum</i>.", "basic": {"name": "That, over there", "sec": "297.b", "rule": "<i>Ille</i> points at what is away from the speaker. <b>With a noun</b>, as an adjective, it agrees with the noun and means that, those: <i>ille mōns</i>, that mountain. <b>On its own</b>, as a pronoun, it means that man, that woman, that thing, or often just he or she.", "how": "Read that or those. If no noun goes with it, let the gender tell you: <i>ille</i>, that man, he; <i>illa</i>, that woman, she; <i>illud</i>, that thing.", "ex": [["**Ille** mōns altus est.", "That mountain (over there) is high.", ""], ["**illō** tempore", "at that time, back then", ""], ["**Ille** vir fortis erat.", "That man was brave.", ""]]}, "uses": [{"name": "The former", "sec": "297.b", "lvl": "core", "what": "Paired with <i>hic</i>, <i>ille</i> means <b>the former</b>: the first of two things named, which is further back in the sentence. <i>Hic</i> is <b>the latter</b>, the second one named.", "clue": "<i>Ille … hic</i> after two things have been named.", "ex": [["Mārcus et Sextus vēnērunt; hic rīdet, **ille** flet.", "Marcus and Sextus came; the latter (Sextus) is laughing, the former (Marcus) is crying.", ""]]}, {"name": "That famous", "sec": "297.b", "lvl": "core", "what": "After a name, <i>ille</i> often means that well-known, that famous: the one everybody has heard of. English does this too: <i>that</i> Medea.", "clue": "A name + <i>ille</i>.", "ex": [["Mēdēa **illa**", "the famous Medea", ""]]}, {"name": "Illud: the following", "sec": "297.b", "lvl": "adv", "what": "The neuter <i>illud</i> often points forward to something about to be quoted or explained, like English the following, this: …", "clue": "<i>Illud</i> followed by a colon, a quotation or an infinitive.", "ex": [["Est **illud** quidem vel maximum, animum vidēre.", "That is truly a very great thing, to see the soul.", "A&G §297.f"]]}]};
+const CASES = [
+  {name:'Nominative', job:'Subject of the verb, or the word after est ("is").'},
+  {name:'Genitive', job:'Possession or relationship: whose? of what?'},
+  {name:'Dative', job:'Indirect object: to whom / for whom something is done.'},
+  {name:'Accusative', job:'Direct object. After ad or in it means motion toward.'},
+  {name:'Ablative', job:'Means, manner, place, time or separation. Often after cum, in, ā/ab, ē/ex, dē, sine.'}
+];
+const GN = {m:'masculine', f:'feminine', n:'neuter'};
+const strip = s => s.normalize('NFD').replace(/̄/g,'').normalize('NFC');
+const state = {mac:true, flag:true, tr:true, adv:false, pick:T.prons[0], pats:new Set(), active:null};
+const shown = s => state.mac ? s : strip(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const md = s => shown(s).replace(/\*\*(.+?)\*\*/g,'<b class="hl">$1</b>');
+const gendered = p => !!P[p].cols.m;
+const C = (p, g, i) => P[p].cols[g][i];
+const caseOf = i => CASES[i % 5], numOf = i => i < 5 ? 'singular' : 'plural';
+// the English the case supplies, in the ending colour (as on the noun pages and flashcards)
+const markEn = t => t.split(/(\s+|\(subject\)|\(direct object\))/).map(w =>
+  /^\((subject|direct object)\)$/.test(w) || /^(of|to|for|by|with|from|in|\/)$/.test(w) ? `<span class="ee">${w}</span>` : w).join('');
+
+// 1st/2nd-declension adjective endings (bonus, -a, -um), cell by cell, for "like bonus"
+const B12 = {m:['us|er','ī','ō','um','ō','ī','ōrum','īs','ōs','īs'], f:['a','ae','ae','am','ā','ae','ārum','īs','ās','īs'], n:['um','ī','ō','um','ō','a','ōrum','īs','a','īs']};
+const like12 = (p,g,i) => gendered(p) && new RegExp('(' + B12[g][i] + ')(dam|dem)?$').test(C(p,g,i).f) && !(i === 1 && /ius$|īus$/.test(C(p,g,i).f));
+const like3 = (p,g,i) => /ibus(dam)?$/.test(C(p,g,i).f) || (i === 3 && g !== 'n' && /em$/.test(C(p,g,i).f) && !/dem$/.test(C(p,g,i).f) && !like12(p,g,i));
+// Same as the nouns: [group, id, label, text, test, note]
+const PATTERNS = [
+  {grp:'noun', id:'accsg', lab:'-m', txt:'accusative singular (m./f.)', test:(p,g,i) => i === 3 && g !== 'n' && /m(dem|dam)?$/.test(C(p,g,i).f),
+   note:'<b>-m marks the direct object, again.</b> The masculine and feminine accusative singular ends in <i>-m</i>, as in every noun declension: <i>eum, eam, illum, quem, quendam</i>. Exceptions: <i>hunc</i> and <i>hanc</i> (from <i>hum-ce, ham-ce</i>), and <i>mē, tē, sē</i>.'},
+  {grp:'noun', id:'ablsg', lab:'long vowel', txt:'ablative singular', test:(p,g,i) => i === 4 && /[āēīōū](dem|dam)?$/.test(C(p,g,i).f),
+   note:'<b>A long vowel in the ablative, again.</b> Most of these ablatives end in a long vowel, as nouns do (<i>puellā, equō, rē</i>): <i>eō, eā, illō, quō, quā, mē, tē, sē</i>. <i>Hōc</i> and <i>hāc</i> have the long vowel before the <i>-c</i>.'},
+  {grp:'noun', id:'datsg', lab:'-ī', txt:'dative singular', test:(p,g,i) => i === 2 && /ī(dem|dam)?$/.test(C(p,g,i).f),
+   note:'<b>-ī in the dative, like the 3rd declension.</b> <i>Rēgī</i> has it, and these use it for all three genders: <i>illī, ipsī, eī, ūnī</i>. <i>Mihi, tibi</i> and <i>sibi</i> have a short <i>-i</i>; <i>cui</i> and <i>huic</i> are irregular.'},
+  {grp:'noun', id:'neutpl', lab:'-a', txt:'neuter plural (nom./acc.)', test:(p,g,i) => g === 'n' && (i === 5 || i === 8) && /a(dem|dam)?$/.test(C(p,g,i).f),
+   note:'<b>Neuter plural -a, in every declension.</b> The neuter nominative and accusative plural end in <i>-a</i>, as in every noun declension: <i>ea, illa, ipsa, eadem, aliqua</i>. <i>Haec</i> and <i>quae</i> add a particle to the <i>-a</i>, so they look like the feminine.'},
+  {grp:'noun', id:'genpl', lab:'-ōrum / -ārum', txt:'genitive plural', test:(p,g,i) => i === 6 && /[āō]r(um|undem|undam)$/.test(C(p,g,i).f),
+   note:'<b>-ōrum, -ārum: “of the …s,” as in the 1st and 2nd declensions.</b> <i>eōrum, eārum, hōrum, illōrum, quōrum</i>. Before <i>-dem</i> or <i>-dam</i> the m changes to n: <i>eōrundem, quōrundam</i>.'},
+  {grp:'noun', id:'datablpl', lab:'-īs / -ibus', txt:'dative and ablative plural', test:(p,g,i) => (i === 7 || i === 9) && C(p,g,7).f === C(p,g,9).f,
+   note:'<b>One shared form, again.</b> As with every noun, the dative and ablative plural are the same word. Most pronouns use <i>-īs</i> (<i>eīs, hīs, illīs</i>), the 1st/2nd-declension ending; <i>quibus</i> uses the 3rd-declension <i>-ibus</i>; <i>nōbīs</i> and <i>vōbīs</i> are irregular. A preposition points to the ablative; a verb of giving, showing or telling points to the dative.'},
+  {grp:'decl', id:'like12', lab:'1st/2nd decl.', txt:'endings of bonus, -a, -um', test:like12,
+   note:'<b>The endings of <i>bonus, -a, -um</i>.</b> These cells have the same endings as a 1st/2nd-declension adjective. The cells left plain differ from <i>bonus</i>, usually the nominative singular and the genitive and dative singular.'},
+  {grp:'decl', id:'like3', lab:'3rd decl.', txt:'endings of rēx (-em, -ibus)', test:like3,
+   note:'<b>Borrowed from the 3rd declension.</b> <i>Quem</i> has the 3rd-declension accusative <i>-em</i> (like <i>rēgem</i>), and <i>quibus</i> has the dative and ablative plural <i>-ibus</i> (like <i>rēgibus</i>).'},
+  {grp:'own', id:'gd', lab:'-īus / -ī', txt:'genitive and dative singular', test:(p,g,i) => gendered(p) && (i === 1 || i === 2),
+   note:'<b>-īus and -ī: the pronoun genitive and dative, in every gender.</b> No noun has a genitive in <i>-īus</i>. These words use <i>-īus</i> and <i>-ī</i> for masculine, feminine and neuter alike (<i>illīus, illī</i>). <i>Is, hic</i> and <i>quī</i> have their own forms: <i>eius, eī; huius, huic; cuius, cui</i>.'},
+  {grp:'own', id:'nd', lab:'-d', txt:'neuter singular (nom./acc.)', test:(p,g,i) => g === 'n' && (i === 0 || i === 3) && /d$/.test(C(p,g,i).f),
+   note:'<b>-d marks the neuter.</b> The neuter nominative and accusative singular end in <i>-d</i>: <i>id, illud, istud, quod, quid, aliud</i>. Adjectives have <i>-um</i> here (<i>bonum</i>), as do <i>ipsum</i> and <i>ūnum</i>.'},
+  {grp:'own', id:'odd', lab:'-e / -c', txt:'masculine nominative in -e; hic in -c', test:(p,g,i) => (i === 0 && g === 'm' && /e$/.test(C(p,g,i).f)) || /c$/.test(C(p,g,i).f),
+   note:'<b>-e and -c: the odd ones out.</b> <i>Ille, iste</i> and <i>ipse</i> end the masculine nominative singular in <i>-e</i>, which no adjective does. <i>Hic</i> is <i>ho-</i> with the particle <i>-ce</i>, shortened to <i>-c</i>: <i>hic, haec, hoc, huic, hunc, hanc, hōc, hāc</i>.'},
+  {grp:'own', id:'same', lab:'m. = f. = n.', txt:'same form in all three genders', test:(p,g,i) => gendered(p) && ['m','f','n'].every(h => C(p,h,i).f === C(p,'m',i).f),
+   note:'<b>One form, three genders.</b> These forms don\'t show gender. Look at the word they go with or refer to.'},
+  {grp:'own', id:'aa', lab:'acc. = abl.', txt:'same form in the singular', test:(p,g,i) => !gendered(p) && (i === 3 || i === 4) && C(p,g,3).f === C(p,g,4).f,
+   note:'<b>Accusative and ablative share a form.</b> <i>Mē, tē</i> and <i>sē</i> can be either. A preposition decides: <i>ad mē</i> (accusative); <i>ā mē, mēcum</i> (ablative).'},
+];
+const GROUPS = {decl:'Endings of a noun declension', own:'Endings only pronouns have'};
+
+function cellEl(p, g, i, extra){
+  const c = C(p, g, i);
+  if(c.x) return `<button class="cell dash" tabindex="-1" aria-disabled="true" title="no nominative"><span class="st">—</span></button>`;
+  return `<button class="cell${extra?' '+extra:''}" data-p="${p}" data-g="${g}" data-i="${i}" aria-label="${esc(c.f)}, ${caseOf(i).name} ${numOf(i)}${GN[g]?' '+GN[g]:''}"><span class="en"></span></button>`;
+}
+function chartHTML(p){
+  const pr = P[p];
+  let h = `<div class="noun"><div class="noun-h"><div class="de" lang="la">${esc(pr.lemma)}</div><div class="meta">${esc(pr.gloss)}</div></div>`;
+  if(gendered(p)){
+    const long = Object.values(pr.cols).some(col => col.some(c => c.f.length >= 9));
+    // --mr / --mc place each piece for the phone layout, where the plural stacks under the singular (see the @media rule)
+    const at = (html, r, c) => html.replace(/^<(\w+) /, `<$1 style="--mr:${r};--mc:${c}" `);
+    h += `<div class="grid g6${long ? ' long' : ''}">` + at('<div class="hd"></div>', 1, 1) + at('<div class="hd span3">Sing.</div>', 1, '2 / span 3')
+      + at('<div class="hd span3 pltop">Plur.</div>', 8, '2 / span 3')
+      + at('<div class="hd sub"></div>', 2, 1)
+      + at('<div class="hd mob"></div>', 8, 1) + at('<div class="hd sub mob"></div>', 9, 1)
+      + ['m.','f.','n.','m.','f.','n.'].map((x,k) => at(`<div class="hd sub${k===3?' pl':''}${k>2?' pltop2':''}">${x}</div>`, k < 3 ? 2 : 9, k % 3 + 2)).join('');
+    CASES.forEach((cs, r) => {
+      const lab = `<span class="full">${cs.name}</span><span class="short" aria-hidden="true">${cs.name.slice(0,3)}.</span>`;
+      h += at(`<div class="rl">${lab}</div>`, r + 3, 1)
+        + ['m','f','n'].map((g,k) => at(cellEl(p,g,r), r + 3, k + 2)).join('')
+        + ['m','f','n'].map((g,k) => at(cellEl(p,g,r+5,k===0?'pl1':''), r + 10, k + 2)).join('')
+        + at(`<div class="rl mob" aria-hidden="true">${lab}</div>`, r + 10, 1);
+    });
+  } else {
+    const g = Object.keys(pr.cols)[0];
+    h += `<div class="grid"><div class="hd"></div><div class="hd">Sing.</div><div class="hd">Plur.</div>`;
+    CASES.forEach((cs, r) => { h += `<div class="rl">${cs.name}</div>${cellEl(p,g,r)}${cellEl(p,g,r+5)}`; });
+  }
+  return h + `</div></div>`;
+}
+function compareHTML(){
+  return `<div class="noun"><div class="noun-h"><div class="de" style="font-style:normal">Side by side</div><div class="meta">the singular forms that set these apart</div></div>
+    <div class="grid cmp"><div class="hd"></div><div class="hd span3">Nom. sg.</div><div class="hd" style="border-left:1px solid var(--rule)">Gen.</div><div class="hd">Dat.</div><div class="hd span3">Acc. sg.</div>
+    <div class="hd sub"></div><div class="hd sub">m.</div><div class="hd sub">f.</div><div class="hd sub">n.</div><div class="hd sub pl">all</div><div class="hd sub">all</div><div class="hd sub pl">m.</div><div class="hd sub">f.</div><div class="hd sub">n.</div>` +
+    T.prons.map(p => `<div class="rl cmp-row" lang="la">${esc(P[p].lemma.split(',')[0])}</div>${['m','f','n'].map(g => cellEl(p,g,0)).join('')}${cellEl(p,'m',1,'pl1')}${cellEl(p,'m',2)}${['m','f','n'].map((g,k) => cellEl(p,g,3,k===0?'pl1':'')).join('')}`).join('') +
+    `</div></div>`;
+}
+function exHTML(list){ return list.map(([la,en,src]) => `<div class="ex"><div class="la">${md(la)}</div><div class="en">${en}${src?` <span class="src">${src}</span>`:''}</div></div>`).join(''); }
+function useHTML(u){
+  return `<article class="use${u.lvl==='adv'?' adv':''}"><header><h4>${u.name}</h4>${u.lvl==='adv'?'<span class="tag">later</span>':''}<span class="sec">A&amp;G §${u.sec}</span></header>
+    <p class="what">${u.what}</p><p class="clue"><b>Clue:</b> ${u.clue}</p>${u.ex.length?`<div class="exs">${exHTML(u.ex)}</div>`:''}</article>`;
+}
+
+// ---------- static parts ----------
+const multi = T.prons.length > 1 && !T.all;
+document.getElementById('intro').innerHTML = `<div class="intro-h"><span class="q">${T.q}</span><span class="sec">A&amp;G §§${T.secs}</span></div><p>${T.summary}</p>${T.extra||''}`;
+document.getElementById('pattern').innerHTML = T.pattern;
+document.getElementById('basic').innerHTML = `<h3>The basic use: ${T.basic.name} <span class="sec">A&amp;G §${T.basic.sec}</span></h3>
+  <p class="rule">${T.basic.rule}</p><p class="how"><b>How to spot it:</b> ${T.basic.how}</p><div class="exs big">${exHTML(T.basic.ex)}</div>`;
+function renderUses(){
+  const core = T.uses.filter(u => u.lvl === 'core'), adv = T.uses.filter(u => u.lvl === 'adv');
+  document.getElementById('uses').innerHTML = `<h3>Other uses</h3><div class="uses">${core.map(useHTML).join('')}${adv.map(useHTML).join('')}</div>
+    ${adv.length?`<p class="adv-note">${adv.length} more advanced ${adv.length===1?'use is':'uses are'} ${state.adv?'shown, marked <span class="tag">later</span>':'hidden. Turn on <b>Show advanced uses</b> to see '+(adv.length===1?'it':'them')}.</p>`:''}`;
+  document.querySelectorAll('.ex').forEach(ex => ex.onclick = () => { if(!state.tr) ex.classList.toggle('reveal'); });
+}
+
+// ---------- pattern buttons, grouped; only the ones that match something on this page ----------
+const allCells = [];
+T.prons.forEach(p => Object.entries(P[p].cols).forEach(([g, col]) => col.forEach((c, i) => { if(!c.x) allCells.push([p, g, i]); })));
+const PATS = PATTERNS.filter(pt => allCells.some(([p,g,i]) => pt.test(p,g,i)));
+// the endings shared with nouns aren't toggles: the inspector notes them on the form you pick
+const TOGGLES = PATS.filter(pt => pt.grp !== 'noun');
+const pRow = document.getElementById('patterns');
+Object.entries(GROUPS).forEach(([grp, title]) => {
+  const inG = TOGGLES.filter(pt => pt.grp === grp); if(!inG.length) return;
+  const s = document.createElement('span'); s.className = 'tb-sub'; s.textContent = title; pRow.appendChild(s);
+  inG.forEach(pt => {
+    const b = document.createElement('button');
+    b.className = 'chip'; b.id = 'p-'+pt.id; b.setAttribute('aria-pressed','false');
+    b.style.setProperty('--c', `var(--p-${pt.id})`); b.style.setProperty('--cbg', `var(--p-${pt.id}-bg)`);
+    b.innerHTML = `<span class="sw"></span><span class="l">${pt.lab}</span> ${pt.txt}`;
+    b.onclick = () => { state.pats.has(pt.id) ? state.pats.delete(pt.id) : state.pats.add(pt.id); paint(); };
+    pRow.appendChild(b);
+  });
+});
+const clr = document.createElement('button'); clr.className = 'chip plain clear'; clr.textContent = 'Clear';
+clr.onclick = () => { state.pats.clear(); paint(); }; pRow.appendChild(clr);
+if(!TOGGLES.length) pRow.hidden = true;
+
+// ---------- charts ----------
+let cells = [];
+function build(){
+  const ps = T.all ? T.prons : [state.pick];
+  const grid = document.getElementById('charts-grid');
+  grid.classList.toggle('wide', ps.length === 1 && gendered(ps[0]));
+  grid.innerHTML = ps.map(chartHTML).join('');
+  document.getElementById('cmp-grid').innerHTML = multi ? compareHTML() : '';
+  document.getElementById('pick').innerHTML = multi ? `<span class="tb-label">Pronoun</span><div class="seg">${T.prons.map(p => `<button class="chip plain" data-pick="${p}" aria-pressed="${p===state.pick}" lang="la">${esc(P[p].lemma.split(',')[0])}</button>`).join('')}</div>` : '';
+  document.querySelectorAll('[data-pick]').forEach(b => b.onclick = () => { state.pick = b.dataset.pick; state.active = null; build(); });
+  cells = [...document.querySelectorAll('.cell[data-p]')];
+  cells.forEach(el => {
+    const go = () => { state.active = el; renderActive(); };
+    const stop = () => { if(state.active === el){ state.active = null; renderActive(); } };
+    el.addEventListener('mouseenter', go); el.addEventListener('focus', go); el.addEventListener('click', go);
+    el.addEventListener('mouseleave', stop); el.addEventListener('blur', stop);
+  });
+  paint();
+}
+const key = el => [el.dataset.p, el.dataset.g, +el.dataset.i];
+// other cells of the same pronoun: kin = same spelling, same case and number (another gender); twin = same spelling, a different case or number; hidden = only a macron apart
+function relatives(p, g, i){
+  const f = C(p,g,i).f, kin = [], twin = [], hidden = [];
+  Object.entries(P[p].cols).forEach(([h, col]) => col.forEach((c, k) => {
+    if(c.x || (h === g && k === i)) return;
+    if(c.f === f) (k === i ? kin : twin).push([h, k]);
+    else if(state.mac && strip(c.f) === strip(f)) hidden.push([h, k]);
+  }));
+  return {kin, twin, hidden};
+}
+function paint(){
+  TOGGLES.forEach(pt => document.getElementById('p-'+pt.id).setAttribute('aria-pressed', state.pats.has(pt.id)));
+  ['mac','flag','tr','adv'].forEach(k => document.getElementById('t-'+k).setAttribute('aria-pressed', state[k]));
+  document.getElementById('charts-col').classList.toggle('flags', state.flag);
+  document.body.classList.toggle('hide-tr', !state.tr);
+  document.body.classList.toggle('show-adv', state.adv);
+  cells.forEach(el => {
+    const [p,g,i] = key(el), c = C(p,g,i);
+    el.querySelector('.en').textContent = shown(c.f);
+    el.classList.toggle('amb', relatives(p,g,i).twin.length > 0);
+    const hit = TOGGLES.filter(pt => state.pats.has(pt.id) && pt.test(p,g,i)).pop();
+    el.classList.toggle('pat', !!hit);
+    if(hit){ el.style.setProperty('--pbg', `var(--p-${hit.id}-bg)`); el.style.setProperty('--pfg', `var(--p-${hit.id})`); }
+  });
+  document.getElementById('pnotes').innerHTML = TOGGLES.filter(pt => state.pats.has(pt.id)).map(pt => `<div class="pnote" style="--c:var(--p-${pt.id})">${pt.note}</div>`).join('');
+  renderActive();
+}
+const gtxt = gs => gs.length === 3 ? 'all genders' : gs.map(h => GN[h]).filter(Boolean).join(' & ');
+const reading = (p, i, gs) => `${caseOf(i).name} ${numOf(i)}${gendered(p) ? ' ' + gtxt(gs) : ''}`;
+function renderActive(){
+  const card = document.getElementById('card');
+  if(!state.active || !document.body.contains(state.active)){
+    cells.forEach(el => el.classList.remove('active','twin','htwin','kin'));
+    card.innerHTML = `<div class="parse">Inspect a form</div>
+      <div class="tr">Hover over or tap any form in the charts.</div>
+      <div class="job">You'll see its case and number, an English translation, and anything it could be mistaken for, shown in red.</div>`;
+    return;
+  }
+  const [p,g,i] = key(state.active), c = C(p,g,i), rel = relatives(p,g,i);
+  const has = (list, h, k) => list.some(([a,b]) => a === h && b === k);
+  cells.forEach(el => {
+    const [q,h,k] = key(el), same = q === p;
+    el.classList.toggle('active', el === state.active);
+    el.classList.toggle('kin', el !== state.active && same && (has(rel.kin,h,k) || (h === g && k === i)));
+    el.classList.toggle('twin', same && has(rel.twin,h,k));
+    el.classList.toggle('htwin', same && has(rel.hidden,h,k));
+  });
+  const gs = [g, ...rel.kin.map(([h]) => h)];
+  const ens = [...new Set(gs.map(h => C(p,h,i).en))];
+  let h = `<div class="parse">${reading(p,i,gs)} · ${esc(P[p].lemma)}</div>
+    <div class="form" lang="la">${esc(shown(c.f))}</div>
+    <div class="tr">${ens.map(e => markEn(esc(e))).join(' · ')}</div>
+    <div class="job">${caseOf(i).job}</div>`;
+  if(rel.twin.length){
+    const by = new Map(); rel.twin.forEach(([hh,k]) => { if(!by.has(k)) by.set(k, []); by.get(k).push(hh); });
+    h += `<div class="amb-box"><h4>Ambiguous: could also be</h4><ul>${[...by.entries()].sort((a,b) => a[0]-b[0]).map(([k, hs]) =>
+      `<li><b>${reading(p,k,hs)}</b>: <i>${[...new Set(hs.map(hh => C(p,hh,k).en))].map(esc).join(' · ')}</i></li>`).join('')}</ul>
+      <div class="hint">Same spelling, different job. Use the verb, a preposition, or agreeing words to decide.</div></div>`;
+  }
+  if(rel.hidden.length){
+    const byForm = {}; rel.hidden.forEach(([hh,k]) => { const f = C(p,hh,k).f; const m = byForm[f] = byForm[f] || new Map(); if(!m.has(k)) m.set(k, []); m.get(k).push(hh); });
+    h += `<div class="amb-box hidden-twin"><h4>Only a macron away</h4><ul>${Object.entries(byForm).map(([f, m]) =>
+      `<li><i>${esc(f)}</i>: ${[...m.entries()].map(([k, hs]) => reading(p,k,hs).toLowerCase()).join('; ')}</li>`).join('')}</ul>
+      <div class="hint">Most printed texts omit macrons, so <i>${esc(strip(c.f))}</i> could be any of these.</div></div>`;
+  }
+  const notes = [...new Set(gs.map(hh => C(p,hh,i).n).filter(Boolean))];
+  const pats = TOGGLES.filter(pt => pt.test(p,g,i));
+  const nounPats = PATS.filter(pt => pt.grp === 'noun' && pt.test(p,g,i));
+  if(nounPats.length) h += `<div class="like-noun"><h4>Same as the nouns</h4>${nounPats.map(pt => `<p style="--c:var(--p-${pt.id})">${pt.note}</p>`).join('')}</div>`;
+  if(notes.length || pats.length) h += `<div class="tip">${notes.map(n => `<p>${esc(shown(n))}</p>`).join('')}${pats.map(pt => `<p>Part of the <b>${pt.lab}</b> pattern (${pt.txt}).</p>`).join('')}</div>`;
+  if(!notes.length && !pats.length && !nounPats.length && !rel.twin.length && !rel.hidden.length) h += `<div class="hint">This spelling is unique in its chart: it can only be this case and number.</div>`;
+  card.innerHTML = h;
+}
+document.addEventListener('click', e => { if(!e.target.closest('.cell') && state.active){ state.active = null; renderActive(); } });
+['mac','flag','tr','adv'].forEach(k => document.getElementById('t-'+k).onclick = () => { state[k] = !state[k]; if(k === 'adv') renderUses(); paint(); });
+renderUses(); build();
+</script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610071000"></script>
+<script src="../js/glossary.js?v=202610061500"></script>
+<script src="../js/pattern-notes.js?v=202610071100"></script>
+</body>
+</html>

@@ -30,6 +30,132 @@
   "group": "Nouns"
  },
  {
+  "page": "pronouns-personal",
+  "title": "Personal Pronouns",
+  "short": "Personal: ego, tū",
+  "group": "Pronouns"
+ },
+ {
+  "page": "pronouns-reflexive",
+  "title": "The Reflexive Pronoun",
+  "short": "Reflexive: suī",
+  "group": "Pronouns"
+ },
+ {
+  "page": "pronouns-demonstrative",
+  "title": "Demonstratives: Overview",
+  "short": "Overview",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Demonstrative"
+  ]
+ },
+ {
+  "page": "pronouns-is",
+  "title": "Is, ea, id",
+  "short": "is, ea, id",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Demonstrative"
+  ]
+ },
+ {
+  "page": "pronouns-hic",
+  "title": "Hic, haec, hoc",
+  "short": "hic, haec, hoc",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Demonstrative"
+  ]
+ },
+ {
+  "page": "pronouns-ille",
+  "title": "Ille, illa, illud",
+  "short": "ille, illa, illud",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Demonstrative"
+  ]
+ },
+ {
+  "page": "pronouns-iste",
+  "title": "Iste, ista, istud",
+  "short": "iste, ista, istud",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Demonstrative"
+  ]
+ },
+ {
+  "page": "pronouns-idem",
+  "title": "Īdem, eadem, idem",
+  "short": "īdem, eadem, idem",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Demonstrative"
+  ]
+ },
+ {
+  "page": "pronouns-intensive",
+  "title": "The Intensive Pronoun: Ipse",
+  "short": "Intensive: ipse",
+  "group": "Pronouns"
+ },
+ {
+  "page": "pronouns-relative",
+  "title": "The Relative Pronoun",
+  "short": "Relative: quī",
+  "group": "Pronouns"
+ },
+ {
+  "page": "pronouns-interrogative",
+  "title": "The Interrogative Pronoun",
+  "short": "Interrogative: quis",
+  "group": "Pronouns"
+ },
+ {
+  "page": "pronouns-indefinite",
+  "title": "Indefinites: Overview",
+  "short": "Overview",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ]
+ },
+ {
+  "page": "pronouns-aliquis",
+  "title": "Aliquis, aliquid",
+  "short": "aliquis, aliquid",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ]
+ },
+ {
+  "page": "pronouns-quidam",
+  "title": "Quīdam, quaedam, quiddam",
+  "short": "quīdam, quaedam, quiddam",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ]
+ },
+ {
+  "page": "pronouns-unus-nauta",
+  "title": "Pronominal Adjectives (Ūnus Nauta)",
+  "short": "Pronominal adjectives (ūnus nauta)",
+  "group": "Pronouns"
+ },
+ {
   "page": "incomplete-system",
   "title": "The Incomplete System: Patterns",
   "group": "Verbs",
