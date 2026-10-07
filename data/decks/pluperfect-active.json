@@ -2,9 +2,8 @@
  "id": "pluperfect-active",
  "title": "Pluperfect Active Indicative",
  "course": "Verbs · Active Indicative",
- "subtitle": "Complete aspect: all four conjugations plus 3rd -iō",
  "intro": "The pluperfect is the <b>complete stem</b> (amāv-, vīd-, mīs-, cēp-, audīv-) +\n    the <b>imperfect of sum</b>: <span class=\"end\">eram, erās, erat, erāmus, erātis, erant</span>.\n    <p style=\"margin:8px 0 0\">The complete stem marks the action as complete. The imperfect of sum (“was”) puts it in <b>past time</b>:\n    complete before some point in the past, so “had loved” (amāveram). The endings are the same in every conjugation, and only the stem differs.</p>",
- "paradigmNote": "Pluperfect endings (all conjugations): <span class=\"end\">-eram, -erās, -erat, -erāmus, -erātis, -erant</span>",
+ "paradigmNote": "Pluperfect endings: <span class=\"end\">-eram, -erās, -erat, -erāmus, -erātis, -erant</span>",
  "filters": [
   {
    "field": "conj",

@@ -2,7 +2,6 @@
  "id": "adjective-degrees",
  "title": "Adjectives & Adverbs: Degrees",
  "course": "Adjectives & Adverbs",
- "subtitle": "clārus, clāra, clārum (clear): positive, comparative and superlative",
  "intro": "Adjectives and adverbs have three <b>degrees</b>: positive (<i>clear</i>), comparative (<i>clearer</i>) and superlative (<i>clearest</i>). All three are built on the stem <b>clār-</b>.<ul><li><b>Positive:</b> clārus, clāra, clārum, declined like the 1st and 2nd declensions (equus, puella, forum).</li><li><b>Comparative:</b> stem + <span class=\"end\">-ior</span> (masculine and feminine) / <span class=\"end\">-ius</span> (neuter), then <b>3rd-declension</b> endings on the stem clāriōr-: clāriōris, clāriōrī, clāriōrem, clāriōre; plural clāriōrēs, clāriōrum, clāriōribus. Neuter plural nominative and accusative: clāriōra.</li><li><b>Superlative:</b> stem + <span class=\"end\">-issimus, -issima, -issimum</span>, declined like clārus.</li></ul><p style=\"margin:8px 0 0\"><b>Adverbs:</b></p><ul><li>From 1st/2nd-declension adjectives: stem + <span class=\"end\">-ē</span>: clār<b>ē</b> (clearly).</li><li>From 3rd-declension adjectives: stem + <span class=\"end\">-iter</span>: fort<b>iter</b> (bravely), ācr<b>iter</b>, celer<b>iter</b>, fēlīc<b>iter</b>.</li><li>Comparative adverb = the neuter comparative adjective: clār<b>ius</b>, fort<b>ius</b>. Superlative: <span class=\"end\">-issimē</span> (clārissimē), or <span class=\"end\">-errimē</span> for adjectives in -er (ācerrimē, celerrimē).</li><li>Irregular: bene, melius, optimē · male, peius, pessimē · multum, plūs, plūrimum · magnopere, magis, maximē · parum, minus, minimē · facile, facilius, facillimē · saepe, saepius, saepissimē · diū, diūtius, diūtissimē.</li></ul><p style=\"margin:8px 0 0\"><b>Watch out:</b> <b>clārius</b> is both the neuter comparative adjective and the comparative adverb. Context decides. The comparative can also mean “rather clear” or “too clear”, and the superlative “very clear”.</p>",
  "paradigmNote": "<div class=\"fc-grid fc-adv\"><div><h4>Adverbs</h4><table><thead><tr><th class=\"label\">From</th><th class=\"label\">Positive</th><th class=\"label\">Comparative</th><th class=\"label\">Superlative</th></tr></thead><tbody><tr><td><span lang=\"la\">clārus</span> <small>clear</small></td><td lang=\"la\">clārē</td><td lang=\"la\">clārius</td><td lang=\"la\">clārissimē</td></tr><tr><td><span lang=\"la\">fortis</span> <small>brave</small></td><td lang=\"la\">fortiter</td><td lang=\"la\">fortius</td><td lang=\"la\">fortissimē</td></tr><tr><td><span lang=\"la\">ācer</span> <small>sharp, fierce</small></td><td lang=\"la\">ācriter</td><td lang=\"la\">ācrius</td><td lang=\"la\">ācerrimē</td></tr><tr><td><span lang=\"la\">celer</span> <small>quick</small></td><td lang=\"la\">celeriter</td><td lang=\"la\">celerius</td><td lang=\"la\">celerrimē</td></tr><tr><td><span lang=\"la\">fēlīx</span> <small>lucky, happy</small></td><td lang=\"la\">fēlīciter</td><td lang=\"la\">fēlīcius</td><td lang=\"la\">fēlīcissimē</td></tr><tr><td><span lang=\"la\">bonus</span> <small>good</small></td><td lang=\"la\">bene</td><td lang=\"la\">melius</td><td lang=\"la\">optimē</td></tr><tr><td><span lang=\"la\">malus</span> <small>bad</small></td><td lang=\"la\">male</td><td lang=\"la\">peius</td><td lang=\"la\">pessimē</td></tr><tr><td><span lang=\"la\">multus</span> <small>much</small></td><td lang=\"la\">multum</td><td lang=\"la\">plūs</td><td lang=\"la\">plūrimum</td></tr><tr><td><span lang=\"la\">magnus</span> <small>great</small></td><td lang=\"la\">magnopere</td><td lang=\"la\">magis</td><td lang=\"la\">maximē</td></tr><tr><td><span lang=\"la\">parvus</span> <small>small</small></td><td lang=\"la\">parum</td><td lang=\"la\">minus</td><td lang=\"la\">minimē</td></tr><tr><td><span lang=\"la\">facilis</span> <small>easy</small></td><td lang=\"la\">facile</td><td lang=\"la\">facilius</td><td lang=\"la\">facillimē</td></tr><tr><td><span lang=\"la\">—</span> <small></small></td><td lang=\"la\">saepe</td><td lang=\"la\">saepius</td><td lang=\"la\">saepissimē</td></tr><tr><td><span lang=\"la\">—</span> <small></small></td><td lang=\"la\">diū</td><td lang=\"la\">diūtius</td><td lang=\"la\">diūtissimē</td></tr></tbody></table></div></div>",
  "filters": [
@@ -2261,7 +2260,6 @@
  "views": {
   "adj": {
    "title": "Adjectives: Degrees",
-   "subtitle": "clārus → clārior → clārissimus, every case, number and gender",
    "sel": {
     "pos": [
      "adj"
@@ -2271,7 +2269,6 @@
   },
   "adv": {
    "title": "Adverbs: Degrees",
-   "subtitle": "clārē · fortiter · ācriter · celeriter · fēlīciter · bene · male · multum · magnopere · parum · facile · saepe · diū",
    "sel": {
     "pos": [
      "adv"

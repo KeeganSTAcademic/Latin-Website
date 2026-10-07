@@ -2,7 +2,6 @@
  "id": "complete-passive",
  "title": "Complete Passive Indicative",
  "course": "Verbs · Passive Indicative",
- "subtitle": "Perfect, pluperfect and future perfect (complete aspect): all four conjugations plus 3rd -iō",
  "intro": "The complete passive is <b>periphrastic</b>. It's built from two words, not from endings:\n    the <b>perfect passive participle</b> (4th principal part: amātus, vīsus, missus, captus, audītus) + a form of <b>sum</b>.\n    <p style=\"margin:8px 0 0\"><b>Sum marks the time.</b> The participle already marks the action as complete, and sum places it:</p>\n    <ul>\n      <li>present of sum → <b>perfect</b>: amātus <span class=\"end\">sum</span>, “I was loved, I have been loved”</li>\n      <li>imperfect of sum → <b>pluperfect</b>: amātus <span class=\"end\">eram</span>, “I had been loved”</li>\n      <li>future of sum → <b>future perfect</b>: amātus <span class=\"end\">erō</span>, “I will have been loved”</li>\n    </ul>\n    <p style=\"margin:8px 0 0\">The participle works like an adjective and agrees with the subject in gender and number:\n    amātus / amāta / amātum est; amātī / amātae / amāta sunt. The cards show the masculine.</p>\n    <p style=\"margin:8px 0 0\"><b>Watch out:</b> amātus sum means “I was loved,” <em>not</em> “I am loved.”\n    Also, the future perfect passive uses <b>erunt</b>, not the active -erint.</p>",
  "paradigmNote": "Participle (agrees with subject) + <span class=\"end\">sum</span> (marks time)",
  "filters": [

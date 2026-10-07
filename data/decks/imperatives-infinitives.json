@@ -2,7 +2,6 @@
  "id": "imperatives-infinitives",
  "title": "Imperatives & Infinitives",
  "course": "Verbs · Imperatives & Infinitives",
- "subtitle": "Present imperatives, active and passive, and all six infinitives: amō, videō, mittō, capiō, audiō",
  "intro": "<b>Imperatives</b> give commands; <b>infinitives</b> are the “to …” forms of the verb.<ul><li><b>Present active imperative:</b> the singular is the <b>incomplete stem</b> (the infinitive minus -re): amā, vidē, mitte, cape, audī. The plural adds <span class=\"end\">-te</span>, and in the 3rd conjugation the e becomes i: amāte, vidēte, <b>mittite</b>, <b>capite</b>, audīte.</li><li><b>Present passive imperative:</b> <span class=\"end\">-re</span> (singular) and <span class=\"end\">-minī</span> (plural): amāre, amāminī; mittere, mittiminī. It is mostly met with deponent verbs (sequere, “follow!”).</li><li><b>Short imperatives:</b> dīc, dūc, fac and fer drop the final -e in the singular. Their plurals are regular (dīcite, dūcite, facite), except ferte.</li><li><b>Negative commands</b> use nōlī / nōlīte + infinitive: nōlī timēre, “don't be afraid”.</li></ul><p style=\"margin:8px 0 0\"><b>Infinitives:</b> present active amāre; present passive amā<b>rī</b> (but 3rd conjugation mitt<b>ī</b>, cap<b>ī</b>); perfect active amāv<b>isse</b>; perfect passive amātus <b>esse</b>; future active amātūrus <b>esse</b>; future passive amātum <b>īrī</b> (rare).</p><p style=\"margin:8px 0 0\"><b>Watch out:</b> the passive imperative singular is spelled like the active infinitive (amāre, mittere). Latin → English lists both readings.</p>",
  "paradigmNote": "Short imperatives: dīc, dūc, fac, fer (plural dīcite, dūcite, facite, ferte).",
  "filters": [
@@ -1126,7 +1125,6 @@
  "views": {
   "imp-act": {
    "title": "Present Active Imperatives",
-   "subtitle": "amā, amāte · vidē, vidēte · mitte, mittite · cape, capite · audī, audīte, plus dīc, dūc, fac, fer",
    "sel": {
     "form": [
      "imp"
@@ -1141,7 +1139,6 @@
   },
   "imp-pass": {
    "title": "Present Passive Imperatives",
-   "subtitle": "amāre, amāminī · vidēre, vidēminī · mittere, mittiminī · capere, capiminī · audīre, audīminī",
    "sel": {
     "form": [
      "imp"
@@ -1156,7 +1153,6 @@
   },
   "inf-pres": {
    "title": "Present Infinitives",
-   "subtitle": "Active and passive: amāre, amārī · mittere, mittī …",
    "sel": {
     "form": [
      "inf-pres"
@@ -1168,7 +1164,6 @@
   },
   "inf-perf": {
    "title": "Perfect Infinitives",
-   "subtitle": "Active and passive: amāvisse, amātus esse …",
    "sel": {
     "form": [
      "inf-perf"
@@ -1180,7 +1175,6 @@
   },
   "inf-fut": {
    "title": "Future Infinitives",
-   "subtitle": "Active and passive: amātūrus esse, amātum īrī …",
    "sel": {
     "form": [
      "inf-fut"

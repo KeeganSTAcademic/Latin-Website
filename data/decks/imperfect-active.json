@@ -2,7 +2,6 @@
  "id": "imperfect-active",
  "title": "Imperfect Active Indicative",
  "course": "Verbs · Active Indicative",
- "subtitle": "Flashcards for all four conjugations plus 3rd -iō",
  "intro": "The imperfect is built the same way in every conjugation:\n    incomplete stem + linking vowel + <span class=\"end\">-bā-</span> + personal ending\n    (<span class=\"end\">-m, -s, -t, -mus, -tis, -nt</span>).\n    Only the linking vowel changes: <b>-ā-</b> in the 1st (amābam), <b>-ē-</b> in the 2nd and 3rd (vidēbam, mittēbam),\n    <b>-iē-</b> in the 3rd -iō and 4th (capiēbam, audiēbam). All five verbs are included anyway for practice.",
  "paradigmNote": "Endings: <span class=\"end\">-bam</span>, <span class=\"end\">-bās</span>, <span class=\"end\">-bat</span>, <span class=\"end\">-bāmus</span>, <span class=\"end\">-bātis</span>, <span class=\"end\">-bant</span>",
  "filters": [

@@ -2,7 +2,6 @@
  "id": "incomplete-passive",
  "title": "Incomplete Passive Indicative",
  "course": "Verbs · Passive Indicative",
- "subtitle": "Present, imperfect and future (incomplete aspect): all four conjugations plus 3rd -iō",
  "intro": "The passive uses the same stems and time markers as the active.\n    Only the personal endings change:\n    <span class=\"end\">-r, -ris, -tur, -mur, -minī, -ntur</span>\n    replace <span class=\"end\">-ō/-m, -s, -t, -mus, -tis, -nt</span>.\n    Where the active ends in -ō, the passive adds -r (amō → amor, amābō → amābor). Where it ends in -m, the -m is replaced\n    (amābam → amābar, mittam → mittar).\n    <p style=\"margin:8px 0 0\"><b>Watch the 2nd person singular:</b></p>\n    <ul>\n      <li>A short <b>e</b> appears before -ris in the 3rd-conjugation present (mitt<b>e</b>ris, cap<b>e</b>ris) and the -bi- future (amāb<b>e</b>ris, vidēb<b>e</b>ris).</li>\n      <li><b>mitteris</b> (present, “you are sent”) and <b>mittēris</b> (future, “you will be sent”) differ only in vowel length.</li>\n      <li>-ris has an alternate ending <b>-re</b> (amāre, amābāre, amābere). It's not drilled here.</li>\n    </ul>",
  "paradigmNote": "Passive endings: <span class=\"end\">-r, -ris, -tur, -mur, -minī, -ntur</span>",
  "filters": [

@@ -2,7 +2,6 @@
  "id": "pluperfect-subjunctive",
  "title": "Pluperfect Subjunctive",
  "course": "Verbs · Subjunctive",
- "subtitle": "Active and passive: all four conjugations plus 3rd -iō",
  "intro": "The pluperfect subjunctive is built on the <b>complete (perfect) system</b>, like the pluperfect indicative.<ul><li><b>Active:</b> take the <b>perfect active infinitive</b> (complete stem + <b>-isse</b>: amāvisse, vīdisse, mīsisse, cēpisse, audīvisse) and add the personal endings: <span class=\"end\">-m, -s, -t, -mus, -tis, -nt</span> (amāvisse<b>m</b>, amāvissē<b>s</b>, amāvisse<b>t</b>).</li><li><b>Passive:</b> the <b>perfect passive participle</b> + the <b>imperfect subjunctive of sum</b>: <span class=\"end\">essem, essēs, esset, essēmus, essētis, essent</span> (amātus essem).</li></ul><p style=\"margin:8px 0 0\">As in the imperfect subjunctive, the e lengthens to <b>ē</b> except before -m, -t and -nt (amāvissēs, but amāvissem, amāvisset, amāvissent).</p><p style=\"margin:8px 0 0\">The participle agrees with the subject in gender and number (amātus / amāta / amātum esset). The cards show the masculine.</p><p style=\"margin:8px 0 0\"><b>Translation:</b> the pluperfect subjunctive is translated with <b>“might have”</b> (amāvisset, “he might have loved”; amātus esset, “he might have been loved”).</p>",
  "paradigmNote": "Active: perfect infinitive + <span class=\"end\">-m, -s, -t, -mus, -tis, -nt</span><br>Passive: participle + <span class=\"end\">essem, essēs, esset, essēmus, essētis, essent</span>",
  "filters": [

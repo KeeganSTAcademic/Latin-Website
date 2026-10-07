@@ -2,7 +2,6 @@
  "id": "imperfect-subjunctive",
  "title": "Imperfect Subjunctive",
  "course": "Verbs · Subjunctive",
- "subtitle": "Active and passive: all four conjugations plus 3rd -iō",
  "intro": "The imperfect subjunctive is the easiest subjunctive: take the <b>present active infinitive</b> (2nd principal part) and add the personal endings.\n    <ul>\n      <li><b>1st (amō):</b> amāre → <b>amāre</b>m, amārēs, amāret</li>\n      <li><b>2nd (videō):</b> vidēre → <b>vidēre</b>m, vidērēs, vidēret</li>\n      <li><b>3rd (mittō):</b> mittere → <b>mittere</b>m, mitterēs, mitteret</li>\n      <li><b>3rd -iō (capiō):</b> capere → <b>capere</b>m, caperēs, caperet (no i, because the infinitive has none)</li>\n      <li><b>4th (audiō):</b> audīre → <b>audīre</b>m, audīrēs, audīret</li>\n    </ul>\n    <p style=\"margin:8px 0 0\">The final e of the infinitive lengthens to <b>ē</b> in most forms (amār<b>ē</b>s, amār<b>ē</b>mus). It stays short before -m, -t, -nt, -r and -ntur.\n    Active <span class=\"end\">-m, -s, -t, -mus, -tis, -nt</span>; passive <span class=\"end\">-r, -ris, -tur, -mur, -minī, -ntur</span>.</p>\n    <p style=\"margin:8px 0 0\"><b>Translation:</b> the imperfect subjunctive is translated with <b>“might”</b> (amāret, “he might love”; amārētur, “he might be loved”).</p>",
  "paradigmNote": "Active: <span class=\"end\">-m, -s, -t, -mus, -tis, -nt</span><br>Passive: <span class=\"end\">-r, -ris, -tur, -mur, -minī, -ntur</span>",
  "filters": [

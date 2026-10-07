@@ -2,7 +2,6 @@
  "id": "future-active",
  "title": "Future Active Indicative",
  "course": "Verbs · Active Indicative",
- "subtitle": "Flashcards for all four conjugations plus 3rd -iō",
  "intro": "The future has <b>two patterns</b>.\n    <p style=\"margin:8px 0 0\"><b>1st and 2nd conjugations: the -bi- future.</b> Stem + <span class=\"end\">-bi-</span> + personal ending:\n    <span class=\"end\">-bō, -bis, -bit, -bimus, -bitis, -bunt</span>.\n    The i drops out in -bō and becomes u in -bunt (amābō, vidēbunt).</p>\n    <p style=\"margin:8px 0 0\"><b>3rd, 3rd -iō and 4th conjugations: the vowel shift.</b> No -bi-. Instead the vowel changes:\n    <span class=\"end\">-a-</span> in the 1st singular only, <span class=\"end\">-ē-</span> everywhere else:\n    <span class=\"end\">-am, -ēs, -et, -ēmus, -ētis, -ent</span> (mittam, mittēs; audiam, audiēs).\n    Capiō and audiō keep their i.</p>\n    <p style=\"margin:8px 0 0\"><b>Watch out:</b> mittēs and mittet look like 2nd-conjugation <em>present</em> forms (vidēs, videt).\n    In the 3rd and 4th conjugations, that e means future. And mittam is future (“I will send”), not the present mittō.</p>",
  "paradigmNote": "1st &amp; 2nd: <span class=\"end\">-bō, -bis, -bit, -bimus, -bitis, -bunt</span><br>3rd, 3rd -iō &amp; 4th: <span class=\"end\">-am, -ēs, -et, -ēmus, -ētis, -ent</span>",
  "filters": [

@@ -2,44 +2,37 @@
  {
   "page": "first-second-declension",
   "title": "First & Second Declension",
-  "group": "Nouns",
-  "about": "puella, equus, forum: every form, what it means, and what it could be mistaken for."
+  "group": "Nouns"
  },
  {
   "page": "third-declension",
   "title": "Third Declension",
-  "group": "Nouns",
-  "about": "rēx and corpus, i-stems, and (for advanced students) how the nominative is formed."
+  "group": "Nouns"
  },
  {
   "page": "fourth-declension",
   "title": "Fourth Declension",
-  "group": "Nouns",
-  "about": "frūctus and cornū, and the exceptions worth knowing."
+  "group": "Nouns"
  },
  {
   "page": "fifth-declension",
   "title": "Fifth Declension",
-  "group": "Nouns",
-  "about": "rēs and diēs."
+  "group": "Nouns"
  },
  {
   "page": "declensions-overview",
   "title": "The Five Declensions: Patterns",
-  "group": "Nouns",
-  "about": "All five side by side: the rules that hold across declensions, and the look-alike endings."
+  "group": "Nouns"
  },
  {
   "page": "case-usages",
   "title": "Case Usages",
-  "group": "Nouns",
-  "about": "What each case does, from the basic use to the less common ones, with examples."
+  "group": "Nouns"
  },
  {
   "page": "incomplete-system",
   "title": "The Incomplete System: Patterns",
   "group": "Verbs",
-  "about": "Present, imperfect and future side by side: stem, time marker and ending, a form generator for all five conjugations (active and passive), and a comparative table.",
   "path": [
    "Verbs",
    "Incomplete"
@@ -50,7 +43,6 @@
   "page": "present-active",
   "title": "Present Active Indicative",
   "group": "Verbs",
-  "about": "All four conjugations plus 3rd -iō, and sum.",
   "path": [
    "Verbs",
    "Incomplete",
@@ -62,7 +54,6 @@
   "page": "imperfect-active",
   "title": "Imperfect Active Indicative",
   "group": "Verbs",
-  "about": "The -ba- tense in every conjugation, and sum.",
   "path": [
    "Verbs",
    "Incomplete",
@@ -74,7 +65,6 @@
   "page": "future-active",
   "title": "Future Active Indicative",
   "group": "Verbs",
-  "about": "The -bi- future of the 1st and 2nd conjugations, and sum.",
   "path": [
    "Verbs",
    "Incomplete",
@@ -86,7 +76,6 @@
   "page": "incomplete-passive",
   "title": "Incomplete Passives",
   "group": "Verbs",
-  "about": "Present, imperfect and future passive together: the same stems and time markers, with passive endings.",
   "path": [
    "Verbs",
    "Incomplete",
@@ -98,7 +87,6 @@
   "page": "perfect-active",
   "title": "Perfect Active Indicative",
   "group": "Verbs",
-  "about": "The complete stem (3rd principal part) and the perfect endings, in every conjugation, and sum.",
   "path": [
    "Verbs",
    "Complete",
@@ -110,7 +98,6 @@
   "page": "pluperfect-active",
   "title": "Pluperfect Active Indicative",
   "group": "Verbs",
-  "about": "Complete stem + -era-: \"had loved.\"",
   "path": [
    "Verbs",
    "Complete",
@@ -122,7 +109,6 @@
   "page": "future-perfect-active",
   "title": "Future Perfect Active Indicative",
   "group": "Verbs",
-  "about": "Complete stem + -eri-: \"will have loved.\"",
   "path": [
    "Verbs",
    "Complete",

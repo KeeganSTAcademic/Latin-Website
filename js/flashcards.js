@@ -76,7 +76,7 @@
     let total = 0;
     for(const id of studied){
       let d; try{ d = await loadJSON(DATA+encodeURIComponent(id)+".json"); }catch(e){ continue; }
-      const dueIn = cards => cards.filter(c => srs.isDue(db.cards[srs.key(d.id, c)], day)).length;
+      const dueIn = cards => cards.filter(c => !c.tableOnly && srs.isDue(db.cards[srs.key(d.id, c)], day)).length;
       total += dueIn(d.cards);
       entries.forEach((en, j) => {
         if(en.id !== id) return;
@@ -183,7 +183,7 @@
       if(box.value.trim() !== raw) return;          // the student kept typing
       const levelIds = new Set([...document.querySelectorAll(".deck-list li")].filter(inLevel).map(li => li.dataset.id));
       const groups = decks.filter(d => levelIds.has(d.id)).map(d => {
-        const hits = d.cards.filter(c => matches(c, ts)).map(c => ({ c, s: score(c, q) })).sort((a, b) => a.s - b.s);
+        const hits = d.cards.filter(c => !c.tableOnly && matches(c, ts)).map(c => ({ c, s: score(c, q) })).sort((a, b) => a.s - b.s);
         return { d, hits, best: hits.length ? hits[0].s : 9 };
       }).filter(g => g.hits.length).sort((a, b) => a.best - b.best || a.hits.length - b.hits.length);
       const total = groups.reduce((n, g) => n + g.hits.length, 0);
@@ -236,7 +236,7 @@
 
     document.title = deck.title + " · Flashcards";
     $("title").textContent = deck.title;
-    $("subtitle").textContent = deck.subtitle || "";
+    $("subtitle").textContent = deck.subtitle || ""; $("subtitle").hidden = !deck.subtitle;
 
     // grammar note and paradigm tables are written by us, so they're inserted as HTML
     // the grammar note is a sub-section of "Show paradigms"; a deck with a note but no paradigms gets the note alone
@@ -290,7 +290,7 @@
       st.inView = inView;   // used to hide chips that would match nothing in this view
       document.title = view.title + " · Flashcards";
       $("title").textContent = view.title;
-      $("subtitle").textContent = view.subtitle || deck.subtitle || "";
+      $("subtitle").textContent = view.subtitle || deck.subtitle || ""; $("subtitle").hidden = !$("subtitle").textContent;
       if(view.paradigmNote !== undefined) $("paradigm-note").innerHTML = view.paradigmNote;
     }
 
@@ -326,7 +326,7 @@
       });
       // values marked "off" (the i-stems) stay out unless the view or level chose them
       const off = d.filters.flatMap(f => f.values.filter(v => v.off && !(sel[f.field] || []).includes(v.v)).map(v => [f.field, v.v]));
-      d.cards.forEach(c => { if(Object.entries(sel).every(([f, vals]) => c[f] === undefined || vals.includes(c[f])) && !off.some(([f, v]) => c[f] === v) && !pool.includes(c)) pool.push(c); });
+      d.cards.forEach(c => { if(!c.tableOnly && Object.entries(sel).every(([f, vals]) => c[f] === undefined || vals.includes(c[f])) && !off.some(([f, v]) => c[f] === v) && !pool.includes(c)) pool.push(c); });
       titles.push(v ? v.title : d.title);
     }
     if(!pool.length){ $("player").innerHTML = `<p class="callout">No cards in that combination. <a href="./">See all decks</a>.</p>`; return; }
@@ -337,7 +337,7 @@
            timer: store.get("fc:timer", 0), order:[], i:0, flipped:false, known:{}, finished:false };
     document.title = "Combined decks · Flashcards";
     $("title").textContent = titles.length > 1 ? `${titles.length} decks combined` : titles[0];
-    $("subtitle").textContent = titles.join(" · ");
+    $("subtitle").textContent = titles.join(" · "); $("subtitle").hidden = false;
     remember($("settings"), "settings", true);
     buildControlRows(); wireEvents(); reset();
   }
@@ -351,7 +351,7 @@
       let d; try{ d = await loadJSON(DATA+encodeURIComponent(id)+".json"); }catch(e){ continue; }
       d.cards.forEach((c, i) => { c._i = id + ":" + i; c._deck = d; });
       if(d.lookalikes) markLookalikes(d.cards);
-      d.cards.forEach(c => { if(srs.isDue(db.cards[srs.key(d.id, c)], day)) pool.push(c); });
+      d.cards.forEach(c => { if(!c.tableOnly && srs.isDue(db.cards[srs.key(d.id, c)], day)) pool.push(c); });
     }
     // a stand-in "deck" for the settings panel: just direction and timer
     deck = { id:"all", title:"Spaced repetition", modes:["le","el"], filters:[], cards:[] };
@@ -360,7 +360,7 @@
            timer: store.get("fc:timer", 0), order:[], i:0, flipped:false, known:{}, finished:false };
     document.title = "Spaced repetition · Flashcards";
     $("title").textContent = "Spaced repetition";
-    $("subtitle").textContent = "Everything due today, from every deck you've studied";
+    $("subtitle").textContent = "Everything due today, from every deck you've studied"; $("subtitle").hidden = false;
     remember($("settings"), "settings", true);
     buildControlRows(); wireEvents(); reset();
   }
@@ -383,7 +383,7 @@
   function currentDeck(){
     if(st.all || st.combo) return dedupe(st.pool);
     const ts = terms(st.q);
-    return dedupe(deck.cards.filter(c => passes(c, deck.filters) && (st.mode !== "pp" || c.pp) && (!ts.length || matches(c, ts))));
+    return dedupe(deck.cards.filter(c => !c.tableOnly && passes(c, deck.filters) && (st.mode !== "pp" || c.pp) && (!ts.length || matches(c, ts))));   // tableOnly: a paradigm cell, not a card (suī has no nominative)
   }
   // Latin → English: a form that several cards of the same word share (rēgibus = dative AND ablative plural) is asked
   // once, and its back gives every reading. English → Latin keeps them apart: "to the kings" and "by the kings" are different questions.

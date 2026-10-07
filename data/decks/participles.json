@@ -2,7 +2,6 @@
  "id": "participles",
  "title": "Participles",
  "course": "Verbs · Participles",
- "subtitle": "All four participles of amō, declined in full, plus videō, mittō, capiō and audiō",
  "intro": "Latin has four participles. They are <b>verbal adjectives</b>: they agree with a noun in gender, number and case, and their tense is <b>relative to the main verb</b>.<ul><li><b>Present active</b> (<i>loving</i>, at the same time as the main verb): incomplete stem + <span class=\"end\">-ns, -ntis</span>, declined like a 3rd-declension adjective: amāns, amantis; vidēns; mittēns; capiēns; audiēns.</li><li><b>Perfect passive</b> (<i>having been loved</i>, before the main verb): the 4th principal part, declined like clārus: amātus, -a, -um; vīsus; missus; captus; audītus.</li><li><b>Future active</b> (<i>about to love</i>, after the main verb): 4th principal part stem + <span class=\"end\">-ūrus, -a, -um</span>: amātūrus; vīsūrus; missūrus; captūrus; audītūrus.</li><li><b>Future passive / gerundive</b> (<i>to be loved, needing to be loved</i>): incomplete stem + <span class=\"end\">-ndus, -a, -um</span>: amandus; videndus; mittendus; capiendus; audiendus.</li></ul><p style=\"margin:8px 0 0\"><b>Watch out:</b> the present participle has a long vowel only in the nominative (amāns, but amantis), and its ablative singular is <b>-e</b> (amante), or often <b>-ī</b> when it is used as a plain adjective. Its neuter plural is <b>-ia</b> (amantia) and its genitive plural <b>-ium</b>.</p>",
  "paradigmNote": "",
  "filters": [
@@ -2478,7 +2477,6 @@
  "views": {
   "pres": {
    "title": "Present Active Participle",
-   "subtitle": "amāns, amantis (loving), declined in full, plus the other conjugations",
    "sel": {
     "part": [
      "pres"
@@ -2490,7 +2488,6 @@
   },
   "perf": {
    "title": "Perfect Passive Participle",
-   "subtitle": "amātus, -a, -um ((having been) loved), declined in full, plus the other conjugations",
    "sel": {
     "part": [
      "perf"
@@ -2502,7 +2499,6 @@
   },
   "fut": {
    "title": "Future Active Participle",
-   "subtitle": "amātūrus, -a, -um (about to love), declined in full, plus the other conjugations",
    "sel": {
     "part": [
      "fut"
@@ -2514,7 +2510,6 @@
   },
   "ger": {
    "title": "Future Passive Participle (Gerundive)",
-   "subtitle": "amandus, -a, -um (to be loved), declined in full, plus the other conjugations",
    "sel": {
     "part": [
      "ger"

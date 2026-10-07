@@ -14,7 +14,7 @@
   --radius:14px; --radius-sm:10px; --sb-bg:#FBFAF8;
 }
 :root body{-webkit-font-smoothing:antialiased}
-:root :is(h1,h2,h3){font-family:var(--head);letter-spacing:-.005em}
+:root :is(h1,h2,h3):not(.label){font-family:var(--head);letter-spacing:-.005em}   /* small-caps labels that happen to be headings stay sans */
 
 /* cards: hairline border, soft shadow, one radius everywhere */
 :root :is(.noun,.card,.decl,.cases-box,.panel,details.er,details.fold){border-radius:var(--radius);border-color:var(--rule)}

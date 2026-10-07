@@ -2,9 +2,8 @@
  "id": "future-perfect-active",
  "title": "Future Perfect Active Indicative",
  "course": "Verbs · Active Indicative",
- "subtitle": "Complete aspect: all four conjugations plus 3rd -iō",
  "intro": "The future perfect is the <b>complete stem</b> (amāv-, vīd-, mīs-, cēp-, audīv-) +\n    the <b>future of sum</b>: <span class=\"end\">erō, eris, erit, erimus, eritis, erint</span>.\n    <p style=\"margin:8px 0 0\">The complete stem marks the action as complete. The future of sum (“will be”) puts it in <b>future time</b>:\n    complete before some point in the future, so “will have loved” (amāverō). The endings are the same in every conjugation, and only the stem differs.</p>\n    <p style=\"margin:8px 0 0\"><b>Watch out:</b> the 3rd person plural is <b>-erint</b>, not erunt (amāverint). That keeps it separate from the perfect amāvērunt.</p>",
- "paradigmNote": "Future perfect endings (all conjugations): <span class=\"end\">-erō, -eris, -erit, -erimus, -eritis, -erint</span>",
+ "paradigmNote": "Future perfect endings: <span class=\"end\">-erō, -eris, -erit, -erimus, -eritis, -erint</span>",
  "filters": [
   {
    "field": "conj",

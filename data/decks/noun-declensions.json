@@ -2,7 +2,6 @@
  "id": "noun-declensions",
  "title": "Noun Declensions",
  "course": "Nouns",
- "subtitle": "All five declensions: puella, equus, forum, rēx, corpus, frūctus, cornū, rēs",
  "intro": "Every noun belongs to one of <b>five declensions</b>. The <b>genitive singular</b> (the second dictionary form) tells you which one:<ul><li><b>1st</b> <span class=\"end\">-ae</span> (puella, puellae) · <b>2nd</b> <span class=\"end\">-ī</span> (equus, equī; forum, forī) · <b>3rd</b> <span class=\"end\">-is</span> (rēx, rēgis; corpus, corporis) · <b>4th</b> <span class=\"end\">-ūs</span> (frūctus, frūctūs; cornū, cornūs) · <b>5th</b> <span class=\"end\">-eī</span> (rēs, reī)</li></ul><p style=\"margin:8px 0 0\">In the 3rd declension, find the <b>stem</b> from the genitive (rēg-, corpor-), not the nominative.</p><p style=\"margin:8px 0 0\"><b>Neuters</b> (forum, corpus, cornū): the nominative and accusative are always the same, and the plural of both ends in <b>-a</b>.</p><p style=\"margin:8px 0 0\"><b>Watch out:</b> many forms belong to more than one case. The dative and ablative plural are always identical, and forms like puellae, equī, rēgēs, frūctūs and rēs each have several readings. In Latin → English mode, give every possibility.</p>",
  "paradigmNote": "",
  "filters": [
@@ -2763,7 +2762,6 @@
  "views": {
   "1": {
    "title": "First Declension",
-   "subtitle": "puella, puellae (f.)",
    "sel": {
     "decl": [
      "1"
@@ -2772,7 +2770,6 @@
   },
   "2": {
    "title": "Second Declension",
-   "subtitle": "equus, equī (m.) · forum, forī (n.)",
    "sel": {
     "decl": [
      "2"
@@ -2781,7 +2778,7 @@
   },
   "3": {
    "title": "Third Declension",
-   "subtitle": "rēx, rēgis (m.) · corpus, corporis (n.) · i-stems cīvis and animal (off until you choose them in Settings)",
+   "subtitle": "i-stems (cīvis, animal) are off until you turn them on in Settings",
    "sel": {
     "decl": [
      "3"
@@ -2790,7 +2787,6 @@
   },
   "4": {
    "title": "Fourth Declension",
-   "subtitle": "frūctus, frūctūs (m.) · cornū, cornūs (n.)",
    "sel": {
     "decl": [
      "4"
@@ -2799,7 +2795,6 @@
   },
   "5": {
    "title": "Fifth Declension",
-   "subtitle": "rēs, reī (f.)",
    "sel": {
     "decl": [
      "5"

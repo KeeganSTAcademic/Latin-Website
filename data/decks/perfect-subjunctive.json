@@ -2,7 +2,6 @@
  "id": "perfect-subjunctive",
  "title": "Perfect Subjunctive",
  "course": "Verbs · Subjunctive",
- "subtitle": "Active and passive: all four conjugations plus 3rd -iō",
  "intro": "The perfect subjunctive is built on the <b>complete (perfect) system</b>.<ul><li><b>Active:</b> the <b>complete stem</b> (amāv-, vīd-, mīs-, cēp-, audīv-) + <span class=\"end\">-erim, -erīs, -erit, -erīmus, -erītis, -erint</span> (amāverim, amāverīs, amāverit).</li><li><b>Passive:</b> the <b>perfect passive participle</b> + the <b>present subjunctive of sum</b>: <span class=\"end\">sim, sīs, sit, sīmus, sītis, sint</span> (amātus sim).</li></ul><p style=\"margin:8px 0 0\"><b>Watch out:</b> the active looks almost exactly like the <b>future perfect indicative</b>. amāverit and amāverint are identical in both. The other forms differ only in the long <b>ī</b> of the subjunctive (amāverīs vs. amāveris), except the 1st singular: amāverim vs. amāverō.</p><p style=\"margin:8px 0 0\">The participle agrees with the subject in gender and number (amātus / amāta / amātum sit). The cards show the masculine.</p><p style=\"margin:8px 0 0\"><b>Translation:</b> the perfect subjunctive is translated with <b>“may have”</b> (amāverit, “he may have loved”; amātus sit, “he may have been loved”). The pluperfect subjunctive uses “might have.”</p>",
  "paradigmNote": "Active: complete stem + <span class=\"end\">-erim, -erīs, -erit, -erīmus, -erītis, -erint</span><br>Passive: participle + <span class=\"end\">sim, sīs, sit, sīmus, sītis, sint</span>",
  "filters": [

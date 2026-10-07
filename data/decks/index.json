@@ -281,6 +281,105 @@
   "short": "Superlative"
  },
  {
+  "id": "pronouns",
+  "title": "Is, ea, id",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "is",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "is, ea, id"
+ },
+ {
+  "id": "pronouns",
+  "title": "Hic, haec, hoc",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "hic",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "hic, haec, hoc"
+ },
+ {
+  "id": "pronouns",
+  "title": "Quī, quae, quod",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "qui",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "quī, quae, quod"
+ },
+ {
+  "id": "pronouns",
+  "title": "Personal and Reflexive",
+  "course": "Pronouns",
+  "count": 28,
+  "view": "personal",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "ego, tū, suī"
+ },
+ {
+  "id": "pronouns",
+  "title": "Ille and Iste",
+  "course": "Pronouns",
+  "count": 60,
+  "view": "ille",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "ille, iste"
+ },
+ {
+  "id": "pronouns",
+  "title": "Ipse and Īdem",
+  "course": "Pronouns",
+  "count": 60,
+  "view": "ipse",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "ipse, īdem"
+ },
+ {
+  "id": "pronouns",
+  "title": "Quis, quid (interrogative)",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "quis",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "quis, quid"
+ },
+ {
+  "id": "pronouns",
+  "title": "Aliquis and Quīdam",
+  "course": "Pronouns",
+  "count": 60,
+  "view": "indef",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "aliquis, quīdam"
+ },
+ {
+  "id": "pronouns",
+  "title": "Pronominal Adjectives (ūnus nauta)",
+  "course": "Pronouns",
+  "count": 270,
+  "view": "pronadj",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "ūnus nauta"
+ },
+ {
   "id": "present-active",
   "title": "Present Active Indicative",
   "course": "Verbs · Active Indicative",

@@ -2,7 +2,6 @@
  "id": "latin2-vocab",
  "title": "Latin II Vocabulary",
  "course": "Latin II",
- "subtitle": "Core vocabulary by week",
  "filters": [
   {
    "field": "w",

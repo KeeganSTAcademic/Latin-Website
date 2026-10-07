@@ -2,7 +2,6 @@
  "id": "latin3-vocab",
  "title": "Latin III Vocabulary",
  "course": "Latin III",
- "subtitle": "Core vocabulary by week",
  "filters": [
   {
    "field": "w",

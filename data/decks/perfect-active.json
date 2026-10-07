@@ -2,9 +2,8 @@
  "id": "perfect-active",
  "title": "Perfect Active Indicative",
  "course": "Verbs · Active Indicative",
- "subtitle": "Complete aspect: all four conjugations plus 3rd -iō",
  "intro": "The perfect is built from the <b>complete stem</b>: the 3rd principal part minus its -ī\n    (amāvī → <b>amāv-</b>, mīsī → <b>mīs-</b>). Add the perfect endings\n    <span class=\"end\">-ī, -istī, -it, -imus, -istis, -ērunt</span>.\n    <p style=\"margin:8px 0 0\">These endings are <b>the same in every conjugation</b>. The only difference is the stem itself, which has to be learned from the principal parts. All five verbs are included anyway for practice.</p>\n    <p style=\"margin:8px 0 0\">-ērunt has an alternate ending <b>-ēre</b> (amāvēre). It's not drilled here.</p>",
- "paradigmNote": "Perfect endings (all conjugations): <span class=\"end\">-ī, -istī, -it, -imus, -istis, -ērunt</span>",
+ "paradigmNote": "Perfect endings: <span class=\"end\">-ī, -istī, -it, -imus, -istis, -ērunt</span>",
  "filters": [
   {
    "field": "conj",
