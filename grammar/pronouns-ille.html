@@ -211,18 +211,26 @@ const like12 = (p,g,i) => gendered(p) && new RegExp('(' + B12[g][i] + ')(dam|dem
 const like3 = (p,g,i) => /ibus(dam)?$/.test(C(p,g,i).f) || (i === 3 && g !== 'n' && /em$/.test(C(p,g,i).f) && !/dem$/.test(C(p,g,i).f) && !like12(p,g,i));
 // Same as the nouns: [group, id, label, text, test, note]
 const PATTERNS = [
-  {grp:'noun', id:'accsg', lab:'-m', txt:'accusative singular (m./f.)', test:(p,g,i) => i === 3 && g !== 'n' && /m(dem|dam)?$/.test(C(p,g,i).f),
+  {grp:'noun', id:'accsg', lab:'-m', txt:'accusative singular (m./f.)', test:(p,g,i) => i === 3 && g !== 'n' && /(m|m?dem|m?dam|nc|ndem|ndam)$/.test(C(p,g,i).f) && !/^(īdem|quīdam)$/.test(C(p,g,i).f),
+   brief:f => '<b>-m</b> for the accusative singular, as in every declension.' + (/n(c|dem|dam)$/.test(f) ? ' Here it becomes <i>n</i> before <i>-' + f.match(/n(c|dem|dam)$/)[1] + '</i>.' : ''),
    note:'<b>-m marks the direct object, again.</b> The masculine and feminine accusative singular ends in <i>-m</i>, as in every noun declension: <i>eum, eam, illum, quem, quendam</i>. Exceptions: <i>hunc</i> and <i>hanc</i> (from <i>hum-ce, ham-ce</i>), and <i>mē, tē, sē</i>.'},
-  {grp:'noun', id:'ablsg', lab:'long vowel', txt:'ablative singular', test:(p,g,i) => i === 4 && /[āēīōū](dem|dam)?$/.test(C(p,g,i).f),
+  {grp:'noun', id:'ablsg', lab:'long vowel', txt:'ablative singular', test:(p,g,i) => i === 4 && /[āēīōū](c|dem|dam)?$/.test(C(p,g,i).f),
+   brief:f => '<b>Long vowel</b> for the ablative singular, as in nouns (<i>puellā, equō</i>).' + (/[āēīōū](c|dem|dam)$/.test(f) ? ' Here <i>-' + f.match(/(c|dem|dam)$/)[1] + '</i> follows it.' : ''),
    note:'<b>A long vowel in the ablative, again.</b> Most of these ablatives end in a long vowel, as nouns do (<i>puellā, equō, rē</i>): <i>eō, eā, illō, quō, quā, mē, tē, sē</i>. <i>Hōc</i> and <i>hāc</i> have the long vowel before the <i>-c</i>.'},
   {grp:'noun', id:'datsg', lab:'-ī', txt:'dative singular', test:(p,g,i) => i === 2 && /ī(dem|dam)?$/.test(C(p,g,i).f),
+   brief:f => '<b>-ī</b> for the dative singular, as in the 3rd declension (<i>rēgī</i>).',
    note:'<b>-ī in the dative, like the 3rd declension.</b> <i>Rēgī</i> has it, and these use it for all three genders: <i>illī, ipsī, eī, ūnī</i>. <i>Mihi, tibi</i> and <i>sibi</i> have a short <i>-i</i>; <i>cui</i> and <i>huic</i> are irregular.'},
   {grp:'noun', id:'neutpl', lab:'-a', txt:'neuter plural (nom./acc.)', test:(p,g,i) => g === 'n' && (i === 5 || i === 8) && /a(dem|dam)?$/.test(C(p,g,i).f),
+   brief:f => '<b>-a</b> for the neuter plural, as in every declension.',
    note:'<b>Neuter plural -a, in every declension.</b> The neuter nominative and accusative plural end in <i>-a</i>, as in every noun declension: <i>ea, illa, ipsa, eadem, aliqua</i>. <i>Haec</i> and <i>quae</i> add a particle to the <i>-a</i>, so they look like the feminine.'},
   {grp:'noun', id:'genpl', lab:'-ōrum / -ārum', txt:'genitive plural', test:(p,g,i) => i === 6 && /[āō]r(um|undem|undam)$/.test(C(p,g,i).f),
+   brief:f => '<b>-rum</b> for the genitive plural, as in the 1st and 2nd declensions.' + (/run(dem|dam)$/.test(f) ? ' Here the m becomes <i>n</i> before <i>-' + f.match(/(dem|dam)$/)[1] + '</i>.' : ''),
    note:'<b>-ōrum, -ārum: “of the …s,” as in the 1st and 2nd declensions.</b> <i>eōrum, eārum, hōrum, illōrum, quōrum</i>. Before <i>-dem</i> or <i>-dam</i> the m changes to n: <i>eōrundem, quōrundam</i>.'},
   {grp:'noun', id:'datablpl', lab:'-īs / -ibus', txt:'dative and ablative plural', test:(p,g,i) => (i === 7 || i === 9) && C(p,g,7).f === C(p,g,9).f,
+   brief:f => '<b>Dative = ablative</b> in the plural, as in every declension.',
    note:'<b>One shared form, again.</b> As with every noun, the dative and ablative plural are the same word. Most pronouns use <i>-īs</i> (<i>eīs, hīs, illīs</i>), the 1st/2nd-declension ending; <i>quibus</i> uses the 3rd-declension <i>-ibus</i>; <i>nōbīs</i> and <i>vōbīs</i> are irregular. A preposition points to the ablative; a verb of giving, showing or telling points to the dative.'},
+  {grp:'noun', id:'accpl', lab:'vowel + -s', txt:'accusative plural (m./f.)', test:(p,g,i) => i === 8 && g !== 'n' && /[āēō]s(dem|dam)?$/.test(C(p,g,i).f),
+   brief:f => '<b>Long vowel + -s</b> for the masculine and feminine accusative plural, as in nouns (<i>puellās, equōs</i>).', note:''},
   {grp:'decl', id:'like12', lab:'1st/2nd decl.', txt:'endings of bonus, -a, -um', test:like12,
    note:'<b>The endings of <i>bonus, -a, -um</i>.</b> These cells have the same endings as a 1st/2nd-declension adjective. The cells left plain differ from <i>bonus</i>, usually the nominative singular and the genitive and dative singular.'},
   {grp:'decl', id:'like3', lab:'3rd decl.', txt:'endings of rēx (-em, -ibus)', test:like3,
@@ -408,7 +416,7 @@ function renderActive(){
   const notes = [...new Set(gs.map(hh => C(p,hh,i).n).filter(Boolean))];
   const pats = TOGGLES.filter(pt => pt.test(p,g,i));
   const nounPats = PATS.filter(pt => pt.grp === 'noun' && pt.test(p,g,i));
-  if(nounPats.length) h += `<div class="like-noun"><h4>Same as the nouns</h4>${nounPats.map(pt => `<p style="--c:var(--p-${pt.id})">${pt.note}</p>`).join('')}</div>`;
+  if(nounPats.length) h += `<div class="like-noun"><h4>Same as the nouns</h4>${nounPats.map(pt => `<p style="--c:var(--p-${pt.id},var(--rule2,var(--muted)))">${pt.brief(c.f)}</p>`).join('')}</div>`;
   if(notes.length || pats.length) h += `<div class="tip">${notes.map(n => `<p>${esc(shown(n))}</p>`).join('')}${pats.map(pt => `<p>Part of the <b>${pt.lab}</b> pattern (${pt.txt}).</p>`).join('')}</div>`;
   if(!notes.length && !pats.length && !nounPats.length && !rel.twin.length && !rel.hidden.length) h += `<div class="hint">This spelling is unique in its chart: it can only be this case and number.</div>`;
   card.innerHTML = h;
