@@ -10,6 +10,14 @@
    "label": "Set",
    "values": [
     {
+     "v": "personal",
+     "label": "Personal Pronouns: ego, tū"
+    },
+    {
+     "v": "reflexive",
+     "label": "Reflexive Pronoun: suī"
+    },
+    {
      "v": "is",
      "label": "Is, ea, id"
     },
@@ -18,28 +26,36 @@
      "label": "Hic, haec, hoc"
     },
     {
-     "v": "qui",
-     "label": "Quī, quae, quod"
-    },
-    {
-     "v": "personal",
-     "label": "Personal and Reflexive"
-    },
-    {
      "v": "ille",
-     "label": "Ille and Iste"
+     "label": "Ille, illa, illud"
+    },
+    {
+     "v": "iste",
+     "label": "Iste, ista, istud"
+    },
+    {
+     "v": "idem",
+     "label": "Īdem, eadem, idem"
     },
     {
      "v": "ipse",
-     "label": "Ipse and Īdem"
+     "label": "Intensive Pronoun: ipse"
+    },
+    {
+     "v": "qui",
+     "label": "Relative Pronoun: quī, quae, quod"
     },
     {
      "v": "quis",
-     "label": "Quis, quid (interrogative)"
+     "label": "Interrogative Pronoun: quis, quid"
     },
     {
-     "v": "indef",
-     "label": "Aliquis and Quīdam"
+     "v": "aliquis",
+     "label": "Aliquis, aliquid"
+    },
+    {
+     "v": "quidam",
+     "label": "Quīdam, quaedam, quiddam"
     },
     {
      "v": "pronadj",
@@ -240,6 +256,29 @@
   "tableSuffix": ""
  },
  "views": {
+  "personal": {
+   "title": "Personal Pronouns: ego, tū",
+   "sel": {
+    "set": [
+     "personal"
+    ]
+   },
+   "groups": [
+    "ego",
+    "tu"
+   ]
+  },
+  "reflexive": {
+   "title": "Reflexive Pronoun: suī",
+   "sel": {
+    "set": [
+     "reflexive"
+    ]
+   },
+   "groups": [
+    "sui"
+   ]
+  },
   "is": {
    "title": "Is, ea, id",
    "sel": {
@@ -262,8 +301,52 @@
     "hic"
    ]
   },
+  "ille": {
+   "title": "Ille, illa, illud",
+   "sel": {
+    "set": [
+     "ille"
+    ]
+   },
+   "groups": [
+    "ille"
+   ]
+  },
+  "iste": {
+   "title": "Iste, ista, istud",
+   "sel": {
+    "set": [
+     "iste"
+    ]
+   },
+   "groups": [
+    "iste"
+   ]
+  },
+  "idem": {
+   "title": "Īdem, eadem, idem",
+   "sel": {
+    "set": [
+     "idem"
+    ]
+   },
+   "groups": [
+    "idem"
+   ]
+  },
+  "ipse": {
+   "title": "Intensive Pronoun: ipse",
+   "sel": {
+    "set": [
+     "ipse"
+    ]
+   },
+   "groups": [
+    "ipse"
+   ]
+  },
   "qui": {
-   "title": "Quī, quae, quod",
+   "title": "Relative Pronoun: quī, quae, quod",
    "sel": {
     "set": [
      "qui"
@@ -273,45 +356,8 @@
     "qui"
    ]
   },
-  "personal": {
-   "title": "Personal and Reflexive",
-   "sel": {
-    "set": [
-     "personal"
-    ]
-   },
-   "groups": [
-    "ego",
-    "tu",
-    "sui"
-   ]
-  },
-  "ille": {
-   "title": "Ille and Iste",
-   "sel": {
-    "set": [
-     "ille"
-    ]
-   },
-   "groups": [
-    "ille",
-    "iste"
-   ]
-  },
-  "ipse": {
-   "title": "Ipse and Īdem",
-   "sel": {
-    "set": [
-     "ipse"
-    ]
-   },
-   "groups": [
-    "ipse",
-    "idem"
-   ]
-  },
   "quis": {
-   "title": "Quis, quid (interrogative)",
+   "title": "Interrogative Pronoun: quis, quid",
    "sel": {
     "set": [
      "quis"
@@ -321,15 +367,25 @@
     "quis"
    ]
   },
-  "indef": {
-   "title": "Aliquis and Quīdam",
+  "aliquis": {
+   "title": "Aliquis, aliquid",
    "sel": {
     "set": [
-     "indef"
+     "aliquis"
     ]
    },
    "groups": [
-    "aliquis",
+    "aliquis"
+   ]
+  },
+  "quidam": {
+   "title": "Quīdam, quaedam, quiddam",
+   "sel": {
+    "set": [
+     "quidam"
+    ]
+   },
+   "groups": [
     "quidam"
    ]
   },
@@ -1808,7 +1864,7 @@
    "pi": 0,
    "lemma": "—, suī",
    "gloss": "himself, herself, itself, themselves",
-   "set": "personal",
+   "set": "reflexive",
    "tableOnly": true
   },
   {
@@ -1822,7 +1878,7 @@
    "pi": 1,
    "lemma": "—, suī",
    "gloss": "himself, herself, itself, themselves",
-   "set": "personal"
+   "set": "reflexive"
   },
   {
    "la": "sibi",
@@ -1835,7 +1891,7 @@
    "pi": 2,
    "lemma": "—, suī",
    "gloss": "himself, herself, itself, themselves",
-   "set": "personal"
+   "set": "reflexive"
   },
   {
    "la": "sē",
@@ -1848,7 +1904,7 @@
    "pi": 3,
    "lemma": "—, suī",
    "gloss": "himself, herself, itself, themselves",
-   "set": "personal",
+   "set": "reflexive",
    "note": "also sēsē; it refers back to the subject of its own clause"
   },
   {
@@ -1862,7 +1918,7 @@
    "pi": 4,
    "lemma": "—, suī",
    "gloss": "himself, herself, itself, themselves",
-   "set": "personal",
+   "set": "reflexive",
    "note": "with himself = sēcum"
   },
   {
@@ -1876,7 +1932,7 @@
    "pi": 5,
    "lemma": "—, suī",
    "gloss": "himself, herself, itself, themselves",
-   "set": "personal",
+   "set": "reflexive",
    "tableOnly": true
   },
   {
@@ -1890,7 +1946,7 @@
    "pi": 6,
    "lemma": "—, suī",
    "gloss": "himself, herself, itself, themselves",
-   "set": "personal"
+   "set": "reflexive"
   },
   {
    "la": "sibi",
@@ -1903,7 +1959,7 @@
    "pi": 7,
    "lemma": "—, suī",
    "gloss": "himself, herself, itself, themselves",
-   "set": "personal"
+   "set": "reflexive"
   },
   {
    "la": "sē",
@@ -1916,7 +1972,7 @@
    "pi": 8,
    "lemma": "—, suī",
    "gloss": "himself, herself, itself, themselves",
-   "set": "personal",
+   "set": "reflexive",
    "note": "also sēsē; it refers back to the subject of its own clause"
   },
   {
@@ -1930,7 +1986,7 @@
    "pi": 9,
    "lemma": "—, suī",
    "gloss": "himself, herself, itself, themselves",
-   "set": "personal",
+   "set": "reflexive",
    "note": "with themselves = sēcum"
   },
   {
@@ -2334,7 +2390,7 @@
    "pi": 0,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istīus",
@@ -2347,7 +2403,7 @@
    "pi": 1,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istī",
@@ -2360,7 +2416,7 @@
    "pi": 2,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istum",
@@ -2373,7 +2429,7 @@
    "pi": 3,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istō",
@@ -2386,7 +2442,7 @@
    "pi": 4,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istī",
@@ -2399,7 +2455,7 @@
    "pi": 5,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istōrum",
@@ -2412,7 +2468,7 @@
    "pi": 6,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istīs",
@@ -2425,7 +2481,7 @@
    "pi": 7,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istōs",
@@ -2438,7 +2494,7 @@
    "pi": 8,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istīs",
@@ -2451,7 +2507,7 @@
    "pi": 9,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "ista",
@@ -2464,7 +2520,7 @@
    "pi": 0,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istīus",
@@ -2477,7 +2533,7 @@
    "pi": 1,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istī",
@@ -2490,7 +2546,7 @@
    "pi": 2,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istam",
@@ -2503,7 +2559,7 @@
    "pi": 3,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istā",
@@ -2516,7 +2572,7 @@
    "pi": 4,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istae",
@@ -2529,7 +2585,7 @@
    "pi": 5,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istārum",
@@ -2542,7 +2598,7 @@
    "pi": 6,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istīs",
@@ -2555,7 +2611,7 @@
    "pi": 7,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istās",
@@ -2568,7 +2624,7 @@
    "pi": 8,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istīs",
@@ -2581,7 +2637,7 @@
    "pi": 9,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istud",
@@ -2594,7 +2650,7 @@
    "pi": 0,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istīus",
@@ -2607,7 +2663,7 @@
    "pi": 1,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istī",
@@ -2620,7 +2676,7 @@
    "pi": 2,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istud",
@@ -2633,7 +2689,7 @@
    "pi": 3,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istō",
@@ -2646,7 +2702,7 @@
    "pi": 4,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "ista",
@@ -2659,7 +2715,7 @@
    "pi": 5,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istōrum",
@@ -2672,7 +2728,7 @@
    "pi": 6,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istīs",
@@ -2685,7 +2741,7 @@
    "pi": 7,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "ista",
@@ -2698,7 +2754,7 @@
    "pi": 8,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "istīs",
@@ -2711,7 +2767,7 @@
    "pi": 9,
    "lemma": "iste, ista, istud",
    "gloss": "that (of yours)",
-   "set": "ille"
+   "set": "iste"
   },
   {
    "la": "ipse",
@@ -3114,7 +3170,7 @@
    "pi": 0,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eiusdem",
@@ -3127,7 +3183,7 @@
    "pi": 1,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eīdem",
@@ -3140,7 +3196,7 @@
    "pi": 2,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eundem",
@@ -3153,7 +3209,7 @@
    "pi": 3,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eōdem",
@@ -3166,7 +3222,7 @@
    "pi": 4,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eīdem",
@@ -3179,7 +3235,7 @@
    "pi": 5,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse",
+   "set": "idem",
    "note": "also spelled īdem or iīdem"
   },
   {
@@ -3193,7 +3249,7 @@
    "pi": 6,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eīsdem",
@@ -3206,7 +3262,7 @@
    "pi": 7,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse",
+   "set": "idem",
    "note": "also spelled īsdem"
   },
   {
@@ -3220,7 +3276,7 @@
    "pi": 8,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eīsdem",
@@ -3233,7 +3289,7 @@
    "pi": 9,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse",
+   "set": "idem",
    "note": "also spelled īsdem"
   },
   {
@@ -3247,7 +3303,7 @@
    "pi": 0,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eiusdem",
@@ -3260,7 +3316,7 @@
    "pi": 1,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eīdem",
@@ -3273,7 +3329,7 @@
    "pi": 2,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eandem",
@@ -3286,7 +3342,7 @@
    "pi": 3,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eādem",
@@ -3299,7 +3355,7 @@
    "pi": 4,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eaedem",
@@ -3312,7 +3368,7 @@
    "pi": 5,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eārundem",
@@ -3325,7 +3381,7 @@
    "pi": 6,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eīsdem",
@@ -3338,7 +3394,7 @@
    "pi": 7,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse",
+   "set": "idem",
    "note": "also spelled īsdem"
   },
   {
@@ -3352,7 +3408,7 @@
    "pi": 8,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eīsdem",
@@ -3365,7 +3421,7 @@
    "pi": 9,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse",
+   "set": "idem",
    "note": "also spelled īsdem"
   },
   {
@@ -3379,7 +3435,7 @@
    "pi": 0,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eiusdem",
@@ -3392,7 +3448,7 @@
    "pi": 1,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eīdem",
@@ -3405,7 +3461,7 @@
    "pi": 2,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "idem",
@@ -3418,7 +3474,7 @@
    "pi": 3,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eōdem",
@@ -3431,7 +3487,7 @@
    "pi": 4,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eadem",
@@ -3444,7 +3500,7 @@
    "pi": 5,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eōrundem",
@@ -3457,7 +3513,7 @@
    "pi": 6,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eīsdem",
@@ -3470,7 +3526,7 @@
    "pi": 7,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse",
+   "set": "idem",
    "note": "also spelled īsdem"
   },
   {
@@ -3484,7 +3540,7 @@
    "pi": 8,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse"
+   "set": "idem"
   },
   {
    "la": "eīsdem",
@@ -3497,7 +3553,7 @@
    "pi": 9,
    "lemma": "īdem, eadem, idem",
    "gloss": "the same",
-   "set": "ipse",
+   "set": "idem",
    "note": "also spelled īsdem"
   },
   {
@@ -3904,7 +3960,7 @@
    "pi": 0,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef",
+   "set": "aliquis",
    "note": "as an adjective (some man): aliquī"
   },
   {
@@ -3918,7 +3974,7 @@
    "pi": 1,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "alicui",
@@ -3931,7 +3987,7 @@
    "pi": 2,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquem",
@@ -3944,7 +4000,7 @@
    "pi": 3,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquō",
@@ -3957,7 +4013,7 @@
    "pi": 4,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquī",
@@ -3970,7 +4026,7 @@
    "pi": 5,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquōrum",
@@ -3983,7 +4039,7 @@
    "pi": 6,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquibus",
@@ -3996,7 +4052,7 @@
    "pi": 7,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquōs",
@@ -4009,7 +4065,7 @@
    "pi": 8,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquibus",
@@ -4022,7 +4078,7 @@
    "pi": 9,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliqua",
@@ -4035,7 +4091,7 @@
    "pi": 0,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "alicuius",
@@ -4048,7 +4104,7 @@
    "pi": 1,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "alicui",
@@ -4061,7 +4117,7 @@
    "pi": 2,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquam",
@@ -4074,7 +4130,7 @@
    "pi": 3,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquā",
@@ -4087,7 +4143,7 @@
    "pi": 4,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquae",
@@ -4100,7 +4156,7 @@
    "pi": 5,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquārum",
@@ -4113,7 +4169,7 @@
    "pi": 6,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquibus",
@@ -4126,7 +4182,7 @@
    "pi": 7,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquās",
@@ -4139,7 +4195,7 @@
    "pi": 8,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquibus",
@@ -4152,7 +4208,7 @@
    "pi": 9,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquid",
@@ -4165,7 +4221,7 @@
    "pi": 0,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef",
+   "set": "aliquis",
    "note": "as an adjective (some thing): aliquod"
   },
   {
@@ -4179,7 +4235,7 @@
    "pi": 1,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "alicui",
@@ -4192,7 +4248,7 @@
    "pi": 2,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquid",
@@ -4205,7 +4261,7 @@
    "pi": 3,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef",
+   "set": "aliquis",
    "note": "as an adjective (some thing): aliquod"
   },
   {
@@ -4219,7 +4275,7 @@
    "pi": 4,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliqua",
@@ -4232,7 +4288,7 @@
    "pi": 5,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquōrum",
@@ -4245,7 +4301,7 @@
    "pi": 6,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquibus",
@@ -4258,7 +4314,7 @@
    "pi": 7,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliqua",
@@ -4271,7 +4327,7 @@
    "pi": 8,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "aliquibus",
@@ -4284,7 +4340,7 @@
    "pi": 9,
    "lemma": "aliquis, aliquid",
    "gloss": "someone, something",
-   "set": "indef"
+   "set": "aliquis"
   },
   {
    "la": "quīdam",
@@ -4297,7 +4353,7 @@
    "pi": 0,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "cuiusdam",
@@ -4310,7 +4366,7 @@
    "pi": 1,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "cuidam",
@@ -4323,7 +4379,7 @@
    "pi": 2,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quendam",
@@ -4336,7 +4392,7 @@
    "pi": 3,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quōdam",
@@ -4349,7 +4405,7 @@
    "pi": 4,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quīdam",
@@ -4362,7 +4418,7 @@
    "pi": 5,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quōrundam",
@@ -4375,7 +4431,7 @@
    "pi": 6,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quibusdam",
@@ -4388,7 +4444,7 @@
    "pi": 7,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quōsdam",
@@ -4401,7 +4457,7 @@
    "pi": 8,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quibusdam",
@@ -4414,7 +4470,7 @@
    "pi": 9,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quaedam",
@@ -4427,7 +4483,7 @@
    "pi": 0,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "cuiusdam",
@@ -4440,7 +4496,7 @@
    "pi": 1,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "cuidam",
@@ -4453,7 +4509,7 @@
    "pi": 2,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quandam",
@@ -4466,7 +4522,7 @@
    "pi": 3,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quādam",
@@ -4479,7 +4535,7 @@
    "pi": 4,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quaedam",
@@ -4492,7 +4548,7 @@
    "pi": 5,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quārundam",
@@ -4505,7 +4561,7 @@
    "pi": 6,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quibusdam",
@@ -4518,7 +4574,7 @@
    "pi": 7,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quāsdam",
@@ -4531,7 +4587,7 @@
    "pi": 8,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quibusdam",
@@ -4544,7 +4600,7 @@
    "pi": 9,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quiddam",
@@ -4557,7 +4613,7 @@
    "pi": 0,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef",
+   "set": "quidam",
    "note": "as an adjective (a certain thing): quoddam"
   },
   {
@@ -4571,7 +4627,7 @@
    "pi": 1,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "cuidam",
@@ -4584,7 +4640,7 @@
    "pi": 2,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quiddam",
@@ -4597,7 +4653,7 @@
    "pi": 3,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef",
+   "set": "quidam",
    "note": "as an adjective (a certain thing): quoddam"
   },
   {
@@ -4611,7 +4667,7 @@
    "pi": 4,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quaedam",
@@ -4624,7 +4680,7 @@
    "pi": 5,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quōrundam",
@@ -4637,7 +4693,7 @@
    "pi": 6,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quibusdam",
@@ -4650,7 +4706,7 @@
    "pi": 7,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quaedam",
@@ -4663,7 +4719,7 @@
    "pi": 8,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "quibusdam",
@@ -4676,7 +4732,7 @@
    "pi": 9,
    "lemma": "quīdam, quaedam, quiddam",
    "gloss": "a certain (one)",
-   "set": "indef"
+   "set": "quidam"
   },
   {
    "la": "ūnus",

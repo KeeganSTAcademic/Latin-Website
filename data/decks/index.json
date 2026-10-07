@@ -282,12 +282,35 @@
  },
  {
   "id": "pronouns",
+  "title": "Personal Pronouns: ego, tū",
+  "course": "Pronouns",
+  "count": 20,
+  "view": "personal",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "Personal: ego, tū"
+ },
+ {
+  "id": "pronouns",
+  "title": "Reflexive Pronoun: suī",
+  "course": "Pronouns",
+  "count": 8,
+  "view": "reflexive",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "Reflexive: suī"
+ },
+ {
+  "id": "pronouns",
   "title": "Is, ea, id",
   "course": "Pronouns",
   "count": 30,
   "view": "is",
   "path": [
-   "Pronouns"
+   "Pronouns",
+   "Demonstrative"
   ],
   "short": "is, ea, id"
  },
@@ -298,75 +321,103 @@
   "count": 30,
   "view": "hic",
   "path": [
-   "Pronouns"
+   "Pronouns",
+   "Demonstrative"
   ],
   "short": "hic, haec, hoc"
  },
  {
   "id": "pronouns",
-  "title": "Quī, quae, quod",
+  "title": "Ille, illa, illud",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "ille",
+  "path": [
+   "Pronouns",
+   "Demonstrative"
+  ],
+  "short": "ille, illa, illud"
+ },
+ {
+  "id": "pronouns",
+  "title": "Iste, ista, istud",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "iste",
+  "path": [
+   "Pronouns",
+   "Demonstrative"
+  ],
+  "short": "iste, ista, istud"
+ },
+ {
+  "id": "pronouns",
+  "title": "Īdem, eadem, idem",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "idem",
+  "path": [
+   "Pronouns",
+   "Demonstrative"
+  ],
+  "short": "īdem, eadem, idem"
+ },
+ {
+  "id": "pronouns",
+  "title": "Intensive Pronoun: ipse",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "ipse",
+  "path": [
+   "Pronouns"
+  ],
+  "short": "Intensive: ipse"
+ },
+ {
+  "id": "pronouns",
+  "title": "Relative Pronoun: quī, quae, quod",
   "course": "Pronouns",
   "count": 30,
   "view": "qui",
   "path": [
    "Pronouns"
   ],
-  "short": "quī, quae, quod"
+  "short": "Relative: quī"
  },
  {
   "id": "pronouns",
-  "title": "Personal and Reflexive",
-  "course": "Pronouns",
-  "count": 28,
-  "view": "personal",
-  "path": [
-   "Pronouns"
-  ],
-  "short": "ego, tū, suī"
- },
- {
-  "id": "pronouns",
-  "title": "Ille and Iste",
-  "course": "Pronouns",
-  "count": 60,
-  "view": "ille",
-  "path": [
-   "Pronouns"
-  ],
-  "short": "ille, iste"
- },
- {
-  "id": "pronouns",
-  "title": "Ipse and Īdem",
-  "course": "Pronouns",
-  "count": 60,
-  "view": "ipse",
-  "path": [
-   "Pronouns"
-  ],
-  "short": "ipse, īdem"
- },
- {
-  "id": "pronouns",
-  "title": "Quis, quid (interrogative)",
+  "title": "Interrogative Pronoun: quis, quid",
   "course": "Pronouns",
   "count": 30,
   "view": "quis",
   "path": [
    "Pronouns"
   ],
-  "short": "quis, quid"
+  "short": "Interrogative: quis"
  },
  {
   "id": "pronouns",
-  "title": "Aliquis and Quīdam",
+  "title": "Aliquis, aliquid",
   "course": "Pronouns",
-  "count": 60,
-  "view": "indef",
+  "count": 30,
+  "view": "aliquis",
   "path": [
-   "Pronouns"
+   "Pronouns",
+   "Indefinite"
   ],
-  "short": "aliquis, quīdam"
+  "short": "aliquis, aliquid"
+ },
+ {
+  "id": "pronouns",
+  "title": "Quīdam, quaedam, quiddam",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "quidam",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ],
+  "short": "quīdam, quaedam, quiddam"
  },
  {
   "id": "pronouns",
@@ -377,7 +428,7 @@
   "path": [
    "Pronouns"
   ],
-  "short": "ūnus nauta"
+  "short": "Pronominal adjectives (ūnus nauta)"
  },
  {
   "id": "present-active",

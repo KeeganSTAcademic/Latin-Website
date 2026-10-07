@@ -1,11 +1,11 @@
 /* Site theme: "Refined" (chosen October 2026 from the theme trial).
-   Calmer surfaces, hairline borders, soft shadows, tinted (not solid) "on" buttons, serif page titles.
+   Calmer surfaces, soft shadows, v2-strength text and lines (Oct 2026: contrast raised back after the first release read too light), tinted (not solid) "on" buttons, serif page titles.
    Loaded LAST on every page (after site.css / grammar.css / sidebar.css and any page <style>), so these
    tokens win. The grammar colours (stem blue · time brown · ending red, pattern colours) are untouched.
    To go back to the old look, remove the theme.css <link> from the pages. */
 
 :root{
-  --bg:#F7F6F3; --surface:#FFFFFF; --surface2:#F0EEEA; --ink:#1C1B1A; --muted:#4A4743; --faint:#5C5852; --rule:#E3E0DA; --rule2:#B9B4AB;
+  --bg:#F7F6F3; --surface:#FFFFFF; --surface2:#EFEDE8; --ink:#111111; --muted:#3A3733; --faint:#4F4B45; --rule:#CBC6BC; --rule2:#8A847A;
   --accent:#8E2A1C; --accent-strong:#6E1F14; --accent-ink:#FFFFFF; --accent-soft:#F8E8E4;
   --ending:#7A1E12;                                   /* endings keep their own red, whatever the accent */
   --font:"Source Sans 3","Source Sans Pro",Arial,sans-serif;
@@ -13,7 +13,6 @@
   --shadow:0 1px 2px rgba(40,30,20,.05),0 4px 16px rgba(40,30,20,.05);
   --radius:14px; --radius-sm:10px; --sb-bg:#FBFAF8;
 }
-:root body{-webkit-font-smoothing:antialiased}
 :root :is(h1,h2,h3):not(.label){font-family:var(--head);letter-spacing:-.005em}   /* small-caps labels that happen to be headings stay sans */
 
 /* cards: hairline border, soft shadow, one radius everywhere */
@@ -37,11 +36,11 @@
    list pages). The grammar chart pages are light-only, so nothing below applies to them. */
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]):has(link[href*="css/site.css"]){
-    --bg:#141312; --surface:#1D1C1A; --surface2:#292725; --ink:#F4F2EE; --muted:#D3CFC8; --faint:#B9B4AC; --rule:#34312E; --rule2:#6E6962;
+    --bg:#141312; --surface:#1D1C1A; --surface2:#292725; --ink:#F7F7F5; --muted:#DAD7D1; --faint:#BDB9B1; --rule:#3E3B37; --rule2:#7A7570;
     --accent:#FF9F8C; --accent-strong:#FFB7A8; --accent-ink:#141312; --accent-soft:#3A201B; --ending:#FF9F8C; --sb-bg:#181716;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.25)}
 }
 :root[data-theme="dark"]:has(link[href*="css/site.css"]){
-  --bg:#141312; --surface:#1D1C1A; --surface2:#292725; --ink:#F4F2EE; --muted:#D3CFC8; --faint:#B9B4AC; --rule:#34312E; --rule2:#6E6962;
+  --bg:#141312; --surface:#1D1C1A; --surface2:#292725; --ink:#F7F7F5; --muted:#DAD7D1; --faint:#BDB9B1; --rule:#3E3B37; --rule2:#7A7570;
   --accent:#FF9F8C; --accent-strong:#FFB7A8; --accent-ink:#141312; --accent-soft:#3A201B; --ending:#FF9F8C; --sb-bg:#181716;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.25)}
