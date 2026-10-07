@@ -1,0 +1,47 @@
+/* Site theme: "Refined" (chosen October 2026 from the theme trial).
+   Calmer surfaces, hairline borders, soft shadows, tinted (not solid) "on" buttons, serif page titles.
+   Loaded LAST on every page (after site.css / grammar.css / sidebar.css and any page <style>), so these
+   tokens win. The grammar colours (stem blue · time brown · ending red, pattern colours) are untouched.
+   To go back to the old look, remove the theme.css <link> from the pages. */
+
+:root{
+  --bg:#F7F6F3; --surface:#FFFFFF; --surface2:#F0EEEA; --ink:#1C1B1A; --muted:#4A4743; --faint:#5C5852; --rule:#E3E0DA; --rule2:#B9B4AB;
+  --accent:#8E2A1C; --accent-strong:#6E1F14; --accent-ink:#FFFFFF; --accent-soft:#F8E8E4;
+  --ending:#7A1E12;                                   /* endings keep their own red, whatever the accent */
+  --font:"Source Sans 3","Source Sans Pro",Arial,sans-serif;
+  --head:"Source Serif 4",Georgia,serif;               /* page titles and section headings only */
+  --shadow:0 1px 2px rgba(40,30,20,.05),0 4px 16px rgba(40,30,20,.05);
+  --radius:14px; --radius-sm:10px; --sb-bg:#FBFAF8;
+}
+:root body{-webkit-font-smoothing:antialiased}
+:root :is(h1,h2,h3){font-family:var(--head);letter-spacing:-.005em}
+
+/* cards: hairline border, soft shadow, one radius everywhere */
+:root :is(.noun,.card,.decl,.cases-box,.panel,details.er,details.fold){border-radius:var(--radius);border-color:var(--rule)}
+:root :is(.chip,.btn){border-radius:var(--radius-sm)}
+
+/* "on" buttons: a tint with an outline, not a solid block of colour */
+:root :is(.chip.plain,.sb-combine)[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent-strong);box-shadow:inset 0 0 0 1.5px var(--accent);border-color:var(--accent)}
+:root :is(.fc-settings,.level-switch) .chip[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent-strong);border-color:var(--accent)}
+
+/* endings stay red */
+:root :is(.card .form .en,.card .tr .ee){color:var(--ending)}
+/* review grades: the interval under each grade at full strength */
+:root .btn.grade small{opacity:1}
+
+/* sidebar: its own quiet surface; the current page as a soft pill */
+:root .sb{background:var(--sb-bg)}
+:root .sb a[aria-current="page"]{background:var(--accent-soft);color:var(--accent-strong)}
+
+/* Dark mode: only the pages that already have one (those using site.css: home, flashcards, the
+   list pages). The grammar chart pages are light-only, so nothing below applies to them. */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]):has(link[href*="css/site.css"]){
+    --bg:#141312; --surface:#1D1C1A; --surface2:#292725; --ink:#F4F2EE; --muted:#D3CFC8; --faint:#B9B4AC; --rule:#34312E; --rule2:#6E6962;
+    --accent:#FF9F8C; --accent-strong:#FFB7A8; --accent-ink:#141312; --accent-soft:#3A201B; --ending:#FF9F8C; --sb-bg:#181716;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.25)}
+}
+:root[data-theme="dark"]:has(link[href*="css/site.css"]){
+  --bg:#141312; --surface:#1D1C1A; --surface2:#292725; --ink:#F4F2EE; --muted:#D3CFC8; --faint:#B9B4AC; --rule:#34312E; --rule2:#6E6962;
+  --accent:#FF9F8C; --accent-strong:#FFB7A8; --accent-ink:#141312; --accent-soft:#3A201B; --ending:#FF9F8C; --sb-bg:#181716;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.25)}
