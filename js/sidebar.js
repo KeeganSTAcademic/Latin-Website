@@ -168,7 +168,9 @@
         j.innerHTML = `<span class="sb-label">On this page</span>` + jumps.map(([id, t]) => `<a href="#${id}">${t}</a>`).join("");
         out.push(j);
       }
-      document.querySelectorAll(".toolbar > .tb-row, .toolbar > .legend").forEach(n => out.push(n));
+      // the pattern row first, wherever it is (it sits above the charts while the sidebar is hidden)
+      const pats = document.getElementById("patterns"); if(pats) out.push(pats);
+      document.querySelectorAll(".toolbar > .tb-row, .toolbar > .legend").forEach(n => { if(n !== pats) out.push(n); });
       const toc = document.querySelector("header nav.toc"); if(toc) out.push(toc);
     } else if(!onIndex){   // a deck is open (not the deck list): its Settings
       document.querySelectorAll(".fc-side > *").forEach(n => out.push(n));
@@ -189,6 +191,16 @@
     }
     root.classList.toggle("sb-tools-out", on && moved.length > 0);
     if(section === "flashcards") placeSettings(!on);
+    // grammar pages: with the sidebar showing, "Highlight a pattern" stays in it; when the sidebar is hidden
+    // (narrow windows, phones), the pattern buttons go directly above the charts instead of the top of the page
+    if(section === "grammar"){
+      const pats = document.getElementById("patterns"), work = document.querySelector(".work");
+      if(pats && work){
+        const inSidebar = !!pats.closest("#sb-tools");
+        if(!inSidebar){ pats.classList.add("above"); work.before(pats); }
+        else pats.classList.remove("above");
+      }
+    }
   }
 
   // Flashcards: in the sidebar, Settings is always open (the tab already names it); without the sidebar

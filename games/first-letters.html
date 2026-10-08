@@ -367,7 +367,7 @@ const CHARTS={
  nomacc:{t:'Subject and object',h:['Job','Case','Example'],r:[
   ['subject: does the action','nominative','<em>Puella</em> aquam portat. <span class="c">(The girl carries the water.)</span>'],
   ['object: receives the action','accusative','Puella <em>aquam</em> portat.']],
-  note:'In Latin the ending of the noun shows which job it is doing. The word order can change without changing the meaning.'},
+  note:'In Latin the ending of the noun shows which function it has. The word order can change without changing the meaning.'},
  verbs:{t:'The verb: one or more than one',h:['Verb','Subject','English'],r:[
   ['portat','one','he or she carries'],
   ['portant','more than one','they carry'],
@@ -412,7 +412,7 @@ const STAGES=[
  {t:'brief',h:'The find',html:
   '<figure class="papyrus"><img src="'+PAPYRUS_IMG+'" alt="A Latin letter on papyrus, written in a flowing cursive hand, with worn and broken edges"><figcaption>A Latin letter on papyrus, written in Roman cursive.</figcaption></figure>'+
   '<p>In this game you help a papyrologist, a person who reads ancient writing on papyrus. Papyrus is an early kind of paper made from a plant that grew in Egypt. Some letters that Romans wrote on it have survived for almost two thousand years.</p>'+
-  '<p>Many of these letters are torn, and a tear often cuts off the end of a word. In Latin, the ending of a noun shows what job the noun is doing in its sentence, and whether there is one of it or more than one. Latin nouns can do several different jobs. In this game we look at just two of them: the subject, which does the action, and the object, which receives it. If you can work out the job and the number from the rest of the sentence, you can put the missing ending back.</p>'+
+  '<p>Many of these letters are torn, and a tear often cuts off the end of a word. In Latin, the ending of a noun shows what function the noun has in its sentence, and whether there is one of it or more than one. Latin nouns can have several different functions. In this game we look at just two of them: the subject, which does the action, and the object, which receives it. If you can work out the function and the number from the rest of the sentence, you can put the missing ending back.</p>'+
   '<p>This first stage is in English. You will find the noun that does the action and the noun that receives it.</p>'},
  {t:'pick',s:'The girl carries the water.',toks:['The','girl','carries','the','water.'],hot:[1,4],ans:1,
   q:'Who is doing the carrying?',res:'Subject found',
@@ -468,8 +468,8 @@ const STAGES=[
 ]},
 
 {id:'endings',name:'Endings',full:'Four Endings',screens:[
- {t:'brief',h:'Four endings for four jobs',html:
-  '<p>In this game a noun is either the subject or the object, and it is either singular or plural. That makes four combinations, and nouns like <em>puella</em> have a different ending for each one. Latin has more endings than these for the other jobs a noun can do, which you will learn later.</p>'+
+ {t:'brief',h:'Four endings for four functions',html:
+  '<p>In this game a noun is either the subject or the object, and it is either singular or plural. That makes four combinations, and nouns like <em>puella</em> have a different ending for each one. Latin has more endings than these for the other functions a noun can have, which you will learn later.</p>'+
   '<div class="tablewrap"><table class="chart"><tr><th>Job</th><th>One</th><th>More than one</th></tr>'+
   '<tr><td>subject (nominative)</td><td class="c">puell<strong>a</strong></td><td class="c">puell<strong>ae</strong></td></tr>'+
   '<tr><td>object (accusative)</td><td class="c">puell<strong>am</strong></td><td class="c">puell<strong>ās</strong></td></tr></table></div>'+
@@ -482,7 +482,7 @@ const STAGES=[
   fb:'More than one, subject. <em>fīliae</em> means <em>the daughters</em> doing the action.'},
  {t:'ask',q:'<span class="latin">casam</span>Which description fits?',opts:['one, subject','one, object','more than one, subject','more than one, object'],ans:1,m:'case',
   fb:'One, object. <em>casam</em> means <em>the house</em> receiving the action, as in <em>casam intrat</em>, <em>she enters the house</em>.'},
- {t:'sort',q:'Sort each word by its job and number.',
+ {t:'sort',q:'Sort each word by its function and number.',
   bins:[{id:'ns',n:'One, subject',h:'-a'},{id:'as',n:'One, object',h:'-am'},{id:'np',n:'More, subject',h:'-ae'},{id:'ap',n:'More, object',h:'-ās'}],
   cards:[{txt:'fīlia',bin:'ns'},{txt:'fīliam',bin:'as'},{txt:'fīliae',bin:'np'},{txt:'fīliās',bin:'ap'},
          {txt:'casa',bin:'ns'},{txt:'casam',bin:'as'},{txt:'casae',bin:'np'},{txt:'casās',bin:'ap'},
@@ -550,17 +550,17 @@ const STAGES=[
 
 {id:'second',name:'Second',full:'Boys and Farmers',screens:[
  {t:'brief',h:'A second group of nouns',html:
-  '<p>Nouns like <em>colōnus</em> (farmer) and <em>cibus</em> (food) belong to a second group, called the <strong>second declension</strong>. They do the same four jobs, but with different endings.</p>'+
+  '<p>Nouns like <em>colōnus</em> (farmer) and <em>cibus</em> (food) belong to a second group, called the <strong>second declension</strong>. They have the same four functions, but with different endings.</p>'+
   '<div class="tablewrap"><table class="chart"><tr><th>Job</th><th>One</th><th>More than one</th></tr>'+
   '<tr><td>subject (nominative)</td><td class="c">colōn<strong>us</strong></td><td class="c">colōn<strong>ī</strong></td></tr>'+
   '<tr><td>object (accusative)</td><td class="c">colōn<strong>um</strong></td><td class="c">colōn<strong>ōs</strong></td></tr></table></div>'+
   '<p><em>puer</em> (boy) is slightly different. It has no ending when it is a singular subject: <em>puer, puerum, puerī, puerōs</em>.</p>'},
  {t:'ask',q:'<span class="latin">colōnum</span>Which description fits?',opts:['one, subject','one, object','more than one, subject','more than one, object'],ans:1,m:'case',
-  fb:'One, object. <em>-um</em> does the same job as <em>-am</em> in <em>puellam</em>.'},
+  fb:'One, object. <em>-um</em> has the same function as <em>-am</em> in <em>puellam</em>.'},
  {t:'ask',q:'<span class="latin">colōnī</span>Which description fits?',opts:['one, subject','one, object','more than one, subject','more than one, object'],ans:2,m:'case',counts:'plural',
   fb:'More than one, subject. <em>colōnī</em> means <em>the farmers</em> doing the action, like <em>puellae</em>.'},
  {t:'ask',q:'<span class="latin">puerōs</span>Which description fits?',opts:['one, subject','one, object','more than one, subject','more than one, object'],ans:3,m:'case',counts:'plural',
-  fb:'More than one, object. <em>-ōs</em> does the same job as <em>-ās</em> in <em>puellās</em>.'},
+  fb:'More than one, object. <em>-ōs</em> has the same function as <em>-ās</em> in <em>puellās</em>.'},
  {t:'build',q:'<span class="latin">Colōn[ ] agrum parat.</span><span class="gloss">The farmer prepares the field.</span>Which ending fills the gap?',w:'colōnus, -ī, m.',stem:'colōn',bank:E2,ans:'us',m:'parse',
   fb:'<em>Colōnus</em>. One farmer is doing the preparing, so he needs the singular subject ending.'},
  {t:'build',q:'<span class="latin">Puella cib[ ] portat.</span><span class="gloss">The girl carries the food.</span>Which ending fills the gap?',w:'cibus, -ī, m.',stem:'cib',bank:E2,ans:'um',m:'parse',
@@ -569,7 +569,7 @@ const STAGES=[
   fb:'<em>Colōnī</em>. <em>salūtant</em> ends in <em>-nt</em>, so the subject is plural.'},
  {t:'build',q:'<span class="latin">Fīlia puer[ ] uocat.</span><span class="gloss">The daughter calls the boys.</span>Which ending fills the gap?',w:'puer, puerī, m.',stem:'puer',bank:E2,ans:'ōs',m:'parse',counts:'plural',
   fb:'<em>puerōs</em>. The boys are the ones being called, so they are the object, and there is more than one.'},
- {t:'sort',q:'Sort words from both groups by their job and number.',
+ {t:'sort',q:'Sort words from both groups by their function and number.',
   bins:[{id:'ns',n:'One, subject',h:'-a, -us'},{id:'as',n:'One, object',h:'-am, -um'},{id:'np',n:'More, subject',h:'-ae, -ī'},{id:'ap',n:'More, object',h:'-ās, -ōs'}],
   cards:[{txt:'puella',bin:'ns'},{txt:'colōnus',bin:'ns'},{txt:'puer',bin:'ns'},{txt:'puellam',bin:'as'},{txt:'colōnum',bin:'as'},{txt:'puerum',bin:'as'},
          {txt:'puellae',bin:'np'},{txt:'colōnī',bin:'np'},{txt:'puerī',bin:'np'},{txt:'puellās',bin:'ap'},{txt:'colōnōs',bin:'ap'},{txt:'puerōs',bin:'ap'}],
@@ -823,7 +823,7 @@ const FACTS=[
  {p:1,h:'Latin letters usually begin with the writer\u2019s name in the nominative, the case used for the subject. Then comes the reader\u2019s name, then <em>salutem</em>, \u201cgreetings\u201d. So <em>Claudia Severa Lepidinae salutem</em> means \u201cClaudia Severa to Lepidina, greetings\u201d.'},
  {p:1,h:'Letters are often found in groups that belonged to one family, called an archive. Reading an archive lets historians follow the same people over several years, which a single letter cannot do.'},
 
- {p:2,h:'The first job is reading the handwriting. Everyday Latin was written in a fast joined script called Roman cursive, and many of its letters look quite different from the capitals on inscriptions. Papyrologists learn the letter shapes of each period before they can read a text.'},
+ {p:2,h:'The first task is reading the handwriting. Everyday Latin was written in a fast joined script called Roman cursive, and many of its letters look quite different from the capitals on inscriptions. Papyrologists learn the letter shapes of each period before they can read a text.'},
  {p:2,h:'Handwriting changes over time, so the style of a hand can also date a text that has no date written on it. The study of ancient handwriting is called palaeography.'},
  {p:2,h:'Where the papyrus is torn, the editor counts how many letters would fit in the gap and restores only what fits the space and the grammar. The restored letters go in square brackets, so <em>puell[ae]</em> means that only <em>puell</em> can be seen on the papyrus.'},
  {p:2,h:'Scribes often shortened common words, and editors write the full word out in round brackets. For example, <em>s(alutem)</em> means that the papyrus has only the letter <em>s</em>, and the editor has supplied the rest.'},
@@ -1026,7 +1026,7 @@ DRAW.multi=(slip,sc)=>{
  slip.appendChild(chk);
 };
 
-/* ---- pick the word doing the job ---- */
+/* ---- pick the word with the function ---- */
 DRAW.pick=(slip,sc)=>{
  slip.appendChild(el('div','prompt',sc.q));
  const s=el('div','sentence');let nudge=null;
@@ -1043,7 +1043,7 @@ DRAW.pick=(slip,sc)=>{
      cont(slip).focus();
     }else{
      b.classList.add('no');b.disabled=true;
-     if(!sc._err){sc._err=1;nudge=fb(slip,false,'That word is in the sentence, but it is not doing this job. Try another.','Keep looking')}
+     if(!sc._err){sc._err=1;nudge=fb(slip,false,'That word is in the sentence, but it does not have this function. Try another.','Keep looking')}
     }
    };
    s.appendChild(b);
@@ -1149,7 +1149,7 @@ DRAW.build=(slip,sc)=>{
 };
 
 /* ---- full parse ---- */
-const PROWS=[['n','number',['singular','plural']],['c','case',CASES],['fn','job',FUNCS]];
+const PROWS=[['n','number',['singular','plural']],['c','case',CASES],['fn','function',FUNCS]];
 DRAW.parse=(slip,sc)=>{
  if(sc.head)slip.appendChild(el('h2','',sc.head));
  slip.appendChild(el('div','latin',sc.s));
@@ -1472,7 +1472,7 @@ DRAW.end=slip=>{
  if(w){
   d.innerHTML='<b>Recommended next mission</b>'+diagFor(w)+' Run <strong>'+STAGES.find(x=>x.id===NEXT[w]).full+'</strong> again — the stages stay open in the path above.';
  }else{
-  d.innerHTML='<b>Recommended next mission</b>Everything here is secure. The next step is the other Latin cases, which show jobs such as <em>of</em>, <em>to</em> and <em>with</em>.';
+  d.innerHTML='<b>Recommended next mission</b>Everything here is secure. The next step is the other Latin cases, which show functions such as <em>of</em>, <em>to</em> and <em>with</em>.';
  }
  slip.appendChild(d);
  const r=el('div','gorow');

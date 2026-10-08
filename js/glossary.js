@@ -27,7 +27,7 @@
     ['possessive', 'possessives?', 'Shows who owns something: "my", "your", "his own".'],
     ['antecedent', 'antecedents?', 'The noun that a relative pronoun refers back to. In "the girl who sings", the antecedent is "girl".'],
     // the categories
-    ['case', 'cases?', 'The form of a word that shows its job in the sentence. English still does this with pronouns: "he" (subject) and "him" (object). Latin does it with endings on nouns, pronouns and adjectives.'],
+    ['case', 'cases?', 'The form of a word that shows its function in the sentence. English still does this with pronouns: "he" (subject) and "him" (object). Latin does it with endings on nouns, pronouns and adjectives.'],
     ['number', '(?<![Aa] )number(?! of)', 'Whether a word is singular (one) or plural (more than one).'],
     ['gender', 'genders?', 'Every Latin noun is masculine, feminine or neuter. For things, gender is a grammar category, not about being male or female: a table is feminine, a war is neuter.'],
     ['person', '(?:1st|2nd|3rd|first|second|third)[- ]person|person(?=,? (?:and )?number)', 'Who is doing the action. 1st person is the speaker (I, we), 2nd person is the one spoken to (you), 3rd person is anyone else (he, she, it, they).'],
@@ -90,7 +90,7 @@
   const RE = new RegExp(ORDER.map(([, re]) => `(?<![\\w\\u00C0-\\u024F-])(${re})(?![\\w\\u00C0-\\u024F])`).join('|'), 'gi');
   const KEY = m => { for(let j = 1; j < m.length; j++) if(m[j] !== undefined) return ORDER[j - 1][0]; };
 
-  const SKIP = 'script,style,button,a,select,input,textarea,label,h1,h2,th,.tb-label,i,em,code,nav,footer,.q,#sb,.sb,.sb-open,.gl,.cell,.chip,.tb-sub,.legend,.src,.sec,.label,figcaption,[lang="la"],.la,.form,#gltip';
+  const SKIP = '.ta-c,.ta-col,script,style,button,a,select,input,textarea,label,h1,h2,th,.tb-label,i,em,code,nav,footer,.q,#sb,.sb,.sb-open,.gl,.cell,.chip,.tb-sub,.legend,.src,.sec,.label,figcaption,[lang="la"],.la,.form,#gltip';
   const BLOCK = 'article,section,aside,figure,table,.use,.pnote,.tip,.amb-box,.like-noun,.intro,.basic,.card,.noun,.pattern';
   const UNIT = '#card,.card,.use,.noun,.intro,.basic,.pnote,.pattern,figure,table,article';
   // everyday basics are marked once per page (and again in the inspector); the rest once per unit

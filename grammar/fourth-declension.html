@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
-<link rel="stylesheet" href="../css/grammar.css?v=202610071210">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
 <style>
 :root{--p-genpl:#63460D; --p-genpl-bg:#F3E6C6; --p-accsg:#7F2756; --p-accsg-bg:#F4DDE9; --p-accpl:#16524C; --p-accpl-bg:#D6EAE5; --p-ablsg:#52378A; --p-ablsg-bg:#E6DEF3; --p-datablpl:#23487B; --p-datablpl-bg:#DAE4F1; --p-nomaccpl:#404B57; --p-nomaccpl-bg:#E1E5EA; --p-datsg:#2F5331; --p-datsg-bg:#DDEBDC; --p-neut:#683F1D; --p-neut-bg:#F0E0CF;}
 </style>
@@ -97,7 +97,7 @@ const NOUNS = [
 
 const PATTERNS = [
   {id:'accsg', lab:'-m', txt:'m./f. accusative singular', test:c=>c.case==='acc'&&c.num==='sg'&&c.noun.g!=='n',
-   note:'<b>-m marks the direct object, again.</b> <i>frūctum</i> ends in <i>-um</i> exactly like 2nd declension <i>equum</i>, and it does the same job. Neuters never take <i>-m</i>: <i>cornū</i> is its own accusative.'},
+   note:'<b>-m marks the direct object, again.</b> <i>frūctum</i> ends in <i>-um</i> exactly like 2nd declension <i>equum</i>, and it has the same function. Neuters never take <i>-m</i>: <i>cornū</i> is its own accusative.'},
   {id:'datsg', lab:'-ī', txt:'m./f. dative singular', test:c=>c.case==='dat'&&c.num==='sg'&&c.noun.g!=='n',
    note:'<b>Long -ī dative, like the 3rd declension.</b> <i>frūctuī</i> is the stem\'s <i>u</i> plus the same long <i>-ī</i> as <i>rēgī</i> and <i>corporī</i>. Neuters use <i>-ū</i> instead: <i>cornū</i>.'},
   {id:'ablsg', lab:'-ū', txt:'ablative singular', test:c=>c.case==='abl'&&c.num==='sg',
@@ -120,7 +120,7 @@ const NOTES = {
   'fructus.nom.sg':'Ends in <i>-us</i> like <i>equus</i>, but the genitive <i>frūctūs</i> shows it\'s 4th declension. Without macrons, <i>frūctus</i> also looks like the genitive singular and two plural forms.',
   'fructus.gen.sg':'<i>-ūs</i> does triple duty: genitive singular and nominative and accusative plural.',
   'fructus.dat.sg':'<i>-uī</i>: the stem\'s <i>u</i> plus the long <i>-ī</i> dative you know from <i>rēgī</i>.',
-  'fructus.acc.sg':'<i>frūctum</i> looks exactly like a 2nd declension accusative (<i>equum</i>), and it is one: same ending, same job.',
+  'fructus.acc.sg':'<i>frūctum</i> looks exactly like a 2nd declension accusative (<i>equum</i>), and it is one: same ending, same function.',
   'fructus.abl.sg':'Long <i>-ū</i>, just like <i>-ā</i> and <i>-ō</i> in the 1st and 2nd declensions. Without the macron it would look like <i>frūctu-</i> in other forms, but no other form ends in bare <i>-u</i>.',
   'fructus.gen.pl':'<i>-uum</i>: the double <i>u</i> appears only here, so this form is unmistakable.',
   'fructus.dat.pl':'<i>frūctibus</i>: the stem\'s <i>u</i> weakens to <i>i</i> before <i>-bus</i> (A&amp;G §88), just as in <i>cornibus</i>.',
@@ -263,7 +263,7 @@ function renderActive(){
   if(tw.length){
     h+=`<div class="amb-box"><h4>Ambiguous: could also be</h4><ul>${
       tw.map(t=>`<li><b>${parseName(t)}</b>: <i>${english(t)}</i></li>`).join('')
-    }</ul><div class="hint">Same spelling, different job. Use the verb, a preposition, or agreeing adjectives to decide.</div></div>`;
+    }</ul><div class="hint">The spelling is the same, but the function is different. Use the verb, a preposition, or agreeing adjectives to decide.</div></div>`;
   }
   if(ht.length){
     const byForm={}; ht.forEach(t=>{(byForm[t.form]=byForm[t.form]||{sg:[],pl:[]})[t.num].push(caseObj(t.case).name.toLowerCase());});
@@ -284,8 +284,8 @@ render();
 </script>
 <script src="../js/common.js?v=202610011900"></script>
 <script src="../js/levels.js?v=202610021500"></script>
-<script src="../js/sidebar.js?v=202610071000"></script>
-<script src="../js/glossary.js?v=202610061500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610071600"></script>
 <script src="../js/pattern-notes.js?v=202610071100"></script>
 </body>
 </html>

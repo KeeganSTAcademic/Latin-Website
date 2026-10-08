@@ -37,3 +37,84 @@
 .vgroup{display:grid;gap:12px}
 .vgroup-h{margin:0;font-size:1.375rem;color:var(--accent);border-bottom:1px solid var(--rule);padding-bottom:4px}
 .cell.active.pat .st{color:var(--accent-ink)}
+/* verb pages, pronoun-page layout: intro + time/aspect grid, then visible blocks below the charts */
+.intro{display:grid;gap:8px;max-width:80ch;margin-top:8px}
+.intro-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.intro .q{font-size:1.25rem;font-style:italic;color:var(--accent)}
+.intro .sec{margin-left:auto}
+.intro p{font-size:1.125rem;margin:0}
+.sec{font-size:1rem;font-weight:400;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.block{display:grid;gap:12px;margin-top:26px}
+.block>h3{font-size:1.375rem;font-weight:700;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.block .prose p{margin:0 0 10px;max-width:80ch}
+.block .prose p:last-child{margin-bottom:0}
+.basic{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);box-shadow:var(--shadow);padding:20px 24px;border-top:4px solid var(--accent)}
+.basic .rule{font-size:1.1875rem;margin:0}
+.how{font-size:1rem;color:var(--muted);margin:0}
+.think{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--accent);border-radius:var(--radius,14px);padding:18px 22px}
+.exs{display:grid;gap:8px}
+.exs.big{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.ex{background:var(--bg);border-radius:10px;padding:9px 14px;display:grid;gap:2px}
+.ex .la{font-size:1.125rem;font-style:italic}
+.exs.big .ex .la{font-size:1.3125rem}
+.ex .la .hl{color:var(--accent);font-weight:700}
+.ex .en{font-size:1rem;color:var(--muted)}
+.ex .src{font-size:1rem;font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.uses{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.use{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:14px 18px;display:grid;gap:8px;align-content:start}
+.use header{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:0;text-align:left}
+.use h4{margin:0;font-size:1.1875rem}
+.use .sec{margin-left:auto}
+.use .what,.use .clue{font-size:1rem;margin:0}
+.use .clue{color:var(--muted)}
+.er-open .er-h{margin:0 0 10px;font-size:1.3125rem;font-weight:400;color:var(--accent)}
+/* time and aspect grid */
+.ta{margin:10px 0 0;display:grid;gap:8px}
+.ta figcaption{font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-weight:600;font-size:1rem}
+.ta-grid{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));gap:8px}
+.ta-col{align-self:end;text-align:center;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-size:1rem}
+.ta-row{display:block;align-self:center;line-height:1.5;font-size:1rem;color:var(--muted);padding-right:8px;max-width:12em}
+.ta-row b{color:var(--ink);font-size:1.0625rem}
+.ta-c{display:grid;gap:1px;align-content:start;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:10px 14px;color:var(--ink);text-decoration:none}
+a.ta-c:hover{border-color:var(--accent)}
+a.ta-c:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ta-c.on{background:var(--accent-soft);border-color:var(--accent)}
+.ta-c.off{border-style:dashed}
+.ta-c .nm{font-weight:600}
+.ta-c .la{font-style:italic;font-size:1.1875rem;color:var(--accent-strong,var(--accent))}
+.ta-c .la .tv{font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.ta-c .eg{color:var(--muted);font-size:1rem}
+.ta-c .here{font-size:1rem;font-weight:600;color:var(--accent-strong,var(--accent));font-variant:small-caps;text-transform:lowercase;letter-spacing:.06em}
+.ta-grid{row-gap:14px}
+.ta-lede,.ta-where,.ta-note{margin:0;font-size:1.0625rem;max-width:80ch}
+.ta-where{color:var(--ink)}
+.ta-note{color:var(--muted)}
+.ta:not(.show-simple) .ta-s{display:none}
+.ta.show-simple .ta-alt{display:none}
+.ta-btn{justify-self:start;font:inherit;font-size:1rem;color:var(--accent);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.ta-btn::before{content:"+ "}
+.ta.show-simple .ta-btn::before{content:"− "}
+.ta-btn:hover{border-color:var(--accent)}
+.ta-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ta-c{position:relative}
+.ta-c.simple{border-style:dashed;background:transparent}
+.ta-c.simple.also{border-color:var(--accent);background:var(--surface)}
+.ta-c .arw{position:absolute;z-index:1;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:1px solid var(--rule2,var(--rule));color:var(--accent);font-size:1rem;line-height:1.5;font-style:normal}
+.ta-c .arw.up{top:-20px;left:50%;transform:translateX(-50%)}
+.ta-c .arw.diag{bottom:-20px;right:-20px}
+.ta-c .arw-in{display:none;color:var(--accent)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:640px){
+  .ta-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .ta-corner{display:none}
+  .ta-row{grid-column:1/-1;max-width:none;display:block;padding:6px 0 0}
+  .ta-c{padding:8px 9px}
+  .ta-c .arw{display:none}.ta-c .arw-in{display:inline}
+  .ta-c .la{font-size:1.0625rem}
+  .basic,.think{padding:16px}
+  .uses{grid-template-columns:1fr}
+}
+.forms-table td:first-child{font-weight:400;width:50%}
+/* phones: table cells already stack (grammar.css); hide the header row so it can't stretch the column */
+.charts-col,.charts-col>div{min-width:0}
+@media (max-width:700px){.conj-table thead{display:none}.conj-box{overflow-x:auto}.conj-table td:first-child{padding-top:8px}}

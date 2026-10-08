@@ -383,7 +383,7 @@ const CHARTS={
   ['{ }','puell{l}a','The scribe wrote a letter that should not be there.'],
   ['\u27E6 \u27E7','\u27E6puer\u27E7','The scribe crossed this out.']],
   note:'Scholars agreed this set of signs at a meeting in Leiden in 1931, so that anyone reading an edition can tell what is on the papyrus from what the editor has supplied. In this game, every ending you restore is one an editor would print in square brackets.'},
- cases:{t:'The five core cases',h:['Case','Core job','English signal'],r:[
+ cases:{t:'The five core cases',h:['Case','Core function','English signal'],r:[
   ['nominative','subject of the verb','<em>the girl</em> carries'],
   ['genitive','possession','<em>of the girl</em>, <em>the girl’s</em>'],
   ['dative','indirect object','<em>to the girl</em>, <em>for the girl</em> — always with <em>to</em> or <em>for</em>'],
@@ -391,8 +391,8 @@ const CHARTS={
   ['ablative','means, manner, place; many prepositions','<em>by</em>, <em>with</em>, <em>from the girl</em>']],
   note:'<strong>Dative rule:</strong> always put <em>to</em> or <em>for</em> in your English. <em>Servus f\u0113minae aquam dat</em> is <em>The slave gives water <strong>to</strong> the woman</em>, never <em>gives the woman water</em>.'},
  infl:{t:'Inflection and word order',html:
-  '<p>English marks a noun’s job by <em>where it sits</em>. Move the noun and the meaning moves with it.</p>'+
-  '<p>Latin marks the job on the <em>end of the word</em>. The ending travels with the noun, so the word can sit anywhere in the sentence and still hold its job.</p>'+
+  '<p>English marks a noun’s function by <em>where it sits</em>. Move the noun and the meaning moves with it.</p>'+
+  '<p>Latin marks the function on the <em>end of the word</em>. The ending travels with the noun, so the word can sit anywhere in the sentence and still keep its function.</p>'+
   '<p>Roman writers used this freedom for emphasis, often putting the most important word first. In Latin, word order affects emphasis but not who does what.</p>'},
  d1:{t:'First declension — puella, puellae (f.)',h:['Case','Singular','Plural'],r:[
   ['nominative','puella','puellae'],['genitive','puellae','puellārum'],['dative','puellae','puellīs'],
@@ -445,8 +445,8 @@ const STAGES=[
  {t:'brief',h:'The find',html:
   '<figure class="papyrus"><img src="'+PAPYRUS_IMG+'" alt="A Latin letter on papyrus, written in a flowing cursive hand, with worn and broken edges"><figcaption>A Latin letter on papyrus, written in Roman cursive. The fibres of the papyrus run across the sheet under the ink.</figcaption></figure>'+
   '<p>In this game you work as a papyrologist, someone who reads and edits ancient texts written on papyrus. Imagine a bundle of Latin letters found in a house in Roman Egypt. Finds like this really happen: at Karanis in 1928, excavators found a soldier\u2019s letters to his father in a niche under a staircase.</p>'+
-  '<p>Papyrus tears and crumbles, and a break often takes the end of a word with it. Editors restore the missing letters and print them in square brackets, as in <em>puell[ae]</em>, so readers can tell which letters are on the papyrus and which the editor has added. To choose the right ending, the editor needs to know what job the word is doing in its sentence.</p>'+
-  '<p>This first stage is about those jobs. Each noun in a sentence has one, and Latin uses a different case for each. You will identify five of them.</p>'},
+  '<p>Papyrus tears and crumbles, and a break often takes the end of a word with it. Editors restore the missing letters and print them in square brackets, as in <em>puell[ae]</em>, so readers can tell which letters are on the papyrus and which the editor has added. To choose the right ending, the editor needs to know what function the word has in its sentence.</p>'+
+  '<p>This first stage is about those functions. Each noun in a sentence has one, and Latin uses a different case for each. You will identify five of them.</p>'},
 
  {t:'pick',s:'The girl gives a gift to the boy.',toks:['The','girl','gives','a','gift','to','the','boy.'],hot:[1,4,7],ans:1,
   q:'Which word is doing the giving?',res:'Role recovered — subject',
@@ -478,12 +478,12 @@ const STAGES=[
  {t:'ask',q:'Means or instrument goes into which case?',opts:CASES,ans:4,m:'case',unlock:'ablative',
   fb:'Ablative. It is the widest of the five: means, manner, place, time, and the object of many prepositions.'},
 
- {t:'ask',q:'<strong>The slave gives gold to the friend.</strong> What job is <em>friend</em> doing?',
+ {t:'ask',q:'<strong>The slave gives gold to the friend.</strong> What function does <em>friend</em> have?',
   opts:['subject','direct object','indirect object','possessor'],ans:2,m:'func',
   fb:'Indirect object — dative. The gold is what is given; <em>to the friend</em> is who it goes to. The <em>to</em> marks it.'},
  {t:'ask',q:'<strong>The boy carries the temple’s gold.</strong> Which three cases appear here?',
   opts:['nominative, dative and accusative','nominative, genitive and accusative','nominative, genitive and ablative','genitive, dative and accusative'],ans:1,m:'case',
-  fb:'Boy is nominative, temple’s is genitive, gold is accusative. Each noun has a different job, so in Latin each would have a different ending.'}
+  fb:'Boy is nominative, temple’s is genitive, gold is accusative. Each noun has a different function, so in Latin each would have a different ending.'}
 ]},
 
 {id:'endings',name:'Endings',full:'Lost Endings',screens:[
@@ -495,7 +495,7 @@ const STAGES=[
  {t:'ask',q:'Which part is identical in all three?',opts:['puell','the ending','both parts','neither part'],ans:0,m:'parse',
   fb:'<strong>puell-</strong> is the stem. It carries the meaning <em>girl</em> and never changes. Everything after it is the ending.'},
  {t:'ask',q:'So what is the ending carrying?',
-  opts:['what the word means','the word’s job in the sentence, and whether it is one or many','when the action happened','who is speaking'],ans:1,m:'parse',
+  opts:['what the word means','the word’s function in the sentence, and whether it is one or many','when the action happened','who is speaking'],ans:1,m:'parse',
   fb:'One ending delivers two pieces of information at once: case and number. <strong>puellam</strong> is one girl being acted on; <strong>puellās</strong> is several.'},
  {t:'reveal',h:'The three fragments, identified',html:
   '<div class="formrow">'+
@@ -508,9 +508,9 @@ const STAGES=[
   fb:'<em>Puella</em> is nominative wherever it stands, so the girl is the one seeing. Changing the word order changes the emphasis, but not who does what.'},
  {t:'ask',q:'Now the English: <em>The girl sees the boy</em> / <em>The boy sees the girl.</em> Same meaning?',
   opts:['Yes','No — swapping the nouns swaps who does what'],ans:1,m:'ctx',
-  fb:'English nouns have no case endings, so English relies on word order to show who does what. Latin works the other way round, which is also why an editor can often restore a lost ending once the job of the word is clear.'},
+  fb:'English nouns have no case endings, so English relies on word order to show who does what. Latin works the other way round, which is also why an editor can often restore a lost ending once the function of the word is clear.'},
  {t:'reveal',h:'The principle',html:
-  '<p>Latin signals grammatical relationships by <strong>inflection</strong> — changing the end of the word. Because the ending shows the word\u2019s job, the word can stand almost anywhere in the sentence.</p>'+
+  '<p>Latin signals grammatical relationships by <strong>inflection</strong> — changing the end of the word. Because the ending shows the word\u2019s function, the word can stand almost anywhere in the sentence.</p>'+
   '<p>Word order in Latin is therefore a tool for emphasis and style. Whatever a writer puts first is what they want you to notice first.</p>'},
  {t:'ask',q:'Which ending marks a first-declension noun as a singular direct object?',opts:['-a','-am','-ās','-ae'],ans:1,m:'parse',
   fb:'<strong>-am</strong>. In the first declension it can only be accusative singular.'},
@@ -547,7 +547,7 @@ const STAGES=[
   fb:'<em>nauta</em>, <em>agricola</em>, <em>poēta</em> and <em>pīrāta</em> all follow <em>puella</em> and all are masculine. Predict gender from the ending, then check the entry.',unlockTool:'gpat'},
  {t:'ask',q:'Which two nouns on your list would you expect to behave identically in the nominative and accusative singular?',
   opts:['puella and fēmina','amīcus and servus','dōnum and templum','porta and aqua'],ans:2,m:'gen',counts:'neut',
-  fb:'Both are neuter, and every neuter noun has the same form for nominative and accusative. <em>dōnum</em> and <em>templum</em> will not tell you which job they are doing.'}
+  fb:'Both are neuter, and every neuter noun has the same form for nominative and accusative. <em>dōnum</em> and <em>templum</em> will not tell you which function they have.'}
 ]}
 ];
 const E1=['a','ae','am','ā','ās','ārum','īs'];
@@ -607,7 +607,7 @@ STAGES.push(
   fb:'The translation is identical. There is one thing a Roman reader would notice, though: whatever a writer puts first is often what they want you to notice first. So the second version leans on <em>the water</em>. The emphasis shifts, but your English does not change.'},
  {t:'assemble',q:'Now the verb is plural. Make it say: <strong>The girls give gifts to the friend.</strong>',
   tiles:['dōn','puell','amīc'],verb:'dant',target:'The girls give gifts to the friend.',m:'ctx',counts:'neut',
-  fb:'<em>Dōna puellae amīcō dant.</em> Two of those forms could each be two things on their own: <em>puellae</em> (genitive, dative or nominative plural) and <em>dōna</em> (nominative or accusative). <em>dant</em> needs a plural subject, and once <em>puellae</em> takes that job, <em>dōna</em> can only be the object.'},
+  fb:'<em>Dōna puellae amīcō dant.</em> Two of those forms could each be two things on their own: <em>puellae</em> (genitive, dative or nominative plural) and <em>dōna</em> (nominative or accusative). <em>dant</em> needs a plural subject, and once <em>puellae</em> takes that function, <em>dōna</em> can only be the object.'},
  {t:'assemble',q:'Last one. Make it say: <strong>The slave gives food to the women.</strong>',
   tiles:['cib','fēmin','serv'],verb:'dat',target:'The slave gives food to the women.',m:'parse',unlockTool:'amb',
   fb:'<em>Cibum fēminīs servus dat.</em> <em>-īs</em> is the dative plural, <em>to the women</em>. On its own it could also be ablative, but a verb of giving wants someone to give <em>to</em>.'}
@@ -880,7 +880,7 @@ const FACTS=[
  {p:1,h:'Latin letters usually begin with the writer\u2019s name in the nominative, then the reader\u2019s name in the dative, then <em>salutem</em>, \u201cgreetings\u201d. So <em>Claudia Severa Lepidinae salutem</em> means \u201cClaudia Severa to Lepidina, greetings\u201d. The dative gives the <em>to</em>.'},
  {p:1,h:'Letters are often found in groups that belonged to one family, called an archive. Reading an archive lets historians follow the same people over several years, which a single letter cannot do.'},
 
- {p:2,h:'The first job is reading the handwriting. Everyday Latin was written in a fast joined script called Roman cursive, and many of its letters look quite different from the capitals on inscriptions. Papyrologists learn the letter shapes of each period before they can read a text.'},
+ {p:2,h:'The first task is reading the handwriting. Everyday Latin was written in a fast joined script called Roman cursive, and many of its letters look quite different from the capitals on inscriptions. Papyrologists learn the letter shapes of each period before they can read a text.'},
  {p:2,h:'Handwriting changes over time, so the style of a hand can also date a text that has no date written on it. The study of ancient handwriting is called palaeography.'},
  {p:2,h:'Where the papyrus is torn, the editor counts how many letters would fit in the gap and restores only what fits the space and the grammar. The restored letters go in square brackets, so <em>puell[ae]</em> means that only <em>puell</em> can be seen on the papyrus.'},
  {p:2,h:'Scribes often shortened common words, and editors write the full word out in round brackets. For example, <em>s(alutem)</em> means that the papyrus has only the letter <em>s</em>, and the editor has supplied the rest.'},
@@ -1083,7 +1083,7 @@ DRAW.multi=(slip,sc)=>{
  slip.appendChild(chk);
 };
 
-/* ---- pick the word doing the job ---- */
+/* ---- pick the word with the function ---- */
 DRAW.pick=(slip,sc)=>{
  slip.appendChild(el('div','prompt',sc.q));
  const s=el('div','sentence');let nudge=null;
@@ -1100,7 +1100,7 @@ DRAW.pick=(slip,sc)=>{
      cont(slip).focus();
     }else{
      b.classList.add('no');b.disabled=true;
-     if(!sc._err){sc._err=1;nudge=fb(slip,false,'That word is in the sentence, but it is not doing this job. Try another.','Keep looking')}
+     if(!sc._err){sc._err=1;nudge=fb(slip,false,'That word is in the sentence, but it does not have this function. Try another.','Keep looking')}
     }
    };
    s.appendChild(b);
@@ -1410,7 +1410,7 @@ function readSentence(tiles,ends,vk){
   const use=raw.filter(r=>r[0]==='nom'||r[0]==='acc'||r[0]==='dat');
   if(!use.length){
    const lab=raw.map(r=>(r[0]==='gen'?'genitive':'ablative')+' '+(r[1]==='sg'?'singular':'plural')).join(' or ');
-   return{kind:'bad',text:'<em>'+t+ends[t]+'</em> can only be '+lab+' here. That form has no job to do in this sentence.'};
+   return{kind:'bad',text:'<em>'+t+ends[t]+'</em> can only be '+lab+' here. That form has no function in this sentence.'};
   }
   opts.push(use.map(r=>({t:t,c:r[0],n:r[1]})));
  }
@@ -1435,7 +1435,7 @@ function readSentence(tiles,ends,vk){
  if(onlyNom.length>1)return{kind:'bad',text:'Two subjects. '+onlyNom.map(o=>'<em>'+o[0].t+ends[o[0].t]+'</em>').join(' and ')+' can only be nominative here, and a sentence with one verb has room for one.'};
  if(!all.some(x=>x.c==='nom'&&x.n===v.n))return{kind:'bad',text:'Nobody is doing the giving. <em>'+vk+'</em> needs a nominative '+(v.n==='sg'?'singular':'plural')+'.'};
  if(!all.some(x=>x.c==='acc'))return{kind:'bad',text:'Nothing is being given. No word is in the accusative.'};
- return{kind:'bad',text:'The endings clash. Two words are claiming the same job, or a word is left with none.'};
+ return{kind:'bad',text:'The endings clash. Two words are claiming the same function, or a word is left with none.'};
 }
 DRAW.assemble=(slip,sc)=>{
  slip.appendChild(el('div','prompt',sc.q));

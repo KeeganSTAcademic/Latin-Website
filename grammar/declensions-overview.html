@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
-<link rel="stylesheet" href="../css/grammar.css?v=202610071210">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
 <style>
 :root{--p-accsg:#7F2756; --p-accsg-bg:#F4DDE9; --p-ablsg:#52378A; --p-ablsg-bg:#E6DEF3; --p-datsg:#2F5331; --p-datsg-bg:#DDEBDC; --p-accpl:#16524C; --p-accpl-bg:#D6EAE5; --p-nomaccpl:#404B57; --p-nomaccpl-bg:#E1E5EA; --p-neut:#683F1D; --p-neut-bg:#F0E0CF; --p-datablpl:#23487B; --p-datablpl-bg:#DAE4F1; --p-genpl:#63460D; --p-genpl-bg:#F3E6C6; --p-confuse:#7C3112; --p-confuse-bg:#FADFCF; --card-h:760px;}
 /* trends spread */
@@ -81,7 +81,7 @@
     <summary>How to read this page</summary>
   <div class="prose">
     <p>Each column is one declension, using the model nouns from the individual pages: <i>puella, equus, forum, rēx, corpus, frūctus, cornū, rēs</i>. Neuters get their own columns because their endings differ from masculine and feminine nouns.</p>
-    <p>Each row is one case and number. Read <strong>across a row</strong> to see how one job is marked in every declension, and <strong>down a column</strong> to see a single declension's endings.</p>
+    <p>Each row is one case and number. Read <strong>across a row</strong> to see how one function is marked in every declension, and <strong>down a column</strong> to see a single declension's endings.</p>
     <p>The big letters are the endings; the small word underneath is the full form. Hover an ending to see its translation, what else it could be, and which patterns it belongs to. Use the pattern buttons to light up the rules that hold across declensions, including the <strong>cross-declension look-alikes</strong> that trip readers up most often.</p>
   </div>
   </details>
@@ -101,8 +101,8 @@
     <div class="pnotes" id="pnotes"></div>
     <div class="legend">
       <span><i class="lg a"></i>ending you're inspecting</span>
-      <span><i class="lg t"></i>same spelling, different job</span>
-      <span><i class="lg k"></i>same spelling, same job</span>
+      <span><i class="lg t"></i>same spelling, different function</span>
+      <span><i class="lg k"></i>same spelling, same function</span>
       <span><i class="lg h"></i>differs only by a macron</span>
       <span><i class="lg d"></i>has a look-alike elsewhere</span>
     </div>
@@ -168,7 +168,7 @@ const COLS = [
 ];
 const NEUT = new Set(['d2n','d3n','d4n']);
 
-// Cross-declension look-alike groups: same (or nearly the same) ending, different jobs.
+// Cross-declension look-alike groups: same (or nearly the same) ending, different functions.
 const CONFUSIONS = [
   {id:'um', lab:'-um', keys:['d2.acc.sg','d2n.nom.sg','d2n.acc.sg','d3.gen.pl','d3n.gen.pl','d4.acc.sg'],
    note:'<i>-um</i> is a direct object in the 2nd and 4th declensions (<i>equum, frūctum</i>), a neuter subject or object in the 2nd (<i>forum</i>), and "of the …s" in the 3rd (<i>rēgum, corporum</i>).'},
@@ -202,7 +202,7 @@ const PATTERNS = [
   {id:'genpl', lab:'-rum / -um', txt:'genitive plural', test:(c,r)=>r.k==='gen.pl',
    note:'<b>Every genitive plural ends in -um.</b> A long vowel + <i>-rum</i> in the 1st, 2nd, and 5th (<i>-ārum, -ōrum, -ērum</i>); plain <i>-um</i> in the 3rd (<i>rēgum</i>, easily mistaken for a 2nd declension <i>-um</i>) and <i>-uum</i> in the 4th (unmistakable).'},
   {id:'confuse', lab:'look-alikes', txt:'across declensions', test:(c,r)=>CONF_KEYS.has(`${c.id}.${r.k}`),
-   note:'<b>Same ending, different job.</b> These endings mean one thing in one declension and something else in another: <i>-um, -ī, -a, -is/-īs, -us/-ūs, -ēs</i>. You can\'t parse them from the ending alone; you have to know the noun\'s declension from its dictionary entry. Hover one to see its look-alikes.'}
+   note:'<b>Same ending, different function.</b> These endings mean one thing in one declension and something else in another: <i>-um, -ī, -a, -is/-īs, -us/-ūs, -ēs</i>. You can\'t parse them from the ending alone; you have to know the noun\'s declension from its dictionary entry. Hover one to see its look-alikes.'}
 ];
 const CONF_KEYS = new Set(CONFUSIONS.flatMap(g=>g.keys));
 
@@ -317,7 +317,7 @@ function renderActive(){
     cellEls.forEach(el=>el.classList.remove('active','twin','kin','htwin'));
     card.innerHTML=`<div class="parse">Inspect an ending</div>
       <div class="tr">Hover over or tap any ending in the spread.</div>
-      <div class="job">You'll see its case, number, and translation, every other place the same ending appears, and whether it does the same job there or a different one.</div>`;
+      <div class="job">You'll see its case, number, and translation, every other place the same ending appears, and whether it has the same function there or a different one.</div>`;
     return;
   }
   const c=byKey[state.active];
@@ -333,9 +333,9 @@ function renderActive(){
     <div class="job">${JOBS[c.row.c]}</div>`;
   const grouped=list=>{const g=new Map();list.forEach(o=>{if(!g.has(o.col))g.set(o.col,[]);g.get(o.col).push(o);});
     return [...g].map(([col,os])=>`<li><b>${col.h}</b> <i>${[...new Set(os.map(o=>shown(o.form)))].join(', ')}</i>: ${os.map(o=>parseName(o).toLowerCase()).join('; ')}</li>`).join('');};
-  if(diff.length) out+=`<div class="amb-box"><h4>Same ending, different job</h4><ul>${grouped(diff)}</ul></div>`;
+  if(diff.length) out+=`<div class="amb-box"><h4>Same ending, different function</h4><ul>${grouped(diff)}</ul></div>`;
   if(ht.length) out+=`<div class="amb-box hidden-twin"><h4>Only a macron away</h4><ul>${grouped(ht)}</ul></div>`;
-  if(same.length) out+=`<div class="kin-box"><h4>Same ending, same job</h4><p>${same.map(o=>`<i>${shown(o.form)}</i>`).join(', ')}</p></div>`;
+  if(same.length) out+=`<div class="kin-box"><h4>Same ending, same function</h4><p>${same.map(o=>`<i>${shown(o.form)}</i>`).join(', ')}</p></div>`;
   const groups=CONFUSIONS.filter(g=>g.keys.includes(c.key));
   const pats=PATTERNS.filter(p=>p.id!=='confuse'&&p.test(c.col,c.row));
   if(groups.length||pats.length){
@@ -347,8 +347,8 @@ render();
 </script>
 <script src="../js/common.js?v=202610011900"></script>
 <script src="../js/levels.js?v=202610021500"></script>
-<script src="../js/sidebar.js?v=202610071000"></script>
-<script src="../js/glossary.js?v=202610061500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610071600"></script>
 <script src="../js/pattern-notes.js?v=202610071100"></script>
 </body>
 </html>

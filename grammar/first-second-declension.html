@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
-<link rel="stylesheet" href="../css/grammar.css?v=202610071210">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
 <style>
 :root{--p-genpl:#63460D; --p-genpl-bg:#F3E6C6; --p-accsg:#7F2756; --p-accsg-bg:#F4DDE9; --p-accpl:#16524C; --p-accpl-bg:#D6EAE5; --p-ablsg:#52378A; --p-ablsg-bg:#E6DEF3; --p-datablpl:#23487B; --p-datablpl-bg:#DAE4F1; --p-gensg:#2F5331; --p-gensg-bg:#DDEBDC; --p-neut:#683F1D; --p-neut-bg:#F0E0CF; --card-h:560px;}
 </style>
@@ -116,7 +116,7 @@ const NOTES = {
   'ager.nom.sg':'No ending, and the <i>e</i> disappears from every other form: <i>agrī, agrō…</i>. The genitive tells you whether an <i>-er</i> noun keeps or drops it.',
   'ager.gen.sg':'The genitive reveals the real stem: <i>agr-</i>, not <i>ager-</i>.',
   'puella.abl.sg':'The long <i>ā</i> is audible in speech but often unmarked in printed texts. Watch for prepositions like <i>cum</i> or <i>in</i>.',
-  'puella.gen.sg':'<i>-ae</i> is the most overloaded ending in the 1st declension. Three possible jobs!',
+  'puella.gen.sg':'<i>-ae</i> is the most overloaded ending in the 1st declension. Three possible functions.',
   'equus.gen.sg':'<i>-ī</i> does double duty in the 2nd declension: genitive singular and nominative plural.',
   'puella.gen.pl':'<i>-ārum</i> can only be genitive plural. A reliable anchor when parsing a sentence.',
   'equus.gen.pl':'<i>-ōrum</i> can only be genitive plural. A reliable anchor when parsing a sentence.'
@@ -253,7 +253,7 @@ function renderActive(){
   if(tw.length){
     h+=`<div class="amb-box"><h4>Ambiguous: could also be</h4><ul>${
       tw.map(t=>`<li><b>${parseName(t)}</b>: <i>${english(t)}</i></li>`).join('')
-    }</ul><div class="hint">Same spelling, different job. Use the verb, a preposition, or agreeing adjectives to decide.</div></div>`;
+    }</ul><div class="hint">The spelling is the same, but the function is different. Use the verb, a preposition, or agreeing adjectives to decide.</div></div>`;
   }
   if(ht.length){
     const f=[...new Set(ht.map(t=>t.form))];
@@ -275,8 +275,8 @@ render();
 
 <script src="../js/common.js?v=202610011900"></script>
 <script src="../js/levels.js?v=202610021500"></script>
-<script src="../js/sidebar.js?v=202610071000"></script>
-<script src="../js/glossary.js?v=202610061500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610071600"></script>
 <script src="../js/pattern-notes.js?v=202610071100"></script>
 </body>
 </html>
