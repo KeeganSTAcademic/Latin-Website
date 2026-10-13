@@ -726,6 +726,8 @@
     db.cards[k] = res.entry;
     if(res.wasNew) srs.countNew(db, slotOf(c), day);
     srs.save(db);
+    // for an account system to listen to (js/account.js); does nothing on its own
+    document.dispatchEvent(new CustomEvent("latin:review", { detail:{ deck:deckOf(c).id, key:k, la:c.la, grade:g } }));
     st.order.shift(); st.reviewed++;
     if(res.again) st.order.splice(Math.min(st.order.length, g === 1 ? 3 : 6), 0, c);   // comes back a few cards later
     st.flipped = false; st.finished = !st.order.length;
@@ -770,7 +772,12 @@
     if(j >= st.order.length){ st.finished = true; render(); return; }
     st.i = j; st.flipped = false; render();
   }
-  function mark(v){ if(st.study === "review" || st.finished || !st.order.length) return; st.known[st.order[st.i]._i] = v; go(1); }
+  function mark(v){
+    if(st.study === "review" || st.finished || !st.order.length) return;
+    const c = st.order[st.i]; st.known[c._i] = v;
+    document.dispatchEvent(new CustomEvent("latin:mark", { detail:{ deck:deckOf(c).id, key:cardKey(c), la:c.la, known:v } }));
+    go(1);
+  }
   function doShuffle(){ if(st.study !== "review") startRound(shuffle(currentDeck())); }
 
   function wireEvents(){

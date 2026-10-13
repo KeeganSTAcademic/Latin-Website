@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teacher Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/site.css?v=202610021200">
+<link rel="stylesheet" href="../css/account.css?v=202610122000">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body data-acct="page">
+<main class="wrap t-wrap">
+  <header class="page-head"><h1>Teacher Dashboard</h1></header>
+  <aside class="callout ac-demo no-print" id="demo-note" hidden>
+    <p><b>Demo:</b> this page reads the stand-in data kept in this browser. The real version would need your teacher sign-in. The sample class is filled with four weeks of made-up practice from the real decks; any class you create starts empty, and fills up as its students sign in and practise.</p>
+  </aside>
+
+  <!-- live mode: the teacher signs in first -->
+  <form class="panel ac-form no-print" id="t-login" hidden autocomplete="off">
+    <h2>Teacher sign-in</h2>
+    <label for="t-pw">Teacher password</label>
+    <input id="t-pw" type="password" required>
+    <p class="ac-err" id="t-login-err" role="alert" hidden></p>
+    <button class="btn primary" type="submit">Sign in</button>
+    <p class="ac-note">This is the password you set in the Google Sheet's <b>Latin Site</b> menu. You stay signed in on this computer for about a week.</p>
+  </form>
+  <p class="ac-err no-print" id="t-err" role="alert" hidden></p>
+
+  <div id="t-app" hidden>
+  <div class="t-bar no-print">
+    <label class="label" for="t-class">Class</label>
+    <select id="t-class"></select>
+    <span class="t-code" id="t-code"></span>
+    <button class="btn" id="t-new" type="button">New class</button>
+    <button class="btn" id="t-out" type="button" hidden>Sign out</button>
+  </div>
+
+  <!-- new class -->
+  <form class="panel ac-form t-newform no-print" id="t-newform" hidden>
+    <h2>New class</h2>
+    <label for="n-name">Class name</label>
+    <input id="n-name" required placeholder="e.g. Latin III · Period 5">
+    <label for="n-level">Level</label>
+    <select id="n-level"><option value="1">Latin I</option><option value="2" selected>Latin II</option><option value="3">Latin III</option><option value="4">Latin IV</option></select>
+    <label for="n-count">Number of students</label>
+    <input id="n-count" type="number" min="1" max="60" value="24" required>
+    <p class="ac-note">Each student gets a login (a Latin, Greek or Phoenician name) and a password made of two Latin words. Real names are never needed.</p>
+    <div class="t-actions"><button class="btn primary" type="submit">Create class</button><button class="btn" type="button" id="n-cancel">Cancel</button></div>
+  </form>
+
+  <!-- roster slips, shown once after creating a class or adding students -->
+  <section class="panel t-roster" id="t-roster" hidden>
+    <div class="no-print">
+      <h2>Sign-in slips</h2>
+      <p class="ac-warn"><b>Print or copy these now.</b> Passwords are shown only once and aren't stored in a readable form. If a student loses one, use <b>Reset password</b> on their row.</p>
+      <p class="ac-note">To match slips to students, write each student's name on your own copy, or type it into the private label on their row (that label stays in this browser only).</p>
+      <div class="t-actions"><button class="btn primary" type="button" id="r-print">Print slips</button><button class="btn" type="button" id="r-done">Done</button></div>
+    </div>
+    <div class="t-slips" id="t-slips"></div>
+  </section>
+
+  <div class="no-print" id="t-main">
+    <div class="ac-tiles t-tiles" id="t-tiles"></div>
+
+    <div class="t-panes">
+      <section class="panel t-list">
+        <div class="t-listhead">
+          <h2>Students</h2>
+          <label class="label" for="t-sort">Sort</label>
+          <select id="t-sort">
+            <option value="attn">Needs attention first</option><option value="name">Login, A–Z</option>
+            <option value="last">Last active</option><option value="week">Most practice this week</option>
+          </select>
+        </div>
+        <div class="t-tablewrap">
+          <table class="t-table">
+            <thead><tr><th>Student</th><th>Last active</th><th>Last 4 weeks</th><th class="n">Learned</th><th class="n">Due</th><th class="n">This week</th><th class="n">Right</th><th>Needs attention</th></tr></thead>
+            <tbody id="t-rows"></tbody>
+          </table>
+        </div>
+        <div class="t-actions"><label class="label" for="t-addn">Add</label><input id="t-addn" type="number" min="1" max="60" value="1" class="t-num"><button class="btn" type="button" id="t-add">Add students</button><button class="btn" type="button" id="t-del">Delete class</button></div>
+      </section>
+
+      <section class="panel t-detail" id="t-detail" aria-live="polite"></section>
+    </div>
+
+    <section class="panel ac-sec">
+      <h2>Cards the class misses most</h2>
+      <p class="ac-note">Counted across every student: answered Again in spaced repetition, or marked Still learning in practice. These are good candidates for a review lesson.</p>
+      <ul class="ac-missed t-classmissed" id="t-missed"></ul>
+    </section>
+
+    <section class="panel ac-sec">
+      <h2>What the site stores</h2>
+      <ul class="t-privacy">
+        <li><b>Stored:</b> the class code, each login name (an invented name), the password in hashed form, and practice activity: flashcard answers, grammar pages opened, and game scores, with the time of each.</li>
+        <li><b>Not stored:</b> real names, email addresses, birthdays or any other personal details. Students can't create accounts or type anything about themselves.</li>
+        <li><b>Your labels:</b> if you label a login with a student's real name, the label is kept only in this browser on this computer. It never goes to the site.</li>
+        <li><b>Deleting:</b> deleting a class removes its logins and all of their activity.</li>
+      </ul>
+    </section>
+  </div>
+  </div>
+</main>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/account.js?v=202610122000"></script>
+<script>
+(function(){
+  const A = Site.account, T = A.teacher, $ = id => document.getElementById(id);
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+  const LEVEL = { 1:"Latin I", 2:"Latin II", 3:"Latin III", 4:"Latin IV" };
+  const ERR = {
+    offline: "The site couldn't reach your Google script. Check your internet connection and try again.",
+    busy: "The script is busy. Wait a moment and try again.",
+    server: "The Google script sent back something unexpected. Check that it is deployed as a web app with access set to Anyone.",
+  };
+  let code = null, picked = null, sums = {}, cur = null, list = [];
+
+  const ago = t => {
+    if(!t) return "never";
+    const d = A.today() - A.dayOf(t);
+    return d <= 0 ? "today" : d === 1 ? "yesterday" : d < 14 ? `${d} days ago` : `${Math.round(d / 7)} weeks ago`;
+  };
+  const strip = (s, small) => { const max = Math.max(1, ...s); return `<span class="ac-strip${small ? " sm" : ""}" aria-hidden="true">${s.map(n => `<i style="--a:${n ? 0.25 + 0.75 * n / max : 0}"></i>`).join("")}</span>`; };
+  const pct = x => x == null ? "–" : Math.round(100 * x) + "%";
+
+  // every server answer passes through here: a lapsed sign-in returns to the sign-in form, other errors show a message
+  function ok(r){
+    if(r.ok){ $("t-err").hidden = true; return true; }
+    if(r.error === "signed-out"){ start(); return false; }
+    $("t-err").textContent = ERR[r.error] || "That didn't work: " + (r.error || "unknown error") + ".";
+    $("t-err").hidden = false;
+    return false;
+  }
+
+  async function start(){
+    await A.ready;
+    $("demo-note").hidden = A.mode !== "demo";
+    $("t-out").hidden = A.mode !== "live";
+    const need = await T.needsLogin();
+    $("t-login").hidden = !need; $("t-app").hidden = need;
+    if(need){ $("t-pw").focus(); return; }
+    classes();
+  }
+
+  async function classes(){
+    const r = await T.classes(); if(!ok(r)) return;
+    list = r.classes;
+    const sel = $("t-class");
+    sel.innerHTML = list.map(c => `<option value="${esc(c.code)}">${esc(c.name)}${c.sample ? " (sample)" : ""}</option>`).join("");
+    if(!list.length){ $("t-main").hidden = true; $("t-code").textContent = "No classes yet. Choose New class to make one."; return; }
+    if(!code || !list.some(c => c.code === code)) code = list[0].code;
+    sel.value = code; $("t-main").hidden = false;
+    load();
+  }
+
+  async function load(){
+    $("t-main").setAttribute("aria-busy", "true");
+    const r = await T.classData(code);
+    $("t-main").removeAttribute("aria-busy");
+    if(!ok(r)) return;
+    cur = r;
+    sums = {}; for(const l of cur.cls.students) sums[l] = A.summarize(cur.progress[l]);
+    render();
+  }
+
+  function render(){
+    if(!cur) return;
+    const cls = cur.cls;
+    $("t-code").innerHTML = `Class code <b>${esc(cls.code)}</b> · ${LEVEL[cls.level] || ""}`;
+    const labels = A.labels.get(code);
+    const studs = cls.students;
+    const sort = $("t-sort").value;
+    const order = studs.slice().sort((a, b) => {
+      const x = sums[a], y = sums[b];
+      if(sort === "name") return a.localeCompare(b);
+      if(sort === "last") return (y.last || 0) - (x.last || 0);
+      if(sort === "week") return y.reviewsWeek - x.reviewsWeek;
+      return (y.flags.length - x.flags.length) || ((x.last || 0) - (y.last || 0));
+    });
+    const now = Date.now();
+    const activeWeek = studs.filter(l => sums[l].last && now - sums[l].last < 7 * 864e5).length;
+    const reviewsWeek = studs.reduce((n, l) => n + sums[l].reviewsWeek, 0);
+    const attn = studs.filter(l => sums[l].flags.length).length;
+    $("t-tiles").innerHTML = `
+      <div class="panel ac-tile"><span class="label">Students</span><b>${studs.length}</b><span>logins in this class</span></div>
+      <div class="panel ac-tile"><span class="label">Active this week</span><b>${activeWeek}</b><span>practised in the last 7 days</span></div>
+      <div class="panel ac-tile"><span class="label">Answers this week</span><b>${reviewsWeek}</b><span>flashcards, all students</span></div>
+      <div class="panel ac-tile${attn ? " warn" : ""}"><span class="label">Need attention</span><b>${attn}</b><span>see the last column</span></div>`;
+    $("t-rows").innerHTML = order.map(l => {
+      const m = sums[l], lab = labels[A.normLogin(l)];
+      return `<tr data-login="${esc(l)}" tabindex="0" class="${picked === l ? "on" : ""}">
+        <td><b>${esc(l)}</b>${lab ? `<span class="t-lab">${esc(lab)}</span>` : ""}</td>
+        <td>${ago(m.last)}</td><td>${strip(m.strip, true)}</td>
+        <td class="n">${m.learned}</td><td class="n">${m.due}</td><td class="n">${m.reviewsWeek}</td><td class="n">${pct(m.accuracy)}</td>
+        <td>${m.flags.map(f => `<span class="t-flag">${esc(f)}</span>`).join("") || `<span class="t-ok">On track</span>`}</td></tr>`;
+    }).join("");
+    // class-wide misses
+    const all = {};
+    for(const l of studs) for(const x of sums[l].missed){ const a = all[x.c] || (all[x.c] = { la:x.la, deck:x.deck, n:0, who:0 }); a.n += x.n; a.who++; }
+    const top = Object.values(all).sort((a, b) => b.who - a.who || b.n - a.n).slice(0, 12);
+    $("t-missed").innerHTML = top.length ? top.map(x => `<li><span lang="la">${esc(x.la)}</span><span>${esc(A.deckTitle(x.deck))} · ${x.who} student${x.who === 1 ? "" : "s"}, ${x.n} misses</span></li>`).join("")
+      : `<li class="ac-note">No misses yet.</li>`;
+    if(!picked || !studs.includes(picked)) picked = order[0] || null;
+    detail();
+  }
+
+  function detail(){
+    const el = $("t-detail"); if(!picked){ el.innerHTML = ""; return; }
+    const m = sums[picked], lab = A.labels.get(code)[A.normLogin(picked)] || "";
+    document.querySelectorAll("#t-rows tr").forEach(tr => tr.classList.toggle("on", tr.dataset.login === picked));
+    const decks = Object.entries(m.byDeck).sort((a, b) => b[1].seen - a[1].seen);
+    const pages = Object.entries(m.pages).sort((a, b) => b[1].last - a[1].last);
+    const games = Object.values(m.games).sort((a, b) => b.last - a.last);
+    const recent = m.events.filter(e => e.k !== "login").slice(-60).reverse();
+    // group recent activity by day
+    const byDay = []; for(const e of recent){ const d = A.dayOf(e.t), g = byDay[byDay.length - 1]; if(g && g.d === d) g.e.push(e); else byDay.push({ d, t:e.t, e:[e] }); }
+    el.innerHTML = `
+      <div class="t-dhead"><h2>${esc(picked)}</h2>${m.flags.map(f => `<span class="t-flag">${esc(f)}</span>`).join("")}</div>
+      <div class="t-label"><label for="d-label">Private label <span class="ac-note">(this browser only)</span></label>
+        <input id="d-label" value="${esc(lab)}" placeholder="e.g. the student's real name"></div>
+      <div class="t-actions"><button class="btn" type="button" id="d-reset">Reset password</button><span id="d-pw" class="t-pw" role="status"></span></div>
+
+      <h3>Activity</h3>
+      <p class="ac-note">Last active ${ago(m.last)} · practised on ${m.daysActive14} of the last 14 days · ${pct(m.accuracy)} of answers right</p>
+      ${strip(m.strip)}
+
+      <h3>Flashcards (spaced repetition)</h3>
+      ${decks.length ? decks.map(([id, b]) => `<div class="ac-deck"><span class="ac-deck-t">${esc(A.deckTitle(id))}</span>
+        <span class="ac-bar" aria-hidden="true"><i style="width:${Math.round(100 * b.learned / Math.max(1, b.seen))}%"></i></span>
+        <span class="ac-deck-n">${b.learned} of ${b.seen} learned${b.due ? ` · ${b.due} due` : ""}</span></div>`).join("") : `<p class="ac-note">No spaced repetition yet.</p>`}
+
+      <h3>Cards missed most</h3>
+      ${m.missed.length ? `<ul class="ac-missed">${m.missed.slice(0, 8).map(x => `<li><span lang="la">${esc(x.la)}</span><span>${esc(A.deckTitle(x.deck))} · ${x.n}×</span></li>`).join("")}</ul>` : `<p class="ac-note">None.</p>`}
+
+      <h3>Grammar pages opened</h3>
+      ${pages.length ? `<ul class="t-simple">${pages.map(([p, x]) => `<li><a href="../${esc(p)}.html">${esc(x.title)}</a><span>${x.n}× · last ${ago(x.last)}</span></li>`).join("")}</ul>` : `<p class="ac-note">None yet.</p>`}
+
+      <h3>Games</h3>
+      ${games.length ? `<ul class="t-simple">${games.map(g => `<li><span>${esc(g.title)}</span><span>best ${g.best} / ${g.of} · played ${g.plays}× · last ${ago(g.last)}</span></li>`).join("")}</ul>` : `<p class="ac-note">None yet.</p>`}
+
+      <h3>Recent activity</h3>
+      ${byDay.length ? byDay.slice(0, 6).map(g => {
+        const cards = g.e.filter(e => e.k === "card" || e.k === "mark"), right = cards.filter(e => e.k === "card" ? e.g >= 2 : e.v).length;
+        const bits = [];
+        if(cards.length) bits.push(`${cards.length} flashcards (${right} right)`);
+        for(const e of g.e) if(e.k === "page") bits.push(`opened ${esc(e.title)}`);
+        for(const e of g.e) if(e.k === "game") bits.push(`${esc(e.title)}: ${e.s} / ${e.of}`);
+        return `<p class="t-day"><b>${ago(g.t)}</b> ${bits.join(" · ")}</p>`;
+      }).join("") : `<p class="ac-note">Nothing yet.</p>`}`;
+    $("d-label").addEventListener("change", e => { A.labels.set(code, picked, e.target.value.trim()); render(); });
+    $("d-reset").addEventListener("click", async e => {
+      e.target.disabled = true;
+      const r = await T.resetPassword(code, picked);
+      e.target.disabled = false;
+      if(ok(r)) $("d-pw").innerHTML = `New password: <b>${esc(r.password)}</b> (shown once)`;
+    });
+  }
+
+  function slips(cls, roster){
+    $("t-slips").innerHTML = roster.map(r => `<div class="t-slip"><span class="label">${esc(cls.name)}</span>
+      <dl><dt>Class code</dt><dd>${esc(cls.code)}</dd><dt>Login</dt><dd>${esc(r.login)}</dd><dt>Password</dt><dd>${esc(r.password)}</dd></dl>
+      <span class="t-slipurl">Sign in at the site's Sign In page</span></div>`).join("");
+    $("t-roster").hidden = false; $("t-roster").scrollIntoView({ behavior:"smooth", block:"start" });
+  }
+
+  $("t-login").addEventListener("submit", async e => {
+    e.preventDefault();
+    const btn = e.target.querySelector("button"), err = $("t-login-err");
+    btn.disabled = true;
+    const r = await T.login($("t-pw").value);
+    btn.disabled = false;
+    if(r.ok){ err.hidden = true; e.target.reset(); start(); return; }
+    err.textContent = r.why === "locked" ? "Too many wrong tries. Wait 15 minutes, then try again."
+      : r.why === "not-set-up" ? "The teacher password hasn't been set yet. In the Google Sheet, use Latin Site → Set teacher password."
+      : ERR[r.why] || "That password isn't right.";
+    err.hidden = false;
+  });
+  $("t-out").addEventListener("click", () => { T.logout(); cur = null; code = null; start(); });
+  $("t-class").addEventListener("change", e => { code = e.target.value; picked = null; load(); });
+  $("t-sort").addEventListener("change", render);
+  $("t-rows").addEventListener("click", e => { const tr = e.target.closest("tr"); if(tr){ picked = tr.dataset.login; detail(); if(innerWidth < 1100) $("t-detail").scrollIntoView({ behavior:"smooth" }); } });
+  $("t-rows").addEventListener("keydown", e => { if(e.key === "Enter"){ const tr = e.target.closest("tr"); if(tr){ picked = tr.dataset.login; detail(); } } });
+  $("t-new").addEventListener("click", () => { $("t-newform").hidden = false; $("n-name").focus(); });
+  $("n-cancel").addEventListener("click", () => { $("t-newform").hidden = true; });
+  $("t-newform").addEventListener("submit", async e => {
+    e.preventDefault();
+    const btn = e.target.querySelector("button[type=submit]"); btn.disabled = true;
+    const name = $("n-name").value.trim(), level = +$("n-level").value;
+    const r = await T.createClass(name, level, Math.max(1, Math.min(60, +$("n-count").value || 1)));
+    btn.disabled = false;
+    if(!ok(r)) return;
+    $("t-newform").hidden = true; $("t-newform").reset(); code = r.code; picked = null;
+    await classes();
+    slips({ code:r.code, name }, r.roster);
+  });
+  $("t-add").addEventListener("click", async e => {
+    const n = parseInt($("t-addn").value, 10); if(!(n > 0)) return;
+    e.target.disabled = true;
+    const r = await T.addStudents(code, Math.min(60, n));
+    e.target.disabled = false;
+    if(!ok(r)) return;
+    await load(); slips(cur.cls, r.roster);
+  });
+  // deleting takes two clicks: the first arms the button and says what will happen
+  let armed = null;
+  $("t-del").addEventListener("click", async e => {
+    const btn = e.currentTarget;
+    if(!armed){ btn.textContent = "Click again to delete this class and all its activity"; btn.classList.add("danger"); armed = setTimeout(() => { armed = null; btn.textContent = "Delete class"; btn.classList.remove("danger"); }, 5000); return; }
+    clearTimeout(armed); armed = null; btn.textContent = "Delete class"; btn.classList.remove("danger");
+    if(!ok(await T.deleteClass(code))) return;
+    code = null; picked = null; cur = null; classes();
+  });
+  $("r-print").addEventListener("click", () => window.print());
+  $("r-done").addEventListener("click", () => { $("t-roster").hidden = true; });
+
+  start();
+})();
+</script>
+</body>
+</html>

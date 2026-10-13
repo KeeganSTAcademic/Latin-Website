@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign In</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/site.css?v=202610021200">
+<link rel="stylesheet" href="../css/account.css?v=202610122000">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body data-acct="page">
+<main class="wrap">
+
+  <!-- signed out -->
+  <section id="signin" hidden>
+    <header class="page-head"><h1>Sign In</h1></header>
+    <form class="panel ac-form" id="signin-form" autocomplete="off">
+      <label for="f-code">Class code</label>
+      <input id="f-code" name="code" inputmode="text" autocapitalize="characters" spellcheck="false" placeholder="e.g. FORUM-27" required>
+      <label for="f-login">Login</label>
+      <input id="f-login" name="login" autocapitalize="off" spellcheck="false" placeholder="the name on your slip" required>
+      <label for="f-pw">Password</label>
+      <input id="f-pw" name="pw" type="password" autocapitalize="off" spellcheck="false" required>
+      <p class="ac-err" id="signin-err" role="alert" hidden></p>
+      <button class="btn primary" type="submit">Sign in</button>
+    </form>
+    <p class="ac-note">Your teacher gives you a slip with your class code, login and password. You don't need an email address, and the site never asks for your real name.</p>
+    <aside class="callout ac-demo" id="demo-note" hidden>
+      <p><b>Demo:</b> everything on these pages is stored in this browser only. To try the sample class, use class code <b>FORUM-27</b>, login <b>Hamilcar</b> and password <b>lupusferox</b>, or make your own class on the <a href="../teacher/">teacher page</a>.</p>
+    </aside>
+  </section>
+
+  <!-- signed in -->
+  <section id="me" hidden>
+    <header class="page-head">
+      <h1>Salvē, <span id="me-name"></span></h1>
+      <p class="subtitle" id="me-class"></p>
+    </header>
+    <div class="ac-tiles">
+      <a class="panel ac-tile ac-go" id="me-due-link" href="../flashcards/?review=all"><span class="label">Cards due today</span><b id="me-due">0</b><span>Start review →</span></a>
+      <div class="panel ac-tile"><span class="label">Cards learned</span><b id="me-learned">0</b><span>remembered for a week or more</span></div>
+      <div class="panel ac-tile"><span class="label">Days practised</span><b id="me-days">0</b><span>in the last two weeks</span></div>
+    </div>
+
+    <section class="panel ac-sec">
+      <h2>The last four weeks</h2>
+      <div class="ac-strip" id="me-strip" aria-label="Practice on each of the last 28 days"></div>
+      <p class="ac-note">Each square is one day; the darker it is, the more you practised. Today is on the right.</p>
+    </section>
+
+    <section class="panel ac-sec">
+      <h2>Your decks</h2>
+      <div id="me-decks"></div>
+    </section>
+
+    <section class="panel ac-sec" id="me-missed-sec">
+      <h2>Cards you miss most</h2>
+      <p class="ac-note">These come back more often in spaced repetition until you know them.</p>
+      <ul class="ac-missed" id="me-missed"></ul>
+    </section>
+
+    <section class="ac-out">
+      <button class="btn" id="signout" type="button">Sign out</button>
+      <p class="ac-err" id="signout-err" role="alert" hidden>Some of your latest practice hasn't reached your account yet, so you are still signed in. Check your internet connection and try again.</p>
+      <p class="ac-note">Signing out removes your progress from this computer. It stays in your account, and comes back when you sign in again, on any computer.</p>
+    </section>
+  </section>
+
+</main>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/account.js?v=202610122000"></script>
+<script>
+(function(){
+  const A = Site.account, $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+  const WHY = {
+    code: "That class code wasn't found. Check it against your slip.",
+    login: "That login and password don't match. Check your slip, or ask your teacher to reset your password.",
+    locked: "Too many wrong tries. Wait 15 minutes, then try again, or ask your teacher for help.",
+    offline: "The site couldn't reach your account. Check your internet connection and try again.",
+  };
+
+  async function show(){
+    await A.ready;
+    $("demo-note").hidden = A.mode !== "demo";
+    if(A.mode === "demo") A.ensureSample();
+    const s = A.session;
+    $("signin").hidden = !!s; $("me").hidden = !s;
+    document.title = s ? "Your Progress" : "Sign In";
+    if(!s) return;
+    $("me-name").textContent = s.login;
+    $("me-class").textContent = s.cls;
+    const sum = A.summarize(await A.myData());
+    $("me-due").textContent = sum.due;
+    $("me-learned").textContent = sum.learned;
+    $("me-days").textContent = sum.daysActive14;
+    const max = Math.max(1, ...sum.strip);
+    $("me-strip").innerHTML = sum.strip.map((n, i) => `<i style="--a:${n ? 0.25 + 0.75 * n / max : 0}" title="${n} answers ${27 - i === 0 ? "today" : (27 - i) + " days ago"}"></i>`).join("");
+    const decks = Object.entries(sum.byDeck).sort((a, b) => b[1].seen - a[1].seen);
+    $("me-decks").innerHTML = decks.length ? decks.map(([id, b]) => `
+      <div class="ac-deck"><span class="ac-deck-t">${esc(A.deckTitle(id))}</span>
+        <span class="ac-bar" aria-hidden="true"><i style="width:${Math.round(100 * b.learned / Math.max(1, b.seen))}%"></i></span>
+        <span class="ac-deck-n">${b.learned} of ${b.seen} learned${b.due ? ` · <b>${b.due} due</b>` : ""}</span></div>`).join("")
+      : `<p class="ac-note">No spaced repetition yet. Open a deck, choose <b>Spaced repetition</b> in its settings, and your cards will show up here.</p>`;
+    const missed = sum.missed.slice(0, 8);
+    $("me-missed-sec").hidden = !missed.length;
+    $("me-missed").innerHTML = missed.map(m => `<li><span lang="la">${esc(m.la)}</span><span>${esc(A.deckTitle(m.deck))} · missed ${m.n}×</span></li>`).join("");
+  }
+
+  $("signin-form").addEventListener("submit", async e => {
+    e.preventDefault();
+    const f = e.target, err = $("signin-err"), btn = f.querySelector("button");
+    btn.disabled = true;
+    const r = await A.signIn(f.code.value, f.login.value, f.pw.value);
+    btn.disabled = false;
+    if(r.ok){ err.hidden = true; f.reset(); show(); return; }
+    err.textContent = WHY[r.why] || WHY.login;
+    err.hidden = false;
+  });
+  $("signout").addEventListener("click", async e => {
+    const btn = e.target, note = $("signout-err");
+    btn.disabled = true;
+    const r = await A.signOut();
+    btn.disabled = false;
+    note.hidden = r.ok;
+    if(r.ok) show();
+  });
+  show();
+})();
+</script>
+</body>
+</html>
