@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pluperfect Subjunctive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202610150900">
+<style>
+:root{--p-isse:#23487B; --p-isse-bg:#DAE4F1; --p-essem:#2F5331; --p-essem-bg:#DDEBDC;}
+/* two-word passive forms need wider charts */
+.vgroups .charts.three-up,.has-sb .vgroups .charts.three-up{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.vgroups .cell .fm{white-space:nowrap}
+@media (max-width:640px){.vgroups .charts.three-up,.has-sb .vgroups .charts.three-up{grid-template-columns:1fr}.vgroups .three-up .cell{font-size:1.0625rem;padding:10px 4px}}
+</style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Pluperfect Subjunctive</h1>
+</header>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-en" aria-pressed="false">Show English</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+  </div>
+  <div class="intro" id="intro"><div class="intro-h"><span class="q">amāvisset: had loved, would have loved</span><span class="sec">A&amp;G §§441, 483, 517, 546</span></div><p>The pluperfect subjunctive is the complete subjunctive of secondary sequence. In a dependent clause after a past main verb, it describes an action earlier than the main verb: <i>rogāvī quid amāvisset</i>, "I asked what he had loved." It also expresses things that did not happen: a wish about the past and the past contrary-to-fact condition.</p><figure class="ta seq"><figcaption>Which subjunctive tense?</figcaption><div class="ta-grid"><span class="ta-corner"></span><span class="ta-col">Primary sequence<span class="ta-sub">after a present or future main verb</span></span><span class="ta-col">Secondary sequence<span class="ta-sub">after a past main verb</span></span><span class="ta-row"><b>Incomplete</b><br>the action happens at the same time as the main verb, or later</span><a class="ta-c" href="subjunctive-present.html"><span class="nm">Present subjunctive</span><span class="la" lang="la">am<b class="tv">e</b>t</span><span class="eg">the stem with a changed vowel</span></a><a class="ta-c" href="subjunctive-imperfect.html"><span class="nm">Imperfect subjunctive</span><span class="la" lang="la">amāret</span><span class="eg">the infinitive + an ending</span></a><span class="ta-row"><b>Complete</b><br>the action happened before the main verb</span><a class="ta-c" href="subjunctive-perfect.html"><span class="nm">Perfect subjunctive</span><span class="la" lang="la">amāverit</span><span class="eg">the complete stem + <i>-eri-</i></span></a><span class="ta-c on" aria-current="page"><span class="here">This page</span><span class="nm">Pluperfect subjunctive</span><span class="la" lang="la">amāvisset</span><span class="eg">the perfect infinitive + an ending</span></span></div></figure><p class="ta-note">For what the subjunctive is and how sequence of tenses works, see <a href="subjunctive.html">The Subjunctive: Overview</a>. Every use is listed on <a href="subjunctive-uses.html">Uses of the Subjunctive</a>.</p></div>
+
+  <div class="block">
+    <h3>The forms</h3>
+  <div class="work">
+    <div class="charts-col" id="charts-col" data-show="amo" data-more-note="Every conjugation builds this tense the same way.">
+      <div class="charts three-up" id="charts-grid"></div>
+      <div class="er er-open" id="er">
+        <h4 class="er-h">Irregular: <i>sum, esse</i> (to be)</h4>
+        <div class="prose"><p><i>sum</i> is regular here: the perfect infinitive <i>fuisse</i> plus the endings, <i>fuissem, fuissēs, fuisset</i>.</p></div>
+        <div class="charts one-up" id="er-grid"></div>
+      </div>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+  </div>
+  <div class="block">
+    <h3>How to build it</h3>
+    <div class="prose"><p>Take the perfect active infinitive (<i>amāvisse</i>: the complete stem plus <i>-isse</i>) and add the personal endings: <i>amāvisse-t</i>. The passive is the perfect participle with the imperfect subjunctive of <i>sum</i>: <i>amātus essem, amātus esset</i>.</p></div><figure class="bd"><div class="bd-formula"><span class="bd-box s"><span class="bd-f">amāv</span><span class="bd-l">complete stem</span></span><span class="bd-plus">+</span><span class="bd-box m"><span class="bd-f">isse</span><span class="bd-l">from the infinitive</span></span><span class="bd-plus">+</span><span class="bd-box e"><span class="bd-f">t</span><span class="bd-l">personal ending</span></span><span class="bd-plus">=</span><span class="bd-out"><span class="bd-f" lang="la"><span class="bd-s">amāv</span><span class="bd-m">isse</span><span class="bd-e">t</span></span><span class="bd-l">he had loved</span></span></div><p class="bd-key"><span class="bd-s">stem</span>: aspect · <span class="bd-m">-isse-</span>: the subjunctive · <span class="bd-e">personal ending</span>: person and number, and voice.</p><div class="bd-table"><table><thead><tr><th>Person</th><th>Active</th><th>Passive</th></tr></thead><tbody><tr><td class="bd-p">1st sing.</td><td lang="la"><span class="bd-s">amāv</span><span class="bd-m">isse</span><span class="bd-e">m</span></td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">essem</span></td></tr><tr><td class="bd-p">2nd sing.</td><td lang="la"><span class="bd-s">amāv</span><span class="bd-m">issē</span><span class="bd-e">s</span></td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">essēs</span></td></tr><tr><td class="bd-p">3rd sing.</td><td lang="la"><span class="bd-s">amāv</span><span class="bd-m">isse</span><span class="bd-e">t</span></td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">esset</span></td></tr><tr><td class="bd-p">1st pl.</td><td lang="la"><span class="bd-s">amāv</span><span class="bd-m">issē</span><span class="bd-e">mus</span></td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">essēmus</span></td></tr><tr><td class="bd-p">2nd pl.</td><td lang="la"><span class="bd-s">amāv</span><span class="bd-m">issē</span><span class="bd-e">tis</span></td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">essētis</span></td></tr><tr><td class="bd-p">3rd pl.</td><td lang="la"><span class="bd-s">amāv</span><span class="bd-m">isse</span><span class="bd-e">nt</span></td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">essent</span></td></tr></tbody></table></div></figure>
+  </div>
+  <div class="block basic"><h3>The basic use: after a past main verb <span class="sec">A&amp;G §483</span></h3><p class="rule">In a dependent clause after a past main verb, the pluperfect subjunctive shows an action earlier than the main verb. Translate it with "had ___ed": <i>rogāvī quid fēcisset</i>, "I asked what he had done."</p><p class="how"><b>How to spot it:</b> Look for <i>-isse-</i> between the complete stem and the ending (<i>amāvisset, rēxisset</i>), or a participle with <i>essem, esset</i>.</p><div class="exs big"><div class="ex"><div class="la" lang="la">Rogāvī quid <b class="hl">fēcissēs</b>.</div><div class="en">I asked what you had done.</div></div><div class="ex"><div class="la" lang="la">Cum id nūntiātum <b class="hl">esset</b>, mātūrat.</div><div class="en">When this had been reported, he hurries. <span class=src>Caesar, B.G. 1.7</span></div></div></div></div>
+  <div class="block">
+    <h3>Other uses</h3>
+    <div class="uses"><article class="use"><header><h4>Wishes about the past</h4><span class="sec">A&amp;G §441</span></header><p class="what">The pluperfect subjunctive wishes that the past had been different, and implies that it was not. <i>Utinam</i> regularly comes first. English uses "if only ... had."</p><p class="clue"><b>Clue:</b> <i>Utinam</i> with a pluperfect subjunctive.</p><div class="exs"><div class="ex"><div class="la" lang="la">Utinam <b class="hl">adfuissēs</b>!</div><div class="en">If only you had been there!</div></div></div></article><article class="use"><header><h4>Conditions that were not true</h4><span class="sec">A&amp;G §517</span></header><p class="what">In "if" sentences about the past, the pluperfect subjunctive in both halves says that the condition was not true. English uses "if ... had" and "would have."</p><p class="clue"><b>Clue:</b> <i>Sī</i> with a pluperfect subjunctive in both halves of the sentence.</p><div class="exs"><div class="ex"><div class="la" lang="la">Sī <b class="hl">vēnissēs</b>, tē <b class="hl">vīdissem</b>.</div><div class="en">If you had come, I would have seen you.</div></div></div></article></div>
+  </div>
+  <div class="block">
+    <h3>Other forms you'll see</h3>
+    <p class="how">Roman writers often shortened these forms too (A&amp;G §181).</p><div class="conj-box"><table class="rule-table conj-table forms-table"><thead><tr><th>What happens</th><th>You may see</th><th>Same as</th></tr></thead><tbody><tr><td><i>-vi-</i> is dropped after a long vowel.</td><td><i lang="la">amāssem · audīssem</i></td><td><i lang="la">amāvissem · audīvissem</i></td></tr></tbody></table></div>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Paradigms follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), in the <a href="https://dcc.dickinson.edu/grammar/latin" target="_blank" rel="noopener">Dickinson College Commentaries online edition</a>. Uses follow A&amp;G §§441, 483, 517.</p>
+</footer>
+</div>
+
+<script src="../js/verb-chart.js?v=202610150900"></script>
+<script>
+const SUB = ['I','you','he/she/it','we','you (all)','they'];
+const rep = (st, vw, signs, ends) => ends.map((e, i) => [st, vw, signs[i], e]);
+const ACT = ['m','s','t','mus','tis','nt'], PAS = ['r','ris','tur','mur','minī','ntur'];
+const D = {amo:['amō, amāre, amāvī, amātus','1st conjugation · love'], moneo:['moneō, monēre, monuī, monitus','2nd conjugation · warn'],
+           rego:['regō, regere, rēxī, rēctus','3rd conjugation · rule'], capio:['capiō, capere, cēpī, captus','3rd conjugation -iō · take'],
+           audio:['audiō, audīre, audīvī, audītus','4th conjugation · hear']};
+const EN = {amo:['love','loved'], moneo:['warn','warned'], rego:['rule','ruled'], capio:['take','taken'], audio:['hear','heard']};
+const IDS = ['amo','moneo','rego','capio','audio'];
+const mk = (id, g, f) => ({id, group:g, dict:D[id][0], meta:D[id][1], f});
+const GROUPS = [{id:'act', name:'Active'}, {id:'pass', name:'Passive'}];
+const PERF = {amo:'amāv', moneo:'monu', rego:'rēx', capio:'cēp', audio:'audīv'};
+const PART = {amo:'amāt', moneo:'monit', rego:'rēct', capio:'capt', audio:'audīt'};
+const ESSEM = ['essem','essēs','esset','essēmus','essētis','essent'];
+VerbChart({
+  groups: GROUPS, groupLabel: 'Voice',
+  verbs: [...IDS.map(id => mk(id, 'act', rep(PERF[id], '', ['isse','issē','isse','issē','issē','isse'], ACT))),
+          ...IDS.map(id => mk(id, 'pass', ESSEM.map((x, i) => [PART[id], i < 3 ? 'us' : 'ī', '', ' ' + x]))),
+          {id:'sum', extra:true, dict:'sum, esse, fuī', meta:'irregular · be', f:rep('fu','',['isse','issē','isse','issē','issē','isse'], ACT)}],
+  english: c => {
+    const s = SUB[c.i];
+    if(c.verb.extra) return {main:`${s} had been`, alt:`${s} would have been`};
+    const pp = EN[c.verb.id][1];
+    return c.verb.group === 'act' ? {main:`${s} had ${pp}`, alt:`${s} would have ${pp}`} : {main:`${s} had been ${pp}`, alt:`${s} would have been ${pp}`};
+  },
+  labels: c => c.verb.group === 'pass' ? {st:'participle stem', vw:'participle ending, agreeing with the subject', ts:'', en:'imperfect subjunctive of sum'}
+                                        : {st:'complete stem', vw:'', ts:'-isse- of the perfect infinitive', en:'personal ending'},
+  patterns: [
+    {id:'isse', lab:'amāvisse-t', txt:'the perfect infinitive + an ending', part:'ts', test:c=>c.verb.group !== 'pass',
+     note:'<b>The pluperfect subjunctive is the perfect active infinitive with the personal endings:</b> <i>amāvisse-t, monuisse-t, rēxisse-t</i>. The same idea as the imperfect subjunctive, one step back in time.'},
+    {id:'essem', lab:'amātus esset', txt:'passive: participle + essem', part:'en', test:c=>c.verb.group === 'pass',
+     note:'<b>The passive is the perfect participle with the imperfect subjunctive of sum:</b> <i>amātus essem, essēs, esset</i>. The imperfect of <i>sum</i> gives the meaning "had been loved."'}
+  ],
+  notes: {
+    'amo-act.3sg':'<i>amāvisse-t</i>: the perfect infinitive <i>amāvisse</i> with <i>-t</i>.',
+    'amo-pass.3sg':'<i>amātus esset</i>: "he had been loved." A feminine subject takes <i>amāta esset</i>.'
+  },
+  idle: "You'll see a basic translation, and how the form is built from the perfect infinitive and a personal ending. The real translation depends on the use."
+});
+</script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/more-charts.js?v=202610142000"></script>
+<script src="../js/account.js?v=202610122000"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610131500"></script>
+<script src="../js/pattern-notes.js?v=202610071100"></script>
+</body>
+</html>

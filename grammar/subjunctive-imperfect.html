@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imperfect Subjunctive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202610150900">
+<style>
+:root{--p-inf:#23487B; --p-inf-bg:#DAE4F1; --p-esse:#2F5331; --p-esse-bg:#DDEBDC; --p-cap:#7F2756; --p-cap-bg:#F4DDE9;}
+</style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Imperfect Subjunctive</h1>
+</header>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-en" aria-pressed="false">Show English</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+  </div>
+  <div class="intro" id="intro"><div class="intro-h"><span class="q">amāret: might love, would love</span><span class="sec">A&amp;G §§441, 446, 483, 517, 546</span></div><p>The imperfect subjunctive is the incomplete subjunctive of secondary sequence. In a dependent clause after a past main verb, it describes an action at the same time as the main verb or later: <i>rogāvī quid amāret</i>, "I asked what he loved." On its own it expresses a wish or a condition that is not true now: <i>utinam adesset</i>, "if only he were here." It is the most common subjunctive in stories.</p><figure class="ta seq"><figcaption>Which subjunctive tense?</figcaption><div class="ta-grid"><span class="ta-corner"></span><span class="ta-col">Primary sequence<span class="ta-sub">after a present or future main verb</span></span><span class="ta-col">Secondary sequence<span class="ta-sub">after a past main verb</span></span><span class="ta-row"><b>Incomplete</b><br>the action happens at the same time as the main verb, or later</span><a class="ta-c" href="subjunctive-present.html"><span class="nm">Present subjunctive</span><span class="la" lang="la">am<b class="tv">e</b>t</span><span class="eg">the stem with a changed vowel</span></a><span class="ta-c on" aria-current="page"><span class="here">This page</span><span class="nm">Imperfect subjunctive</span><span class="la" lang="la">amāret</span><span class="eg">the infinitive + an ending</span></span><span class="ta-row"><b>Complete</b><br>the action happened before the main verb</span><a class="ta-c" href="subjunctive-perfect.html"><span class="nm">Perfect subjunctive</span><span class="la" lang="la">amāverit</span><span class="eg">the complete stem + <i>-eri-</i></span></a><a class="ta-c" href="subjunctive-pluperfect.html"><span class="nm">Pluperfect subjunctive</span><span class="la" lang="la">amāvisset</span><span class="eg">the perfect infinitive + an ending</span></a></div></figure><p class="ta-note">For what the subjunctive is and how sequence of tenses works, see <a href="subjunctive.html">The Subjunctive: Overview</a>. Every use is listed on <a href="subjunctive-uses.html">Uses of the Subjunctive</a>.</p></div>
+
+  <div class="block">
+    <h3>The forms</h3>
+  <div class="work">
+    <div class="charts-col" id="charts-col" data-show="amo" data-more-note="Every conjugation builds this tense the same way: the present infinitive plus the personal endings.">
+      <div class="charts three-up" id="charts-grid"></div>
+      <div class="er er-open" id="er">
+        <h4 class="er-h">Irregular: <i>sum, esse</i> (to be)</h4>
+        <div class="prose"><p>The rule works for irregular verbs too: <i>esse</i> gives <i>essem</i>, <i>posse</i> gives <i>possem</i>, <i>ferre</i> gives <i>ferrem</i>.</p></div>
+        <div class="charts one-up" id="er-grid"></div>
+      </div>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+  </div>
+  <div class="block">
+    <h3>How to build it</h3>
+    <div class="prose"><p>Take the present infinitive, the 2nd principal part (<i>amāre, monēre, regere, capere, audīre</i>), and add the personal endings. The <i>e</i> of <i>-re-</i> is long before most endings (<i>amārēs, amārētur</i>) and short before <i>-m</i>, <i>-t</i>, <i>-nt</i>, final <i>-r</i> and <i>-ntur</i>.</p></div><figure class="bd"><div class="bd-formula"><span class="bd-box s"><span class="bd-f">amā</span><span class="bd-l">stem</span></span><span class="bd-plus">+</span><span class="bd-box m"><span class="bd-f">re</span><span class="bd-l">from the infinitive</span></span><span class="bd-plus">+</span><span class="bd-box e"><span class="bd-f">t</span><span class="bd-l">personal ending</span></span><span class="bd-plus">=</span><span class="bd-out"><span class="bd-f" lang="la"><span class="bd-s">amā</span><span class="bd-m">re</span><span class="bd-e">t</span></span><span class="bd-l">he might love</span></span></div><p class="bd-key"><span class="bd-s">stem</span>: aspect · <span class="bd-m">-re- from the infinitive</span>: the subjunctive · <span class="bd-e">personal ending</span>: person and number, and voice.</p><div class="bd-table"><table><thead><tr><th>Person</th><th>Active</th><th>Passive</th></tr></thead><tbody><tr><td class="bd-p">1st sing.</td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">re</span><span class="bd-e">m</span></td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">re</span><span class="bd-e">r</span></td></tr><tr><td class="bd-p">2nd sing.</td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">rē</span><span class="bd-e">s</span></td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">rē</span><span class="bd-e">ris</span></td></tr><tr><td class="bd-p">3rd sing.</td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">re</span><span class="bd-e">t</span></td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">rē</span><span class="bd-e">tur</span></td></tr><tr><td class="bd-p">1st pl.</td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">rē</span><span class="bd-e">mus</span></td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">rē</span><span class="bd-e">mur</span></td></tr><tr><td class="bd-p">2nd pl.</td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">rē</span><span class="bd-e">tis</span></td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">rē</span><span class="bd-e">minī</span></td></tr><tr><td class="bd-p">3rd pl.</td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">re</span><span class="bd-e">nt</span></td><td lang="la"><span class="bd-s">amā</span><span class="bd-m">re</span><span class="bd-e">ntur</span></td></tr></tbody></table></div></figure>
+  </div>
+  <div class="block basic"><h3>The basic use: after a past main verb <span class="sec">A&amp;G §483</span></h3><p class="rule">In a dependent clause after a past main verb, the imperfect subjunctive shows an action at the same time as the main verb or later. Translate it with an English past tense, not with "might": <i>rogāvī quid faceret</i>, "I asked what he was doing."</p><p class="how"><b>How to spot it:</b> Look for the present infinitive with a personal ending on it: <i>amāre-t, regere-t, audīre-t</i>; for <i>sum</i>, <i>esse-t</i>.</p><div class="exs big"><div class="ex"><div class="la" lang="la">Rogāvī quid <b class="hl">facerēs</b>.</div><div class="en">I asked what you were doing.</div></div><div class="ex"><div class="la" lang="la">Scrīpsit ut nōs <b class="hl">monēret</b>.</div><div class="en">He wrote to warn us.</div></div><div class="ex"><div class="la" lang="la">Tam fessus erat ut <b class="hl">dormīret</b>.</div><div class="en">He was so tired that he fell asleep.</div></div></div></div>
+  <div class="block">
+    <h3>Other uses</h3>
+    <div class="uses"><article class="use"><header><h4>"When" with cum</h4><span class="sec">A&amp;G §546</span></header><p class="what"><i>Cum</i> with the indicative dates an action: it says when it happened. With the imperfect subjunctive it describes the situation at the time instead. English makes the same distinction without a change of form: "he had a fever when he was in Spain" dates the fever, but "Columbus found America when he was looking for India" describes his situation.</p><p class="clue"><b>Clue:</b> <i>Cum</i> followed by an imperfect subjunctive, with a past main verb.</p><div class="exs"><div class="ex"><div class="la" lang="la">Cum <b class="hl">essem</b> ōtiōsus in Tusculānō, accēpī tuās litterās.</div><div class="en">While I was at leisure at my house in Tusculum, I received your letter. <span class=src>Cicero, Ad Fam. 9.18</span></div></div></div></article><article class="use"><header><h4>Wishes that are not true now</h4><span class="sec">A&amp;G §441</span></header><p class="what">The imperfect subjunctive wishes that the present were different, and implies that it is not. <i>Utinam</i> regularly comes first. English uses "if only" or "I wish" with a past form.</p><p class="clue"><b>Clue:</b> <i>Utinam</i> with an imperfect subjunctive.</p><div class="exs"><div class="ex"><div class="la" lang="la">Utinam <b class="hl">adesset</b>!</div><div class="en">If only he were here!</div></div></div></article><article class="use"><header><h4>Possibility in the past</h4><span class="sec">A&amp;G §446</span></header><p class="what">The imperfect subjunctive can say what could have been the case in the past, often with "you" meaning anyone. English uses "would have" or "could have."</p><p class="clue"><b>Clue:</b> An imperfect subjunctive main verb, often 2nd person singular, with no signal word.</p><div class="exs"><div class="ex"><div class="la" lang="la"><b class="hl">Crēderēs</b> victōs.</div><div class="en">You would have thought them defeated.</div></div></div></article><article class="use"><header><h4>Conditions that are not true now</h4><span class="sec">A&amp;G §517</span></header><p class="what">In "if" sentences about the present, the imperfect subjunctive in both halves says that the condition is not true. English uses "if ... were" and "would."</p><p class="clue"><b>Clue:</b> <i>Sī</i> with an imperfect subjunctive in both halves of the sentence.</p><div class="exs"><div class="ex"><div class="la" lang="la">Sī <b class="hl">adessēs</b>, <b class="hl">gaudērem</b>.</div><div class="en">If you were here, I would be glad.</div></div></div></article></div>
+  </div>
+  <div class="block">
+    <h3>Other forms you'll see</h3>
+    <div class="conj-box"><table class="rule-table conj-table forms-table"><thead><tr><th>What happens</th><th>You may see</th><th>Same as</th></tr></thead><tbody><tr><td><i>forem, forēs, foret, forent</i> are used for <i>essem, essēs, esset, essent</i>, especially in poetry.</td><td><i lang="la">foret</i></td><td><i lang="la">esset</i></td></tr></tbody></table></div>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Paradigms follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), in the <a href="https://dcc.dickinson.edu/grammar/latin" target="_blank" rel="noopener">Dickinson College Commentaries online edition</a>. Uses follow A&amp;G §§441, 446, 483, 517, 546.</p>
+</footer>
+</div>
+
+<script src="../js/verb-chart.js?v=202610150900"></script>
+<script>
+const SUB = ['I','you','he/she/it','we','you (all)','they'];
+const rep = (st, vw, signs, ends) => ends.map((e, i) => [st, vw, signs[i], e]);
+const ACT = ['m','s','t','mus','tis','nt'], PAS = ['r','ris','tur','mur','minī','ntur'];
+const D = {amo:['amō, amāre, amāvī, amātus','1st conjugation · love'], moneo:['moneō, monēre, monuī, monitus','2nd conjugation · warn'],
+           rego:['regō, regere, rēxī, rēctus','3rd conjugation · rule'], capio:['capiō, capere, cēpī, captus','3rd conjugation -iō · take'],
+           audio:['audiō, audīre, audīvī, audītus','4th conjugation · hear']};
+const EN = {amo:['love','loved'], moneo:['warn','warned'], rego:['rule','ruled'], capio:['take','taken'], audio:['hear','heard']};
+const IDS = ['amo','moneo','rego','capio','audio'];
+const mk = (id, g, f) => ({id, group:g, dict:D[id][0], meta:D[id][1], f});
+const GROUPS = [{id:'act', name:'Active'}, {id:'pass', name:'Passive'}];
+const INF = {amo:['am','ā'], moneo:['mon','ē'], rego:['reg','e'], capio:['cap','e'], audio:['aud','ī']};
+VerbChart({
+  groups: GROUPS, groupLabel: 'Voice',
+  verbs: [...IDS.map(id => mk(id, 'act', rep(...INF[id], ['re','rē','re','rē','rē','re'], ACT))),
+          ...IDS.map(id => mk(id, 'pass', rep(...INF[id], ['re','rē','rē','rē','rē','re'], PAS))),
+          {id:'sum', extra:true, dict:'sum, esse', meta:'irregular · be', f:rep('es','',['se','sē','se','sē','sē','se'], ACT)}],
+  english: c => {
+    const s = SUB[c.i];
+    if(c.verb.extra) return {main:`${s} might be`, alt:''};
+    const [v, pp] = EN[c.verb.id];
+    return c.verb.group === 'act' ? {main:`${s} might ${v}`, alt:`${s} would ${v}`} : {main:`${s} might be ${pp}`, alt:`${s} would be ${pp}`};
+  },
+  labels: c => ({st:'root', vw:'stem vowel', ts:'-re- of the infinitive', en: c.verb.group === 'pass' ? 'passive ending' : 'personal ending'}),
+  patterns: [
+    {id:'inf', lab:'amāre-t', txt:'the infinitive + an ending', part:'ts', test:c=>!c.verb.extra,
+     note:'<b>The imperfect subjunctive is the present infinitive with the personal endings:</b> <i>amāre-t, monēre-t, regere-t, capere-t, audīre-t</i>. If you can find the infinitive inside the word, you have found the imperfect subjunctive.'},
+    {id:'esse', lab:'esse-t', txt:'irregular verbs follow the rule', part:'ts', test:c=>c.verb.extra,
+     note:'<b>Even irregular verbs follow the rule:</b> <i>esse-m</i>, <i>posse-m</i>, <i>ferre-m</i>, <i>īre-m</i>, <i>velle-m</i>.'},
+    {id:'cap', lab:'caperet', txt:'3rd -iō: no i', part:'vw', test:c=>c.verb.id === 'capio',
+     note:'<b>The 3rd -iō conjugation has no i here,</b> because its infinitive has none: <i>capere</i> gives <i>caperet</i>, just like <i>regeret</i>.'}
+  ],
+  notes: {
+    'amo-act.3sg':'<i>amāre-t</i>: the infinitive <i>amāre</i> with the ending <i>-t</i>.',
+    'amo-act.2sg':'<i>amārē-s</i>: the <i>e</i> is long before <i>-s</i>.',
+    'amo-pass.3sg':'<i>amārē-tur</i>: the passive endings attach the same way.',
+    'rego-act.3sg':'<i>regere-t</i>: from <i>regere</i>. Do not confuse it with the infinitive itself.'
+  },
+  idle: "You'll see a basic translation, and how the form is built from the infinitive and a personal ending. The real translation depends on the use."
+});
+</script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/more-charts.js?v=202610142000"></script>
+<script src="../js/account.js?v=202610122000"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610131500"></script>
+<script src="../js/pattern-notes.js?v=202610071100"></script>
+</body>
+</html>

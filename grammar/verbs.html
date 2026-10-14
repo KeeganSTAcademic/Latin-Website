@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introduction to Verbs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202610150900">
+<style>
+.intro{display:grid;gap:10px;max-width:80ch}
+.intro-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.intro .q{font-size:1.25rem;font-style:italic;color:var(--accent)}
+.intro .sec{margin-left:auto}
+.intro p,.prose p{font-size:1.125rem;margin:0}
+.prose{display:grid;gap:10px;max-width:80ch}
+.lede{margin:0;font-size:1.125rem;max-width:80ch}
+.lede.sm{font-size:1.0625rem}
+.lede a,.prose a,.watch a{color:var(--accent)}
+.block{display:grid;gap:12px;margin-top:30px}
+.block h3{font-size:1.375rem;font-weight:700;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.sec{font-size:1rem;font-weight:400;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.la-i{font-style:italic}
+/* concept figure: word order vs endings */
+.wo{margin:8px 0 4px;padding:0;display:grid;gap:10px}
+.wo figcaption,.dfig figcaption{font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-weight:600;font-size:1rem}
+.wo-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 16px;align-items:baseline;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px}
+.wo-row .la{font-size:1.3125rem;font-style:italic}
+.wo-row .en{font-size:1.0625rem}
+.wo-row .note{grid-column:1/-1;color:var(--muted);font-size:1rem}
+.wo-row.flip{border-color:var(--accent);background:var(--accent-soft)}
+.e-s,.e-o{font-weight:700;font-style:italic}
+.e-s{color:var(--accent)}
+.e-o{color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.key{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:1rem;color:var(--muted)}
+/* the three properties */
+.props{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.prop{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:16px 18px;display:grid;gap:8px;align-content:start}
+.prop h4{margin:0;font-size:1.25rem}
+.prop .ask{color:var(--accent);font-weight:600;font-size:1.0625rem;margin:0}
+.prop p{margin:0;font-size:1.0625rem}
+.prop .eg{display:grid;gap:2px;background:var(--bg);border-radius:10px;padding:8px 12px;font-size:1rem}
+.prop .eg i{font-size:1.125rem}
+/* tables */
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);box-shadow:var(--shadow)}
+.tbl table{border-collapse:collapse;width:100%;font-size:1.0625rem}
+.tbl th{font-weight:400;font-size:1rem;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule)}
+.tbl td{padding:10px 14px;border-top:1px solid var(--rule);vertical-align:top}
+.tbl td.nm{font-weight:700;white-space:nowrap}
+.tbl td .la-i{font-size:1.125rem}
+.tbl td .hl{color:var(--accent);font-weight:700}
+.tbl td.en,.tbl .muted{color:var(--muted)}
+.tbl .muted{font-size:1rem}
+.tbl a{color:var(--accent)}
+.watch{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--accent);border-radius:var(--radius,14px);padding:14px 18px;display:grid;gap:6px;max-width:80ch}
+.watch b.t{font-size:1.0625rem}
+.watch p{margin:0;font-size:1.0625rem}
+/* dictionary entry */
+.dfig{display:grid;gap:10px;margin:0}
+.dict-entry{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.dict-entry .dpart{display:grid;gap:4px;align-content:start;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px;min-width:0;flex:1 1 150px}
+.dict-entry .dp-w{font-size:1.4375rem;font-style:italic;color:var(--accent)}
+.dict-entry .dp-lab{font-weight:600}
+.dict-entry .dp-tells{color:var(--muted);font-size:1rem}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{display:inline-block;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);color:var(--accent);text-decoration:none;font-size:1rem}
+.links a:hover{border-color:var(--accent)}
+.props{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.ta{margin-top:6px}
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.keys .k{display:grid;gap:2px;align-content:start;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px}
+.keys .kf{font-size:1.3125rem;font-style:italic}
+.keys .kg{font-size:1.0625rem}
+.keys .kn{color:var(--muted);font-size:1rem}
+.ks{font-weight:700;color:var(--accent)}
+.ke{color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.tbl td .hl{color:var(--accent);font-weight:700}
+.lede a,.prose a{color:var(--accent)}
+@media (max-width:820px){.props{grid-template-columns:1fr}}
+@media (max-width:640px){.wo-row{grid-template-columns:1fr}.tbl td{padding:9px 10px}.tbl td.nm{white-space:normal}}
+</style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Introduction to Verbs</h1>
+</header>
+
+<section id="charts">
+  <div class="intro" id="intro">
+    <div class="intro-h"><span class="q">a word for an action or a state</span><span class="sec">A&amp;G §§153–176</span></div>
+    <p>A verb says what happens, or what something is: <i lang="la">amat</i> (she loves), <i lang="la">currit</i> (he runs), <i lang="la">est</i> (it is). Almost every sentence has one, and in Latin it usually comes at the end.</p>
+    <p>An English verb often needs several words: <i>they were being loved</i>. Latin usually says the same thing in one word, <i lang="la">amābantur</i>, so each Latin verb form carries a lot of information. Two parts of the word are reliable guides in every tense. The <b>personal ending</b> tells you the person and number: who is doing the action, and how many. The <b>stem</b> tells you the aspect: whether the action is incomplete or complete. Other information, such as time, mood and voice, is marked in different ways depending on the form.</p>
+    <figure class="wo">
+      <figcaption>Two things every form tells you</figcaption>
+      <div class="keys">
+        <div class="k"><span class="kf" lang="la"><span class="ks">amā</span><span class="ke">t</span></span><span class="kg">she loves</span><span class="kn">incomplete stem · 3rd singular</span></div>
+        <div class="k"><span class="kf" lang="la"><span class="ks">amā</span><span class="ke">tur</span></span><span class="kg">she is loved</span><span class="kn">incomplete stem · 3rd singular</span></div>
+        <div class="k"><span class="kf" lang="la"><span class="ks">amāv</span><span class="ke">it</span></span><span class="kg">she has loved</span><span class="kn">complete stem · 3rd singular</span></div>
+        <div class="k"><span class="kf" lang="la"><span class="ks">amāt</span>a <span class="ke">est</span></span><span class="kg">she has been loved</span><span class="kn">complete stem · 3rd singular</span></div>
+      </div>
+      <div class="key"><span><span class="ks">bold</span> the stem: incomplete or complete</span><span><span class="ke">underlined</span> the personal ending: who, and how many</span></div>
+    </figure>
+  </div>
+
+  <div class="block">
+    <h3>What a verb tells you <span class="sec">A&amp;G §§154, 157</span></h3>
+    <p class="lede">Every form of a Latin verb answers five questions at once.</p>
+    <div class="props">
+      <article class="prop">
+        <h4>Person</h4>
+        <p class="ask">Who is doing it?</p>
+        <p>The 1st person is the speaker (I, we); the 2nd person is the one spoken to (you); the 3rd person is anyone or anything else (he, she, it, they). The personal ending shows it, so Latin usually leaves out the subject pronoun: <i lang="la">amat</i> by itself means he loves or she loves.</p>
+        <div class="eg"><span><i lang="la">amō</i>: I love</span><span><i lang="la">amās</i>: you love</span><span><i lang="la">amat</i>: he, she or it loves</span></div>
+      </article>
+      <article class="prop">
+        <h4>Number</h4>
+        <p class="ask">One, or more than one?</p>
+        <p>The verb is singular or plural, and it must agree with its subject. The personal ending shows number and person together.</p>
+        <div class="eg"><span><i lang="la">puella amat</i>: the girl loves</span><span><i lang="la">puellae amant</i>: the girls love</span></div>
+      </article>
+      <article class="prop">
+        <h4>Tense</h4>
+        <p class="ask">When, and is it finished?</p>
+        <p>A tense combines a time (past, present or future) with an aspect (incomplete or complete). Both are explained below.</p>
+        <div class="eg"><span><i lang="la">amābat</i>: he was loving</span><span><i lang="la">amāverat</i>: he had loved</span></div>
+      </article>
+      <article class="prop">
+        <h4>Voice</h4>
+        <p class="ask">Does the subject do it, or receive it?</p>
+        <p>In the <b>active</b> voice the subject performs the action; in the <b>passive</b> it receives it. English needs extra words for the passive (is loved, has been loved). Latin uses passive personal endings in the incomplete tenses (<i lang="la">amātur</i>) and the perfect participle with a form of <i lang="la">sum</i> in the complete ones (<i lang="la">amāta est</i>).</p>
+        <div class="eg"><span><i lang="la">puella amat</i>: the girl loves</span><span><i lang="la">puella amātur</i>: the girl is loved</span></div>
+      </article>
+      <article class="prop">
+        <h4>Mood</h4>
+        <p class="ask">A fact, a command, or something else?</p>
+        <p>The <b>indicative</b> states facts and asks questions. The <b>imperative</b> gives commands. The <b>subjunctive</b> is used for things that are wished, possible or intended, and in many kinds of clause; English often uses may, might or would for it. The subjunctive has its own pages, starting with <a href="subjunctive.html">The Subjunctive: Overview</a>.</p>
+        <div class="eg"><span><i lang="la">amat</i>: he loves (indicative)</span><span><i lang="la">amā!</i>: love! (imperative)</span></div>
+      </article>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>Tense: time and aspect <span class="sec">A&amp;G §§154.c, 160–162</span></h3>
+    <div class="prose">
+      <p><b>Time</b> is when the action takes place: in the past, now, or in the future. In the indicative, the past tenses tend to have an <i>a</i> before the ending (<i lang="la">amābat, amāverat</i>) and the future tenses an <i>i</i> (<i lang="la">amābit, amāverit</i>). English has a similar pattern in its helping verbs: <i>was</i> for the past, <i>will</i> for the future.</p>
+      <p><b>Aspect</b> is how the action is viewed: as <b>incomplete</b> (in progress, repeated, or not yet finished) or as <b>complete</b> (finished). <i>He was writing</i> and <i>he had written</i> are both in the past; they differ only in aspect. Whether an action is ongoing or finished is a separate question from when it happens: <i>I have arrived</i> describes an action completed in the present, <i>I had arrived</i> an action completed in the past. Latin shows aspect with the stem. The incomplete tenses, active and passive, are built on the incomplete stem (<i lang="la">amā-</i>, from the second principal part). The complete tenses are built on a complete stem: <i lang="la">amāv-</i> (from the third principal part) in the active, and the perfect participle <i lang="la">amātus</i> (from the fourth) with a form of <i lang="la">sum</i> in the passive.</p>
+      <p>Two aspects times three times gives Latin its six tenses. In the grid, the columns are the times and the rows are the aspects. The underlined letter in each Latin form is that <i>a</i> or <i>i</i>. Click a box to go to that tense.</p>
+    </div>
+    <figure class="ta"><figcaption>The six tenses of the indicative</figcaption><div class="ta-grid"><span class="ta-corner"></span><span class="ta-col">Past time</span><span class="ta-col">Present time</span><span class="ta-col">Future time</span><span class="ta-row"><b>Incomplete</b><br>the action is not finished<br>built on <i lang=la>amā-</i> (2nd principal part)</span><a class="ta-c" href="imperfect-active.html"><span class="nm">Imperfect</span><span class="la" lang="la">amāb<b class="tv">a</b>t</span><span class="eg">was loving</span></a><a class="ta-c" href="present-active.html"><span class="nm">Present</span><span class="la" lang="la">amat</span><span class="eg">is loving<span class="ta-alt"> or loves</span></span></a><a class="ta-c" href="future-active.html"><span class="nm">Future</span><span class="la" lang="la">amāb<b class="tv">i</b>t</span><span class="eg">will be loving<span class="ta-alt"> or will love</span></span></a><span class="ta-row ta-s"><b>Simple</b><br>the action is neither finished nor unfinished<br>(secondary translation)</span><a class="ta-c simple ta-s" href="perfect-active.html"><span class="arw diag" aria-hidden="true">↖</span><span class="nm"><span class="arw-in" aria-hidden="true">↖ </span>Perfect</span><span class="la" lang="la">amāvit</span><span class="eg">loved</span><span class="sr">(also a meaning of the perfect)</span></a><a class="ta-c simple ta-s" href="present-active.html"><span class="arw up" aria-hidden="true">↓</span><span class="nm"><span class="arw-in" aria-hidden="true">↓ </span>Present</span><span class="la" lang="la">amat</span><span class="eg">loves</span><span class="sr">(also a meaning of the present)</span></a><a class="ta-c simple ta-s" href="future-active.html"><span class="arw up" aria-hidden="true">↓</span><span class="nm"><span class="arw-in" aria-hidden="true">↓ </span>Future</span><span class="la" lang="la">amāb<b class="tv">i</b>t</span><span class="eg">will love</span><span class="sr">(also a meaning of the future)</span></a><span class="ta-row"><b>Complete</b><br>the action is finished<br>built on <i lang=la>amāv-</i> (3rd principal part)</span><a class="ta-c" href="pluperfect-active.html"><span class="nm">Pluperfect</span><span class="la" lang="la">amāver<b class="tv">a</b>t</span><span class="eg">had loved</span></a><a class="ta-c" href="perfect-active.html"><span class="nm">Perfect</span><span class="la" lang="la">amāvit</span><span class="eg">has loved<span class="ta-alt"> or loved</span></span></a><a class="ta-c" href="future-perfect-active.html"><span class="nm">Future perfect</span><span class="la" lang="la">amāver<b class="tv">i</b>t</span><span class="eg">will have loved</span></a></div><button type="button" class="ta-btn" aria-expanded="false" onclick="var f=this.closest('.ta');f.classList.toggle('show-simple');this.setAttribute('aria-expanded',f.classList.contains('show-simple'))">Simple translations</button><p class="ta-note ta-s">The simple aspect describes an action that simply happens at a point in time. It works a little like a photograph: it captures an action at one moment, whether or not the action finished afterward. "He loved," rather than "he was loving" (incomplete past) or "he had loved" (complete past). By the time of the Romans, Latin had lost a separate stem for the simple aspect, but the <a href="perfect-active.html">perfect</a> still carried the meaning of the simple past, and the present and future are used where English prefers a simple present or simple future.</p></figure>
+  </div>
+
+  <div class="block">
+    <h3>Person and number: the personal endings <span class="sec">A&amp;G §§163, 165</span></h3>
+    <p class="lede">The active and passive endings are used in almost every tense, so they are worth memorizing first. The passive endings are the active ones with an <i>r</i> added or substituted; only <i lang="la">-minī</i> is completely different. The perfect active has a set of its own, used only in that tense.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Person</th><th>Active</th><th>Passive</th><th>Perfect active</th><th>English</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">1st singular</td><td><span class="la-i hl" lang="la">-ō / -m</span></td><td><span class="la-i hl" lang="la">-or / -r</span></td><td><span class="la-i hl" lang="la">-ī</span></td><td class="en">I</td></tr>
+        <tr><td class="nm">2nd singular</td><td><span class="la-i hl" lang="la">-s</span></td><td><span class="la-i hl" lang="la">-ris</span></td><td><span class="la-i hl" lang="la">-istī</span></td><td class="en">you (one person)</td></tr>
+        <tr><td class="nm">3rd singular</td><td><span class="la-i hl" lang="la">-t</span></td><td><span class="la-i hl" lang="la">-tur</span></td><td><span class="la-i hl" lang="la">-it</span></td><td class="en">he, she, it</td></tr>
+        <tr><td class="nm">1st plural</td><td><span class="la-i hl" lang="la">-mus</span></td><td><span class="la-i hl" lang="la">-mur</span></td><td><span class="la-i hl" lang="la">-imus</span></td><td class="en">we</td></tr>
+        <tr><td class="nm">2nd plural</td><td><span class="la-i hl" lang="la">-tis</span></td><td><span class="la-i hl" lang="la">-minī</span></td><td><span class="la-i hl" lang="la">-istis</span></td><td class="en">you (more than one)</td></tr>
+        <tr><td class="nm">3rd plural</td><td><span class="la-i hl" lang="la">-nt</span></td><td><span class="la-i hl" lang="la">-ntur</span></td><td><span class="la-i hl" lang="la">-ērunt</span></td><td class="en">they</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="block">
+    <h3>Principal parts and the four conjugations <span class="sec">A&amp;G §§171–172</span></h3>
+    <figure class="dfig">
+      <figcaption>The four principal parts</figcaption>
+      <div class="dict-entry">
+        <div class="dpart"><span class="dp-w" lang="la">amō,</span><span class="dp-lab">Present, 1st singular</span><span class="dp-tells">I love. The form listed first in the dictionary.</span></div>
+        <div class="dpart"><span class="dp-w" lang="la">amāre,</span><span class="dp-lab">Present infinitive</span><span class="dp-tells">To love. Gives the conjugation and the incomplete stem (<i lang="la">amā-</i>).</span></div>
+        <div class="dpart"><span class="dp-w" lang="la">amāvī,</span><span class="dp-lab">Perfect, 1st singular</span><span class="dp-tells">I have loved. Gives the complete stem (<i lang="la">amāv-</i>).</span></div>
+        <div class="dpart"><span class="dp-w" lang="la">amātum</span><span class="dp-lab">Perfect participle</span><span class="dp-tells">Loved. Used for the complete passive (<i lang="la">amātus est</i>, he has been loved).</span></div>
+      </div>
+    </figure>
+    <div class="prose">
+      <p>Every verb is learned with its four <b>principal parts</b>, because together they give you every stem the verb uses. A <b>conjugation</b> is a family of verbs that share a stem vowel. You find it in the infinitive, the second principal part: drop the <i lang="la">-re</i> and look at the vowel that is left.</p>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Conjugation</th><th>Dictionary entry</th><th>Stem vowel</th><th>How to spot it</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">1st</td><td><span class="la-i" lang="la">amō, amāre</span>, love</td><td><span class="la-i hl" lang="la">ā</span></td><td>infinitive in <i lang="la">-āre</i></td></tr>
+        <tr><td class="nm">2nd</td><td><span class="la-i" lang="la">moneō, monēre</span>, warn</td><td><span class="la-i hl" lang="la">ē</span></td><td><i lang="la">-eō</i> and <i lang="la">-ēre</i></td></tr>
+        <tr><td class="nm">3rd</td><td><span class="la-i" lang="la">regō, regere</span>, rule</td><td><span class="la-i hl" lang="la">e</span> (short; <i>i</i> or <i>u</i> in the forms)</td><td>infinitive in short <i lang="la">-ere</i></td></tr>
+        <tr><td class="nm">3rd <i lang="la">-iō</i></td><td><span class="la-i" lang="la">capiō, capere</span>, take</td><td><span class="la-i hl" lang="la">e</span> (short), with an <i>i</i></td><td><i lang="la">-iō</i> and short <i lang="la">-ere</i></td></tr>
+        <tr><td class="nm">4th</td><td><span class="la-i" lang="la">audiō, audīre</span>, hear</td><td><span class="la-i hl" lang="la">ī</span></td><td><i lang="la">-iō</i> and <i lang="la">-īre</i></td></tr>
+      </tbody>
+    </table></div>
+    <div class="watch">
+      <b class="t">Telling the conjugations apart</b>
+      <p>A first principal part in <i lang="la">-eō</i> always means the 2nd conjugation. One in <i lang="la">-iō</i> could be 3rd <i lang="la">-iō</i> or 4th, so check the infinitive: <i lang="la">capere</i> (short <i>e</i>) or <i lang="la">audīre</i> (long <i>ī</i>). The 1st and 3rd conjugations both have <i lang="la">-ō</i>, so again the infinitive decides: <i lang="la">amāre</i> or <i lang="la">regere</i>.</p>
+    </div>
+    <div class="links">
+      <a href="incomplete-system.html">The Incomplete System: Patterns</a>
+      <a href="present-active.html">Present</a>
+      <a href="imperfect-active.html">Imperfect</a>
+      <a href="future-active.html">Future</a>
+      <a href="incomplete-passive.html">Incomplete passives</a>
+      <a href="perfect-active.html">Perfect</a>
+      <a href="pluperfect-active.html">Pluperfect</a>
+      <a href="future-perfect-active.html">Future perfect</a>
+      <a href="complete-passive.html">Complete passives</a>
+      <a href="subjunctive.html">The Subjunctive: Overview</a>
+      <a href="subjunctive-uses.html">Uses of the Subjunctive</a>
+    </div>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Definitions follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§153–176, in the Dickinson College Commentaries online edition:
+  <a href="https://dcc.dickinson.edu/grammar/latin/parts-speech" target="_blank" rel="noopener">Parts of Speech</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/verb-conjugations" target="_blank" rel="noopener">Verb Conjugations</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/tenses" target="_blank" rel="noopener">Tenses</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/personal-endings" target="_blank" rel="noopener">Personal Endings</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/four-conjugations" target="_blank" rel="noopener">The Four Conjugations</a>. The example sentences were written for this page.</p>
+</footer>
+</div>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/account.js?v=202610122000"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610131500"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Subjunctive: Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202610150900">
+<style>
+.intro{display:grid;gap:10px;max-width:80ch}
+.intro-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.intro .q{font-size:1.25rem;font-style:italic;color:var(--accent)}
+.intro .sec{margin-left:auto}
+.intro p,.prose p{font-size:1.125rem;margin:0}
+.prose{display:grid;gap:10px;max-width:80ch}
+.lede{margin:0;font-size:1.125rem;max-width:80ch}
+.lede.sm{font-size:1.0625rem}
+.lede a,.prose a,.watch a{color:var(--accent)}
+.block{display:grid;gap:12px;margin-top:30px}
+.block h3{font-size:1.375rem;font-weight:700;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.sec{font-size:1rem;font-weight:400;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.la-i{font-style:italic}
+/* concept figure: word order vs endings */
+.wo{margin:8px 0 4px;padding:0;display:grid;gap:10px}
+.wo figcaption,.dfig figcaption{font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-weight:600;font-size:1rem}
+.wo-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 16px;align-items:baseline;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px}
+.wo-row .la{font-size:1.3125rem;font-style:italic}
+.wo-row .en{font-size:1.0625rem}
+.wo-row .note{grid-column:1/-1;color:var(--muted);font-size:1rem}
+.wo-row.flip{border-color:var(--accent);background:var(--accent-soft)}
+.e-s,.e-o{font-weight:700;font-style:italic}
+.e-s{color:var(--accent)}
+.e-o{color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.key{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:1rem;color:var(--muted)}
+/* the three properties */
+.props{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.prop{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:16px 18px;display:grid;gap:8px;align-content:start}
+.prop h4{margin:0;font-size:1.25rem}
+.prop .ask{color:var(--accent);font-weight:600;font-size:1.0625rem;margin:0}
+.prop p{margin:0;font-size:1.0625rem}
+.prop .eg{display:grid;gap:2px;background:var(--bg);border-radius:10px;padding:8px 12px;font-size:1rem}
+.prop .eg i{font-size:1.125rem}
+/* tables */
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);box-shadow:var(--shadow)}
+.tbl table{border-collapse:collapse;width:100%;font-size:1.0625rem}
+.tbl th{font-weight:400;font-size:1rem;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule)}
+.tbl td{padding:10px 14px;border-top:1px solid var(--rule);vertical-align:top}
+.tbl td.nm{font-weight:700;white-space:nowrap}
+.tbl td .la-i{font-size:1.125rem}
+.tbl td .hl{color:var(--accent);font-weight:700}
+.tbl td.en,.tbl .muted{color:var(--muted)}
+.tbl .muted{font-size:1rem}
+.tbl a{color:var(--accent)}
+.watch{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--accent);border-radius:var(--radius,14px);padding:14px 18px;display:grid;gap:6px;max-width:80ch}
+.watch b.t{font-size:1.0625rem}
+.watch p{margin:0;font-size:1.0625rem}
+/* dictionary entry */
+.dfig{display:grid;gap:10px;margin:0}
+.dict-entry{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.dict-entry .dpart{display:grid;gap:4px;align-content:start;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px;min-width:0;flex:1 1 150px}
+.dict-entry .dp-w{font-size:1.4375rem;font-style:italic;color:var(--accent)}
+.dict-entry .dp-lab{font-weight:600}
+.dict-entry .dp-tells{color:var(--muted);font-size:1rem}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{display:inline-block;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);color:var(--accent);text-decoration:none;font-size:1rem}
+.links a:hover{border-color:var(--accent)}
+.props{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.ta{margin-top:6px}
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.keys .k{display:grid;gap:2px;align-content:start;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px}
+.keys .kf{font-size:1.3125rem;font-style:italic}
+.keys .kg{font-size:1.0625rem}
+.keys .kn{color:var(--muted);font-size:1rem}
+.ks{font-weight:700;color:var(--accent)}
+.ke{color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.tbl td .hl{color:var(--accent);font-weight:700}
+.lede a,.prose a{color:var(--accent)}
+@media (max-width:820px){.props{grid-template-columns:1fr}}
+@media (max-width:640px){.wo-row{grid-template-columns:1fr}.tbl td{padding:9px 10px}.tbl td.nm{white-space:normal}}
+.seq-ex{display:grid;gap:8px;margin:0}
+.seq-ex .row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1.1fr);gap:4px 16px;align-items:baseline;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:10px 16px}
+.seq-ex .la{font-size:1.1875rem;font-style:italic}
+.seq-ex .la .hl{color:var(--accent);font-weight:700}
+.seq-ex .en{font-size:1.0625rem}
+.seq-ex .why{color:var(--muted);font-size:1rem}
+.uses-h{margin:6px 0 0;font-size:1.1875rem}
+.intro a{color:var(--accent)}
+.wo-row .la .hl{color:var(--accent);font-weight:700}
+@media (max-width:640px){.seq-ex .row{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>The Subjunctive: Overview</h1>
+</header>
+
+<section id="charts">
+  <div class="intro" id="intro">
+    <div class="intro-h"><span class="q">the mood for actions that are wished, possible, intended or reported</span><span class="sec">A&amp;G §§154, 438</span></div>
+    <p>Every Latin verb has a mood. The <b>indicative</b> presents an action as a fact: <i lang="la">venit</i>, "he comes." The <b>subjunctive</b> presents it in some other way. Its meanings come from two old ideas: <b>will</b>, what someone wants to happen ("let him come," "may he come"), and <b>imagining</b>, what could happen ("he would come"). Most of its uses grow out of one or the other.</p>
+    <p>English has almost lost its subjunctive. It survives in a few phrases ("if I were you," "God save the king"); otherwise English uses helping words such as <i>may</i>, <i>might</i>, <i>would</i> and <i>let</i>, or an ordinary verb. So the Latin subjunctive has no single translation. Students often find this the hardest part: you translate a subjunctive according to its use, and you need to find the use first.</p>
+    <figure class="wo"><figcaption>Fact, or something else?</figcaption><div class="wo-row"><span class="la" lang="la">Venit.</span><span class="en">He comes.</span><span class="note">Indicative: a fact.</span></div><div class="wo-row flip"><span class="la" lang="la"><b class="hl">Veniat.</b></span><span class="en">Let him come.</span><span class="note">Subjunctive as the main verb: a command.</span></div><div class="wo-row flip"><span class="la" lang="la">Utinam <b class="hl">veniat</b>!</span><span class="en">I hope he comes!</span><span class="note">Subjunctive as the main verb: a wish.</span></div><div class="wo-row flip"><span class="la" lang="la">Rogō cūr <b class="hl">veniat</b>.</span><span class="en">I ask why he is coming.</span><span class="note">Subjunctive in a dependent clause: English uses an ordinary verb.</span></div></figure>
+  </div>
+
+  <div class="block">
+    <h3>Where you find it <span class="sec">A&amp;G §438</span></h3>
+    <div class="props"><article class="prop"><h4>In main clauses</h4><p class="ask">The subjunctive is the main verb.</p><p>It adds an attitude to the action: an encouragement, a command, a wish, a doubtful question or a possibility. These uses are less common, and English usually needs <i>let</i>, <i>may</i> or <i>should</i>.</p><div class="eg"><span><i lang="la">Amēmus.</i> Let us love.</span><span><i lang="la">Quid faciam?</i> What am I to do?</span></div></article><article class="prop"><h4>In dependent clauses</h4><p class="ask">Something in the sentence calls for it.</p><p>Most subjunctives are here, after words such as <i>ut</i>, <i>nē</i>, <i>cum</i> and <i>quī</i>, or in a reported question. These clauses began as main-clause subjunctives attached to another sentence: <i lang="la">mīsit lēgātōs quī dīcerent</i> first meant "he sent envoys; they were to say," and came to mean "he sent envoys to say." As the clause became a fixed construction, the subjunctive's own meaning faded, so English usually translates it with an ordinary verb.</p><div class="eg"><span><i lang="la">Vēnit ut vidēret.</i> He came to see.</span><span><i lang="la">Rogāvit quid facerem.</i> He asked what I was doing.</span></div></article></div><p class="lede sm">Every use is listed, with how to spot it, on <a href="subjunctive-uses.html">Uses of the Subjunctive</a>.</p>
+  </div>
+  <div class="block">
+    <h3>The four tenses</h3>
+    <p class="lede">The subjunctive has four tenses: two incomplete and two complete, built from the same principal parts as the indicative. It has no future. For a later action Latin uses the incomplete tenses, or, where it must be clear, the future participle with <i lang="la">sim</i> or <i lang="la">essem</i>: <i lang="la">prōspiciō quī concursūs futūrī sint</i>, "I foresee what crowds there will be."</p><div class="tbl"><table><thead><tr><th>Tense</th><th>Active</th><th>Passive</th><th>How to recognize it</th></tr></thead><tbody><tr><td class="nm"><a href="subjunctive-present.html">Present</a></td><td><span class="la-i" lang="la">amet</span></td><td><span class="la-i" lang="la">amētur</span></td><td>a changed vowel: <i>e</i> in the 1st conjugation, <i>a</i> in the others (<i>moneat, regat, audiat</i>)</td></tr><tr><td class="nm"><a href="subjunctive-imperfect.html">Imperfect</a></td><td><span class="la-i" lang="la">amāret</span></td><td><span class="la-i" lang="la">amārētur</span></td><td>the present infinitive with an ending</td></tr><tr><td class="nm"><a href="subjunctive-perfect.html">Perfect</a></td><td><span class="la-i" lang="la">amāverit</span></td><td><span class="la-i" lang="la">amātus sit</span></td><td>the complete stem with <i>-eri-</i>, or a participle with <i>sim</i></td></tr><tr><td class="nm"><a href="subjunctive-pluperfect.html">Pluperfect</a></td><td><span class="la-i" lang="la">amāvisset</span></td><td><span class="la-i" lang="la">amātus esset</span></td><td>the perfect infinitive with an ending, or a participle with <i>essem</i></td></tr></tbody></table></div>
+  </div>
+  <div class="block">
+    <h3>Sequence of tenses <span class="sec">A&amp;G §§482–485</span></h3>
+    <p class="lede">In a dependent clause, the main verb decides which subjunctive tense to use. This pattern is called <b>sequence of tenses</b>. It is a strong tendency rather than a strict law, and writers sometimes break it for emphasis. To choose the tense, ask two questions.</p><div class="prose"><p><b>1. When is the main verb?</b> A present or future main verb puts the sentence in <b>primary sequence</b>, which uses the present or perfect subjunctive. A past main verb puts it in <b>secondary sequence</b>, which uses the imperfect or pluperfect subjunctive: <i lang="la">scrībit ut nōs moneat</i>, "he writes to warn us," but <i lang="la">scrīpsit ut nōs monēret</i>, "he wrote to warn us." A perfect main verb usually counts as past ("he loved"); when the writer has the present in mind ("has loved"), it can take primary sequence.</p><p><b>2. When is the dependent action, compared with the main verb?</b> If it happens at the same time or later, use an incomplete tense (present or imperfect). If it happened earlier, use a complete tense (perfect or pluperfect).</p></div><figure class="ta seq"><figcaption>The four subjunctive tenses</figcaption><div class="ta-grid"><span class="ta-corner"></span><span class="ta-col">Primary sequence<span class="ta-sub">after a present or future main verb</span></span><span class="ta-col">Secondary sequence<span class="ta-sub">after a past main verb</span></span><span class="ta-row"><b>Incomplete</b><br>the action happens at the same time as the main verb, or later</span><a class="ta-c" href="subjunctive-present.html"><span class="nm">Present subjunctive</span><span class="la" lang="la">am<b class="tv">e</b>t</span><span class="eg">the stem with a changed vowel</span></a><a class="ta-c" href="subjunctive-imperfect.html"><span class="nm">Imperfect subjunctive</span><span class="la" lang="la">amāret</span><span class="eg">the infinitive + an ending</span></a><span class="ta-row"><b>Complete</b><br>the action happened before the main verb</span><a class="ta-c" href="subjunctive-perfect.html"><span class="nm">Perfect subjunctive</span><span class="la" lang="la">amāverit</span><span class="eg">the complete stem + <i>-eri-</i></span></a><a class="ta-c" href="subjunctive-pluperfect.html"><span class="nm">Pluperfect subjunctive</span><span class="la" lang="la">amāvisset</span><span class="eg">the perfect infinitive + an ending</span></a></div></figure><div class="seq-ex"><div class="row"><span class="la" lang="la">Rogō quid <b class="hl">faciās</b>.</span><span class="en">I ask what you are doing.</span><span class="why">primary · same time → present</span></div><div class="row"><span class="la" lang="la">Rogō quid <b class="hl">fēcerīs</b>.</span><span class="en">I ask what you did.</span><span class="why">primary · earlier → perfect</span></div><div class="row"><span class="la" lang="la">Rogāvī quid <b class="hl">facerēs</b>.</span><span class="en">I asked what you were doing.</span><span class="why">secondary · same time → imperfect</span></div><div class="row"><span class="la" lang="la">Rogāvī quid <b class="hl">fēcissēs</b>.</span><span class="en">I asked what you had done.</span><span class="why">secondary · earlier → pluperfect</span></div></div><div class="watch"><b class="t">Translate by the sequence, not with "may" and "might"</b><p>In <i lang="la">rogāvī quid facerēs</i>, the imperfect subjunctive is simply "you were doing." The helping words <i>may</i> and <i>might</i> belong to a few uses, such as possibility and some purpose clauses. In most dependent clauses, use the English tense that the sequence points to.</p></div>
+  </div>
+  <div class="block">
+    <h3>The tense pages</h3>
+    <div class="links"><a href="subjunctive-present.html">Present</a><a href="subjunctive-imperfect.html">Imperfect</a><a href="subjunctive-perfect.html">Perfect</a><a href="subjunctive-pluperfect.html">Pluperfect</a><a href="subjunctive-uses.html">Uses of the Subjunctive</a></div>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Paradigms follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), in the <a href="https://dcc.dickinson.edu/grammar/latin" target="_blank" rel="noopener">Dickinson College Commentaries online edition</a>. Uses follow A&amp;G §§154, 438, 482–485.</p>
+</footer>
+</div>
+
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/account.js?v=202610122000"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610131500"></script>
+</body>
+</html>

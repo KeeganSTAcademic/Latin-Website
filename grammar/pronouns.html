@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introduction to Pronouns</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
+<style>
+.intro{display:grid;gap:10px;max-width:80ch}
+.intro-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.intro .q{font-size:1.25rem;font-style:italic;color:var(--accent)}
+.intro .sec{margin-left:auto}
+.intro p,.prose p{font-size:1.125rem;margin:0}
+.prose{display:grid;gap:10px;max-width:80ch}
+.lede{margin:0;font-size:1.125rem;max-width:80ch}
+.lede.sm{font-size:1.0625rem}
+.lede a,.prose a,.watch a{color:var(--accent)}
+.block{display:grid;gap:12px;margin-top:30px}
+.block h3{font-size:1.375rem;font-weight:700;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.sec{font-size:1rem;font-weight:400;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.la-i{font-style:italic}
+/* concept figure: word order vs endings */
+.wo{margin:8px 0 4px;padding:0;display:grid;gap:10px}
+.wo figcaption,.dfig figcaption{font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-weight:600;font-size:1rem}
+.wo-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 16px;align-items:baseline;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px}
+.wo-row .la{font-size:1.3125rem;font-style:italic}
+.tbl td.nm a{color:var(--accent)}
+.props .prop h4 i{font-style:italic}
+.watch + .watch{margin-top:10px}
+.wo-row .en{font-size:1.0625rem}
+.wo-row .note{grid-column:1/-1;color:var(--muted);font-size:1rem}
+.wo-row.flip{border-color:var(--accent);background:var(--accent-soft)}
+.e-s,.e-o{font-weight:700;font-style:italic}
+.e-s{color:var(--accent)}
+.e-o{color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.key{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:1rem;color:var(--muted)}
+/* the three properties */
+.props{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.prop{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:16px 18px;display:grid;gap:8px;align-content:start}
+.prop h4{margin:0;font-size:1.25rem}
+.prop .ask{color:var(--accent);font-weight:600;font-size:1.0625rem;margin:0}
+.prop p{margin:0;font-size:1.0625rem}
+.prop .eg{display:grid;gap:2px;background:var(--bg);border-radius:10px;padding:8px 12px;font-size:1rem}
+.prop .eg i{font-size:1.125rem}
+/* tables */
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);box-shadow:var(--shadow)}
+.tbl table{border-collapse:collapse;width:100%;font-size:1.0625rem}
+.tbl th{font-weight:400;font-size:1rem;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule)}
+.tbl td{padding:10px 14px;border-top:1px solid var(--rule);vertical-align:top}
+.tbl td.nm{font-weight:700;white-space:nowrap}
+.tbl td .la-i{font-size:1.125rem}
+.tbl td .hl{color:var(--accent);font-weight:700}
+.tbl td.en,.tbl .muted{color:var(--muted)}
+.tbl .muted{font-size:1rem}
+.tbl a{color:var(--accent)}
+.watch{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--accent);border-radius:var(--radius,14px);padding:14px 18px;display:grid;gap:6px;max-width:80ch}
+.watch b.t{font-size:1.0625rem}
+.watch p{margin:0;font-size:1.0625rem}
+/* dictionary entry */
+.dfig{display:grid;gap:10px;margin:0}
+.dict-entry{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.dict-entry .dpart{display:grid;gap:4px;align-content:start;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px;min-width:0;flex:1 1 150px}
+.dict-entry .dp-w{font-size:1.4375rem;font-style:italic;color:var(--accent)}
+.dict-entry .dp-lab{font-weight:600}
+.dict-entry .dp-tells{color:var(--muted);font-size:1rem}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{display:inline-block;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);color:var(--accent);text-decoration:none;font-size:1rem}
+.links a:hover{border-color:var(--accent)}
+@media (max-width:820px){.props{grid-template-columns:1fr}}
+@media (max-width:640px){.wo-row{grid-template-columns:1fr}.tbl td{padding:9px 10px}.tbl td.nm{white-space:normal}}
+</style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Introduction to Pronouns</h1>
+</header>
+
+<section id="charts">
+  <div class="intro" id="intro">
+    <div class="intro-h"><span class="q">a word that stands in for a noun</span><span class="sec">A&amp;G §§20.c, 142–152, 295–315</span></div>
+    <p>A pronoun stands in for a noun so that you don't have to repeat it. In "Marcus came home, and I saw <i>him</i>," <i>him</i> stands in for Marcus. A pronoun can also point to something (<i>this</i>, <i>that</i>), ask about it (<i>who?</i>), or refer to someone without saying who (<i>someone</i>). A&amp;G puts it this way: a pronoun picks out a person or thing "without either naming or describing it" (§20.c).</p>
+    <p>Latin pronouns decline, like nouns: they have case, number and, most of them, gender. A pronoun takes its <b>gender and number</b> from the noun it stands for, which is called its <b>antecedent</b>, and its <b>case</b> from its own function in its own sentence.</p>
+    <figure class="wo">
+      <figcaption>Where does a pronoun get its endings?</figcaption>
+      <div class="wo-row">
+        <span class="la" lang="la">Mārcus domum vēnit. <span class="e-o">Eum</span> vīdī.</span>
+        <span class="en">Marcus came home. I saw him.</span>
+        <span class="note"><i lang="la">Eum</i> is masculine singular because Marcus is one man. It is accusative because, in its own sentence, it is the direct object of <i lang="la">vīdī</i>.</span>
+      </div>
+      <div class="wo-row">
+        <span class="la" lang="la">Puella domum vēnit. <span class="e-o">Eam</span> vīdī.</span>
+        <span class="en">The girl came home. I saw her.</span>
+        <span class="note">The antecedent changed to a girl, so the pronoun changed to the feminine <i lang="la">eam</i>. Its case stayed accusative, because its function did not change.</span>
+      </div>
+      <div class="wo-row flip">
+        <span class="la" lang="la">Rēs mala est. <span class="e-o">Eam</span> timeō.</span>
+        <span class="en">The situation is bad. I fear it.</span>
+        <span class="note"><i lang="la">Rēs</i> is a feminine noun, so the pronoun is feminine too: <i lang="la">eam</i>. In English it is still "it." Latin gender follows the noun, not whether the thing is male or female.</span>
+      </div>
+    </figure>
+  </div>
+
+  <div class="block">
+    <h3>The kinds of pronoun <span class="sec">A&amp;G §§142–152</span></h3>
+    <p class="lede">Latin pronouns are grouped by what they do. Each kind has its own page.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Kind</th><th>What it does</th><th>Latin</th><th>English</th></tr></thead>
+      <tbody>
+        <tr><td class="nm"><a href="pronouns-personal.html">Personal</a></td><td>Stands for the people in a conversation: the speaker, the person spoken to, and the person talked about</td><td><span class="la-i" lang="la">ego, tū, is; nōs, vōs, eī</span></td><td class="en">I, you, he/she/it; we, you, they</td></tr>
+        <tr><td class="nm"><a href="pronouns-demonstrative.html">Demonstrative</a></td><td>Points to someone or something. <i lang="la">Is, ea, id</i> also serves as the 3rd-person personal pronoun.</td><td><span class="la-i" lang="la">is, hic, iste, ille, īdem</span></td><td class="en">he, she, it; this, that; the same</td></tr>
+        <tr><td class="nm"><a href="pronouns-relative.html">Relative</a></td><td>Begins a clause that describes a noun</td><td><span class="la-i" lang="la">quī, quae, quod</span></td><td class="en">who, which, that</td></tr>
+        <tr><td class="nm"><a href="pronouns-reflexive.html">Reflexive</a></td><td>Points back to the subject of its own clause</td><td><span class="la-i" lang="la">suī, sibi, sē</span></td><td class="en">himself, herself, themselves</td></tr>
+        <tr><td class="nm"><a href="pronouns-intensive.html">Intensive</a></td><td>Adds emphasis</td><td><span class="la-i" lang="la">ipse, ipsa, ipsum</span></td><td class="en">himself, herself, itself; the very</td></tr>
+        <tr><td class="nm"><a href="pronouns-interrogative.html">Interrogative</a></td><td>Asks a question</td><td><span class="la-i" lang="la">quis, quid; quī, quae, quod</span></td><td class="en">who? what? which?</td></tr>
+        <tr><td class="nm"><a href="pronouns-indefinite.html">Indefinite</a></td><td>Refers to someone or something without saying exactly who or what</td><td><span class="la-i" lang="la">aliquis, quīdam, quisquam, quisque, quisquis</span></td><td class="en">someone, a certain one, anyone, each, whoever</td></tr>
+        <tr><td class="nm"><a href="pronouns-unus-nauta.html">Pronominal adjectives</a></td><td>Adjectives that borrow two pronoun endings</td><td><span class="la-i" lang="la">ūnus, ūllus, nūllus, sōlus, alius …</span></td><td class="en">one, any, no, alone, other …</td></tr>
+      </tbody>
+    </table></div>
+    <p class="lede sm">The possessives, <i lang="la">meus, tuus, suus, noster, vester</i> (my, your, his own, our, your), come from the personal and reflexive pronouns but decline like the adjective <i lang="la">bonus, -a, -um</i> (A&amp;G §145).</p>
+  </div>
+
+  <div class="block">
+    <h3>Pronoun or adjective?</h3>
+    <div class="prose">
+      <p>Most pronouns can be used in two ways. <b>On their own</b>, they replace a noun: <i lang="la">hic</i>, this man, he; <i lang="la">aliquis</i>, someone. <b>With a noun</b>, they work as adjectives and agree with it in case, number and gender: <i lang="la">hic vir</i>, this man; <i lang="la">aliquī philosophī</i>, some philosophers. A few pronouns have slightly different forms for the two uses, mostly in the neuter: <i lang="la">quid?</i> (what?) on its own, but <i lang="la">quod bellum?</i> (which war?) with a noun.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>How pronouns decline <span class="sec">A&amp;G §§142–152</span></h3>
+    <p class="lede">Pronouns use the same five cases as nouns, and many of their endings are noun endings: <i lang="la">-m</i> in the accusative singular (<i lang="la">illum, quem</i>), <i lang="la">-ōrum</i> and <i lang="la">-ārum</i> in the genitive plural, <i lang="la">-a</i> in the neuter plural. A few endings belong only to pronouns, and these are the ones to learn first.</p>
+    <div class="props">
+      <article class="prop">
+        <h4><i lang="la">-īus</i> and <i lang="la">-ī</i></h4>
+        <p class="ask">Genitive and dative singular</p>
+        <p>Most pronouns have <i lang="la">-īus</i> in the genitive singular and <i lang="la">-ī</i> in the dative singular, and they use the same form for all three genders. <i lang="la">Is, hic</i> and <i lang="la">quī</i> do the same with their own spellings.</p>
+        <div class="eg"><span><i lang="la">illīus, illī</i>: of that, to that</span><span><i lang="la">eius, eī; huius, huic; cuius, cui</i></span></div>
+      </article>
+      <article class="prop">
+        <h4><i lang="la">-d</i></h4>
+        <p class="ask">Neuter nominative and accusative singular</p>
+        <p>Where a noun or adjective would have <i lang="la">-um</i>, many pronouns end the neuter singular in <i lang="la">-d</i>.</p>
+        <div class="eg"><span><i lang="la">id, illud, istud, quod, quid, aliquid</i></span><span>but <i lang="la">ipsum</i>, and <i lang="la">hoc</i></span></div>
+      </article>
+      <article class="prop">
+        <h4>No gender</h4>
+        <p class="ask">The 1st and 2nd person, and the reflexive</p>
+        <p><i lang="la">Ego, tū, nōs, vōs</i> and <i lang="la">suī</i> have one set of forms for everyone, since the speaker and listener can be anyone. (<i lang="la">Is, ea, id</i>, the 3rd person, does have gender.) <i lang="la">Suī</i> also has no nominative, because it always points back to the subject.</p>
+        <div class="eg"><span><i lang="la">mē</i>: me (a man or a woman)</span><span><i lang="la">sē</i>: himself, herself, itself, themselves</span></div>
+      </article>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>What makes pronouns hard</h3>
+    <div class="watch">
+      <b class="t">He, she, it: <i lang="la">is, ea, id</i></b>
+      <p>For he, she and it, Latin uses <i lang="la">is, ea, id</i>, which is both the 3rd-person personal pronoun and a demonstrative, and very often no pronoun at all, because the verb's ending already says who is acting: <i lang="la">venit</i>, he comes. When you translate <i lang="la">is, ea, id</i>, choose he, she, it or they by what the antecedent is in English, not by the Latin gender.</p>
+    </div>
+    <div class="watch">
+      <b class="t">His own or his? <i lang="la">suus</i> and <i lang="la">eius</i></b>
+      <p>English "his" can mean the subject's own or someone else's. Latin keeps them apart. <i lang="la">Suus</i> means the subject's own (<i lang="la">Mārcus suum equum videt</i>, Marcus sees his own horse); <i lang="la">eius</i> means someone else's (<i lang="la">Mārcus eius equum videt</i>, Marcus sees his, another man's, horse). The <a href="pronouns-reflexive.html">reflexive page</a> explains the rule.</p>
+    </div>
+    <div class="links">
+      <a href="pronouns-personal.html">Personal</a>
+      <a href="pronouns-demonstrative.html">Demonstratives</a>
+      <a href="pronouns-relative.html">Relative</a>
+      <a href="pronouns-reflexive.html">Reflexive</a>
+      <a href="pronouns-intensive.html">Intensive</a>
+      <a href="pronouns-interrogative.html">Interrogative</a>
+      <a href="pronouns-indefinite.html">Indefinites</a>
+      <a href="pronouns-unus-nauta.html">Pronominal adjectives</a>
+    </div>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Definitions follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§20, 142–152 and 295–315, in the Dickinson College Commentaries online edition:
+  <a href="https://dcc.dickinson.edu/grammar/latin/parts-speech" target="_blank" rel="noopener">Parts of Speech</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/personal-pronouns-paradigm" target="_blank" rel="noopener">Personal Pronouns</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/relative-interrogative-and-indefinite-pronouns" target="_blank" rel="noopener">Relative, Interrogative, and Indefinite Pronouns</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/pronouns" target="_blank" rel="noopener">Pronouns (Syntax)</a>. The example sentences were written for this page.</p>
+</footer>
+</div>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/account.js?v=202610122000"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610131500"></script>
+</body>
+</html>

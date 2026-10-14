@@ -90,7 +90,7 @@
   const RE = new RegExp(ORDER.map(([, re]) => `(?<![\\w\\u00C0-\\u024F-])(${re})(?![\\w\\u00C0-\\u024F])`).join('|'), 'gi');
   const KEY = m => { for(let j = 1; j < m.length; j++) if(m[j] !== undefined) return ORDER[j - 1][0]; };
 
-  const SKIP = '.ta-c,.ta-col,script,style,button,a,select,input,textarea,label,h1,h2,th,.tb-label,i,em,code,nav,footer,.q,#sb,.sb,.sb-open,.gl,.cell,.chip,.tb-sub,.legend,.src,.sec,.label,figcaption,[lang="la"],.la,.form,#gltip';
+  const SKIP = '.ta-c,.ta-col,script,style,button,a,select,input,textarea,label,h1,h2,h3,h4,th,.tb-label,i,em,code,nav,footer,.q,#sb,.sb,.sb-open,.gl,.cell,.chip,.tb-sub,.legend,.src,.sec,.label,figcaption,[lang="la"],.la,.form,#gltip';
   const BLOCK = 'article,section,aside,figure,table,.use,.pnote,.tip,.amb-box,.like-noun,.intro,.basic,.card,.noun,.pattern';
   const UNIT = '#card,.card,.use,.noun,.intro,.basic,.pnote,.pattern,figure,table,article';
   // everyday basics are marked once per page (and again in the inspector); the rest once per unit

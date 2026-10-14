@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uses of the Subjunctive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202610150900">
+<style>
+.intro{display:grid;gap:10px;max-width:80ch}
+.intro-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.intro .q{font-size:1.25rem;font-style:italic;color:var(--accent)}
+.intro .sec{margin-left:auto}
+.intro p,.prose p{font-size:1.125rem;margin:0}
+.prose{display:grid;gap:10px;max-width:80ch}
+.lede{margin:0;font-size:1.125rem;max-width:80ch}
+.lede.sm{font-size:1.0625rem}
+.lede a,.prose a,.watch a{color:var(--accent)}
+.block{display:grid;gap:12px;margin-top:30px}
+.block h3{font-size:1.375rem;font-weight:700;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.sec{font-size:1rem;font-weight:400;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.la-i{font-style:italic}
+/* concept figure: word order vs endings */
+.wo{margin:8px 0 4px;padding:0;display:grid;gap:10px}
+.wo figcaption,.dfig figcaption{font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-weight:600;font-size:1rem}
+.wo-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 16px;align-items:baseline;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px}
+.wo-row .la{font-size:1.3125rem;font-style:italic}
+.wo-row .en{font-size:1.0625rem}
+.wo-row .note{grid-column:1/-1;color:var(--muted);font-size:1rem}
+.wo-row.flip{border-color:var(--accent);background:var(--accent-soft)}
+.e-s,.e-o{font-weight:700;font-style:italic}
+.e-s{color:var(--accent)}
+.e-o{color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.key{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:1rem;color:var(--muted)}
+/* the three properties */
+.props{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.prop{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:16px 18px;display:grid;gap:8px;align-content:start}
+.prop h4{margin:0;font-size:1.25rem}
+.prop .ask{color:var(--accent);font-weight:600;font-size:1.0625rem;margin:0}
+.prop p{margin:0;font-size:1.0625rem}
+.prop .eg{display:grid;gap:2px;background:var(--bg);border-radius:10px;padding:8px 12px;font-size:1rem}
+.prop .eg i{font-size:1.125rem}
+/* tables */
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);box-shadow:var(--shadow)}
+.tbl table{border-collapse:collapse;width:100%;font-size:1.0625rem}
+.tbl th{font-weight:400;font-size:1rem;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule)}
+.tbl td{padding:10px 14px;border-top:1px solid var(--rule);vertical-align:top}
+.tbl td.nm{font-weight:700;white-space:nowrap}
+.tbl td .la-i{font-size:1.125rem}
+.tbl td .hl{color:var(--accent);font-weight:700}
+.tbl td.en,.tbl .muted{color:var(--muted)}
+.tbl .muted{font-size:1rem}
+.tbl a{color:var(--accent)}
+.watch{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--accent);border-radius:var(--radius,14px);padding:14px 18px;display:grid;gap:6px;max-width:80ch}
+.watch b.t{font-size:1.0625rem}
+.watch p{margin:0;font-size:1.0625rem}
+/* dictionary entry */
+.dfig{display:grid;gap:10px;margin:0}
+.dict-entry{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.dict-entry .dpart{display:grid;gap:4px;align-content:start;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px;min-width:0;flex:1 1 150px}
+.dict-entry .dp-w{font-size:1.4375rem;font-style:italic;color:var(--accent)}
+.dict-entry .dp-lab{font-weight:600}
+.dict-entry .dp-tells{color:var(--muted);font-size:1rem}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{display:inline-block;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);color:var(--accent);text-decoration:none;font-size:1rem}
+.links a:hover{border-color:var(--accent)}
+.props{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.ta{margin-top:6px}
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.keys .k{display:grid;gap:2px;align-content:start;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px}
+.keys .kf{font-size:1.3125rem;font-style:italic}
+.keys .kg{font-size:1.0625rem}
+.keys .kn{color:var(--muted);font-size:1rem}
+.ks{font-weight:700;color:var(--accent)}
+.ke{color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.tbl td .hl{color:var(--accent);font-weight:700}
+.lede a,.prose a{color:var(--accent)}
+@media (max-width:820px){.props{grid-template-columns:1fr}}
+@media (max-width:640px){.wo-row{grid-template-columns:1fr}.tbl td{padding:9px 10px}.tbl td.nm{white-space:normal}}
+.seq-ex{display:grid;gap:8px;margin:0}
+.seq-ex .row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1.1fr);gap:4px 16px;align-items:baseline;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:10px 16px}
+.seq-ex .la{font-size:1.1875rem;font-style:italic}
+.seq-ex .la .hl{color:var(--accent);font-weight:700}
+.seq-ex .en{font-size:1.0625rem}
+.seq-ex .why{color:var(--muted);font-size:1rem}
+.uses-h{margin:6px 0 0;font-size:1.1875rem}
+.intro a{color:var(--accent)}
+.wo-row .la .hl{color:var(--accent);font-weight:700}
+@media (max-width:640px){.seq-ex .row{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Uses of the Subjunctive</h1>
+</header>
+
+<section id="charts">
+  <div class="intro" id="intro">
+    <div class="intro-h"><span class="q">every common use, and how to spot it</span><span class="sec">A&amp;G §§439–580</span></div>
+    <p>The subjunctive appears in two places: as the main verb of a sentence, where it adds a wish, a command, a doubt or a possibility, and in dependent clauses, where a word such as <i lang="la">ut</i>, <i lang="la">nē</i>, <i lang="la">cum</i> or <i lang="la">quī</i>, or a reported question, calls for it.</p>
+    <p>To translate a subjunctive, first find what calls for it, then use the translation that goes with that use. The tense follows sequence of tenses, explained on <a href="subjunctive.html">The Subjunctive: Overview</a>.</p>
+  </div>
+
+  <div class="block">
+    <h3>Start from the signal word</h3>
+    <div class="tbl"><table><thead><tr><th>Look for</th><th>It may be</th></tr></thead><tbody><tr><td><i>ut</i> or <i>nē</i> with a subjunctive</td><td>purpose, indirect command, result (<i>ut</i>, <i>ut nōn</i>), fear (<i>nē</i>, <i>ut</i>)</td></tr><tr><td><i>ut</i> with an indicative</td><td>not a subjunctive use: "as" or "when"</td></tr><tr><td><i>cum</i> with a subjunctive</td><td>"when," "since" or "although"</td></tr><tr><td><i>quī, quae, quod</i> with a subjunctive</td><td>a relative clause of purpose or of characteristic</td></tr><tr><td>a question word after a verb of asking, knowing or telling</td><td>an indirect question</td></tr><tr><td><i>sī</i> or <i>nisi</i> with a subjunctive</td><td>a condition that is imagined or contrary to fact</td></tr><tr><td><i>utinam</i></td><td>a wish</td></tr><tr><td>a subjunctive main verb with no signal word</td><td>an encouragement, a command, a doubtful question or a possibility</td></tr></tbody></table></div>
+  </div>
+  <div class="block">
+    <h3>In main clauses</h3>
+    <div class="uses"><article class="use"><header><h4>Encouragements and commands</h4><span class="sec">A&amp;G §439</span></header><p class="what">The oldest meaning of the subjunctive is the speaker's will. The 1st person plural encourages ("let us ..."); the 3rd person gives a command ("let him ..."). The negative is <i>nē</i>.</p><p class="clue"><b>Clue:</b> A present subjunctive as the main verb.</p><div class="exs"><div class="ex"><div class="la" lang="la"><b class="hl">Eāmus</b>!</div><div class="en">Let's go!</div></div><div class="ex"><div class="la" lang="la">Nē <b class="hl">timeant</b>.</div><div class="en">Let them not be afraid.</div></div></div></article><article class="use"><header><h4>Granting a point</h4><span class="sec">A&amp;G §440</span></header><p class="what">The same use can grant something for the sake of argument, before the speaker makes the real point. English uses "grant that" or "suppose." The negative is <i>nē</i>.</p><p class="clue"><b>Clue:</b> A present or perfect subjunctive as the main verb, followed by a "but" or "still."</p><div class="exs"><div class="ex"><div class="la" lang="la"><b class="hl">Sit</b> fūr, <b class="hl">sit</b> sacrilegus.</div><div class="en">Grant that he is a thief and a temple robber.</div></div></div></article><article class="use"><header><h4>Prohibitions</h4><span class="sec">A&amp;G §450</span></header><p class="what">Latin forbids an action in three ways: <i>nōlī</i> with an infinitive (the usual way), <i>cavē</i> with the present subjunctive, or <i>nē</i> with the perfect subjunctive, which is blunter. The perfect here does not refer to the past.</p><p class="clue"><b>Clue:</b> <i>Nē</i> with a 2nd person perfect subjunctive, or <i>cavē</i> with a present subjunctive.</p><div class="exs"><div class="ex"><div class="la" lang="la">Nē <b class="hl">timueris</b>.</div><div class="en">Don't be afraid.</div></div><div class="ex"><div class="la" lang="la">Cavē <b class="hl">festīnēs</b>.</div><div class="en">Don't hurry.</div></div></div></article><article class="use"><header><h4>Wishes</h4><span class="sec">A&amp;G §441</span></header><p class="what">The tense shows whether the wish can still come true. The present wishes for something possible; the imperfect wishes the present were different; the pluperfect wishes the past had been different. <i>Utinam</i> regularly comes before the imperfect and pluperfect. The negative is <i>nē</i>.</p><p class="clue"><b>Clue:</b> <i>Utinam</i>, or a wish such as "may the gods ..."</p><div class="exs"><div class="ex"><div class="la" lang="la">Utinam <b class="hl">veniat</b>!</div><div class="en">I hope he comes!</div></div><div class="ex"><div class="la" lang="la">Utinam <b class="hl">adesset</b>!</div><div class="en">If only he were here!</div></div><div class="ex"><div class="la" lang="la">Utinam <b class="hl">adfuisset</b>!</div><div class="en">If only he had been here!</div></div></div></article><article class="use"><header><h4>Doubtful questions</h4><span class="sec">A&amp;G §444</span></header><p class="what">A question in the subjunctive asks what should be done. It began as a request to learn someone's will and came to express doubt, frustration or impossibility. English uses "am I to" or "should I." The negative is <i>nōn</i>.</p><p class="clue"><b>Clue:</b> A question whose main verb is subjunctive, usually 1st person.</p><div class="exs"><div class="ex"><div class="la" lang="la">Quid <b class="hl">agam</b>, iūdicēs?</div><div class="en">What am I to do, judges?</div></div><div class="ex"><div class="la" lang="la">Quid <b class="hl">facerem</b>?</div><div class="en">What was I to do?</div></div></div></article><article class="use"><header><h4>Possibility</h4><span class="sec">A&amp;G §446</span></header><p class="what">The subjunctive presents an action as something that could happen, not as a fact or a wish. English uses "may," "might," "would" or "could," whichever fits. The present looks to the future; the imperfect looks to the past. The negative is <i>nōn</i>.</p><p class="clue"><b>Clue:</b> A subjunctive main verb, often with an indefinite subject such as <i>aliquis</i>, or with "you" meaning anyone.</p><div class="exs"><div class="ex"><div class="la" lang="la"><b class="hl">Dīcat</b> aliquis.</div><div class="en">Someone may say.</div></div><div class="ex"><div class="la" lang="la"><b class="hl">Crēderēs</b> victōs.</div><div class="en">You would have thought them defeated.</div></div></div></article></div>
+  </div>
+  <div class="block">
+    <h3>In dependent clauses</h3>
+    <div class="uses"><article class="use"><header><h4>Purpose</h4><span class="sec">A&amp;G §531</span></header><p class="what"><i>Ut</i> (negative <i>nē</i>) with the subjunctive says why someone does something. English often uses an infinitive ("to," "in order to"), but Latin prose never does: it uses a clause.</p><p class="clue"><b>Clue:</b> <i>Ut</i> or <i>nē</i> after a verb of action, with no signpost word such as <i>tam</i> or <i>ita</i>.</p><div class="exs"><div class="ex"><div class="la" lang="la">Ab arātrō abdūxērunt Cincinnātum, ut dictātor <b class="hl">esset</b>.</div><div class="en">They brought Cincinnatus from the plow to be dictator.</div></div><div class="ex"><div class="la" lang="la">Fūgit nē <b class="hl">caperētur</b>.</div><div class="en">He fled so that he would not be captured.</div></div></div></article><article class="use"><header><h4>Relative clause of purpose</h4><span class="sec">A&amp;G §531</span></header><p class="what">A relative pronoun or adverb can introduce a purpose clause, especially when the purpose belongs to one word in the sentence. English uses "to."</p><p class="clue"><b>Clue:</b> <i>Quī, quae, quod</i> with a subjunctive, often after a verb of sending.</p><div class="exs"><div class="ex"><div class="la" lang="la">Mittitur quī locī nātūram <b class="hl">perspiciat</b>.</div><div class="en">He is sent to examine the lay of the land.</div></div></div></article><article class="use"><header><h4>Indirect command</h4><span class="sec">A&amp;G §563</span></header><p class="what">Verbs whose action points to the future (asking, ordering, urging, warning, persuading, permitting) take a clause with <i>ut</i> or <i>nē</i> and the subjunctive. It works like a purpose clause that is the object of the verb. English uses "to" or "not to." <i>Iubeō</i> and <i>vetō</i> take an infinitive instead.</p><p class="clue"><b>Clue:</b> <i>Ut</i> or <i>nē</i> after a verb such as <i>rogō, ōrō, imperō, moneō, hortor, persuādeō</i>.</p><div class="exs"><div class="ex"><div class="la" lang="la">Monet ut omnēs suspīciōnēs <b class="hl">vītet</b>.</div><div class="en">He warns him to avoid all suspicion.</div></div><div class="ex"><div class="la" lang="la">Mē ōrat nē <b class="hl">discēdam</b>.</div><div class="en">She begs me not to leave.</div></div></div></article><article class="use"><header><h4>Result</h4><span class="sec">A&amp;G §537</span></header><p class="what"><i>Ut</i> (negative <i>ut nōn</i>) with the subjunctive gives the result of something described in the main clause. English uses "that," or sometimes an infinitive: "too far away to see."</p><p class="clue"><b>Clue:</b> A signpost word in the main clause: <i>tam, ita, sīc, adeō</i> ("so"), <i>tantus</i> ("so great"), <i>tālis</i> ("such").</p><div class="exs"><div class="ex"><div class="la" lang="la">Tanta vīs probitātis est ut eam in hoste <b class="hl">dīligāmus</b>.</div><div class="en">Goodness has such power that we love it even in an enemy. <span class=src>Cicero, Laelius 29</span></div></div><div class="ex"><div class="la" lang="la">Tam longē aberam ut nōn <b class="hl">vidērem</b>.</div><div class="en">I was too far away to see.</div></div></div></article><article class="use"><header><h4>Relative clause of characteristic</h4><span class="sec">A&amp;G §535</span></header><p class="what">A relative clause in the indicative states a fact about a particular person or thing. In the subjunctive it says what kind of person or thing is meant. English uses "the kind of ... who," "such as" or an ordinary verb.</p><p class="clue"><b>Clue:</b> <i>Sunt quī</i>, <i>nēmō est quī</i>, <i>quis est quī</i>, <i>sōlus quī</i>, or <i>dignus quī</i>.</p><div class="exs"><div class="ex"><div class="la" lang="la">Nēmō est quī hoc <b class="hl">nesciat</b>.</div><div class="en">There is no one who does not know this.</div></div><div class="ex"><div class="la" lang="la">Sunt quī <b class="hl">dīcant</b>.</div><div class="en">There are people who say so.</div></div></div></article><article class="use"><header><h4>Indirect question</h4><span class="sec">A&amp;G §574</span></header><p class="what">A question opened by a question word can be part of a larger sentence, as the object of a verb of asking, knowing, telling or doubting. Its verb is subjunctive, and English uses an ordinary verb.</p><p class="clue"><b>Clue:</b> A question word (<i>quis, quid, cūr, ubi, quandō, num, -ne, utrum</i>) after a verb such as <i>rogō, sciō, nesciō, dīcō</i>.</p><div class="exs"><div class="ex"><div class="la" lang="la">Quid ipse <b class="hl">sentiam</b> expōnam.</div><div class="en">I will explain what I think.</div></div><div class="ex"><div class="la" lang="la">Rogāvit quis <b class="hl">vēnisset</b>.</div><div class="en">He asked who had come.</div></div></div></article><article class="use"><header><h4>Fearing</h4><span class="sec">A&amp;G §564</span></header><p class="what">After verbs of fearing (<i>timeō, metuō, vereor</i>), <i>nē</i> means "that" and <i>ut</i> means "that ... not." This makes sense once you see where it comes from: <i>timeō nē veniat</i> began as two sentences, "I am afraid. May he not come!"</p><p class="clue"><b>Clue:</b> A verb of fearing followed by <i>nē</i> or <i>ut</i>.</p><div class="exs"><div class="ex"><div class="la" lang="la">Timeō nē Verrēs <b class="hl">fēcerit</b>.</div><div class="en">I am afraid that Verres has done it.</div></div><div class="ex"><div class="la" lang="la">Vereor ut tibi <b class="hl">possim</b> concēdere.</div><div class="en">I am afraid that I cannot grant you this.</div></div></div></article><article class="use"><header><h4>Cum clauses</h4><span class="sec">A&amp;G §546</span></header><p class="what"><i>Cum</i> with the indicative dates an action. With the subjunctive it describes the circumstances ("when," "while"), or gives a reason ("since") or a concession ("although," A&amp;G §549). <i>Tamen</i> in the main clause points to "although."</p><p class="clue"><b>Clue:</b> <i>Cum</i> followed by a subjunctive.</p><div class="exs"><div class="ex"><div class="la" lang="la">Cum id nūntiātum <b class="hl">esset</b>, mātūrat.</div><div class="en">When this had been reported, he hurries. <span class=src>Caesar, B.G. 1.7</span></div></div><div class="ex"><div class="la" lang="la">Cum prīmī ōrdinēs <b class="hl">concidissent</b>, tamen ācerrimē reliquī resistēbant.</div><div class="en">Although the front ranks had fallen, the rest still resisted fiercely. <span class=src>Caesar, B.G. 7.62</span></div></div></div></article><article class="use"><header><h4>Conditions</h4><span class="sec">A&amp;G §516–517</span></header><p class="what">A condition in the subjunctive is imagined, not stated as a fact. The present subjunctive imagines a possible future ("should ... would"). The imperfect and pluperfect imagine something that is not true now or was not true then, so they imply the opposite.</p><p class="clue"><b>Clue:</b> <i>Sī</i> or <i>nisi</i> with a subjunctive in both halves of the sentence.</p><div class="exs"><div class="ex"><div class="la" lang="la">Sī <b class="hl">rogēs</b> Aristōnem, <b class="hl">neget</b>.</div><div class="en">If you should ask Aristo, he would say no.</div></div><div class="ex"><div class="la" lang="la">Sī <b class="hl">adessēs</b>, <b class="hl">gaudērem</b>.</div><div class="en">If you were here, I would be glad.</div></div><div class="ex"><div class="la" lang="la">Sī <b class="hl">vēnissēs</b>, tē <b class="hl">vīdissem</b>.</div><div class="en">If you had come, I would have seen you.</div></div></div></article><article class="use"><header><h4>Clauses inside indirect statement</h4><span class="sec">A&amp;G §580</span></header><p class="what">When a statement is reported with an infinitive, the verbs of its dependent clauses become subjunctive. English uses an ordinary verb.</p><p class="clue"><b>Clue:</b> A dependent clause inside an accusative-and-infinitive statement.</p><div class="exs"><div class="ex"><div class="la" lang="la">Dīxit puerum, quī <b class="hl">adesset</b>, fessum esse.</div><div class="en">He said that the boy who was present was tired.</div></div></div></article></div><div class="watch"><b class="t">Purpose or result?</b><p>In positive sentences the two look the same. A result clause usually follows a signpost word in the main clause (<i lang="la">tam, ita, sīc, tantus</i>). The negative tells them apart: purpose uses <i lang="la">nē</i>, result uses <i lang="la">ut nōn</i>. Compare <i lang="la">custōdītus est nē effugeret</i>, "he was guarded so that he would not escape" (purpose), with <i lang="la">custōdītus est ut nōn effugeret</i>, "he was guarded, so that he did not escape" (result).</p></div>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Paradigms follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), in the <a href="https://dcc.dickinson.edu/grammar/latin" target="_blank" rel="noopener">Dickinson College Commentaries online edition</a>. Uses follow A&amp;G §§439–580.</p>
+</footer>
+</div>
+
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/account.js?v=202610122000"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610131500"></script>
+</body>
+</html>
