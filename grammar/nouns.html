@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introduction to Nouns</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
+<style>
+.intro{display:grid;gap:10px;max-width:80ch}
+.intro-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.intro .q{font-size:1.25rem;font-style:italic;color:var(--accent)}
+.intro .sec{margin-left:auto}
+.intro p,.prose p{font-size:1.125rem;margin:0}
+.prose{display:grid;gap:10px;max-width:80ch}
+.lede{margin:0;font-size:1.125rem;max-width:80ch}
+.lede.sm{font-size:1.0625rem}
+.lede a,.prose a,.watch a{color:var(--accent)}
+.block{display:grid;gap:12px;margin-top:30px}
+.block h3{font-size:1.375rem;font-weight:700;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.sec{font-size:1rem;font-weight:400;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.la-i{font-style:italic}
+/* concept figure: word order vs endings */
+.wo{margin:8px 0 4px;padding:0;display:grid;gap:10px}
+.wo figcaption,.dfig figcaption{font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-weight:600;font-size:1rem}
+.wo-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 16px;align-items:baseline;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px}
+.wo-row .la{font-size:1.3125rem;font-style:italic}
+.wo-row .en{font-size:1.0625rem}
+.wo-row .note{grid-column:1/-1;color:var(--muted);font-size:1rem}
+.wo-row.flip{border-color:var(--accent);background:var(--accent-soft)}
+.e-s,.e-o{font-weight:700;font-style:italic}
+.e-s{color:var(--accent)}
+.e-o{color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.key{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:1rem;color:var(--muted)}
+/* the three properties */
+.props{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.prop{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:16px 18px;display:grid;gap:8px;align-content:start}
+.prop h4{margin:0;font-size:1.25rem}
+.prop .ask{color:var(--accent);font-weight:600;font-size:1.0625rem;margin:0}
+.prop p{margin:0;font-size:1.0625rem}
+.prop .eg{display:grid;gap:2px;background:var(--bg);border-radius:10px;padding:8px 12px;font-size:1rem}
+.prop .eg i{font-size:1.125rem}
+/* tables */
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);box-shadow:var(--shadow)}
+.tbl table{border-collapse:collapse;width:100%;font-size:1.0625rem}
+.tbl th{font-weight:400;font-size:1rem;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule)}
+.tbl td{padding:10px 14px;border-top:1px solid var(--rule);vertical-align:top}
+.tbl td.nm{font-weight:700;white-space:nowrap}
+.tbl td .la-i{font-size:1.125rem}
+.tbl td .hl{color:var(--accent);font-weight:700}
+.tbl td.en,.tbl .muted{color:var(--muted)}
+.tbl .muted{font-size:1rem}
+.tbl a{color:var(--accent)}
+.watch{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--accent);border-radius:var(--radius,14px);padding:14px 18px;display:grid;gap:6px;max-width:80ch}
+.watch b.t{font-size:1.0625rem}
+.watch p{margin:0;font-size:1.0625rem}
+/* dictionary entry */
+.dfig{display:grid;gap:10px;margin:0}
+.dict-entry{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.dict-entry .dpart{display:grid;gap:4px;align-content:start;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);padding:12px 16px;min-width:0;flex:1 1 150px}
+.dict-entry .dp-w{font-size:1.4375rem;font-style:italic;color:var(--accent)}
+.dict-entry .dp-lab{font-weight:600}
+.dict-entry .dp-tells{color:var(--muted);font-size:1rem}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{display:inline-block;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);color:var(--accent);text-decoration:none;font-size:1rem}
+.links a:hover{border-color:var(--accent)}
+@media (max-width:820px){.props{grid-template-columns:1fr}}
+@media (max-width:640px){.wo-row{grid-template-columns:1fr}.tbl td{padding:9px 10px}.tbl td.nm{white-space:normal}}
+</style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Introduction to Nouns</h1>
+</header>
+
+<section id="charts">
+  <div class="intro" id="intro">
+    <div class="intro-h"><span class="q">a person, place, thing or idea</span><span class="sec">A&amp;G §§20–22, 29–38</span></div>
+    <p>A noun is the name of a person, place, thing or idea: <i lang="la">puella</i> (girl), <i lang="la">Rōma</i> (Rome), <i lang="la">equus</i> (horse), <i lang="la">pāx</i> (peace). A noun that names one particular person or place, like <i lang="la">Rōma</i> or <i lang="la">Caesar</i>, is a <b>proper noun</b> and starts with a capital letter. All other nouns are <b>common nouns</b>.</p>
+    <p>Latin nouns work differently from English ones. In English, a noun's position in the sentence tells you its function. "The dog bites the man" and "The man bites the dog" use the same words, and only the order changes who does what. Latin shows a noun's function with the <b>ending</b> on the noun instead. Changing the end of a word to show its function is called <b>inflection</b> (A&amp;G §21). Because the endings carry the meaning, a Latin writer can put the words in almost any order, and uses the order to show emphasis.</p>
+    <figure class="wo">
+      <figcaption>Who bites whom?</figcaption>
+      <div class="wo-row">
+        <span class="la" lang="la">Can<span class="e-s">is</span> vir<span class="e-o">um</span> mordet.</span>
+        <span class="en">The dog bites the man.</span>
+      </div>
+      <div class="wo-row">
+        <span class="la" lang="la">Vir<span class="e-o">um</span> can<span class="e-s">is</span> mordet.</span>
+        <span class="en">The dog bites the man.</span>
+        <span class="note">The order changed, but the endings did not, so the meaning is the same. Putting <i lang="la">virum</i> first stresses it: it was the <i>man</i> that the dog bit.</span>
+      </div>
+      <div class="wo-row flip">
+        <span class="la" lang="la">Can<span class="e-o">em</span> vir mordet.</span>
+        <span class="en">The man bites the dog.</span>
+        <span class="note">The order is the same as the first sentence, but the endings changed, so the meaning flipped. <i lang="la">Canem</i> now has the object ending, and <i lang="la">vir</i> is the subject.</span>
+      </div>
+      <div class="key"><span><span class="e-s">bold</span> the subject's ending: who does the action</span><span><span class="e-o">underlined</span> the object's ending: who receives it</span></div>
+    </figure>
+  </div>
+
+  <div class="block">
+    <h3>What every noun has <span class="sec">A&amp;G §§22, 29–35</span></h3>
+    <p class="lede">The ending of a Latin noun tells you three things at once. When you read a noun, these are the three questions to ask.</p>
+    <div class="props">
+      <article class="prop">
+        <h4>Case</h4>
+        <p class="ask">What is its function in the sentence?</p>
+        <p>The case is the form that shows a noun's function: whether it is the subject, the object, the owner of something, and so on. Latin has six main cases, listed below.</p>
+        <div class="eg"><span><i lang="la">puella</i>: the girl (as the subject)</span><span><i lang="la">puellam</i>: the girl (as the object)</span></div>
+      </article>
+      <article class="prop">
+        <h4>Number</h4>
+        <p class="ask">One, or more than one?</p>
+        <p>A <b>singular</b> noun means one; a <b>plural</b> noun means more than one. Each case has a singular and a plural form, so number and case are shown by the same ending.</p>
+        <div class="eg"><span><i lang="la">puella</i>: the girl</span><span><i lang="la">puellae</i>: the girls</span></div>
+      </article>
+      <article class="prop">
+        <h4>Gender</h4>
+        <p class="ask">Masculine, feminine or neuter?</p>
+        <p>Every noun belongs to one of three genders. For people, gender usually matches whether the person is male or female. For things, gender is a grammar category and has nothing to do with being male or female: <i lang="la">mēnsa</i> (table) is feminine and <i lang="la">bellum</i> (war) is neuter. You learn each noun's gender along with the noun.</p>
+        <div class="eg"><span><i lang="la">vir</i>, man: masculine</span><span><i lang="la">māter</i>, mother: feminine</span><span><i lang="la">bellum</i>, war: neuter</span></div>
+      </article>
+    </div>
+    <div class="watch">
+      <b class="t">Why gender matters</b>
+      <p>A noun's gender decides the endings of any adjective that describes it, because an adjective must match its noun in case, number and gender: <i lang="la">vir bonus</i> (a good man), <i lang="la">puella bona</i> (a good girl), <i lang="la">bellum bonum</i> (a good war). Gender is often a guess from the noun's own ending, but the adjective shows it for certain. A few rules help (A&amp;G §§31–33): names of men, rivers, winds and months are masculine; names of women, cities, countries and trees are usually feminine; and a few 1st-declension nouns for jobs men held, like <i lang="la">nauta</i> (sailor) and <i lang="la">agricola</i> (farmer), are masculine even though most of their declension is feminine.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>The six cases <span class="sec">A&amp;G §35</span></h3>
+    <p class="lede">Each case has a basic function, and each one answers a question about the noun. The examples all use <i lang="la">puella</i>, girl.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Case</th><th>Question it answers</th><th>Basic function</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Nominative</td><td>Who or what does the action?</td><td>The subject of the verb</td><td><span class="la-i" lang="la"><span class="hl">Puella</span> cantat.</span><br><span class="muted">The girl sings.</span></td></tr>
+        <tr><td class="nm">Genitive</td><td>Whose? Of whom?</td><td>"Of": owning or belonging</td><td><span class="la-i" lang="la">liber <span class="hl">puellae</span></span><br><span class="muted">the girl's book</span></td></tr>
+        <tr><td class="nm">Dative</td><td>To whom? For whom?</td><td>"To / for": the indirect object</td><td><span class="la-i" lang="la"><span class="hl">Puellae</span> librum dō.</span><br><span class="muted">I give the book to the girl.</span></td></tr>
+        <tr><td class="nm">Accusative</td><td>Whom or what does the action happen to?</td><td>The direct object, and the object of some prepositions</td><td><span class="la-i" lang="la"><span class="hl">Puellam</span> videō.</span><br><span class="muted">I see the girl.</span></td></tr>
+        <tr><td class="nm">Ablative</td><td>By, with or from what? Where? When?</td><td>"By / with / from / in": means, company, place, time, and the object of many prepositions</td><td><span class="la-i" lang="la">cum <span class="hl">puellā</span></span><br><span class="muted">with the girl</span></td></tr>
+        <tr><td class="nm">Vocative</td><td>Who is being spoken to?</td><td>Calling or speaking to someone</td><td><span class="la-i" lang="la">Venī, <span class="hl">puella</span>!</span><br><span class="muted">Come here, girl!</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="lede sm">Every case has more uses than its basic one. They are on <a href="case-usages.html">Case Usages</a>. A seventh case, the <b>locative</b>, means "at" and survives only in the names of cities and towns and a few words such as <i lang="la">domī</i>, "at home."</p>
+    <div class="watch">
+      <b class="t">What makes cases hard</b>
+      <p>The same ending can belong to more than one case. <i lang="la">Puellae</i> can be genitive singular ("of the girl"), dative singular ("to the girl") or nominative plural ("the girls"). The ending narrows the choices, and the rest of the sentence decides between them: is there already a subject? Is there a verb of giving? The declension pages mark these look-alike forms with a dot so that you can learn to spot them.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>Declensions: five families of nouns <span class="sec">A&amp;G §§22, 36–37</span></h3>
+    <div class="prose">
+      <p>A <b>declension</b> is a family of nouns that share the same set of endings. Latin has five. To <b>decline</b> a noun is to list its forms in every case, singular and plural. The endings differ from one declension to the next, so before you can read a noun's ending, you need to know which declension it belongs to.</p>
+      <p>The <b>genitive singular</b> tells you. Every declension has its own genitive ending, which is why the dictionary lists the genitive right after the noun. The genitive also gives you the noun's <b>stem</b>, the part that every other form is built on: take off the genitive ending, and what is left is the stem (A&amp;G §37). This matters most in the 3rd declension, where the nominative often looks different from the rest of the word: <i lang="la">rēx</i>, king, has the genitive <i lang="la">rēgis</i>, so its stem is <i lang="la">rēg-</i>.</p>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Declension</th><th>Genitive singular</th><th>Example</th><th>Gender</th><th>Page</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">1st</td><td><span class="la-i hl" lang="la">-ae</span></td><td><span class="la-i" lang="la">puella, puell<span class="hl">ae</span></span>, girl</td><td>mostly feminine</td><td><a href="first-second-declension.html">1st &amp; 2nd</a></td></tr>
+        <tr><td class="nm">2nd</td><td><span class="la-i hl" lang="la">-ī</span></td><td><span class="la-i" lang="la">equus, equ<span class="hl">ī</span></span>, horse<br><span class="la-i" lang="la">bellum, bell<span class="hl">ī</span></span>, war</td><td>masculine in <span class="la-i" lang="la">-us</span>, neuter in <span class="la-i" lang="la">-um</span></td><td><a href="first-second-declension.html">1st &amp; 2nd</a></td></tr>
+        <tr><td class="nm">3rd</td><td><span class="la-i hl" lang="la">-is</span></td><td><span class="la-i" lang="la">rēx, rēg<span class="hl">is</span></span>, king<br><span class="la-i" lang="la">corpus, corpor<span class="hl">is</span></span>, body</td><td>all three</td><td><a href="third-declension.html">3rd</a></td></tr>
+        <tr><td class="nm">4th</td><td><span class="la-i hl" lang="la">-ūs</span></td><td><span class="la-i" lang="la">frūctus, frūct<span class="hl">ūs</span></span>, fruit</td><td>mostly masculine</td><td><a href="fourth-declension.html">4th</a></td></tr>
+        <tr><td class="nm">5th</td><td><span class="la-i hl" lang="la">-eī</span></td><td><span class="la-i" lang="la">rēs, r<span class="hl">eī</span></span>, thing</td><td>mostly feminine</td><td><a href="fifth-declension.html">5th</a></td></tr>
+      </tbody>
+    </table></div>
+    <div class="watch">
+      <b class="t">Why not the nominative?</b>
+      <p>The nominative singular is a poor guide to the declension. <i lang="la">Equus</i> (2nd), <i lang="la">frūctus</i> (4th) and <i lang="la">corpus</i> (3rd) all end in <i lang="la">-us</i>, but their genitives, <i lang="la">equī</i>, <i lang="la">frūctūs</i> and <i lang="la">corporis</i>, are all different. Always learn a noun with its genitive.</p>
+    </div>
+    <p class="lede sm">The five declensions share more than they seem to. Some endings work the same way in all of them: the accusative singular ends in <i lang="la">-m</i>, and the dative and ablative plural are always the same form. <a href="declensions-overview.html">The Five Declensions: Patterns</a> sets all five side by side and lists these shared rules.</p>
+  </div>
+
+  <div class="block">
+    <h3>Reading a dictionary entry</h3>
+    <figure class="dfig">
+      <figcaption>Four things to learn with every noun</figcaption>
+      <div class="dict-entry">
+        <div class="dpart"><span class="dp-w" lang="la">rēx,</span><span class="dp-lab">Nominative singular</span><span class="dp-tells">The noun's basic form, used for the subject.</span></div>
+        <div class="dpart"><span class="dp-w" lang="la">rēgis,</span><span class="dp-lab">Genitive singular</span><span class="dp-tells">Tells you the declension (3rd) and the stem (<i lang="la">rēg-</i>).</span></div>
+        <div class="dpart"><span class="dp-w" lang="la">m.</span><span class="dp-lab">Gender</span><span class="dp-tells">Masculine. Tells you which adjective endings to use.</span></div>
+        <div class="dpart"><span class="dp-w">king</span><span class="dp-lab">Meaning</span><span class="dp-tells">The English translation.</span></div>
+      </div>
+    </figure>
+    <p class="lede sm">Dictionaries and vocabulary lists often shorten the genitive to its ending: <i lang="la">puella, -ae, f.</i> When the stem changes, as in the 3rd declension, they usually print the whole genitive.</p>
+    <div class="links">
+      <a href="first-second-declension.html">1st &amp; 2nd Declension</a>
+      <a href="third-declension.html">3rd Declension</a>
+      <a href="fourth-declension.html">4th Declension</a>
+      <a href="fifth-declension.html">5th Declension</a>
+      <a href="declensions-overview.html">The Five Declensions: Patterns</a>
+      <a href="case-usages.html">Case Usages</a>
+    </div>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Definitions follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), §§20–22, 29–38, in the Dickinson College Commentaries online edition:
+  <a href="https://dcc.dickinson.edu/grammar/latin/parts-speech" target="_blank" rel="noopener">Parts of Speech</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/inflected-language" target="_blank" rel="noopener">Inflected Language</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/gender" target="_blank" rel="noopener">Gender</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/rules-gender" target="_blank" rel="noopener">Rules of Gender</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/number-and-case" target="_blank" rel="noopener">Number and Case</a> ·
+  <a href="https://dcc.dickinson.edu/grammar/latin/rules-noun-declension" target="_blank" rel="noopener">Rules of Noun Declension</a>. The example sentences were written for this page.</p>
+</footer>
+</div>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/account.js?v=202610122000"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610131500"></script>
+</body>
+</html>

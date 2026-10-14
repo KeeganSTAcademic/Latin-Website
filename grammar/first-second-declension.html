@@ -10,6 +10,21 @@
 <link rel="stylesheet" href="../css/grammar.css?v=202610071800">
 <style>
 :root{--p-genpl:#63460D; --p-genpl-bg:#F3E6C6; --p-accsg:#7F2756; --p-accsg-bg:#F4DDE9; --p-accpl:#16524C; --p-accpl-bg:#D6EAE5; --p-ablsg:#52378A; --p-ablsg-bg:#E6DEF3; --p-datablpl:#23487B; --p-datablpl-bg:#DAE4F1; --p-gensg:#2F5331; --p-gensg-bg:#DDEBDC; --p-neut:#683F1D; --p-neut-bg:#F0E0CF; --card-h:560px;}
+
+/* page intro, as on the pronoun and verb pages: the broadest definition in red italic, then the description */
+.intro{display:grid;gap:8px;max-width:80ch;margin:22px 0 6px}
+.intro-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.intro .q{font-size:1.25rem;font-style:italic;color:var(--accent)}
+.intro .sec{margin-left:auto;font-size:1rem;font-weight:400;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.intro p{font-size:1.125rem;margin:0;text-align:left;color:var(--ink)}
+.forms-h{font-size:1.375rem;font-weight:700;margin:26px 0 12px}
+.intro a{color:var(--accent)}
+#intro{max-width:none}
+#intro > p,#intro > .intro-h{max-width:80ch}
+.decl-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px;margin-top:4px}
+.decl-col{display:grid;gap:4px;align-content:start;border-top:1px solid var(--rule);padding-top:10px}
+.decl-col h4{margin:0;font-size:1rem;font-weight:600;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em}
+@media (max-width:640px){.decl-cols{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
@@ -19,12 +34,6 @@
 <div class="wrap">
 <header>
   <h1>First &amp; Second Declension</h1>
-  <p class="about">Two declensions that work as a pair. The <b>1st</b> is built on the vowel <i>a</i> (<i>puella, puellae</i>, girl), and its nouns are mostly feminine. The <b>2nd</b> is built on <i>o</i>, which usually shows up as <i>u</i>: <i>equus, equī</i> (horse) is masculine and <i>bellum, bellī</i> (war) is neuter. They are the most regular declensions, so they are the place to start, and many adjectives use both at once: <i>bonus, bona, bonum</i>, good.</p>
-  <div class="primer">
-    <span><b>1st decl.</b> <i>-a, -ae</i> · mostly feminine</span>
-    <span><b>2nd decl.</b> <i>-us / -um, -ī</i> · masculine &amp; neuter</span>
-    <span>Hover any form to see its case, meaning, and look-alikes</span>
-  </div>
 </header>
 
 <section id="charts">
@@ -47,6 +56,8 @@
     </div>
   </div>
 
+  <div class="intro" id="intro"><div class="intro-h"><span class="q">feminine <i>a</i>-stems; masculine (<i>-us</i>) and neuter (<i>-um</i>) <i>o/u</i>-stems</span><span class="sec">A&amp;G §§40–52</span></div><p>The 1st and 2nd declensions behave alike, which is why they are learned together. Each is built on a single stem vowel, <i>a</i> or <i>o</i>, and their plurals line up ending for ending: <i>-ae</i> and <i>-ī</i>, <i>-ārum</i> and <i>-ōrum</i>, <i>-īs</i> in both, <i>-ās</i> and <i>-ōs</i>.</p><div class="decl-cols"><div class="decl-col"><h4>1st declension</h4><p>The 1st declension is made of nouns whose stem ends in <i>a</i>: <i>puella, puellae</i> (girl). Its nouns are feminine, except for words that name men, such as <i>nauta</i> (sailor) and <i>agricola</i> (farmer), which are masculine.</p></div><div class="decl-col"><h4>2nd declension</h4><p>The 2nd declension is made of nouns whose stem ends in <i>o</i>, which changes to <i>u</i> in the nominative and accusative singular. Masculine nouns end in <i>-us</i> in the nominative singular (<i>equus, equī</i>, horse) and neuter nouns end in <i>-um</i> (<i>forum, forī</i>, marketplace). A few masculines end in <i>-er</i> or <i>-ir</i> instead (<i>puer</i>, boy; <i>ager</i>, field; <i>vir</i>, man). The <i>o</i> shows up again in the dative and ablative singular (<i>equō</i>) and in most of the plural (<i>equōs, equōrum</i>).</p></div></div></div>
+  <h3 class="forms-h">The forms</h3>
   <div class="work">
     <div class="charts-col" id="charts-col">
       <div class="charts" id="charts-grid"></div>
@@ -277,7 +288,7 @@ render();
 <script src="../js/account.js?v=202610122000"></script>
 <script src="../js/levels.js?v=202610021500"></script>
 <script src="../js/sidebar.js?v=202610071800"></script>
-<script src="../js/glossary.js?v=202610071600"></script>
+<script src="../js/glossary.js?v=202610131500"></script>
 <script src="../js/pattern-notes.js?v=202610071100"></script>
 </body>
 </html>

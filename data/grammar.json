@@ -1,27 +1,7 @@
 [
  {
-  "page": "first-second-declension",
-  "title": "First & Second Declension",
-  "group": "Nouns"
- },
- {
-  "page": "third-declension",
-  "title": "Third Declension",
-  "group": "Nouns"
- },
- {
-  "page": "fourth-declension",
-  "title": "Fourth Declension",
-  "group": "Nouns"
- },
- {
-  "page": "fifth-declension",
-  "title": "Fifth Declension",
-  "group": "Nouns"
- },
- {
-  "page": "declensions-overview",
-  "title": "The Five Declensions: Patterns",
+  "page": "nouns",
+  "title": "Introduction to Nouns",
   "group": "Nouns"
  },
  {
@@ -30,9 +10,64 @@
   "group": "Nouns"
  },
  {
+  "page": "declensions-overview",
+  "title": "The Five Declensions: Patterns",
+  "group": "Nouns",
+  "short": "Overview",
+  "path": [
+   "Nouns",
+   "Declensions"
+  ]
+ },
+ {
+  "page": "first-second-declension",
+  "title": "First & Second Declension",
+  "group": "Nouns",
+  "short": "First & Second",
+  "path": [
+   "Nouns",
+   "Declensions"
+  ]
+ },
+ {
+  "page": "third-declension",
+  "title": "Third Declension",
+  "group": "Nouns",
+  "short": "Third",
+  "path": [
+   "Nouns",
+   "Declensions"
+  ]
+ },
+ {
+  "page": "fourth-declension",
+  "title": "Fourth Declension",
+  "group": "Nouns",
+  "short": "Fourth",
+  "path": [
+   "Nouns",
+   "Declensions"
+  ]
+ },
+ {
+  "page": "fifth-declension",
+  "title": "Fifth Declension",
+  "group": "Nouns",
+  "short": "Fifth",
+  "path": [
+   "Nouns",
+   "Declensions"
+  ]
+ },
+ {
+  "page": "pronouns",
+  "title": "Introduction to Pronouns",
+  "group": "Pronouns"
+ },
+ {
   "page": "pronouns-personal",
   "title": "Personal Pronouns",
-  "short": "Personal: ego, tū",
+  "short": "Personal: ego, tū, is",
   "group": "Pronouns"
  },
  {
@@ -150,10 +185,65 @@
   ]
  },
  {
+  "page": "pronouns-quis-indef",
+  "title": "Quis after Sī, Nisi, Num, Nē",
+  "short": "quis after sī, nisi, num, nē",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ]
+ },
+ {
+  "page": "pronouns-quisquam",
+  "title": "Quisquam, quidquam",
+  "short": "quisquam, quidquam",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ]
+ },
+ {
+  "page": "pronouns-quisque",
+  "title": "Quisque, quidque",
+  "short": "quisque, quidque",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ]
+ },
+ {
+  "page": "pronouns-quisquis",
+  "title": "Quisquis, quidquid",
+  "short": "quisquis, quidquid",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ]
+ },
+ {
+  "page": "pronouns-quicumque",
+  "title": "Quīcumque, quaecumque, quodcumque",
+  "short": "quīcumque, quaecumque, quodcumque",
+  "group": "Pronouns",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ]
+ },
+ {
   "page": "pronouns-unus-nauta",
   "title": "Pronominal Adjectives (Ūnus Nauta)",
   "short": "Pronominal adjectives (ūnus nauta)",
   "group": "Pronouns"
+ },
+ {
+  "page": "verbs",
+  "title": "Introduction to Verbs",
+  "group": "Verbs"
  },
  {
   "page": "incomplete-system",
@@ -161,6 +251,7 @@
   "group": "Verbs",
   "path": [
    "Verbs",
+   "Indicative",
    "Incomplete"
   ],
   "short": "Patterns: present, imperfect, future"
@@ -171,6 +262,7 @@
   "group": "Verbs",
   "path": [
    "Verbs",
+   "Indicative",
    "Incomplete",
    "Active"
   ],
@@ -182,6 +274,7 @@
   "group": "Verbs",
   "path": [
    "Verbs",
+   "Indicative",
    "Incomplete",
    "Active"
   ],
@@ -193,6 +286,7 @@
   "group": "Verbs",
   "path": [
    "Verbs",
+   "Indicative",
    "Incomplete",
    "Active"
   ],
@@ -204,6 +298,7 @@
   "group": "Verbs",
   "path": [
    "Verbs",
+   "Indicative",
    "Incomplete",
    "Passive"
   ],
@@ -215,6 +310,7 @@
   "group": "Verbs",
   "path": [
    "Verbs",
+   "Indicative",
    "Complete",
    "Active"
   ],
@@ -226,6 +322,7 @@
   "group": "Verbs",
   "path": [
    "Verbs",
+   "Indicative",
    "Complete",
    "Active"
   ],
@@ -237,9 +334,82 @@
   "group": "Verbs",
   "path": [
    "Verbs",
+   "Indicative",
    "Complete",
    "Active"
   ],
   "short": "Future perfect"
+ },
+ {
+  "page": "complete-passive",
+  "title": "Complete Passives",
+  "group": "Verbs",
+  "path": [
+   "Verbs",
+   "Indicative",
+   "Complete",
+   "Passive"
+  ],
+  "short": "Perfect, pluperfect & future perfect"
+ },
+ {
+  "page": "subjunctive",
+  "title": "The Subjunctive: Overview",
+  "group": "Verbs",
+  "path": [
+   "Verbs",
+   "Subjunctive"
+  ],
+  "short": "Overview"
+ },
+ {
+  "page": "subjunctive-uses",
+  "title": "Uses of the Subjunctive",
+  "group": "Verbs",
+  "path": [
+   "Verbs",
+   "Subjunctive"
+  ],
+  "short": "Uses"
+ },
+ {
+  "page": "subjunctive-present",
+  "title": "Present Subjunctive",
+  "group": "Verbs",
+  "path": [
+   "Verbs",
+   "Subjunctive"
+  ],
+  "short": "Present"
+ },
+ {
+  "page": "subjunctive-imperfect",
+  "title": "Imperfect Subjunctive",
+  "group": "Verbs",
+  "path": [
+   "Verbs",
+   "Subjunctive"
+  ],
+  "short": "Imperfect"
+ },
+ {
+  "page": "subjunctive-perfect",
+  "title": "Perfect Subjunctive",
+  "group": "Verbs",
+  "path": [
+   "Verbs",
+   "Subjunctive"
+  ],
+  "short": "Perfect"
+ },
+ {
+  "page": "subjunctive-pluperfect",
+  "title": "Pluperfect Subjunctive",
+  "group": "Verbs",
+  "path": [
+   "Verbs",
+   "Subjunctive"
+  ],
+  "short": "Pluperfect"
  }
 ]

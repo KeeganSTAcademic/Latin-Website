@@ -204,6 +204,19 @@ body{font-size:1.125rem;line-height:1.5}
 small{font-size:1rem}
 .ghost,.piece.ghost .t,.ov-ex .ghost-in{opacity:1}
 .wrap{max-width:1040px}
+
+/* page intro, as on the pronoun and verb pages: the broadest definition in red italic, then the description */
+.intro{display:grid;gap:8px;max-width:80ch;margin:22px 0 6px}
+.intro-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.intro .q{font-size:1.25rem;font-style:italic;color:var(--accent)}
+.intro .intro-sec{margin-left:auto;font-size:1rem;font-weight:400;color:var(--muted);font-variant:small-caps;text-transform:lowercase;letter-spacing:.08em;white-space:nowrap}
+.intro p{font-size:1.125rem;margin:0;text-align:left;color:var(--ink);max-width:none}
+
+/* standard layout: no section numbers, headings like the other grammar pages */
+.sec{grid-template-columns:1fr!important;padding-block:26px}
+h2{font-size:1.375rem}
+.intro-key{justify-content:flex-start!important;margin-top:4px}
+.intro p a,.body p a,.body li a{color:var(--accent)}
 </style>
 <link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
@@ -213,33 +226,19 @@ small{font-size:1rem}
 <div class="wrap">
 <header>
   <h1>The Incomplete System: Patterns</h1>
-  <p class="lede">Each form is analyzed into a <b class="s">stem</b>, which carries aspect; a <b class="m">time marker</b>, which carries time; and an <b class="e">ending</b>, which carries person, number, and voice. Section references point to Allen &amp; Greenough's <i>New Latin Grammar</i> on Dickinson College Commentaries.</p>
-  <div class="legend">
+</header>
+
+<div class="intro" id="intro"><div class="intro-h"><span class="q">the present, imperfect and future, built on one stem</span><span class="intro-sec">A&amp;G §§160–188</span></div><p>The present, imperfect and future are all built on the incomplete stem. This page shows how the three are formed in the indicative, with a form generator to try them out and a table of all five model verbs. The colours mark the three parts of each form, which are explained just below.</p><div class="legend intro-key">
     <span><i class="sw s"></i>Stem · aspect</span>
     <span><i class="sw m"></i>Marker · time</span>
     <span><i class="sw e"></i>Ending · person, number, voice</span>
-  </div>
-  <nav class="toc" aria-label="Sections">
-    <a href="#overview"><b>▸</b>Overview</a>
-    <a href="#gen"><b>▸</b>Form generator</a>
-    <a href="#s1"><b>§1</b>Structure</a>
-    <a href="#s2"><b>§2</b>Aspect</a>
-    <a href="#s3"><b>§3</b>Time</a>
-    <a href="#s4"><b>§4</b>Unmarked tenses</a>
-    <a href="#s5"><b>§5</b>Endings</a>
-    <a href="#s6"><b>§6</b>Future in -bō</a>
-    <a href="#s7"><b>§7</b>Future in -am</a>
-    <a href="#s8"><b>§8</b>Stem vowel</a>
-    <a href="#s9"><b>§9</b>Comparative table</a>
-  </nav>
-</header>
+  </div></div>
 
 <section class="overview" id="overview">
   <div class="ov-intro">
-    <div class="eyebrow">Overview</div>
     <h2>How a Latin verb carries its meaning</h2>
     <p>An English verb spreads its information across several words. In <i>they were being loved</i>, the pronoun <i>they</i> tells us who is involved, <i>were</i> tells us the action is in the past and that more than one person is involved, <i>being</i> tells us the action was in progress, and <i>being loved</i> tells us the subject received the action rather than performed it.</p>
-    <p>Latin puts all of this into a single word, <i class="lat"><span class="s">amā</span><span class="m">ba</span><span class="e">ntur</span></i>, and it always puts each piece of information in the same position. The front of the word (the <b class="s">stem</b>) gives the verb's meaning and its aspect. The middle (the <b class="m">time marker</b>) says when the action happens. The end (the <b class="e">personal ending</b>) says who does it, how many, and whether they are doing it or having it done to them. Reading a Latin verb is a matter of taking the word apart in that order.</p>
+    <p>Latin puts all of this into a single word, <i class="lat"><span class="s">amā</span><span class="m">ba</span><span class="e">ntur</span></i>, and it always puts each piece of information in the same position. The front of the word (the <b class="s">stem</b>) gives the verb's meaning and its aspect. The middle (the <b class="m">time marker</b>) says when the action happens. The end (the <b class="e">personal ending</b>) says who does it, how many, and whether they are doing it or having it done to them. Reading a Latin verb is a matter of taking the word apart in that order. This three-part model does not fit every Latin verb form, but it works very well for the indicative tenses on this page.</p>
     <div class="worked" aria-label="amābantur broken into its parts">
       <div class="wk s"><span class="wf lat">amā</span><span class="wl">stem</span><span class="wg">"love," incomplete action</span></div>
       <div class="wk m"><span class="wf lat">ba</span><span class="wl">time marker</span><span class="wg">past</span></div>
@@ -247,21 +246,11 @@ small{font-size:1rem}
       <div class="wk eq"><span class="wf">=</span></div>
       <div class="wk out"><span class="wf"><span class="e">they</span> <span class="hv">were</span> <span class="e">being</span> <span class="s">loved</span></span></div>
     </div>
-
-    <h3 style="margin-top:10px">The five pieces of information</h3>
-    <dl class="defs">
-      <div><dt><span class="sw s"></span>Aspect <span class="where">stem</span></dt>
-        <dd>Aspect is how the action is viewed: as <b>incomplete</b> (in progress, repeated, or not yet finished) or as <b>complete</b> (finished). <i>He was writing</i> and <i>he had written</i> are both in the past; they differ only in aspect. Whether an action is ongoing or finished is a separate question from when it happens: <i>I have arrived</i> describes an action completed in the present, <i>I had arrived</i> an action completed in the past. Latin communicates aspect through verb stems. The incomplete stem (<i class="lat">amā-</i>, from the 2nd principal part) is used for incomplete action; the complete stem (<i class="lat">amāv-</i>, from the 3rd principal part) for complete action.</dd></div>
-      <div><dt><span class="sw m"></span>Time <span class="where">marker</span></dt>
-        <dd>Time is when the action takes place: in the past, now, or in the future. Latin shows it with a marker between stem and ending, which tends to be built on <span class="mk">a</span> for the past and <span class="mk">i</span> for the future, with no marker for the present. What we call a <i>tense</i> (imperfect, future perfect, and so on) is a combination of aspect and time. Two aspects times three times gives Latin its six indicative tenses: the <b>present</b>, <b>imperfect</b>, and <b>future</b> (incomplete), and the <b>perfect</b>, <b>pluperfect</b>, and <b>future perfect</b> (complete). English does something similar with its helping verbs: the vowel of w<b class="m">a</b>s lines up with the <span class="mk">a</span> of the past marker, and the vowel of w<b class="m">i</b>ll with the <span class="mk">i</span> of the later marker.</dd></div>
-      <div><dt><span class="sw e"></span>Person <span class="where">ending</span></dt>
-        <dd>The personal ending determines both person and number. Person tells who performs the action in relation to the speaker. The 1st person is the speaker (<i>I, we</i>); the 2nd person is the one spoken to (<i>you, y'all</i>); the 3rd person is anyone or anything else (<i>he, she, it, they</i>). Because the ending already names the person, Latin usually leaves out the subject pronoun: <i class="lat">amat</i> by itself means "he loves" or "she loves."</dd></div>
-      <div><dt><span class="sw e"></span>Number <span class="where">ending</span></dt>
-        <dd>Number tells whether the subject is one (<b>singular</b>) or more than one (<b>plural</b>). The verb must agree with its subject in number: <i class="lat">puella amat</i> "the girl loves," <i class="lat">puellae amant</i> "the girls love."</dd></div>
-      <div><dt><span class="sw e"></span>Voice <span class="where">ending</span></dt>
-        <dd>Voice tells whether the subject performs the action (<b>active</b>: <i class="lat">puella amat</i> "the girl loves") or receives it (<b>passive</b>: <i class="lat">puella amātur</i> "the girl is loved"). English needs a helping verb and a participle for the passive (<i>is loved, was being loved, will be loved</i>). Latin changes only the ending, usually by adding an <b class="e">r</b>. In the incomplete tenses, voice is determined by the ending alone.</dd></div>
-    </dl>
-    <p>Person, number, and voice share the last slot, so a single ending answers three questions at once. <i class="lat e">-ntur</i> means 3rd person, plural, passive; <i class="lat e">-mus</i> means 1st person, plural, active.</p>
+    <p>What person, number, tense, voice and mood are, the full table of personal endings and the four conjugations are explained on <a href="verbs.html">Introduction to Verbs</a>.</p>
+    <div class="refs"><span class="eyebrow">See</span>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/stems" target="_blank" rel="noopener">A&amp;G §164 Stems</a>
+    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/verb-endings" target="_blank" rel="noopener">A&amp;G §§165–167 Verb endings</a>
+  </div>
 
   </div>
   <div class="ov-cards">
@@ -300,7 +289,7 @@ small{font-size:1rem}
       <h3>The future</h3>
       <div class="ov-eng">English <span class="hv">w<b class="m">i</b>ll</span> / <span class="hv">w<b class="m">i</b>ll</span> be verbing</div>
       <div class="ov-ex lat"><span class="s">amā</span><span class="m">bi</span><span class="e">t</span></div>
-      <p>In the 1st (<i class="lat">-āre</i>) and 2nd (<i class="lat">-ēre</i>) conjugations, take the incomplete stem (<i class="lat">amā-re → amā-</i>), add the infix <i class="lat m">-bi-</i>, then the ending for person and number. The <span class="mk">i</span> as a future-time marker appears again in the future perfect: <i class="lat">amāv-er-<span class="m">i</span>-t</i>. The 3rd and 4th conjugations use a vowel instead (<a href="#s7">§7</a>).</p>
+      <p>In the 1st (<i class="lat">-āre</i>) and 2nd (<i class="lat">-ēre</i>) conjugations, take the incomplete stem (<i class="lat">amā-re → amā-</i>), add the infix <i class="lat m">-bi-</i>, then the ending for person and number. The <span class="mk">i</span> as a future-time marker appears again in the future perfect: <i class="lat">amāv-er-<span class="m">i</span>-t</i>. The 3rd and 4th conjugations use a vowel instead (see <a href="#s7">the future in <i class="lat">-am</i></a>).</p>
       <div class="ov-tr"><span class="eyebrow">Translations</span>
         <ul>
           <li><i class="lat">amābit</i>: he w<b class="m">i</b>ll love · he w<b class="m">i</b>ll be loving · (older) he shall love</li>
@@ -338,41 +327,15 @@ small{font-size:1rem}
   </div>
 </div>
 
-<div class="sec" id="s1"><div class="num">§1</div><div class="body">
-  <h2>Structure of the finite verb</h2>
-  <p>A finite verb in the incomplete system is read in three slots, left to right:</p>
-  <ol class="sub">
-    <li>The <b class="s">stem</b> carries the <b>aspect</b>: whether the action is presented as ongoing (incomplete) or finished (complete). It includes the conjugation's stem vowel.</li>
-    <li>The <b class="m">time marker</b> carries the <b>tense</b> proper: past, present, or future.</li>
-    <li>The <b class="e">ending</b> carries <b>person</b>, <b>number</b>, and <b>voice</b>.</li>
-  </ol>
-  <p>Thus <span class="lat"><span class="s">amā</span><span class="m">bi</span><span class="e">tis</span></span> = <b class="e">y'all</b> <span class="hv">w<b class="m">i</b>ll</span> <b class="s">love</b>. Allen &amp; Greenough divide the verb into stem and ending, with the ending made up of a "mood or time marker" plus a personal ending. The time marker here is their tense sign.</p>
-  <div class="refs"><span class="eyebrow">See</span>
-    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/stems" target="_blank" rel="noopener">A&amp;G §164 Stems</a>
-    <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/verb-endings" target="_blank" rel="noopener">A&amp;G §§165–167 Verb endings</a>
-  </div>
-</div></div>
 
-<div class="sec" id="s2"><div class="num">§2</div><div class="body">
+<div class="sec" id="s2"><div class="body">
   <h2>Aspect: the two stems</h2>
   <ol class="sub">
     <li>The <b>incomplete stem</b> is found by dropping <i class="lat">-re</i> from the present infinitive: <i class="lat">amāre → <span class="s">amā-</span></i>, <i class="lat">monēre → <span class="s">monē-</span></i>, <i class="lat">regere → <span class="s">rege-</span></i>, <i class="lat">audīre → <span class="s">audī-</span></i>. It forms the three <b>incomplete</b> tenses: present, imperfect, future.</li>
     <li>The <b>complete stem</b> (3rd principal part minus <i class="lat">-ī</i>: <i class="lat">amāvī → <span class="s">amāv-</span></i>) forms the three <b>complete</b> tenses: perfect, pluperfect, future perfect (active).</li>
     <li>The stem is chosen before anything else. Once the stem tells you "ongoing" or "finished," the marker only has to add the time.</li>
   </ol>
-  <h3 style="margin:14px 0 6px">The four conjugations</h3>
-  <p>A <b>conjugation</b> is a family of verbs that share a <b class="s">stem vowel</b>. You find it in the infinitive, the second word in the dictionary entry: drop the <i class="lat">-re</i> and look at the vowel that's left.</p>
-  <div class="tbl-wrap"><table class="ref">
-    <thead><tr><th>Conjugation</th><th>Dictionary entry</th><th>Stem vowel</th><th>How to spot it</th></tr></thead>
-    <tbody>
-      <tr><td>1st</td><td><i class="lat">amō, amāre</i> love</td><td><b>ā</b></td><td>infinitive in <i class="lat">-āre</i></td></tr>
-      <tr><td>2nd</td><td><i class="lat">moneō, monēre</i> warn</td><td><b>ē</b></td><td><i class="lat">-eō</i> and <i class="lat">-ēre</i></td></tr>
-      <tr><td>3rd</td><td><i class="lat">regō, regere</i> rule</td><td><b>e</b> (short; <i>i</i> or <i>u</i> in the forms)</td><td>infinitive in short <i class="lat">-ere</i></td></tr>
-      <tr><td>3rd <i class="lat">-iō</i></td><td><i class="lat">capiō, capere</i> take</td><td><b>e</b> (short), with an <i>i</i></td><td><i class="lat">-iō</i> and short <i class="lat">-ere</i></td></tr>
-      <tr><td>4th</td><td><i class="lat">audiō, audīre</i> hear</td><td><b>ī</b></td><td><i class="lat">-iō</i> and <i class="lat">-īre</i></td></tr>
-    </tbody>
-  </table></div>
-  <p class="obs"><b>Tip.</b> <i class="lat">-eō</i> always means 2nd conjugation. <i class="lat">-iō</i> could be 3rd <i class="lat">-iō</i> or 4th, so check the infinitive: <i class="lat">capere</i> (short <i>e</i>) vs. <i class="lat">audīre</i> (long <i>ī</i>).</p>
+  <p>The four conjugations and how to tell them apart are on <a href="verbs.html">Introduction to Verbs</a>.</p>
   <div class="refs"><span class="eyebrow">See</span>
     <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/tenses" target="_blank" rel="noopener">A&amp;G §160 Continued vs. completed action</a>
     <a class="ag" href="https://dcc.dickinson.edu/grammar/latin/present-stem" target="_blank" rel="noopener">A&amp;G §§174–176 Present stem</a>
@@ -380,12 +343,12 @@ small{font-size:1rem}
   </div>
 </div></div>
 
-<div class="sec" id="s3"><div class="num">§3</div><div class="body">
+<div class="sec" id="s3"><div class="body">
   <h2>Time: the markers</h2>
   <p>Both systems tend to mark time the same way: a marker with <span class="mk">a</span> for past time, a marker with <span class="mk">i</span> for future time, and no marker for present time.</p>
   <div class="tbl-wrap"><div class="tgrid" id="tgrid"></div></div>
   <ol class="sub">
-    <li>Incomplete markers: <i class="lat m">-b<u class="tu">ā</u>-</i> (imperfect), <i class="lat m">-b<u class="tu">i</u>-</i> (future, 1st &amp; 2nd conj.; see §6–7 for the others).</li>
+    <li>Incomplete markers: <i class="lat m">-b<u class="tu">ā</u>-</i> (imperfect), <i class="lat m">-b<u class="tu">i</u>-</i> (future, 1st &amp; 2nd conj.; see the two future sections below for the others).</li>
     <li>Complete markers: <i class="lat m">-er<u class="tu">ā</u>-</i> (pluperfect), <i class="lat m">-er<u class="tu">i</u>-</i> (future perfect).</li>
     <li>English uses the same slot and, by coincidence, the same vowels: w<b class="m"><u class="tu">a</u></b>s / w<b class="m"><u class="tu">i</u></b>ll.</li>
   </ol>
@@ -399,7 +362,7 @@ small{font-size:1rem}
   </div>
 </div></div>
 
-<div class="sec" id="s4"><div class="num">§4</div><div class="body">
+<div class="sec" id="s4"><div class="body">
   <h2>The unmarked tenses: present and perfect</h2>
   <ol class="sub">
     <li>The present and perfect carry no time marker. Each is the default "now" of its system, identified only by its stem and endings: <i class="lat"><span class="s">ama</span><span class="e">t</span></i>, <i class="lat"><span class="s">amāv</span><span class="e">it</span></i>.</li>
@@ -413,18 +376,9 @@ small{font-size:1rem}
   </div>
 </div></div>
 
-<div class="sec" id="s5"><div class="num">§5</div><div class="body">
+<div class="sec" id="s5"><div class="body">
   <h2>Person, number, and voice: the endings</h2>
-  <p>The passive endings are the active endings with an <b class="e">r</b> added or substituted. The 2nd plural <i class="lat e">-minī</i> is the only exception.</p>
-  <div class="tbl-wrap"><div class="endings">
-    <span class="eyebrow">Person</span><span class="eyebrow">Active</span><span></span><span class="eyebrow">Passive</span>
-    <span class="who">1st sg · I</span><span class="e">-ō / -m</span><span class="arr">→</span><span class="e">-o<span class="r">r</span> / -<span class="r">r</span></span>
-    <span class="who">2nd sg · you</span><span class="e">-s</span><span class="arr">→</span><span class="e">-<span class="r">r</span>is</span>
-    <span class="who">3rd sg · he/she/it</span><span class="e">-t</span><span class="arr">→</span><span class="e">-tu<span class="r">r</span></span>
-    <span class="who">1st pl · we</span><span class="e">-mus</span><span class="arr">→</span><span class="e">-mu<span class="r">r</span></span>
-    <span class="who">2nd pl · y'all</span><span class="e">-tis</span><span class="arr">→</span><span class="e">-minī</span>
-    <span class="who">3rd pl · they</span><span class="e">-nt</span><span class="arr">→</span><span class="e">-ntu<span class="r">r</span></span>
-  </div></div>
+  <p>The table of personal endings, active and passive, is on <a href="verbs.html">Introduction to Verbs</a>. Two details matter for the incomplete tenses:</p>
   <ol class="sub">
     <li>1st sg <i class="lat">-ō / -or</i> is used in the present and in the <i class="lat">-bō</i> future; <i class="lat">-m / -r</i> after a marker in a: <i class="lat">amā<span class="m">ba</span>m</i>, <i class="lat">reg<span class="m">a</span>m</i>.</li>
     <li>A long vowel shortens before <i class="lat">-m (-r), -t, -nt (-ntur)</i>: <i class="lat">amā<span class="m">bā</span>s</i> but <i class="lat">amā<span class="m">ba</span>t</i>; <i class="lat">audīs</i> but <i class="lat">audit</i>.</li>
@@ -435,7 +389,7 @@ small{font-size:1rem}
   </div>
 </div></div>
 
-<div class="sec" id="s6"><div class="num">§6</div><div class="body">
+<div class="sec" id="s6"><div class="body">
   <h2>Future of the 1st and 2nd conjugations: -bi-</h2>
   <p>The marker is <i class="lat m">-bi-</i>, but its vowel is lost or changed next to three endings. The b remains in every form.</p>
   <div class="ex">
@@ -450,11 +404,11 @@ small{font-size:1rem}
   </div>
 </div></div>
 
-<div class="sec" id="s7"><div class="num">§7</div><div class="body">
+<div class="sec" id="s7"><div class="body">
   <h2>Future of the 3rd, 3rd -iō, and 4th conjugations: the vowel shift</h2>
   <ol class="sub">
-    <li>These conjugations do not use <i class="lat">-bi-</i>. The future is marked by a vowel: <i class="lat m">-a-</i> in the 1st singular, <i class="lat m">-ē-</i> in all other persons (shortened by §5.2). In origin these are subjunctive forms used with future meaning.</li>
-    <li>These future vowels are a <b>vowel shift</b>, not the a/i time pattern seen throughout the rest of the indicative (§3). The <i class="lat">-a-</i> of <i class="lat">regam</i> does not mark the past, and the <i class="lat">-ē-</i> of <i class="lat">regēs</i> is not the future <span class="mk">i</span>.</li>
+    <li>These conjugations do not use <i class="lat">-bi-</i>. The future is marked by a vowel: <i class="lat m">-a-</i> in the 1st singular, <i class="lat m">-ē-</i> in all other persons (shortened before <i class="lat">-m, -t, -nt</i>, as described under the endings). In origin these are subjunctive forms used with future meaning.</li>
+    <li>These future vowels are a <b>vowel shift</b>, not the <i>a</i> / <i>i</i> time pattern seen throughout the rest of the indicative (see <a href="#s3">Time: the markers</a>). The <i class="lat">-a-</i> of <i class="lat">regam</i> does not mark the past, and the <i class="lat">-ē-</i> of <i class="lat">regēs</i> is not the future <span class="mk">i</span>.</li>
     <li>The 1st sg (<i class="lat">regam, audiar</i>) has an a and an m/r ending and can be mistaken for a past form.</li>
     <li>Because the marker is a single vowel, several futures look like present forms of another conjugation. The conjugation must be known from the dictionary entry.</li>
   </ol>
@@ -472,7 +426,7 @@ small{font-size:1rem}
   </div>
 </div></div>
 
-<div class="sec" id="s8"><div class="num">§8</div><div class="body">
+<div class="sec" id="s8"><div class="body">
   <h2>The stem vowel of the 3rd conjugation</h2>
   <ol class="sub">
     <li>The 3rd conjugation's stem vowel is short e/o (seen in <i class="lat">regere</i>), which appears as <b class="v">i</b> inside the word and <b class="v">u</b> before <i class="lat">-nt</i>: <i class="lat">reg<span class="v">i</span>s, reg<span class="v">i</span>t, reg<span class="v">u</span>nt</i>.</li>
@@ -487,9 +441,9 @@ small{font-size:1rem}
   </div>
 </div></div>
 
-<div class="sec" id="s9"><div class="num">§9</div><div class="body">
+<div class="sec" id="s9"><div class="body">
   <h2>Comparative table</h2>
-  <p>All five model verbs side by side. Choose a tense and voice; red outlines mark the forms discussed in §§6–8.</p>
+  <p>All five model verbs side by side. Choose a tense and voice; red outlines mark the forms discussed in the sections on the future and the 3rd conjugation stem vowel.</p>
   <div class="controls" style="grid-template-columns:repeat(auto-fit,minmax(220px,max-content))">
     <div class="ctl"><span class="eyebrow">Tense</span><div class="seg" id="k-tense"></div></div>
     <div class="ctl"><span class="eyebrow">Voice</span><div class="seg" id="k-voice"></div></div>
@@ -623,7 +577,7 @@ function inlineHTML(segs){
   return segs.filter(s=>s.r!=='ghost').map(s=>'<span class="'+s.r+(s.x?' xm':'')+'">'+s.t+'</span>').join('');
 }
 function secsFor(c,t){
-  const out=['§1'];
+  const out=['overview'];
   if(t==='pres'){ out.push('§4'); if(c==='3'||c==='3io'||c==='4') out.push('§8'); }
   if(t==='impf'){ out.push('§3'); if(c==='3'||c==='3io'||c==='4') out.push('§8'); }
   if(t==='fut'){ out.push(c==='1'||c==='2'?'§6':'§7'); }
@@ -642,7 +596,8 @@ function render(){
   $('word').innerHTML = segHTML(f.segs);
   const en = english(state.c,state.t,state.vo,state.p);
   $('english').innerHTML = en.main + (en.alt?'<span class="alt">'+en.alt+'</span>':'');
-  const see = secsFor(state.c,state.t).map(s=>'<a href="#s'+s.slice(1)+'">'+s+'</a>').join(' · ');
+  const NAMES = {overview:'The three parts', '§3':'Time markers', '§4':'Unmarked tenses', '§5':'Endings', '§6':'Future in -bō', '§7':'Future in -am', '§8':'Stem vowel'};
+  const see = secsFor(state.c,state.t).map(s=>'<a href="#'+(s==='overview'?'overview':'s'+s.slice(1))+'">'+NAMES[s]+'</a>').join(' · ');
   $('notes').innerHTML = f.notes.map(n=>'<li class="'+(n.plain?'plain':'')+'">'+n.h+'</li>').join('') + '<li class="plain">See '+see+'</li>';
   const tn = TENSES.find(x=>x[0]===state.t)[2];
   $('para-title').textContent = CONJ[state.c].dict+' · '+tn+' '+(state.vo==='A'?'active':'passive')+' · click a row';
@@ -700,6 +655,6 @@ render(); renderK();
 <script src="../js/account.js?v=202610122000"></script>
 <script src="../js/levels.js?v=202610021500"></script>
 <script src="../js/sidebar.js?v=202610071800"></script>
-<script src="../js/glossary.js?v=202610071600"></script>
+<script src="../js/glossary.js?v=202610131500"></script>
 </body>
 </html>

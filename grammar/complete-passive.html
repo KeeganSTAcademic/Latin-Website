@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Complete Passives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202610150900">
+<style>
+:root{--p-pp4:#23487B; --p-pp4-bg:#DAE4F1; --p-agree:#7F2756; --p-agree-bg:#F4DDE9; --p-est:#2F5331; --p-est-bg:#DDEBDC; --p-erunt:#7C3112; --p-erunt-bg:#FADFCF;}
+/* two-word forms (amātī erāmus) need wider charts */
+.vgroups .charts.three-up,.has-sb .vgroups .charts.three-up{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.vgroups .cell .fm{white-space:nowrap}
+@media (max-width:640px){.vgroups .charts.three-up,.has-sb .vgroups .charts.three-up{grid-template-columns:1fr}.vgroups .three-up .cell{font-size:1.0625rem;padding:10px 4px}}
+</style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Complete Passives</h1>
+</header>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-en" aria-pressed="false">Show English</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+  </div>
+
+  <div class="intro" id="intro"><div class="intro-h"><span class="q">has been loved, had been loved, will have been loved</span><span class="sec">A&amp;G §§286, 405, 473–478</span></div><p>The complete passives are the passive forms of the perfect, the pluperfect and the future perfect. Unlike the incomplete passives, they are not single words: each one is a participle with a form of <i>sum</i>, as in <i>amātus est</i>, "he has been loved." Like the perfect active, the perfect passive also has a simple-past translation: <i>amātus est</i> can mean "he was loved."</p><figure class="ta show-simple"><figcaption>Time and aspect</figcaption><div class="ta-grid"><span class="ta-corner"></span><span class="ta-col">Past time</span><span class="ta-col">Present time</span><span class="ta-col">Future time</span><span class="ta-row"><b>Incomplete</b><br>the action is not finished<br>built on <i lang=la>amā-</i> (2nd principal part)</span><a class="ta-c" href="incomplete-passive.html"><span class="nm">Imperfect</span><span class="la" lang="la">amāb<b class="tv">ā</b>tur</span><span class="eg">was being loved</span></a><a class="ta-c" href="incomplete-passive.html"><span class="nm">Present</span><span class="la" lang="la">amātur</span><span class="eg">is being loved<span class="ta-alt"> or is loved</span></span></a><a class="ta-c" href="incomplete-passive.html"><span class="nm">Future</span><span class="la" lang="la">amāb<b class="tv">i</b>tur</span><span class="eg">will be being loved<span class="ta-alt"> or will be loved</span></span></a><span class="ta-row ta-s"><b>Simple</b><br>the action is neither finished nor unfinished<br>(secondary translation)</span><span class="ta-c simple on ta-s" aria-current=page><span class="here">This page</span><span class="arw diag" aria-hidden="true">↖</span><span class="nm"><span class="arw-in" aria-hidden="true">↖ </span>Perfect</span><span class="la" lang="la">amātus est</span><span class="eg">was loved</span><span class="sr">(also a meaning of the perfect)</span></span><a class="ta-c simple ta-s" href="incomplete-passive.html"><span class="arw up" aria-hidden="true">↓</span><span class="nm"><span class="arw-in" aria-hidden="true">↓ </span>Present</span><span class="la" lang="la">amātur</span><span class="eg">is loved</span><span class="sr">(also a meaning of the present)</span></a><a class="ta-c simple ta-s" href="incomplete-passive.html"><span class="arw up" aria-hidden="true">↓</span><span class="nm"><span class="arw-in" aria-hidden="true">↓ </span>Future</span><span class="la" lang="la">amāb<b class="tv">i</b>tur</span><span class="eg">will be loved</span><span class="sr">(also a meaning of the future)</span></a><span class="ta-row"><b>Complete</b><br>the action is finished<br>built on <i lang=la>amāt-</i> (4th principal part)</span><span class="ta-c on" aria-current="page"><span class="here">This page</span><span class="nm">Pluperfect</span><span class="la" lang="la">amātus er<b class="tv">a</b>t</span><span class="eg">had been loved</span></span><span class="ta-c on" aria-current="page"><span class="here">This page</span><span class="nm">Perfect</span><span class="la" lang="la">amātus est</span><span class="eg">has been loved<span class="ta-alt"> or was loved</span></span></span><span class="ta-c on" aria-current="page"><span class="here">This page</span><span class="nm">Future perfect</span><span class="la" lang="la">amātus er<b class="tv">i</b>t</span><span class="eg">will have been loved</span></span></div><button type="button" class="ta-btn" aria-expanded="true" onclick="var f=this.closest('.ta');f.classList.toggle('show-simple');this.setAttribute('aria-expanded',f.classList.contains('show-simple'))">Simple translations</button><p class="ta-note ta-s">The simple aspect describes an action that simply happens at a point in time. It works a little like a photograph: it captures an action at one moment, whether or not the action finished afterward. "He loved," rather than "he was loving" (incomplete past) or "he had loved" (complete past). By the time of the Romans, Latin had lost a separate stem for the simple aspect, but the <a href="perfect-active.html">perfect</a> still carried the meaning of the simple past, and the present and future are used where English prefers a simple present or simple future.</p></figure></div>
+
+  <div class="block">
+    <h3>The forms</h3>
+  <div class="work">
+    <div class="charts-col" id="charts-col" data-show="amo" data-more-note="Every conjugation builds this tense the same way, from its own 4th principal part.">
+      <div class="charts three-up" id="charts-grid"></div>
+      <div id="er" hidden><div id="er-grid"></div></div>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+  </div>
+  <div class="block">
+    <h3>How to build it</h3>
+    <div class="prose"><p>Take the 4th principal part, the perfect passive participle (<i>amātus, -a, -um</i>, "loved"), and add a form of <i>sum</i>. The participle carries the complete aspect, and <i>sum</i> carries the time, person and number: the present <i>sum</i> for the perfect, the imperfect <i>eram</i> for the pluperfect, and the future <i>erō</i> for the future perfect. Because the participle is an adjective, its ending agrees with the subject: <i>amātus est</i> for a man, <i>amāta est</i> for a woman, <i>amātī sunt</i> for a group.</p></div><figure class="bd"><div class="bd-formula"><span class="bd-box s"><span class="bd-f">amātus</span><span class="bd-l">participle</span></span><span class="bd-plus">+</span><span class="bd-box e"><span class="bd-f">est</span><span class="bd-l">form of <i>sum</i></span></span><span class="bd-plus">=</span><span class="bd-out"><span class="bd-f" lang="la"><span class="bd-s">amātus</span> <span class="bd-e">est</span></span><span class="bd-l">he has been loved</span></span></div><p class="bd-key"><span class="bd-s">participle</span>: aspect, and the gender and number of the subject · <span class="bd-e">form of <i>sum</i></span>: time, person and number.</p><div class="bd-table"><table><thead><tr><th>Person</th><th>Perfect</th><th>Pluperfect</th><th>Future perfect</th></tr></thead><tbody><tr><td class="bd-p">1st sing.</td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">sum</span></td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">eram</span></td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">erō</span></td></tr><tr><td class="bd-p">2nd sing.</td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">es</span></td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">erās</span></td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">eris</span></td></tr><tr><td class="bd-p">3rd sing.</td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">est</span></td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">erat</span></td><td lang="la"><span class="bd-s">amātus</span> <span class="bd-e">erit</span></td></tr><tr><td class="bd-p">1st pl.</td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">sumus</span></td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">erāmus</span></td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">erimus</span></td></tr><tr><td class="bd-p">2nd pl.</td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">estis</span></td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">erātis</span></td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">eritis</span></td></tr><tr><td class="bd-p">3rd pl.</td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">sunt</span></td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">erant</span></td><td lang="la"><span class="bd-s">amātī</span> <span class="bd-e">erunt</span></td></tr></tbody></table></div><p class="bd-note">The table shows a masculine subject. For a feminine subject the participle is <i>amāta</i>, <i>amātae</i>; for a neuter one, <i>amātum</i>, <i>amāta</i>.</p></figure>
+  </div>
+  <div class="block basic"><h3>The basic use: translating the complete passive <span class="sec">A&amp;G §473</span></h3><p class="rule">Translate the perfect passive as "has been loved" or "was loved," the pluperfect passive as "had been loved," and the future perfect passive as "will have been loved." Do not translate the form of <i>sum</i> on its own: <i>amātus est</i> does not mean "he is loved."</p><p class="how"><b>How to spot it:</b> Look for a participle ending in <i>-tus</i> or <i>-sus</i> (or <i>-ta, -tum, -tī, -tae</i>) next to a form of <i>sum</i>. The two words can be separated, and the form of <i>sum</i> sometimes comes first.</p><div class="exs big"><div class="ex"><div class="la" lang="la">Puella <b class="hl">laudāta est</b>.</div><div class="en">The girl has been praised, or the girl was praised.</div></div><div class="ex"><div class="la" lang="la">Urbs iam <b class="hl">dēlēta erat</b>.</div><div class="en">The city had already been destroyed.</div></div><div class="ex"><div class="la" lang="la">Crās epistulae <b class="hl">missae erunt</b>.</div><div class="en">Tomorrow the letters will have been sent.</div></div></div></div>
+  <div class="block">
+    <h3>Other uses</h3>
+    <div class="uses"><article class="use"><header><h4>The participle agrees with the subject</h4><span class="sec">A&amp;G §286</span></header><p class="what">The participle is an adjective, so it agrees with the subject in gender, number and case. It is always nominative here, but its gender and number change with the subject.</p><p class="clue"><b>Clue:</b> Match the participle's ending to the subject: <i>-us</i> or <i>-ī</i> for masculine, <i>-a</i> or <i>-ae</i> for feminine, <i>-um</i> or <i>-a</i> for neuter.</p><div class="exs"><div class="ex"><div class="la" lang="la">Mīlitēs <b class="hl">vocātī sunt</b>.</div><div class="en">The soldiers were called.</div></div><div class="ex"><div class="la" lang="la">Oppida <b class="hl">capta sunt</b>.</div><div class="en">The towns were captured.</div></div></div></article><article class="use"><header><h4>The person doing the action</h4><span class="sec">A&amp;G §405</span></header><p class="what">As with the incomplete passives, Latin uses <i>ā</i> or <i>ab</i> with the ablative to say who performed the action. English uses "by."</p><p class="clue"><b>Clue:</b> Look for <i>ā</i> or <i>ab</i> followed by a person in the ablative, near the participle.</p><div class="exs"><div class="ex"><div class="la" lang="la">Urbs ā Rōmānīs <b class="hl">capta est</b>.</div><div class="en">The city was captured by the Romans.</div></div></div></article></div>
+  </div>
+  <div class="block">
+    <h3>Other forms you'll see</h3>
+    <div class="conj-box"><table class="rule-table conj-table forms-table"><thead><tr><th>What happens</th><th>You may see</th><th>Same as</th></tr></thead><tbody><tr><td><i>fuī, fueram, fuerō</i> sometimes take the place of <i>sum, eram, erō</i>, with little or no difference in meaning.</td><td><i lang="la">amātus fuit · amātus fuerat</i></td><td><i lang="la">amātus est · amātus erat</i></td></tr></tbody></table></div>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Paradigms follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), in the <a href="https://dcc.dickinson.edu/grammar/latin" target="_blank" rel="noopener">Dickinson College Commentaries online edition</a>. Tense uses follow A&amp;G §§286, 405, 473.</p>
+</footer>
+</div>
+
+<script src="../js/verb-chart.js?v=202610150900"></script>
+<script>
+const SUB = ['I','you','he/she/it','we','you (all)','they'];
+const HAVE = ['have','have','has','have','have','have'];
+const WAS = ['was','were','was','were','were','were'];
+const SUM = {perf:['sum','es','est','sumus','estis','sunt'], plup:['eram','erās','erat','erāmus','erātis','erant'], fp:['erō','eris','erit','erimus','eritis','erunt']};
+const CP = (st, g) => SUM[g].map((x, i) => [st, i < 3 ? 'us' : 'ī', '', ' ' + x]);
+const PP = {amo:'loved', moneo:'warned', rego:'ruled', capio:'taken', audio:'heard'};
+const STEM = {amo:'amāt', moneo:'monit', rego:'rēct', capio:'capt', audio:'audīt'};
+const D = {amo:['amō, amāre, amāvī, amātus','1st conjugation · love'], moneo:['moneō, monēre, monuī, monitus','2nd conjugation · warn'], rego:['regō, regere, rēxī, rēctus','3rd conjugation · rule'],
+           capio:['capiō, capere, cēpī, captus','3rd conjugation -iō · take'], audio:['audiō, audīre, audīvī, audītus','4th conjugation · hear']};
+const IDS = ['amo','moneo','rego','capio','audio'];
+const mk = (id, g) => ({id, group:g, dict:D[id][0], meta:D[id][1], f:CP(STEM[id], g)});
+VerbChart({
+  groups: [{id:'perf', name:'Perfect'}, {id:'plup', name:'Pluperfect'}, {id:'fp', name:'Future perfect'}],
+  verbs: ['perf','plup','fp'].flatMap(g => IDS.map(id => mk(id, g))),
+  english: c => {
+    const s = SUB[c.i], pp = PP[c.verb.id];
+    if(c.verb.group === 'perf') return {main:`${s} ${HAVE[c.i]} been ${pp}`, alt:`${s} ${WAS[c.i]} ${pp}`};
+    if(c.verb.group === 'plup') return {main:`${s} had been ${pp}`, alt:''};
+    return {main:`${s} will have been ${pp}`, alt:''};
+  },
+  labels: c => ({st:'participle stem, from the 4th principal part', vw:'participle ending, agreeing with the subject', ts:'',
+                 en: {perf:'present of sum', plup:'imperfect of sum', fp:'future of sum'}[c.verb.group]}),
+  patterns: [
+    {id:'pp4', lab:'amāt-', txt:'stem from the 4th principal part', part:'st', test:c=>true,
+     note:'<b>The participle comes from the 4th principal part.</b> For most 1st and 4th conjugation verbs it is regular (<i>amātus, audītus</i>), but many others have to be learned with the verb: <i>monitus, rēctus, captus</i>.'},
+    {id:'agree', lab:'-us / -ī', txt:'the participle agrees with the subject', part:'vw', test:c=>true,
+     note:'<b>The participle agrees with the subject.</b> It is an adjective, so its ending shows the gender and number of the subject. The charts show the masculine: <i>-us</i> in the singular, <i>-ī</i> in the plural. A feminine subject takes <i>-a, -ae</i> (<i>amāta est, amātae sunt</i>), and a neuter one <i>-um, -a</i> (<i>amātum est, amāta sunt</i>).'},
+    {id:'est', lab:'est', txt:'the perfect uses the present of sum', part:'en', test:c=>c.verb.group === 'perf',
+     note:'<b>The perfect passive uses the present of sum, but it does not mean "is."</b> The participle already describes a finished action, so <i>amātus est</i> is "he has been loved" or "he was loved," not "he is loved." The same shift runs through all three tenses: <i>eram</i> ("I was") gives "had been," and <i>erō</i> ("I will be") gives "will have been."'},
+    {id:'erunt', lab:'erunt', txt:'future perfect 3rd pl.', part:'en', test:c=>c.verb.group === 'fp' && c.p.k === '3pl',
+     note:'<b>The future perfect passive has erunt, not erint.</b> It uses the ordinary future of <i>sum</i> (<i>erō, eris, erit, erimus, eritis, erunt</i>), so <i>amātī erunt</i>. Compare the active <i>amāverint</i>, where the ending is <i>-erint</i>.'}
+  ],
+  notes: {
+    'amo.perf.1sg':'<i>amātus sum</i>: "I have been loved" or "I was loved." The <i>sum</i> gives the person and number; the participle makes the action finished.',
+    'amo.perf.3sg':'<i>amātus est</i>: not "he is loved," which would be <i>amātur</i>.',
+    'amo.perf.3pl':'<i>amātī sunt</i>: the participle is plural to match "they."',
+    'amo.plup.3sg':'<i>amātus erat</i>: the imperfect of <i>sum</i> (<i>erat</i>, "he was") gives "he had been loved."',
+    'amo.fp.3sg':'<i>amātus erit</i>: the future of <i>sum</i> (<i>erit</i>, "he will be") gives "he will have been loved."',
+    'amo.fp.3pl':'<i>amātī erunt</i>, not <i>*amātī erint</i>: the ordinary future of <i>sum</i>.',
+    'moneo.perf.3sg':'<i>monitus est</i>: the 2nd conjugation participle usually ends in <i>-itus</i>, not <i>*monētus</i>.',
+    'rego.perf.3sg':'<i>rēctus est</i>: the <i>g</i> of <i>reg-</i> becomes <i>c</i> before the <i>t</i>, and the <i>e</i> is long. Learn the participle with the verb.',
+    'capio.perf.3sg':'<i>captus est</i>: the <i>i</i> of <i>capiō</i> does not appear in the participle.'
+  },
+  idle: "You'll see how to translate the form, and how it is built from a participle and a form of sum."
+});
+</script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/more-charts.js?v=202610142000"></script>
+<script src="../js/account.js?v=202610122000"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610131500"></script>
+<script src="../js/pattern-notes.js?v=202610071100"></script>
+</body>
+</html>

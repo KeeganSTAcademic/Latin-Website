@@ -282,14 +282,14 @@
  },
  {
   "id": "pronouns",
-  "title": "Personal Pronouns: ego, tū",
+  "title": "Personal Pronouns: ego, tū, is",
   "course": "Pronouns",
-  "count": 20,
+  "count": 50,
   "view": "personal",
   "path": [
    "Pronouns"
   ],
-  "short": "Personal: ego, tū"
+  "short": "Personal: ego, tū, is"
  },
  {
   "id": "pronouns",
@@ -418,6 +418,66 @@
    "Indefinite"
   ],
   "short": "quīdam, quaedam, quiddam"
+ },
+ {
+  "id": "pronouns",
+  "title": "Quis after sī, nisi, num, nē",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "quisindef",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ],
+  "short": "quis after sī, nisi, num, nē"
+ },
+ {
+  "id": "pronouns",
+  "title": "Quisquam, quidquam",
+  "course": "Pronouns",
+  "count": 10,
+  "view": "quisquam",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ],
+  "short": "quisquam, quidquam"
+ },
+ {
+  "id": "pronouns",
+  "title": "Quisque, quidque",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "quisque",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ],
+  "short": "quisque, quidque"
+ },
+ {
+  "id": "pronouns",
+  "title": "Quisquis, quidquid",
+  "course": "Pronouns",
+  "count": 11,
+  "view": "quisquis",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ],
+  "short": "quisquis, quidquid"
+ },
+ {
+  "id": "pronouns",
+  "title": "Quīcumque, quaecumque, quodcumque",
+  "course": "Pronouns",
+  "count": 30,
+  "view": "quicumque",
+  "path": [
+   "Pronouns",
+   "Indefinite"
+  ],
+  "short": "quīcumque, quaecumque, quodcumque"
  },
  {
   "id": "pronouns",
