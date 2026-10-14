@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Future Active Indicative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<link rel="stylesheet" href="../css/grammar.css?v=202610071800">
+<link rel="stylesheet" href="../css/grammar-verbs.css?v=202610011500">
+<style>
+:root{--p-bi:#23487B; --p-bi-bg:#DAE4F1; --p-bobunt:#7F2756; --p-bobunt-bg:#F4DDE9; --p-eri:#2F5331; --p-eri-bg:#DDEBDC; --p-am:#7C3112; --p-am-bg:#FADFCF;}
+</style>
+<link rel="stylesheet" href="../css/sidebar.css?v=202610051830">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Future Active Indicative</h1>
+  <p class="subtitle">1st and 2nd conjugations only: the <i>-bi-</i> future</p>
+  <div class="primer">
+    <span><b>Stem + <i>-bi-</i> + ending</b> <i>amā-bi-t</i></span>
+    <span><b>Endings</b> <i>-bō, -bis, -bit, -bimus, -bitis, -bunt</i></span>
+    <span>Hover any form to see what it means and how it's built</span>
+  </div>
+</header>
+
+<section id="background" class="bg">
+  <details class="fold">
+    <summary>The future tense</summary>
+  <div class="prose">
+    <p>The Latin future tense describes incomplete action happening at some point later in time. We translate it either like "he will love" (simple future) or "he will be loving" (ongoing future).</p>
+    <p>It is formed in the 1st (<i>-āre</i>) and 2nd (<i>-ēre</i>) conjugation groups by adding a <strong><i>-bi-</i></strong> time marker between the incomplete stem and the same personal endings. Note that the <i>-i-</i> in <i>-bi-</i> is the same time marker as in the English "will," which can be a useful mnemonic for remembering the future's translation in English.</p>
+    <p>Note that the 1st singular form is <i>-bō</i> and the 3rd plural <i>-bunt</i>. Linguists think that in the former case the <i>ō</i> absorbed the expected <i>-i-</i>, and in the latter that the Romans changed the <i>-i-</i> to a <i>-u-</i>; a similar shift can be seen in the 3rd plural of the 3rd conjugation's present (<i>regunt</i>).</p>
+    <p class="aside">The 3rd and 4th conjugations build their future differently (<i>regam, regēs</i>; <i>audiam, audiēs</i>). They will get their own page.</p>
+  </div>
+  </details>
+  <details class="fold">
+    <summary>How to build it</summary>
+  <div class="conj-box">
+  <table class="rule-table conj-table">
+    <thead><tr><th>Conjugation</th><th>Dictionary entry</th><th>Before <i>-bi-</i></th><th>"he/she/it will ___"</th></tr></thead>
+    <tbody>
+      <tr><td>1st</td><td><i>amō, amāre</i></td><td><b>amā-</b></td><td><i>amābit</i></td></tr>
+      <tr><td>2nd</td><td><i>moneō, monēre</i></td><td><b>monē-</b></td><td><i>monēbit</i></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  </details>
+</section>
+
+<section id="charts">
+  <div class="toolbar">
+    <div class="tb-row" id="patterns"><span class="tb-label">Highlight a pattern</span></div>
+    <div class="tb-row">
+      <span class="tb-label">View</span>
+      <div class="seg">
+      <button class="chip plain" id="t-mac" aria-pressed="true">Show macrons (ā ē ī ō ū)</button>
+      <button class="chip plain" id="t-end" aria-pressed="false">Emphasize endings</button>
+      <button class="chip plain" id="t-en" aria-pressed="false">Show English</button>
+      </div>
+    </div>
+    <div class="pnotes" id="pnotes"></div>
+  </div>
+
+  <div class="work">
+    <div class="charts-col" id="charts-col">
+      <div class="charts three-up" id="charts-grid"></div>
+      <details class="er" id="er">
+        <summary>Irregular: <i>sum, esse</i> (to be)</summary>
+        <div class="prose"><p><i>sum</i> has no <i>-bi-</i>, but its future shows the same <i>-i-</i> time marker on the stem <i>er-</i>, with the same <i>-ō</i> and <i>-unt</i>: <i>erō, eris, erit, erimus, eritis, erunt</i>.</p></div>
+        <div class="charts one-up" id="er-grid"></div>
+      </details>
+    </div>
+    <aside class="panel" aria-live="polite"><div class="card" id="card"></div></aside>
+  </div>
+</section>
+
+<footer class="cite">
+  <h4>Sources</h4>
+  <p>Paradigms follow J. H. Allen and J. B. Greenough, <i>Allen and Greenough's New Latin Grammar for Schools and Colleges</i> (Boston: Ginn &amp; Co., 1903), in the <a href="https://dcc.dickinson.edu/grammar/latin" target="_blank" rel="noopener">Dickinson College Commentaries online edition</a>.</p>
+</footer>
+</div>
+
+<script src="../js/verb-chart.js?v=202610011500"></script>
+<script>
+
+const SUB = ['I','you','he/she/it','we','you (all)','they'];
+const HAVE = ['have','have','has','have','have','have'];
+const BE = ['am','are','is','are','are','are'];
+const WAS = ['was','were','was','were','were','were'];
+const rep = (st, vw, signs, ends) => ends.map((e, i) => [st, vw, signs[i], e]);
+
+
+const F = (st, vw) => rep(st, vw, ['b','bi','bi','bi','bi','bu'], ['ō','s','t','mus','tis','nt']);
+const F3 = (st, vw) => rep(st, vw, ['a','ē','e','ē','ē','e'], ['m','s','t','mus','tis','nt']);   // 3rd and 4th: the vowel shift
+const BI = c => ['amo','moneo'].includes(c.verb.id), SHIFT = c => ['rego','capio','audio'].includes(c.verb.id);
+VerbChart({
+  verbs: [
+    {id:'amo', dict:'amō, amāre', meta:'1st conjugation · love', en:['love','loving'], f:F('am','ā')},
+    {id:'moneo', dict:'moneō, monēre', meta:'2nd conjugation · warn', en:['warn','warning'], f:F('mon','ē')},
+    {id:'rego', dict:'regō, regere', meta:'3rd conjugation · rule', en:['rule','ruling'], f:F3('reg','')},
+    {id:'capio', dict:'capiō, capere', meta:'3rd conjugation -iō · take', en:['take','taking'], f:F3('cap','i')},
+    {id:'audio', dict:'audiō, audīre', meta:'4th conjugation · hear', en:['hear','hearing'], f:F3('aud','i')},
+    {id:'sum', extra:true, dict:'sum, esse', meta:'irregular · be', eng:['I will be','you will be','he/she/it will be','we will be','you (all) will be','they will be'],
+     f:rep('er','',['','i','i','i','i','u'],['ō','s','t','mus','tis','nt'])}
+  ],
+  english: c => c.verb.eng ? {main:c.verb.eng[c.i], alt:''} : {main:`${SUB[c.i]} will ${c.verb.en[0]}`, alt:`${SUB[c.i]} will be ${c.verb.en[1]}`},
+  labels: c => ({st:'root', vw:'stem vowel', ts: c.verb.extra ? 'future time marker (a vowel)' : SHIFT(c) ? 'future vowel (the vowel shift)' : 'future time marker', en:'personal ending'}),
+  patterns: [
+    {id:'bi', lab:'-bi-', txt:'the future time marker', part:'ts', test:BI,
+     note:'<b>-bi- between the stem and the ending marks the future</b> in the 1st and 2nd conjugations: <i>amā<b>bi</b>t, monē<b>bi</b>t</i>. Its <i>-i-</i> is the time vowel: Latin tends to use <i>i</i> for future time, like the <i>i</i> in English "will."'},
+    {id:'bobunt', lab:'-bō, -bunt', txt:'1st singular and 3rd plural', part:'tsen', test:c=>!SHIFT(c) && ['1sg','3pl'].includes(c.p.k),
+     note:'<b>Two forms change the -i-.</b> In <i>amābō</i> the <i>ō</i> has absorbed it; in <i>amābunt</i> it has become <i>u</i>, the same shift as <i>regunt</i> in the present. <i>erō</i> and <i>erunt</i> do the same.'},
+    {id:'am', lab:'regam, regēs', txt:'3rd and 4th: a vowel, not -bi-', part:'ts', test:SHIFT,
+     note:'<b>The 3rd, 3rd -iō and 4th conjugations mark the future with a vowel, not -bi-:</b> <i>-a-</i> in the 1st singular and <i>-ē-</i> in the other forms, shortened to <i>-e-</i> before <i>-t</i> and <i>-nt</i>. This vowel shift is not the time-vowel pattern: the <i>a</i> of <i>regam</i> does not mean past. Watch <i>reget</i> (future) beside <i>regit</i> (present), and <i>audiet</i> beside <i>audit</i>.'},
+    {id:'eri', lab:'erō, eris', txt:'sum: the same -i-', part:'ts', test:c=>c.verb.extra,
+     note:'<b>sum shows the future -i- without the b:</b> <i>er-i-s, er-i-t</i>, with <i>erō</i> and <i>erunt</i> changing it just like <i>amābō</i> and <i>amābunt</i>.'}
+  ],
+  notes: {
+    'amo.1sg':'<i>amā-b-ō</i>: the <i>ō</i> has absorbed the <i>-i-</i> of <i>-bi-</i>.',
+    'amo.2sg':'<i>amā-bi-s</i>: stem, the future time marker <i>-bi-</i>, and the same <i>-s</i> as in the present.',
+    'amo.3pl':'<i>amā-bu-nt</i>: the <i>-i-</i> becomes <i>-u-</i> before <i>-nt</i>, as in <i>regunt</i>.',
+    'moneo.1sg':'<i>monē-b-ō</i>: the 2nd conjugation keeps its <i>ē</i> before <i>-bi-</i>.',
+    'moneo.3sg':'<i>monēbit</i>: compare the imperfect <i>monēbat</i>. Only the time vowel differs: <i>i</i> for "will," <i>a</i> for "was."',
+    'rego.1sg':'<i>reg-a-m</i>: the 1st singular has <i>-a-</i> and <i>-m</i>, which makes it look like a past form. It means "I will rule."',
+    'rego.2sg':'<i>reg-ē-s</i>: the long <i>ē</i> marks the future in every form except the 1st singular.',
+    'rego.3sg':'<i>reg-e-t</i>: "he will rule." Compare the present <i>regit</i>, "he rules." One vowel tells them apart.',
+    'rego.3pl':'<i>reg-e-nt</i>: "they will rule." Compare the present <i>regunt</i>.',
+    'capio.1sg':'<i>capi-a-m</i>: the <i>i</i> of <i>capiō</i> stays, then the future vowel.',
+    'audio.1sg':'<i>audi-a-m</i>: the 4th conjugation forms its future just like <i>capiō</i>.',
+    'audio.3sg':'<i>audi-e-t</i>: "he will hear." Compare the present <i>audit</i>, "he hears."',
+    'sum.1sg':'<i>erō</i>: "I will be." Compare the imperfect <i>eram</i>, "I was."',
+    'sum.3pl':'<i>erunt</i>: "they will be." The future perfect builds on these forms.'
+  },
+  idle: "You'll see who is doing the action, how to translate it, and how the form is built from root, stem vowel, the future marker (<i>-bi-</i>, or a vowel in the 3rd and 4th conjugations), and personal ending."
+});
+</script>
+<script src="../js/common.js?v=202610011900"></script>
+<script src="../js/levels.js?v=202610021500"></script>
+<script src="../js/sidebar.js?v=202610071800"></script>
+<script src="../js/glossary.js?v=202610071600"></script>
+<script src="../js/pattern-notes.js?v=202610071100"></script>
+</body>
+</html>

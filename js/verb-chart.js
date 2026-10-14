@@ -5,7 +5,7 @@
    verbs:    [{ id, dict, conj, meta, group?, extra?, f:[[stem, vowel, sign, ending] × 6], eng?:[6 English forms] }]
              persons in the order 1sg 2sg 3sg 1pl 2pl 3pl. extra: true puts the chart in the #er panel.
    groups:   optional [{ id, name }]: charts with a matching verb.group get a heading, and a
-             "Tense" row of chips shows one group or all of them.
+             "Tense" row of chips (or cfg.groupLabel) shows one group or all of them.
    english:  c => ({ main, alt }) for a cell c = { verb, p (person), i (0–5), ... }
    labels:   c => ({ st, vw, ts, en }) names of the parts in the breakdown (empty parts are skipped)
    patterns: [{ id, lab, txt, part ('st'|'vw'|'ts'|'en'|'vwen'|'all'), test: c => bool, note }]
@@ -54,7 +54,7 @@
     // tense chips (pages with several tenses)
     if(groups){
       const row = document.createElement('div'); row.className = 'tb-row';
-      row.innerHTML = '<span class="tb-label">Tense</span><div class="seg" id="groups"></div>';
+      row.innerHTML = `<span class="tb-label">${cfg.groupLabel || 'Tense'}</span><div class="seg" id="groups"></div>`;
       pRow.after(row);
       [{id:'all', name:'All'}, ...groups].forEach(g => {
         const b = document.createElement('button');
@@ -131,7 +131,7 @@
       if(c.st) parts.push(`<span class="bk-st">${shown(c.st)}-</span> ${L.st}`);
       if(c.vw) parts.push(`<span class="bk-vw">${shown(c.vw)}</span> ${L.vw}`);
       if(c.ts) parts.push(`<span class="bk-ts">-${shown(c.ts)}-</span> ${L.ts}`);
-      if(c.en) parts.push(`<span class="bk-en">-${shown(c.en)}</span> ${L.en}`);
+      if(c.en) parts.push(`<span class="bk-en">${c.en[0] === ' ' ? '' : '-'}${shown(c.en.trim())}</span> ${L.en}`);   // a leading space marks a separate word (amātus sum)
       const g = groups && c.verb.group ? groups.find(x => x.id === c.verb.group).name.toLowerCase() + ' · ' : '';
       let out = `<div class="parse">${parseName(c)} · ${g}${c.verb.dict}</div>
         <div class="form"><span>${shown(c.st)}</span><span class="vwb">${shown(c.vw)}</span><span class="tsb">${shown(c.ts)}</span><span class="en">${shown(c.en)}</span></div>
