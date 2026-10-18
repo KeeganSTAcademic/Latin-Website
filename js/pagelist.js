@@ -4,14 +4,14 @@
    Levels come from data/levels.json (see js/levels.js). */
 (async function(){
   const { $, esc, loadJSON, levels } = window.Site;
-  const box = $("page-list"), src = box.dataset.src, what = box.dataset.what || "pages", section = box.dataset.section;
+  const lsw = $("level-switch"), box = $("page-list"), src = box.dataset.src, what = box.dataset.what || "pages", section = box.dataset.section;
   let items;
   try{ [items] = await Promise.all([loadJSON(src), levels.load("../")]); }
   catch(e){ box.innerHTML = `<p class="callout">Couldn't load the list of ${esc(what)}. (${esc(e.message)})</p>`; return; }
   function levelOf(g){ const e = levels.data && levels.data[section] && levels.data[section][g.page]; return typeof e === "number" ? e : e && e.level; }
   function draw(){
     const groups = new Map();
-    items.filter(g => levels.shows(section, [g.page])).forEach(g => { if(!groups.has(g.group)) groups.set(g.group, []); groups.get(g.group).push(g); });
+    items.filter(g => !lsw || levels.shows(section, [g.page])).forEach(g => { if(!groups.has(g.group)) groups.set(g.group, []); groups.get(g.group).push(g); });
     const names = (levels.data && levels.data.levels) || [];
     const jump = box.parentElement.querySelector(".level-switch");
     if(jump){ const old = jump.querySelector(".pl-jump"); if(old) old.remove();
@@ -23,12 +23,12 @@
       gs.forEach(g => {
         const sub = (g.path || []).slice(1).join(" \u203a ");
         if(!open || sub !== cur){ if(open) out += "</ul>"; if(sub) out += `<h3 class="pl-sub">${esc(sub)}</h3>`; out += `<ul class="pl-rows${!sub && cur !== null ? " pl-after" : ""}">`; open = true; cur = sub; }
-        const lv = !levels.current && levelOf(g);
+        const lv = lsw && !levels.current && levelOf(g);
         out += `<li><a class="pl-row" href="${encodeURIComponent(g.page)}.html"><span class="t">${esc(g.title)}</span>${g.about ? `<span class="n">${esc(g.about)}</span>` : ""}${lv ? `<span class="lv">${esc(names[lv - 1] || "")}</span>` : ""}</a></li>`;
       });
       return out + (open ? "</ul>" : "") + `</section>`;
     }).join("");
   }
-  levels.render($("level-switch"), draw);
+  if(lsw) levels.render(lsw, draw);
   draw();
 })();
