@@ -260,6 +260,7 @@
     if(section !== "grammar") return;
     const tb = document.querySelector(".toolbar"), blk = document.querySelector(".block, #charts .work") ;
     if(!tb || tb.classList.contains("studybar")) return;
+    if(tb.querySelector("#tabs")) return;   // case-usages: the case tabs choose which panel is shown, so they must stay above all the panels
     const h = document.querySelector(".block > h3"), work = document.querySelector(".work");
     tb.classList.add("studybar");
     const pats = document.getElementById("patterns"); if(pats) pats.classList.add("above");
