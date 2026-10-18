@@ -11,3 +11,4 @@
 /* course overview pages: the level's painting across the top, as on the Google Site (js/levels.js draws the same banner on the lists) */
 .class-banner{height:clamp(180px,30vw,380px);margin-bottom:8px}
 .class-banner .level-banner-title{flex-direction:row;font-family:var(--font);font-weight:400;font-size:clamp(2.5rem,7vw,4.5rem);line-height:1.2}
+.class-banner.with-eyebrow .level-banner-title{flex-direction:column;font-family:var(--head,Georgia,serif);font-weight:700;font-size:clamp(2.25rem,6vw,3.5rem)}
