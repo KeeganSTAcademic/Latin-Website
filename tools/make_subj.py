@@ -39,7 +39,7 @@ def head(title, style=''):
 </style>
 <link rel="stylesheet" href="../css/sidebar.css?v=202610180900">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
-<link rel="stylesheet" href="../css/theme.css?v=202610151000">
+<link rel="stylesheet" href="../css/theme.css?v=202610180930">
 </head>
 <body>
 <div class="wrap">
@@ -64,7 +64,7 @@ def foot(secs, chart_js='', more=False):
     out += '<script src="../js/common.js?v=202610011900"></script>\n'
     if more: out += f'<script src="../js/more-charts.js?v={V_MORE}"></script>\n'
     out += ('<script src="../js/account.js?v=202610122000"></script>\n<script src="../js/levels.js?v=202610172240"></script>\n'
-            '<script src="../js/sidebar.js?v=202610180900"></script>\n<script src="../js/glossary.js?v=202610131500"></script>\n')
+            '<script src="../js/sidebar.js?v=202610180945"></script>\n<script src="../js/glossary.js?v=202610131500"></script>\n')
     if chart_js: out += '<script src="../js/pattern-notes.js?v=202610180900"></script>\n<script src="../js/hovercard.js?v=202610180900"></script>\n'
     return out + '</body>\n</html>'
 

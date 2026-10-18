@@ -137,21 +137,14 @@
       return depth ? `<li class="sb-sub">${inner}</li>` : inner;
     }).join("");
   }
-  // grammar: say which level the list is showing, and offer the whole list
-  function levelNote(es){
-    if(section !== "grammar" || !levels.current) return "";
-    const hidden = items.length - es.length, name = levels.data.levels[levels.current - 1];
-    return `<div class="sb-levelnote"><span>Showing <b>${esc(name)}</b> and earlier.</span>${hidden > 0 ? `<button type="button" class="sb-showall">Show all ${items.length} pages</button>` : ""}</div>`;
-  }
   function drawList(){
     const es = entries().filter(e => e.current || levels.shows(section, e.keys));
     const box = q("#sb-list");
     const all = `<a class="sb-all" href="${base}${section}/index.html"${onIndex ? ' aria-current="page"' : ""}>${words.all}</a>`;
     box.innerHTML =
-      (section === "flashcards" ? `<div class="sb-allrow">${all}<button type="button" class="sb-combine" aria-pressed="${combining}" title="Pick several decks and study them as one">Combine</button></div>` : all + levelNote(es)) +
+      (section === "flashcards" ? `<div class="sb-allrow">${all}<button type="button" class="sb-combine" aria-pressed="${combining}" title="Pick several decks and study them as one">Combine</button></div>` : all) +
       drawNode(tree(es), 0) +
       (es.length ? "" : `<p class="sb-empty">Nothing for this level yet.</p>`);
-    const sa = box.querySelector(".sb-showall"); if(sa) sa.onclick = () => levels.set(0);
     // remember only what the student opens or closes by hand (not the branch opened for the current page)
     box.querySelectorAll(".sb-group").forEach(d => d.querySelector("summary").addEventListener("click", () => setTimeout(() => store.set(openKey(d.dataset.g), d.open))));
     const cb = box.querySelector(".sb-combine");
