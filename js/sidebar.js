@@ -88,10 +88,9 @@
   const opener = document.createElement("button");
   opener.type = "button"; opener.className = "sb-open"; opener.setAttribute("aria-controls", "sb"); opener.setAttribute("aria-expanded", "false");
   opener.innerHTML = `<span class="sb-burger" aria-hidden="true"></span>${words.list}`;
-  let bar = null;   // grammar pages on narrow screens: Pages, where you are, and the neighbouring pages in one sticky bar
+  let bar = null;   // grammar pages on narrow screens: the Pages button in a sticky bar
   if(section === "grammar"){
     bar = document.createElement("div"); bar.className = "sb-bar";
-    bar.innerHTML = `<a class="sb-step sb-pv" aria-label="Previous page" role="link" aria-disabled="true">\u2039</a><a class="sb-step sb-nx" aria-label="Next page" role="link" aria-disabled="true">\u203a</a>`;
     bar.prepend(opener); document.body.prepend(bar);
   } else document.body.prepend(opener);
   const scrim = document.createElement("div"); scrim.className = "sb-scrim"; document.body.prepend(scrim);
@@ -174,10 +173,7 @@
     if(section !== "grammar") return;
     const es = entries().filter(e => e.current || levels.shows(section, e.keys));
     const i = es.findIndex(e => e.current), cur = es[i];
-    const step = (a, e) => { if(e){ a.href = e.href; a.title = e.title; a.removeAttribute("aria-disabled"); } else { a.removeAttribute("href"); a.removeAttribute("title"); a.setAttribute("aria-disabled", "true"); } };
-    const prev = es[i - 1], next = es[i + 1];
-    step(bar.querySelector(".sb-pv"), cur && prev); step(bar.querySelector(".sb-nx"), cur && next);
-    if(!cur){ bar.classList.add("sb-bar-index"); return; }
+    if(!cur) return;
     const wrap = document.querySelector(".wrap");
     let c = document.getElementById("sb-crumbs");
     if(!c){
@@ -201,10 +197,6 @@
         f.innerHTML = `Flashcards: ${links.map(l => l.replace("<a ", '<a class="sb-pbtn" ')).join(" \u00b7 ")}`;
       });
     }).catch(() => {});
-    let n = document.getElementById("sb-pn");
-    if(!n){ n = document.createElement("nav"); n.id = "sb-pn"; n.className = "sb-pn"; n.setAttribute("aria-label", "Previous and next page"); wrap.append(n); }
-    n.innerHTML = (prev ? `<a href="${prev.href}"><span class="dir">\u2190 Previous</span><b>${esc(prev.title)}</b></a>` : `<span></span>`) +
-                  (next ? `<a class="nx" href="${next.href}"><span class="dir">Next \u2192</span><b>${esc(next.title)}</b></a>` : `<span></span>`);
   }
 
   // show a section of the Pages list: the list tab (or the drawer on narrow screens), that group open and in view
