@@ -13,7 +13,7 @@
   --font:"Source Sans 3","Source Sans Pro",Arial,sans-serif;
   --head:"Source Serif 4",Georgia,serif;               /* page titles and section headings only */
   --shadow:0 1px 2px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.05);
-  --radius:14px; --radius-sm:10px; --sb-bg:#26272B;
+  --radius:14px; --radius-sm:10px; --sb-bg:#F6F7F8;
 }
 :root :is(h1,h2,h3):not(.label){font-family:var(--head);letter-spacing:-.005em}   /* small-caps labels that happen to be headings stay sans */
 
@@ -43,9 +43,8 @@
 :root .amb-box{border-color:var(--red)}
 :root .kin-box{border-color:var(--accent)}
 
-/* sidebar: charcoal with light text (the sidebar re-declares the tokens, so everything inside it follows) */
-:root .sb{--ink:#EEEEF0;--muted:#B9BABF;--faint:#A0A1A7;--rule:#3E3F45;--rule2:#6E6F76;--surface:#303136;--surface2:#383A40;--bg:#26272B;
-  --accent:#FF9C91;--accent-strong:#FFC5BF;--accent-soft:#4B2724;--accent-ink:#1B1B1E;background:var(--sb-bg);color:var(--ink);border-right:0;color-scheme:dark}
+/* sidebar: a quiet light grey that sits with the white page; the current page is a garnet-tinted row with a bar */
+:root .sb{background:var(--sb-bg);border-right:1.5px solid var(--rule)}
 :root .sb a[aria-current="page"]{background:var(--accent-soft);color:var(--accent-strong)}
 
 /* Dark mode: only the pages that already have one (those using site.css: home, flashcards, the
