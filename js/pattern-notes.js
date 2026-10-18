@@ -18,13 +18,16 @@
   const hint = document.createElement("div");
   hint.className = "job pc-hint"; hint.textContent = "Hover over or tap a form to inspect it.";
   box.appendChild(hint);
-  panel.prepend(box);
-  if(window.Site && window.Site.sidebarAdopt) window.Site.sidebarAdopt(box);   // wide screens: under the pattern buttons in the sidebar
+  // grammar pages keep the patterns in a bar above the charts (js/sidebar.js): the notes sit right under the buttons
+  const pats = document.getElementById("patterns"), inBar = document.documentElement.classList.contains("has-studybar") && pats;
+  if(inBar){ pats.after(box); hint.hidden = true; } else panel.prepend(box);
+  if(!inBar && window.Site && window.Site.sidebarAdopt) window.Site.sidebarAdopt(box);   // otherwise: under the pattern buttons in the sidebar
 
   const idle = () => { const p = card.querySelector(".parse"); return !p || /^Inspect an? /.test(p.textContent.trim()); };
   function update(){
     const n = notes.children.length;
     label.textContent = n > 1 ? "Patterns" : "Pattern";
+    if(inBar){ box.hidden = n === 0; return; }   // in the bar the notes never compete with the inspector
     const show = n > 0 && idle();
     box.hidden = !show; card.hidden = show;
   }

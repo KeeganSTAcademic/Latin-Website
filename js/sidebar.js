@@ -259,16 +259,19 @@
     }
     root.classList.toggle("sb-tools-out", on && moved.length > 0);
     if(section === "flashcards") placeSettings(!on);
-    // grammar pages: with the sidebar showing, "Highlight a pattern" stays in it; when the sidebar is hidden
-    // (narrow windows, phones), the pattern buttons go directly above the charts instead of the top of the page
-    if(section === "grammar"){
-      const pats = document.getElementById("patterns"), work = document.querySelector(".work");
-      if(pats && work){
-        const inSidebar = !!pats.closest("#sb-tools");
-        if(!inSidebar){ pats.classList.add("above"); work.before(pats); }
-        else pats.classList.remove("above");
-      }
-    }
+  }
+
+  // Grammar pages: the patterns, the view toggles and the key sit in one bar directly above the charts,
+  // at every screen width (the sidebar is only for finding pages). On wide screens the bar stays in view while the charts scroll.
+  function studyBar(){
+    if(section !== "grammar") return;
+    const tb = document.querySelector(".toolbar"), blk = document.querySelector(".block, #charts .work") ;
+    if(!tb || tb.classList.contains("studybar")) return;
+    const h = document.querySelector(".block > h3"), work = document.querySelector(".work");
+    tb.classList.add("studybar");
+    const pats = document.getElementById("patterns"); if(pats) pats.classList.add("above");
+    if(h) h.after(tb); else if(work) work.before(tb);
+    root.classList.add("has-studybar");
   }
 
   // Flashcards: in the sidebar, Settings is always open (the tab already names it); without the sidebar
@@ -301,7 +304,9 @@
     const wide = WIDE.matches;
     root.classList.toggle("has-sb", wide);
     root.classList.toggle("sb-narrow", !wide);
-    placeTools(wide);
+    root.classList.add("sb-sec-" + section);
+    studyBar();
+    placeTools(wide && section !== "grammar");
     q(".sb-tabs").hidden = !root.classList.contains("sb-tools-out");
     // opening a grammar page or deck lands on its "This page" / "This deck" tab; after that, the student's tab choice holds for the visit
     const want = enterDeck ? "tools" : store.get(tabKey, "tools");

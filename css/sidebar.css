@@ -158,3 +158,27 @@
 /* flashcards for this grammar page: the same plain line as the grammar link on a flashcard deck */
 .sb-practice{margin:6px 0 0;text-align:center;color:var(--muted)}
 .sb-practice .sb-pbtn{color:var(--accent-strong)}
+
+/* ---------- grammar pages: one study bar above the charts (patterns, view, key), and real margins ---------- */
+.studybar{display:grid;gap:10px;justify-items:stretch;margin:0 0 18px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:14px}
+.studybar #patterns.above{justify-content:flex-start;margin:0;gap:6px 8px;align-items:center}
+.studybar #patterns.above .tb-label{flex-basis:100%;margin:0}
+.studybar #patterns.above .chip{padding:6px 12px;font-size:1rem}
+.studybar #patterns.above .tb-sub{font-size:1rem}
+.studybar .tb-row:not(#patterns){justify-content:flex-start;gap:6px 10px}
+.studybar .tb-row:not(#patterns) .tb-label{margin:0;font-size:1rem}
+.studybar .tb-row .chip.plain{padding:6px 12px;font-size:1rem}
+.studybar .legend{justify-content:flex-start;gap:6px 16px;font-size:1rem}
+.studybar #pcard{height:auto;max-height:none;overflow:visible;box-shadow:none;margin:0;padding:12px 16px;text-align:left}
+.studybar #pcard .pc-hint{display:none}
+.studybar #patterns.above .tb-label{flex-basis:auto;margin-right:4px}
+.studybar #patterns.above .tb-sub{flex-basis:auto}
+.sb-sec-grammar{--sbw:272px}
+.sb-sec-grammar.has-sb body{padding-left:var(--sbw);padding-right:0}
+.sb-sec-grammar.has-sb .wrap{max-width:1440px;padding-left:clamp(28px,4vw,72px);padding-right:clamp(28px,4vw,72px)}
+
+/* no jump on load: until js/sidebar.js has set the layout classes, keep the page unpainted on wide screens (fallback reveals it after 1.2s if the script never runs) */
+@media (min-width:1100px){
+  html:not(.has-sb):not(.sb-narrow) body{visibility:hidden;animation:sb-reveal 0s 1.2s forwards}
+}
+@keyframes sb-reveal{to{visibility:visible}}

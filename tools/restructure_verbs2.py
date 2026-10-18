@@ -183,6 +183,6 @@ for page, T in PAGES.items():
         s = s.replace('<div class="charts-col" id="charts-col">', f'<div class="charts-col" id="charts-col"{attrs}>', 1)
         s = s.replace(c, c + '<script src="../js/more-charts.js?v=202610142000"></script>\n', 1)
     if 'hovercard.js' not in s and 'pattern-notes.js' in s:   # the hover/tap inspector (js/hovercard.js) goes after the pattern notes
-        s = re.sub(r'(<script src="\.\./js/pattern-notes\.js\?v=\d+"></script>\n)', r'\1<script src="../js/hovercard.js?v=202610172240"></script>\n', s, 1)
+        s = re.sub(r'(<script src="\.\./js/pattern-notes\.js\?v=\d+"></script>\n)', r'\1<script src="../js/hovercard.js?v=202610180900"></script>\n', s, 1)
     open(os.path.join(SITE, 'grammar', page + '.html'), 'w').write(s)
     print(page, len(s))

@@ -11,10 +11,15 @@
 (function(){
   const card = document.getElementById("card"), panel = card && card.closest(".panel");
   if(!panel) return;
-  const mq = matchMedia("(hover:hover) and (pointer:fine) and (min-width:700px)"), root = document.documentElement;
+  const mq = matchMedia("(hover:hover) and (pointer:fine) and (min-width:700px)"), railMq = matchMedia("(hover:hover) and (pointer:fine) and (min-width:1500px)"), root = document.documentElement;
   const css = document.createElement("style");
   css.textContent = `
 /* mouse: floating card */
+html.rail.hovercard .work{grid-template-columns:minmax(0,1fr) clamp(280px,20vw,380px);grid-template-areas:"charts panel";gap:24px;align-items:start}
+html.rail.hovercard .work:has(.pcard[hidden]){grid-template-columns:minmax(0,1fr)}
+html.rail.hovercard .panel{position:sticky;top:12px;margin:0!important}
+html.rail.hovercard #pcard{margin:0;height:auto;max-height:none;overflow:visible;text-align:left}
+html.rail.hovercard #pcard .pc-hint{display:none}
 html.hovercard .work{grid-template-columns:minmax(0,1fr);grid-template-areas:"panel" "charts";gap:0}
 html.hovercard .panel{position:static}
 html.hovercard .panel:has(.pcard:not([hidden])){margin-bottom:20px}
@@ -117,13 +122,18 @@ html.sheet.sh-live body{padding-bottom:calc(var(--sh-h,0px) + 24px)}`;
   /* ---------- mode: where the pattern notes and the hint live ---------- */
   function mode(){
     const hv = mq.matches, pc = document.getElementById("pcard"), work = document.querySelector(".work");
-    root.classList.toggle("hovercard", hv); root.classList.toggle("sheet", !hv);
-    if(hv){ hide(); hint.remove(); if(pc && !pc.closest("#sb-tools") && pc.parentElement !== panel) panel.prepend(pc); }
+    const rail = hv && railMq.matches;
+    root.classList.toggle("rail", rail); root.classList.toggle("hovercard", hv); root.classList.toggle("sheet", !hv);
+    const pats = document.getElementById("patterns"), bar = root.classList.contains("has-studybar") && pats;
+    if(hv){ hide(); hint.remove();
+      if(pc && rail && pc.parentElement !== panel) panel.prepend(pc);
+      else if(pc && !rail && bar && pc.parentElement === panel) pats.after(pc);
+      else if(pc && !bar && !pc.closest("#sb-tools") && pc.parentElement !== panel) panel.prepend(pc); }
     else if(work){
-      if(pc && !pc.closest("#sb-tools") && pc.parentElement !== work.parentElement) work.before(pc);
+      if(pc && !pc.closest("#sb-tools") && !pc.closest(".studybar") && pc.parentElement !== work.parentElement) work.before(pc);
       work.before(hint);
     }
     sync();
   }
-  mq.addEventListener("change", mode); mode();
+  mq.addEventListener("change", mode); railMq.addEventListener("change", mode); mode();
 })();
