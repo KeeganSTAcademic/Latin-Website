@@ -39,7 +39,7 @@ def head(title, style=''):
 </style>
 <link rel="stylesheet" href="../css/sidebar.css?v=202610180900">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
-<link rel="stylesheet" href="../css/theme.css?v=202610181010">
+<link rel="stylesheet" href="../css/theme.css?v=202610181100">
 </head>
 <body>
 <div class="wrap">

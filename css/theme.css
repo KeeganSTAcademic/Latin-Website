@@ -43,9 +43,11 @@
 :root .amb-box{border-color:var(--red)}
 :root .kin-box{border-color:var(--accent)}
 
-/* sidebar: a quiet light grey that sits with the white page; the current page is a garnet-tinted row with a bar */
-:root .sb{background:var(--sb-bg);border-right:1.5px solid var(--rule)}
-:root .sb a[aria-current="page"]{background:var(--accent-soft);color:var(--accent-strong)}
+/* sidebar: dark charcoal, light text (tokens remapped inside it); the current page is a garnet-tinted row with a bar */
+:root .sb{color-scheme:dark;background:#202124;border-right:1.5px solid #101113;color:#F4F4F5;
+  --bg:#202124; --surface:#2C2D31; --surface2:#3A3B41; --tint:#2C2D31; --ink:#F4F4F5; --muted:#D6D7DA; --faint:#B9BBC0;
+  --rule:#4A4C53; --rule2:#80838B; --accent:#FF9F8C; --accent-strong:#FFC2B6; --accent-ink:#202124; --accent-soft:#4A2723; --shadow:none}
+:root .sb a[aria-current="page"]{background:var(--accent-soft);color:#FFFFFF;box-shadow:inset 4px 0 0 var(--accent)}
 
 /* Dark mode: only the pages that already have one (those using site.css: home, flashcards, the
    list pages). The grammar chart pages are light-only, so nothing below applies to them. */
