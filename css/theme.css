@@ -6,7 +6,7 @@
    To go back to the old look, remove the theme.css <link> from the pages. */
 
 :root{
-  --bg:#FFFFFF; --surface:#FFFFFF; --surface2:#F0F1F3; --ink:#0A0A0B; --muted:#2A2B2E; --faint:#45474C; --rule:#CFD2D8; --rule2:#7C8088;
+  --bg:#FFFFFF; --surface:#FFFFFF; --surface2:#F0F1F3; --ink:#0A0A0B; --muted:#2A2B2E; --faint:#45474C; --rule:#B9BDC5; --rule2:#6B6F77;
   --accent:#99221B; --accent-strong:#6F1812; --accent-ink:#FFFFFF; --accent-soft:#F8E5E2;
   --tint:#F3F4F6;                                      /* quiet grey fill for boxes that sit on a white page or card */
   --ending:#7A1E12;                                   /* endings keep their own red, whatever the accent */
@@ -31,8 +31,17 @@
 :root .btn.grade small{opacity:1}
 
 /* boxes that used the page colour as their fill need a tint now the page is white */
-:root :is(.aside,.breakdown,.ex,.rule-table,.ac-missed li,.prop .eg,.ps-card,.pnote,.pattern,.note,.fold .decl){background:var(--tint)}
+:root :is(.aside,.breakdown,div.ex,.rule-table,.ac-missed li,.prop .eg,.ps-card,.pnote,.pattern,.fold .decl){background:var(--tint)}
 :root :is(.pnote,.pattern){padding:10px 16px;border-left-width:4px}
+
+/* firmer outlines: main cards and boxes get a 1.5px mid-grey line, tinted boxes a hairline of their own */
+:root :is(.noun,.card,.decl,.cases-box,.basic,.use,.toolbar,.studybar,.panel,.think,.amb-box,.kin-box,details.er,details.fold,.ps-card,.rule-card,.pcard){border-width:1.5px;border-color:var(--rule2)}
+:root :is(.aside,.breakdown,div.ex,.rule-table,.ac-missed li,.prop .eg,.pnote,.pattern){border:1px solid var(--rule)}
+:root:root:root :is(.pnote,.pattern){border-left:5px solid var(--accent)}
+:root:root .basic{border-top:4px solid var(--accent)}
+:root:root:root div.ex:has(> div){background:none;border:0}   /* on the incomplete-system page .ex is a layout grid, not a box */
+:root .amb-box{border-color:var(--red)}
+:root .kin-box{border-color:var(--accent)}
 
 /* sidebar: charcoal with light text (the sidebar re-declares the tokens, so everything inside it follows) */
 :root .sb{--ink:#EEEEF0;--muted:#B9BABF;--faint:#A0A1A7;--rule:#3E3F45;--rule2:#6E6F76;--surface:#303136;--surface2:#383A40;--bg:#26272B;
