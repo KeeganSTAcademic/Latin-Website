@@ -10,7 +10,7 @@
 .fc-progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
 
 .fc-stage{perspective:1400px}
-.fc-card{position:relative;width:100%;min-height:300px;cursor:pointer;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.3,.7,.3,1)}
+.fc-card{position:relative;width:100%;min-height:max(var(--fit,0px),var(--floor,300px));cursor:pointer;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.3,.7,.3,1)}
 .fc-card.flipped{transform:rotateY(180deg)}
 .fc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
   background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);
@@ -129,7 +129,7 @@
   .fc-side .fc-row .label{width:100%}
   .fc-side .chip{font-size:1rem;padding:4px 10px}
   .fc-side .fc-intro{font-size:1rem;margin:0}
-  .fc-col .fc-card{min-height:340px}
+  .fc-col .fc-card{--floor:340px}
   /* deck list: a grid instead of one long column */
   .deck-list{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
   .deck-list a{padding:12px 16px}
@@ -241,4 +241,41 @@
   .fc-seg .sg-full{display:none}
   .fc-seg .sg-short{display:inline}
   .fc-alts{display:none}          /* phones: the "also" translations / vocative are left off to save space */
+}
+
+/* link from a deck to its grammar page */
+.deck-list li.has-gl > a{padding-bottom:2.4rem}
+.deck-list li > a.fc-gl{position:absolute;left:20px;bottom:10px;flex:none;display:inline;padding:0;font-size:1rem;color:var(--accent-strong);text-decoration:none;background:none}
+.deck-list li > a.fc-gl:hover{text-decoration:underline;background:none}
+.combining .deck-list li > a.fc-gl{left:3.25rem}
+.fc-gl-line{margin:6px 0 0;color:var(--muted)}
+.fc-gl-line a{color:var(--accent-strong)}
+
+/* swipe to answer (js/swipe.js) */
+.fc-stage.sw-on{touch-action:none;position:relative;user-select:none;-webkit-user-select:none}
+.fc-stage.sw-in{animation:sw-in .22s ease-out}
+@keyframes sw-in{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+.sw-tag{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:3;padding:6px 16px;border-radius:999px;pointer-events:none;text-align:center;font-size:1.125rem;line-height:1.25;border:2px solid currentColor;background:var(--surface)}
+.sw-tag small{display:block;font-size:1rem;color:var(--muted)}
+.sw-tag.good{color:var(--good);background:var(--good-bg)}
+.sw-tag.bad{color:var(--accent-strong);background:var(--accent-soft)}
+.sw-tag.hard{color:#7A4A00;background:#F8EBD0}
+.sw-tag.easy{color:#0D4F6B;background:#D8EBF4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sw-tag.hard{color:#F2C879;background:#3A2C10}:root:not([data-theme="light"]) .sw-tag.easy{color:#8CCBE6;background:#10303D}}
+:root[data-theme="dark"] .sw-tag.hard{color:#F2C879;background:#3A2C10}
+:root[data-theme="dark"] .sw-tag.easy{color:#8CCBE6;background:#10303D}
+.sw-hint{margin:8px 0 0;text-align:center;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.fc-stage.sw-in{animation:none}}
+
+/* phones: a bigger card with bigger type, and less above it so the answer buttons still fit */
+@media (max-width:600px){
+  .fc-card{--floor:clamp(380px,56svh,560px)}
+  .fc-face{padding:52px 18px 44px;gap:18px}
+  .fc-main{font-size:clamp(2.25rem,10vw,2.875rem)}
+  .fc-main.en{font-size:clamp(1.875rem,8.5vw,2.375rem)}
+  .fc-sub{font-size:1.125rem}
+  .fc-meta{font-size:1.0625rem}
+  .fc-pp{font-size:1.25rem}
+  .fc-also{font-size:1.0625rem}
+  .fc-progress{margin-bottom:12px}
 }

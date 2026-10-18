@@ -88,7 +88,12 @@
   const opener = document.createElement("button");
   opener.type = "button"; opener.className = "sb-open"; opener.setAttribute("aria-controls", "sb"); opener.setAttribute("aria-expanded", "false");
   opener.innerHTML = `<span class="sb-burger" aria-hidden="true"></span>${words.list}`;
-  document.body.prepend(opener);
+  let bar = null;   // grammar pages on narrow screens: Pages, where you are, and the neighbouring pages in one sticky bar
+  if(section === "grammar"){
+    bar = document.createElement("div"); bar.className = "sb-bar";
+    bar.innerHTML = `<a class="sb-step sb-pv" aria-label="Previous page" role="link" aria-disabled="true">\u2039</a><a class="sb-step sb-nx" aria-label="Next page" role="link" aria-disabled="true">\u203a</a>`;
+    bar.prepend(opener); document.body.prepend(bar);
+  } else document.body.prepend(opener);
   const scrim = document.createElement("div"); scrim.className = "sb-scrim"; document.body.prepend(scrim);
 
   // ---------- level ----------
@@ -128,20 +133,28 @@
       if(k.kids.length === 1 && k.kids[0].solo && !k.kids[0].group) return depth ? link(k.kids[0], k.name) : `<ul class="sb-top">${link(k.kids[0], k.name)}</ul>`;
       if(k.kids.length === 1 && k.kids[0].group && k.kids[0].solo) k = { ...k, kids: k.kids[0].kids };   // Vocab › Week 1…, not Vocab › Latin II › Week 1…
       // grammar (a short list) starts fully open; flashcards (30+ decks) open only down to the current deck
-      const open = k.has || store.get(openKey(k.key), section === "grammar");
+      const open = k.has || store.get(openKey(k.key), false);
       const inner = `<details class="sb-group sb-d${depth}" data-g="${esc(k.key)}"${open ? " open" : ""}><summary>${esc(k.name)}<span>${k.n}</span></summary><ul>${drawNode(k, depth + 1)}</ul></details>`;
       return depth ? `<li class="sb-sub">${inner}</li>` : inner;
     }).join("");
+  }
+  // grammar: say which level the list is showing, and offer the whole list
+  function levelNote(es){
+    if(section !== "grammar" || !levels.current) return "";
+    const hidden = items.length - es.length, name = levels.data.levels[levels.current - 1];
+    return `<div class="sb-levelnote"><span>Showing <b>${esc(name)}</b> and earlier.</span>${hidden > 0 ? `<button type="button" class="sb-showall">Show all ${items.length} pages</button>` : ""}</div>`;
   }
   function drawList(){
     const es = entries().filter(e => e.current || levels.shows(section, e.keys));
     const box = q("#sb-list");
     const all = `<a class="sb-all" href="${base}${section}/index.html"${onIndex ? ' aria-current="page"' : ""}>${words.all}</a>`;
     box.innerHTML =
-      (section === "flashcards" ? `<div class="sb-allrow">${all}<button type="button" class="sb-combine" aria-pressed="${combining}" title="Pick several decks and study them as one">Combine</button></div>` : all) +
+      (section === "flashcards" ? `<div class="sb-allrow">${all}<button type="button" class="sb-combine" aria-pressed="${combining}" title="Pick several decks and study them as one">Combine</button></div>` : all + levelNote(es)) +
       drawNode(tree(es), 0) +
       (es.length ? "" : `<p class="sb-empty">Nothing for this level yet.</p>`);
-    box.querySelectorAll(".sb-group").forEach(d => d.addEventListener("toggle", () => store.set(openKey(d.dataset.g), d.open)));
+    const sa = box.querySelector(".sb-showall"); if(sa) sa.onclick = () => levels.set(0);
+    // remember only what the student opens or closes by hand (not the branch opened for the current page)
+    box.querySelectorAll(".sb-group").forEach(d => d.querySelector("summary").addEventListener("click", () => setTimeout(() => store.set(openKey(d.dataset.g), d.open))));
     const cb = box.querySelector(".sb-combine");
     if(cb) cb.onclick = () => { combining = !combining; store.set("sb:combining", combining); drawList(); drawBar(); };
     box.querySelectorAll(".sb-pick input").forEach(i => i.onchange = () => {
@@ -153,6 +166,58 @@
     if(cur) requestAnimationFrame(() => {
       const y = cur.getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop;
       if(y > box.clientHeight - 60) box.scrollTop = y - box.clientHeight / 3;
+    });
+  }
+
+  // ---------- grammar pages: breadcrumb (each step shows that section in the Pages list), Previous / Next ----------
+  function decorate(){
+    if(section !== "grammar") return;
+    const es = entries().filter(e => e.current || levels.shows(section, e.keys));
+    const i = es.findIndex(e => e.current), cur = es[i];
+    const step = (a, e) => { if(e){ a.href = e.href; a.title = e.title; a.removeAttribute("aria-disabled"); } else { a.removeAttribute("href"); a.removeAttribute("title"); a.setAttribute("aria-disabled", "true"); } };
+    const prev = es[i - 1], next = es[i + 1];
+    step(bar.querySelector(".sb-pv"), cur && prev); step(bar.querySelector(".sb-nx"), cur && next);
+    if(!cur){ bar.classList.add("sb-bar-index"); return; }
+    const wrap = document.querySelector(".wrap");
+    let c = document.getElementById("sb-crumbs");
+    if(!c){
+      c = document.createElement("nav"); c.id = "sb-crumbs"; c.className = "sb-crumbs"; c.setAttribute("aria-label", "Where this page is");
+      const hd = wrap.querySelector(":scope > header"); hd ? hd.before(c) : wrap.prepend(c);
+      c.addEventListener("click", e => { const b = e.target.closest("[data-crumb]"); if(b) showSection(b.dataset.crumb); });
+    }
+    c.innerHTML = `<a href="${base}grammar/index.html">Grammar</a>` + cur.path.map((p, i) =>
+      `<i aria-hidden="true">\u203a</i><button type="button" data-crumb="${esc(cur.path.slice(0, i + 1).join("/"))}">${esc(p)}</button>`).join("");
+    // flashcards for this page (the decks listed in data/grammar.json); overview pages list none
+    loadJSON(base + "data/grammar.json").then(g => {
+      const me = g.find(p => p.page === page);
+      const ids = (me && me.decks) || [];
+      if(!ids.length) return;
+      return loadJSON(base + "data/decks/index.json").then(ds => {
+        const links = ids.map(k => { const d = ds.find(x => x.id + (x.view ? "." + x.view : "") === k); if(!d) return "";
+          return `<a href="${base}flashcards/index.html?deck=${encodeURIComponent(d.id)}${d.view ? "&view=" + encodeURIComponent(d.view) : ""}">${esc(d.title)}</a>`; }).filter(Boolean);
+        if(!links.length) return;
+        let f = document.getElementById("sb-practice");
+        if(!f){ f = document.createElement("p"); f.id = "sb-practice"; f.className = "sb-practice"; const hd = wrap.querySelector(":scope > header"); hd ? hd.after(f) : c.after(f); }
+        f.innerHTML = `Flashcards: ${links.map(l => l.replace("<a ", '<a class="sb-pbtn" ')).join(" \u00b7 ")}`;
+      });
+    }).catch(() => {});
+    let n = document.getElementById("sb-pn");
+    if(!n){ n = document.createElement("nav"); n.id = "sb-pn"; n.className = "sb-pn"; n.setAttribute("aria-label", "Previous and next page"); wrap.append(n); }
+    n.innerHTML = (prev ? `<a href="${prev.href}"><span class="dir">\u2190 Previous</span><b>${esc(prev.title)}</b></a>` : `<span></span>`) +
+                  (next ? `<a class="nx" href="${next.href}"><span class="dir">Next \u2192</span><b>${esc(next.title)}</b></a>` : `<span></span>`);
+  }
+
+  // show a section of the Pages list: the list tab (or the drawer on narrow screens), that group open and in view
+  function showSection(key){
+    if(!WIDE.matches) drawer(true);
+    enterDeck = false; showTab("list");
+    const d = [...q("#sb-list").querySelectorAll("details.sb-group")].find(x => x.dataset.g === key);
+    if(!d) return;
+    for(let x = d; x; x = x.parentElement.closest("details")) x.open = true;
+    const box = q("#sb-list"), s = d.querySelector("summary");
+    requestAnimationFrame(() => {
+      box.scrollTo({ top: d.getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop - 8, behavior: "smooth" });
+      s.classList.remove("sb-flash"); void s.offsetWidth; s.classList.add("sb-flash");
     });
   }
 
@@ -178,6 +243,17 @@
     return out;
   }
   let made = null;
+  // a script that loads after this one (pattern-notes.js) can ask for a box to sit under the pattern buttons
+  window.Site.sidebarAdopt = node => {
+    const pats = document.getElementById("patterns");
+    made = made || toolNodes();
+    const at = made.indexOf(pats); made.splice(at < 0 ? made.length : at + 1, 0, node);
+    if(moved.length){
+      const ph = document.createComment("sidebar"); node.before(ph);
+      if(pats && pats.closest("#sb-tools")) pats.after(node); else q("#sb-tools").appendChild(node);
+      moved.push([node, ph]);
+    }
+  };
   function placeTools(on){
     const box = q("#sb-tools");
     if(on && !moved.length){
@@ -262,9 +338,9 @@
         levels.load(base)]);
       items = list;
     }catch(e){ q("#sb-list").innerHTML = `<p class="sb-empty">Couldn't load the list.</p>`; return; }
-    drawLevel(); drawList(); drawBar();
+    drawLevel(); drawList(); drawBar(); decorate();
     const clr = q("#sb-combine-clear");
     if(clr) clr.onclick = () => { picked.clear(); store.set("sb:picked", []); drawList(); drawBar(); };
-    window.addEventListener("site:level", () => { drawLevel(); drawList(); });
+    window.addEventListener("site:level", () => { drawLevel(); drawList(); decorate(); });
   })();
 })();

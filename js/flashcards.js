@@ -41,6 +41,8 @@
     return 5;
   }
 
+  const SHOW_PARADIGMS = false, SHOW_NOTES = false;   // paradigm tables and grammar notes are off (the deck data keeps them)
+
   /* ---------- entry ---------- */
   // (started at the bottom of this file, once every helper is defined)
 
@@ -240,10 +242,11 @@
 
     // grammar note and paradigm tables are written by us, so they're inserted as HTML
     // the grammar note is a sub-section of "Show paradigms"; a deck with a note but no paradigms gets the note alone
-    if(deck.intro){ $("intro-body").innerHTML = deck.intro; $("intro").hidden = false; }
+    if(SHOW_NOTES && deck.intro){ $("intro-body").innerHTML = deck.intro; $("intro").hidden = false; }
     if(deck.introTitle) $("intro").querySelector("summary").textContent = deck.introTitle;
-    if(deck.paradigm){ $("paradigms").hidden = false; $("paradigm-note").innerHTML = deck.paradigmNote || ""; }
-    else if(deck.intro){ $("paradigms").hidden = false; $("paradigms-title").textContent = deck.introTitle || "Grammar note"; $("intro").classList.add("solo"); }
+    // paradigm tables are switched off for now (the deck data keeps them); a deck's grammar note still shows
+    if(SHOW_PARADIGMS && deck.paradigm){ $("paradigms").hidden = false; $("paradigm-note").innerHTML = deck.paradigmNote || ""; }
+    else if(SHOW_NOTES && deck.intro){ $("paradigms").hidden = false; $("paradigms-title").textContent = deck.introTitle || "Grammar note"; $("intro").classList.add("solo"); }
 
     deck.cards.forEach((c, i) => c._i = i);
     if(deck.lookalikes) markLookalikes(deck.cards);
@@ -277,6 +280,8 @@
     // A view is a named slice of the deck with its own entry on the deck list (?deck=participles&view=pres).
     // It fixes some filters, hides their rows, and hides rows that none of its cards use (adverbs have no gender).
     st.hidden = new Set();
+    // singular and plural are no longer a separate filter: every number is always included, and the row is hidden
+    const numF = filterOf("num"); if(numF){ st.sel.num = new Set(numF.values.map(v => v.v)); st.hidden.add("num"); }
     if(view){
       st.view = view;
       Object.entries(view.sel || {}).forEach(([field, vals]) => {
@@ -641,14 +646,14 @@
   // grow the card to fit whichever face is taller
   function sizeCard(card){
     requestAnimationFrame(() => {
-      const h = Math.max(300, ...[...card.children].map(x => { x.style.position = "static"; const v = x.offsetHeight; x.style.position = ""; return v; }));
-      card.style.minHeight = h + "px";
+      const h = Math.max(0, ...[...card.children].map(x => { x.style.position = "static"; const v = x.offsetHeight; x.style.position = ""; return v; }));
+      card.style.setProperty("--fit", h + "px");   // the CSS floor (--floor) still applies
     });
   }
 
   /* ---------- paradigm tables (built from the cards themselves) ---------- */
   function renderParadigms(){
-    const P = deck.paradigm; if(!P) return;
+    const P = deck.paradigm; if(!SHOW_PARADIGMS || !P) return;
     const keep = deck.filters.filter(f => f.field === P.group || f.field === P.table);
     const cards = deck.cards.filter(c => passes(c, keep) && c.pi !== undefined);
     // group by a filter's values, or (for a field with no filter, e.g. mood + tense) by the values in card order

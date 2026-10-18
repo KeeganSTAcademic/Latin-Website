@@ -19,6 +19,7 @@
   hint.className = "job pc-hint"; hint.textContent = "Hover over or tap a form to inspect it.";
   box.appendChild(hint);
   panel.prepend(box);
+  if(window.Site && window.Site.sidebarAdopt) window.Site.sidebarAdopt(box);   // wide screens: under the pattern buttons in the sidebar
 
   const idle = () => { const p = card.querySelector(".parse"); return !p || /^Inspect an? /.test(p.textContent.trim()); };
   function update(){

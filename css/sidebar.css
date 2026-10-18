@@ -137,3 +137,35 @@
 .sb-combine-btns a{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
 .sb-combine-btns a[hidden]{display:none}
 @media (prefers-reduced-motion:reduce){.sb-group summary::before{transition:none}}
+
+/* ---- grammar pages (Oct 2026 proposal): level note, breadcrumb, previous / next, sticky phone bar ---- */
+.sb-levelnote{display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline;padding:8px 10px;margin-bottom:8px;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+.sb-levelnote b{font-weight:700}
+.sb-showall{border:0;background:none;padding:0;font:inherit;color:var(--accent);text-decoration:underline;cursor:pointer}
+.sb-pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px;padding-top:18px;border-top:1px solid var(--rule)}
+.sb-pn a{display:grid;gap:2px;min-height:64px;padding:12px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius,14px);color:var(--ink);text-decoration:none}
+.sb-pn a:hover{border-color:var(--accent)}
+.sb-pn .dir{font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-weight:600}
+.sb-pn .nx{text-align:right}
+.sb-pn b{font-size:1.125rem}
+.sb-bar{display:none}
+.sb-narrow .sb-bar{display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:6;padding:8px 0;background:var(--bg);border-bottom:1px solid var(--rule)}
+.sb-narrow .sb-bar .sb-open{margin:0}
+.sb-bar .sb-pv{margin-left:auto}
+.sb-step{flex:none;display:grid;place-items:center;width:44px;height:40px;border:1px solid var(--rule);background:var(--surface);border-radius:10px;font-size:1.25rem;color:var(--ink);text-decoration:none}
+.sb-step[aria-disabled="true"]{opacity:.35}
+.sb-narrow @media (max-width:640px){.sb-pn{grid-template-columns:1fr}.sb-pn .nx{text-align:left}}
+.sb-bar-index .sb-step{display:none}
+#sb-tools .pcard{height:auto;max-height:none;overflow:visible;text-align:left;box-shadow:none;padding:12px 14px;margin:0 0 16px}
+#sb-tools .pcard[hidden]{display:none}
+.sb-crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;margin:14px 0 0;color:var(--muted);font-size:1rem}
+.sb-crumbs a,.sb-crumbs button{color:var(--muted);text-decoration:none;font:inherit;background:none;border:0;padding:2px 0;cursor:pointer}
+.sb-crumbs a:hover,.sb-crumbs button:hover{color:var(--accent);text-decoration:underline}
+.sb-crumbs i{font-style:normal;color:var(--rule2)}
+.sb-flash{animation:sbflash 1.4s ease-out}
+@keyframes sbflash{from{background:var(--accent-soft);box-shadow:0 0 0 2px var(--accent)}to{background:transparent;box-shadow:0 0 0 2px transparent}}
+@media (prefers-reduced-motion:reduce){.sb-flash{animation:none;background:var(--accent-soft)}}
+
+/* flashcards for this grammar page: the same plain line as the grammar link on a flashcard deck */
+.sb-practice{margin:6px 0 0;text-align:center;color:var(--muted)}
+.sb-practice .sb-pbtn{color:var(--accent-strong)}

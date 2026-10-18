@@ -53,8 +53,8 @@ PAGES = {  # tab id -> (file, page title, sidebar short name, primer chips)
  "unusnauta": ("pronouns-unus-nauta", "Pronominal Adjectives (Ūnus Nauta)", "Pronominal adjectives (ūnus nauta)",
    ["<b>Genitive</b> <i>-īus</i> · <b>dative</b> <i>-ī</i>", "Otherwise like <i>bonus, -a, -um</i>"]),
 }
-V = {"theme": "202610151000", "sb": "202610051830", "g": "202610071800", "common": "202610011900", "levels": "202610021500",
-     "sbjs": "202610071800", "pn": "202610071100"}
+V = {"theme": "202610151000", "sb": "202610172240", "g": "202610071800", "common": "202610011900", "levels": "202610172240",
+     "sbjs": "202610172240", "pn": "202610172240"}
 FOOTER = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "pronoun_footer.html")).read()
 
 HTML = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "pronoun_page_template.html")).read()

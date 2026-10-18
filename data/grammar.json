@@ -27,6 +27,10 @@
   "path": [
    "Nouns",
    "Declensions"
+  ],
+  "decks": [
+   "noun-declensions.1",
+   "noun-declensions.2"
   ]
  },
  {
@@ -37,6 +41,9 @@
   "path": [
    "Nouns",
    "Declensions"
+  ],
+  "decks": [
+   "noun-declensions.3"
   ]
  },
  {
@@ -47,6 +54,9 @@
   "path": [
    "Nouns",
    "Declensions"
+  ],
+  "decks": [
+   "noun-declensions.4"
   ]
  },
  {
@@ -57,6 +67,9 @@
   "path": [
    "Nouns",
    "Declensions"
+  ],
+  "decks": [
+   "noun-declensions.5"
   ]
  },
  {
@@ -68,13 +81,19 @@
   "page": "pronouns-personal",
   "title": "Personal Pronouns",
   "short": "Personal: ego, tū, is",
-  "group": "Pronouns"
+  "group": "Pronouns",
+  "decks": [
+   "pronouns.personal"
+  ]
  },
  {
   "page": "pronouns-reflexive",
   "title": "The Reflexive Pronoun",
   "short": "Reflexive: suī",
-  "group": "Pronouns"
+  "group": "Pronouns",
+  "decks": [
+   "pronouns.reflexive"
+  ]
  },
  {
   "page": "pronouns-demonstrative",
@@ -94,6 +113,9 @@
   "path": [
    "Pronouns",
    "Demonstrative"
+  ],
+  "decks": [
+   "pronouns.is"
   ]
  },
  {
@@ -104,6 +126,9 @@
   "path": [
    "Pronouns",
    "Demonstrative"
+  ],
+  "decks": [
+   "pronouns.hic"
   ]
  },
  {
@@ -114,6 +139,9 @@
   "path": [
    "Pronouns",
    "Demonstrative"
+  ],
+  "decks": [
+   "pronouns.ille"
   ]
  },
  {
@@ -124,6 +152,9 @@
   "path": [
    "Pronouns",
    "Demonstrative"
+  ],
+  "decks": [
+   "pronouns.iste"
   ]
  },
  {
@@ -134,25 +165,37 @@
   "path": [
    "Pronouns",
    "Demonstrative"
+  ],
+  "decks": [
+   "pronouns.idem"
   ]
  },
  {
   "page": "pronouns-intensive",
   "title": "The Intensive Pronoun: Ipse",
   "short": "Intensive: ipse",
-  "group": "Pronouns"
+  "group": "Pronouns",
+  "decks": [
+   "pronouns.ipse"
+  ]
  },
  {
   "page": "pronouns-relative",
   "title": "The Relative Pronoun",
   "short": "Relative: quī",
-  "group": "Pronouns"
+  "group": "Pronouns",
+  "decks": [
+   "pronouns.qui"
+  ]
  },
  {
   "page": "pronouns-interrogative",
   "title": "The Interrogative Pronoun",
   "short": "Interrogative: quis",
-  "group": "Pronouns"
+  "group": "Pronouns",
+  "decks": [
+   "pronouns.quis"
+  ]
  },
  {
   "page": "pronouns-indefinite",
@@ -172,6 +215,9 @@
   "path": [
    "Pronouns",
    "Indefinite"
+  ],
+  "decks": [
+   "pronouns.aliquis"
   ]
  },
  {
@@ -182,6 +228,9 @@
   "path": [
    "Pronouns",
    "Indefinite"
+  ],
+  "decks": [
+   "pronouns.quidam"
   ]
  },
  {
@@ -192,6 +241,9 @@
   "path": [
    "Pronouns",
    "Indefinite"
+  ],
+  "decks": [
+   "pronouns.quisindef"
   ]
  },
  {
@@ -202,6 +254,9 @@
   "path": [
    "Pronouns",
    "Indefinite"
+  ],
+  "decks": [
+   "pronouns.quisquam"
   ]
  },
  {
@@ -212,6 +267,9 @@
   "path": [
    "Pronouns",
    "Indefinite"
+  ],
+  "decks": [
+   "pronouns.quisque"
   ]
  },
  {
@@ -222,6 +280,9 @@
   "path": [
    "Pronouns",
    "Indefinite"
+  ],
+  "decks": [
+   "pronouns.quisquis"
   ]
  },
  {
@@ -232,13 +293,19 @@
   "path": [
    "Pronouns",
    "Indefinite"
+  ],
+  "decks": [
+   "pronouns.quicumque"
   ]
  },
  {
   "page": "pronouns-unus-nauta",
   "title": "Pronominal Adjectives (Ūnus Nauta)",
   "short": "Pronominal adjectives (ūnus nauta)",
-  "group": "Pronouns"
+  "group": "Pronouns",
+  "decks": [
+   "pronouns.pronadj"
+  ]
  },
  {
   "page": "verbs",
@@ -266,7 +333,10 @@
    "Incomplete",
    "Active"
   ],
-  "short": "Present"
+  "short": "Present",
+  "decks": [
+   "present-active"
+  ]
  },
  {
   "page": "imperfect-active",
@@ -278,7 +348,10 @@
    "Incomplete",
    "Active"
   ],
-  "short": "Imperfect"
+  "short": "Imperfect",
+  "decks": [
+   "imperfect-active"
+  ]
  },
  {
   "page": "future-active",
@@ -290,7 +363,10 @@
    "Incomplete",
    "Active"
   ],
-  "short": "Future"
+  "short": "Future",
+  "decks": [
+   "future-active"
+  ]
  },
  {
   "page": "incomplete-passive",
@@ -302,7 +378,12 @@
    "Incomplete",
    "Passive"
   ],
-  "short": "Present, imperfect & future"
+  "short": "Present, imperfect & future",
+  "decks": [
+   "present-passive",
+   "imperfect-passive",
+   "future-passive"
+  ]
  },
  {
   "page": "perfect-active",
@@ -314,7 +395,10 @@
    "Complete",
    "Active"
   ],
-  "short": "Perfect"
+  "short": "Perfect",
+  "decks": [
+   "perfect-active"
+  ]
  },
  {
   "page": "pluperfect-active",
@@ -326,7 +410,10 @@
    "Complete",
    "Active"
   ],
-  "short": "Pluperfect"
+  "short": "Pluperfect",
+  "decks": [
+   "pluperfect-active"
+  ]
  },
  {
   "page": "future-perfect-active",
@@ -338,7 +425,10 @@
    "Complete",
    "Active"
   ],
-  "short": "Future perfect"
+  "short": "Future perfect",
+  "decks": [
+   "future-perfect-active"
+  ]
  },
  {
   "page": "complete-passive",
@@ -350,7 +440,12 @@
    "Complete",
    "Passive"
   ],
-  "short": "Perfect, pluperfect & future perfect"
+  "short": "Perfect, pluperfect & future perfect",
+  "decks": [
+   "perfect-passive",
+   "pluperfect-passive",
+   "future-perfect-passive"
+  ]
  },
  {
   "page": "subjunctive",
@@ -380,7 +475,10 @@
    "Verbs",
    "Subjunctive"
   ],
-  "short": "Present"
+  "short": "Present",
+  "decks": [
+   "present-subjunctive"
+  ]
  },
  {
   "page": "subjunctive-imperfect",
@@ -390,7 +488,10 @@
    "Verbs",
    "Subjunctive"
   ],
-  "short": "Imperfect"
+  "short": "Imperfect",
+  "decks": [
+   "imperfect-subjunctive"
+  ]
  },
  {
   "page": "subjunctive-perfect",
@@ -400,7 +501,10 @@
    "Verbs",
    "Subjunctive"
   ],
-  "short": "Perfect"
+  "short": "Perfect",
+  "decks": [
+   "perfect-subjunctive"
+  ]
  },
  {
   "page": "subjunctive-pluperfect",
@@ -410,6 +514,9 @@
    "Verbs",
    "Subjunctive"
   ],
-  "short": "Pluperfect"
+  "short": "Pluperfect",
+  "decks": [
+   "pluperfect-subjunctive"
+  ]
  }
 ]

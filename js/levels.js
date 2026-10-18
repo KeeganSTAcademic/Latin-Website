@@ -19,6 +19,7 @@
     try{ data = await loadJSON(base + "data/levels.json"); }catch(e){ data = { levels:[], flashcards:{}, grammar:{}, games:{} }; }
     const q = param("level");
     level = q !== null && /^[0-4]$/.test(q) ? +q : store.get("level", 0);
+    if(q !== null && /^[0-4]$/.test(q)) store.set("level", level);   // keep a level given in the link, so pages opened from this list use it too
     if(level > data.levels.length) level = 0;
     return data;
   }
@@ -38,12 +39,15 @@
     if(!bannersOn) return;
     let el = document.getElementById("level-banner");
     const b = level && data.banners && data.banners[level - 1];
-    if(!b){ if(el) el.hidden = true; return; }
+    const h1 = document.querySelector(".page-head h1"), head = h1 && h1.parentElement;
+    if(!b){ if(el) el.hidden = true; if(head) head.hidden = false; return; }
     if(!el){ el = document.createElement("div"); el.id = "level-banner"; el.className = "level-banner"; document.body.prepend(el); }
     const src = root + "img/banners/" + encodeURIComponent(b.file);
     el.hidden = false;
     el.innerHTML = `<img src="${src}.webp" srcset="${src}-800.webp 800w, ${src}.webp 1600w" sizes="100vw" alt="" title="${esc(b.credit || "")}" style="--focus:${esc(b.focus || "50% 50%")}">` +
-      `<p class="level-banner-title">${esc(data.levels[level - 1])}</p>`;
+      (h1 ? `<p class="level-banner-title"><span class="eb">${esc(data.levels[level - 1])}</span>${esc(h1.textContent)}</p>`
+        : `<p class="level-banner-title">${esc(data.levels[level - 1])}</p>`);
+    if(head && h1) head.hidden = true;   // the banner carries the page title
   }
 
   // chips: All levels · Latin I · Latin II …
