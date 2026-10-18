@@ -1,0 +1,9 @@
+/* plain text pages that used to live on the Google Site (pages/*.html) */
+.prose{max-width:46rem;margin:0 auto}
+.prose p{margin:0 0 1em;line-height:1.6}
+.prose h2{font:700 1.375rem/1.3 var(--head);margin:1.6em 0 .4em}
+.prose .note{color:var(--muted)}
+.prose .link{display:inline-block;margin:.2em 0 .4em;padding:8px 16px;border:1.5px solid var(--accent);border-radius:999px;background:var(--accent-soft);color:var(--accent-strong);font-weight:600;text-decoration:none;overflow-wrap:anywhere}
+.prose .link:hover{background:var(--accent);color:var(--surface)}
+.prose .link:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.prose .foot{margin-top:2.5em;color:var(--muted);font-size:1rem}
