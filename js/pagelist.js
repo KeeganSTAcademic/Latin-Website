@@ -9,9 +9,9 @@
   try{ [items] = await Promise.all([loadJSON(src), levels.load("../")]); }
   catch(e){ box.innerHTML = `<p class="callout">Couldn't load the list of ${esc(what)}. (${esc(e.message)})</p>`; return; }
   function levelOf(g){ const e = levels.data && levels.data[section] && levels.data[section][g.page]; return typeof e === "number" ? e : e && e.level; }
-  function draw(){
+  function draw(){   // games: only the chosen level's own games (not the earlier years too)
     const groups = new Map();
-    items.filter(g => !lsw || levels.shows(section, [g.page])).forEach(g => { if(!groups.has(g.group)) groups.set(g.group, []); groups.get(g.group).push(g); });
+    items.filter(g => section === "games" && levels.current && levelOf(g) ? levelOf(g) === levels.current : levels.shows(section, [g.page])).forEach(g => { if(!groups.has(g.group)) groups.set(g.group, []); groups.get(g.group).push(g); });
     const names = (levels.data && levels.data.levels) || [];
     const jump = box.parentElement.querySelector(".level-switch");
     if(jump){ const old = jump.querySelector(".pl-jump"); if(old) old.remove();
@@ -19,7 +19,7 @@
         n.innerHTML = [...groups].map(([name, gs], i) => `<a href="#pl-${i}">${esc(name)} <span>${gs.length}</span></a>`).join(""); jump.append(n); } }
     if(!groups.size){ box.innerHTML = `<p class="level-empty">No ${esc(what)} for this level yet.</p>`; return; }
     box.innerHTML = [...groups].map(([group, gs], i) => {
-      let out = `<section class="pl-sec" id="pl-${i}"><h2 class="pl-h">${esc(group)} <span>${gs.length} pages</span></h2>`, cur = null, open = false;
+      let out = `<section class="pl-sec" id="pl-${i}"><h2 class="pl-h">${esc(group)} <span>${gs.length} ${gs.length === 1 ? "page" : "pages"}</span></h2>`, cur = null, open = false;
       gs.forEach(g => {
         const sub = (g.path || []).slice(1).join(" \u203a ");
         if(!open || sub !== cur){ if(open) out += "</ul>"; if(sub) out += `<h3 class="pl-sub">${esc(sub)}</h3>`; out += `<ul class="pl-rows${!sub && cur !== null ? " pl-after" : ""}">`; open = true; cur = sub; }
@@ -29,6 +29,6 @@
       return out + (open ? "</ul>" : "") + `</section>`;
     }).join("");
   }
-  if(lsw) levels.render(lsw, draw);
+  if(lsw) levels.render(lsw, draw); else window.addEventListener("site:level", draw);   // no switcher on the games page: it still follows the chosen level (?level=2, or the level kept from another list)
   draw();
 })();
