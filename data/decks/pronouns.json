@@ -58,26 +58,6 @@
      "label": "Quīdam, quaedam, quiddam"
     },
     {
-     "v": "quisindef",
-     "label": "Quis after sī, nisi, num, nē"
-    },
-    {
-     "v": "quisquam",
-     "label": "Quisquam, quidquam"
-    },
-    {
-     "v": "quisque",
-     "label": "Quisque, quidque"
-    },
-    {
-     "v": "quisquis",
-     "label": "Quisquis, quidquid"
-    },
-    {
-     "v": "quicumque",
-     "label": "Quīcumque, quaecumque, quodcumque"
-    },
-    {
      "v": "pronadj",
      "label": "Pronominal Adjectives (ūnus nauta)"
     }
@@ -434,61 +414,6 @@
    },
    "groups": [
     "quidam"
-   ]
-  },
-  "quisindef": {
-   "title": "Quis after sī, nisi, num, nē",
-   "sel": {
-    "set": [
-     "quisindef"
-    ]
-   },
-   "groups": [
-    "quisindef"
-   ]
-  },
-  "quisquam": {
-   "title": "Quisquam, quidquam",
-   "sel": {
-    "set": [
-     "quisquam"
-    ]
-   },
-   "groups": [
-    "quisquam"
-   ]
-  },
-  "quisque": {
-   "title": "Quisque, quidque",
-   "sel": {
-    "set": [
-     "quisque"
-    ]
-   },
-   "groups": [
-    "quisque"
-   ]
-  },
-  "quisquis": {
-   "title": "Quisquis, quidquid",
-   "sel": {
-    "set": [
-     "quisquis"
-    ]
-   },
-   "groups": [
-    "quisquis"
-   ]
-  },
-  "quicumque": {
-   "title": "Quīcumque, quaecumque, quodcumque",
-   "sel": {
-    "set": [
-     "quicumque"
-    ]
-   },
-   "groups": [
-    "quicumque"
    ]
   },
   "pronadj": {

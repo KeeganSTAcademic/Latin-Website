@@ -45,16 +45,12 @@ PAGES = {  # tab id -> (file, page title, sidebar short name, primer chips)
    ["<b>ali-</b> + <i>quis</i>: someone", "<b>aliqua</b>, not <i>aliquae</i>"]),
  "indef-quidam": ("pronouns-quidam", "Quīdam, quaedam, quiddam", "quīdam, quaedam, quiddam",
    ["<b>quī</b> + <b>-dam</b>: a certain one", "<b>m → n</b> before d: <i>quendam</i>"]),
- "indef-quis": ("pronouns-quis-indef", "Quis after Sī, Nisi, Num, Nē", "quis after sī, nisi, num, nē", []),
- "indef-quisquam": ("pronouns-quisquam", "Quisquam, quidquam", "quisquam, quidquam", []),
- "indef-quisque": ("pronouns-quisque", "Quisque, quidque", "quisque, quidque", []),
- "indef-quisquis": ("pronouns-quisquis", "Quisquis, quidquid", "quisquis, quidquid", []),
- "indef-quicumque": ("pronouns-quicumque", "Quīcumque, quaecumque, quodcumque", "quīcumque, quaecumque, quodcumque", []),
+ "indef-others": ("pronouns-indef-others", "Other Indefinites", "Others: quis, quisquam, quisque, quisquis, quīcumque", []),
  "unusnauta": ("pronouns-unus-nauta", "Pronominal Adjectives (Ūnus Nauta)", "Pronominal adjectives (ūnus nauta)",
    ["<b>Genitive</b> <i>-īus</i> · <b>dative</b> <i>-ī</i>", "Otherwise like <i>bonus, -a, -um</i>"]),
 }
-V = {"theme": "202610151000", "sb": "202610172300", "g": "202610071800", "common": "202610011900", "levels": "202610172240",
-     "sbjs": "202610172300", "pn": "202610172240"}
+V = {"theme": "202610181100", "sb": "202610181200", "g": "202610071800", "common": "202610011900", "levels": "202610172240",
+     "sbjs": "202610181230", "pn": "202610180900"}
 FOOTER = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "pronoun_footer.html")).read()
 
 HTML = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "pronoun_page_template.html")).read()
@@ -67,7 +63,7 @@ for t in TABS:
                  "__SBJS__": V["sbjs"], "__PN__": V["pn"],
                  "__P__": json.dumps({p: P[p] for p in t["prons"]}, ensure_ascii=False), "__T__": json.dumps(t, ensure_ascii=False)}.items():
         page = page.replace(k, v)
-    open(os.path.join(SITE, "grammar", f + ".html"), "w").write(page)
+    open(os.path.join(SITE, "grammar", f + ".html"), "w").write(page.rstrip("\n"))   # no trailing newline, like the other pages
     e = {"page": f, "title": title, "short": short, "group": "Pronouns"}
     if t["id"] == "demonstrative" or t["id"].startswith("dem-"): e["path"] = ["Pronouns", "Demonstrative"]
     if t["id"] == "indefinite" or t["id"].startswith("indef-"): e["path"] = ["Pronouns", "Indefinite"]

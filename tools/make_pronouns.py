@@ -241,11 +241,6 @@ VIEWS = [  # view id, title, short (sidebar), pronoun ids, path (tree in the sid
  ("quis", "Interrogative Pronoun: quis, quid", "Interrogative: quis", ["quis"], ["Pronouns"]),
  ("aliquis", "Aliquis, aliquid", "aliquis, aliquid", ["aliquis"], ["Pronouns", "Indefinite"]),
  ("quidam", "Quīdam, quaedam, quiddam", "quīdam, quaedam, quiddam", ["quidam"], ["Pronouns", "Indefinite"]),
- ("quisindef", "Quis after sī, nisi, num, nē", "quis after sī, nisi, num, nē", ["quisindef"], ["Pronouns", "Indefinite"]),
- ("quisquam", "Quisquam, quidquam", "quisquam, quidquam", ["quisquam"], ["Pronouns", "Indefinite"]),
- ("quisque", "Quisque, quidque", "quisque, quidque", ["quisque"], ["Pronouns", "Indefinite"]),
- ("quisquis", "Quisquis, quidquid", "quisquis, quidquid", ["quisquis"], ["Pronouns", "Indefinite"]),
- ("quicumque", "Quīcumque, quaecumque, quodcumque", "quīcumque, quaecumque, quodcumque", ["quicumque"], ["Pronouns", "Indefinite"]),
  ("pronadj", "Pronominal Adjectives (ūnus nauta)", "Pronominal adjectives (ūnus nauta)", [x[0] for x in PA], ["Pronouns"]),
 ]
 intro = ("<ul>"
