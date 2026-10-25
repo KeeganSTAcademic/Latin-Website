@@ -1,5 +1,5 @@
 {
- "_about": "The level switcher at the top of the flashcard, grammar and game lists. Each item has the level where it is first taught (1 = Latin I … 4 = Latin IV); choosing a level shows everything up to and including it, so Latin II shows Latin I and II content. Flashcard keys are deck ids, or deck/view for one view of a deck. Add \"only\": true to show an item at its own level alone (the vocabulary lists). A deck can also narrow itself at lower levels with 'links': the extra link settings used at that level (same as a link preset, e.g. mood=ind). Anything not listed shows at every level.",
+ "_about": "The level switcher at the top of the flashcard, grammar and game lists. Each item has the level where it is first taught (1 = Latin I … 4 = Latin IV); choosing a level shows everything up to and including it, so Latin II shows Latin I and II content. Flashcard keys are deck ids, or deck/view for one view of a deck. Add \"only\": true to show an item at its own level alone (the vocabulary lists). A deck can also narrow itself at lower levels with 'links': the extra link settings used at that level (same as a link preset, e.g. mood=ind). Anything not listed shows at every level. The games list shows only the chosen level's own games; a game can add \"also\": [2] to be listed under another level too.",
  "levels": ["Latin I", "Latin II", "Latin III", "Latin IV"],
  "_banners": "One banner per level, shown full-width above the flashcard, grammar and game lists when that level is chosen (including when embedded on the Google Site; not for All levels, and not when the link adds ?banner=0). file = img/banners/<file>.webp (plus <file>-800.webp for phones); focus = the part of the painting kept in view when the banner crops it (CSS object-position, x% y%).",
  "banners": [
@@ -102,7 +102,8 @@
  },
  "games": {
   "first-letters": 1,
-  "restore-the-archive": 1,
+  "restore-the-archive": { "level": 1, "also": [2] },
+  "tiros-tablets": 2,
   "arena-latin-2": 2,
   "arena-latin-3": 3,
   "haruspex": 3

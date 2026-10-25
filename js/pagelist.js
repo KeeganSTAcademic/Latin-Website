@@ -8,11 +8,14 @@
   let items;
   try{ [items] = await Promise.all([loadJSON(src), levels.load("../")]); }
   catch(e){ box.innerHTML = `<p class="callout">Couldn't load the list of ${esc(what)}. (${esc(e.message)})</p>`; return; }
-  function levelOf(g){ const e = levels.data && levels.data[section] && levels.data[section][g.page]; return typeof e === "number" ? e : e && e.level; }
-  function draw(){   // games: only the chosen level's own games (not the earlier years too)
+  function entry(g){ return levels.data && levels.data[section] && levels.data[section][g.page]; }
+  function levelOf(g){ const e = entry(g); return typeof e === "number" ? e : e && e.level; }
+  function alsoAt(g, lv){ const e = entry(g); return !!(e && e.also && e.also.indexOf(lv) >= 0); }   // a game listed under another level too: "also": [2]
+  function draw(){   // games: only the chosen level's own games (not the earlier years too), plus any listed there with "also"
     const groups = new Map();
-    items.filter(g => section === "games" && levels.current && levelOf(g) ? levelOf(g) === levels.current : levels.shows(section, [g.page])).forEach(g => { if(!groups.has(g.group)) groups.set(g.group, []); groups.get(g.group).push(g); });
     const names = (levels.data && levels.data.levels) || [];
+    const games = section === "games" && levels.current;
+    items.filter(g => games && levelOf(g) ? levelOf(g) === levels.current || alsoAt(g, levels.current) : levels.shows(section, [g.page])).forEach(g => { const name = games && alsoAt(g, levels.current) ? names[levels.current - 1] || g.group : g.group; if(!groups.has(name)) groups.set(name, []); groups.get(name).push(g); });
     const jump = box.parentElement.querySelector(".level-switch");
     if(jump){ const old = jump.querySelector(".pl-jump"); if(old) old.remove();
       if(groups.size > 1){ const n = document.createElement("nav"); n.className = "pl-jump"; n.setAttribute("aria-label", "Sections");

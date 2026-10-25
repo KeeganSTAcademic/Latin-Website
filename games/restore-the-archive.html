@@ -153,7 +153,7 @@ em{font-style:italic}
 
 /* ---------- sorting ---------- */
 .tray{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border:1px dashed var(--rule2);border-radius:12px;min-height:58px;margin-bottom:8px;background:var(--bg)}
-.tray:empty::after{content:"Tray empty \2014 every noun sorted.";color:var(--muted);font-style:italic;font-size:1rem}
+.tray:empty::after{content:"Tray empty \2014 everything sorted.";color:var(--muted);font-style:italic;font-size:1rem}
 .dcard{background:var(--surface);border:1px solid var(--rule2);border-radius:10px;padding:6px 13px;cursor:grab;font-size:1.0625rem;font-style:italic;user-select:none;box-shadow:0 1px 2px rgba(0,0,0,.06)}
 .dcard.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .dcard.set{cursor:default;border-color:var(--good);background:var(--good-bg);box-shadow:none}
@@ -313,10 +313,22 @@ footer.src a{color:var(--accent)}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
 .slip p + p{margin-top:2em}
+.tg{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:.2em;color:var(--accent);font-weight:700}
+.fimg{margin:10px 0 0;max-width:340px}
+.fimg img{max-height:280px;object-fit:cover}
+.fimg img,figure.inchart img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--rule2)}
+.fimg figcaption,figure.inchart figcaption{font-size:1rem;color:var(--muted);font-style:italic;margin-top:6px}
+figure.inchart{margin:4px 0 16px}
+.tbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 12px;padding:8px 10px;border:1px dashed var(--rule2);border-radius:10px;font-size:1rem;color:var(--muted)}
+.tbar span{margin-right:auto}
+.hero{margin:0 0 18px}
+.hero img{display:block;width:100%;height:clamp(130px,22vw,240px);object-fit:cover;object-position:50% 50%;border-radius:12px;border:1px solid var(--rule2)}
+.hero figcaption{font-size:1rem;color:var(--muted);font-style:italic;margin-top:6px;text-align:right}
 </style>
 </head>
 <body>
 <div class="shell">
+  <figure class="hero"><img src="img/oxyrhynchus-papyrus-banner.webp" alt="Lines of Greek capital letters written in ink on a torn sheet of papyrus"><figcaption>A Greek papyrus from Oxyrhynchus, Egypt</figcaption></figure>
   <header class="masthead">
     <div>
       <h1>Restore the Archive</h1>
@@ -337,6 +349,7 @@ footer.src a{color:var(--accent)}
   </div>
   <footer class="src">
     <p>The finds described in the toolkit are drawn from: Oxford, <a href="https://oxyrhynchus.web.ox.ac.uk/scribes-and-scholars" target="_blank" rel="noopener">The Oxyrhynchus Papyri: Scribes and Scholars</a>; University of Michigan, <a href="https://quod.lib.umich.edu/a/apis/x-2447" target="_blank" rel="noopener">Advanced Papyrological Information System</a> (letters of Claudius Terentianus); R.&nbsp;D. Anderson, P.&nbsp;J. Parsons and R.&nbsp;G.&nbsp;M. Nisbet, &ldquo;Elegiacs by Gallus from Qa&#7779;r Ibr&icirc;m&rdquo;, <em>Journal of Roman Studies</em> 69 (1979); Society for Classical Studies, <a href="https://classicalstudies.org/latin-papyri-herculaneum" target="_blank" rel="noopener">The Latin Papyri from Herculaneum</a>; Yale, Beinecke Library, <em>P.Dura</em> 54 (<em>Feriale Duranum</em>); British Museum, <a href="https://www.britishmuseum.org/collection/galleries/roman-britain/vindolanda-tablets" target="_blank" rel="noopener">The Vindolanda tablets</a>. Editorial signs follow the Leiden Conventions (1931).</p>
+    <p>Images: a Greek papyrus from Oxyrhynchus (banner); a papyrus plant; charred papyrus from Herculaneum (Naples); a Greek papyrus from Egypt; writing tablets from Vindolanda (British Museum); a page of the Egyptian Book of the Dead; excavations at Oxyrhynchus.</p>
   </footer>
 </div>
 
@@ -365,7 +378,9 @@ const FUNCS=['subject','direct object','indirect object','possessor','means or i
 const CHARTS={
  finds:{t:'Where Latin papyri come from',html:
   '<p>Papyrus survives only where it stays dry, or where something seals it away. That is why most finds come from the sands of Egypt. In Roman Egypt most people wrote Greek, so Latin papyri are a small minority. They were mostly written by soldiers, officials and people learning the language.</p>'+
+  '<figure class="inchart"><img src="img/book-of-the-dead.webp" alt="A page of an Egyptian papyrus with a painted scene above columns of hieroglyphs" loading="lazy"><figcaption>Egyptians wrote on papyrus for thousands of years before the Romans came. This is a page of the Book of the Dead, written in hieroglyphs.</figcaption></figure>'+
   '<h4 class="fh">Egypt</h4>'+
+  '<figure class="inchart"><img src="img/oxyrhynchus-excavation.webp" alt="Workers excavating stone buildings in a sandy desert site" loading="lazy"><figcaption>Excavations at Oxyrhynchus, Egypt.</figcaption></figure>'+
   '<p><strong>Oxyrhynchus.</strong> Bernard Grenfell and Arthur Hunt began digging the town\u2019s ancient rubbish heaps in 1896, and the papyri are still being published. Almost all of them are Greek. The Latin ones include a professional scribe\u2019s practice copy of two lines of Virgil\u2019s <em>Aeneid</em> (first century AD) and one of the oldest manuscripts of the jurist Gaius (third century AD).</p>'+
   '<p><strong>Karanis.</strong> In 1928\u201329 a University of Michigan excavation found a bundle of letters hidden in a niche under the staircase of a house. Several are in Latin, from a soldier named Claudius Terentianus to his father Claudius Tiberianus in the early second century AD. He asks for kit to be sent and describes being wounded in a riot at Alexandria. They are published as <em>P.Mich.</em> VIII 467\u2013472.</p>'+
   '<p><strong>Qasr Ibrim,</strong> in Egyptian Nubia. In 1978 excavators found nine lines of love elegy by Cornelius Gallus, the first Roman governor of Egypt. Before that, a single line of his poetry survived. The copy dates to about 50\u201325 BC, which makes it the oldest surviving manuscript of Latin poetry.</p>'+
@@ -444,47 +459,172 @@ const STAGES=[
 {id:'roles',name:'Roles',full:'Find the Role',screens:[
  {t:'brief',h:'The find',html:
   '<figure class="papyrus"><img src="'+PAPYRUS_IMG+'" alt="A Latin letter on papyrus, written in a flowing cursive hand, with worn and broken edges"><figcaption>A Latin letter on papyrus, written in Roman cursive. The fibres of the papyrus run across the sheet under the ink.</figcaption></figure>'+
-  '<p>In this game you work as a papyrologist, someone who reads and edits ancient texts written on papyrus. Imagine a bundle of Latin letters found in a house in Roman Egypt. Finds like this really happen: at Karanis in 1928, excavators found a soldier\u2019s letters to his father in a niche under a staircase.</p>'+
+  '<p>In this game you work as a papyrologist, someone who reads and edits ancient texts written on papyrus. Imagine a bundle of Latin letters found in a house in Roman Egypt. Finds like this really happen: at Karanis in 1928, excavators found a soldier’s letters to his father in a niche under a staircase.</p>'+
   '<p>Papyrus tears and crumbles, and a break often takes the end of a word with it. Editors restore the missing letters and print them in square brackets, as in <em>puell[ae]</em>, so readers can tell which letters are on the papyrus and which the editor has added. To choose the right ending, the editor needs to know what function the word has in its sentence.</p>'+
-  '<p>This first stage is about those functions. Each noun in a sentence has one, and Latin uses a different case for each. You will identify five of them.</p>'},
+  '<p>This first stage is about those functions. Each noun in a sentence has one, and Latin uses a different case for each. For each function you will see a few English sentences first, work out what the words have in common, and then meet the Latin case that marks it.</p>'},
 
+ /* ---------- subject → nominative ---------- */
  {t:'pick',s:'The girl gives a gift to the boy.',toks:['The','girl','gives','a','gift','to','the','boy.'],hot:[1,4,7],ans:1,
-  q:'Which word is doing the giving?',res:'Role recovered — subject',
-  fb:'The girl performs the action, so she is the subject.',m:'func'},
- {t:'ask',q:'In Latin, a subject is put into which case?',opts:CASES,ans:0,m:'case',unlock:'nominative',
-  fb:'Nominative. Every Latin sentence you meet will hang on a nominative, stated or implied in the verb.'},
+  q:'Who does the giving?',res:'Found: the girl',m:'func',
+  fb:'The girl does the action of the verb <em>gives</em>.'},
+ {t:'pick',s:'The soldier writes a letter.',toks:['The','soldier','writes','a','letter.'],hot:[1,4],ans:1,
+  q:'Who does the writing?',res:'Found: the soldier',m:'func',
+  fb:'The soldier does the action of the verb <em>writes</em>.'},
+ {t:'pick',s:'The letters arrive at the camp.',toks:['The','letters','arrive','at','the','camp.'],hot:[1,5],ans:1,
+  q:'What arrives?',res:'Found: the letters',m:'func',
+  fb:'The letters do the arriving. The word does not have to be a person.'},
+ {t:'ask',q:'Look back at the three words you tapped: <em>girl</em>, <em>soldier</em>, <em>letters</em>. What do they have in common?',
+  opts:['Each one does the action of the verb','Each one has the action done to it','Each one is given something','Each one owns something'],ans:0,m:'func',
+  fb:'Each one does the action of the verb: the girl gives, the soldier writes, the letters arrive. A word with this function is the <strong>subject</strong>. To find it, ask <em>who</em> or <em>what</em> does the verb.'},
+ {t:'brief',h:'The nominative case',html:
+  '<p>Latin puts the subject in the <strong>nominative</strong> case. The ending is the signal:</p>'+
+  '<ul class="srcs"><li>1st declension: <em>-a</em> in the singular (<em>puella</em>), <em>-ae</em> in the plural (<em>puellae</em>)</li><li>2nd declension: <em>-us</em> or <em>-um</em> in the singular (<em>servus</em>, <em>dōnum</em>), <em>-ī</em> or <em>-a</em> in the plural (<em>servī</em>, <em>dōna</em>)</li></ul>'+
+  '<p>The nominative is also the first word of every noun’s dictionary entry.</p>'},
+ {t:'pick',s:'Puella dōnum dat.',toks:['Puella','dōnum','dat.'],hot:[0,1],ans:0,
+  q:'<span class="gloss">puella, -ae, f. girl · dōnum, -ī, n. gift · dō, dare, to give</span>Which word is the subject, in the nominative? Look for <em>-a</em>.',res:'Found: puella, nominative',m:'case',
+  fb:'<em>Puella</em> ends in <em>-a</em>: nominative singular, the subject. "The girl gives a gift."'},
+ {t:'ask',q:'A subject goes into which case?',opts:CASES,ans:0,m:'case',unlock:'nominative',
+  fb:'Nominative. Every Latin sentence has a subject, either a nominative noun or one implied in the ending of the verb.'},
 
+ /* ---------- direct object → accusative ---------- */
  {t:'pick',s:'The girl gives a gift to the boy.',toks:['The','girl','gives','a','gift','to','the','boy.'],hot:[1,4,7],ans:4,
-  q:'Which word names the thing being given — the direct object?',res:'Role recovered — direct object',
-  fb:'The gift receives the action directly.',m:'func'},
+  q:'What does the girl give?',res:'Found: the gift',m:'func',
+  fb:'The gift is the thing given.'},
+ {t:'pick',s:'The soldier writes a letter.',toks:['The','soldier','writes','a','letter.'],hot:[1,4],ans:4,
+  q:'What does the soldier write?',res:'Found: the letter',m:'func',
+  fb:'The letter is the thing written.'},
+ {t:'pick',s:'The mother loves her son.',toks:['The','mother','loves','her','son.'],hot:[1,4],ans:4,
+  q:'Whom does the mother love?',res:'Found: the son',m:'func',
+  fb:'The son is the one loved.'},
+ {t:'ask',q:'Look back at <em>gift</em>, <em>letter</em> and <em>son</em>. What do they have in common?',
+  opts:['Each one has the action of the verb done to it directly','Each one does the action of the verb','Each one is the person something is given to','Each one owns something'],ans:0,m:'func',
+  fb:'The action is done straight to each one: the gift is given, the letter is written, the son is loved. A word with this function is the <strong>direct object</strong>. To find it, ask <em>whom</em> or <em>what</em> after the verb.'},
+ {t:'brief',h:'The accusative case',html:
+  '<p>Latin puts the direct object in the <strong>accusative</strong> case:</p>'+
+  '<ul class="srcs"><li>1st declension: <em>-am</em> in the singular (<em>puellam</em>), <em>-ās</em> in the plural (<em>puellās</em>)</li><li>2nd declension: <em>-um</em> in the singular (<em>servum</em>, <em>dōnum</em>), <em>-ōs</em> or <em>-a</em> in the plural (<em>servōs</em>, <em>dōna</em>)</li></ul>'+
+  '<p>Most accusatives singular end in <em>-m</em>. Because the ending marks the object, Latin can put the words in almost any order.</p>'},
+ {t:'pick',s:'Servus aquam portat.',toks:['Servus','aquam','portat.'],hot:[0,1],ans:1,
+  q:'<span class="gloss">servus, -ī, m. slave · aqua, -ae, f. water · portō, portāre, to carry</span>Which word is the direct object, in the accusative? Look for <em>-m</em>.',res:'Found: aquam, accusative',m:'case',
+  fb:'<em>Aquam</em> ends in <em>-am</em>: accusative singular, the direct object. "The slave carries water."'},
  {t:'ask',q:'A direct object goes into which case?',opts:CASES,ans:3,m:'case',unlock:'accusative',
-  fb:'Accusative. In the first declension it is the ending <strong>-am</strong> in the singular, <strong>-ās</strong> in the plural.'},
+  fb:'Accusative.'},
 
+ /* ---------- indirect object → dative ---------- */
  {t:'pick',s:'The girl gives a gift to the boy.',toks:['The','girl','gives','a','gift','to','the','boy.'],hot:[1,4,7],ans:7,
-  q:'Who receives the gift — who is it given to?',res:'Role recovered — indirect object',
-  fb:'The boy is the indirect object. Look for the little word in front of him: <em>to</em> the boy. In this game, <em>to</em> or <em>for</em> is always the signal for an indirect object.',m:'func'},
+  q:'Who is the gift given to?',res:'Found: the boy',m:'func',
+  fb:'The gift goes <em>to</em> the boy.'},
+ {t:'pick',s:'The soldier writes a letter to his father.',toks:['The','soldier','writes','a','letter','to','his','father.'],hot:[1,4,7],ans:7,
+  q:'Who is the letter written to?',res:'Found: the father',m:'func',
+  fb:'The letter is written <em>to</em> the father.'},
+ {t:'pick',s:'The slave prepares dinner for the master.',toks:['The','slave','prepares','dinner','for','the','master.'],hot:[1,3,6],ans:6,
+  q:'Who is the dinner prepared for?',res:'Found: the master',m:'func',
+  fb:'The dinner is prepared <em>for</em> the master.'},
+ {t:'ask',q:'Look back at <em>boy</em>, <em>father</em> and <em>master</em>. What do they have in common?',
+  opts:['Each one is the person something is given, told or done to or for','Each one does the action of the verb','Each one has the action done to it directly','Each one owns something'],ans:0,m:'func',
+  fb:'Each one is the person the action is aimed at: given <em>to</em>, written <em>to</em>, prepared <em>for</em>. A word with this function is the <strong>indirect object</strong>. In English, <em>to</em> or <em>for</em> is the signal.'},
+ {t:'brief',h:'The dative case',html:
+  '<p>Latin puts the indirect object in the <strong>dative</strong> case:</p>'+
+  '<ul class="srcs"><li>1st declension: <em>-ae</em> in the singular (<em>puellae</em>), <em>-īs</em> in the plural (<em>puellīs</em>)</li><li>2nd declension: <em>-ō</em> in the singular (<em>servō</em>), <em>-īs</em> in the plural (<em>servīs</em>)</li></ul>'+
+  '<p>Latin has no separate word for <em>to</em> or <em>for</em> here; the ending does that work. <strong>Our rule: a dative is always translated with <em>to</em> or <em>for</em>.</strong> <em>Puellae</em> becomes <em>to the girl</em> or <em>for the girl</em>. Write the word in every time.</p>'},
+ {t:'pick',s:'Puella puerō dōnum dat.',toks:['Puella','puerō','dōnum','dat.'],hot:[0,1,2],ans:1,
+  q:'<span class="gloss">puella, -ae, f. girl · puer, -ī, m. boy · dōnum, -ī, n. gift · dō, dare, to give</span>Which word is the indirect object, in the dative? Look for <em>-ō</em>.',res:'Found: puerō, dative',m:'case',
+  fb:'<em>Puerō</em> ends in <em>-ō</em>: dative singular, the indirect object. "The girl gives a gift <em>to</em> the boy."'},
  {t:'ask',q:'An indirect object goes into which case?',opts:CASES,ans:2,m:'case',unlock:'dative',
-  fb:'Dative. <strong>Our rule: a dative is always translated with <em>to</em> or <em>for</em>.</strong> <em>puellae</em> \u2192 <em>to the girl</em> or <em>for the girl</em>. Write the word in every time.'},
+  fb:'Dative, translated with <em>to</em> or <em>for</em>.'},
 
+ /* ---------- possessor → genitive ---------- */
  {t:'pick',s:'The friend carries the girl’s water.',toks:['The','friend','carries','the','girl’s','water.'],hot:[1,4,5],ans:4,
-  q:'Which word shows possession?',res:'Role recovered — possessor',
-  fb:'The water belongs to the girl.',m:'func'},
+  q:'Whose water is it?',res:'Found: the girl’s',m:'func',
+  fb:'The water belongs to the girl.'},
+ {t:'pick',s:'The soldier reads his father’s letter.',toks:['The','soldier','reads','his','father’s','letter.'],hot:[1,4,5],ans:4,
+  q:'Whose letter is it?',res:'Found: the father’s',m:'func',
+  fb:'The letter belongs to the father.'},
+ {t:'pick',s:'The door of the temple is open.',toks:['The','door','of','the','temple','is','open.'],hot:[1,4],ans:4,
+  q:'The door belongs to what?',res:'Found: the temple',m:'func',
+  fb:'It is the temple’s door. English can show this with <em>’s</em> or with <em>of</em>.'},
+ {t:'ask',q:'Look back at <em>girl’s</em>, <em>father’s</em> and <em>of the temple</em>. What do they have in common?',
+  opts:['Each one shows who or what something belongs to','Each one does the action of the verb','Each one is the person something is given to','Each one names the thing used to do the action'],ans:0,m:'func',
+  fb:'Each one shows the owner. A word with this function is the <strong>possessor</strong>. In English, <em>’s</em> or <em>of</em> is the signal.'},
+ {t:'brief',h:'The genitive case',html:
+  '<p>Latin puts the possessor in the <strong>genitive</strong> case:</p>'+
+  '<ul class="srcs"><li>1st declension: <em>-ae</em> in the singular (<em>puellae</em>), <em>-ārum</em> in the plural (<em>puellārum</em>)</li><li>2nd declension: <em>-ī</em> in the singular (<em>servī</em>), <em>-ōrum</em> in the plural (<em>servōrum</em>)</li></ul>'+
+  '<p>Translate a genitive with <em>of</em> or <em>’s</em>. The genitive singular is the second word of every noun’s dictionary entry (<em>puella, puellae</em>), which turns out to be very useful later.</p>'},
+ {t:'pick',s:'Servus aquam dominī portat.',toks:['Servus','aquam','dominī','portat.'],hot:[0,1,2],ans:2,
+  q:'<span class="gloss">servus, -ī, m. slave · aqua, -ae, f. water · dominus, -ī, m. master · portō, portāre, to carry</span>Which word is the possessor, in the genitive? Look for <em>-ī</em>.',res:'Found: dominī, genitive',m:'case',
+  fb:'<em>Dominī</em> ends in <em>-ī</em>: genitive singular, the possessor. "The slave carries the master’s water."'},
  {t:'ask',q:'A possessor goes into which case?',opts:CASES,ans:1,m:'case',unlock:'genitive',
-  fb:'Genitive. It is also the case your dictionary entry gives you, which turns out to be very useful later.'},
+  fb:'Genitive, translated with <em>of</em> or <em>’s</em>.'},
 
+ /* ---------- means, place where, separation → ablative ---------- */
+ {t:'brief',h:'Three functions, one case',html:
+  '<p>The last case does more than one thing. You will look at three of its functions: the thing used to do an action, the place where something happens, and the place something moves away from.</p>'},
  {t:'pick',s:'The woman washes the gate with water.',toks:['The','woman','washes','the','gate','with','water.'],hot:[1,4,6],ans:6,
-  q:'Which word names the thing the washing is done <em>with</em>?',res:'Role recovered — means',
-  fb:'Water is the means — the instrument the action is carried out with.',m:'func'},
- {t:'ask',q:'Means or instrument goes into which case?',opts:CASES,ans:4,m:'case',unlock:'ablative',
-  fb:'Ablative. It is the widest of the five: means, manner, place, time, and the object of many prepositions.'},
+  q:'What does she wash the gate with?',res:'Found: water',m:'func',
+  fb:'The water is what she uses.'},
+ {t:'pick',s:'The soldier defends the camp with a sword.',toks:['The','soldier','defends','the','camp','with','a','sword.'],hot:[1,4,7],ans:7,
+  q:'What does he defend the camp with?',res:'Found: the sword',m:'func',
+  fb:'The sword is what he uses.'},
+ {t:'ask',q:'<em>Water</em> and <em>sword</em> have the same function. What is it?',
+  opts:['Each one names the thing used to do the action','Each one has the action done to it directly','Each one shows who something belongs to','Each one names a place'],ans:0,m:'func',
+  fb:'Each one is the tool or thing used. This function is called <strong>means</strong> (or instrument). In English, <em>with</em> or <em>by</em> is the signal.'},
+ {t:'pick',s:'The children play in the garden.',toks:['The','children','play','in','the','garden.'],hot:[1,5],ans:5,
+  q:'Where do the children play?',res:'Found: the garden',m:'func',
+  fb:'The garden is the place where they play.'},
+ {t:'pick',s:'The letter lies on the table.',toks:['The','letter','lies','on','the','table.'],hot:[1,5],ans:5,
+  q:'Where does the letter lie?',res:'Found: the table',m:'func',
+  fb:'The table is the place where the letter is.'},
+ {t:'ask',q:'<em>Garden</em> and <em>table</em> have the same function. What is it?',
+  opts:['Each one names the place where something is or happens','Each one names the place something moves away from','Each one names the thing used to do the action','Each one does the action of the verb'],ans:0,m:'func',
+  fb:'Each one is the place where. This function is called <strong>place where</strong>. In English, <em>in</em> or <em>on</em> is the signal.'},
+ {t:'pick',s:'The soldier comes from the camp.',toks:['The','soldier','comes','from','the','camp.'],hot:[1,5],ans:5,
+  q:'Where does the soldier come from?',res:'Found: the camp',m:'func',
+  fb:'The camp is the place he leaves.'},
+ {t:'pick',s:'The slave walks out of the house.',toks:['The','slave','walks','out','of','the','house.'],hot:[1,6],ans:6,
+  q:'Where does the slave walk out of?',res:'Found: the house',m:'func',
+  fb:'The house is the place he leaves.'},
+ {t:'ask',q:'<em>Camp</em> and <em>house</em> have the same function. What is it?',
+  opts:['Each one names the place something moves away from','Each one names the place where something is or happens','Each one names the thing used to do the action','Each one is the person something is given to'],ans:0,m:'func',
+  fb:'Each one is the starting point of a movement away. This function is called <strong>separation</strong>. In English, <em>from</em>, <em>out of</em> or <em>away from</em> is the signal.'},
+ {t:'brief',h:'The ablative case',html:
+  '<p>Latin puts all three of these functions in the <strong>ablative</strong> case:</p>'+
+  '<ul class="srcs"><li>1st declension: <em>-ā</em> in the singular (<em>aquā</em>), <em>-īs</em> in the plural (<em>aquīs</em>)</li><li>2nd declension: <em>-ō</em> in the singular (<em>gladiō</em>), <em>-īs</em> in the plural (<em>gladiīs</em>)</li></ul>'+
+  '<p>The three functions are told apart by what comes before the noun:</p>'+
+  '<ul class="srcs"><li><strong>Means:</strong> no preposition. <em>aquā</em>, with water.</li><li><strong>Place where:</strong> <em>in</em>, meaning <em>in</em> or <em>on</em>. <em>in hortō</em>, in the garden.</li><li><strong>Separation:</strong> <em>ā</em> or <em>ab</em> (away from), <em>ē</em> or <em>ex</em> (out of), <em>dē</em> (down from). <em>ex castrīs</em>, out of the camp.</li></ul>'+
+  '<p>The ablative has other functions too, which you will meet later.</p>'},
+ {t:'ask',q:'<span class="latin">Fēmina portam <u class="tg">aquā</u> lavat.</span><span class="gloss">fēmina, -ae, f. woman · porta, -ae, f. gate · aqua, -ae, f. water · lavō, lavāre, to wash</span>Which function does the ablative <em>aquā</em> have?',
+  opts:['means','place where','separation'],ans:0,m:'case',
+  fb:'Means: there is no preposition, and the water is what she uses. "The woman washes the gate <em>with water</em>."'},
+ {t:'ask',q:'<span class="latin">Puella in <u class="tg">viā</u> ambulat.</span><span class="gloss">puella, -ae, f. girl · via, -ae, f. road · ambulō, ambulāre, to walk</span>Which function does the ablative <em>viā</em> have?',
+  opts:['means','place where','separation'],ans:1,m:'case',
+  fb:'Place where: <em>in</em> with the ablative. "The girl walks <em>in the road</em>."'},
+ {t:'ask',q:'<span class="latin">Servus ex <u class="tg">agrō</u> venit.</span><span class="gloss">servus, -ī, m. slave · ager, agrī, m. field · veniō, venīre, to come</span>Which function does the ablative <em>agrō</em> have?',
+  opts:['means','place where','separation'],ans:2,m:'case',
+  fb:'Separation: <em>ex</em> with the ablative. "The slave comes <em>out of the field</em>."'},
+ {t:'ask',q:'Means, place where and separation all go into which case?',opts:CASES,ans:4,m:'case',unlock:'ablative',
+  fb:'Ablative.'},
 
- {t:'ask',q:'<strong>The slave gives gold to the friend.</strong> What function does <em>friend</em> have?',
-  opts:['subject','direct object','indirect object','possessor'],ans:2,m:'func',
-  fb:'Indirect object — dative. The gold is what is given; <em>to the friend</em> is who it goes to. The <em>to</em> marks it.'},
- {t:'ask',q:'<strong>The boy carries the temple’s gold.</strong> Which three cases appear here?',
-  opts:['nominative, dative and accusative','nominative, genitive and accusative','nominative, genitive and ablative','genitive, dative and accusative'],ans:1,m:'case',
-  fb:'Boy is nominative, temple’s is genitive, gold is accusative. Each noun has a different function, so in Latin each would have a different ending.'}
+ /* ---------- which case does what ---------- */
+ {t:'sort',q:'Which case does each function go into? Sort the functions by case.',m:'case',
+  hint:'Not that case. Think back to the case you met with that function.',
+  okfb:'All seven sorted correctly. Notice that the ablative holds three functions: means, place where and separation.',
+  errfb:'Sorted, with {n} slip{s}. Each function has one case; the ablative is the one that holds three.',
+  bins:[{id:'nom',n:'Nominative'},{id:'gen',n:'Genitive'},{id:'dat',n:'Dative'},{id:'acc',n:'Accusative'},{id:'abl',n:'Ablative'}],
+  cards:[
+   {txt:'subject: who or what does the action',bin:'nom'},
+   {txt:'direct object: whom or what the action is done to',bin:'acc'},
+   {txt:'indirect object: to or for someone',bin:'dat'},
+   {txt:'possessor: of someone, someone’s',bin:'gen'},
+   {txt:'means: with or by something',bin:'abl'},
+   {txt:'place where: in or on a place',bin:'abl'},
+   {txt:'separation: from or out of a place',bin:'abl'}]},
+ {t:'ask',q:'<strong>The slave gives gold to the friend.</strong> What function does <em>friend</em> have, and which case would it be in Latin?',
+  opts:['indirect object, dative','direct object, accusative','subject, nominative','possessor, genitive'],ans:0,m:'case',
+  fb:'Indirect object, dative. The gold is what is given; <em>to the friend</em> is who it goes to. The <em>to</em> marks it.'},
+ {t:'ask',q:'<strong>The boy carries the temple’s gold out of the city.</strong> Which cases would Latin use for <em>boy</em>, <em>temple’s</em>, <em>gold</em> and <em>city</em>?',
+  opts:['nominative, genitive, accusative, ablative','nominative, dative, accusative, ablative','accusative, genitive, nominative, ablative','nominative, genitive, accusative, dative'],ans:0,m:'case',
+  fb:'<em>Boy</em> is the subject (nominative), <em>temple’s</em> the possessor (genitive), <em>gold</em> the direct object (accusative), and <em>out of the city</em> separation (ablative). Each noun has a different function, so in Latin each would have a different ending.'}
 ]},
+
 
 {id:'endings',name:'Endings',full:'Lost Endings',screens:[
  {t:'brief',h:'Three fragments, one word',html:
@@ -722,7 +862,7 @@ function next(){
  render();
  window.scrollTo({top:0});
 }
-function flagRetry(sc){if(!sc._r&&!sc._flag){sc._flag=1;S.retry.push(sc)}}
+function flagRetry(sc){if(sc.t==='sort')return;if(!sc._r&&!sc._flag){sc._flag=1;S.retry.push(sc)}}
 function score(sc,ok){
  if(ok)pts(sc._r?40:100);
  if(!ok)flagRetry(sc);
@@ -743,7 +883,10 @@ function renderPath(){
   pathEl.appendChild(b);
  });
 }
-function maxOpen(){let m=0;STAGES.forEach((st,n)=>{if(S.done[st.id])m=Math.max(m,n+1)});return Math.max(m,S.stage)}
+/* ?teacher opens every stage and adds skip buttons */
+const TEACHER=/[?&]teacher(=|&|$)/.test(location.search);
+function teacherSkip(toEnd){const sc=cur();const pass=x=>{if(x.unlockTool)unlockTool(x.unlockTool);if(x.unlock)unlockCase(x.unlock,true)};if(toEnd){S.queue.slice(S.i).forEach(pass);S.i=S.queue.length-1}else pass(sc);next()}
+function maxOpen(){if(TEACHER)return STAGES.length-1;let m=0;STAGES.forEach((st,n)=>{if(S.done[st.id])m=Math.max(m,n+1)});return Math.max(m,S.stage)}
 
 function stars(k){
  const m=S.mastery[k];
@@ -869,15 +1012,15 @@ function closeChart(){
 const FACT_PARTS=['What papyrology is','Why letters matter','How papyrologists work','Where papyri are found','What the letters tell us'];
 const FACTS=[
  {p:0,h:'Papyrology is the study of ancient texts written on papyrus. Papyrologists also work on texts written on other everyday materials, such as thin wooden tablets and pieces of broken pottery. Most of their material comes from Egypt and dates from the time of Alexander the Great to the early Islamic period.'},
- {p:0,h:'Papyrus was made from the pith of a tall reed that grew along the Nile. Strips were laid side by side, a second layer was laid across them at right angles, and the sheet was pressed and dried. The side with the fibres running across is called the <em>recto</em>, and the back is the <em>verso</em>.'},
- {p:0,h:'Papyrus rots when it gets damp, so it survives mainly in very dry places. In Egypt that means the desert edges beyond the reach of the Nile flood. Elsewhere it usually survives only in unusual conditions, such as the scrolls at Herculaneum that were turned to charcoal by Vesuvius.'},
- {p:0,h:'Most papyri from Egypt are in Greek, which was the language of government there after Alexander. Latin was used mainly by the Roman army and Roman officials, so Latin papyri are a small share of the total, and many of them are military documents or letters.'},
+ {p:0,h:'Papyrus was made from the pith of a tall reed that grew along the Nile. Strips were laid side by side, a second layer was laid across them at right angles, and the sheet was pressed and dried. The side with the fibres running across is called the <em>recto</em>, and the back is the <em>verso</em>.',img:'img/papyrus-plant.webp',alt:'A tall papyrus plant growing in a pot, with thin green stems topped by sprays of leaves',cap:'The papyrus plant, <em>Cyperus papyrus</em>. Sheets were made from the pith inside its stems.'},
+ {p:0,h:'Papyrus rots when it gets damp, so it survives mainly in very dry places. In Egypt that means the desert edges beyond the reach of the Nile flood. Elsewhere it usually survives only in unusual conditions, such as the scrolls at Herculaneum that were turned to charcoal by Vesuvius.',img:'img/herculaneum-papyrus.webp',alt:'Blackened, crumbling fragments of a charred papyrus roll mounted on card, with a handwritten Italian label',cap:'Charred papyrus from Herculaneum, unrolled in 1865 and mounted on card.'},
+ {p:0,h:'Most papyri from Egypt are in Greek, which was the language of government there after Alexander. Latin was used mainly by the Roman army and Roman officials, so Latin papyri are a small share of the total, and many of them are military documents or letters.',img:'img/greek-papyrus-egypt.webp',alt:'A torn sheet of papyrus covered in lines of Greek capital letters',cap:'A Greek papyrus from Egypt.'},
  {p:0,h:'Most papyri are not works of literature. They are receipts, contracts, tax lists, petitions, school exercises and private letters. This is why papyrology is one of the best sources we have for everyday life in the ancient world.'},
 
  {p:1,h:'Most Latin literature survives because it was copied again and again by hand, mostly in the Middle Ages. Private letters were never copied. The papyrus a letter was written on is usually the only copy that ever existed.'},
  {p:1,h:'Letters show how ordinary people actually wrote. Claudius Terentianus, a soldier whose letters were found at Karanis in Egypt, often spells words the way he pronounced them. Linguists use letters like his to learn how everyday Latin sounded.'},
  {p:1,h:'Many people dictated their letters to a scribe and then added a greeting in their own hand. When the handwriting changes at the end of a letter, it usually means the sender has taken the pen. This helps historians work out who could read and write.'},
- {p:1,h:'Latin letters usually begin with the writer\u2019s name in the nominative, then the reader\u2019s name in the dative, then <em>salutem</em>, \u201cgreetings\u201d. So <em>Claudia Severa Lepidinae salutem</em> means \u201cClaudia Severa to Lepidina, greetings\u201d. The dative gives the <em>to</em>.'},
+ {p:1,h:'Latin letters usually begin with the writer\u2019s name in the nominative, then the reader\u2019s name in the dative, then <em>salutem</em>, \u201cgreetings\u201d. So <em>Claudia Severa Lepidinae salutem</em> means \u201cClaudia Severa to Lepidina, greetings\u201d. The dative gives the <em>to</em>.',img:'img/vindolanda-tablets.webp',alt:'Four thin wooden tablets covered in faded Latin handwriting',cap:'Wooden writing tablets from Vindolanda, a Roman fort in northern Britain, where Claudia Severa’s letter was found.'},
  {p:1,h:'Letters are often found in groups that belonged to one family, called an archive. Reading an archive lets historians follow the same people over several years, which a single letter cannot do.'},
 
  {p:2,h:'The first task is reading the handwriting. Everyday Latin was written in a fast joined script called Roman cursive, and many of its letters look quite different from the capitals on inscriptions. Papyrologists learn the letter shapes of each period before they can read a text.'},
@@ -982,8 +1125,10 @@ function settle(slip){
   if(T.el){T.el.classList.add('beat');T.el.querySelector('.ct').textContent='Beat the clock +20'}
  }
  if(ok){
-  const f=nextFact();
-  if(f!==null)slip.appendChild(el('div','fact','<b>'+factHead(f)+'</b>'+FACTS[f].h));
+  /* a note on every third correct answer, so the 26 notes last the whole game (76 answers) */
+  S.ctr._fk=(S.ctr._fk||0)+1;
+  const f=S.ctr._fk%3===1?nextFact():null;
+  if(f!==null)slip.appendChild(el('div','fact','<b>'+factHead(f)+'</b>'+FACTS[f].h+(FACTS[f].img?'<figure class="fimg"><img src="'+FACTS[f].img+'" alt="'+FACTS[f].alt+'" loading="lazy"><figcaption>'+FACTS[f].cap+'</figcaption></figure>':'')));
   renderRail();
  }
 }
@@ -1009,6 +1154,12 @@ function render(){
  const slip=el('div','slip');
  const label=sc.t==='end'?'Final report':sc.t==='stagedone'?'Stage complete':sc.t==='review'?'Review round':'Fragment '+pad(S.i+1);
  slip.appendChild(el('div','sliphead','<span class="fno inscr">'+label+'</span><span class="stg">'+stage().full+'</span>'));
+ if(TEACHER&&sc.t!=='end'&&sc.t!=='stagedone'){
+  const tb=el('div','tbar','<span>Teacher review</span>');
+  const b1=el('button','chip','Skip screen');b1.type='button';b1.onclick=()=>teacherSkip(false);
+  const b2=el('button','chip','Skip to end of stage');b2.type='button';b2.onclick=()=>teacherSkip(true);
+  tb.appendChild(b1);tb.appendChild(b2);slip.appendChild(tb);
+ }
  startTimer(slip,sc);
  (DRAW[sc.t]||DRAW.brief)(slip,sc);
  root.appendChild(slip);
@@ -1133,7 +1284,7 @@ DRAW.sort=(slip,sc)=>{
    errs++;run=0;if(sc.streak)S.ctr.streak=0;
    node.classList.remove('sel');
    node.classList.add('bad');setTimeout(()=>node.classList.remove('bad'),450);
-   upd('Not that group — check the second form of the entry. Streak reset.');
+   upd(sc.hint||'Not that group — check the second form of the entry. Streak reset.');
    setTimeout(()=>{if(left)upd()},2200);
   }
   sel=null;
@@ -1142,8 +1293,8 @@ DRAW.sort=(slip,sc)=>{
   score(sc,errs===0);
   mark(slip,errs===0);
   fb(slip,errs===0,errs===0
-   ?'All twelve sorted correctly. The genitive ending showed the declension every time.'
-   :'Sorted, with '+errs+' misplacement'+(errs>1?'s':'')+'. The nominative can mislead you, but the genitive ending always shows the declension.',
+   ?(sc.okfb||'All twelve sorted correctly. The genitive ending showed the declension every time.')
+   :(sc.errfb?sc.errfb.replace('{n}',errs).replace('{s}',errs>1?'s':''):'Sorted, with '+errs+' misplacement'+(errs>1?'s':'')+'. The nominative can mislead you, but the genitive ending always shows the declension.'),
    errs===0?'Sorted cleanly':'Sorted');
   cont(slip).focus();
  }
@@ -1165,7 +1316,7 @@ DRAW.sort=(slip,sc)=>{
  sc.bins.forEach(b=>{
   const d=el('div','bin');d.dataset.b=b.id;
   d.tabIndex=0;d.setAttribute('role','button');
-  d.innerHTML='<h4>'+b.n+'</h4><span class="hint">'+b.h+'</span>';
+  d.innerHTML='<h4>'+b.n+'</h4>'+(b.h?'<span class="hint">'+b.h+'</span>':'');
   d.appendChild(el('div','held'));
   d.addEventListener('dragover',e=>{e.preventDefault();d.classList.add('over')});
   d.addEventListener('dragleave',()=>d.classList.remove('over'));
@@ -1176,7 +1327,7 @@ DRAW.sort=(slip,sc)=>{
  });
  slip.appendChild(bins);
  slip.appendChild(combo);upd();
- slip.appendChild(el('p','lead','Drag a noun into a group, or tap the noun and then the group.'));
+ slip.appendChild(el('p','lead','Drag a card into a group, or tap the card and then the group.'));
 };
 
 /* ---- build a form from stem + ending ---- */

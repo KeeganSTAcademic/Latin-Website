@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tiro’s Tablets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<style>
+[hidden]{display:none!important}
+img{max-width:100%}
+/* ===== Latin Site theme v1 ===== */
+:root{
+  color-scheme:light;
+  --bg:#FAF9F6; --surface:#FFFFFF; --surface2:#EEECE6;
+  --ink:#111111; --muted:#3D3A36; --faint:#55514B; --rule:#C9C4BA; --rule2:#8A847A;
+  --accent:#7A1E12; --accent-ink:#FFFFFF; --accent-soft:#F6DDD8;
+  --mark:#6E3F00; --mark-bg:#FBEACB;
+  --good:#1D5222; --good-bg:#DCEFDB;
+  --warn:#A1141C; --warn-bg:#FCE1DE;
+  --font:"Source Sans 3","Source Sans Pro",Arial,Helvetica,sans-serif;
+  --shadow:0 6px 24px rgba(80,60,40,.08),0 1px 2px rgba(80,60,40,.06);
+  --veil:rgba(42,37,33,.45);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#111111; --surface:#1C1C1C; --surface2:#292929;
+    --ink:#F7F7F5; --muted:#D6D3CD; --faint:#B8B4AC; --rule:#3C3C3C; --rule2:#7A7A7A;
+    --accent:#FF9F8C; --accent-ink:#111111; --accent-soft:#3D1F1A;
+    --mark:#F6C26B; --mark-bg:#382A12;
+    --good:#A3E0A5; --good-bg:#17301B;
+    --warn:#FF9B94; --warn-bg:#3F1715;
+    --shadow:0 6px 24px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.4);
+    --veil:rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111111; --surface:#1C1C1C; --surface2:#292929;
+  --ink:#F7F7F5; --muted:#D6D3CD; --faint:#B8B4AC; --rule:#3C3C3C; --rule2:#7A7A7A;
+  --accent:#FF9F8C; --accent-ink:#111111; --accent-soft:#3D1F1A;
+  --mark:#F6C26B; --mark-bg:#382A12;
+  --good:#A3E0A5; --good-bg:#17301B;
+  --warn:#FF9B94; --warn-bg:#3F1715;
+  --shadow:0 6px 24px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.4);
+  --veil:rgba(0,0,0,.6);
+}
+/* ===== end theme ===== */
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:1.125rem;line-height:1.55;padding-inline:16px}
+h1,h2,h3,h4{margin:0}
+p{margin:0 0 .9em}
+p:last-child{margin-bottom:0}
+button{font:inherit;color:inherit}
+em{font-style:italic}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.label,.inscr{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;color:var(--muted);font-size:1rem}
+
+/* ---------- frame ---------- */
+.shell{max-width:1120px;margin:0 auto;padding-block:30px 80px}
+.masthead{text-align:center;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+.masthead h1{font-weight:700;font-size:clamp(1.75rem,4.2vw,2.5rem);line-height:1.5;text-wrap:balance}
+.masthead .sub{font-style:italic;color:var(--muted);margin-top:4px}
+.tally{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:16px}
+.tally>div{display:flex;align-items:baseline;gap:7px;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:5px 14px}
+.tally b{font-weight:700;font-size:1.1875rem;font-variant-numeric:tabular-nums}
+.tally span{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;color:var(--muted);font-size:1rem}
+.drawerbtn{display:none;border:1px solid var(--rule2);background:var(--surface);border-radius:10px;padding:6px 14px;cursor:pointer;font-size:1rem}
+.drawerbtn[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* ---------- stage path ---------- */
+.path{display:flex;margin:22px 0 26px;overflow-x:auto;padding:4px 0}
+.node{flex:1 0 auto;min-width:92px;background:none;border:none;padding:0 4px;cursor:pointer;text-align:center;position:relative}
+.node::before{content:"";position:absolute;top:17px;left:0;right:0;height:1px;background:var(--rule2)}
+.node:first-child::before{left:50%}
+.node:last-child::before{right:50%}
+.node .pip{position:relative;width:34px;height:34px;border-radius:50%;margin:0 auto 6px;display:grid;place-items:center;
+  background:var(--surface);border:1px solid var(--rule2);color:var(--muted);font-weight:700;font-size:1rem}
+.node .lb{font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;font-size:1rem;color:var(--muted);display:block}
+.node:hover:not(:disabled) .pip{border-color:var(--accent)}
+.node[data-st="done"] .pip{background:var(--good-bg);border-color:var(--good);color:var(--good)}
+.node[data-st="done"] .lb{color:var(--ink)}
+.node[data-st="live"] .pip{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 0 0 4px var(--accent-soft)}
+.node[data-st="live"] .lb{color:var(--accent)}
+.node[data-st="lock"]{cursor:default;opacity:.75}
+.node[data-st="lock"] .pip{border-style:dashed}
+
+/* ---------- layout ---------- */
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:32px;align-items:start}
+
+/* ---------- the working card ---------- */
+.slip{background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);
+  padding:22px clamp(18px,3.4vw,34px) 28px;transition:border-color .2s}
+.slip.ok{border-color:var(--good);box-shadow:inset 0 3px 0 var(--good),var(--shadow)}
+.slip.bad{border-color:var(--warn);box-shadow:inset 0 3px 0 var(--warn),var(--shadow)}
+.sliphead{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:20px}
+.sliphead .fno{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;color:var(--accent);font-size:1rem}
+.sliphead .stg{font-size:1rem;color:var(--muted);font-style:italic}
+.prompt{font-size:clamp(1.1875rem,2.4vw,1.375rem);line-height:1.5;margin-bottom:18px}
+.lead{color:var(--muted);font-size:1rem;margin-bottom:14px}
+.slip h2{font-weight:700;font-size:clamp(1.3125rem,2.6vw,1.5625rem);margin-bottom:12px;text-wrap:balance}
+
+/* ---------- stem + ending ---------- */
+.form{display:inline-flex;align-items:stretch;line-height:1.5;font-size:clamp(1.625rem,5vw,2.5rem);margin:2px 10px 10px 0;vertical-align:top;font-style:italic}
+.form .stem{background:var(--surface2);border:1px solid var(--rule2);border-right:none;border-radius:10px 0 0 10px;padding:.3em .2em .34em .36em}
+.form .stem:only-child{border-right:1px solid var(--rule2);border-radius:10px;padding-right:.36em}
+.form .end{background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent);border-radius:0 10px 10px 0;padding:.3em .36em .34em .2em;font-weight:700}
+.form .end.blank{background:transparent;border:1px dashed var(--accent);color:var(--accent);font-weight:400}
+.form.mute .end{background:var(--surface2);border-color:var(--rule2);color:var(--muted);font-weight:400}
+.form.sm{font-size:clamp(1.3125rem,3.4vw,1.75rem)}
+.formrow{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 6px}
+.spec{text-align:center}
+.spec .cap,.swapunit .cap{display:block;font-size:1rem;color:var(--muted);margin-top:3px;font-style:normal}
+
+/* ---------- choices ---------- */
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{display:block;text-align:left;background:var(--surface);border:1px solid var(--rule2);border-radius:10px;
+  padding:11px 16px;cursor:pointer;font-size:1.0625rem;transition:border-color .12s,background .12s}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--surface2)}
+.opt:disabled{cursor:default}
+.opt.pick{border-color:var(--accent);background:var(--accent-soft)}
+.opt.ok{background:var(--good-bg);border-color:var(--good);color:var(--ink);box-shadow:inset 3px 0 0 var(--good)}
+.opt.no{background:var(--warn-bg);border-color:var(--warn);color:var(--ink);box-shadow:inset 3px 0 0 var(--warn)}
+.opt.show{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+
+/* ---------- English sentence tokens ---------- */
+.sentence{margin:6px 0 20px;line-height:2}
+.tok{display:inline-block;background:none;border:none;border-bottom:2px solid transparent;border-radius:6px;
+  padding:2px 5px;margin:0 1px;font-size:clamp(1.25rem,2.8vw,1.5625rem)}
+.tok.hot{cursor:pointer;border-bottom-color:var(--rule2)}
+.tok.hot:hover{border-bottom-color:var(--accent);background:var(--surface2)}
+.tok.ok{background:var(--good-bg);border-bottom-color:var(--good)}
+.tok.no{background:var(--warn-bg);border-bottom-color:var(--warn)}
+.tok.dead{cursor:default}
+
+/* ---------- feedback + buttons ---------- */
+.fb{margin-top:20px;padding:13px 17px;border-left:3px solid var(--good);background:var(--good-bg);border-radius:0 10px 10px 0;font-size:1.0625rem}
+.fb.no{border-left-color:var(--warn);background:var(--warn-bg)}
+.fb:not(.no):not(:has(b)){border-left-color:var(--accent);background:var(--accent-soft)}
+.fb b{display:block;margin-bottom:3px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;font-size:1rem;font-weight:700}
+.go{font-size:1.0625rem;background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent);border-radius:10px;
+  padding:10px 22px;cursor:pointer;margin-top:20px}
+.go:hover:not(:disabled){filter:brightness(1.08)}
+.go:disabled{opacity:.45;cursor:default}
+.go.ghost{background:var(--surface);color:var(--ink);border-color:var(--rule2)}
+.go.ghost:hover{border-color:var(--accent)}
+.gorow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* ---------- sorting ---------- */
+.tray{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border:1px dashed var(--rule2);border-radius:12px;min-height:58px;margin-bottom:8px;background:var(--bg)}
+.tray:empty::after{content:"Tray empty \2014 every noun sorted.";color:var(--muted);font-style:italic;font-size:1rem}
+.dcard{background:var(--surface);border:1px solid var(--rule2);border-radius:10px;padding:6px 13px;cursor:grab;font-size:1.0625rem;font-style:italic;user-select:none;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.dcard.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.dcard.set{cursor:default;border-color:var(--good);background:var(--good-bg);box-shadow:none}
+.dcard.bad{background:var(--warn-bg);border-color:var(--warn)}
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:14px}
+.bin{border:1px solid var(--rule);border-radius:12px;background:var(--surface2);padding:12px;min-height:130px;cursor:pointer}
+.bin.over,.bin:hover{border-color:var(--accent)}
+.bin h4{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;font-weight:700;color:var(--ink)}
+.bin .hint{font-size:1rem;color:var(--muted);font-style:italic;margin-bottom:9px;display:block}
+.bin .held{display:flex;flex-wrap:wrap;gap:6px}
+.combo{font-size:1rem;color:var(--muted);margin-top:12px}
+.combo b{color:var(--good)}
+
+/* ---------- ending bank ---------- */
+.bank{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.endbtn{background:var(--surface);border:1px solid var(--rule2);border-radius:10px;padding:7px 14px;cursor:pointer;font-size:1.25rem;font-style:italic;min-width:60px}
+.endbtn:hover:not(:disabled){border-color:var(--accent)}
+.endbtn.drag{cursor:grab}
+.endbtn.sel{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.endbtn.ok{background:var(--good-bg);border-color:var(--good)}
+.endbtn.no{background:var(--warn-bg);border-color:var(--warn);text-decoration:line-through}
+.endbtn:disabled{cursor:default}
+
+/* ---------- parsing ---------- */
+.noun{border:1px solid var(--rule);border-radius:12px;background:var(--bg);padding:14px 16px;margin-bottom:12px}
+.noun .nh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.noun .nf{font-size:1.5625rem;font-weight:700;font-style:italic;color:var(--accent)}
+.noun .ne{font-size:1rem;color:var(--muted);font-style:italic}
+.prow{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 12px;align-items:start;margin:8px 0}
+.prow .lab{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--muted);padding-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--rule2);background:var(--surface);border-radius:10px;padding:5px 12px;font-size:1rem;cursor:pointer}
+.chip:hover:not(:disabled){border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chip[aria-pressed="true"].ok{background:var(--good-bg);border-color:var(--good);color:var(--ink)}
+.chip[aria-pressed="true"].no{background:var(--warn-bg);border-color:var(--warn);color:var(--ink)}
+.chip:disabled{cursor:default}
+.latin{display:block;font-size:clamp(1.4375rem,3.6vw,1.875rem);font-style:italic;margin:2px 0 6px}
+.gloss{display:block;font-size:1rem;color:var(--muted);font-style:italic;margin-bottom:16px}
+
+/* ---------- word order ---------- */
+.order{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 18px;min-height:62px}
+.wt{background:var(--surface);border:1px solid var(--rule2);border-radius:10px;padding:10px 17px;font-size:clamp(1.25rem,3vw,1.625rem);font-style:italic;cursor:grab;user-select:none;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.wt.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.wt.verb{background:var(--surface2);border-style:dashed;color:var(--muted)}
+.readout{border:1px solid var(--rule);border-radius:12px;background:var(--bg);padding:12px 16px;margin-bottom:16px}
+.readout .mlab{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--muted)}
+.readout .mval{font-size:1.25rem;margin-top:2px}
+.readout .soft{color:var(--muted);font-size:1.0625rem}
+.meter{height:8px;border-radius:4px;background:var(--surface2);margin-top:12px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--good);width:0;transition:width .3s ease}
+.tried{font-size:1rem;color:var(--muted);margin-top:8px}
+
+/* ---------- stems with endings ---------- */
+.swaprow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:10px 0 18px}
+.swapunit{background:none;border:none;padding:0;cursor:pointer;text-align:center}
+.swapunit.static{cursor:default;padding:6px}
+.swapunit.slot2{padding:6px;border:1px dashed transparent;border-radius:12px}
+.swapunit.slot2:hover:not(:disabled),.swapunit.slot2.over{border-color:var(--accent);background:var(--accent-soft)}
+.swapunit.slot2:disabled{cursor:default}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto}
+table.chart{border-collapse:collapse;width:100%;font-size:1.0625rem;margin:4px 0 14px}
+table.chart th,table.chart td{border-bottom:1px solid var(--rule);padding:7px 10px;text-align:left}
+table.chart th{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--muted);font-weight:400;border-bottom-color:var(--rule2)}
+table.chart td:first-child{font-style:normal}
+table.chart td.c{color:var(--ink)}
+table.chart .c{color:var(--muted)}
+
+/* ---------- side rail ---------- */
+.rail{position:sticky;top:16px;font-size:1rem;background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:18px 18px 8px}
+.railx{display:none;width:100%;margin-bottom:14px;border:1px solid var(--rule2);background:var(--surface2);border-radius:10px;padding:7px 14px;cursor:pointer;font-size:1rem}
+.rblock{border-top:1px solid var(--rule);padding:14px 0 14px}
+.rblock:first-of-type{border-top:none;padding-top:0}
+.rblock h3{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--muted);font-weight:400;margin-bottom:8px}
+.slot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;color:var(--faint)}
+.slot .bx{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--rule2);margin-right:9px;font-size:1rem;flex:none}
+.slot.on{color:var(--ink)}
+.slot.on .bx{background:var(--good);border-color:var(--good);color:var(--bg)}
+.slot.on .bx::after{content:"\2713"}
+.slot .nm{display:flex;align-items:center}
+.slot .fn{font-size:1rem;font-style:italic;color:var(--muted);text-align:right}
+.slot.on.pop .bx{animation:stamp .45s ease}
+@keyframes stamp{0%{transform:scale(2.2);opacity:0}55%{transform:scale(.9);opacity:1}100%{transform:scale(1)}}
+.mrow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:3px 0}
+.mrow .st{color:var(--mark);letter-spacing:1px;white-space:nowrap}
+.mrow.lock{color:var(--faint)}
+.mrow.lock .st{color:var(--faint)}
+.diag{font-size:1rem;color:var(--mark);background:var(--mark-bg);border-radius:10px;padding:8px 11px;margin-top:9px;line-height:1.5}
+.tool{display:flex;justify-content:space-between;gap:10px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--rule);
+  padding:7px 0;cursor:pointer;font-size:1rem;color:var(--accent)}
+.tool:last-child{border-bottom:none}
+.tool:hover:not(:disabled){text-decoration:underline;text-underline-offset:3px}
+.tool.lk{color:var(--faint);cursor:default}
+.tool .k{font-size:1rem;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;flex:none}
+.badge{display:flex;gap:9px;padding:5px 0;font-size:1rem;color:var(--faint)}
+.badge .sg{width:18px;flex:none;text-align:center}
+.badge.got{color:var(--ink)}
+.badge.got .sg{color:var(--mark)}
+.badge i{display:block;font-size:1rem;color:var(--faint);font-style:italic}
+
+/* ---------- modal ---------- */
+.veil{position:fixed;inset:0;background:var(--veil);display:none;place-items:center;padding:16px;z-index:60}
+.veil.open{display:grid}
+.modal{background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);max-width:640px;width:100%;max-height:86vh;overflow:auto;padding:24px 26px 28px}
+.modal h3{font-weight:700;font-size:1.3125rem;margin-bottom:12px;padding-right:40px}
+.modal .x{float:right;background:var(--surface2);border:1px solid var(--rule2);border-radius:10px;width:34px;height:34px;cursor:pointer;line-height:1.5;font-size:1.125rem}
+
+/* ---------- toasts ---------- */
+.toasts{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:9px;z-index:70;max-width:min(310px,calc(100vw - 32px))}
+.toast{background:var(--surface);color:var(--ink);border:1px solid var(--rule);border-left:3px solid var(--mark);border-radius:0 12px 12px 0;padding:11px 15px;font-size:1rem;box-shadow:var(--shadow);animation:rise .3s ease}
+.toast b{display:block;margin-bottom:2px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--mark)}
+@keyframes rise{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+/* ---------- results ---------- */
+.score{font-weight:700;font-size:clamp(2rem,7vw,3.25rem);line-height:1.5;color:var(--accent);margin-bottom:10px;font-variant:normal;text-transform:none;letter-spacing:0}
+.bigrow{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--rule);padding:9px 0}
+.bigrow .st{color:var(--mark);letter-spacing:2px}
+
+/* ---------- papyrus figure + finds ---------- */
+figure.papyrus{margin:0 0 18px}
+figure.papyrus img{display:block;width:100%;max-width:100%;height:auto;max-height:340px;object-fit:cover;object-position:top;border-radius:12px;border:1px solid var(--rule2)}
+figure.papyrus figcaption{font-size:1rem;color:var(--muted);font-style:italic;margin-top:6px}
+.modal h4.fh{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--accent);font-weight:700;margin:18px 0 6px}
+.modal p{font-size:1.0625rem}
+footer.src{margin-top:40px;border-top:1px solid var(--rule);padding-top:16px;font-size:1rem;color:var(--muted)}
+footer.src p{margin:0 0 6px}
+footer.src a{color:var(--accent)}
+/* ---------- timer + facts ---------- */
+.clock{display:flex;align-items:center;gap:10px;margin:-8px 0 18px}
+.clock .clab{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--muted)}
+.clock .cbar{flex:1;height:6px;border-radius:3px;background:var(--surface2);overflow:hidden}
+.clock .cbar i{display:block;height:100%;width:100%;background:var(--good);transition:width .25s linear}
+.clock .ct{font-variant-numeric:tabular-nums;font-size:1rem;color:var(--muted);min-width:3.2em;text-align:right;white-space:nowrap}
+.clock.low .cbar i{background:var(--mark)}
+.clock.low .ct{color:var(--mark)}
+.clock.over .cbar i{background:var(--warn);width:100%!important}
+.clock.over .ct{color:var(--warn)}
+.clock.beat .ct{color:var(--good);font-weight:700;min-width:0}
+.clocknote{font-size:1rem;color:var(--warn);margin:-10px 0 16px}
+.fact{margin-top:14px;padding:13px 17px;border-left:3px solid var(--mark);background:var(--mark-bg);border-radius:0 10px 10px 0;font-size:1.0312rem}
+.fact b{display:block;margin-bottom:3px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;font-size:1rem;color:var(--mark)}
+.tmodes{display:flex;flex-wrap:wrap;gap:6px}
+.diag2{font-size:1rem;color:var(--muted);font-style:italic;margin-top:8px}
+.factlist{padding-left:1.2em;margin:0}
+.factlist li{margin-bottom:10px;font-size:1.0625rem}
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .drawerbtn{display:block}
+  .railx{display:block}
+  .rail{position:fixed;inset:0 0 0 auto;width:min(330px,88vw);border-radius:16px 0 0 16px;
+    padding:calc(20px + env(safe-area-inset-top,0px)) 18px 60px;overflow:auto;z-index:45;transform:translateX(105%);transition:transform .25s ease}
+  .rail.open{transform:translateX(0)}
+  .prow{grid-template-columns:1fr;gap:3px}
+  .prow .lab{padding-top:0}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+.slip p + p{margin-top:2em}
+
+/* ---------- Tiro's Tablets additions ---------- */
+.dcard{font-style:normal}
+.dcard em{font-style:italic}
+.gapline .blank{display:inline-block;min-width:4.5em;border-bottom:2px solid var(--accent);margin:0 .12em;font-style:normal}
+.gapline .blank.filled{min-width:0;border-bottom-color:transparent;color:var(--accent);font-weight:700;font-style:italic}
+.opts.words{flex-direction:row;flex-wrap:wrap}
+.opts.words .opt{font-style:italic;font-size:1.1875rem;min-width:5.5em;text-align:center}
+.fb .en{display:block;font-style:italic;margin-bottom:6px}
+.dist3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:8px 0 16px}
+.dz{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;display:grid;gap:2px;text-align:center;align-content:start}
+.dz b{font-size:1.375rem;font-style:italic;color:var(--accent)}
+.dz span{font-weight:600}
+.dz i{color:var(--muted);font-size:1rem}
+.pair{font-style:italic;font-size:1.1875rem}
+.pair b{color:var(--accent)}
+ul.srcs{margin:0 0 .9em;padding-left:1.2em}
+ul.srcs li{margin-bottom:4px}
+@media (max-width:560px){.dist3{grid-template-columns:1fr}}
+.slot{flex-wrap:wrap} .slot .fn{flex-basis:100%;text-align:left;padding-left:27px}
+.tg{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:.2em}
+.cue{display:block}.cue b{font-weight:600}
+.fb .why{display:block;font-weight:600;margin-bottom:6px}
+.warn{border-left:3px solid var(--accent);padding:4px 0 4px 12px}
+.readchart .tablewrap{margin:6px 0 4px}
+.readchart td.hl{background:var(--accent);color:var(--accent-ink);font-weight:600}
+.readchart td.hl.c{color:var(--accent-ink)}
+.pats{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+.pats .chip[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.pats .chip.seen::after{content:" \2713";color:var(--accent)}
+.patnote{min-height:3.2em;margin:12px 0 4px;padding:10px 14px;border-left:3px solid var(--accent);background:var(--surface)}
+.patnote:empty::before{content:"Tap a pattern above to see it in the chart.";color:var(--muted);font-style:italic}
+.readmore{font-size:1rem;color:var(--muted);margin-top:6px}
+.readmore a{color:var(--accent)}
+.tbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 12px;padding:8px 10px;border:1px dashed var(--rule2);border-radius:10px;font-size:1rem;color:var(--muted)}
+.tbar span{margin-right:auto}
+.hero{margin:0 0 18px}
+.hero img{display:block;width:100%;height:clamp(150px,26vw,300px);object-fit:cover;object-position:50% 66%;border-radius:12px;border:1px solid var(--rule2)}
+.hero figcaption,.side figcaption,.fimg figcaption{font-size:1rem;color:var(--muted);font-style:italic;margin-top:6px}
+.hero figcaption{text-align:right}
+figure.side{float:right;width:min(40%,190px);margin:4px 0 12px 18px}
+figure.side img,.fimg img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--rule2)}
+.slip::after,.modal::after{content:"";display:block;clear:both}
+.fimg{margin:10px 0 0;max-width:340px}
+.dist3.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:560px){.dist3.two{grid-template-columns:1fr}}
+.tok.tg,.latin .tg{color:var(--accent);font-weight:700}
+</style>
+</head>
+<body>
+<div class="shell">
+  <figure class="hero"><img src="img/maccari-cicero-catiline.webp" srcset="img/maccari-cicero-catiline-800.webp 800w, img/maccari-cicero-catiline.webp 1600w" sizes="(max-width:1100px) 100vw, 1100px" alt="Cicero, standing in a white toga, speaks to the senate with his arm raised; on the far right Catiline sits alone on an empty bench."><figcaption>Cesare Maccari, <em>Cicero Denounces Catiline</em> (1889), Palazzo Madama, Rome</figcaption></figure>
+  <header class="masthead">
+    <div>
+      <h1>Tiro&rsquo;s Tablets</h1>
+      <div class="sub">Cicero&rsquo;s secretary &middot; pronouns and demonstratives</div>
+    </div>
+    <div class="tally">
+      <div><b id="pts">0</b><span>points</span></div>
+      <div><b id="rest">0%</b><span>copied</span></div>
+      <button class="drawerbtn" id="dbtn" type="button" aria-controls="rail" aria-expanded="false">Notebook</button>
+    </div>
+  </header>
+
+  <nav class="path" id="path" aria-label="Stages"></nav>
+
+  <div class="grid">
+    <main id="root"></main>
+    <aside class="rail" id="rail"></aside>
+  </div>
+  <footer class="src">
+    <p>Grammar follows J.&nbsp;H. Allen and J.&nbsp;B. Greenough, <em>New Latin Grammar</em> (1903), &sect;&sect;146, 296&ndash;297, in the <a href="https://dcc.dickinson.edu/node/26904" target="_blank" rel="noopener">Dickinson College Commentaries edition</a>. Cicero&rsquo;s lines are lightly trimmed from <em>In Catilinam</em> 1.1&ndash;2, <em>De Imperio Cn. Pompei</em> 22 and <em>Pro Archia</em> 18. </p>
+    <p>Images: Cesare Maccari, <em>Cicero Denounces Catiline</em> (1889), Palazzo Madama, Rome; marble bust of Cicero, Capitoline Museums, Rome; Lawrence Alma-Tadema, <em>A Roman Scribe Writing Dispatches</em> (1865); Benjamin West, <em>Cicero Discovering the Tomb of Archimedes</em> (1797); Tancredi Scarpelli, <em>The Death of Cicero</em>.</p>
+  </footer>
+</div>
+
+<div class="veil" id="veil"><div class="modal" id="modal" role="dialog" aria-modal="true"></div></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+/* ===================== DATA ===================== */
+const CASES=['nominative','genitive','dative','accusative','ablative'];
+const GENDERS=['masculine','feminine','neuter'];
+const NUMS=['singular','plural'];
+
+/* the four demonstratives, filed in the notebook as the student meets them */
+const PRONS=[
+ {k:'is',n:'is, ea, id',d:'he, she, it; no distance, no feeling'},
+ {k:'hic',n:'hic, haec, hoc',d:'this: near me, the speaker'},
+ {k:'ille',n:'ille, illa, illud',d:'that: over there; after a noun, that famous'}
+];
+
+const T_IS={t:'Is, ea, id — he, she, it',h:['Case','Masc.','Fem.','Neut.'],r:[
+ ['nom. sg.','is','ea','id'],['gen. sg.','eius','eius','eius'],['dat. sg.','eī','eī','eī'],['acc. sg.','eum','eam','id'],['abl. sg.','eō','eā','eō'],
+ ['nom. pl.','eī (iī)','eae','ea'],['gen. pl.','eōrum','eārum','eōrum'],['dat. pl.','eīs (iīs)','eīs (iīs)','eīs (iīs)'],['acc. pl.','eōs','eās','ea'],['abl. pl.','eīs (iīs)','eīs (iīs)','eīs (iīs)']],
+ note:'Most endings are the 1st and 2nd declension endings you know from nouns and from <em>bonus, -a, -um</em>: <em>eum, eam, eōs, eās, eōrum, eārum</em>. Two slots are special, and the same in all three genders: genitive <strong>eius</strong> (his, her, its) and dative <strong>eī</strong> (to him, to her, to it). The form follows the Latin noun’s gender; the English follows what the noun refers to. <em>Is</em> is <em>he</em> or <em>it</em>, <em>ea</em> is <em>she</em> or <em>it</em>, <em>id</em> is always <em>it</em>, and every plural is <em>they</em> or <em>them</em>.'};
+const T_HIC={t:'Hic, haec, hoc — this',h:['Case','Masc.','Fem.','Neut.'],r:[
+ ['nom. sg.','hic','haec','hoc'],['gen. sg.','huius','huius','huius'],['dat. sg.','huic','huic','huic'],['acc. sg.','hunc','hanc','hoc'],['abl. sg.','hōc','hāc','hōc'],
+ ['nom. pl.','hī','hae','haec'],['gen. pl.','hōrum','hārum','hōrum'],['dat. pl.','hīs','hīs','hīs'],['acc. pl.','hōs','hās','haec'],['abl. pl.','hīs','hīs','hīs']],
+ note:'Many forms end in <strong>-c</strong>, left over from an old ending <em>-ce</em> meaning roughly "here". Watch <strong>haec</strong>, which is feminine singular and also neuter plural, and <strong>hoc</strong> (nominative or accusative) beside <strong>hōc</strong> (ablative).'};
+const T_ILLE={t:'Ille, illa, illud — that',h:['Case','Masc.','Fem.','Neut.'],r:[
+ ['nom. sg.','ille','illa','illud'],['gen. sg.','illīus','illīus','illīus'],['dat. sg.','illī','illī','illī'],['acc. sg.','illum','illam','illud'],['abl. sg.','illō','illā','illō'],
+ ['nom. pl.','illī','illae','illa'],['gen. pl.','illōrum','illārum','illōrum'],['dat. pl.','illīs','illīs','illīs'],['acc. pl.','illōs','illās','illa'],['abl. pl.','illīs','illīs','illīs']],
+ note:'Apart from the genitive <strong>illīus</strong> and the dative <strong>illī</strong>, which serve all three genders like <em>eius</em> and <em>eī</em>, and the neuter <strong>illud</strong>, <em>ille</em> has the 1st and 2nd declension endings, like <em>bonus, -a, -um</em>.'};
+
+const CHARTS={
+ tiro:{t:'Who Tiro was',html:
+  '<figure class="side"><img src="img/alma-tadema-roman-scribe.webp" width="421" height="600" alt="A Roman in a red toga sits beside a cabinet of scrolls, with a scroll and an ink bottle on a small table"><figcaption>A Roman scribe at work. Lawrence Alma-Tadema, 1865.</figcaption></figure>'+
+  '<p><strong>Marcus Tullius Tiro</strong> was born a slave in the household of Marcus Tullius Cicero and became his secretary. He took down Cicero’s letters and speeches as Cicero dictated, kept his papers and managed his business.</p>'+
+  '<p>Cicero freed him in 53 BC. A freed slave took his former master’s first two names, which is why Tiro became <em>Marcus Tullius</em> Tiro. Book 16 of Cicero’s <em>Letters to Friends</em> is made up mostly of letters to Tiro, many of them worried about his health.</p>'+
+  '<p>Tiro is credited with a system of shorthand, later called the <em>notae Tīrōniānae</em> (Tironian notes), which used signs for common words and endings. After Cicero’s death he is thought to have helped publish his letters and wrote a life of Cicero, which is now lost.</p>'},
+ speeches:{t:'Cicero’s speeches in this game',h:['Year','Speech','Who he speaks about'],r:[
+  ['66 BC','<em>De Imperio Cn. Pompei</em> (On Pompey’s Command)','Mithridates, king of Pontus, Rome’s enemy in the east'],
+  ['63 BC','<em>In Catilinam</em> (Against Catiline), four speeches','Lucius Sergius Catilina, leader of a conspiracy'],
+  ['62 BC','<em>Pro Archia</em> (For Archias)','the Greek poet Archias, Cicero’s client and former teacher']],
+  note:'Cicero rewrote and published his speeches after he gave them, often with Tiro’s help. The published texts are what you read today.'},
+ gend:{t:'How to tell a noun’s gender',h:['Ending in the entry','Usually','Watch for'],r:[
+  ['-a, -ae (1st declension)','feminine','<em>nauta, agricola, poēta</em> are masculine'],
+  ['-us, -ī (2nd)','masculine','a few are feminine, such as names of trees'],
+  ['-um, -ī (2nd)','neuter','none'],
+  ['3rd declension (<em>cōnsul, ōrātiō, nōmen</em>)','any of the three','learn the gender with the word: <em>-tiō</em> nouns are feminine, <em>-men</em> nouns neuter'],
+  ['-us, -ūs (4th)','masculine','<em>manus</em> (hand) is feminine'],
+  ['-ēs, -eī (5th)','feminine','<em>diēs</em> (day) is usually masculine']],
+  note:'The ending suggests the gender; the dictionary entry (<em>m.</em>, <em>f.</em>, <em>n.</em>) settles it. A pronoun follows the entry, not the English: a speech is <em>it</em> in English, but <em>ōrātiō</em> is feminine, so Latin refers to it with <em>ea</em>.'},
+ is:T_IS,
+ dist:{t:'How far away is it?',html:
+  '<div class="dist3 two"><div class="dz"><b>hic</b><span>this</span><i>near me, the speaker</i></div><div class="dz"><b>ille</b><span>that</span><i>away from me, over there</i></div></div>'+
+  '<p>English and Latin both have two pointing words: <em>this</em> (<em>hic</em>) for something near the speaker, and <em>that</em> (<em>ille</em>) for something further away.</p>'+
+  '<p><em>Is, ea, id</em> does not point at a place at all. It simply replaces a noun already mentioned, and is usually translated <em>he, she, it</em>.</p>'},
+ hic:T_HIC,
+ ille:T_ILLE,
+ tone:{t:'Distance and feeling in Cicero',h:['Word','Distance','What Cicero can do with it'],r:[
+  ['hic','near me','<em>this man here</em>: someone in the room, an enemy he accuses (Catiline) or a client he defends (<em>hunc</em> = Archias)'],
+  ['ille','over there','someone away from him; after a noun, <em>that famous</em>: <em>Mēdēa illa</em>, that famous Medea'],
+  ['is','none','neutral: <em>he, she, it</em>, with no feeling of its own']],
+  note:'Allen and Greenough (§297) note that <em>ille</em> placed after its noun often marks something famous.'}
+};
+
+const BADGES={
+ ante:{n:'Noun Finder',d:'Find the noun that three pronouns replace.'},
+ gender:{n:'Grammatical Gender',d:'Sort every noun by gender without a slip.'},
+ eius:{n:'His, Her or Its',d:'See that eius can be any gender.'},
+ yonder:{n:'Here and There',d:'Sort every phrase by distance without a slip.'},
+ four:{n:'All Three on File',d:'File is, hic and ille in your notebook.'},
+ ear:{n:'Cicero’s Ear',d:'Read the feeling behind three of Cicero’s pronouns.'},
+ perfect:{n:'Fair Copy',d:'Parse every pronoun in a sentence correctly on the first pass.'}
+};
+
+const MASTERY=[
+ {k:'ante',n:'Finding the noun replaced'},
+ {k:'gend',n:'Latin gender'},
+ {k:'isf',n:'Forms of is, ea, id'},
+ {k:'dist',n:'Distance'},
+ {k:'hicf',n:'Forms of hic, haec, hoc'},
+ {k:'tone',n:'Cicero’s attitude'}
+];
+
+/* ===================== STAGES ===================== */
+/* Screen types: brief (text), chart (guided reading of a form chart), pick (tap the word in a sentence), ask (one answer),
+   multi (all that apply), sort (cards into groups), gap (choose the word that fills a blank in a Latin sentence),
+   parse (pronouns in a sentence).
+   why: {optionIndex: html} explains a particular wrong choice. tg: token indexes to underline in a pick sentence.
+   <u class="tg"> underlines the word being asked about. Glosses give dictionary entries; common verbs get no meaning. */
+const STAGES=[
+{id:'standins',name:'Stand-ins',full:'What a Pronoun Does',screens:[
+ {t:'brief',h:'Rome, 63 BC',html:
+  '<figure class="side"><img src="img/cicero-bust.webp" width="365" height="547" alt="Marble bust of Cicero: an older man with a broad face, a long nose and thinning hair"><figcaption>Cicero. Marble bust, Capitoline Museums, Rome.</figcaption></figure>'+
+  '<p>Marcus Tullius Cicero (106–43 BC) was a Roman politician, a lawyer and the most famous speaker of his time. In 63 BC he was consul, the highest office in Rome, and he spoke in the senate and the law courts almost every week. His secretary, <strong>Tiro</strong>, took down what he said in a shorthand of his own and then made clean copies for Cicero to revise and publish.</p>'+
+  '<p>In this game it is 63 BC, and you are helping Tiro. Your task is the short words that stand in for nouns, the <strong>pronouns</strong>. A copyist who gets a pronoun wrong changes who did what, so Tiro checks every one.</p>'+
+  '<p>This first stage is in English, so that you can see how English pronouns work before you meet the Latin ones. A pronoun replaces a noun so that the noun does not have to be repeated. In each sentence, the pronoun you are asked about is underlined.</p>'},
+ {t:'pick',s:'Cicero finished the speech and gave it to Tiro.',toks:['Cicero','finished','the','speech','and','gave','it','to','Tiro.'],hot:[0,3,8],tg:[6],ans:3,
+  q:'Which noun does <em>it</em> replace? Tap it.',res:'Found: the speech',m:'ante',counts:'ante',
+  fb:'<em>It</em> replaces <em>the speech</em>. English uses <em>it</em> because a speech is a thing, not a person. Without the pronoun, the sentence would have to say <em>gave the speech to Tiro</em>.'},
+ {t:'pick',s:'Cicero met Terentia, his wife, at the door and greeted her.',toks:['Cicero','met','Terentia,','his','wife,','at','the','door','and','greeted','her.'],hot:[0,2,7],tg:[10],ans:2,
+  q:'Which noun does <em>her</em> replace? Tap it.',res:'Found: Terentia',m:'ante',counts:'ante',
+  fb:'<em>Her</em> replaces <em>Terentia</em>. English uses <em>she</em> and <em>her</em> because Terentia is a woman. If the pronoun had replaced <em>the door</em>, English would have said <em>it</em>.'},
+ {t:'pick',s:'Tiro copied the letters, and then he sealed them.',toks:['Tiro','copied','the','letters,','and','then','he','sealed','them.'],hot:[0,3],tg:[8],ans:3,
+  q:'Which noun does <em>them</em> replace? Tap it.',res:'Found: the letters',m:'ante',counts:'ante',
+  fb:'<em>Them</em> replaces <em>the letters</em>, and <em>he</em> replaces <em>Tiro</em>. Each pronoun replaces its own noun.'},
+ {t:'ask',q:'<span class="latin" lang="en">Tiro copied the letters, and then he sealed <u class="tg">them</u>.</span>Why does the writer use <em>them</em> and not <em>it</em>?',
+  opts:['Because <em>letters</em> is plural','Because Tiro is a man','Because <em>them</em> sounds more formal','There is no reason; both are correct'],ans:0,m:'ante',
+  fb:'A pronoun matches the noun it replaces in <strong>number</strong>: singular for one, plural for more than one. <em>Letters</em> is plural, so the pronoun is plural too.'},
+ {t:'ask',q:'<span class="latin" lang="en">Tiro picked up the tablets and carried <u class="tg">them</u> to Cicero. Then he greeted the senators and showed <u class="tg">them</u> the letter.</span>The first <em>them</em> replaces the tablets, which are things. The second replaces the senators, who are people. What does this show about English?',
+  opts:['In the plural, English uses <em>they</em> and <em>them</em> for people and things alike','<em>Them</em> is only for things, so the second one is a mistake','<em>Them</em> is only for people, so the first one is a mistake','English uses <em>them</em> only for men'],ans:0,m:'ante',
+  fb:'In the singular, English chooses between <em>he</em>, <em>she</em> and <em>it</em> by asking whether the noun it replaces is a man, a woman or a thing. In the plural it stops asking: <em>they</em> and <em>them</em> serve for everything.'},
+ {t:'brief',h:'English pronouns at a glance',html:
+  '<p>So far, English has chosen its pronoun by asking two questions about the noun it replaces:</p>'+
+  '<ul class="srcs"><li><strong>One or more than one?</strong> One letter is <em>it</em>; two letters are <em>they</em>.</li><li><strong>In the singular, a man, a woman or a thing?</strong> Tiro is <em>he</em>, Terentia is <em>she</em>, the speech is <em>it</em>. In the plural, English does not ask this question.</li></ul>'+
+  '<p>English decides gender by what the noun actually refers to. Latin decides it in a different way, which is the subject of the next stage. First, one more question about English.</p>'},
+ {t:'ask',q:'<span class="latin" lang="en">Tiro found the speech. <u class="tg">He</u> read it at once, and Cicero thanked <u class="tg">him</u>.</span><em>He</em> and <em>him</em> both replace Tiro. Why does English change from <em>he</em> to <em>him</em>?',
+  opts:['<em>He</em> is the subject of <em>read</em>; <em>him</em> is the object of <em>thanked</em>','They replace different nouns','<em>Him</em> is plural','There is no reason; they are interchangeable'],ans:0,m:'ante',
+  why:{1:'Both replace Tiro. Something else has changed.',2:'Both are singular, because both replace one person, Tiro.'},
+  fb:'<strong>This is the key idea of the game.</strong> The noun it replaces, Tiro, decides that the pronoun is singular and masculine. The pronoun’s own function in its own sentence decides between <em>he</em> (subject) and <em>him</em> (object). This difference in form is called <strong>case</strong>. Latin pronouns work the same way, with more cases.'}
+]},
+
+{id:'gender',name:'Gender',full:'Latin Gender',screens:[
+ {t:'brief',h:'Every Latin noun has a gender',html:
+  '<p>English, as you have just seen, chooses <em>he</em>, <em>she</em> or <em>it</em> by what the noun refers to: a man, a woman or a thing.</p>'+
+  '<p>Latin works differently. <strong>Every Latin noun is masculine, feminine or neuter, including the nouns for things.</strong> The gender belongs to the word, and it has nothing to do with whether the thing is male or female. A speech (<em>ōrātiō</em>) is feminine, a book (<em>liber</em>) is masculine, and a word (<em>verbum</em>) is neuter.</p>'+
+  '<p>Latin’s word for <em>he, she, it</em> has a form for each gender: <strong><em>is</em></strong> (masculine), <strong><em>ea</em></strong> (feminine) and <strong><em>id</em></strong> (neuter). A Latin pronoun takes the gender of the noun it replaces. A pronoun for <em>ōrātiō</em> is therefore <em>ea</em>, and a pronoun for <em>liber</em> is <em>is</em>, even though both are things.</p>'+
+  '<p class="warn"><strong>Do not go by the English.</strong> In English, both the speech and the book are <em>it</em>, but in Latin neither one is <em>id</em>. Only a neuter noun takes <em>id</em>. Always look at the Latin noun’s gender, not at the English pronoun.</p>'+
+  '<p>The gender is printed in the dictionary entry: <em>m.</em>, <em>f.</em> or <em>n.</em> The ending is often a good guide, but the entry settles it.</p>'},
+ {t:'sort',q:'Tiro’s word list for the speech against Catiline. Sort each noun by its gender.',m:'gend',badge:'gender',
+  hint:'Not that group. Look at the gender in the entry: m., f. or n.',
+  okfb:'All twelve sorted correctly. Notice that <em>senātus</em> is masculine and <em>rēs pūblica</em> and <em>urbs</em> are feminine. In English, the senate, the republic and the city are all <em>it</em>.',
+  errfb:'Sorted, with {n} slip{s}. The endings mislead in the third declension, where any gender is possible, so read the <em>m.</em>, <em>f.</em> or <em>n.</em> in the entry.',
+  bins:[{id:'m',n:'Masculine',h:'pronoun: is'},{id:'f',n:'Feminine',h:'pronoun: ea'},{id:'n',n:'Neuter',h:'pronoun: id'}],
+  cards:[
+   {txt:'<em>senātus, -ūs</em>, m. senate',bin:'m'},{txt:'<em>cōnsul, -is</em>, m. consul',bin:'m'},{txt:'<em>liber, librī</em>, m. book',bin:'m'},{txt:'<em>animus, -ī</em>, m. mind',bin:'m'},
+   {txt:'<em>ōrātiō, -ōnis</em>, f. speech',bin:'f'},{txt:'<em>epistula, -ae</em>, f. letter',bin:'f'},{txt:'<em>rēs pūblica</em>, f. the republic',bin:'f'},{txt:'<em>urbs, urbis</em>, f. city',bin:'f'},
+   {txt:'<em>verbum, -ī</em>, n. word',bin:'n'},{txt:'<em>perīculum, -ī</em>, n. danger',bin:'n'},{txt:'<em>nōmen, nōminis</em>, n. name',bin:'n'},{txt:'<em>forum, -ī</em>, n. forum',bin:'n'}]},
+ {t:'ask',q:'The entry reads <em>ōrātiō, ōrātiōnis</em>, f. (speech). Which pronoun does Latin use to replace a speech?',
+  opts:['<em>is</em> (masculine)','<em>ea</em> (feminine)','<em>id</em> (neuter)'],ans:1,m:'gend',unlock:'is',
+  why:{2:'English calls a speech <em>it</em> because it is a thing, but Latin goes by the noun’s gender, and <em>ōrātiō</em> is feminine.',0:'<em>Is</em> is for masculine nouns. Check the entry: <em>f.</em>'},
+  fb:'<em>Ea</em>, because <em>ōrātiō</em> is feminine.'},
+ {t:'ask',q:'<span class="latin">Cicerō ōrātiōnem in senātū habuit; <u class="tg">ea</u> longa erat.</span><span class="gloss">ōrātiō, -ōnis, f. speech · ōrātiōnem habēre, to give a speech · longus, -a, -um, long</span><em>Ea</em> replaces <em>ōrātiōnem</em>. How do you translate it into English?',
+  opts:['<em>it</em>','<em>she</em>','<em>they</em>'],ans:0,m:'gend',
+  why:{1:'<em>She</em> is for a woman. A speech is a thing, so English says <em>it</em>, even though the Latin form is feminine.',2:'<em>Ea</em> here replaces one speech, so the English is singular.'},
+  fb:'<em>It</em>: "Cicero gave a speech in the senate; it was long." The two languages make their choices separately. Latin chooses the form by the noun’s gender (<em>ōrātiō</em> is feminine, so <em>ea</em>). English chooses the translation by what the thing is (a speech is a thing, so <em>it</em>).'},
+ {t:'ask',q:'The entry reads <em>senātus, -ūs</em>, m. (senate). Which pronoun does Latin use to replace the senate?',
+  opts:['<em>is</em> (masculine)','<em>ea</em> (feminine)','<em>id</em> (neuter)'],ans:0,m:'gend',
+  why:{2:'English calls the senate <em>it</em>, but <em>senātus</em> is masculine, so Latin uses <em>is</em>.',1:'<em>Ea</em> is for feminine nouns. Check the entry: <em>m.</em>'},
+  fb:'<em>Is</em>, because <em>senātus</em> is masculine. In English you would still translate it <em>it</em>.'},
+ {t:'ask',q:'<em>nauta, nautae</em> (sailor) is a first-declension noun like <em>puella</em>, but the entry says <em>m.</em> Which pronoun replaces a sailor?',
+  opts:['<em>ea</em>, because of the <em>-a</em> ending','<em>is</em>, because the entry says masculine','either one'],ans:1,m:'gend',unlockTool:'gend',
+  fb:'The pronoun follows the gender of the noun. Even though <em>-a</em> is usually a feminine ending, <em>nauta</em> is a masculine word.'},
+ {t:'multi',q:'Which of these nouns would Latin replace with <em>id</em>? Select every one that applies.',
+  opts:['<em>verbum, -ī</em>, n. word','<em>perīculum, -ī</em>, n. danger','<em>liber, librī</em>, m. book','<em>nōmen, nōminis</em>, n. name','<em>epistula, -ae</em>, f. letter'],ans:[0,1,3],m:'gend',
+  fb:'Only the three neuter nouns take <em>id</em>. A book and a letter are both <em>it</em> in English, but <em>liber</em> takes <em>is</em> and <em>epistula</em> takes <em>ea</em>.'}
+]},
+
+{id:'is',name:'Is, ea, id',full:'He, She, It: is, ea, id',screens:[
+ {t:'brief',h:'Two questions for every form',html:
+  '<p><em>Is, ea, id</em> is the ordinary Latin pronoun for <em>he, she, it</em>, and in the plural for <em>they</em>. To choose the right form, ask two questions:</p>'+
+  '<ul class="srcs"><li><strong>Which noun does it replace?</strong> That noun’s gender and number decide between masculine, feminine and neuter, and between singular and plural.</li><li><strong>What is its function in its own sentence?</strong> That decides the case: subject, object, <em>to</em> someone, <em>of</em> someone, and so on.</li></ul>'+
+  '<p>Suppose Cicero writes a letter (<em>epistula</em>, feminine singular) and Tiro reads it. The pronoun is feminine singular because of <em>epistula</em>, and accusative because it is the object of <em>reads</em>. The form is <em>eam</em>.</p>'+
+  '<p>When you translate, go by what the noun refers to in English. <em>Is</em> is <em>he</em> for a man and <em>it</em> for a thing. <em>Ea</em> is <em>she</em> for a woman and <em>it</em> for a thing. <em>Id</em> is always <em>it</em>. In the plural, every gender is <em>they</em> or <em>them</em>.</p>'},
+ {t:'chart',h:'The forms of is, ea, id',table:T_IS,unlockTool:'is',
+  intro:'<p>Here is the full chart, the same one as on the grammar page. Most of it will look familiar. Tap each pattern below to see where it appears in the chart.</p>',
+  more:'<a href="../grammar/pronouns-is.html" target="_blank" rel="noopener">Open the grammar page for <em>is, ea, id</em></a>. The chart also stays in your toolkit for the exercises.',
+  pats:[
+   {lab:'Like the 1st/2nd declension endings',cells:[[0,2],[3,1],[3,2],[4,1],[4,2],[4,3],[5,1],[5,2],[5,3],[6,1],[6,2],[6,3],[7,1],[7,2],[7,3],[8,1],[8,2],[8,3],[9,1],[9,2],[9,3]],
+    note:'<b>The endings of the 1st and 2nd declensions.</b> Most forms are the stem <i>e-</i> with the endings you know from the 1st and 2nd declensions (and from adjectives like <i>bonus, -a, -um</i>): <i>eum, eam, eō, eā</i> in the singular, and <i>eī, eae, ea, eōrum, eārum, eīs, eōs, eās</i> in the plural. As with every noun, the dative and ablative plural are the same word, <i>eīs</i>.'},
+   {lab:'eius, eī',cells:[[1,1],[1,2],[1,3],[2,1],[2,2],[2,3]],
+    note:'<b>One genitive and one dative for all three genders.</b> <i>Eius</i> (of him, of her, of it) and <i>eī</i> (to him, to her, to it) do not change with gender. These endings belong to pronouns; no noun has them. Because <i>eius</i> can be any gender, the noun it replaces tells you whether to translate <i>his</i>, <i>her</i> or <i>its</i>.'},
+   {lab:'is and id',cells:[[0,1],[0,3],[3,3]],
+    note:'<b>The two forms that do not follow the 1st and 2nd declensions.</b> The masculine nominative is <i>is</i>, and the neuter nominative and accusative is <i>id</i>. As with every neuter, the subject form and the object form are the same.'},
+   {lab:'Look-alikes',cells:[[0,2],[5,3],[8,3],[2,1],[2,2],[2,3],[5,1]],
+    note:'<b>Two spellings with more than one reading.</b> <i>Ea</i> is feminine singular (she) or neuter plural (they, them). <i>Eī</i> is dative singular in any gender (to him, to her, to it) or masculine nominative plural (they). The noun it replaces, and the verb, tell you which.'}]},
+ {t:'gap',s:'Cicerō epistulam scrīpsit; Tīrō ___ lēgit.',gl:'epistula, -ae, f. letter · scrībō, scrībere, scrīpsī, scrīptum · legō, legere, lēgī, lēctum',en:'Cicero wrote a letter; Tiro read it.',
+  q:'<span class="cue"><b>Replaces:</b> <em>epistulam</em> (feminine, singular)</span><span class="cue"><b>Function:</b> the object of <em>lēgit</em></span>',opts:['eum','eam','id','eās'],ans:1,m:'isf',
+  why:{2:'English would say <em>it</em>, but <em>id</em> is neuter, and <em>epistula</em> is feminine.',0:'<em>Eum</em> is masculine.',3:'<em>Eās</em> is plural, but there is one letter.'},
+  fb:'<em>Eam</em>: feminine singular because of <em>epistulam</em>, accusative because Tiro reads it. In English, a letter is <em>it</em>.'},
+ {t:'gap',s:'Cicerō librōs Atticō mīsit; Atticus ___ libenter lēgit.',gl:'liber, librī, m. book · mittō, mittere, mīsī, missum · libenter, adv. gladly · legō, legere, lēgī, lēctum',en:'Cicero sent books to Atticus; Atticus gladly read them.',
+  q:'<span class="cue"><b>Replaces:</b> <em>librōs</em> (masculine, plural)</span><span class="cue"><b>Function:</b> the object of <em>lēgit</em></span>',opts:['eum','eōs','eās','ea'],ans:1,m:'isf',
+  why:{0:'<em>Eum</em> is singular, but there are several books.',2:'<em>Eās</em> is feminine. English <em>them</em> does not show gender, but <em>liber</em> is masculine.',3:'<em>Ea</em> is neuter plural. <em>Liber</em> is masculine.'},
+  fb:'<em>Eōs</em>: masculine plural because of <em>librōs</em>, accusative because they are read.'},
+ {t:'gap',s:'Cicerō Catilīnam in senātū vīdit et ___ accūsāvit.',gl:'videō, vidēre, vīdī, vīsum · accūsō, accūsāre, accūsāvī, accūsātum',en:'Cicero saw Catiline in the senate and accused him.',
+  q:'<span class="cue"><b>Replaces:</b> <em>Catilīnam</em> (a man, so masculine; singular)</span><span class="cue"><b>Function:</b> the object of <em>accūsāvit</em></span>',opts:['is','eum','eī','eius'],ans:1,m:'isf',
+  why:{0:'<em>Is</em> is nominative, the form for a subject. Here the pronoun is the object.',2:'<em>Eī</em> means <em>to him</em>. Catiline is accused, not given something.',3:'<em>Eius</em> means <em>his</em>.'},
+  fb:'<em>Eum</em>: masculine singular for Catiline, accusative as the object of <em>accūsāvit</em>.'},
+ {t:'gap',s:'Perīculum magnum erat, sed cōnsul ___ nōn timēbat.',gl:'perīculum, -ī, n. danger · timeō, timēre, timuī',en:'The danger was great, but the consul did not fear it.',
+  q:'<span class="cue"><b>Replaces:</b> <em>perīculum</em> (neuter, singular)</span><span class="cue"><b>Function:</b> the object of <em>timēbat</em></span>',opts:['id','eum','eam','ea'],ans:0,m:'isf',
+  why:{1:'<em>Eum</em> is masculine. <em>Perīculum</em> is neuter.',2:'<em>Eam</em> is feminine. <em>Perīculum</em> is neuter.',3:'<em>Ea</em> is neuter, but plural. There is one danger.'},
+  fb:'<em>Id</em>: neuter singular for <em>perīculum</em>. This time the Latin <em>id</em> and the English <em>it</em> line up, because the noun is neuter. Neuters have the same form for subject and object.'},
+ {t:'gap',s:'Senātōrēs in cūriā sedēbant; cōnsul ___ epistulam ostendit.',gl:'senātor, -ōris, m. senator · cūria, -ae, f. senate house · sedeō, sedēre, sēdī, sessum · ostendō, ostendere, ostendī, ostentum',en:'The senators were sitting in the senate house; the consul showed the letter to them.',
+  q:'<span class="cue"><b>Replaces:</b> <em>senātōrēs</em> (masculine, plural)</span><span class="cue"><b>Function:</b> the people the letter is shown <em>to</em></span>',opts:['eōs','eīs','eōrum','eī'],ans:1,m:'isf',
+  why:{0:'<em>Eōs</em> is the object form. The object of <em>ostendit</em> is the letter; the senators are the ones it is shown <em>to</em>.',2:'<em>Eōrum</em> means <em>of them</em>.',3:'<em>Eī</em> as <em>to him</em> is singular, but there are many senators.'},
+  fb:'<em>Eīs</em>: plural for the senators, dative because the letter is shown <em>to</em> them. Remember to put <em>to</em> in your English.'},
+ {t:'gap',s:'Cicerō fīliam Tulliam valdē amābat; post mortem ___ diū lūgēbat.',gl:'fīlia, -ae, f. daughter · valdē, adv. very much · amō, amāre, amāvī, amātum · post (+ accusative) · mors, mortis, f. death · diū, adv. for a long time · lūgeō, lūgēre, lūxī, lūctum, to mourn',en:'Cicero loved his daughter Tullia very much; after her death he mourned for a long time.',
+  q:'<span class="cue"><b>Replaces:</b> <em>Tulliam</em> (feminine, singular)</span><span class="cue"><b>Function:</b> says whose death it is: <em>of her</em></span>',opts:['eī','eam','eius','ea'],ans:2,m:'isf',
+  why:{0:'<em>Eī</em> means <em>to her</em>.',1:'<em>Eam</em> is the object form, <em>her</em> as in <em>he loved her</em>.',3:'<em>Ea</em> is the subject form.'},
+  fb:'<em>Eius</em>, the genitive: <em>of her</em>, so <em>her death</em>. Tullia died in 45 BC, and Cicero was overcome with grief.'},
+ {t:'multi',q:'Taken on its own, <em>eius</em> could mean which of these? Select every one that applies.',
+  opts:['his','her','its','to him'],ans:[0,1,2],m:'isf',counts:'eius',
+  fb:'<em>Eius</em> is the genitive singular in all three genders, so the form alone cannot tell you <em>his</em>, <em>her</em> or <em>its</em>. The noun it replaces decides. (<em>To him</em> is <em>eī</em>.)'},
+ {t:'gap',s:'Tīrō tabulās cērātās habēbat; in ___ verba Cicerōnis scrībēbat.',gl:'tabula, -ae, f. tablet · cērātus, -a, -um, wax-covered · habeō, habēre, habuī, habitum · verbum, -ī, n. word · scrībō, scrībere, scrīpsī, scrīptum',en:'Tiro had wax tablets; on them he used to write Cicero’s words.',
+  q:'<span class="cue"><b>Replaces:</b> <em>tabulās</em> (feminine, plural)</span><span class="cue"><b>Function:</b> after <em>in</em>, meaning <em>on</em>, which takes the ablative</span>',opts:['eās','eīs','eārum','eā'],ans:1,m:'isf',
+  why:{0:'<em>Eās</em> is accusative. <em>In</em> meaning <em>on</em> takes the ablative.',2:'<em>Eārum</em> means <em>of them</em>.',3:'<em>Eā</em> is ablative, but singular. There are several tablets.'},
+  fb:'<em>Eīs</em>, ablative plural after <em>in</em>. The dative and ablative plural share the form <em>eīs</em> in every gender.'},
+ {t:'gap',s:'Cicerō multa verba dīxit; Tīrō ___ omnia nōtāvit.',gl:'verbum, -ī, n. word · dīcō, dīcere, dīxī, dictum · omnis, omne, all · nōtō, nōtāre, nōtāvī, nōtātum, to note down',en:'Cicero said many words; Tiro noted them all down.',
+  q:'<span class="cue"><b>Replaces:</b> <em>verba</em> (neuter, plural)</span><span class="cue"><b>Function:</b> the object of <em>nōtāvit</em></span>',opts:['eōs','eās','ea','eam'],ans:2,m:'isf',
+  why:{0:'<em>Eōs</em> is masculine. English <em>them</em> does not show gender, but <em>verbum</em> is neuter.',1:'<em>Eās</em> is feminine. <em>Verbum</em> is neuter.',3:'<em>Eam</em> is feminine singular.'},
+  fb:'<em>Ea</em>: neuter plural for <em>verba</em>. It looks exactly like the feminine singular <em>ea</em>, so check the noun it replaces.'},
+ {t:'multi',q:'Taken on its own, <em>eī</em> could be which of these? Select every one that applies.',
+  opts:['dative singular, any gender (to him, to her, to it)','nominative plural masculine (they)','genitive singular (his)','accusative singular (him)'],ans:[0,1],m:'isf',
+  fb:'Two readings. The verb usually decides: a plural verb points to <em>they</em>, and a verb of giving or showing points to <em>to him</em> or <em>to her</em>.'}
+]},
+
+{id:'distance',name:'Distance',full:'How Far Away Is It?',screens:[
+ {t:'brief',h:'This and that',html:
+  '<p>Some words do more than replace a noun: they point at something. English has two pointing words, <em>this</em> and <em>that</em>. <em>This</em> is for something close to the speaker, and <em>that</em> for something further away.</p>'+
+  '<p>Latin has the same two:</p>'+
+  '<div class="dist3 two"><div class="dz"><b>hic</b><span>this</span><i>near me, the speaker</i></div><div class="dz"><b>ille</b><span>that</span><i>away from me, over there</i></div></div>'+
+  '<p>These words are called <strong>demonstratives</strong>, from <em>dēmōnstrāre</em>, to point out. Start with English.</p>',unlockTool:'dist'},
+ {t:'ask',q:'You are holding a pen and want your friend to look at it. You say: <span class="latin" lang="en">Look at <u class="tg">___</u> pen.</span>',opts:['this','that'],ans:0,m:'dist',
+  fb:'<em>This</em>: the pen is near you, the speaker. Latin would use <em>hic</em>.'},
+ {t:'ask',q:'A pen is lying on a desk across the room. You say: <span class="latin" lang="en">Pass me <u class="tg">___</u> pen.</span>',opts:['this','that'],ans:1,m:'dist',unlock:'ille',
+  fb:'<em>That</em>: the pen is away from you, over there. Latin would use <em>ille</em>.'},
+ {t:'sort',q:'Cicero is speaking. Sort each phrase by how far the thing is from him.',m:'dist',badge:'yonder',
+  hint:'Not that group. Look at the start of the pointing word: h- or ill-.',
+  okfb:'All sorted correctly. The first letters tell you the distance: <em>h-</em> is here by me, and <em>ill-</em> is over there.',
+  errfb:'Sorted, with {n} slip{s}. Forms of <em>hic, haec, hoc</em> start with <em>h-</em> and mean <em>this</em>; forms of <em>ille, illa, illud</em> start with <em>ill-</em> and mean <em>that</em>.',
+  bins:[{id:'h',n:'Near me: this',h:'hic'},{id:'il',n:'Over there: that',h:'ille'}],
+  cards:[
+   {txt:'<em>hic liber</em> (book)',bin:'h'},{txt:'<em>haec epistula</em> (letter)',bin:'h'},{txt:'<em>hoc templum</em> (temple)',bin:'h'},{txt:'<em>hanc urbem</em> (city)',bin:'h'},
+   {txt:'<em>ille mōns</em> (mountain)',bin:'il'},{txt:'<em>illa urbs</em> (city)',bin:'il'},{txt:'<em>illud templum</em> (temple)',bin:'il'},{txt:'<em>illum librum</em> (book)',bin:'il'}]},
+ {t:'brief',h:'Two ways to use a demonstrative',html:
+  '<p>A demonstrative can be used in two ways, and each follows its own rule.</p>'+
+  '<ul class="srcs"><li><strong>With a noun</strong>, like an adjective: <em>hic liber</em>, this book. The demonstrative <strong>agrees</strong> with its noun in gender, number <em>and</em> case, just as <em>bonus</em> does. It has no function of its own; it shares its noun’s.</li>'+
+  '<li><strong>Alone</strong>, replacing a noun: <em>hic</em>, this man. It then works like <em>is</em>: gender and number from the noun it replaces, and case from its own function. You will meet this use in Cicero’s speeches.</li></ul>'+
+  '<p>In the rest of this stage, every form of <em>hic</em> goes with a noun. Find the noun and copy its gender, number and case:</p>'+
+  '<div class="formrow"><span class="pair"><b>hic</b> liber</span><span class="pair"><b>haec</b> epistula</span><span class="pair"><b>hoc</b> verbum</span></div>'+
+  '<div class="formrow"><span class="pair"><b>hunc</b> librum</span><span class="pair"><b>hanc</b> epistulam</span><span class="pair"><b>hoc</b> verbum</span></div>'+
+  '<p>The first row is nominative, the second accusative.</p>'},
+ {t:'chart',h:'The forms of hic, haec, hoc',table:T_HIC,unlockTool:'hic',
+  intro:'<p>Here is the full chart of <em>hic, haec, hoc</em>, as on the grammar page. Tap each pattern below to see where it appears.</p>',
+  more:'<a href="../grammar/pronouns-hic.html" target="_blank" rel="noopener">Open the grammar page for <em>hic, haec, hoc</em></a>. The chart also stays in your toolkit.',
+  pats:[
+   {lab:'-c',cells:[[0,1],[0,2],[0,3],[2,1],[2,2],[2,3],[3,1],[3,2],[3,3],[4,1],[4,2],[4,3],[5,3],[8,3]],
+    note:'<b>The -c forms.</b> Many forms end in <i>-c</i>, left over from an old word <i>-ce</i> meaning roughly "here". Take it off and the ending underneath is often familiar: <i>hun-c</i> and <i>han-c</i> hide the accusative <i>-m</i>, and <i>hō-c</i> and <i>hā-c</i> the long-vowel ablative.'},
+   {lab:'huius, huic',cells:[[1,1],[1,2],[1,3],[2,1],[2,2],[2,3]],
+    note:'<b>One genitive and one dative for all three genders</b>, just like <i>eius</i> and <i>eī</i>: <i>huius</i> (of this) and <i>huic</i> (to this).'},
+   {lab:'Plural like the 1st/2nd declension endings',cells:[[5,1],[5,2],[6,1],[6,2],[6,3],[7,1],[7,2],[7,3],[8,1],[8,2],[9,1],[9,2],[9,3]],
+    note:'<b>The plural has the endings of the 1st and 2nd declensions.</b> Apart from the neuter <i>haec</i>, the plural is the stem <i>h-</i> with the 1st and 2nd declension endings: <i>hī, hae, hōrum, hārum, hīs, hōs, hās</i>.'},
+   {lab:'Look-alike',cells:[[0,2],[5,3],[8,3]],
+    note:'<b>One spelling, two readings.</b> <i>Haec</i> is the feminine nominative singular (this) and also the neuter nominative and accusative plural (these). The noun it goes with tells you which: <i>haec epistula</i>, this letter; <i>haec verba</i>, these words.'}]},
+ {t:'gap',s:'Cicerō ___ ōrātiōnem in senātū habuit.',gl:'ōrātiō, -ōnis, f. speech · ōrātiōnem habēre, to give a speech',en:'Cicero gave this speech in the senate.',
+  q:'<span class="cue"><b>Goes with:</b> <em>ōrātiōnem</em> (feminine, singular, accusative)</span>',opts:['hic','haec','hanc','hunc'],ans:2,m:'hicf',unlock:'hic',
+  why:{1:'<em>Haec</em> is feminine, but nominative. <em>Ōrātiōnem</em> is accusative, the object of <em>habuit</em>.',3:'<em>Hunc</em> is accusative, but masculine. <em>Ōrātiō</em> is feminine.',0:'<em>Hic</em> is masculine nominative.'},
+  fb:'<em>Hanc</em>: feminine, singular and accusative, like <em>ōrātiōnem</em>.'},
+ {t:'gap',s:'Cōnsul ___ senātōrī respondit.',gl:'senātor, -ōris, m. senator · respondeō, respondēre, respondī, respōnsum (+ dative)',en:'The consul replied to this senator.',
+  q:'<span class="cue"><b>Goes with:</b> <em>senātōrī</em> (masculine, singular, dative)</span>',opts:['hic','huius','huic','hunc'],ans:2,m:'hicf',
+  why:{0:'<em>Hic</em> is nominative.',1:'<em>Huius</em> is genitive, <em>of this</em>.',3:'<em>Hunc</em> is accusative.'},
+  fb:'<em>Huic</em>: dative singular, like <em>senātōrī</em>, <em>to this senator</em>. <em>Huic</em> serves all three genders.'},
+ {t:'gap',s:'Tīrō ___ verba in tabulīs scrīpsit.',gl:'verbum, -ī, n. word · tabula, -ae, f. tablet · scrībō, scrībere, scrīpsī, scrīptum',en:'Tiro wrote these words on the tablets.',
+  q:'<span class="cue"><b>Goes with:</b> <em>verba</em></span>',opts:['hoc','haec','hōs','hās'],ans:1,m:'hicf',
+  why:{0:'<em>Hoc</em> is neuter, but singular. <em>Verba</em> is plural.',2:'<em>Hōs</em> is masculine. <em>Verbum</em> is neuter.',3:'<em>Hās</em> is feminine. <em>Verbum</em> is neuter.'},
+  fb:'<em>Haec</em>: neuter plural accusative, like <em>verba</em>. The same spelling is also the feminine singular, so the noun decides.'},
+ {t:'gap',s:'Salūs ___ urbis in perīculō est.',gl:'salūs, salūtis, f. safety · urbs, urbis, f. city · perīculum, -ī, n. danger',en:'The safety of this city is in danger.',
+  q:'<span class="cue"><b>Goes with:</b> <em>urbis</em></span>',opts:['hanc','huius','huic','hāc'],ans:1,m:'hicf',
+  why:{0:'<em>Hanc</em> is accusative. <em>Urbis</em> is genitive, <em>of the city</em>.',2:'<em>Huic</em> is dative.',3:'<em>Hāc</em> is ablative.'},
+  fb:'<em>Huius</em>: genitive singular, like <em>urbis</em>. It also serves all three genders.'},
+ {t:'gap',s:'In ___ templō senātus convēnit.',gl:'templum, -ī, n. temple · conveniō, convenīre, convēnī, conventum, to meet',en:'The senate met in this temple.',
+  q:'<span class="cue"><b>Goes with:</b> <em>templō</em></span>',opts:['hoc','hōc','hāc','huic'],ans:1,m:'hicf',
+  why:{0:'<em>Hoc</em>, with a short <em>o</em>, is nominative or accusative. <em>Templō</em> is ablative after <em>in</em>.',2:'<em>Hāc</em> is ablative, but feminine. <em>Templum</em> is neuter.',3:'<em>Huic</em> is dative.'},
+  fb:'<em>Hōc</em>: ablative singular, with a long <em>ō</em>, like <em>templō</em>. On 8 November 63 BC the senate met in the temple of Jupiter Stator, and Cicero gave his first speech against Catiline there.'},
+ {t:'gap',s:'___ coniūrātī urbem incendere cupiunt.',gl:'coniūrātus, -ī, m. conspirator · urbs, urbis, f. city · incendō, incendere, incendī, incēnsum, to set fire to · cupiō, cupere, cupīvī, cupītum',en:'These conspirators want to set fire to the city.',
+  q:'<span class="cue"><b>Goes with:</b> <em>coniūrātī</em></span>',opts:['Hic','Hī','Hae','Haec'],ans:1,m:'hicf',
+  why:{0:'<em>Hic</em> is singular. <em>Coniūrātī</em> is plural, as the verb <em>cupiunt</em> shows.',2:'<em>Hae</em> is feminine.',3:'<em>Haec</em> is feminine singular or neuter plural.'},
+  fb:'<em>Hī</em>: masculine plural nominative, like <em>coniūrātī</em>.'},
+ {t:'gap',s:'Catilīna cum ___ hominibus urbem relīquit.',gl:'cum (+ ablative) · homō, hominis, m. man · urbs, urbis, f. city · relinquō, relinquere, relīquī, relictum',en:'Catiline left the city with these men.',
+  q:'<span class="cue"><b>Goes with:</b> <em>hominibus</em></span>',opts:['hōs','hīs','hōrum','hī'],ans:1,m:'hicf',
+  why:{0:'<em>Hōs</em> is accusative. <em>Cum</em> takes the ablative.',2:'<em>Hōrum</em> is genitive, <em>of these</em>.',3:'<em>Hī</em> is nominative.'},
+  fb:'<em>Hīs</em>: ablative plural, like <em>hominibus</em>. The dative and ablative plural share it.'},
+ {t:'multi',q:'Taken on its own, <em>haec</em> could be which of these? Select every one that applies.',
+  opts:['feminine nominative singular','neuter nominative plural','neuter accusative plural','masculine nominative singular','feminine accusative singular'],ans:[0,1,2],m:'hicf',
+  fb:'Three readings: <em>haec epistula</em> (this letter), and <em>haec verba</em> as subject or object (these words). The masculine is <em>hic</em>, and the feminine accusative is <em>hanc</em>.'}
+]},
+
+{id:'cicero',name:'Cicero',full:'Cicero’s Voice',screens:[
+ {t:'brief',h:'Pointing with feeling',html:
+  '<p>In the courts and the senate, Cicero often uses a demonstrative to point at a person. Because each word carries a distance, it can also carry a feeling:</p>'+
+  '<ul class="srcs"><li><strong><em>Hic</em></strong> points at someone in the room with Cicero: <em>this man here</em>. He can use it to point an accusing finger at an enemy, or to draw the jury’s eyes warmly to his own client.</li>'+
+  '<li><strong><em>Ille</em></strong> points at someone away from him. Placed after a noun, it can mean <em>that famous</em>, someone far off in time whom everyone has heard of.</li>'+
+  '<li><strong><em>Is</em></strong> stays neutral. It simply replaces a noun.</li></ul>'+
+  '<p>Here are three lines from Cicero’s speeches, lightly trimmed. Each time, work out who the underlined word points at and what Cicero wants his listeners to feel.</p>',unlockTool:'speeches'},
+ {t:'ask',q:'<span class="latin">Senātus haec intellegit, cōnsul videt; <u class="tg">hic</u> tamen vīvit.</span><span class="gloss">intellegō, intellegere, intellēxī, intellēctum · videō, vidēre, vīdī, vīsum · tamen, adv. still · vīvō, vīvere, vīxī, vīctum · Cicero, <em>Against Catiline</em> 1.2 (63 BC)</span>Who is <em>hic</em>?',
+  opts:['Cicero, the consul','Catiline, sitting in the senate as Cicero speaks','the senate','Tiro, taking down the speech'],ans:1,m:'tone',counts:'ear',
+  why:{0:'Cicero calls himself <em>cōnsul</em> in this line. <em>Hic</em> is someone else in the room.'},
+  fb:'Catiline. <em>Hic</em> means <em>this man here</em>: Catiline was present when Cicero gave this speech, and Cicero points straight at him, an accusing finger in front of the whole senate. "The senate understands these things, the consul sees them; and yet this man is alive." The line begins with the famous cry <em>Ō tempora, ō mōrēs!</em>, "What times! What ways!"'},
+ {t:'ask',q:'<span class="latin">Senātus <u class="tg">haec</u> intellegit, cōnsul videt; hic tamen vīvit.</span>In the same line, <em>haec</em> stands alone, with no noun. What does it mean?',
+  opts:['<em>this woman</em> (feminine singular)','<em>these things</em> (neuter plural)','<em>this man</em> (masculine singular)'],ans:1,m:'hicf',
+  why:{0:'<em>Haec</em> can be feminine singular, but no woman has been mentioned, and <em>intellegit</em> needs something to understand.',2:'The masculine is <em>hic</em>.'},
+  fb:'<em>These things</em>: neuter plural accusative, the object of <em>intellegit</em>. A neuter plural demonstrative with no noun usually means <em>these things</em>.'},
+ {t:'ask',q:'<span class="latin">Mēdēa <u class="tg">illa</u> quondam profugisse dīcitur.</span><span class="gloss">quondam, adv. once · profugiō, profugere, profūgī, to flee · profugisse dīcitur, is said to have fled · Cicero, <em>On Pompey’s Command</em> 22 (66 BC)</span>Cicero compares Rome’s enemy, King Mithridates, fleeing his kingdom to Medea fleeing the same region long ago. What does <em>illa</em>, after <em>Mēdēa</em>, add?',
+  opts:['that Medea is in the room','that famous Medea, whom everyone knows from the story','scorn for Medea','nothing; it just means she'],ans:1,m:'tone',counts:'ear',unlock:'ille',unlockTool:'ille',
+  fb:'<em>That famous Medea</em>. Placed after its noun, <em>ille</em> often marks someone well known: the Medea of the myth, who escaped her father by scattering her brother’s body behind her ship. Mithridates, says Cicero, escaped the Romans by leaving his treasure behind.'},
+ {t:'ask',q:'<span class="latin"><u class="tg">Hunc</u> ego nōn dīligam?</span><span class="gloss">dīligō, dīligere, dīlēxī, dīlēctum, to value, love · dīligam, should I love · Cicero, <em>For Archias</em> 18 (62 BC)</span>Cicero is defending the Greek poet Archias, his old teacher, whose Roman citizenship has been challenged. Who is <em>hunc</em>?',
+  opts:['Archias, Cicero’s client, present in court','the prosecutor','Catiline','a poet who died long ago'],ans:0,m:'tone',counts:'ear',
+  fb:'Archias. <em>Hunc</em> (accusative of <em>hic</em>) points at the man beside Cicero: "Should I not love <em>this man</em>?" The pointing draws the jurors’ eyes to his client, kindly this time.'},
+ {t:'ask',q:'Cicero calls Archias <em>hunc</em> and Medea <em>illa</em>. What does each word do?',
+  opts:['<em>Hunc</em> points at a man beside Cicero in court; <em>illa</em> points to a famous figure far away in the past','Both simply mean <em>he</em> or <em>she</em>','<em>Hunc</em> shows scorn; <em>illa</em> shows affection','<em>Illa</em> means Medea is in the room'],ans:0,m:'tone',unlockTool:'tone',
+  fb:'The distance carries the meaning. <em>Hic</em> is <em>this man here, with me</em>, so the jury looks at Archias. <em>Ille</em> after a noun is <em>that famous</em>, so the listeners think of the Medea they know from the story.'},
+ {t:'gap',s:'Catilīna ex urbe fūgit; nunc ___ procul ab urbe est.',gl:'ex (+ ablative) · urbs, urbis, f. city · fugiō, fugere, fūgī, fugitūrus · nunc, adv. now · procul, adv. far · ab (+ ablative)',en:'Catiline has fled from the city; now that man is far from the city.',
+  q:'After Cicero’s first speech, Catiline left Rome. Which demonstrative points at him now that he is far away?',opts:['hic','ille','is'],ans:1,m:'tone',
+  why:{0:'<em>Hic</em> is for someone here, near the speaker. Catiline has gone.',2:'<em>Is</em> would be correct Latin, but it is neutral and does not point at all. The question asks for the word that shows he is far away.'},
+  fb:'<em>Ille</em>: <em>that man, over there</em>. In the senate, Cicero could say <em>hic</em> and point at Catiline; once Catiline had gone, he became <em>ille</em>.'}
+]},
+
+{id:'copy',name:'Clean copy',full:'The Clean Copy',screens:[
+ {t:'brief',h:'Last drafts',html:
+  '<figure class="side"><img src="img/alma-tadema-roman-scribe.webp" width="421" height="600" alt="A Roman in a red toga sits beside a cabinet of scrolls, with a scroll and an ink bottle on a small table"><figcaption>A Roman scribe at work. Lawrence Alma-Tadema, 1865.</figcaption></figure>'+
+  '<p>Tiro hands you the last drafts. For each underlined pronoun, record its gender, number and case, and the noun it belongs to. Then choose the translation.</p>'+
+  '<ul class="srcs"><li>If the pronoun <strong>stands alone</strong>, its gender and number come from the noun it replaces, and its case from its own function.</li><li>If it <strong>goes with a noun</strong>, it copies that noun’s gender, number and case.</li></ul>'},
+ {t:'parse',s:'Cicerō Tīrōnī epistulam dedit; Tīrō eam Atticō mīsit.',gl:'dō, dare, dedī, datum · mittō, mittere, mīsī, missum',
+  head:'Draft one',refs:['Cicerō','Tīrō','epistulam','Atticus'],
+  nouns:[{f:'eam',e:'is, ea, id',g:'feminine',n:'singular',c:'accusative',r:'epistulam'}],
+  tr:{opts:['Cicero gave a letter to Tiro; Tiro sent it to Atticus.','Cicero gave a letter to Tiro; Tiro sent her to Atticus.','Tiro gave a letter to Cicero; Cicero sent it to Atticus.','Cicero gave a letter to Tiro; Atticus sent it to Tiro.'],ans:0},
+  fb:'<em>Eam</em> stands alone. It is feminine singular because of <em>epistulam</em>, and accusative because it is what Tiro sends. In English, a letter is <em>it</em>, not <em>her</em>.'},
+ {t:'parse',s:'Senātōrēs Cicerōnem audīvērunt; hī ōrātiōnem eius laudāvērunt.',gl:'audiō, audīre, audīvī, audītum · ōrātiō, -ōnis, f. speech · laudō, laudāre, laudāvī, laudātum',
+  head:'Draft two',refs:['Senātōrēs','Cicerōnem','ōrātiōnem'],
+  nouns:[{f:'hī',e:'hic, haec, hoc',g:'masculine',n:'plural',c:'nominative',r:'Senātōrēs'},
+         {f:'eius',e:'is, ea, id',g:'masculine',n:'singular',c:'genitive',r:'Cicerōnem'}],
+  tr:{opts:['The senators heard Cicero; they praised his speech.','The senators heard Cicero; he praised their speech.','Cicero heard the senators; they praised his speech.','The senators heard Cicero; these praised her speech.'],ans:0},
+  fb:'Both pronouns stand alone. <em>Hī</em> is the subject of <em>laudāvērunt</em> and replaces the senators. <em>Eius</em> is genitive (<em>of him</em>), and the noun it replaces, Cicero, tells you to translate it <em>his</em>.'},
+ {t:'parse',s:'Hanc urbem, patrēs cōnscrīptī, cōnsul servāvit.',gl:'urbs, urbis, f. city · patrēs cōnscrīptī, senators (a form of address) · servō, servāre, servāvī, servātum',
+  head:'Draft three',refs:['urbem','patrēs cōnscrīptī','cōnsul'],rlab:'goes with',
+  nouns:[{f:'Hanc',e:'hic, haec, hoc',g:'feminine',n:'singular',c:'accusative',r:'urbem'}],
+  tr:{opts:['The consul saved this city, senators.','This city saved the consul, senators.','The consul saved that city, senators.','The senators saved this city for the consul.'],ans:0},
+  fb:'<em>Hanc</em> goes with <em>urbem</em> and copies it: feminine, singular, accusative. Cicero liked to remind the senate that, as consul, he had saved the city.'},
+ {t:'multi',q:'Last question. Which of these are true? Select every one that applies.',
+  opts:['A pronoun takes its gender and number from the noun it replaces',
+        'A pronoun standing alone takes its case from the noun it replaces',
+        'A demonstrative that goes with a noun matches it in gender, number and case',
+        '<em>Hic</em> points at something near the speaker',
+        '<em>Ille</em> placed after a noun can mean <em>that famous</em>',
+        'Because a speech is <em>it</em> in English, Latin replaces a speech with <em>id</em>'],
+  ans:[0,2,3,4],m:'tone',
+  fb:'A pronoun standing alone takes gender and number from the noun it replaces, but its case from its own function. A demonstrative with a noun copies all three from that noun. <em>Hic</em> is near me, and <em>ille</em> is over there, or after a noun <em>that famous</em>. A speech, <em>ōrātiō</em>, is feminine, so Latin replaces it with <em>ea</em>, which English translates <em>it</em>.'}
+]}
+];
+
+/* ===================== NOTES FROM TIRO'S DESK ===================== */
+/* Shown in order, one per correct answer. They start from nothing (who Cicero and Tiro were, what Rome was like)
+   and then follow Cicero's life in order, so each note only depends on the ones before it. */
+const FACT_PARTS=['Meet Cicero and Tiro','Rome in their time','Cicero’s rise','The year 63 BC','Exile, war and death'];
+const FACTS=[
+ {p:0,h:'Marcus Tullius Cicero lived from 106 to 43 BC, more than two thousand years ago. He was a Roman politician, a lawyer and the most famous speaker of his day.'},
+ {p:0,h:'Cicero is the Roman whose Latin we know best. Hundreds of his speeches, letters and books survive, and students have learned Latin from his writing for two thousand years.'},
+ {p:0,h:'Tiro was Cicero’s secretary. He wrote down Cicero’s letters and speeches, kept his papers in order and helped run his household and business.'},
+ {p:0,h:'Tiro was born a slave in Cicero’s household. Wealthy Roman families owned enslaved people, who did every kind of work, from farming and cooking to teaching and writing letters.'},
+ {p:0,h:'Cicero freed Tiro in 53 BC. A freed slave took his former master’s names, so Tiro became Marcus Tullius Tiro. He stayed with Cicero as his secretary and friend, and Cicero’s letters to him show real affection.'},
+
+ {p:1,h:'In Cicero’s time Rome was a republic. There was no king and no emperor. Every year, Roman citizens voted to choose the officials who ran the state.'},
+ {p:1,h:'The senate was a council of several hundred men who had held office. It met to debate war, money and laws, and its advice was usually followed.'},
+ {p:1,h:'The highest officials were the two consuls. They were elected for one year at a time, and together they led the government and the army.'},
+ {p:1,h:'A Roman accused of a crime was tried in court before a jury. Each side had an advocate, a speaker who argued its case. Cicero made his name as an advocate.'},
+ {p:1,h:'Speeches were given aloud, with no microphones, to the senate, to a jury, or to a crowd in the Forum, Rome’s main square. A good speaker could win a trial or a vote, so speaking well was the way to get ahead in politics.'},
+
+ {p:2,h:'Cicero was born in Arpinum, a small town about a hundred kilometres from Rome. His family were well off, but none of them had ever held office in Rome.'},
+ {p:2,h:'A man whose family had never had a consul was called a <em>novus homō</em>, a "new man". Few new men ever became consul, and Cicero was very proud that he did.'},
+ {p:2,h:'Cicero studied speaking and philosophy in Rome and in Greece. Educated Romans learned Greek, and many of their teachers were Greek, like the poet Archias, who taught Cicero as a boy and whom he later defended in court.'},
+ {p:2,h:'In 75 BC Cicero served as a junior official in Sicily. He later wrote that he found the forgotten tomb of Archimedes, the great Greek mathematician, overgrown with brambles, and recognised it by the sphere and cylinder carved on it.',img:'img/west-tomb-of-archimedes.webp',alt:'Cicero, in a red toga, points to an overgrown tomb as workmen clear away the bushes',cap:'Benjamin West, <em>Cicero Discovering the Tomb of Archimedes</em> (1797)'},
+ {p:2,h:'In 70 BC Cicero prosecuted Verres, a governor who had robbed the province of Sicily. His case was so strong that Verres fled from Rome before the trial was over, and Cicero became the leading speaker in Rome.'},
+ {p:2,h:'At the age of 42, Cicero was elected consul for the year 63 BC.'},
+
+ {p:3,h:'During Cicero’s year as consul, a nobleman called Lucius Sergius Catilina (Catiline), who had lost the election, plotted to take power by force.'},
+ {p:3,h:'On 8 November 63 BC Cicero attacked Catiline in a speech to the senate, with Catiline sitting there listening. It begins: <em>Quō ūsque tandem abūtēre, Catilīna, patientiā nostrā?</em> "How long, Catiline, will you go on abusing our patience?"'},
+ {p:3,h:'Catiline left Rome that night to join an army of his supporters. Cicero gave three more speeches about the plot, and the four together are called the <em>Catilinarians</em>.'},
+ {p:3,h:'Five of Catiline’s supporters were arrested in Rome. The senate debated what to do with them and voted for death, and Cicero had them executed that evening without a trial.'},
+ {p:3,h:'Catiline was killed in battle early in 62 BC. In Rome, Cicero was praised as the man who had saved the city and was called <em>pater patriae</em>, "father of his country".'},
+
+ {p:4,h:'Putting Roman citizens to death without a trial was against the law. In 58 BC Cicero’s enemies used this against him, and he had to leave Rome and live in exile in Greece for over a year before he was allowed back.'},
+ {p:4,h:'In 49 BC civil war broke out between two generals, Julius Caesar and Pompey. Cicero took Pompey’s side. Caesar won, made himself dictator, and pardoned Cicero.'},
+ {p:4,h:'Caesar was murdered on 15 March 44 BC. Cicero then attacked Mark Antony, Caesar’s ally, in a series of fierce speeches called the <em>Philippics</em>.'},
+ {p:4,h:'In 43 BC Antony and his allies drew up a list of enemies to be killed, and Antony made sure Cicero was on it. Cicero was killed on 7 December 43 BC.',img:'img/scarpelli-death-of-cicero.webp',alt:'Soldiers surround the old Cicero, who kneels in his toga as one raises a sword',cap:'Tancredi Scarpelli, <em>The Death of Cicero</em>'},
+ {p:4,h:'Tiro lived for many years after Cicero’s death. He is thought to have collected and published Cicero’s letters and speeches, which is one reason so much of Cicero survives. Tiro is also credited with a system of shorthand, and one of its signs, ⁊ for "and", is still used in Ireland today.'}
+];
+
+/* ===================== STATE ===================== */
+const STORE='tiro';
+function freshState(){return{
+ stage:0,i:0,pts:0,
+ queue:[],retry:[],
+ done:{},
+ prons:{},pronOk:{},
+ tools:{tiro:1},
+ badges:{},
+ ctr:{ante:0,ear:0,eius:0},
+ facts:[],
+ miss:{gender:0,number:0,'case':0,'points to':0},
+ mastery:{ante:{c:0,t:0},gend:{c:0,t:0},isf:{c:0,t:0},dist:{c:0,t:0},hicf:{c:0,t:0},tone:{c:0,t:0}}
+}}
+let S=freshState();
+
+const $=id=>document.getElementById(id);
+const root=$('root'),railEl=$('rail'),pathEl=$('path');
+function el(t,c,h){const n=document.createElement(t);if(c)n.className=c;if(h!=null)n.innerHTML=h;return n}
+function pad(n){return n<10?'0'+n:''+n}
+function cur(){return S.queue[S.i]}
+function stage(){return STAGES[S.stage]}
+
+/* ===================== SCORING ===================== */
+function rec(k,ok){if(!k||!S.mastery[k])return;S.mastery[k].t++;if(ok)S.mastery[k].c++;paintTally()}
+function pts(n){S.pts+=n;paintTally()}
+function overall(){let c=0,t=0;for(const k in S.mastery){c+=S.mastery[k].c;t+=S.mastery[k].t}return t?Math.round(c/t*100):0}
+function paintTally(){$('pts').textContent=S.pts;$('rest').textContent=overall()+'%'}
+
+function toast(title,body){
+ const n=el('div','toast','<b>'+title+'</b>'+body);
+ $('toasts').appendChild(n);
+ setTimeout(()=>{n.style.transition='opacity .4s';n.style.opacity='0';setTimeout(()=>n.remove(),420)},4200);
+}
+function award(k){if(S.badges[k])return;S.badges[k]=1;toast('Achievement',BADGES[k].n+' — '+BADGES[k].d);pts(150);renderRail()}
+function filePron(k,ok){
+ if(ok)S.pronOk[k]=1;
+ if(!S.prons[k]){S.prons[k]=1;renderRail(k)}
+ if(PRONS.every(p=>S.pronOk[p.k]))award('four');
+}
+function unlockTool(k){if(S.tools[k])return;S.tools[k]=1;toast('Toolkit',CHARTS[k].t+' added to your reference.');renderRail()}
+function bump(k){
+ if(!k)return;S.ctr[k]=(S.ctr[k]||0)+1;
+ if(k==='ante'&&S.ctr.ante>=3)award('ante');
+ if(k==='ear'&&S.ctr.ear>=3)award('ear');
+ if(k==='eius')award('eius');
+}
+
+/* ===================== TEACHER REVIEW ===================== */
+/* ?teacher in the address opens every stage and adds skip buttons. Skipping still unlocks what the screen would. */
+const TEACHER=/[?&]teacher(=|&|$)/.test(location.search);
+function teacherSkip(toEnd){
+ const sc=cur();
+ const pass=x=>{if(x.unlockTool)unlockTool(x.unlockTool);if(x.unlock)filePron(x.unlock,true)};
+ if(toEnd){S.queue.slice(S.i).forEach(pass);S.i=S.queue.length-1}else pass(sc);
+ next();
+}
+
+/* ===================== FLOW ===================== */
+function startStage(n){
+ S.stage=n;S.i=0;S.retry=[];
+ S.queue=STAGES[n].screens.map(s=>Object.assign({},s));
+ render();
+}
+function next(){
+ S.i++;
+ if(S.i>=S.queue.length){
+  if(S.retry.length){
+   const r=S.retry.splice(0);
+   S.queue.push({t:'review',n:r.length});
+   r.forEach(x=>{const y=Object.assign({},x);delete y._flag;delete y._err;y._r=true;S.queue.push(y)});
+  }else{
+   S.queue.push({t:S.stage===STAGES.length-1?'end':'stagedone'});
+  }
+ }
+ render();
+ window.scrollTo({top:0});
+}
+/* a sort cannot be finished until every card is right, so it never comes back in the review round */
+function flagRetry(sc){if(sc.t==='sort')return;if(!sc._r&&!sc._flag){sc._flag=1;S.retry.push(sc)}}
+function score(sc,ok){
+ if(ok)pts(sc._r?40:100);
+ if(!ok)flagRetry(sc);
+}
+/* things a screen can grant when answered correctly */
+function grant(sc,ok){
+ if(sc.unlock)filePron(sc.unlock,ok);
+ if(ok){if(sc.unlockTool)unlockTool(sc.unlockTool);bump(sc.counts)}
+}
+
+/* ===================== SHELL RENDER ===================== */
+function renderPath(){
+ pathEl.innerHTML='';
+ const mo=maxOpen();
+ STAGES.forEach((st,n)=>{
+  const state=S.done[st.id]?'done':n===S.stage?'live':(n<=mo?'open':'lock');
+  const b=el('button','node');b.type='button';
+  b.dataset.st=state;
+  if(state==='live')b.setAttribute('aria-current','step');
+  b.innerHTML='<span class="pip">'+(state==='done'?'✓':n+1)+'</span><span class="lb">'+st.name+'</span>';
+  if(state==='lock'){b.disabled=true}
+  else b.onclick=()=>{if(n!==S.stage)startStage(n)};
+  pathEl.appendChild(b);
+ });
+}
+function maxOpen(){if(TEACHER)return STAGES.length-1;let m=0;STAGES.forEach((st,n)=>{if(S.done[st.id])m=Math.max(m,n+1)});return Math.max(m,S.stage)}
+
+function stars(k){
+ const m=S.mastery[k];
+ if(!m.t)return null;
+ const p=m.c/m.t;
+ return p>=.9?3:p>=.7?2:1;
+}
+function starStr(n){return n===null?'—':'★'.repeat(n)+'☆'.repeat(3-n)}
+
+function setDrawer(open){
+ railEl.classList.toggle('open',open);
+ $('dbtn').setAttribute('aria-expanded',open?'true':'false');
+}
+function renderRail(pop){
+ railEl.innerHTML='';
+ const x=el('button','railx','Close notebook');x.type='button';
+ x.onclick=()=>setDrawer(false);
+ railEl.appendChild(x);
+
+ const a=el('div','rblock','<h3>Pronouns on file</h3>');
+ PRONS.forEach(p=>{
+  const on=S.prons[p.k];
+  const r=el('div');
+  r.className='slot'+(on?' on':'')+(pop===p.k?' pop':'');
+  r.innerHTML='<span class="nm"><span class="bx"></span><span lang="la">'+p.n+'</span></span>'+(on?'<span class="fn">'+p.d+'</span>':'');
+  a.appendChild(r);
+ });
+ railEl.appendChild(a);
+
+ const b=el('div','rblock','<h3>Mastery map</h3>');
+ MASTERY.forEach(m=>{
+  const s=stars(m.k);
+  const r=el('div','mrow'+(s===null?' lock':''));
+  r.innerHTML='<span>'+m.n+'</span><span class="st">'+starStr(s)+'</span>';
+  b.appendChild(r);
+ });
+ const weak=weakest();
+ if(weak)b.appendChild(el('p','diag',diagFor(weak)));
+ railEl.appendChild(b);
+
+ const c=el('div','rblock','<h3>Toolkit</h3>');
+ Object.keys(CHARTS).forEach(k=>{
+  const on=S.tools[k];
+  const t=el('button','tool'+(on?'':' lk'),CHARTS[k].t+'<span class="k">'+(on?'Open':'Locked')+'</span>');
+  t.type='button';
+  if(on)t.onclick=()=>openChart(k);else t.disabled=true;
+  c.appendChild(t);
+ });
+ railEl.appendChild(c);
+
+ const tb=el('div','rblock','<h3>Timer</h3>');
+ const tr=el('div','tmodes');
+ Object.keys(TMODES).forEach(k=>{
+  const b=el('button','chip',TMODES[k].n);b.type='button';b.setAttribute('aria-pressed',k===tmode?'true':'false');
+  b.onclick=()=>{tmode=k;try{localStorage.setItem(STORE+'.timer',k)}catch(e){};renderRail();
+   const sc=cur();if(T.active&&sc){const slip=root.querySelector('.slip');if(T.el){T.el.remove();const n=slip.querySelector('.clocknote');if(n)n.remove()}
+    const head=slip.querySelector('.sliphead');const tmp=el('div');startTimer(tmp,sc);if(T.el)head.insertAdjacentElement('afterend',T.el)}};
+  tr.appendChild(b);
+ });
+ tb.appendChild(tr);
+ tb.appendChild(el('p','diag2','Relaxed gives half as much time again. Opening a chart pauses the clock.'));
+ railEl.appendChild(tb);
+
+ const fk=el('div','rblock','<h3>Notes from Tiro’s desk</h3>');
+ const fbtn=el('button','tool','<span>'+S.facts.length+' of '+FACTS.length+' notes on Cicero and Tiro</span><span class="k">'+(S.facts.length?'Read':'')+'</span>');
+ fbtn.type='button';
+ if(S.facts.length)fbtn.onclick=openFacts;else fbtn.disabled=true;
+ fk.appendChild(fbtn);
+ railEl.appendChild(fk);
+
+ const d=el('div','rblock','<h3>Achievements</h3>');
+ Object.keys(BADGES).forEach(k=>{
+  const got=S.badges[k];
+  d.appendChild(el('div','badge'+(got?' got':''),'<span class="sg">'+(got?'✦':'○')+'</span><span>'+BADGES[k].n+(got?'':'<i>'+BADGES[k].d+'</i>')+'</span>'));
+ });
+ railEl.appendChild(d);
+}
+function weakest(){
+ let w=null,lo=2;
+ MASTERY.forEach(m=>{const x=S.mastery[m.k];if(x.t>=3){const p=x.c/x.t;if(p<lo){lo=p;w=m.k}}});
+ return lo<.95?w:null;
+}
+function diagFor(k){
+ const m=S.mastery[k],p=Math.round(m.c/m.t*100);
+ const nm=MASTERY.find(x=>x.k===k).n.toLowerCase();
+ const s=p>=90?'Secure':p>=70?'Developing':'Unstable';
+ let out=s+' on '+nm+': '+m.c+' of '+m.t+' correct.';
+ const o=Object.keys(S.miss).sort((a,b)=>S.miss[b]-S.miss[a]);
+ if((k==='isf'||k==='hicf')&&S.miss[o[0]]>0)out+=' Most slips in the clean copy are on '+o[0]+'.';
+ return out;
+}
+let lastFocus=null;
+function openChart(k){
+ const ch=CHARTS[k];
+ let body='';
+ if(ch.html)body=ch.html;
+ else{
+  body='<div class="tablewrap"><table class="chart"><tr>'+ch.h.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  ch.r.forEach(r=>{body+='<tr>'+r.map((c,i)=>'<td'+(i===0?'':' class="c"')+'>'+c+'</td>').join('')+'</tr>'});
+  body+='</table></div>';
+ }
+ if(ch.note)body+='<p>'+ch.note+'</p>';
+ openModal(ch.t,body);
+}
+function openModal(title,body){
+ const m=$('modal');
+ m.innerHTML='<button class="x" type="button" aria-label="Close">×</button><h3>'+title+'</h3>'+body;
+ m.setAttribute('aria-label',title);
+ m.querySelector('.x').onclick=closeChart;
+ lastFocus=document.activeElement;
+ $('veil').classList.add('open');
+ m.querySelector('.x').focus();
+}
+function closeChart(){
+ if(!$('veil').classList.contains('open'))return;
+ $('veil').classList.remove('open');
+ if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+function nextFact(){
+ if(S.facts.length>=FACTS.length)return null;
+ const i=S.facts.length;S.facts.push(i);
+ return i;
+}
+function factHead(i){return 'Note '+(i+1)+' of '+FACTS.length+' · '+FACT_PARTS[FACTS[i].p]}
+function openFacts(){
+ let html='<p class="lead">'+S.facts.length+' of '+FACTS.length+' collected. A new one appears each time you answer correctly.</p>';
+ FACT_PARTS.forEach((name,pi)=>{
+  const got=S.facts.filter(i=>FACTS[i].p===pi);
+  if(!got.length)return;
+  html+='<h4 class="fh">'+name+'</h4><ol class="factlist" start="'+(got[0]+1)+'">'+got.map(i=>'<li>'+FACTS[i].h+'</li>').join('')+'</ol>';
+ });
+ openModal('Notes from Tiro’s desk',html);
+}
+
+/* ===================== TIMER ===================== */
+/* Time scales with the work each activity asks for. */
+function textLen(h){return String(h||'').replace(/<[^>]+>/g,'').length}
+function budgetFor(sc){
+ const read=q=>Math.round(textLen(q)/25);            /* about a second per 25 characters of question */
+ const r5=n=>Math.max(10,Math.ceil(n/5)*5);
+ switch(sc.t){
+  case 'pick':return r5(8+read(sc.q)+read(sc.s)+sc.hot.length*2);
+  case 'ask':return r5(8+read(sc.q)+sc.opts.length*2+textLen(sc.opts.join(''))/40);
+  case 'gap':return r5(12+read(sc.q)+read(sc.s)+read(sc.gl)+sc.opts.length*2);
+  case 'multi':return r5(8+read(sc.q)+sc.opts.length*4);
+  case 'sort':return r5(10+sc.cards.length*5);
+  case 'parse':return r5(25*sc.nouns.length+25);
+ }
+ return 0;
+}
+const TMODES={standard:{n:'Standard',x:1},relaxed:{n:'Relaxed',x:1.5},off:{n:'Off',x:0}};
+let tmode='standard';
+try{const v=localStorage.getItem(STORE+'.timer');if(v&&TMODES[v])tmode=v}catch(e){}
+const T={id:null,budget:0,left:0,last:0,active:false,over:false,sc:null,el:null};
+function fmt(sec){sec=Math.max(0,Math.ceil(sec));return Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0')}
+function stopTimer(){if(T.id){clearInterval(T.id);T.id=null}}
+function startTimer(slip,sc){
+ stopTimer();T.active=false;T.over=false;T.sc=sc;T.el=null;
+ const base=budgetFor(sc),x=TMODES[tmode].x;
+ if(!base||!x)return;
+ T.budget=Math.round(base*x);T.left=T.budget;T.active=true;T.last=performance.now();
+ const c=el('div','clock','<span class="clab">Time</span><span class="cbar"><i></i></span><span class="ct">'+fmt(T.left)+'</span>');
+ c.setAttribute('role','timer');c.setAttribute('aria-label','Time left for this draft');
+ slip.appendChild(c);T.el=c;
+ T.id=setInterval(tick,250);
+}
+function tick(){
+ const now=performance.now(),dt=(now-T.last)/1000;T.last=now;
+ if(!T.active||!T.el)return;
+ if($('veil').classList.contains('open'))return;
+ T.left-=dt;
+ const f=Math.max(0,T.left/T.budget);
+ T.el.querySelector('.cbar i').style.width=(f*100)+'%';
+ T.el.querySelector('.ct').textContent=fmt(T.left);
+ T.el.classList.toggle('low',f<=.25&&T.left>0);
+ if(T.left<=0&&!T.over){
+  T.over=true;
+  T.el.classList.add('over');
+  T.el.querySelector('.ct').textContent='0:00';
+  const n=el('p','clocknote','Time’s up. Finish this one anyway; it will come back in the review round so you can beat the clock next time.');
+  T.el.insertAdjacentElement('afterend',n);
+  flagRetry(T.sc);
+  stopTimer();
+ }
+}
+/* Called when a draft is resolved (the Continue button appears). */
+function settle(slip){
+ const timed=T.active;
+ const ok=slip.classList.contains('ok');
+ stopTimer();T.active=false;
+ if(ok){
+  if(timed&&!T.over){
+   pts(20);
+   if(T.el){T.el.classList.add('beat');T.el.querySelector('.ct').textContent='Beat the clock +20'}
+  }
+  const f=nextFact();
+  if(f!==null)slip.appendChild(el('div','fact','<b>'+factHead(f)+'</b>'+FACTS[f].h+(FACTS[f].img?'<figure class="fimg"><img src="'+FACTS[f].img+'" alt="'+FACTS[f].alt+'" loading="lazy"><figcaption>'+FACTS[f].cap+'</figcaption></figure>':'')));
+  renderRail();
+ }
+}
+
+/* ===================== SCREEN RENDERERS ===================== */
+const DRAW={};
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function fb(slip,ok,html,head){
+ const d=el('div','fb'+(ok?'':' no'));
+ d.innerHTML=(head?'<b>'+head+'</b>':'')+(html||'');
+ slip.appendChild(d);return d;
+}
+function mark(slip,ok){slip.classList.remove('ok','bad');slip.classList.add(ok?'ok':'bad')}
+function cont(slip,label,fn){
+ settle(slip);
+ const b=el('button','go',label||'Continue');b.type='button';
+ b.onclick=fn||next;slip.appendChild(b);return b;
+}
+
+function render(){
+ renderPath();renderRail();
+ const sc=cur();root.innerHTML='';
+ const slip=el('div','slip');
+ const label=sc.t==='end'?'Final report':sc.t==='stagedone'?'Stage complete':sc.t==='review'?'Review round':'Draft '+pad(S.i+1);
+ slip.appendChild(el('div','sliphead','<span class="fno inscr">'+label+'</span><span class="stg">'+stage().full+'</span>'));
+ if(TEACHER&&sc.t!=='end'&&sc.t!=='stagedone'){
+  const tb=el('div','tbar','<span>Teacher review</span>');
+  const b1=el('button','chip','Skip screen');b1.type='button';b1.onclick=()=>teacherSkip(false);
+  const b2=el('button','chip','Skip to end of stage');b2.type='button';b2.onclick=()=>teacherSkip(true);
+  tb.appendChild(b1);tb.appendChild(b2);slip.appendChild(tb);
+ }
+ startTimer(slip,sc);
+ (DRAW[sc.t]||DRAW.brief)(slip,sc);
+ root.appendChild(slip);
+}
+
+/* ---- static panels ---- */
+DRAW.brief=(slip,sc)=>{
+ if(sc.h)slip.appendChild(el('h2','',sc.h));
+ slip.appendChild(el('div','',sc.html));
+ if(sc.unlockTool)unlockTool(sc.unlockTool);
+ cont(slip,S.i===0?'Begin':'Continue');
+};
+/* ---- guided reading of a form chart: tap each pattern button to highlight its cells ---- */
+DRAW.chart=(slip,sc)=>{
+ const T=sc.table;
+ if(sc.h)slip.appendChild(el('h2','',sc.h));
+ if(sc.intro)slip.appendChild(el('div','',sc.intro));
+ const wrap=el('div','readchart');
+ let html='<div class="tablewrap"><table class="chart"><tr>'+T.h.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+ T.r.forEach((r,ri)=>{html+='<tr>'+r.map((c,ci)=>'<td data-rc="'+ri+','+ci+'"'+(ci===0?'':' class="c" lang="la"')+'>'+c+'</td>').join('')+'</tr>'});
+ wrap.innerHTML=html+'</table></div>';
+ const pats=el('div','pats');pats.setAttribute('role','group');pats.setAttribute('aria-label','Patterns');
+ const note=el('div','patnote');note.setAttribute('aria-live','polite');
+ const seen=new Set();let go;
+ const btns=sc.pats.map((pt,pi)=>{
+  const b=el('button','chip',pt.lab);b.type='button';b.setAttribute('aria-pressed','false');
+  b.onclick=()=>{
+   btns.forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');
+   wrap.querySelectorAll('td.hl').forEach(td=>td.classList.remove('hl'));
+   pt.cells.forEach(([r,c])=>{const td=wrap.querySelector('td[data-rc="'+r+','+c+'"]');if(td)td.classList.add('hl')});
+   note.innerHTML=pt.note;seen.add(pi);b.classList.add('seen');
+   if(seen.size===sc.pats.length){go.disabled=false;go.textContent='Continue'}
+  };
+  pats.appendChild(b);return b;
+ });
+ wrap.appendChild(pats);wrap.appendChild(note);slip.appendChild(wrap);
+ if(sc.more)slip.appendChild(el('div','readmore',sc.more));
+ if(sc.unlockTool)unlockTool(sc.unlockTool);
+ go=cont(slip,'Tap every pattern to continue');go.disabled=true;
+};
+DRAW.review=(slip,sc)=>{
+ slip.appendChild(el('h2','','Review round'));
+ slip.appendChild(el('div','','<p>'+sc.n+' item'+(sc.n>1?'s':'')+' from this stage came back unsure. They are queued again now, while the reasoning is still fresh.</p>'));
+ cont(slip,'Take them again');
+};
+
+/* a note on why a particular wrong choice is wrong (sc.why = {optionIndex: html}) */
+function whyOf(sc,i,ok){return (!ok&&sc.why&&sc.why[i])?'<span class="why">'+sc.why[i]+'</span>':''}
+
+/* ---- single choice ---- */
+DRAW.ask=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const box=el('div','opts');
+ const btns=sc.opts.map((o,i)=>{
+  const b=el('button','opt',o);b.type='button';
+  b.onclick=()=>{
+   btns.forEach(x=>x.disabled=true);
+   const ok=i===sc.ans;
+   b.classList.add(ok?'ok':'no');
+   if(!ok)btns[sc.ans].classList.add('show');
+   rec(sc.m,ok);score(sc,ok);grant(sc,ok);
+   mark(slip,ok);
+   fb(slip,ok,whyOf(sc,i,ok)+sc.fb,ok?'Correct':'Not this one');
+   cont(slip).focus();
+  };
+  box.appendChild(b);return b;
+ });
+ slip.appendChild(box);
+};
+
+/* ---- choose the word that fills a gap in a Latin sentence ---- */
+DRAW.gap=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const parts=sc.s.split('___');
+ const line=el('div','latin gapline');line.setAttribute('lang','la');
+ line.innerHTML=parts[0]+'<span class="blank">&nbsp;</span>'+parts[1];
+ slip.appendChild(line);
+ if(sc.gl)slip.appendChild(el('div','gloss',sc.gl));
+ const box=el('div','opts words');
+ const btns=sc.opts.map((o,i)=>{
+  const b=el('button','opt',o);b.type='button';b.setAttribute('lang','la');
+  b.onclick=()=>{
+   btns.forEach(x=>x.disabled=true);
+   const ok=i===sc.ans;
+   b.classList.add(ok?'ok':'no');
+   if(!ok)btns[sc.ans].classList.add('show');
+   const bl=line.querySelector('.blank');bl.textContent=sc.opts[sc.ans];bl.classList.add('filled');
+   rec(sc.m,ok);score(sc,ok);grant(sc,ok);
+   mark(slip,ok);
+   fb(slip,ok,whyOf(sc,i,ok)+'<span class="en">'+sc.en+'</span>'+sc.fb,ok?'Copied correctly':'Not this one');
+   cont(slip).focus();
+  };
+  box.appendChild(b);return b;
+ });
+ slip.appendChild(box);
+};
+
+/* ---- select all that apply ---- */
+DRAW.multi=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const sel=new Set(),box=el('div','opts');
+ const chk=el('button','go','Check');chk.type='button';chk.disabled=true;
+ const btns=sc.opts.map((o,i)=>{
+  const b=el('button','opt',o);b.type='button';b.setAttribute('aria-pressed','false');
+  b.onclick=()=>{
+   if(sel.has(i)){sel.delete(i);b.classList.remove('pick');b.setAttribute('aria-pressed','false')}
+   else{sel.add(i);b.classList.add('pick');b.setAttribute('aria-pressed','true')}
+   chk.disabled=sel.size===0;
+  };
+  box.appendChild(b);return b;
+ });
+ slip.appendChild(box);
+ chk.onclick=()=>{
+  btns.forEach(b=>b.disabled=true);chk.remove();
+  const want=sc.ans;
+  const ok=sel.size===want.length&&want.every(i=>sel.has(i));
+  btns.forEach((b,i)=>{
+   b.classList.remove('pick');
+   if(want.indexOf(i)>=0&&sel.has(i))b.classList.add('ok');
+   else if(sel.has(i))b.classList.add('no');
+   else if(want.indexOf(i)>=0)b.classList.add('show');
+  });
+  rec(sc.m,ok);score(sc,ok);grant(sc,ok);
+  mark(slip,ok);
+  fb(slip,ok,sc.fb,ok?'Every reading accounted for':'Not the full set');
+  cont(slip).focus();
+ };
+ slip.appendChild(chk);
+};
+
+/* ---- tap the word in an English sentence ---- */
+DRAW.pick=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const s=el('div','sentence');let nudge=null;
+ sc.toks.forEach((t,i)=>{
+  if(sc.hot.indexOf(i)>=0){
+   const b=el('button','tok hot',t);b.type='button';
+   b.onclick=()=>{
+    if(i===sc.ans){
+     s.querySelectorAll('button').forEach(x=>{x.disabled=true;x.classList.remove('hot')});
+     b.classList.add('ok');if(nudge){nudge.remove();nudge=null}
+     const ok=!sc._err;
+     rec(sc.m,ok);score(sc,ok);grant(sc,ok);
+     mark(slip,true);
+     fb(slip,true,sc.fb,sc.res);
+     cont(slip).focus();
+    }else{
+     b.classList.add('no');b.disabled=true;
+     if(!sc._err){sc._err=1;nudge=fb(slip,false,'That noun is in the sentence, but the pronoun does not replace it. Try another.','Keep looking')}
+    }
+   };
+   s.appendChild(b);
+  }else s.appendChild(el('span','tok dead'+((sc.tg||[]).indexOf(i)>=0?' tg':''),t));
+  s.appendChild(document.createTextNode(' '));
+ });
+ slip.appendChild(s);
+};
+
+/* ---- sorting into groups ---- */
+DRAW.sort=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const cards=shuffle(sc.cards.slice());
+ const tray=el('div','tray'),bins=el('div','bins');
+ let left=cards.length,run=0,errs=0,sel=null;
+ const combo=el('p','combo','');
+ const upd=t=>{combo.innerHTML=t||('Sorted '+(cards.length-left)+' of '+cards.length+(run>1?' &nbsp;·&nbsp; streak <b>'+run+'</b>':''))};
+ function place(card,binId,node){
+  const ok=card.bin===binId;
+  rec(sc.m,ok);
+  if(ok){
+   node.classList.remove('sel');node.classList.add('set');node.draggable=false;node.onclick=null;node.onkeydown=null;node.tabIndex=-1;
+   bins.querySelector('[data-b="'+binId+'"] .held').appendChild(node);
+   run++;left--;pts(50+Math.min(run,6)*10);
+   upd();
+   if(left===0)done();
+  }else{
+   errs++;run=0;
+   node.classList.remove('sel');
+   node.classList.add('bad');setTimeout(()=>node.classList.remove('bad'),450);
+   upd(sc.hint+' Streak reset.');
+   setTimeout(()=>{if(left)upd()},2200);
+  }
+  sel=null;
+ }
+ function done(){
+  const clean=errs===0;
+  score(sc,clean);
+  if(clean&&sc.badge)award(sc.badge);
+  mark(slip,clean);
+  fb(slip,clean,clean?sc.okfb:sc.errfb.replace('{n}',errs).replace('{s}',errs>1?'s':''),clean?'Sorted cleanly':'Sorted');
+  cont(slip).focus();
+ }
+ cards.forEach(c=>{
+  const n=el('div','dcard',c.txt);
+  n.draggable=true;n.tabIndex=0;n.setAttribute('role','button');
+  n.addEventListener('dragstart',e=>{sel={c:c,n:n};e.dataTransfer.setData('text/plain','x');e.dataTransfer.effectAllowed='move'});
+  n.onclick=()=>{
+   if(sel&&sel.n===n){n.classList.remove('sel');sel=null;return}
+   tray.querySelectorAll('.dcard').forEach(x=>x.classList.remove('sel'));
+   n.classList.add('sel');sel={c:c,n:n};
+  };
+  n.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();n.click()}};
+  tray.appendChild(n);
+ });
+ slip.appendChild(tray);
+ sc.bins.forEach(b=>{
+  const d=el('div','bin');d.dataset.b=b.id;
+  d.tabIndex=0;d.setAttribute('role','button');
+  d.innerHTML='<h4>'+b.n+'</h4><span class="hint">'+b.h+'</span>';
+  d.appendChild(el('div','held'));
+  d.addEventListener('dragover',e=>{e.preventDefault();d.classList.add('over')});
+  d.addEventListener('dragleave',()=>d.classList.remove('over'));
+  d.addEventListener('drop',e=>{e.preventDefault();d.classList.remove('over');if(sel)place(sel.c,b.id,sel.n)});
+  d.onclick=()=>{if(sel)place(sel.c,b.id,sel.n)};
+  d.onkeydown=e=>{if(e.target===d&&(e.key==='Enter'||e.key===' ')){e.preventDefault();d.click()}};
+  bins.appendChild(d);
+ });
+ slip.appendChild(bins);
+ slip.appendChild(combo);upd();
+ slip.appendChild(el('p','lead','Drag a card into a group, or tap the card and then the group.'));
+};
+
+/* ---- parse the pronouns in a sentence ---- */
+DRAW.parse=(slip,sc)=>{
+ const ROWS=[['g','gender',GENDERS],['n','number',NUMS],['c','case',CASES],['r',sc.rlab||'replaces',sc.refs]];
+ if(sc.head)slip.appendChild(el('h2','',sc.head));
+ const want=sc.nouns.map(nn=>nn.f);
+ const line=el('div','latin',sc.s.split(' ').map(w=>{const m=w.match(/^([^,.;:?!]+)(.*)$/);return m&&want.indexOf(m[1])>=0?'<u class="tg">'+m[1]+'</u>'+m[2]:w}).join(' '));
+ line.setAttribute('lang','la');slip.appendChild(line);
+ slip.appendChild(el('div','gloss',sc.gl));
+ const picks=sc.nouns.map(()=>({})),boxes=[];
+ const btn=el('button','go','Check');btn.type='button';btn.disabled=true;
+ sc.nouns.forEach((nn,ni)=>{
+  const box=el('div','noun','<div class="nh"><span class="nf" lang="la">'+nn.f+'</span><span class="ne">'+nn.e+'</span></div>');
+  ROWS.forEach(p=>{
+   const r=el('div','prow');r.appendChild(el('div','lab',p[1]));
+   const ch=el('div','chips');
+   p[2].forEach(o=>{
+    const b=el('button','chip',o);b.type='button';b.setAttribute('aria-pressed','false');
+    b.onclick=()=>{
+     ch.querySelectorAll('.chip').forEach(x=>{x.setAttribute('aria-pressed','false');x.classList.remove('ok','no')});
+     b.setAttribute('aria-pressed','true');picks[ni][p[0]]=o;
+     btn.disabled=!picks.every(x=>ROWS.every(rw=>x[rw[0]]));
+    };
+    ch.appendChild(b);
+   });
+   r.appendChild(ch);box.appendChild(r);
+  });
+  boxes.push(box);slip.appendChild(box);
+ });
+ let first=true;
+ btn.onclick=()=>{
+  let all=true;
+  sc.nouns.forEach((nn,ni)=>{
+   const rows=boxes[ni].querySelectorAll('.prow');let nounOk=true;
+   ROWS.forEach((p,ri)=>{
+    const ok=picks[ni][p[0]]===nn[p[0]];
+    rows[ri].querySelectorAll('.chip').forEach(c=>{
+     c.classList.remove('ok','no');
+     if(c.getAttribute('aria-pressed')==='true')c.classList.add(ok?'ok':'no');
+    });
+    if(!ok){all=false;nounOk=false;if(first)S.miss[p[0]==='r'?'points to':p[1]]++}
+   });
+   if(first)rec(nn.e.indexOf('hic')===0?'hicf':'isf',nounOk);
+  });
+  const wasFirst=first;first=false;
+  if(!all){
+   const old=slip.querySelector('.fb');if(old)old.remove();
+   mark(slip,false);flagRetry(sc);
+   fb(slip,false,'The rows marked in red are not right yet. Change them and check again. The tables are in your toolkit.','Not yet');
+   slip.appendChild(btn);
+   return;
+  }
+  slip.querySelectorAll('.chip').forEach(c=>c.disabled=true);
+  btn.remove();
+  const old=slip.querySelector('.fb');if(old)old.remove();
+  mark(slip,true);
+  fb(slip,true,sc.fb,wasFirst?'Parsed correctly on the first pass':'Parsed');
+  const tw=el('div',''),tq=el('div','prompt','Now choose the translation.');
+  tq.style.marginTop='22px';
+  tw.appendChild(tq);
+  const tb=el('div','opts');
+  const tbs=sc.tr.opts.map((o,i)=>{
+   const b=el('button','opt',o);b.type='button';
+   b.onclick=()=>{
+    tbs.forEach(x=>x.disabled=true);
+    const ok=i===sc.tr.ans;
+    b.classList.add(ok?'ok':'no');
+    if(!ok)tbs[sc.tr.ans].classList.add('show');
+    rec('ante',ok);score(sc,ok);mark(slip,ok);
+    if(ok&&wasFirst)award('perfect');
+    fb(slip,ok,ok?'':'Check which noun each pronoun points to, and its case.',ok?'Translation confirmed':'Not this one');
+    cont(slip).focus();
+   };
+   tb.appendChild(b);return b;
+  });
+  tw.appendChild(tb);slip.appendChild(tw);
+ };
+ slip.appendChild(btn);
+};
+
+/* ---- stage complete ---- */
+DRAW.stagedone=slip=>{
+ const st=stage();
+ if(!S.done[st.id]){S.done[st.id]=1;pts(200);renderPath();renderRail()}
+ slip.appendChild(el('h2','',st.full+': complete'));
+ const box=el('div','');
+ MASTERY.forEach(m=>{
+  const s=stars(m.k);if(s===null)return;
+  box.appendChild(el('div','bigrow','<span>'+m.n+'</span><span class="st">'+starStr(s)+'</span>'));
+ });
+ slip.appendChild(box);
+ const nx=S.stage+1;
+ if(nx<STAGES.length){
+  slip.appendChild(el('p','lead','Next: '+STAGES[nx].full+'.'));
+  cont(slip,'Open '+STAGES[nx].full,()=>{startStage(nx);window.scrollTo({top:0})});
+ }else cont(slip,'See report',()=>{S.queue.push({t:'end'});S.i=S.queue.length-1;render()});
+};
+
+/* ---- final report ---- */
+const NEXT={ante:'standins',gend:'gender',isf:'is',dist:'distance',hicf:'distance',tone:'cicero'};
+DRAW.end=slip=>{
+ const st=stage();
+ if(!S.done[st.id]){S.done[st.id]=1;pts(300);renderPath()}
+ const p=overall();
+ slip.appendChild(el('div','','<div class="score inscr">Speeches copied '+p+'%</div>'));
+ slip.appendChild(el('p','lead',S.pts+' points. '+Object.keys(S.badges).length+' of '+Object.keys(BADGES).length+' achievements. '+S.facts.length+' of '+FACTS.length+' notes on Cicero and Tiro collected.'));
+ MASTERY.forEach(m=>{
+  const s=stars(m.k);
+  slip.appendChild(el('div','bigrow','<span>'+m.n+'</span><span class="st">'+starStr(s)+'</span>'));
+ });
+ const w=weakest();
+ const d=el('div','fb');
+ if(w)d.innerHTML='<b>Recommended next</b>'+diagFor(w)+' Run <strong>'+STAGES.find(x=>x.id===NEXT[w]).full+'</strong> again; the stages stay open in the path above.';
+ else d.innerHTML='<b>Recommended next</b>Nothing here is shaky. The grammar pages for <em>is</em>, <em>hic</em> and <em>ille</em> have every form, and the flashcards will keep them fresh.';
+ slip.appendChild(d);
+ const r=el('div','gorow');
+ const again=el('button','go ghost','Start over');again.type='button';
+ again.onclick=()=>{S=freshState();paintTally();startStage(0);window.scrollTo({top:0})};
+ r.appendChild(again);slip.appendChild(r);
+};
+
+/* ===================== BOOT ===================== */
+$('veil').onclick=e=>{if(e.target===$('veil'))closeChart()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeChart();setDrawer(false)}});
+$('dbtn').onclick=()=>setDrawer(!railEl.classList.contains('open'));
+startStage(0);
+paintTally();
+</script>
+</body>
+</html>
