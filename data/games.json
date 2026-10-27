@@ -1,36 +1,56 @@
 [
  {
   "page": "first-letters",
+  "topic": "Nouns: nominative and accusative",
   "title": "First Letters",
   "about": "Restore a Roman letter on papyrus: subject and object, singular and plural.",
   "group": "Latin I"
  },
  {
   "page": "restore-the-archive",
+  "topic": "Nouns: the five cases, 1st and 2nd declension",
   "title": "Restore the Archive",
   "about": "A papyrologist’s workbench: fill the gaps with first- and second-declension forms.",
   "group": "Latin I"
  },
  {
   "page": "tiros-tablets",
+  "topic": "Pronouns: is, hic, ille",
   "title": "Tiro’s Tablets",
   "about": "Copy Cicero’s speeches as his secretary: pronouns, gender and number, and how Cicero points with hic and ille.",
   "group": "Latin II"
  },
  {
+  "page": "scroll-of-fate",
+  "topic": "Verbs: the present, imperfect and future",
+  "title": "The Scroll of Fate",
+  "about": "Jupiter’s prophecy from Aeneid 1: time and aspect, the personal endings, and the present, imperfect (-ba-) and future (-bi-).",
+  "group": "Latin II"
+ },
+ {
   "page": "arena-latin-2",
+  "topic": "Review: the Latin II form sheet",
   "title": "Arena Formarum: Latin II",
   "about": "Four gladiators, one form sheet: every form on the Latin II sheet, against the clock.",
   "group": "Latin II"
  },
  {
+  "page": "tiros-tablets-latin3",
+  "topic": "Pronouns: is, hic, iste, ille",
+  "title": "Tiro’s Tablets: Latin III",
+  "about": "The Latin III version of Tiro’s Tablets: hic, iste and ille, including how Cicero uses iste to scorn an opponent.",
+  "group": "Latin III"
+ },
+ {
   "page": "arena-latin-3",
+  "topic": "Review: the Latin III/IV form sheet",
   "title": "Arena Formarum: Latin III/IV",
   "about": "The same arena with the Latin III/IV form sheet: passives, participles, infinitives, pronouns.",
   "group": "Latin III"
  },
  {
   "page": "haruspex",
+  "topic": "Verbs: uses of the subjunctive",
   "title": "The Haruspex’s Liver",
   "about": "Uses of the subjunctive: read the bronze liver of Piacenza and find why each verb is subjunctive.",
   "group": "Latin III"

@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Scroll of Fate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+<style>
+[hidden]{display:none!important}
+img{max-width:100%}
+/* ===== Latin Site theme v1 ===== */
+:root{
+  color-scheme:light;
+  --bg:#FAF9F6; --surface:#FFFFFF; --surface2:#EEECE6;
+  --ink:#111111; --muted:#3D3A36; --faint:#55514B; --rule:#C9C4BA; --rule2:#8A847A;
+  --accent:#7A1E12; --accent-ink:#FFFFFF; --accent-soft:#F6DDD8;
+  --mark:#6E3F00; --mark-bg:#FBEACB;
+  --good:#1D5222; --good-bg:#DCEFDB;
+  --warn:#A1141C; --warn-bg:#FCE1DE;
+  --font:"Source Sans 3","Source Sans Pro",Arial,Helvetica,sans-serif;
+  --shadow:0 6px 24px rgba(80,60,40,.08),0 1px 2px rgba(80,60,40,.06);
+  --veil:rgba(42,37,33,.45);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#111111; --surface:#1C1C1C; --surface2:#292929;
+    --ink:#F7F7F5; --muted:#D6D3CD; --faint:#B8B4AC; --rule:#3C3C3C; --rule2:#7A7A7A;
+    --accent:#FF9F8C; --accent-ink:#111111; --accent-soft:#3D1F1A;
+    --mark:#F6C26B; --mark-bg:#382A12;
+    --good:#A3E0A5; --good-bg:#17301B;
+    --warn:#FF9B94; --warn-bg:#3F1715;
+    --shadow:0 6px 24px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.4);
+    --veil:rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111111; --surface:#1C1C1C; --surface2:#292929;
+  --ink:#F7F7F5; --muted:#D6D3CD; --faint:#B8B4AC; --rule:#3C3C3C; --rule2:#7A7A7A;
+  --accent:#FF9F8C; --accent-ink:#111111; --accent-soft:#3D1F1A;
+  --mark:#F6C26B; --mark-bg:#382A12;
+  --good:#A3E0A5; --good-bg:#17301B;
+  --warn:#FF9B94; --warn-bg:#3F1715;
+  --shadow:0 6px 24px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.4);
+  --veil:rgba(0,0,0,.6);
+}
+/* ===== end theme ===== */
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:1.125rem;line-height:1.55;padding-inline:16px}
+h1,h2,h3,h4{margin:0}
+p{margin:0 0 .9em}
+p:last-child{margin-bottom:0}
+button{font:inherit;color:inherit}
+em{font-style:italic}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.label,.inscr{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;color:var(--muted);font-size:1rem}
+
+/* ---------- frame ---------- */
+.shell{max-width:1120px;margin:0 auto;padding-block:30px 80px}
+.masthead{text-align:center;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+.masthead h1{font-weight:700;font-size:clamp(1.75rem,4.2vw,2.5rem);line-height:1.5;text-wrap:balance}
+.masthead .sub{font-style:italic;color:var(--muted);margin-top:4px}
+.masthead .topic{font-weight:600;font-size:1rem;color:var(--accent)}
+.tally{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:16px}
+.tally>div{display:flex;align-items:baseline;gap:7px;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:5px 14px}
+.tally b{font-weight:700;font-size:1.1875rem;font-variant-numeric:tabular-nums}
+.tally span{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;color:var(--muted);font-size:1rem}
+.drawerbtn{display:none;border:1px solid var(--rule2);background:var(--surface);border-radius:10px;padding:6px 14px;cursor:pointer;font-size:1rem}
+.drawerbtn[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* ---------- stage path ---------- */
+.path{display:flex;margin:22px 0 26px;overflow-x:auto;padding:4px 0}
+.node{flex:1 0 auto;min-width:92px;background:none;border:none;padding:0 4px;cursor:pointer;text-align:center;position:relative}
+.node::before{content:"";position:absolute;top:17px;left:0;right:0;height:1px;background:var(--rule2)}
+.node:first-child::before{left:50%}
+.node:last-child::before{right:50%}
+.node .pip{position:relative;width:34px;height:34px;border-radius:50%;margin:0 auto 6px;display:grid;place-items:center;
+  background:var(--surface);border:1px solid var(--rule2);color:var(--muted);font-weight:700;font-size:1rem}
+.node .lb{font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;font-size:1rem;color:var(--muted);display:block}
+.node:hover:not(:disabled) .pip{border-color:var(--accent)}
+.node[data-st="done"] .pip{background:var(--good-bg);border-color:var(--good);color:var(--good)}
+.node[data-st="done"] .lb{color:var(--ink)}
+.node[data-st="live"] .pip{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 0 0 4px var(--accent-soft)}
+.node[data-st="live"] .lb{color:var(--accent)}
+.node[data-st="lock"]{cursor:default;opacity:.75}
+.node[data-st="lock"] .pip{border-style:dashed}
+
+/* ---------- layout ---------- */
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:32px;align-items:start}
+
+/* ---------- the working card ---------- */
+.slip{background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);
+  padding:22px clamp(18px,3.4vw,34px) 28px;transition:border-color .2s}
+.slip.ok{border-color:var(--good);box-shadow:inset 0 3px 0 var(--good),var(--shadow)}
+.slip.bad{border-color:var(--warn);box-shadow:inset 0 3px 0 var(--warn),var(--shadow)}
+.sliphead{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:20px}
+.sliphead .fno{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;color:var(--accent);font-size:1rem}
+.sliphead .stg{font-size:1rem;color:var(--muted);font-style:italic}
+.prompt{font-size:clamp(1.1875rem,2.4vw,1.375rem);line-height:1.5;margin-bottom:18px}
+.lead{color:var(--muted);font-size:1rem;margin-bottom:14px}
+.slip h2{font-weight:700;font-size:clamp(1.3125rem,2.6vw,1.5625rem);margin-bottom:12px;text-wrap:balance}
+
+/* ---------- stem + ending ---------- */
+.form{display:inline-flex;align-items:stretch;line-height:1.5;font-size:clamp(1.625rem,5vw,2.5rem);margin:2px 10px 10px 0;vertical-align:top;font-style:italic}
+.form .stem{background:var(--surface2);border:1px solid var(--rule2);border-right:none;border-radius:10px 0 0 10px;padding:.3em .2em .34em .36em}
+.form .stem:only-child{border-right:1px solid var(--rule2);border-radius:10px;padding-right:.36em}
+.form .end{background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent);border-radius:0 10px 10px 0;padding:.3em .36em .34em .2em;font-weight:700}
+.form .end.blank{background:transparent;border:1px dashed var(--accent);color:var(--accent);font-weight:400}
+.form.mute .end{background:var(--surface2);border-color:var(--rule2);color:var(--muted);font-weight:400}
+.form.sm{font-size:clamp(1.3125rem,3.4vw,1.75rem)}
+.formrow{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 6px}
+.spec{text-align:center}
+.spec .cap,.swapunit .cap{display:block;font-size:1rem;color:var(--muted);margin-top:3px;font-style:normal}
+
+/* ---------- choices ---------- */
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{display:block;text-align:left;background:var(--surface);border:1px solid var(--rule2);border-radius:10px;
+  padding:11px 16px;cursor:pointer;font-size:1.0625rem;transition:border-color .12s,background .12s}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--surface2)}
+.opt:disabled{cursor:default}
+.opt.pick{border-color:var(--accent);background:var(--accent-soft)}
+.opt.ok{background:var(--good-bg);border-color:var(--good);color:var(--ink);box-shadow:inset 3px 0 0 var(--good)}
+.opt.no{background:var(--warn-bg);border-color:var(--warn);color:var(--ink);box-shadow:inset 3px 0 0 var(--warn)}
+.opt.show{border-color:var(--good);box-shadow:inset 3px 0 0 var(--good)}
+
+/* ---------- English sentence tokens ---------- */
+.sentence{margin:6px 0 20px;line-height:2}
+.tok{display:inline-block;background:none;border:none;border-bottom:2px solid transparent;border-radius:6px;
+  padding:2px 5px;margin:0 1px;font-size:clamp(1.25rem,2.8vw,1.5625rem)}
+.tok.hot{cursor:pointer;border-bottom-color:var(--rule2)}
+.tok.hot:hover{border-bottom-color:var(--accent);background:var(--surface2)}
+.tok.ok{background:var(--good-bg);border-bottom-color:var(--good)}
+.tok.no{background:var(--warn-bg);border-bottom-color:var(--warn)}
+.tok.dead{cursor:default}
+
+/* ---------- feedback + buttons ---------- */
+.fb{margin-top:20px;padding:13px 17px;border-left:3px solid var(--good);background:var(--good-bg);border-radius:0 10px 10px 0;font-size:1.0625rem}
+.fb.no{border-left-color:var(--warn);background:var(--warn-bg)}
+.fb:not(.no):not(:has(b)){border-left-color:var(--accent);background:var(--accent-soft)}
+.fb b{display:block;margin-bottom:3px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;font-size:1rem;font-weight:700}
+.go{font-size:1.0625rem;background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent);border-radius:10px;
+  padding:10px 22px;cursor:pointer;margin-top:20px}
+.go:hover:not(:disabled){filter:brightness(1.08)}
+.go:disabled{opacity:.45;cursor:default}
+.go.ghost{background:var(--surface);color:var(--ink);border-color:var(--rule2)}
+.go.ghost:hover{border-color:var(--accent)}
+.gorow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* ---------- sorting ---------- */
+.tray{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border:1px dashed var(--rule2);border-radius:12px;min-height:58px;margin-bottom:8px;background:var(--bg)}
+.tray:empty::after{content:"Tray empty \2014 every noun sorted.";color:var(--muted);font-style:italic;font-size:1rem}
+.dcard{background:var(--surface);border:1px solid var(--rule2);border-radius:10px;padding:6px 13px;cursor:grab;font-size:1.0625rem;font-style:italic;user-select:none;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.dcard.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.dcard.set{cursor:default;border-color:var(--good);background:var(--good-bg);box-shadow:none}
+.dcard.bad{background:var(--warn-bg);border-color:var(--warn)}
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:14px}
+.bin{border:1px solid var(--rule);border-radius:12px;background:var(--surface2);padding:12px;min-height:130px;cursor:pointer}
+.bin.over,.bin:hover{border-color:var(--accent)}
+.bin h4{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;font-weight:700;color:var(--ink)}
+.bin .hint{font-size:1rem;color:var(--muted);font-style:italic;margin-bottom:9px;display:block}
+.bin .held{display:flex;flex-wrap:wrap;gap:6px}
+.combo{font-size:1rem;color:var(--muted);margin-top:12px}
+.combo b{color:var(--good)}
+
+/* ---------- ending bank ---------- */
+.bank{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.endbtn{background:var(--surface);border:1px solid var(--rule2);border-radius:10px;padding:7px 14px;cursor:pointer;font-size:1.25rem;font-style:italic;min-width:60px}
+.endbtn:hover:not(:disabled){border-color:var(--accent)}
+.endbtn.drag{cursor:grab}
+.endbtn.sel{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.endbtn.ok{background:var(--good-bg);border-color:var(--good)}
+.endbtn.no{background:var(--warn-bg);border-color:var(--warn);text-decoration:line-through}
+.endbtn:disabled{cursor:default}
+
+/* ---------- parsing ---------- */
+.noun{border:1px solid var(--rule);border-radius:12px;background:var(--bg);padding:14px 16px;margin-bottom:12px}
+.noun .nh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.noun .nf{font-size:1.5625rem;font-weight:700;font-style:italic;color:var(--accent)}
+.noun .ne{font-size:1rem;color:var(--muted);font-style:italic}
+.prow{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 12px;align-items:start;margin:8px 0}
+.prow .lab{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--muted);padding-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--rule2);background:var(--surface);border-radius:10px;padding:5px 12px;font-size:1rem;cursor:pointer}
+.chip:hover:not(:disabled){border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chip[aria-pressed="true"].ok{background:var(--good-bg);border-color:var(--good);color:var(--ink)}
+.chip[aria-pressed="true"].no{background:var(--warn-bg);border-color:var(--warn);color:var(--ink)}
+.chip:disabled{cursor:default}
+.latin{display:block;font-size:clamp(1.4375rem,3.6vw,1.875rem);font-style:italic;margin:2px 0 6px}
+.gloss{display:block;font-size:1rem;color:var(--muted);font-style:italic;margin-bottom:16px}
+
+/* ---------- word order ---------- */
+.order{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 18px;min-height:62px}
+.wt{background:var(--surface);border:1px solid var(--rule2);border-radius:10px;padding:10px 17px;font-size:clamp(1.25rem,3vw,1.625rem);font-style:italic;cursor:grab;user-select:none;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.wt.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.wt.verb{background:var(--surface2);border-style:dashed;color:var(--muted)}
+.readout{border:1px solid var(--rule);border-radius:12px;background:var(--bg);padding:12px 16px;margin-bottom:16px}
+.readout .mlab{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--muted)}
+.readout .mval{font-size:1.25rem;margin-top:2px}
+.readout .soft{color:var(--muted);font-size:1.0625rem}
+.meter{height:8px;border-radius:4px;background:var(--surface2);margin-top:12px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--good);width:0;transition:width .3s ease}
+.tried{font-size:1rem;color:var(--muted);margin-top:8px}
+
+/* ---------- stems with endings ---------- */
+.swaprow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:10px 0 18px}
+.swapunit{background:none;border:none;padding:0;cursor:pointer;text-align:center}
+.swapunit.static{cursor:default;padding:6px}
+.swapunit.slot2{padding:6px;border:1px dashed transparent;border-radius:12px}
+.swapunit.slot2:hover:not(:disabled),.swapunit.slot2.over{border-color:var(--accent);background:var(--accent-soft)}
+.swapunit.slot2:disabled{cursor:default}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto}
+table.chart{border-collapse:collapse;width:100%;font-size:1.0625rem;margin:4px 0 14px}
+table.chart th,table.chart td{border-bottom:1px solid var(--rule);padding:7px 10px;text-align:left}
+table.chart th{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--muted);font-weight:400;border-bottom-color:var(--rule2)}
+table.chart td:first-child{font-style:normal}
+table.chart td.c{color:var(--ink)}
+table.chart .c{color:var(--muted)}
+
+/* ---------- side rail ---------- */
+.rail{position:sticky;top:16px;font-size:1rem;background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:18px 18px 8px}
+.railx{display:none;width:100%;margin-bottom:14px;border:1px solid var(--rule2);background:var(--surface2);border-radius:10px;padding:7px 14px;cursor:pointer;font-size:1rem}
+.rblock{border-top:1px solid var(--rule);padding:14px 0 14px}
+.rblock:first-of-type{border-top:none;padding-top:0}
+.rblock h3{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--muted);font-weight:400;margin-bottom:8px}
+.slot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;color:var(--faint)}
+.slot .bx{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;border:1px solid var(--rule2);margin-right:9px;font-size:1rem;flex:none}
+.slot.on{color:var(--ink)}
+.slot.on .bx{background:var(--good);border-color:var(--good);color:var(--bg)}
+.slot.on .bx::after{content:"\2713"}
+.slot .nm{display:flex;align-items:center}
+.slot .fn{font-size:1rem;font-style:italic;color:var(--muted);text-align:right}
+.slot.on.pop .bx{animation:stamp .45s ease}
+@keyframes stamp{0%{transform:scale(2.2);opacity:0}55%{transform:scale(.9);opacity:1}100%{transform:scale(1)}}
+.mrow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:3px 0}
+.mrow .st{color:var(--mark);letter-spacing:1px;white-space:nowrap}
+.mrow.lock{color:var(--faint)}
+.mrow.lock .st{color:var(--faint)}
+.diag{font-size:1rem;color:var(--mark);background:var(--mark-bg);border-radius:10px;padding:8px 11px;margin-top:9px;line-height:1.5}
+.tool{display:flex;justify-content:space-between;gap:10px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--rule);
+  padding:7px 0;cursor:pointer;font-size:1rem;color:var(--accent)}
+.tool:last-child{border-bottom:none}
+.tool:hover:not(:disabled){text-decoration:underline;text-underline-offset:3px}
+.tool.lk{color:var(--faint);cursor:default}
+.tool .k{font-size:1rem;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;flex:none}
+.badge{display:flex;gap:9px;padding:5px 0;font-size:1rem;color:var(--faint)}
+.badge .sg{width:18px;flex:none;text-align:center}
+.badge.got{color:var(--ink)}
+.badge.got .sg{color:var(--mark)}
+.badge i{display:block;font-size:1rem;color:var(--faint);font-style:italic}
+
+/* ---------- modal ---------- */
+.veil{position:fixed;inset:0;background:var(--veil);display:none;place-items:center;padding:16px;z-index:60}
+.veil.open{display:grid}
+.modal{background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);max-width:640px;width:100%;max-height:86vh;overflow:auto;padding:24px 26px 28px}
+.modal h3{font-weight:700;font-size:1.3125rem;margin-bottom:12px;padding-right:40px}
+.modal .x{float:right;background:var(--surface2);border:1px solid var(--rule2);border-radius:10px;width:34px;height:34px;cursor:pointer;line-height:1.5;font-size:1.125rem}
+
+/* ---------- toasts ---------- */
+.toasts{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:9px;z-index:70;max-width:min(310px,calc(100vw - 32px))}
+.toast{background:var(--surface);color:var(--ink);border:1px solid var(--rule);border-left:3px solid var(--mark);border-radius:0 12px 12px 0;padding:11px 15px;font-size:1rem;box-shadow:var(--shadow);animation:rise .3s ease}
+.toast b{display:block;margin-bottom:2px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--mark)}
+@keyframes rise{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+/* ---------- results ---------- */
+.score{font-weight:700;font-size:clamp(2rem,7vw,3.25rem);line-height:1.5;color:var(--accent);margin-bottom:10px;font-variant:normal;text-transform:none;letter-spacing:0}
+.bigrow{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--rule);padding:9px 0}
+.bigrow .st{color:var(--mark);letter-spacing:2px}
+
+/* ---------- papyrus figure + finds ---------- */
+figure.papyrus{margin:0 0 18px}
+figure.papyrus img{display:block;width:100%;max-width:100%;height:auto;max-height:340px;object-fit:cover;object-position:top;border-radius:12px;border:1px solid var(--rule2)}
+figure.papyrus figcaption{font-size:1rem;color:var(--muted);font-style:italic;margin-top:6px}
+.modal h4.fh{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--accent);font-weight:700;margin:18px 0 6px}
+.modal p{font-size:1.0625rem}
+footer.src{margin-top:40px;border-top:1px solid var(--rule);padding-top:16px;font-size:1rem;color:var(--muted)}
+footer.src p{margin:0 0 6px}
+footer.src a{color:var(--accent)}
+/* ---------- timer + facts ---------- */
+.clock{display:flex;align-items:center;gap:10px;margin:-8px 0 18px}
+.clock .clab{font-variant:small-caps;text-transform:lowercase;letter-spacing:.12em;font-size:1rem;color:var(--muted)}
+.clock .cbar{flex:1;height:6px;border-radius:3px;background:var(--surface2);overflow:hidden}
+.clock .cbar i{display:block;height:100%;width:100%;background:var(--good);transition:width .25s linear}
+.clock .ct{font-variant-numeric:tabular-nums;font-size:1rem;color:var(--muted);min-width:3.2em;text-align:right;white-space:nowrap}
+.clock.low .cbar i{background:var(--mark)}
+.clock.low .ct{color:var(--mark)}
+.clock.over .cbar i{background:var(--warn);width:100%!important}
+.clock.over .ct{color:var(--warn)}
+.clock.beat .ct{color:var(--good);font-weight:700;min-width:0}
+.clocknote{font-size:1rem;color:var(--warn);margin:-10px 0 16px}
+.fact{margin-top:14px;padding:13px 17px;border-left:3px solid var(--mark);background:var(--mark-bg);border-radius:0 10px 10px 0;font-size:1.0312rem}
+.fact b{display:block;margin-bottom:3px;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;font-size:1rem;color:var(--mark)}
+.tmodes{display:flex;flex-wrap:wrap;gap:6px}
+.diag2{font-size:1rem;color:var(--muted);font-style:italic;margin-top:8px}
+.factlist{padding-left:1.2em;margin:0}
+.factlist li{margin-bottom:10px;font-size:1.0625rem}
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .drawerbtn{display:block}
+  .railx{display:block}
+  .rail{position:fixed;inset:0 0 0 auto;width:min(330px,88vw);border-radius:16px 0 0 16px;
+    padding:calc(20px + env(safe-area-inset-top,0px)) 18px 60px;overflow:auto;z-index:45;transform:translateX(105%);transition:transform .25s ease}
+  .rail.open{transform:translateX(0)}
+  .prow{grid-template-columns:1fr;gap:3px}
+  .prow .lab{padding-top:0}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+.slip p + p{margin-top:2em}
+
+/* ---------- Tiro's Tablets additions ---------- */
+.dcard{font-style:normal}
+.dcard em{font-style:italic}
+.gapline .blank{display:inline-block;min-width:4.5em;border-bottom:2px solid var(--accent);margin:0 .12em;font-style:normal}
+.gapline .blank.filled{min-width:0;border-bottom-color:transparent;color:var(--accent);font-weight:700;font-style:italic}
+.opts.words{flex-direction:row;flex-wrap:wrap}
+.opts.words .opt{font-style:italic;font-size:1.1875rem;min-width:5.5em;text-align:center}
+.fb .en{display:block;font-style:italic;margin-bottom:6px}
+.dist3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:8px 0 16px}
+.dz{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;display:grid;gap:2px;text-align:center;align-content:start}
+.dz b{font-size:1.375rem;font-style:italic;color:var(--accent)}
+.dz span{font-weight:600}
+.dz i{color:var(--muted);font-size:1rem}
+.pair{font-style:italic;font-size:1.1875rem}
+.pair b{color:var(--accent)}
+ul.srcs{margin:0 0 .9em;padding-left:1.2em}
+ul.srcs li{margin-bottom:4px}
+@media (max-width:560px){.dist3{grid-template-columns:1fr}}
+.slot{flex-wrap:wrap} .slot .fn{flex-basis:100%;text-align:left;padding-left:27px}
+.tg{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:.2em}
+.cue{display:block}.cue b{font-weight:600}
+.fb .why{display:block;font-weight:600;margin-bottom:6px}
+.warn{border-left:3px solid var(--accent);padding:4px 0 4px 12px}
+.readchart .tablewrap{margin:6px 0 4px}
+.readchart td.hl{background:var(--accent);color:var(--accent-ink);font-weight:600}
+.readchart td.hl.c{color:var(--accent-ink)}
+.pats{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+.pats .chip[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.pats .chip.seen::after{content:" \2713";color:var(--accent)}
+.patnote{min-height:3.2em;margin:12px 0 4px;padding:10px 14px;border-left:3px solid var(--accent);background:var(--surface)}
+.patnote:empty::before{content:"Tap a pattern above to see it in the chart.";color:var(--muted);font-style:italic}
+.readmore{font-size:1rem;color:var(--muted);margin-top:6px}
+.readmore a{color:var(--accent)}
+.tbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 12px;padding:8px 10px;border:1px dashed var(--rule2);border-radius:10px;font-size:1rem;color:var(--muted)}
+.tbar span{margin-right:auto}
+.hero{margin:0 0 18px}
+.hero img{display:block;width:100%;height:clamp(150px,26vw,300px);object-fit:cover;object-position:50% 66%;border-radius:12px;border:1px solid var(--rule2)}
+.hero figcaption,.side figcaption,.fimg figcaption{font-size:1rem;color:var(--muted);font-style:italic;margin-top:6px}
+.hero figcaption{text-align:right}
+figure.side{float:right;width:min(40%,190px);margin:4px 0 12px 18px}
+figure.side img,.fimg img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--rule2)}
+.slip::after,.modal::after{content:"";display:block;clear:both}
+.fimg{margin:10px 0 0;max-width:340px}
+.dist3.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:560px){.dist3.two{grid-template-columns:1fr}}
+.tok.tg,.latin .tg{color:var(--accent);font-weight:700}
+
+/* ---------- The Scroll of Fate: verb visuals from the grammar pages ---------- */
+:root{--stem:#23487B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--stem:#A9C4F2}}
+:root[data-theme="dark"]{--stem:#A9C4F2}
+.bd-s{color:var(--stem);font-weight:700}.bd-m{color:var(--mark);font-weight:700}.bd-e{color:var(--accent);font-weight:700}
+.bd-formula{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:10px 0 14px}
+.bd-box,.bd-out{display:grid;gap:2px;align-content:start;border-radius:12px;padding:10px 14px;border:1px solid var(--rule);background:var(--surface)}
+.bd-box.s{border-top:4px solid var(--stem)}.bd-box.m{border-top:4px solid var(--mark)}.bd-box.e{border-top:4px solid var(--accent)}
+.bd-box .bd-f,.bd-out .bd-f{font-size:1.375rem;font-style:italic}
+.bd-box.s .bd-f{color:var(--stem)}.bd-box.m .bd-f{color:var(--mark)}.bd-box.e .bd-f{color:var(--accent)}
+.bd-box.none .bd-f{color:var(--muted)}
+.bd-out .bd-f span{font-weight:700}
+.bd-l{font-size:1rem;color:var(--muted)}
+.bd-plus{align-self:center;font-size:1.25rem;color:var(--muted)}
+.buildf{margin-bottom:6px}
+.bdform{font-style:italic}
+.ta{margin:10px 0 14px}
+.ta-grid{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));gap:8px;row-gap:14px}
+.ta-col{align-self:end;text-align:center;font-variant:small-caps;text-transform:lowercase;letter-spacing:.1em;color:var(--muted);font-size:1rem}
+.ta-row{display:block;align-self:center;line-height:1.5;font-size:1rem;color:var(--muted);padding-right:8px;max-width:12em}
+.ta-row b{color:var(--ink);font-size:1.0625rem}
+.ta-c{display:grid;gap:1px;align-content:start;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px;color:var(--ink)}
+.ta-c.on{background:var(--accent-soft);border-color:var(--accent)}
+.ta-c.off{border-style:dashed;background:transparent;color:var(--muted)}
+.ta-c .nm{font-weight:600}
+.ta-c .la{font-style:italic;font-size:1.1875rem;color:var(--accent)}
+.ta-c.off .la{color:var(--muted)}
+.ta-c .la .tv{font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.ta-c .eg{color:var(--muted);font-size:1rem}
+@media (max-width:640px){
+ .ta-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .ta-corner{display:none}
+ .ta-row{grid-column:1/-1;max-width:none;padding:6px 0 0}
+ .ta-c{padding:8px 9px}
+ .ta-c .la{font-size:1.0625rem}
+ .bd-box .bd-f,.bd-out .bd-f{font-size:1.1875rem}
+}
+.ta:not(.show-simple) .ta-s{display:none}
+.ta-btn{justify-self:start;margin-top:10px;font:inherit;font-size:1rem;color:var(--accent);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.ta-btn::before{content:"+ "}
+.ta.show-simple .ta-btn::before{content:"− "}
+.ta-btn:hover,.ta-btn:focus-visible{border-color:var(--accent)}
+.ta-c.simple{border-style:dashed;background:transparent}
+.ta-c{position:relative}
+.ta-c .arw{position:absolute;z-index:1;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:1px solid var(--rule2);color:var(--accent);font-size:1rem;line-height:1;font-style:normal}
+.ta-c .arw.up{top:-20px;left:50%;transform:translateX(-50%)}
+.ta-c .arw.diag{bottom:-20px;right:-20px}
+.ta-c .arw-in{display:none;color:var(--accent)}
+@media (max-width:640px){.ta-c .arw{display:none}.ta-c .arw-in{display:inline}}
+.ta-c.simple:not(.off) .la{color:var(--accent)}
+.readchart td[lang]{font-style:italic;font-size:1.1875rem}
+.readchart td.hl .bd-s,.readchart td.hl .bd-m,.readchart td.hl .bd-e{color:inherit}
+table.chart td .bd-s{font-weight:400}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead">
+    <div>
+      <div class="topic">Verbs: the present, imperfect and future</div>
+      <h1>The Scroll of Fate</h1>
+      <div class="sub">Jupiter&rsquo;s prophecy &middot; the present, imperfect and future</div>
+    </div>
+    <div class="tally">
+      <div><b id="pts">0</b><span>points</span></div>
+      <div><b id="rest">0%</b><span>read</span></div>
+      <button class="drawerbtn" id="dbtn" type="button" aria-controls="rail" aria-expanded="false">Notebook</button>
+    </div>
+  </header>
+
+  <nav class="path" id="path" aria-label="Stages"></nav>
+
+  <div class="grid">
+    <main id="root"></main>
+    <aside class="rail" id="rail"></aside>
+  </div>
+  <footer class="src">
+    <p>Grammar follows J.&nbsp;H. Allen and J.&nbsp;B. Greenough, <em>New Latin Grammar</em> (1903), &sect;&sect;160&ndash;176 and 465&ndash;472, in the Dickinson College Commentaries edition, adapted as on this site&rsquo;s grammar pages. Virgil&rsquo;s lines are lightly trimmed from <em>Aeneid</em> 1.30&ndash;32, 229&ndash;241, 257&ndash;282 and 484.</p>
+  </footer>
+</div>
+
+<div class="veil" id="veil"><div class="modal" id="modal" role="dialog" aria-modal="true"></div></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+/* ===================== DATA ===================== */
+const TXT={
+ slip:'Line',
+ rail:'On the scroll',
+ notes:'Notes on the Aeneid',
+ notesOf:'notes on Virgil and the Aeneid',
+ score:'Scroll read',
+ done:'Nothing here is shaky. The grammar pages for the <a href="../grammar/present-active.html">present</a>, <a href="../grammar/imperfect-active.html">imperfect</a> and <a href="../grammar/future-active.html">future</a> have every form, and <a href="../grammar/incomplete-system.html">The Incomplete System</a> puts them side by side.'
+};
+
+/* the three incomplete tenses, filed on the scroll as the student meets them */
+const PRONS=[
+ {k:'impf',n:'Imperfect: <span class="bd-m">-ba-</span>',d:'past time, ongoing: was ___ing, used to ___'},
+ {k:'pres',n:'Present: no marker',d:'present time, ongoing: ___s, is ___ing'},
+ {k:'fut',n:'Future: <span class="bd-m">-bi-</span>',d:'future time, ongoing: will ___'}
+];
+
+/* a form split into its three parts, coloured as on the grammar pages */
+const F=(s,m,e)=>'<span class="bd-s">'+s+'</span><span class="bd-m">'+m+'</span><span class="bd-e">'+e+'</span>';
+
+const T_PRES={t:'The present of amō',h:['Person','Latin','English'],r:[
+ ['1st sing.',F('am','','ō'),'I love, I am loving'],
+ ['2nd sing.',F('amā','','s'),'you love'],
+ ['3rd sing.',F('ama','','t'),'he, she, it loves'],
+ ['1st pl.',F('amā','','mus'),'we love'],
+ ['2nd pl.',F('amā','','tis'),'you (pl.) love'],
+ ['3rd pl.',F('ama','','nt'),'they love']],
+ note:'No time marker: the present is the default. In <em>amō</em>, the <em>ā</em> of the stem has merged into the ending.'};
+const T_IMPF={t:'The imperfect of amō',h:['Person','Latin','English'],r:[
+ ['1st sing.',F('amā','ba','m'),'I was loving'],
+ ['2nd sing.',F('amā','bā','s'),'you were loving'],
+ ['3rd sing.',F('amā','ba','t'),'he, she, it was loving'],
+ ['1st pl.',F('amā','bā','mus'),'we were loving'],
+ ['2nd pl.',F('amā','bā','tis'),'you (pl.) were loving'],
+ ['3rd pl.',F('amā','ba','nt'),'they were loving']],
+ note:'<em>-ba-</em> in every form. The only new ending is <em>-m</em> for "I", in place of <em>-ō</em>.'};
+const T_FUT={t:'The future of amō',h:['Person','Latin','English'],r:[
+ ['1st sing.',F('amā','b','ō'),'I will love'],
+ ['2nd sing.',F('amā','bi','s'),'you will love'],
+ ['3rd sing.',F('amā','bi','t'),'he, she, it will love'],
+ ['1st pl.',F('amā','bi','mus'),'we will love'],
+ ['2nd pl.',F('amā','bi','tis'),'you (pl.) will love'],
+ ['3rd pl.',F('amā','bu','nt'),'they will love']],
+ note:'<em>-bi-</em> in most forms. In <em>amābō</em> the <em>i</em> disappears before <em>-ō</em>; in <em>amābunt</em> it becomes <em>u</em>. This is the future of the 1st and 2nd conjugations.'};
+
+/* the time-and-aspect grid from the grammar pages, with the complete row set aside for later */
+/* the time-and-aspect grid from the grammar pages. simple: include the simple-translation row (behind the toggle); open: show it */
+function gridHTML(simple,open){
+ const c=(cls,nm,la,eg)=>'<span class="ta-c '+cls+'"><span class="nm">'+nm+'</span><span class="la" lang="la">'+la+'</span><span class="eg">'+eg+'</span></span>';
+ let h='<div class="ta'+(open?' show-simple':'')+'"><div class="ta-grid"><span class="ta-corner"></span><span class="ta-col">Past time</span><span class="ta-col">Present time</span><span class="ta-col">Future time</span>'+
+  '<span class="ta-row"><b>Incomplete</b><br>the action is ongoing<br>built on <em lang="la">amā-</em></span>'+
+  c('on','Imperfect','amāb<b class="tv">a</b>t','was loving')+c('on','Present','amat','is loving')+c('on','Future','amāb<b class="tv">i</b>t','will be loving');
+ const arw=(dir,ch,nm)=>'<span class="arw '+dir+'" aria-hidden="true">'+ch+'</span><span class="arw-in" aria-hidden="true">'+ch+' </span>'+nm;
+ if(simple)h+='<span class="ta-row ta-s"><b>Simple</b><br>a second translation<br>(no Latin form of its own)</span>'+
+  c('simple off ta-s',arw('diag','↖','Perfect'),'amāvit','loved')+c('simple ta-s',arw('up','↓','Present'),'amat','loves')+c('simple ta-s',arw('up','↓','Future'),'amāb<b class="tv">i</b>t','will love');
+ h+='<span class="ta-row"><b>Complete</b><br>the action is finished<br>built on <em lang="la">amāv-</em></span>'+
+  c('off','Pluperfect','amāver<b class="tv">a</b>t','had loved')+c('off','Perfect','amāvit','has loved')+c('off','Future perfect','amāver<b class="tv">i</b>t','will have loved')+'</div>';
+ if(simple&&!open)h+='<button type="button" class="ta-btn" aria-expanded="false" onclick="var f=this.closest(\'.ta\');f.classList.toggle(\'show-simple\');this.setAttribute(\'aria-expanded\',f.classList.contains(\'show-simple\'))">Simple translations</button>';
+ return h+'</div>';
+}
+const GRID=gridHTML(true,false),GRID2=gridHTML(false),GRID_OPEN=gridHTML(true,true);
+
+const FORMULA=(s,m,e,eng)=>'<div class="bd-formula"><span class="bd-box s"><span class="bd-f" lang="la">'+s+'</span><span class="bd-l">stem: aspect</span></span><span class="bd-plus">+</span>'+
+ '<span class="bd-box m'+(m?'':' none')+'"><span class="bd-f" lang="la">'+(m||'—')+'</span><span class="bd-l">time marker: time</span></span><span class="bd-plus">+</span>'+
+ '<span class="bd-box e"><span class="bd-f" lang="la">'+e+'</span><span class="bd-l">ending: person, number</span></span><span class="bd-plus">=</span>'+
+ '<span class="bd-out"><span class="bd-f" lang="la">'+F(s,m,e)+'</span><span class="bd-l">'+eng+'</span></span></div>';
+
+const CHARTS={
+ story:{t:'The story so far',html:
+  '<p><strong>Troy</strong> was a city in what is now northwest Turkey. In Greek myth, the Greeks besieged it for ten years and finally took it with the trick of the wooden horse.</p>'+
+  '<p><strong>Aeneas</strong>, a Trojan prince and the son of the goddess Venus, escaped from the burning city with his father, his young son Ascanius and a band of survivors. For seven years they sailed the Mediterranean, looking for the new home the Fates had promised them in Italy.</p>'+
+  '<p><strong>Juno</strong>, queen of the gods, hated the Trojans. At the start of the <em>Aeneid</em> she sends a storm that wrecks their ships on the coast of Africa, near Carthage.</p>'+
+  '<p><strong>Venus</strong> goes to her father <strong>Jupiter</strong>, king of the gods, in tears, and asks when her son’s suffering will end. Jupiter smiles, kisses her, and tells her what the Fates have in store: the future of Aeneas, his son, and Rome.</p>'},
+ grid:{t:'Time and aspect',html:GRID+'<p>The columns are the times, and the rows are the aspects. This game covers the top row, the incomplete tenses, built on the incomplete stem. The complete row is for later.</p>'},
+ endings:{t:'The personal endings',h:['Person','Ending','English'],r:[
+  ['1st sing.','<span class="bd-e">-ō</span> or <span class="bd-e">-m</span>','I'],['2nd sing.','<span class="bd-e">-s</span>','you (one person)'],['3rd sing.','<span class="bd-e">-t</span>','he, she, it'],
+  ['1st pl.','<span class="bd-e">-mus</span>','we'],['2nd pl.','<span class="bd-e">-tis</span>','you (more than one)'],['3rd pl.','<span class="bd-e">-nt</span>','they']],
+  note:'The same six endings are used in all three tenses in this game. <em>-ō</em> is "I" in the present and in the <em>-bō</em> future; <em>-m</em> is "I" after <em>-ba-</em>.'},
+ pres:T_PRES,
+ impf:T_IMPF,
+ fut:T_FUT,
+ lines:{t:'The lines of the Aeneid in this game',h:['Book 1','Who speaks','What happens'],r:[
+  ['30–32','Virgil','Juno keeps the Trojans away from Italy, and they wander the seas.'],
+  ['229–241','Venus','Venus asks Jupiter when her son’s suffering will end.'],
+  ['257–282','Jupiter','Jupiter tells Venus the future: Aeneas, Ascanius, Romulus and Rome.'],
+  ['484','Virgil','A painting in Carthage shows Achilles selling Hector’s body.']],
+  note:'The lines are lightly trimmed. Jupiter’s speech is often called the Prophecy of Jupiter.'}
+};
+
+const BADGES={
+ when:{n:'Timekeeper',d:'Place three English sentences in time.'},
+ asp:{n:'Ongoing or Finished',d:'Sort every sentence by aspect without a slip.'},
+ three:{n:'Past, Present, Future',d:'Put all three tenses on the scroll.'},
+ lines:{n:'Reader of Virgil',d:'Read six lines of the Aeneid.'},
+ sorted:{n:'The Scroll in Order',d:'Sort every Latin form by tense without a slip.'},
+ perfect:{n:'Clear Reading',d:'Read every verb in a sentence correctly on the first pass.'}
+};
+
+const MASTERY=[
+ {k:'time',n:'Time'},
+ {k:'asp',n:'Aspect'},
+ {k:'pers',n:'Person and number'},
+ {k:'pres',n:'The present'},
+ {k:'impf',n:'The imperfect: -ba-'},
+ {k:'fut',n:'The future: -bi-'}
+];
+
+/* ===================== STAGES ===================== */
+/* Screen types: brief, chart (guided reading of a form chart), pick, ask, multi, sort, gap,
+   build (choose the time marker and ending for a stem), vparse (time, person and number of verbs in a sentence).
+   why: {optionIndex: html} explains a particular wrong choice. <u class="tg"> underlines the word asked about.
+   Glosses give dictionary entries; common verbs get no meaning. Lines of Virgil are lightly trimmed. */
+const STAGES=[
+{id:'time',name:'Time',full:'When Does It Happen?',screens:[
+ {t:'brief',h:'The scroll of Fate',html:
+  '<p>The Roman poet Virgil wrote the <em>Aeneid</em>, an epic poem about the Trojan hero Aeneas, between about 29 and 19 BC. After the Greeks destroyed Troy, Aeneas and the survivors sailed for seven years in search of a new home. In Book 1, the goddess Juno wrecked their ships in a storm off the coast of Africa. Aeneas’s mother, the goddess Venus, went in tears to her father Jupiter, king of the gods, and asked when her son’s suffering would end.</p>'+
+  '<p>Jupiter smiled and answered her by revealing the future. In his own words, he would unroll the secrets of the Fates, like a scroll: <em>volvēns fātōrum arcāna movēbō</em>.</p>'+
+  '<p>In this game you read that scroll as Jupiter unrolls it. Every line belongs somewhere in time: in the past, back in Troy; in the present, as Venus speaks; or in the future that Jupiter foretells. Latin shows the time inside the verb itself, and your task is to read those verbs and keep the scroll in order.</p>'+
+  '<p>This first stage is in English, so that you can see how English shows time before you meet the Latin. In each sentence, the verb is underlined.</p>'},
+ {t:'ask',q:'<span class="latin" lang="en">Troy <u class="tg">burned</u>.</span>When does this happen?',opts:['in the past','in the present','in the future'],ans:0,m:'time',counts:'when',
+  fb:'In the past. Here English shows the time with an ending, <em>-ed</em>, not a separate word.'},
+ {t:'ask',q:'<span class="latin" lang="en">Venus <u class="tg">is weeping</u>.</span>When does this happen?',opts:['in the past','in the present','in the future'],ans:1,m:'time',counts:'when',
+  fb:'In the present. <em>Is</em> places the weeping now, as Venus speaks.'},
+ {t:'ask',q:'<span class="latin" lang="en">Aeneas <u class="tg">will found</u> a city.</span>When does this happen?',opts:['in the past','in the present','in the future'],ans:2,m:'time',counts:'when',
+  fb:'In the future. <em>Will</em> places the founding after now.'},
+ {t:'ask',q:'<span class="latin" lang="en">The Greeks <u class="tg">had captured</u> Troy.</span>When does this happen?',opts:['in the past','in the present','in the future'],ans:0,m:'time',counts:'when',
+  fb:'In the past. <em>Had</em> is a past form, like <em>was</em>.'},
+ {t:'ask',q:'In those four sentences, what showed you the time?',
+  opts:['Helping verbs such as <em>is</em>, <em>had</em> and <em>will</em>, and the ending <em>-ed</em>','The names <em>Troy</em>, <em>Venus</em> and <em>Aeneas</em>','The meaning of the verbs: burning, weeping, founding','Nothing; you have to guess'],ans:0,m:'time',
+  why:{2:'Those words say what the action is. Try changing the helping verb: <em>Troy will burn</em> moves the same action into the future.'},
+  fb:'English shows time with helping verbs in front of the main verb (<em>was, had, is, will</em>) or with an ending (<em>-ed</em>). Notice the vowels: w<strong>a</strong>s and h<strong>a</strong>d for the past, w<strong>i</strong>ll for the future. Latin tends to use the same two vowels, as you will see.'},
+ {t:'sort',q:'Sort each sentence by when it happens.',m:'time',
+  hint:'Not that group. Look at the helping verb or the ending: was, were, had or -ed for the past; is, are or no helping verb for the present; will for the future.',
+  okfb:'All sorted correctly. The helping verb or the ending placed each one in time.',
+  errfb:'Sorted, with {n} slip{s}. <em>Was</em>, <em>were</em>, <em>had</em> and <em>-ed</em> are past; <em>is</em>, <em>are</em> and plain forms such as <em>sink</em> are present; <em>will</em> is future.',
+  bins:[{id:'p',n:'Past'},{id:'n',n:'Present'},{id:'f',n:'Future'}],
+  cards:[
+   {txt:'The Greeks were fighting.',bin:'p'},{txt:'Juno sent a storm.',bin:'p'},{txt:'Troy had fallen.',bin:'p'},
+   {txt:'Venus is speaking.',bin:'n'},{txt:'The ships sink.',bin:'n'},{txt:'Jupiter smiles.',bin:'n'},
+   {txt:'Aeneas will fight a war.',bin:'f'},{txt:'The Romans will rule.',bin:'f'},{txt:'Aeneas will have reached Italy.',bin:'f'}]},
+ {t:'ask',q:'<span class="latin" lang="en">Troy <u class="tg">burned</u>.<br>Troy <u class="tg">was burning</u>.<br>Troy <u class="tg">had burned</u>.</span>When do these three happen?',
+  opts:['All three are in the past','The first is past, the second present, the third future','Only the first is in the past','Only the last is in the past'],ans:0,m:'time',
+  fb:'All three are in the past. They do not mean quite the same thing, though. What else is different about them is the subject of the next stage.'}
+]},
+
+{id:'aspect',name:'Aspect',full:'Ongoing or Finished?',screens:[
+ {t:'brief',h:'Past does not mean over',html:
+  '<p>It is easy to think that anything in the past must be over. But when you tell a story, you stand at a moment in the past and describe what things were like at that moment. Some actions were still going on; others were already finished.</p>'+
+  '<p>Here are the three sentences about Troy again, each placed at a moment in the story.</p>'},
+ {t:'ask',q:'<span class="latin" lang="en">When Aeneas woke up, Troy <u class="tg">was burning</u>.</span>At the moment Aeneas woke up, was the burning still going on, or already over?',opts:['still going on','already over'],ans:0,m:'asp',
+  fb:'Still going on: he woke to flames all around him. The sentence is in the past, but at that moment in the past the burning was in progress.'},
+ {t:'ask',q:'<span class="latin" lang="en">When Aeneas reached the shore, Troy <u class="tg">had burned</u>.</span>At the moment Aeneas reached the shore, was the burning still going on, or already over?',opts:['still going on','already over'],ans:1,m:'asp',
+  fb:'Already over: only ashes were left. This sentence is in the past too. It differs from <em>was burning</em> only in whether the action was finished at that moment.'},
+ {t:'ask',q:'<span class="latin" lang="en">Troy <u class="tg">burned</u>.</span>What does this sentence tell you about the burning?',
+  opts:['Only that it happened; it does not say whether it was going on or over at a particular moment','That it was still going on at a particular moment','That it was already over before something else happened'],ans:0,m:'asp',
+  fb:'Only that it happened. This plain form is called the <strong>simple</strong> aspect. It works a little like a photograph: it reports the event without saying whether it was still going on or already finished. English uses it constantly. Latin has no separate form for it, which matters when you translate; you will see how in the present stage.'},
+ {t:'brief',h:'Time and aspect',html:
+  '<p>Every verb answers two separate questions.</p>'+
+  '<ul class="srcs"><li><strong>Time</strong> is when the action takes place: in the past, now, or in the future.</li><li><strong>Aspect</strong> is how the action is viewed: as <strong>incomplete</strong> (ongoing, repeated, or not yet finished) or as <strong>complete</strong> (finished).</li></ul>'+
+  '<p><em>Troy was burning</em> and <em>Troy had burned</em> are both in the past; they differ only in aspect. Whether an action is ongoing or finished is a separate question from when it happens, and the same choice exists in the present and the future too.</p>'},
+ {t:'ask',q:'<span class="latin" lang="en">Venus <u class="tg">is weeping</u> as she speaks.</span>Is the action ongoing or finished?',opts:['ongoing','finished'],ans:0,m:'asp',
+  fb:'Ongoing, in the present: the weeping is going on as she speaks.'},
+ {t:'ask',q:'<span class="latin" lang="en">This time next year, Aeneas <u class="tg">will be sailing</u> to Italy.</span>Is the action ongoing or finished?',opts:['ongoing','finished'],ans:0,m:'asp',
+  fb:'Ongoing, in the future: at that moment next year, the sailing will be in progress.'},
+ {t:'sort',q:'Sort each sentence by aspect: is the action shown as ongoing or as finished?',m:'asp',badge:'asp',
+  hint:'Not that group. Ask whether the action is still going on, or already over.',
+  okfb:'All sorted correctly. Notice that both groups contain past, present and future sentences: aspect and time are separate.',
+  errfb:'Sorted, with {n} slip{s}. <em>-ing</em> forms show an action going on; <em>has</em>, <em>had</em> and <em>will have</em> show it finished.',
+  bins:[{id:'o',n:'Ongoing'},{id:'f',n:'Finished'}],
+  cards:[
+   {txt:'Troy was burning.',bin:'o'},{txt:'Venus is weeping.',bin:'o'},{txt:'The Trojans will be wandering.',bin:'o'},
+   {txt:'Troy had burned.',bin:'f'},{txt:'Venus has wept.',bin:'f'},{txt:'The Trojans will have wandered.',bin:'f'}]},
+ {t:'brief',h:'Reading the grid',html:
+  '<p>The two questions, time and aspect, can be laid out as a grid. This is the same grid as on the grammar pages:</p>'+GRID2+
+  '<ul class="srcs"><li>The three <strong>columns</strong> are the times: past, present and future.</li><li>The two <strong>rows</strong> are the aspects: incomplete (ongoing) and complete (finished).</li><li>Each <strong>box</strong> is one tense, with its Latin name.</li></ul>'+
+  '<p>To find a tense, answer both questions. <em>Troy was burning</em> is in past time, and the burning is ongoing. Go to the past column and the incomplete row: that box is the <strong>imperfect</strong>.</p>',unlockTool:'grid'},
+ {t:'ask',q:'<span class="latin" lang="en">Troy <u class="tg">had burned</u>.</span>Past time, and the action is finished. Which tense is that in the grid?',
+  opts:['the pluperfect','the imperfect','the perfect','the future perfect'],ans:0,m:'asp',
+  why:{1:'The imperfect is past time but ongoing. This action is finished.',2:'The perfect is in the present-time column.',3:'The future perfect is in the future-time column.'},
+  fb:'The pluperfect: past column, complete row. <em>Was burning</em> and <em>had burned</em> share a column and differ in their row.'},
+ {t:'ask',q:'<span class="latin" lang="en">Venus <u class="tg">is weeping</u>.</span>Present time, and the action is ongoing. Which tense is that in the grid?',
+  opts:['the present','the perfect','the imperfect','the future'],ans:0,m:'asp',
+  why:{1:'The perfect is in the present column, but in the complete row.',2:'The imperfect is in the past column.'},
+  fb:'The present: present column, incomplete row.'},
+ {t:'ask',q:'<span class="latin" lang="en">Aeneas <u class="tg">will be sailing</u>.</span>Future time, and the action is ongoing. Which tense is that in the grid?',
+  opts:['the future','the future perfect','the present','the pluperfect'],ans:0,m:'asp',
+  why:{1:'The future perfect is in the future column, but in the complete row: <em>will have sailed</em>.'},
+  fb:'The future: future column, incomplete row.'},
+ {t:'brief',h:'The stem shows the aspect',html:
+  '<p>Latin answers the two questions in different parts of the word. The <strong>stem</strong>, at the front, shows the aspect. The <strong>time marker</strong>, in the middle, shows the time:</p>'+FORMULA('amā','ba','t','he was loving')+
+  '<p>This game covers the top row of the grid, the <strong>incomplete</strong> tenses: the present, the imperfect and the future. All three are built on the same incomplete stem, which you find by cutting <em>-re</em> off the infinitive: <em>amāre</em> → <em>amā-</em>. The complete row uses a different stem, and it is for later.</p>'},
+ {t:'ask',q:'<em>Amābat</em> (he was loving), <em>amat</em> (he is loving) and <em>amābit</em> (he will be loving) all start with <em>amā-</em>. What does that shared stem tell you?',
+  opts:['That the action is ongoing: all three are incomplete tenses','That all three are in the past','That all three are finished actions','That all three are about more than one person'],ans:0,m:'asp',
+  why:{1:'The times differ: past, present and future. Time is shown in the middle of the word, not by the stem.'},
+  fb:'The incomplete stem shows that the action is ongoing. The time is shown separately, by what comes after the stem.'}
+]},
+
+{id:'person',name:'Present',full:'The Present Tense and the Endings',screens:[
+ {t:'brief',h:'Who is doing it?',html:
+  '<p>English shows who is doing the action with a separate word: <em>I love</em>, <em>you love</em>, <em>they love</em>. The verb itself hardly changes; only <em>he loves</em> adds an <em>-s</em>.</p>'+
+  '<p>Latin puts that information in the <strong>personal ending</strong>, at the end of the verb. Each ending shows the <strong>person</strong> (1st: the speaker; 2nd: the person spoken to; 3rd: anyone else) and the <strong>number</strong> (singular or plural). So Latin usually leaves out the word for <em>I</em>, <em>you</em> or <em>they</em>.</p>'+
+  '<p>The <strong>present tense</strong>, in present time, has no time marker at all. It is the default: stem plus ending.</p>'+FORMULA('ama','','t','he loves, he is loving')},
+ {t:'chart',h:'The present of amō',table:T_PRES,unlockTool:'pres',
+  intro:'<p>Here are all six forms. Tap each pattern below to see where it appears.</p>',
+  more:'<a href="../grammar/present-active.html" target="_blank" rel="noopener">Open the grammar page for the present</a>. This chart and the endings stay in your toolkit.',
+  pats:[
+   {lab:'Singular endings',cells:[[0,1],[1,1],[2,1]],note:'<b>-ō, -s, -t: I, you, he/she/it.</b> One person is doing the action.'},
+   {lab:'Plural endings',cells:[[3,1],[4,1],[5,1]],note:'<b>-mus, -tis, -nt: we, you (pl.), they.</b> More than one person. Each plural ending is the singular one made longer: <em>-s</em> becomes <em>-tis</em>, <em>-t</em> becomes <em>-nt</em>.'},
+   {lab:'No time marker',cells:[[0,1],[1,1],[2,1],[3,1],[4,1],[5,1]],note:'<b>Stem + ending, nothing in between.</b> The present is the default time, so it needs no marker.'},
+   {lab:'Three English forms',cells:[[0,2],[2,2]],note:'<b>One Latin form, three English ones.</b> <em>Amat</em> can be "she loves", "she is loving" or "she does love". Choose the one that fits the sentence.'}]},
+ {t:'brief',h:'A second translation: the simple',html:
+  '<p>Remember <em>Troy burned</em>, the plain English form that only reports that something happens. It is called the <strong>simple</strong> aspect, and English uses it all the time: <em>she loves</em>, <em>he will love</em>.</p>'+
+  '<p>Latin has no form of its own for the simple aspect. So when you translate a Latin incomplete tense, you will often use the English simple form instead of the <em>-ing</em> form. <em>Amat</em> is usually translated "she loves" rather than "she is loving", and the future <em>amābit</em> "he will love" rather than "he will be loving".</p>'+
+  '<p>This is only a second translation. The Latin verb is still incomplete; English just prefers the plainer form. The grid shows the simple translations in a row of their own:</p>'+GRID_OPEN+
+  '<p>One warning: in the past, the simple "loved" is not a translation of the imperfect. It belongs to a different tense, the perfect, from the complete row, which you will meet later.</p>'},
+ {t:'multi',q:'<em>Amat</em> is the present: present time, incomplete. Which English translations can it have? Select every one that applies.',
+  opts:['she is loving','she loves','she had loved','she does love'],ans:[0,1,3],m:'pres',
+  fb:'"She is loving" shows the ongoing aspect most clearly. "She loves", the simple form, is the usual translation, and "she does love" is used for emphasis or in questions. "She had loved" is past and complete: the pluperfect.'},
+ {t:'ask',q:'<span class="latin">Ō quī rēs hominumque deumque aeternīs regis imperiīs et fulmine <u class="tg">terrēs</u>…</span><span class="gloss">rēs, reī, f. thing, affair · homō, hominis, m. human · deus, -ī, m. god (deum = deōrum) · aeternus, -a, -um, eternal · regō, regere, rēxī, rēctum · imperium, -ī, n. command · fulmen, fulminis, n. thunderbolt · terreō, terrēre, terruī, territum · Virgil, <em>Aeneid</em> 1.229–230</span>Venus begins her complaint to Jupiter. Who does <em>terrēs</em> refer to?',
+  opts:['I: Venus','you (one person): Jupiter','he: Aeneas','they: the gods'],ans:1,m:'pers',counts:'line',unlock:'pres',
+  why:{0:'"I" would end in <em>-ō</em>.',2:'"He" would end in <em>-t</em>: <em>terret</em>.',3:'"They" would end in <em>-nt</em>: <em>terrent</em>.'},
+  fb:'<em>-s</em> means "you", one person: Venus is speaking to Jupiter. "O you who rule the affairs of humans and gods with eternal command, and terrify them with your thunderbolt…" There is no time marker, so it is present. (<em>Regis</em>, "you rule", has the same ending.)'},
+ {t:'ask',q:'<span class="latin">Quem <u class="tg">dās</u> fīnem, rēx magne, labōrum?</span><span class="gloss">quī, quae, quod, which · dō, dare, dedī, datum · fīnis, -is, m. end · rēx, rēgis, m. king · labor, -ōris, m. hardship · Virgil, <em>Aeneid</em> 1.241</span>Venus ends with a question. What does <em>dās</em> mean here?',
+  opts:['you give','I give','they give','you were giving'],ans:0,m:'pres',counts:'line',
+  why:{1:'"I give" is <em>dō</em>.',2:'"They give" is <em>dant</em>.',3:'That would need the past marker: <em>dabās</em>.'},
+  fb:'"You give": stem <em>da-</em>, no marker, ending <em>-s</em>. "What end do you give, great king, to their hardships?" In good English: "What end will you put to their suffering?"'},
+ {t:'ask',q:'<span class="latin"><u class="tg">Manent</u> immōta tuōrum fāta tibi.</span><span class="gloss">maneō, manēre, mānsī, mānsum · immōtus, -a, -um, unmoved · tuī, tuōrum, m. pl. your people · fātum, -ī, n. fate · Virgil, <em>Aeneid</em> 1.257–258</span>Jupiter answers. What is the subject of <em>manent</em>, and how do you know?',
+  opts:['the fates: <em>-nt</em> means "they", and <em>fāta</em> is plural','Venus: she is the one listening','Jupiter: he is the one speaking','your people: <em>tuōrum</em> is plural'],ans:0,m:'pers',counts:'line',
+  why:{2:'Jupiter speaking about himself would need "I": <em>maneō</em>.',3:'<em>Tuōrum</em> is genitive, "of your people". The subject has to be nominative.'},
+  fb:'<em>-nt</em> means "they". The plural subject is <em>fāta</em>: "The fates of your people remain unmoved for you." Jupiter is telling Venus not to fear: nothing has changed.'},
+ {t:'build',q:'Build the Latin for <strong>we love</strong>. The stem is given.',stem:'amā',mk:'',end:'mus',form:F('amā','','mus'),eng:'we love',m:'pres',
+  whyM:'"We love" is present time. The present has no time marker.',whyE:'"We" is 1st person plural.',
+  fb:'Stem, no marker, <em>-mus</em> for "we".'},
+ {t:'build',q:'Build the Latin for <strong>they give</strong>, from <em>dō, dare</em>.',stem:'da',mk:'',end:'nt',form:F('da','','nt'),eng:'they give',m:'pres',
+  whyM:'"They give" is present time, so there is no time marker.',whyE:'"They" is 3rd person plural.',
+  fb:'Stem, no marker, <em>-nt</em> for "they".'},
+ {t:'ask',q:'<span class="latin">…quandō haec tē cūra <u class="tg">remordet</u>…</span><span class="gloss">quandō, since · cūra, -ae, f. worry · remordeō, remordēre, to gnaw at · Virgil, <em>Aeneid</em> 1.261</span>Jupiter says why he will reveal the future. How do you translate <em>remordet</em>?',
+  opts:['it gnaws at','they gnaw at','it was gnawing at','it will gnaw at'],ans:0,m:'pres',counts:'line',
+  why:{1:'"They" would be <em>remordent</em>.',2:'That would need <em>-ba-</em>: <em>remordēbat</em>.',3:'That would need <em>-bi-</em>: <em>remordēbit</em>.'},
+  fb:'"It gnaws at": no marker, so present; <em>-t</em> for "he, she, it". The subject is <em>cūra</em>: "since this worry gnaws at you".'},
+ {t:'ask',q:'A verb with no time marker, such as <em>dās</em> or <em>manent</em>: what is the tense called, and what are its time and aspect?',opts:['the present tense: present time, incomplete','the present tense: present time, complete','the imperfect tense: past time, incomplete','the perfect tense: present time, complete'],ans:0,m:'pres',
+  why:{1:'<em>Da-</em> and <em>mane-</em> are incomplete stems, so the aspect is incomplete: the action is ongoing.',2:'The imperfect needs <em>-ba-</em>.',3:'The perfect is built on a different stem, the complete stem, which you will meet later.'},
+  fb:'The present tense: present time, incomplete aspect. Here the name of the tense and its time are the same word, but that is not true of every tense: the imperfect is a past tense.'},
+ {t:'ask',q:'Which part of a Latin verb tells you who is doing the action, and how many?',opts:['the personal ending','the stem','the time marker'],ans:0,m:'pers',unlockTool:'endings',
+  fb:'The personal ending. You will see the same six endings in all three tenses of this game.'}
+]},
+
+{id:'past',name:'Imperfect',full:'The Imperfect Tense: -ba-',screens:[
+ {t:'brief',h:'Ongoing in the past',html:
+  '<p>The <strong>imperfect tense</strong> is in past time, and it is incomplete: something that was going on, or used to happen, in the past. English says <em>was ___ing</em>, <em>used to ___</em> or <em>kept ___ing</em>.</p>'+
+  '<p>Latin keeps the same stem and the same endings, and puts the time marker <strong>-ba-</strong> between them. The <em>a</em> is the time vowel: Latin tends to use <em>a</em> for past time, and the same vowel appears in English "w<strong>a</strong>s".</p>'+FORMULA('amā','ba','t','he was loving')+
+  '<p>One ending changes: "I" is <em>-m</em>, not <em>-ō</em>: <em>amābam</em>, I was loving.</p>'},
+ {t:'chart',h:'The imperfect of amō',table:T_IMPF,unlockTool:'impf',
+  intro:'<p>Here are all six forms. Tap each pattern below to see where it appears.</p>',
+  more:'<a href="../grammar/imperfect-active.html" target="_blank" rel="noopener">Open the grammar page for the imperfect</a>. This chart stays in your toolkit.',
+  pats:[
+   {lab:'-ba- in every form',cells:[[0,1],[1,1],[2,1],[3,1],[4,1],[5,1]],note:'<b>The past marker -ba-.</b> Every form has it between the stem and the ending. Its <em>a</em> is long in some forms (<em>amābās</em>) and short before <em>-m</em>, <em>-t</em> and <em>-nt</em>.'},
+   {lab:'-m for I',cells:[[0,1]],note:'<b>-m, not -ō.</b> After the marker <em>-ba-</em>, "I" is <em>-m</em>: <em>amābam</em>. You already know <em>-m</em> for "I" from <em>sum</em>.'},
+   {lab:'Same endings as the present',cells:[[1,1],[2,1],[3,1],[4,1],[5,1]],note:'<b>Nothing new.</b> Apart from <em>-m</em>, these are the present endings: <em>-s, -t, -mus, -tis, -nt</em>.'},
+   {lab:'English',cells:[[0,2],[2,2],[5,2]],note:'<b>was ___ing, used to ___.</b> Use "was ___ing" for an action going on at a moment in the past, and "used to ___" for a habit.'}]},
+ {t:'ask',q:'<span class="latin"><u class="tg">errābant</u> āctī fātīs maria omnia circum.</span><span class="gloss">errō, errāre, errāvī, errātum · āctus, -a, -um, driven · fātum, -ī, n. fate · mare, maris, n. sea · omnis, -e, all · circum (+ accusative), around · Virgil, <em>Aeneid</em> 1.32</span>Virgil describes the Trojans before the storm. How do you translate <em>errābant</em>?',
+  opts:['they were wandering','they wander','they will wander','he was wandering'],ans:0,m:'impf',counts:'line',unlock:'impf',
+  why:{1:'That would have no marker: <em>errant</em>.',2:'That would need <em>-bi-</em>: <em>errābunt</em>.',3:'<em>-nt</em> means "they", not "he".'},
+  fb:'<em>errā</em> + <em>ba</em> + <em>nt</em>: "they were wandering". "Driven by the fates, they were wandering around all the seas." The imperfect suits years of wandering: it is ongoing, not a single event.'},
+ {t:'ask',q:'<span class="latin">Trōās… <u class="tg">arcēbat</u> longē Latiō.</span><span class="gloss">Trōs, Trōis, m. a Trojan (Trōās, acc. pl.) · arceō, arcēre, arcuī, to keep away · longē, adv. far · Latium, -ī, n. Latium, the region of Italy around Rome · Virgil, <em>Aeneid</em> 1.30–31</span>The subject is Juno. What does <em>-ba-</em> tell you about her action?',
+  opts:['It was going on in the past: she kept them away, again and again','It happened once and was over','It is going on now','It will happen in the future'],ans:0,m:'impf',counts:'line',
+  fb:'<em>arcē</em> + <em>ba</em> + <em>t</em>: "she was keeping the Trojans far from Latium". For seven years, Juno kept them away.'},
+ {t:'ask',q:'<span class="latin">exanimumque aurō corpus <u class="tg">vēndēbat</u> Achillēs.</span><span class="gloss">exanimus, -a, -um, lifeless · aurum, -ī, n. gold · corpus, corporis, n. body · vēndō, vēndere, vēndidī, vēnditum · Virgil, <em>Aeneid</em> 1.484</span>In Carthage, Aeneas sees the Trojan War painted on a temple wall, including Achilles with the body of Hector. <em>Vēndō</em> is 3rd conjugation, and adds an <em>ē</em> before the marker. Which part shows the time?',
+  opts:['<em>-ba-</em>: past','<em>vēnd-</em>: past','<em>-t</em>: past','nothing: it is present'],ans:0,m:'impf',counts:'line',
+  why:{1:'The stem gives the meaning and the aspect, not the time.',2:'<em>-t</em> shows the person: "he".'},
+  fb:'<em>-ba-</em> marks the past here too: <em>vēnd-ē-ba-t</em>, "Achilles was selling the lifeless body for gold". In the 3rd conjugation the stem adds <em>ē</em> before the marker, but the marker is the same.'},
+ {t:'ask',q:'<span class="latin">Īlus <u class="tg">erat</u>, dum rēs stetit Īlia rēgnō.</span><span class="gloss">Īlus, Ascanius’s earlier name · dum, while · rēs Īlia, the Trojan state · stetit, stood · rēgnum, -ī, n. kingdom · Virgil, <em>Aeneid</em> 1.268</span>Jupiter explains that Ascanius used a different name back in Troy. <em>Erat</em> is from <em>sum</em>, which has no <em>-ba-</em>. Which letter still shows the past?',
+  opts:['the <em>a</em>: er<strong>a</strong>t','the <em>e</em>: <strong>e</strong>rat','the <em>t</em>: era<strong>t</strong>'],ans:0,m:'impf',
+  why:{2:'<em>-t</em> is the ending: "he".'},
+  fb:'The <em>a</em>. "He was Ilus while the Trojan state stood as a kingdom." Even without <em>-b-</em>, the past vowel <em>a</em> is there, as in English "w<strong>a</strong>s".'},
+ {t:'build',q:'Build the Latin for <strong>we were wandering</strong>.',stem:'errā',mk:'ba',end:'mus',form:F('errā','bā','mus'),eng:'we were wandering',m:'impf',
+  whyM:'"Were wandering" is ongoing in the past: use the past marker.',whyE:'"We" is 1st person plural.',
+  fb:'<em>-ba-</em> for the past and <em>-mus</em> for "we". The <em>a</em> of the marker is long here: <em>errābāmus</em>.'},
+ {t:'build',q:'Build the Latin for <strong>I was keeping away</strong>, from <em>arceō, arcēre</em>.',stem:'arcē',mk:'ba',end:'m',form:F('arcē','ba','m'),eng:'I was keeping away',m:'impf',
+  whyM:'This is ongoing in the past: use the past marker.',whyE:'After <em>-ba-</em>, "I" is not <em>-ō</em>.',
+  fb:'After <em>-ba-</em>, "I" is <em>-m</em>: <em>arcēbam</em>.'},
+ {t:'ask',q:'<em>-ba-</em> on the incomplete stem: what is the tense called, and what are its time and aspect?',opts:['the imperfect tense: past time, incomplete','the pluperfect tense: past time, complete','the past tense: past time, complete','the imperfect tense: present time, incomplete'],ans:0,m:'impf',
+  why:{1:'The pluperfect is in past time too, but it is complete, built on the complete stem. You will meet it later.',2:'Latin has more than one tense in past time, so none of them is simply called "the past". And the stem here is incomplete.',3:'<em>-ba-</em> marks the past, not the present.'},
+  fb:'The imperfect tense: past time, incomplete aspect. "Imperfect" means "not finished": it is the ongoing past. Learn both the time and the aspect, because the pluperfect is also in past time, but complete.'}
+]},
+
+{id:'future',name:'Future',full:'The Future Tense: -bi-',screens:[
+ {t:'brief',h:'Jupiter unrolls the future',html:
+  '<p>The <strong>future tense</strong>, in future time, describes something that will happen later. English says <em>will ___</em>, or <em>will be ___ing</em> for an action in progress.</p>'+
+  '<p>In the 1st and 2nd conjugations, Latin puts the time marker <strong>-bi-</strong> between the stem and the ending. The <em>i</em> is the time vowel: Latin tends to use <em>i</em> for future time, and the same vowel appears in English "w<strong>i</strong>ll".</p>'+FORMULA('amā','bi','t','he will love')+
+  '<p>Two forms change the <em>i</em>. In <em>amābō</em>, "I will love", it disappears before <em>-ō</em>. In <em>amābunt</em>, "they will love", it becomes <em>u</em>.</p>'+
+  '<p class="warn">Jupiter’s speech also has futures such as <em>geret</em>, "he will wage", and <em>condet</em>, "he will found". These are 3rd conjugation verbs, which mark the future with a vowel instead of <em>-bi-</em>. You will learn them later; in this game, every future uses <em>-bi-</em>.</p>'},
+ {t:'chart',h:'The future of amō',table:T_FUT,unlockTool:'fut',
+  intro:'<p>Here are all six forms. Tap each pattern below to see where it appears.</p>',
+  more:'<a href="../grammar/future-active.html" target="_blank" rel="noopener">Open the grammar page for the future</a>. This chart stays in your toolkit.',
+  pats:[
+   {lab:'-bi- in most forms',cells:[[1,1],[2,1],[3,1],[4,1]],note:'<b>The future marker -bi-.</b> Its <em>i</em> is the future vowel, as in English "will".'},
+   {lab:'-bō: the i disappears',cells:[[0,1]],note:'<b>amābō.</b> Before <em>-ō</em>, the <em>i</em> of the marker disappears. The <em>b</em> stays, so <em>-bō</em> still means "I will".'},
+   {lab:'-bunt: the i becomes u',cells:[[5,1]],note:'<b>amābunt.</b> Before <em>-nt</em>, the <em>i</em> becomes <em>u</em>. The <em>b</em> stays.'},
+   {lab:'Same endings as the present',cells:[[0,1],[1,1],[2,1],[3,1],[4,1],[5,1]],note:'<b>Nothing new.</b> The future uses the present endings, including <em>-ō</em> for "I".'}]},
+ {t:'ask',q:'<span class="latin">longius et volvēns fātōrum arcāna <u class="tg">movēbō</u>.</span><span class="gloss">longius, adv. further · volvēns, unrolling · fātum, -ī, n. fate · arcānum, -ī, n. secret · moveō, movēre, mōvī, mōtum · Virgil, <em>Aeneid</em> 1.262</span>How do you translate <em>movēbō</em>?',
+  opts:['I will set in motion','I am setting in motion','I was setting in motion','they will set in motion'],ans:0,m:'fut',counts:'line',unlock:'fut',
+  why:{1:'That would have no marker: <em>moveō</em>.',2:'That would need <em>-ba-</em>: <em>movēbam</em>.',3:'"They" would end in <em>-nt</em>: <em>movēbunt</em>.'},
+  fb:'<em>movē</em> + <em>b(i)</em> + <em>ō</em>: "I will set in motion". "Unrolling the secrets of the Fates further, I will set them in motion." Jupiter is about to reveal the future, so every verb from here is future.'},
+ {t:'ask',q:'<span class="latin">trīgintā magnōs volvendīs mēnsibus orbēs imperiō <u class="tg">explēbit</u>.</span><span class="gloss">trīgintā, thirty · orbis, -is, m. circle; here, a year · volvendīs mēnsibus, as the months roll by · imperium, -ī, n. rule · expleō, explēre, explēvī, explētum, to fill up · Virgil, <em>Aeneid</em> 1.269–270</span>The subject is Ascanius, Aeneas’s son. What tense is <em>explēbit</em>, and who does it?',
+  opts:['future tense; he (Ascanius)','imperfect tense; he (Ascanius)','future tense; they (the years)','present tense; you (Venus)'],ans:0,m:'fut',counts:'line',
+  why:{1:'The imperfect has <em>-ba-</em>. This has <em>-bi-</em>.',2:'<em>-t</em> is singular.'},
+  fb:'<em>explē</em> + <em>bi</em> + <em>t</em>: "he will fill up thirty great years with his rule, as the months roll by". Ascanius will rule for thirty years.'},
+ {t:'ask',q:'<span class="latin">Mārte gravis geminam partū <u class="tg">dabit</u> Īlia prōlem.</span><span class="gloss">Mārs, Mārtis, m. Mars, god of war · gravis, -e, heavy; here, pregnant · geminus, -a, -um, twin · partus, -ūs, m. birth · dō, dare, dedī, datum · Īlia, -ae, f. Ilia, a priestess · prōlēs, -is, f. offspring · Virgil, <em>Aeneid</em> 1.274</span>Three hundred years later, the priestess Ilia will have twins by Mars: Romulus and Remus. How do you translate <em>dabit</em>?',
+  opts:['she will give','she gives','she was giving','they will give'],ans:0,m:'fut',counts:'line',
+  why:{1:'That is <em>dat</em>, with no marker.',2:'That is <em>dabat</em>, with <em>-ba-</em>.',3:'That is <em>dabunt</em>.'},
+  fb:'<em>da</em> + <em>bi</em> + <em>t</em>: "Ilia, pregnant by Mars, will give birth to twin offspring." One of the twins, Romulus, will found Rome.'},
+ {t:'ask',q:'<span class="latin">…mēcumque <u class="tg">fovēbit</u> Rōmānōs, rērum dominōs, gentemque togātam.</span><span class="gloss">mēcum, with me · foveō, fovēre, fōvī, fōtum, to cherish · dominus, -ī, m. master · rērum dominī, masters of the world · gēns, gentis, f. people · togātus, -a, -um, wearing the toga · Virgil, <em>Aeneid</em> 1.281–282</span>The subject is Juno. Earlier, Virgil said that she <em>arcēbat</em> the Trojans from Italy. What change does Jupiter foretell?',
+  opts:['Juno was keeping them away, but she will cherish the Romans','Juno is keeping them away, and she always will','Juno will keep them away in the future','Juno was cherishing the Romans in the past'],ans:0,m:'fut',counts:'line',
+  fb:'<em>arcē-ba-t</em> is past, <em>fovē-bi-t</em> is future. "With me she will cherish the Romans, masters of the world, the people who wear the toga." The goddess who hated the Trojans will one day love their descendants.'},
+ {t:'build',q:'Build the Latin for <strong>they will give</strong>, from <em>dō, dare</em>.',stem:'da',mk:'bi',end:'nt',form:F('da','bu','nt'),eng:'they will give',m:'fut',
+  whyM:'"Will give" is future: use the future marker.',whyE:'"They" is 3rd person plural.',
+  fb:'<em>-bi-</em> + <em>-nt</em> becomes <em>-bunt</em>: <em>dabunt</em>. The <em>i</em> changes to <em>u</em>, but the <em>b</em> stays.'},
+ {t:'build',q:'Build the Latin for <strong>I will cherish</strong>, from <em>foveō, fovēre</em>.',stem:'fovē',mk:'bi',end:'ō',form:F('fovē','b','ō'),eng:'I will cherish',m:'fut',
+  whyM:'"Will cherish" is future: use the future marker.',whyE:'In the present and the future, "I" is <em>-ō</em>.',
+  fb:'<em>-bi-</em> + <em>-ō</em> becomes <em>-bō</em>: <em>fovēbō</em>. The <em>i</em> disappears, but the <em>b</em> stays.'},
+ {t:'multi',q:'Which English translations can <em>amābit</em> have? Select every one that applies.',
+  opts:['he will love','he will be loving','he will have loved','he loved'],ans:[0,1],m:'fut',
+  fb:'"He will be loving" shows the ongoing aspect; "he will love", the simple form, is the usual translation. "He will have loved" is finished: that is the future perfect, from the complete row. "He loved" is past.'},
+ {t:'ask',q:'<em>-bi-</em> on the incomplete stem (or <em>-b-</em> in <em>-bō</em>, <em>-bu-</em> in <em>-bunt</em>): what is the tense called, and what are its time and aspect?',opts:['the future tense: future time, incomplete','the future perfect tense: future time, complete','the imperfect tense: past time, incomplete','the present tense: present time, incomplete'],ans:0,m:'fut',
+  why:{1:'The future perfect is in future time too, but it is complete, built on the complete stem. You will meet it later.',2:'The imperfect has <em>-ba-</em>, not <em>-bi-</em>.',3:'The present has no time marker.'},
+  fb:'The future tense: future time, incomplete aspect, in the 1st and 2nd conjugations. Look for the <em>b</em> after the stem.'}
+]},
+
+{id:'scroll',name:'Scroll',full:'The Scroll in Order',screens:[
+ {t:'brief',h:'Three tenses, three times',html:
+  '<p>You have now read the whole scroll: the Trojans’ wandering in the past, Venus’s plea in the present, and Jupiter’s prophecy of the future. Every form you met was built the same way:</p>'+
+  '<ul class="srcs"><li>the <span class="bd-s">stem</span> shows the aspect: <em>amā-</em>, ongoing;</li><li>the <span class="bd-m">time marker</span> shows the time: none for the present, <em>-ba-</em> for the past, <em>-bi-</em> for the future;</li><li>the <span class="bd-e">ending</span> shows the person and number: <em>-ō/-m, -s, -t, -mus, -tis, -nt</em>.</li></ul>'+
+  '<p>Each tense has a name and a time. The <strong>imperfect</strong> is in past time, the <strong>present</strong> in present time, and the <strong>future</strong> in future time. Keep the two apart: when you meet the complete tenses, there will be a second tense in each time.</p>'+
+  '<p>The scroll has come loose. Put it back in order, and then read the last lines.</p>',unlockTool:'lines'},
+ {t:'sort',q:'Sort each verb by its tense.',m:'time',badge:'sorted',
+  hint:'Not that tense. Look between the stem and the ending: -ba-, -bi-, or nothing.',
+  okfb:'All twelve in order. The marker in the middle gave the tense every time.',
+  errfb:'Sorted, with {n} slip{s}. <em>-ba-</em> is the imperfect, <em>-bi-</em> (or <em>-bō</em>, <em>-bunt</em>) is the future, and no marker is the present.',
+  bins:[{id:'p',n:'Imperfect',h:'past time: -ba-'},{id:'n',n:'Present',h:'present time: no marker'},{id:'f',n:'Future',h:'future time: -bi-'}],
+  cards:[
+   {txt:'<em>errābant</em>',bin:'p'},{txt:'<em>arcēbat</em>',bin:'p'},{txt:'<em>amābam</em>',bin:'p'},{txt:'<em>dabātis</em>',bin:'p'},
+   {txt:'<em>terrēs</em>',bin:'n'},{txt:'<em>dās</em>',bin:'n'},{txt:'<em>manent</em>',bin:'n'},{txt:'<em>amāmus</em>',bin:'n'},
+   {txt:'<em>movēbō</em>',bin:'f'},{txt:'<em>explēbit</em>',bin:'f'},{txt:'<em>dabunt</em>',bin:'f'},{txt:'<em>fovēbimus</em>',bin:'f'}]},
+ {t:'vparse',s:'Trōiānī maria errābant; nunc Venus Iovem ōrat.',gl:'Trōiānus, -ī, m. a Trojan · mare, maris, n. sea · errō, errāre · nunc, adv. now · Iuppiter, Iovis, m. Jupiter · ōrō, ōrāre, to beg',
+  head:'First line',verbs:[{f:'errābant',e:'errō, errāre',t:'past',p:'3rd',n:'plural'},{f:'ōrat',e:'ōrō, ōrāre',t:'present',p:'3rd',n:'singular'}],
+  tr:{opts:['The Trojans were wandering the seas; now Venus begs Jupiter.','The Trojans wander the seas; now Venus was begging Jupiter.','The Trojans will wander the seas; now Venus begs Jupiter.','The Trojan was wandering the seas; now Venus begs Jupiter.'],ans:0},
+  fb:'<em>errā-ba-nt</em>: imperfect tense, past time, "they". <em>ōra-t</em>: no marker, so present tense, present time, "she".'},
+ {t:'vparse',s:'Iūnō Trōiānōs arcēbat; mox Rōmānōs fovēbit.',gl:'Iūnō, Iūnōnis, f. Juno · arceō, arcēre · mox, adv. soon · Rōmānus, -ī, m. a Roman · foveō, fovēre',
+  head:'Second line',verbs:[{f:'arcēbat',e:'arceō, arcēre',t:'past',p:'3rd',n:'singular'},{f:'fovēbit',e:'foveō, fovēre',t:'future',p:'3rd',n:'singular'}],
+  tr:{opts:['Juno was keeping the Trojans away; soon she will cherish the Romans.','Juno keeps the Trojans away; soon she cherishes the Romans.','Juno will keep the Trojans away; soon she was cherishing the Romans.','Juno was keeping the Trojans away; soon they will cherish the Romans.'],ans:0},
+  fb:'<em>arcē-ba-t</em>: imperfect tense, past time. <em>fovē-bi-t</em>: future tense, future time. Both <em>-t</em>: "she", Juno.'},
+ {t:'vparse',s:'Fāta manent; Rōmam vidēbimus.',gl:'fātum, -ī, n. fate · maneō, manēre · Rōma, -ae, f. Rome · videō, vidēre',
+  head:'Third line',verbs:[{f:'manent',e:'maneō, manēre',t:'present',p:'3rd',n:'plural'},{f:'vidēbimus',e:'videō, vidēre',t:'future',p:'1st',n:'plural'}],
+  tr:{opts:['The fates remain; we will see Rome.','The fates were remaining; we see Rome.','The fates remain; you will see Rome.','The fates will remain; we were seeing Rome.'],ans:0},
+  fb:'<em>mane-nt</em>: no marker, so present tense, present time, "they". <em>vidē-bi-mus</em>: future tense, future time, "we".'},
+ {t:'multi',q:'Look back at the grid of six tenses. Which tenses are in past time? Select every one that applies.',
+  opts:['the imperfect','the pluperfect','the present','the future','the future perfect'],ans:[0,1],m:'asp',unlockTool:'grid',
+  fb:'The imperfect and the pluperfect are both in past time. They differ in aspect: the imperfect is ongoing (<em>amābat</em>, he was loving), and the pluperfect is finished (<em>amāverat</em>, he had loved). The time vowel is <em>a</em> in both. The grid is in your toolkit.'},
+ {t:'ask',q:'<span class="latin">imperium sine fīne <u class="tg">dedī</u>.</span><span class="gloss">imperium, -ī, n. rule · sine (+ ablative), without · fīnis, -is, m. end · dō, dare, dedī, datum · Virgil, <em>Aeneid</em> 1.279</span>Jupiter’s most famous line about the Romans: "I have given them rule without end." <em>Dedī</em> comes from the third principal part, not from <em>da-</em>. What does that tell you?',
+  opts:['It is a complete tense: the giving is finished','It is an incomplete tense: the giving is going on','It is future: the giving will happen later'],ans:0,m:'asp',
+  fb:'<em>Dedī</em> is built on the complete stem, so the action is finished: Jupiter has already given it. That is the bottom row of the grid, the complete tenses, which you will meet next.'},
+ {t:'multi',q:'Last question. Which of these are true? Select every one that applies.',
+  opts:['The stem shows the aspect: <em>amā-</em> means the action is ongoing',
+        '<em>-ba-</em> marks the past and <em>-bi-</em> the future',
+        'The present has no time marker',
+        'The ending shows the person and number',
+        'The present, imperfect and future each have a different stem',
+        '<em>-m</em> means "I" after <em>-ba-</em>'],
+  ans:[0,1,2,3,5],m:'pers',
+  fb:'All three tenses share one stem, <em>amā-</em>, because all three are incomplete. Only the time marker changes: none, <em>-ba-</em>, <em>-bi-</em>. The endings are the same six throughout, with <em>-m</em> for "I" after <em>-ba-</em>.'}
+]}
+];
+
+/* ===================== NOTES ON THE AENEID ===================== */
+/* Shown in order, on two correct answers out of every three. They start from nothing (who Virgil was, what an epic is)
+   and then follow the story in order, so each note only depends on the ones before it. */
+const FACT_PARTS=['Virgil and the Aeneid','The fall of Troy','The wandering','Jupiter’s prophecy','After the prophecy'];
+const FACTS=[
+ {p:0,h:'Publius Vergilius Maro, called Virgil in English, lived from 70 to 19 BC. He was the most famous poet of ancient Rome.'},
+ {p:0,h:'An epic is a long poem about heroes, gods and great deeds. The most famous epics before Virgil were Homer’s Greek poems, the <em>Iliad</em> and the <em>Odyssey</em>, and Virgil modelled the <em>Aeneid</em> on them.'},
+ {p:0,h:'The <em>Aeneid</em> has twelve books and tells the story of Aeneas, a Trojan prince, who escaped from Troy and became the ancestor of the Romans.'},
+ {p:0,h:'Virgil wrote under Augustus, Rome’s first emperor. Augustus’s family, the Julii, claimed to be descended from Aeneas, so the poem about Rome’s origins was also a poem about Augustus’s family.'},
+
+ {p:1,h:'Troy was a city in what is now northwest Turkey. In Greek myth, the Greeks besieged it for ten years to win back Helen, the wife of a Greek king, who had gone to Troy with the Trojan prince Paris.'},
+ {p:1,h:'The Greeks finally took Troy with a trick: a huge wooden horse with soldiers hidden inside. The Trojans pulled it into the city, and that night the soldiers came out and opened the gates.'},
+ {p:1,h:'Hector was the greatest Trojan warrior. Achilles, the greatest of the Greeks, killed him, dragged his body around the walls of Troy, and then gave it back to Hector’s father in exchange for gold.'},
+ {p:1,h:'Aeneas was the son of the goddess Venus and a Trojan man named Anchises. As Troy burned, he carried his old father on his shoulders and led his young son Ascanius out of the city.'},
+
+ {p:2,h:'The surviving Trojans sailed west in search of a new home in Italy, which the Fates had promised them. Their wandering lasted about seven years.'},
+ {p:2,h:'Juno, queen of the gods, hated the Trojans. One reason: she loved the city of Carthage in North Africa, and she had heard that a people descended from the Trojans would one day destroy it.'},
+ {p:2,h:'At the start of the <em>Aeneid</em>, Juno persuades Aeolus, the keeper of the winds, to send a storm. The Trojan fleet is scattered, and Aeneas lands with only seven ships on the coast of Africa, near Carthage.'},
+ {p:2,h:'Carthage was a real city, founded by settlers from Phoenicia, on the coast of what is now Tunisia. Rome and Carthage later fought three wars, and Rome destroyed Carthage in 146 BC. Virgil’s readers knew that Juno’s fear had come true.'},
+
+ {p:3,h:'In the <em>Aeneid</em>, Venus is Jupiter’s daughter. She comes to him in tears after the storm and asks why he has let her son suffer so much.'},
+ {p:3,h:'Jupiter smiles, kisses her, and tells her the future. Aeneas will fight a war in Italy and found a town, Lavinium.'},
+ {p:3,h:'Aeneas’s son Ascanius, also called Iulus, will rule for thirty years and found a new city, Alba Longa. The name Iulus links him to the Julii, the family of Julius Caesar and Augustus.'},
+ {p:3,h:'Three hundred years later, a priestess named Ilia will have twin sons by the god Mars: Romulus and Remus. Romulus, nursed by a she-wolf, will found Rome and name the Romans after himself.'},
+ {p:3,h:'Jupiter’s most famous line about the Romans is <em>imperium sine fīne dedī</em>: "I have given them rule without end."'},
+ {p:3,h:'Jupiter ends with a Caesar of Trojan blood whose fame will reach the stars, and an age when wars will be over. Virgil’s readers would have thought of Augustus, who had ended Rome’s civil wars.'},
+
+ {p:4,h:'After the prophecy, Jupiter sends Mercury, the messenger god, down to Carthage, so that its queen, Dido, will welcome the Trojans kindly.'},
+ {p:4,h:'Aeneas falls in love with Dido, but the gods remind him of his duty, and he leaves Carthage for Italy. The story of Dido is told in Book 4, one of the most famous parts of the poem.'},
+ {p:4,h:'In Italy, Aeneas fights a war against local peoples led by Turnus. The poem ends with Aeneas killing Turnus.'},
+ {p:4,h:'According to ancient biographies, Virgil asked for the unfinished <em>Aeneid</em> to be burned when he was dying. Augustus refused, and the poem was published. Students have read it ever since.'}
+];
+
+/* ===================== STATE ===================== */
+const STORE='fata';
+function freshState(){return{
+ stage:0,i:0,pts:0,
+ queue:[],retry:[],
+ done:{},
+ prons:{},pronOk:{},
+ tools:{story:1},
+ badges:{},
+ ctr:{when:0,line:0},
+ facts:[],
+ miss:{tense:0,time:0,aspect:0,person:0,number:0},
+ mastery:{time:{c:0,t:0},asp:{c:0,t:0},pers:{c:0,t:0},pres:{c:0,t:0},impf:{c:0,t:0},fut:{c:0,t:0}}
+}}
+let S=freshState();
+
+const $=id=>document.getElementById(id);
+const root=$('root'),railEl=$('rail'),pathEl=$('path');
+function el(t,c,h){const n=document.createElement(t);if(c)n.className=c;if(h!=null)n.innerHTML=h;return n}
+function pad(n){return n<10?'0'+n:''+n}
+function cur(){return S.queue[S.i]}
+function stage(){return STAGES[S.stage]}
+
+/* ===================== SCORING ===================== */
+function rec(k,ok){if(!k||!S.mastery[k])return;S.mastery[k].t++;if(ok)S.mastery[k].c++;paintTally()}
+function pts(n){S.pts+=n;paintTally()}
+function overall(){let c=0,t=0;for(const k in S.mastery){c+=S.mastery[k].c;t+=S.mastery[k].t}return t?Math.round(c/t*100):0}
+function paintTally(){$('pts').textContent=S.pts;$('rest').textContent=overall()+'%'}
+
+function toast(title,body){
+ const n=el('div','toast','<b>'+title+'</b>'+body);
+ $('toasts').appendChild(n);
+ setTimeout(()=>{n.style.transition='opacity .4s';n.style.opacity='0';setTimeout(()=>n.remove(),420)},4200);
+}
+function award(k){if(S.badges[k])return;S.badges[k]=1;toast('Achievement',BADGES[k].n+' — '+BADGES[k].d);pts(150);renderRail()}
+function filePron(k,ok){
+ if(ok)S.pronOk[k]=1;
+ if(!S.prons[k]){S.prons[k]=1;renderRail(k)}
+ if(PRONS.every(p=>S.pronOk[p.k]))award('three');
+}
+function unlockTool(k){if(S.tools[k])return;S.tools[k]=1;toast('Toolkit',CHARTS[k].t+' added to your reference.');renderRail()}
+function bump(k){
+ if(!k)return;S.ctr[k]=(S.ctr[k]||0)+1;
+ if(k==='when'&&S.ctr.when>=3)award('when');
+ if(k==='line'&&S.ctr.line>=6)award('lines');
+}
+
+/* ===================== TEACHER REVIEW ===================== */
+/* ?teacher in the address opens every stage and adds skip buttons. Skipping still unlocks what the screen would. */
+const TEACHER=/[?&]teacher(=|&|$)/.test(location.search);
+function teacherSkip(toEnd){
+ const sc=cur();
+ const pass=x=>{if(x.unlockTool)unlockTool(x.unlockTool);if(x.unlock)filePron(x.unlock,true)};
+ if(toEnd){S.queue.slice(S.i).forEach(pass);S.i=S.queue.length-1}else pass(sc);
+ next();
+}
+
+/* ===================== FLOW ===================== */
+function startStage(n){
+ S.stage=n;S.i=0;S.retry=[];
+ S.queue=STAGES[n].screens.map(s=>Object.assign({},s));
+ render();
+}
+function next(){
+ S.i++;
+ if(S.i>=S.queue.length){
+  if(S.retry.length){
+   const r=S.retry.splice(0);
+   S.queue.push({t:'review',n:r.length});
+   r.forEach(x=>{const y=Object.assign({},x);delete y._flag;delete y._err;y._r=true;S.queue.push(y)});
+  }else{
+   S.queue.push({t:S.stage===STAGES.length-1?'end':'stagedone'});
+  }
+ }
+ render();
+ window.scrollTo({top:0});
+}
+/* a sort cannot be finished until every card is right, so it never comes back in the review round */
+function flagRetry(sc){if(sc.t==='sort')return;if(!sc._r&&!sc._flag){sc._flag=1;S.retry.push(sc)}}
+function score(sc,ok){
+ if(ok)pts(sc._r?40:100);
+ if(!ok)flagRetry(sc);
+}
+/* things a screen can grant when answered correctly */
+function grant(sc,ok){
+ if(sc.unlock)filePron(sc.unlock,ok);
+ if(ok){if(sc.unlockTool)unlockTool(sc.unlockTool);bump(sc.counts)}
+}
+
+/* ===================== SHELL RENDER ===================== */
+function renderPath(){
+ pathEl.innerHTML='';
+ const mo=maxOpen();
+ STAGES.forEach((st,n)=>{
+  const state=S.done[st.id]?'done':n===S.stage?'live':(n<=mo?'open':'lock');
+  const b=el('button','node');b.type='button';
+  b.dataset.st=state;
+  if(state==='live')b.setAttribute('aria-current','step');
+  b.innerHTML='<span class="pip">'+(state==='done'?'✓':n+1)+'</span><span class="lb">'+st.name+'</span>';
+  if(state==='lock'){b.disabled=true}
+  else b.onclick=()=>{if(n!==S.stage)startStage(n)};
+  pathEl.appendChild(b);
+ });
+}
+function maxOpen(){if(TEACHER)return STAGES.length-1;let m=0;STAGES.forEach((st,n)=>{if(S.done[st.id])m=Math.max(m,n+1)});return Math.max(m,S.stage)}
+
+function stars(k){
+ const m=S.mastery[k];
+ if(!m.t)return null;
+ const p=m.c/m.t;
+ return p>=.9?3:p>=.7?2:1;
+}
+function starStr(n){return n===null?'—':'★'.repeat(n)+'☆'.repeat(3-n)}
+
+function setDrawer(open){
+ railEl.classList.toggle('open',open);
+ $('dbtn').setAttribute('aria-expanded',open?'true':'false');
+}
+function renderRail(pop){
+ railEl.innerHTML='';
+ const x=el('button','railx','Close notebook');x.type='button';
+ x.onclick=()=>setDrawer(false);
+ railEl.appendChild(x);
+
+ const a=el('div','rblock','<h3>'+TXT.rail+'</h3>');
+ PRONS.forEach(p=>{
+  const on=S.prons[p.k];
+  const r=el('div');
+  r.className='slot'+(on?' on':'')+(pop===p.k?' pop':'');
+  r.innerHTML='<span class="nm"><span class="bx"></span><span lang="la">'+p.n+'</span></span>'+(on?'<span class="fn">'+p.d+'</span>':'');
+  a.appendChild(r);
+ });
+ railEl.appendChild(a);
+
+ const b=el('div','rblock','<h3>Mastery map</h3>');
+ MASTERY.forEach(m=>{
+  const s=stars(m.k);
+  const r=el('div','mrow'+(s===null?' lock':''));
+  r.innerHTML='<span>'+m.n+'</span><span class="st">'+starStr(s)+'</span>';
+  b.appendChild(r);
+ });
+ const weak=weakest();
+ if(weak)b.appendChild(el('p','diag',diagFor(weak)));
+ railEl.appendChild(b);
+
+ const c=el('div','rblock','<h3>Toolkit</h3>');
+ Object.keys(CHARTS).forEach(k=>{
+  const on=S.tools[k];
+  const t=el('button','tool'+(on?'':' lk'),CHARTS[k].t+'<span class="k">'+(on?'Open':'Locked')+'</span>');
+  t.type='button';
+  if(on)t.onclick=()=>openChart(k);else t.disabled=true;
+  c.appendChild(t);
+ });
+ railEl.appendChild(c);
+
+ const tb=el('div','rblock','<h3>Timer</h3>');
+ const tr=el('div','tmodes');
+ Object.keys(TMODES).forEach(k=>{
+  const b=el('button','chip',TMODES[k].n);b.type='button';b.setAttribute('aria-pressed',k===tmode?'true':'false');
+  b.onclick=()=>{tmode=k;try{localStorage.setItem(STORE+'.timer',k)}catch(e){};renderRail();
+   const sc=cur();if(T.active&&sc){const slip=root.querySelector('.slip');if(T.el){T.el.remove();const n=slip.querySelector('.clocknote');if(n)n.remove()}
+    const head=slip.querySelector('.sliphead');const tmp=el('div');startTimer(tmp,sc);if(T.el)head.insertAdjacentElement('afterend',T.el)}};
+  tr.appendChild(b);
+ });
+ tb.appendChild(tr);
+ tb.appendChild(el('p','diag2','Relaxed gives half as much time again. Opening a chart pauses the clock.'));
+ railEl.appendChild(tb);
+
+ const fk=el('div','rblock','<h3>'+TXT.notes+'</h3>');
+ const fbtn=el('button','tool','<span>'+S.facts.length+' of '+FACTS.length+' '+TXT.notesOf+'</span><span class="k">'+(S.facts.length?'Read':'')+'</span>');
+ fbtn.type='button';
+ if(S.facts.length)fbtn.onclick=openFacts;else fbtn.disabled=true;
+ fk.appendChild(fbtn);
+ railEl.appendChild(fk);
+
+ const d=el('div','rblock','<h3>Achievements</h3>');
+ Object.keys(BADGES).forEach(k=>{
+  const got=S.badges[k];
+  d.appendChild(el('div','badge'+(got?' got':''),'<span class="sg">'+(got?'✦':'○')+'</span><span>'+BADGES[k].n+(got?'':'<i>'+BADGES[k].d+'</i>')+'</span>'));
+ });
+ railEl.appendChild(d);
+}
+function weakest(){
+ let w=null,lo=2;
+ MASTERY.forEach(m=>{const x=S.mastery[m.k];if(x.t>=3){const p=x.c/x.t;if(p<lo){lo=p;w=m.k}}});
+ return lo<.95?w:null;
+}
+function diagFor(k){
+ const m=S.mastery[k],p=Math.round(m.c/m.t*100);
+ const nm=MASTERY.find(x=>x.k===k).n.toLowerCase();
+ const s=p>=90?'Secure':p>=70?'Developing':'Unstable';
+ let out=s+' on '+nm+': '+m.c+' of '+m.t+' correct.';
+ const o=Object.keys(S.miss).sort((a,b)=>S.miss[b]-S.miss[a]);
+ if((k==='pres'||k==='impf'||k==='fut')&&S.miss[o[0]]>0)out+=' Most slips on the scroll are on '+o[0]+'.';
+ return out;
+}
+let lastFocus=null;
+function openChart(k){
+ const ch=CHARTS[k];
+ let body='';
+ if(ch.html)body=ch.html;
+ else{
+  body='<div class="tablewrap"><table class="chart"><tr>'+ch.h.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+  ch.r.forEach(r=>{body+='<tr>'+r.map((c,i)=>'<td'+(i===0?'':' class="c"')+'>'+c+'</td>').join('')+'</tr>'});
+  body+='</table></div>';
+ }
+ if(ch.note)body+='<p>'+ch.note+'</p>';
+ openModal(ch.t,body);
+}
+function openModal(title,body){
+ const m=$('modal');
+ m.innerHTML='<button class="x" type="button" aria-label="Close">×</button><h3>'+title+'</h3>'+body;
+ m.setAttribute('aria-label',title);
+ m.querySelector('.x').onclick=closeChart;
+ lastFocus=document.activeElement;
+ $('veil').classList.add('open');
+ m.querySelector('.x').focus();
+}
+function closeChart(){
+ if(!$('veil').classList.contains('open'))return;
+ $('veil').classList.remove('open');
+ if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+function nextFact(){
+ if(S.facts.length>=FACTS.length)return null;
+ const i=S.facts.length;S.facts.push(i);
+ return i;
+}
+function factHead(i){return 'Note '+(i+1)+' of '+FACTS.length+' · '+FACT_PARTS[FACTS[i].p]}
+function openFacts(){
+ let html='<p class="lead">'+S.facts.length+' of '+FACTS.length+' collected. A new one appears each time you answer correctly.</p>';
+ FACT_PARTS.forEach((name,pi)=>{
+  const got=S.facts.filter(i=>FACTS[i].p===pi);
+  if(!got.length)return;
+  html+='<h4 class="fh">'+name+'</h4><ol class="factlist" start="'+(got[0]+1)+'">'+got.map(i=>'<li>'+FACTS[i].h+'</li>').join('')+'</ol>';
+ });
+ openModal(TXT.notes,html);
+}
+
+/* ===================== TIMER ===================== */
+/* Time scales with the work each activity asks for. */
+function textLen(h){return String(h||'').replace(/<[^>]+>/g,'').length}
+function budgetFor(sc){
+ const read=q=>Math.round(textLen(q)/25);            /* about a second per 25 characters of question */
+ const r5=n=>Math.max(10,Math.ceil(n/5)*5);
+ switch(sc.t){
+  case 'pick':return r5(8+read(sc.q)+read(sc.s)+sc.hot.length*2);
+  case 'ask':return r5(8+read(sc.q)+sc.opts.length*2+textLen(sc.opts.join(''))/40);
+  case 'gap':return r5(12+read(sc.q)+read(sc.s)+read(sc.gl)+sc.opts.length*2);
+  case 'multi':return r5(8+read(sc.q)+sc.opts.length*4);
+  case 'sort':return r5(10+sc.cards.length*5);
+  case 'vparse':return r5(20*sc.verbs.length+20);
+  case 'build':return r5(14+read(sc.q));
+ }
+ return 0;
+}
+const TMODES={standard:{n:'Standard',x:1},relaxed:{n:'Relaxed',x:1.5},off:{n:'Off',x:0}};
+let tmode='standard';
+try{const v=localStorage.getItem(STORE+'.timer');if(v&&TMODES[v])tmode=v}catch(e){}
+const T={id:null,budget:0,left:0,last:0,active:false,over:false,sc:null,el:null};
+function fmt(sec){sec=Math.max(0,Math.ceil(sec));return Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0')}
+function stopTimer(){if(T.id){clearInterval(T.id);T.id=null}}
+function startTimer(slip,sc){
+ stopTimer();T.active=false;T.over=false;T.sc=sc;T.el=null;
+ const base=budgetFor(sc),x=TMODES[tmode].x;
+ if(!base||!x)return;
+ T.budget=Math.round(base*x);T.left=T.budget;T.active=true;T.last=performance.now();
+ const c=el('div','clock','<span class="clab">Time</span><span class="cbar"><i></i></span><span class="ct">'+fmt(T.left)+'</span>');
+ c.setAttribute('role','timer');c.setAttribute('aria-label','Time left for this draft');
+ slip.appendChild(c);T.el=c;
+ T.id=setInterval(tick,250);
+}
+function tick(){
+ const now=performance.now(),dt=(now-T.last)/1000;T.last=now;
+ if(!T.active||!T.el)return;
+ if($('veil').classList.contains('open'))return;
+ T.left-=dt;
+ const f=Math.max(0,T.left/T.budget);
+ T.el.querySelector('.cbar i').style.width=(f*100)+'%';
+ T.el.querySelector('.ct').textContent=fmt(T.left);
+ T.el.classList.toggle('low',f<=.25&&T.left>0);
+ if(T.left<=0&&!T.over){
+  T.over=true;
+  T.el.classList.add('over');
+  T.el.querySelector('.ct').textContent='0:00';
+  const n=el('p','clocknote','Time’s up. Finish this one anyway; it will come back in the review round so you can beat the clock next time.');
+  T.el.insertAdjacentElement('afterend',n);
+  flagRetry(T.sc);
+  stopTimer();
+ }
+}
+/* Called when a draft is resolved (the Continue button appears). */
+function settle(slip){
+ const timed=T.active;
+ const ok=slip.classList.contains('ok');
+ stopTimer();T.active=false;
+ if(ok){
+  if(timed&&!T.over){
+   pts(20);
+   if(T.el){T.el.classList.add('beat');T.el.querySelector('.ct').textContent='Beat the clock +20'}
+  }
+  /* a note on two correct answers out of every three, so the 22 notes last the whole game */
+  S.ctr._fk=(S.ctr._fk||0)+1;
+  const f=S.ctr._fk%3!==0?nextFact():null;
+  if(f!==null)slip.appendChild(el('div','fact','<b>'+factHead(f)+'</b>'+FACTS[f].h+(FACTS[f].img?'<figure class="fimg"><img src="'+FACTS[f].img+'" alt="'+FACTS[f].alt+'" loading="lazy"><figcaption>'+FACTS[f].cap+'</figcaption></figure>':'')));
+  renderRail();
+ }
+}
+
+/* ===================== SCREEN RENDERERS ===================== */
+const DRAW={};
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function fb(slip,ok,html,head){
+ const d=el('div','fb'+(ok?'':' no'));
+ d.innerHTML=(head?'<b>'+head+'</b>':'')+(html||'');
+ slip.appendChild(d);return d;
+}
+function mark(slip,ok){slip.classList.remove('ok','bad');slip.classList.add(ok?'ok':'bad')}
+function cont(slip,label,fn){
+ settle(slip);
+ const b=el('button','go',label||'Continue');b.type='button';
+ b.onclick=fn||next;slip.appendChild(b);return b;
+}
+
+function render(){
+ renderPath();renderRail();
+ const sc=cur();root.innerHTML='';
+ const slip=el('div','slip');
+ const label=sc.t==='end'?'Final report':sc.t==='stagedone'?'Stage complete':sc.t==='review'?'Review round':(TXT.slip||'Draft')+' '+pad(S.i+1);
+ slip.appendChild(el('div','sliphead','<span class="fno inscr">'+label+'</span><span class="stg">'+stage().full+'</span>'));
+ if(TEACHER&&sc.t!=='end'&&sc.t!=='stagedone'){
+  const tb=el('div','tbar','<span>Teacher review</span>');
+  const b1=el('button','chip','Skip screen');b1.type='button';b1.onclick=()=>teacherSkip(false);
+  const b2=el('button','chip','Skip to end of stage');b2.type='button';b2.onclick=()=>teacherSkip(true);
+  tb.appendChild(b1);tb.appendChild(b2);slip.appendChild(tb);
+ }
+ startTimer(slip,sc);
+ (DRAW[sc.t]||DRAW.brief)(slip,sc);
+ root.appendChild(slip);
+}
+
+/* ---- static panels ---- */
+DRAW.brief=(slip,sc)=>{
+ if(sc.h)slip.appendChild(el('h2','',sc.h));
+ slip.appendChild(el('div','',sc.html));
+ if(sc.unlockTool)unlockTool(sc.unlockTool);
+ cont(slip,S.i===0?'Begin':'Continue');
+};
+/* ---- guided reading of a form chart: tap each pattern button to highlight its cells ---- */
+DRAW.chart=(slip,sc)=>{
+ const T=sc.table;
+ if(sc.h)slip.appendChild(el('h2','',sc.h));
+ if(sc.intro)slip.appendChild(el('div','',sc.intro));
+ const wrap=el('div','readchart');
+ let html='<div class="tablewrap"><table class="chart"><tr>'+T.h.map(h=>'<th>'+h+'</th>').join('')+'</tr>';
+ T.r.forEach((r,ri)=>{html+='<tr>'+r.map((c,ci)=>'<td data-rc="'+ri+','+ci+'"'+(ci===0?'':' class="c" lang="la"')+'>'+c+'</td>').join('')+'</tr>'});
+ wrap.innerHTML=html+'</table></div>';
+ const pats=el('div','pats');pats.setAttribute('role','group');pats.setAttribute('aria-label','Patterns');
+ const note=el('div','patnote');note.setAttribute('aria-live','polite');
+ const seen=new Set();let go;
+ const btns=sc.pats.map((pt,pi)=>{
+  const b=el('button','chip',pt.lab);b.type='button';b.setAttribute('aria-pressed','false');
+  b.onclick=()=>{
+   btns.forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');
+   wrap.querySelectorAll('td.hl').forEach(td=>td.classList.remove('hl'));
+   pt.cells.forEach(([r,c])=>{const td=wrap.querySelector('td[data-rc="'+r+','+c+'"]');if(td)td.classList.add('hl')});
+   note.innerHTML=pt.note;seen.add(pi);b.classList.add('seen');
+   if(seen.size===sc.pats.length){go.disabled=false;go.textContent='Continue'}
+  };
+  pats.appendChild(b);return b;
+ });
+ wrap.appendChild(pats);wrap.appendChild(note);slip.appendChild(wrap);
+ if(sc.more)slip.appendChild(el('div','readmore',sc.more));
+ if(sc.unlockTool)unlockTool(sc.unlockTool);
+ go=cont(slip,'Tap every pattern to continue');go.disabled=true;
+};
+DRAW.review=(slip,sc)=>{
+ slip.appendChild(el('h2','','Review round'));
+ slip.appendChild(el('div','','<p>'+sc.n+' item'+(sc.n>1?'s':'')+' from this stage came back unsure. They are queued again now, while the reasoning is still fresh.</p>'));
+ cont(slip,'Take them again');
+};
+
+/* a note on why a particular wrong choice is wrong (sc.why = {optionIndex: html}) */
+function whyOf(sc,i,ok){return (!ok&&sc.why&&sc.why[i])?'<span class="why">'+sc.why[i]+'</span>':''}
+
+/* ---- single choice ---- */
+DRAW.ask=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const box=el('div','opts');
+ const btns=sc.opts.map((o,i)=>{
+  const b=el('button','opt',o);b.type='button';
+  b.onclick=()=>{
+   btns.forEach(x=>x.disabled=true);
+   const ok=i===sc.ans;
+   b.classList.add(ok?'ok':'no');
+   if(!ok)btns[sc.ans].classList.add('show');
+   rec(sc.m,ok);score(sc,ok);grant(sc,ok);
+   mark(slip,ok);
+   fb(slip,ok,whyOf(sc,i,ok)+sc.fb,ok?'Correct':'Not this one');
+   cont(slip).focus();
+  };
+  box.appendChild(b);return b;
+ });
+ slip.appendChild(box);
+};
+
+/* ---- choose the word that fills a gap in a Latin sentence ---- */
+DRAW.gap=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const parts=sc.s.split('___');
+ const line=el('div','latin gapline');line.setAttribute('lang','la');
+ line.innerHTML=parts[0]+'<span class="blank">&nbsp;</span>'+parts[1];
+ slip.appendChild(line);
+ if(sc.gl)slip.appendChild(el('div','gloss',sc.gl));
+ const box=el('div','opts words');
+ const btns=sc.opts.map((o,i)=>{
+  const b=el('button','opt',o);b.type='button';b.setAttribute('lang','la');
+  b.onclick=()=>{
+   btns.forEach(x=>x.disabled=true);
+   const ok=i===sc.ans;
+   b.classList.add(ok?'ok':'no');
+   if(!ok)btns[sc.ans].classList.add('show');
+   const bl=line.querySelector('.blank');bl.textContent=sc.opts[sc.ans];bl.classList.add('filled');
+   rec(sc.m,ok);score(sc,ok);grant(sc,ok);
+   mark(slip,ok);
+   fb(slip,ok,whyOf(sc,i,ok)+'<span class="en">'+sc.en+'</span>'+sc.fb,ok?'Copied correctly':'Not this one');
+   cont(slip).focus();
+  };
+  box.appendChild(b);return b;
+ });
+ slip.appendChild(box);
+};
+
+/* ---- select all that apply ---- */
+DRAW.multi=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const sel=new Set(),box=el('div','opts');
+ const chk=el('button','go','Check');chk.type='button';chk.disabled=true;
+ const btns=sc.opts.map((o,i)=>{
+  const b=el('button','opt',o);b.type='button';b.setAttribute('aria-pressed','false');
+  b.onclick=()=>{
+   if(sel.has(i)){sel.delete(i);b.classList.remove('pick');b.setAttribute('aria-pressed','false')}
+   else{sel.add(i);b.classList.add('pick');b.setAttribute('aria-pressed','true')}
+   chk.disabled=sel.size===0;
+  };
+  box.appendChild(b);return b;
+ });
+ slip.appendChild(box);
+ chk.onclick=()=>{
+  btns.forEach(b=>b.disabled=true);chk.remove();
+  const want=sc.ans;
+  const ok=sel.size===want.length&&want.every(i=>sel.has(i));
+  btns.forEach((b,i)=>{
+   b.classList.remove('pick');
+   if(want.indexOf(i)>=0&&sel.has(i))b.classList.add('ok');
+   else if(sel.has(i))b.classList.add('no');
+   else if(want.indexOf(i)>=0)b.classList.add('show');
+  });
+  rec(sc.m,ok);score(sc,ok);grant(sc,ok);
+  mark(slip,ok);
+  fb(slip,ok,sc.fb,ok?'Every reading accounted for':'Not the full set');
+  cont(slip).focus();
+ };
+ slip.appendChild(chk);
+};
+
+/* ---- tap the word in an English sentence ---- */
+DRAW.pick=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const s=el('div','sentence');let nudge=null;
+ sc.toks.forEach((t,i)=>{
+  if(sc.hot.indexOf(i)>=0){
+   const b=el('button','tok hot',t);b.type='button';
+   b.onclick=()=>{
+    if(i===sc.ans){
+     s.querySelectorAll('button').forEach(x=>{x.disabled=true;x.classList.remove('hot')});
+     b.classList.add('ok');if(nudge){nudge.remove();nudge=null}
+     const ok=!sc._err;
+     rec(sc.m,ok);score(sc,ok);grant(sc,ok);
+     mark(slip,true);
+     fb(slip,true,sc.fb,sc.res);
+     cont(slip).focus();
+    }else{
+     b.classList.add('no');b.disabled=true;
+     if(!sc._err){sc._err=1;nudge=fb(slip,false,(sc.nudge||'That word is in the sentence, but it is not the one asked for. Try another.'),'Keep looking')}
+    }
+   };
+   s.appendChild(b);
+  }else s.appendChild(el('span','tok dead'+((sc.tg||[]).indexOf(i)>=0?' tg':''),t));
+  s.appendChild(document.createTextNode(' '));
+ });
+ slip.appendChild(s);
+};
+
+/* ---- sorting into groups ---- */
+DRAW.sort=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const cards=shuffle(sc.cards.slice());
+ const tray=el('div','tray'),bins=el('div','bins');
+ let left=cards.length,run=0,errs=0,sel=null;
+ const combo=el('p','combo','');
+ const upd=t=>{combo.innerHTML=t||('Sorted '+(cards.length-left)+' of '+cards.length+(run>1?' &nbsp;·&nbsp; streak <b>'+run+'</b>':''))};
+ function place(card,binId,node){
+  const ok=card.bin===binId;
+  rec(sc.m,ok);
+  if(ok){
+   node.classList.remove('sel');node.classList.add('set');node.draggable=false;node.onclick=null;node.onkeydown=null;node.tabIndex=-1;
+   bins.querySelector('[data-b="'+binId+'"] .held').appendChild(node);
+   run++;left--;pts(50+Math.min(run,6)*10);
+   upd();
+   if(left===0)done();
+  }else{
+   errs++;run=0;
+   node.classList.remove('sel');
+   node.classList.add('bad');setTimeout(()=>node.classList.remove('bad'),450);
+   upd(sc.hint+' Streak reset.');
+   setTimeout(()=>{if(left)upd()},2200);
+  }
+  sel=null;
+ }
+ function done(){
+  const clean=errs===0;
+  score(sc,clean);
+  if(clean&&sc.badge)award(sc.badge);
+  mark(slip,clean);
+  fb(slip,clean,clean?sc.okfb:sc.errfb.replace('{n}',errs).replace('{s}',errs>1?'s':''),clean?'Sorted cleanly':'Sorted');
+  cont(slip).focus();
+ }
+ cards.forEach(c=>{
+  const n=el('div','dcard',c.txt);
+  n.draggable=true;n.tabIndex=0;n.setAttribute('role','button');
+  n.addEventListener('dragstart',e=>{sel={c:c,n:n};e.dataTransfer.setData('text/plain','x');e.dataTransfer.effectAllowed='move'});
+  n.onclick=()=>{
+   if(sel&&sel.n===n){n.classList.remove('sel');sel=null;return}
+   tray.querySelectorAll('.dcard').forEach(x=>x.classList.remove('sel'));
+   n.classList.add('sel');sel={c:c,n:n};
+  };
+  n.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();n.click()}};
+  tray.appendChild(n);
+ });
+ slip.appendChild(tray);
+ sc.bins.forEach(b=>{
+  const d=el('div','bin');d.dataset.b=b.id;
+  d.tabIndex=0;d.setAttribute('role','button');
+  d.innerHTML='<h4>'+b.n+'</h4><span class="hint">'+b.h+'</span>';
+  d.appendChild(el('div','held'));
+  d.addEventListener('dragover',e=>{e.preventDefault();d.classList.add('over')});
+  d.addEventListener('dragleave',()=>d.classList.remove('over'));
+  d.addEventListener('drop',e=>{e.preventDefault();d.classList.remove('over');if(sel)place(sel.c,b.id,sel.n)});
+  d.onclick=()=>{if(sel)place(sel.c,b.id,sel.n)};
+  d.onkeydown=e=>{if(e.target===d&&(e.key==='Enter'||e.key===' ')){e.preventDefault();d.click()}};
+  bins.appendChild(d);
+ });
+ slip.appendChild(bins);
+ slip.appendChild(combo);upd();
+ slip.appendChild(el('p','lead','Drag a card into a group, or tap the card and then the group.'));
+};
+
+/* ---- build a form: choose the time marker and the personal ending for a stem ---- */
+const MARKERS=[{k:'',n:'no marker'},{k:'ba',n:'-ba-'},{k:'bi',n:'-bi-'}];
+const ENDINGS=['ō','m','s','t','mus','tis','nt'];
+DRAW.build=(slip,sc)=>{
+ slip.appendChild(el('div','prompt',sc.q));
+ const fx=el('div','bd-formula buildf');
+ const boxS=el('span','bd-box s','<span class="bd-f" lang="la">'+sc.stem+'</span><span class="bd-l">stem</span>');
+ const boxM=el('span','bd-box m none','<span class="bd-f">?</span><span class="bd-l">time marker</span>');
+ const boxE=el('span','bd-box e none','<span class="bd-f">?</span><span class="bd-l">personal ending</span>');
+ fx.appendChild(boxS);fx.appendChild(el('span','bd-plus','+'));fx.appendChild(boxM);fx.appendChild(el('span','bd-plus','+'));fx.appendChild(boxE);
+ slip.appendChild(fx);
+ const pick={m:null,e:null};
+ const chk=el('button','go','Check');chk.type='button';chk.disabled=true;
+ function row(lab,items,key,box){
+  const r=el('div','prow');r.appendChild(el('div','lab',lab));
+  const ch=el('div','chips');
+  items.forEach(it=>{
+   const k=typeof it==='string'?it:it.k,n=typeof it==='string'?'-'+it:it.n;
+   const b=el('button','chip',n);b.type='button';b.setAttribute('aria-pressed','false');
+   b.onclick=()=>{ch.querySelectorAll('.chip').forEach(x=>{x.setAttribute('aria-pressed','false');x.classList.remove('ok','no')});
+    b.setAttribute('aria-pressed','true');pick[key]=k;
+    box.classList.remove('none');box.querySelector('.bd-f').textContent=k===''?'—':k;
+    chk.disabled=pick.m===null||pick.e===null};
+   ch.appendChild(b);
+  });
+  r.appendChild(ch);slip.appendChild(r);return ch;
+ }
+ const chM=row('time marker',MARKERS,'m',boxM),chE=row('ending',ENDINGS,'e',boxE);
+ let first=true;
+ chk.onclick=()=>{
+  const okM=pick.m===sc.mk,okE=pick.e===sc.end,ok=okM&&okE;
+  [[chM,okM],[chE,okE]].forEach(([ch,o])=>ch.querySelectorAll('.chip').forEach(c=>{c.classList.remove('ok','no');if(c.getAttribute('aria-pressed')==='true')c.classList.add(o?'ok':'no')}));
+  if(first){rec(sc.m,ok);score(sc,ok);if(!okM)S.miss.time++;if(!okE)S.miss.person++}
+  const old=slip.querySelector('.fb');if(old)old.remove();
+  if(!ok){
+   mark(slip,false);first=false;
+   const why=!okM?(sc.whyM||'Check the time marker: no marker for the present, -ba- for the past, -bi- for the future.'):(sc.whyE||'Check the ending: it shows who is doing the action, and how many.');
+   fb(slip,false,why,'Not yet');slip.appendChild(chk);return;
+  }
+  slip.querySelectorAll('.chip').forEach(c=>c.disabled=true);chk.remove();
+  mark(slip,true);
+  fb(slip,true,'<span class="en"><span lang="la" class="bdform">'+sc.form+'</span> = '+sc.eng+'</span>'+(sc.fb||''),first?'Built correctly':'Built');
+  cont(slip).focus();
+ };
+ slip.appendChild(chk);
+};
+
+/* ---- parse the verbs in a sentence: time, person, number, then translate ---- */
+const TIMES=['past','present','future'],PERSONS=['1st','2nd','3rd'],NUMS=['singular','plural'];
+const TENSES=['imperfect','present','future'],TENSE_OF={past:'imperfect',present:'present',future:'future'},ASPECTS=['incomplete','complete'];
+DRAW.vparse=(slip,sc)=>{
+ const ROWS=[['x','tense',TENSES],['t','time',TIMES],['a','aspect',ASPECTS],['p','person',PERSONS],['n','number',NUMS]];
+ sc.verbs.forEach(v=>{if(!v.x)v.x=TENSE_OF[v.t];if(!v.a)v.a='incomplete'});
+ if(sc.head)slip.appendChild(el('h2','',sc.head));
+ const want=sc.verbs.map(v=>v.f);
+ const line=el('div','latin',sc.s.split(' ').map(w=>{const m=w.match(/^([^,.;:?!]+)(.*)$/);return m&&want.indexOf(m[1])>=0?'<u class="tg">'+m[1]+'</u>'+m[2]:w}).join(' '));
+ line.setAttribute('lang','la');slip.appendChild(line);
+ slip.appendChild(el('div','gloss',sc.gl));
+ const picks=sc.verbs.map(()=>({})),boxes=[];
+ const btn=el('button','go','Check');btn.type='button';btn.disabled=true;
+ sc.verbs.forEach((v,vi)=>{
+  const box=el('div','noun','<div class="nh"><span class="nf" lang="la">'+v.f+'</span><span class="ne">'+v.e+'</span></div>');
+  ROWS.forEach(p=>{
+   const r=el('div','prow');r.appendChild(el('div','lab',p[1]));
+   const ch=el('div','chips');
+   p[2].forEach(o=>{
+    const b=el('button','chip',o);b.type='button';b.setAttribute('aria-pressed','false');
+    b.onclick=()=>{
+     ch.querySelectorAll('.chip').forEach(x=>{x.setAttribute('aria-pressed','false');x.classList.remove('ok','no')});
+     b.setAttribute('aria-pressed','true');picks[vi][p[0]]=o;
+     btn.disabled=!picks.every(x=>ROWS.every(rw=>x[rw[0]]));
+    };
+    ch.appendChild(b);
+   });
+   r.appendChild(ch);box.appendChild(r);
+  });
+  boxes.push(box);slip.appendChild(box);
+ });
+ let first=true;
+ btn.onclick=()=>{
+  let all=true;
+  sc.verbs.forEach((v,vi)=>{
+   const rows=boxes[vi].querySelectorAll('.prow');let vOk=true;
+   ROWS.forEach((p,ri)=>{
+    const ok=picks[vi][p[0]]===v[p[0]];
+    rows[ri].querySelectorAll('.chip').forEach(c=>{
+     c.classList.remove('ok','no');
+     if(c.getAttribute('aria-pressed')==='true')c.classList.add(ok?'ok':'no');
+    });
+    if(!ok){all=false;vOk=false;if(first)S.miss[p[1]]++}
+   });
+   if(first)rec(v.t==='past'?'impf':v.t==='future'?'fut':'pres',vOk);
+  });
+  const wasFirst=first;first=false;
+  if(!all){
+   const old=slip.querySelector('.fb');if(old)old.remove();
+   mark(slip,false);flagRetry(sc);
+   fb(slip,false,'The rows marked in red are not right yet. The stem gives the aspect, the time marker gives the tense and the time, and the ending gives the person and number. The charts are in your toolkit.','Not yet');
+   slip.appendChild(btn);
+   return;
+  }
+  slip.querySelectorAll('.chip').forEach(c=>c.disabled=true);
+  btn.remove();
+  const old=slip.querySelector('.fb');if(old)old.remove();
+  mark(slip,true);
+  fb(slip,true,sc.fb,wasFirst?'Read correctly on the first pass':'Read');
+  const tw=el('div',''),tq=el('div','prompt','Now choose the translation.');
+  tq.style.marginTop='22px';
+  tw.appendChild(tq);
+  const tb=el('div','opts');
+  const tbs=sc.tr.opts.map((o,i)=>{
+   const b=el('button','opt',o);b.type='button';
+   b.onclick=()=>{
+    tbs.forEach(x=>x.disabled=true);
+    const ok=i===sc.tr.ans;
+    b.classList.add(ok?'ok':'no');
+    if(!ok)tbs[sc.tr.ans].classList.add('show');
+    rec('time',ok);score(sc,ok);mark(slip,ok);
+    if(ok&&wasFirst)award('perfect');
+    fb(slip,ok,ok?'':'Check the time of each verb, and who is doing it.',ok?'Translation confirmed':'Not this one');
+    cont(slip).focus();
+   };
+   tb.appendChild(b);return b;
+  });
+  tw.appendChild(tb);slip.appendChild(tw);
+ };
+ slip.appendChild(btn);
+};
+
+/* ---- stage complete ---- */
+DRAW.stagedone=slip=>{
+ const st=stage();
+ if(!S.done[st.id]){S.done[st.id]=1;pts(200);renderPath();renderRail()}
+ slip.appendChild(el('h2','',st.full+': complete'));
+ const box=el('div','');
+ MASTERY.forEach(m=>{
+  const s=stars(m.k);if(s===null)return;
+  box.appendChild(el('div','bigrow','<span>'+m.n+'</span><span class="st">'+starStr(s)+'</span>'));
+ });
+ slip.appendChild(box);
+ const nx=S.stage+1;
+ if(nx<STAGES.length){
+  slip.appendChild(el('p','lead','Next: '+STAGES[nx].full+'.'));
+  cont(slip,'Open '+STAGES[nx].full,()=>{startStage(nx);window.scrollTo({top:0})});
+ }else cont(slip,'See report',()=>{S.queue.push({t:'end'});S.i=S.queue.length-1;render()});
+};
+
+/* ---- final report ---- */
+const NEXT={time:'time',asp:'aspect',pers:'person',pres:'person',impf:'past',fut:'future'};
+DRAW.end=slip=>{
+ const st=stage();
+ if(!S.done[st.id]){S.done[st.id]=1;pts(300);renderPath()}
+ const p=overall();
+ slip.appendChild(el('div','','<div class="score inscr">'+TXT.score+' '+p+'%</div>'));
+ slip.appendChild(el('p','lead',S.pts+' points. '+Object.keys(S.badges).length+' of '+Object.keys(BADGES).length+' achievements. '+S.facts.length+' of '+FACTS.length+' '+TXT.notesOf+' collected.'));
+ MASTERY.forEach(m=>{
+  const s=stars(m.k);
+  slip.appendChild(el('div','bigrow','<span>'+m.n+'</span><span class="st">'+starStr(s)+'</span>'));
+ });
+ const w=weakest();
+ const d=el('div','fb');
+ if(w)d.innerHTML='<b>Recommended next</b>'+diagFor(w)+' Run <strong>'+STAGES.find(x=>x.id===NEXT[w]).full+'</strong> again; the stages stay open in the path above.';
+ else d.innerHTML='<b>Recommended next</b>'+TXT.done;
+ slip.appendChild(d);
+ const r=el('div','gorow');
+ const again=el('button','go ghost','Start over');again.type='button';
+ again.onclick=()=>{S=freshState();paintTally();startStage(0);window.scrollTo({top:0})};
+ r.appendChild(again);slip.appendChild(r);
+};
+
+/* ===================== BOOT ===================== */
+$('veil').onclick=e=>{if(e.target===$('veil'))closeChart()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeChart();setDrawer(false)}});
+$('dbtn').onclick=()=>setDrawer(!railEl.classList.contains('open'));
+startStage(0);
+paintTally();
+</script>
+</body>
+</html>

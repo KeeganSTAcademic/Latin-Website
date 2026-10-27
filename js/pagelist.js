@@ -1,6 +1,7 @@
 /* A list of pages grouped under headings, read from a JSON file, with the level switcher above it.
    Used by games/index.html (data/games.json) and grammar/index.html (data/grammar.json).
-   Each entry: { page, title, group, about }; groups appear in the order they first occur.
+   Each entry: { page, title, group, about, topic }; groups appear in the order they first occur.
+   topic (games): the grammar the game practises, shown above its name.
    Levels come from data/levels.json (see js/levels.js). */
 (async function(){
   const { $, esc, loadJSON, levels } = window.Site;
@@ -27,7 +28,7 @@
         const sub = (g.path || []).slice(1).join(" \u203a ");
         if(!open || sub !== cur){ if(open) out += "</ul>"; if(sub) out += `<h3 class="pl-sub">${esc(sub)}</h3>`; out += `<ul class="pl-rows${!sub && cur !== null ? " pl-after" : ""}">`; open = true; cur = sub; }
         const lv = lsw && !levels.current && levelOf(g);
-        out += `<li><a class="pl-row" href="${encodeURIComponent(g.page)}.html"><span class="t">${esc(g.title)}</span>${g.about ? `<span class="n">${esc(g.about)}</span>` : ""}${lv ? `<span class="lv">${esc(names[lv - 1] || "")}</span>` : ""}</a></li>`;
+        out += `<li><a class="pl-row" href="${encodeURIComponent(g.page)}.html">${g.topic ? `<span class="tp">${esc(g.topic)}</span>` : ""}<span class="t">${esc(g.title)}</span>${g.about ? `<span class="n">${esc(g.about)}</span>` : ""}${lv ? `<span class="lv">${esc(names[lv - 1] || "")}</span>` : ""}</a></li>`;
       });
       return out + (open ? "</ul>" : "") + `</section>`;
     }).join("");
